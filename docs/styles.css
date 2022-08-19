@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --md-primary-light: #006c45;
+    --md-on-primary-light: #ffffff;
+    --md-primary-container-light: #7efaba;
+    --md-on-primary-container-light: #002112;
+    --md-secondary-light: #4b6454;
+    --md-on-secondary-light: #ffffff;
+    --md-secondary-container-light: #cde9d5;
+    --md-on-secondary-container-light: #072014;
+    --md-tertiary-light: #346575;
+    --md-on-tertiary-light: #ffffff;
+    --md-tertiary-container-light: #b9eafd;
+    --md-on-tertiary-container-light: #001f28;
+    --md-surface-light: #e0e1df;
+    --md-on-surface-light: #191c1a;
+    --md-surface-variant-light: #dce5dc;
+    --md-on-surface-variant-light: #404943;
+
+    --md-primary-dark: #60dda0;
+    --md-on-primary-dark: #003822;
+    --md-primary-container-dark: #005233;
+    --md-on-primary-container-dark: #7efaba;
+    --md-secondary-dark: #b1cdba;
+    --md-on-secondary-dark: #1d3528;
+    --md-secondary-container-dark: #344c3e;
+    --md-on-secondary-container-dark: #cde9d5;
+    --md-tertiary-dark: #9ecee0;
+    --md-on-tertiary-dark: #003543;
+    --md-tertiary-container-dark: #184d5c;
+    --md-on-tertiary-container-dark: #b9eafd;
+    --md-surface-dark: #171717;
+    --md-on-surface-dark: #e1e3df;
+    --md-surface-variant-dark: #404943;
+    --md-on-surface-variant-dark: #c0c9c1;
+}
+
+@font-face {
+    font-family: "Icons";
+    src: url("https://iconoplastic-api.herokuapp.com/download/main_font");
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: var(--md-surface-light);
+    }
+
+    span.icon {
+        font-family: 'Icons';
+        font-size: 48px;
+        color: 
+        var(--md-on-surface-light);
+    }
+
+    span {
+        color: var(--md-on-surface-light);
+        opacity: 0.5;
+    }
+
+    .picker-card {
+        background-color: var(--md-surface-variant-light);
+    }
+
+    .grid-item:hover, .active {
+        background-color: var(--md-surface-variant-light);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--md-surface-dark);
+    }
+
+    span.icon {
+        font-family: 'Icons';
+        font-size: 48px;
+        color: var(--md-on-surface-dark);
+    }
+
+    span {
+        color: var(--md-on-surface-dark);
+        opacity: 0.5;
+    }
+
+    .picker-card {
+        background-color: var(--md-surface-variant-dark);
+    }
+
+    .grid-item:hover, .active {
+        background-color: var(--md-surface-variant-dark);
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: auto;
+}
+
+.grid {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit, 160px);
+    justify-content: center;
+    max-width: 100%;
+    min-width: 500px;
+}
+
+@media (min-width: 720px) {
+    .grid {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+.column {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex: auto;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    max-lines: 4;
+    overflow: visible;
+    cursor: pointer;
+    border-radius: 25% / 50%;
+    font-variation-settings: 'FILL' 0, 'wght' 200;
+    transition: background 0.3s 0.05s, border-radius 0.3s, all 0.3s;
+}
+
+.grid-item:hover, .active {
+    border-radius: 5% / 10%;
+    font-variation-settings: 'FILL' 1, 'wght' 700;
+}
+
+span {
+    font-family: 'Roboto', sans-serif;
+}
+
+.sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+.picker-card {
+    height: 88vh;
+    margin-right: 2%;
+    padding: 2%;
+    min-width: 300px;
+    max-width: 300px;
+    border-radius: 50px;
+    top: 2%;
+}
