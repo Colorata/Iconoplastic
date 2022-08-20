@@ -1,17 +1,12 @@
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.request.*
+import kotlinx.browser.window
+import kotlinx.coroutines.await
 
 class Api {
-    val client = HttpClient()
     val baseUrl = "https://iconoplastic-api.herokuapp.com/"
-    suspend fun getMainFont(): ByteArray {
-        val response = client.get("$baseUrl/download/main_font")
-        return response.body()
-    }
 
     suspend fun getCodepoints(): Map<String, String> {
-        val response = client.get("$baseUrl/download/codepoints").body<String>()
+        val response = window.fetch("$baseUrl/download/codepoints").await().text().await()
+        console.log(response)
         return response.split("\n").associate {
             kotlin.runCatching {
                 val final = it.split(' ')

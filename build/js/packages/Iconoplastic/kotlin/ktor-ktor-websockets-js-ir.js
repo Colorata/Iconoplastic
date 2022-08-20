@@ -19,34 +19,54 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var mapCapacity = kotlin_kotlin.$_$.x3;
-  var coerceAtLeast = kotlin_kotlin.$_$.n6;
-  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.w;
-  var Unit_getInstance = kotlin_kotlin.$_$.w2;
-  var objectMeta = kotlin_kotlin.$_$.h6;
-  var Enum = kotlin_kotlin.$_$.t7;
-  var classMeta = kotlin_kotlin.$_$.q5;
-  var toString = kotlin_kotlin.$_$.l6;
-  var getStringHashCode = kotlin_kotlin.$_$.w5;
-  var THROW_CCE = kotlin_kotlin.$_$.b8;
-  var interfaceMeta = kotlin_kotlin.$_$.y5;
-  var DisposableHandle = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b1;
-  var get_lastIndex = kotlin_kotlin.$_$.t3;
-  var compareTo = kotlin_kotlin.$_$.r5;
-  var ensureNotNull = kotlin_kotlin.$_$.h8;
-  var fillArrayVal = kotlin_kotlin.$_$.u5;
-  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.a1;
-  var Charsets_getInstance = kotlin_io_ktor_ktor_io.$_$.o;
-  var encodeToByteArray = kotlin_kotlin.$_$.y6;
-  var encodeToByteArray_0 = kotlin_io_ktor_ktor_io.$_$.q;
-  var BytePacketBuilder_init_$Create$ = kotlin_io_ktor_ktor_io.$_$.l;
-  var writeShort = kotlin_io_ktor_ktor_io.$_$.b1;
-  var writeText$default = kotlin_io_ktor_ktor_io.$_$.j;
-  var readBytes$default = kotlin_io_ktor_ktor_io.$_$.g;
+  var mapCapacity = kotlin_kotlin.$_$.k6;
+  var coerceAtLeast = kotlin_kotlin.$_$.x9;
+  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.e1;
+  var Unit_getInstance = kotlin_kotlin.$_$.g4;
+  var objectMeta = kotlin_kotlin.$_$.r9;
+  var THROW_ISE = kotlin_kotlin.$_$.qc;
+  var Enum = kotlin_kotlin.$_$.gc;
+  var classMeta = kotlin_kotlin.$_$.r8;
+  var toString = kotlin_kotlin.$_$.v9;
+  var getStringHashCode = kotlin_kotlin.$_$.x8;
+  var THROW_CCE = kotlin_kotlin.$_$.pc;
+  var emptyList = kotlin_kotlin.$_$.s5;
+  var interfaceMeta = kotlin_kotlin.$_$.z8;
+  var CoroutineName = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c1;
+  var DisposableHandle = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.f1;
+  var get_lastIndex = kotlin_kotlin.$_$.f6;
+  var compareTo = kotlin_kotlin.$_$.s8;
+  var ensureNotNull = kotlin_kotlin.$_$.cd;
+  var fillArrayVal = kotlin_kotlin.$_$.v8;
+  var joinToString$default = kotlin_kotlin.$_$.h;
+  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.p2;
+  var indexOf$default = kotlin_kotlin.$_$.m;
+  var to = kotlin_kotlin.$_$.pd;
+  var until = kotlin_kotlin.$_$.fa;
+  var substring = kotlin_kotlin.$_$.hb;
+  var asSequence = kotlin_kotlin.$_$.c5;
+  var map = kotlin_kotlin.$_$.na;
+  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e1;
+  var readBytes$default = kotlin_io_ktor_ktor_io.$_$.h;
+  var Charsets_getInstance = kotlin_io_ktor_ktor_io.$_$.q;
+  var encodeToByteArray = kotlin_kotlin.$_$.ta;
+  var encodeToByteArray_0 = kotlin_io_ktor_ktor_io.$_$.s;
+  var BytePacketBuilder_init_$Create$ = kotlin_io_ktor_ktor_io.$_$.n;
+  var writeShort = kotlin_io_ktor_ktor_io.$_$.d1;
+  var writeText$default = kotlin_io_ktor_ktor_io.$_$.k;
+  var noWhenBranchMatchedException = kotlin_kotlin.$_$.jd;
   //endregion
   //region block: pre-declaration
   Codes.prototype = Object.create(Enum.prototype);
   Codes.prototype.constructor = Codes;
+  function send(frame, $cont) {
+    return this.get_outgoing_us7o3v_k$().send_4idxxh_k$(frame, $cont);
+  }
+  function start$default(negotiatedExtensions, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      negotiatedExtensions = emptyList();
+    return $handler == null ? this.start_x95223_k$(negotiatedExtensions) : $handler(negotiatedExtensions);
+  }
   FrameType.prototype = Object.create(Enum.prototype);
   FrameType.prototype.constructor = FrameType;
   Binary.prototype = Object.create(Frame.prototype);
@@ -55,7 +75,14 @@
   Text.prototype.constructor = Text;
   Close.prototype = Object.create(Frame.prototype);
   Close.prototype.constructor = Close;
+  Ping.prototype = Object.create(Frame.prototype);
+  Ping.prototype.constructor = Ping;
+  Pong.prototype = Object.create(Frame.prototype);
+  Pong.prototype.constructor = Pong;
   //endregion
+  function _get_byCodeMap__7duph5($this) {
+    return $this.byCodeMap_1;
+  }
   var Codes_NORMAL_instance;
   var Codes_GOING_AWAY_instance;
   var Codes_PROTOCOL_ERROR_instance;
@@ -86,19 +113,22 @@
           inductionVariable = inductionVariable + 1 | 0;
           var tmp$ret$0;
           {
-            tmp$ret$0 = element.o20_1;
+            tmp$ret$0 = element.code_1;
           }
-          tmp0_associateByTo.a(tmp$ret$0, element);
+          tmp0_associateByTo.put_3mhbri_k$(tmp$ret$0, element);
         }
         tmp$ret$1 = tmp0_associateByTo;
       }
       tmp$ret$2 = tmp$ret$1;
     }
-    tmp.p20_1 = tmp$ret$2;
-    this.q20_1 = Codes_INTERNAL_ERROR_getInstance();
+    tmp.byCodeMap_1 = tmp$ret$2;
+    this.UNEXPECTED_CONDITION_1 = Codes_INTERNAL_ERROR_getInstance();
   }
-  Companion.prototype.r20 = function (code) {
-    return this.p20_1.b2(code);
+  Companion.prototype.get_UNEXPECTED_CONDITION_rk0i52_k$ = function () {
+    return this.UNEXPECTED_CONDITION_1;
+  };
+  Companion.prototype.byCode_2tpqvq_k$ = function (code) {
+    return this.byCodeMap_1.get_1mhr4y_k$(code);
   };
   Companion.$metadata$ = objectMeta('Companion');
   var Companion_instance;
@@ -110,6 +140,38 @@
   }
   function values() {
     return [Codes_NORMAL_getInstance(), Codes_GOING_AWAY_getInstance(), Codes_PROTOCOL_ERROR_getInstance(), Codes_CANNOT_ACCEPT_getInstance(), Codes_CLOSED_ABNORMALLY_getInstance(), Codes_NOT_CONSISTENT_getInstance(), Codes_VIOLATED_POLICY_getInstance(), Codes_TOO_BIG_getInstance(), Codes_NO_EXTENSION_getInstance(), Codes_INTERNAL_ERROR_getInstance(), Codes_SERVICE_RESTART_getInstance(), Codes_TRY_AGAIN_LATER_getInstance()];
+  }
+  function valueOf(value) {
+    switch (value) {
+      case 'NORMAL':
+        return Codes_NORMAL_getInstance();
+      case 'GOING_AWAY':
+        return Codes_GOING_AWAY_getInstance();
+      case 'PROTOCOL_ERROR':
+        return Codes_PROTOCOL_ERROR_getInstance();
+      case 'CANNOT_ACCEPT':
+        return Codes_CANNOT_ACCEPT_getInstance();
+      case 'CLOSED_ABNORMALLY':
+        return Codes_CLOSED_ABNORMALLY_getInstance();
+      case 'NOT_CONSISTENT':
+        return Codes_NOT_CONSISTENT_getInstance();
+      case 'VIOLATED_POLICY':
+        return Codes_VIOLATED_POLICY_getInstance();
+      case 'TOO_BIG':
+        return Codes_TOO_BIG_getInstance();
+      case 'NO_EXTENSION':
+        return Codes_NO_EXTENSION_getInstance();
+      case 'INTERNAL_ERROR':
+        return Codes_INTERNAL_ERROR_getInstance();
+      case 'SERVICE_RESTART':
+        return Codes_SERVICE_RESTART_getInstance();
+      case 'TRY_AGAIN_LATER':
+        return Codes_TRY_AGAIN_LATER_getInstance();
+      default:
+        Codes_initEntries();
+        THROW_ISE();
+        break;
+    }
   }
   var Codes_entriesInitialized;
   function Codes_initEntries() {
@@ -130,12 +192,19 @@
     Codes_TRY_AGAIN_LATER_instance = new Codes('TRY_AGAIN_LATER', 11, 1013);
     Companion_getInstance();
   }
+  function CloseReason_init_$Init$(code, message, $this) {
+    CloseReason.call($this, code.code_1, message);
+    return $this;
+  }
+  function CloseReason_init_$Create$(code, message) {
+    return CloseReason_init_$Init$(code, message, Object.create(CloseReason.prototype));
+  }
   function Codes(name, ordinal, code) {
     Enum.call(this, name, ordinal);
-    this.o20_1 = code;
+    this.code_1 = code;
   }
-  Codes.prototype.s20 = function () {
-    return this.o20_1;
+  Codes.prototype.get_code_wok7xy_k$ = function () {
+    return this.code_1;
   };
   Codes.$metadata$ = classMeta('Codes', undefined, undefined, undefined, undefined, Enum.prototype);
   function Codes_NORMAL_getInstance() {
@@ -187,25 +256,41 @@
     return Codes_TRY_AGAIN_LATER_instance;
   }
   function CloseReason(code, message) {
-    this.t20_1 = code;
-    this.u20_1 = message;
+    this.code_1 = code;
+    this.message_1 = message;
   }
-  CloseReason.prototype.s20 = function () {
-    return this.t20_1;
+  CloseReason.prototype.get_code_wok7xy_k$ = function () {
+    return this.code_1;
   };
-  CloseReason.prototype.f1 = function () {
-    return this.u20_1;
+  CloseReason.prototype.get_message_h23axq_k$ = function () {
+    return this.message_1;
   };
-  CloseReason.prototype.v20 = function () {
-    return Companion_getInstance().r20(this.t20_1);
+  CloseReason.prototype.get_knownReason_j6teda_k$ = function () {
+    return Companion_getInstance().byCode_2tpqvq_k$(this.code_1);
   };
   CloseReason.prototype.toString = function () {
-    var tmp0_elvis_lhs = this.v20();
-    return 'CloseReason(reason=' + toString(tmp0_elvis_lhs == null ? this.t20_1 : tmp0_elvis_lhs) + ', message=' + this.u20_1 + ')';
+    var tmp0_elvis_lhs = this.get_knownReason_j6teda_k$();
+    return 'CloseReason(reason=' + toString(tmp0_elvis_lhs == null ? this.code_1 : tmp0_elvis_lhs) + ', message=' + this.message_1 + ')';
+  };
+  CloseReason.prototype.component1_7eebsc_k$ = function () {
+    return this.code_1;
+  };
+  CloseReason.prototype.component2_7eebsb_k$ = function () {
+    return this.message_1;
+  };
+  CloseReason.prototype.copy_5z8094_k$ = function (code, message) {
+    return new CloseReason(code, message);
+  };
+  CloseReason.prototype.copy$default_w6g97m_k$ = function (code, message, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      code = this.code_1;
+    if (!(($mask0 & 2) === 0))
+      message = this.message_1;
+    return this.copy_5z8094_k$(code, message);
   };
   CloseReason.prototype.hashCode = function () {
-    var result = this.t20_1;
-    result = imul(result, 31) + getStringHashCode(this.u20_1) | 0;
+    var result = this.code_1;
+    result = imul(result, 31) + getStringHashCode(this.message_1) | 0;
     return result;
   };
   CloseReason.prototype.equals = function (other) {
@@ -214,20 +299,45 @@
     if (!(other instanceof CloseReason))
       return false;
     var tmp0_other_with_cast = other instanceof CloseReason ? other : THROW_CCE();
-    if (!(this.t20_1 === tmp0_other_with_cast.t20_1))
+    if (!(this.code_1 === tmp0_other_with_cast.code_1))
       return false;
-    if (!(this.u20_1 === tmp0_other_with_cast.u20_1))
+    if (!(this.message_1 === tmp0_other_with_cast.message_1))
       return false;
     return true;
   };
   CloseReason.$metadata$ = classMeta('CloseReason');
+  function get_IncomingProcessorCoroutineName() {
+    init_properties_DefaultWebSocketSession_kt_vhpdcs();
+    return IncomingProcessorCoroutineName;
+  }
+  var IncomingProcessorCoroutineName;
+  function get_OutgoingProcessorCoroutineName() {
+    init_properties_DefaultWebSocketSession_kt_vhpdcs();
+    return OutgoingProcessorCoroutineName;
+  }
+  var OutgoingProcessorCoroutineName;
+  function get_NORMAL_CLOSE() {
+    init_properties_DefaultWebSocketSession_kt_vhpdcs();
+    return NORMAL_CLOSE;
+  }
+  var NORMAL_CLOSE;
   function DefaultWebSocketSession() {
   }
   DefaultWebSocketSession.$metadata$ = interfaceMeta('DefaultWebSocketSession', [WebSocketSession]);
+  var properties_initialized_DefaultWebSocketSession_kt_6cjlhc;
+  function init_properties_DefaultWebSocketSession_kt_vhpdcs() {
+    if (properties_initialized_DefaultWebSocketSession_kt_6cjlhc) {
+    } else {
+      properties_initialized_DefaultWebSocketSession_kt_6cjlhc = true;
+      IncomingProcessorCoroutineName = new CoroutineName('ws-incoming-processor');
+      OutgoingProcessorCoroutineName = new CoroutineName('ws-outgoing-processor');
+      NORMAL_CLOSE = CloseReason_init_$Create$(Codes_NORMAL_getInstance(), 'OK');
+    }
+  }
   function NonDisposableHandle() {
     NonDisposableHandle_instance = this;
   }
-  NonDisposableHandle.prototype.vn = function () {
+  NonDisposableHandle.prototype.dispose_3n44we_k$ = function () {
   };
   NonDisposableHandle.prototype.toString = function () {
     return 'NonDisposableHandle';
@@ -238,6 +348,12 @@
     if (NonDisposableHandle_instance == null)
       new NonDisposableHandle();
     return NonDisposableHandle_instance;
+  }
+  function _get_maxOpcode__n4u3i9($this) {
+    return $this.maxOpcode_1;
+  }
+  function _get_byOpcodeArray__zfogar($this) {
+    return $this.byOpcodeArray_1;
   }
   var FrameType_TEXT_instance;
   var FrameType_BINARY_instance;
@@ -267,7 +383,7 @@
       var tmp$ret$2;
       {
         var tmp1__anonymous__uwfjfc = maxElem;
-        tmp$ret$2 = tmp1__anonymous__uwfjfc.z20_1;
+        tmp$ret$2 = tmp1__anonymous__uwfjfc.opcode_1;
       }
       var maxValue = tmp$ret$2;
       var inductionVariable = 1;
@@ -278,7 +394,7 @@
           var e = tmp0_maxByOrNull[i];
           var tmp$ret$3;
           {
-            tmp$ret$3 = e.z20_1;
+            tmp$ret$3 = e.opcode_1;
           }
           var v = tmp$ret$3;
           if (compareTo(maxValue, v) < 0) {
@@ -289,10 +405,10 @@
          while (!(i === lastIndex));
       tmp$ret$1 = maxElem;
     }
-    tmp.a21_1 = ensureNotNull(tmp$ret$1).z20_1;
+    tmp.maxOpcode_1 = ensureNotNull(tmp$ret$1).opcode_1;
     var tmp_0 = this;
     var tmp_1 = 0;
-    var tmp_2 = this.a21_1 + 1 | 0;
+    var tmp_2 = this.maxOpcode_1 + 1 | 0;
     var tmp$ret$4;
     {
       tmp$ret$4 = fillArrayVal(Array(tmp_2), null);
@@ -315,7 +431,7 @@
             inductionVariable_0 = inductionVariable_0 + 1 | 0;
             var tmp$ret$5;
             {
-              tmp$ret$5 = element.z20_1 === tmp_4;
+              tmp$ret$5 = element.opcode_1 === tmp_4;
             }
             if (tmp$ret$5) {
               if (found) {
@@ -337,8 +453,11 @@
       tmp_3[tmp_4] = tmp$ret$7;
       tmp_1 = tmp_1 + 1 | 0;
     }
-    tmp_0.b21_1 = tmp_3;
+    tmp_0.byOpcodeArray_1 = tmp_3;
   }
+  Companion_0.prototype.get_fkrdnv_k$ = function (opcode) {
+    return (0 <= opcode ? opcode <= this.maxOpcode_1 : false) ? this.byOpcodeArray_1[opcode] : null;
+  };
   Companion_0.$metadata$ = objectMeta('Companion');
   var Companion_instance_0;
   function Companion_getInstance_0() {
@@ -349,6 +468,24 @@
   }
   function values_0() {
     return [FrameType_TEXT_getInstance(), FrameType_BINARY_getInstance(), FrameType_CLOSE_getInstance(), FrameType_PING_getInstance(), FrameType_PONG_getInstance()];
+  }
+  function valueOf_0(value) {
+    switch (value) {
+      case 'TEXT':
+        return FrameType_TEXT_getInstance();
+      case 'BINARY':
+        return FrameType_BINARY_getInstance();
+      case 'CLOSE':
+        return FrameType_CLOSE_getInstance();
+      case 'PING':
+        return FrameType_PING_getInstance();
+      case 'PONG':
+        return FrameType_PONG_getInstance();
+      default:
+        FrameType_initEntries();
+        THROW_ISE();
+        break;
+    }
   }
   var FrameType_entriesInitialized;
   function FrameType_initEntries() {
@@ -364,11 +501,14 @@
   }
   function FrameType(name, ordinal, controlFrame, opcode) {
     Enum.call(this, name, ordinal);
-    this.y20_1 = controlFrame;
-    this.z20_1 = opcode;
+    this.controlFrame_1 = controlFrame;
+    this.opcode_1 = opcode;
   }
-  FrameType.prototype.c21 = function () {
-    return this.z20_1;
+  FrameType.prototype.get_controlFrame_mohuav_k$ = function () {
+    return this.controlFrame_1;
+  };
+  FrameType.prototype.get_opcode_hp2o9j_k$ = function () {
+    return this.opcode_1;
   };
   FrameType.$metadata$ = classMeta('FrameType', undefined, undefined, undefined, undefined, Enum.prototype);
   function FrameType_TEXT_getInstance() {
@@ -391,35 +531,158 @@
     FrameType_initEntries();
     return FrameType_PONG_instance;
   }
+  function get_PongerCoroutineName() {
+    init_properties_PingPong_kt_a6xpsg();
+    return PongerCoroutineName;
+  }
+  var PongerCoroutineName;
+  function get_PingerCoroutineName() {
+    init_properties_PingPong_kt_a6xpsg();
+    return PingerCoroutineName;
+  }
+  var PingerCoroutineName;
+  var properties_initialized_PingPong_kt_fbfhmc;
+  function init_properties_PingPong_kt_a6xpsg() {
+    if (properties_initialized_PingPong_kt_fbfhmc) {
+    } else {
+      properties_initialized_PingPong_kt_fbfhmc = true;
+      PongerCoroutineName = new CoroutineName('ws-ponger');
+      PingerCoroutineName = new CoroutineName('ws-pinger');
+    }
+  }
+  function WebSocketExtension() {
+  }
+  WebSocketExtension.$metadata$ = interfaceMeta('WebSocketExtension');
+  function WebSocketExtensionFactory() {
+  }
+  WebSocketExtensionFactory.$metadata$ = interfaceMeta('WebSocketExtensionFactory');
+  function parametersToString($this) {
+    var tmp;
+    if ($this.parameters_1.isEmpty_y1axqb_k$()) {
+      tmp = '';
+    } else {
+      tmp = ', ' + joinToString$default($this.parameters_1, ',', null, null, 0, null, null, 62, null);
+    }
+    return tmp;
+  }
+  function WebSocketExtensionHeader$parseParameters$lambda() {
+    return function (it) {
+      var tmp = _Char___init__impl__6a9atx(61);
+      var equalsIndex = indexOf$default(it, tmp, 0, false, 6, null);
+      var tmp_0;
+      if (equalsIndex < 0) {
+        return to(it, '');
+      }
+      var key = substring(it, until(0, equalsIndex));
+      var tmp_1;
+      if ((equalsIndex + 1 | 0) < it.length) {
+        var tmp$ret$1;
+        {
+          var tmp0_substring = equalsIndex + 1 | 0;
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = it;
+          }
+          tmp$ret$1 = tmp$ret$0.substring(tmp0_substring);
+        }
+        tmp_1 = tmp$ret$1;
+      } else {
+        tmp_1 = '';
+      }
+      var value = tmp_1;
+      return to(key, value);
+    };
+  }
+  function WebSocketExtensionHeader(name, parameters) {
+    this.name_1 = name;
+    this.parameters_1 = parameters;
+  }
+  WebSocketExtensionHeader.prototype.get_name_woqyms_k$ = function () {
+    return this.name_1;
+  };
+  WebSocketExtensionHeader.prototype.get_parameters_cl4rkd_k$ = function () {
+    return this.parameters_1;
+  };
+  WebSocketExtensionHeader.prototype.parseParameters_8pxmv7_k$ = function () {
+    var tmp = asSequence(this.parameters_1);
+    return map(tmp, WebSocketExtensionHeader$parseParameters$lambda());
+  };
+  WebSocketExtensionHeader.prototype.toString = function () {
+    return this.name_1 + ' ' + parametersToString(this);
+  };
+  WebSocketExtensionHeader.$metadata$ = classMeta('WebSocketExtensionHeader');
   function WebSocketSession() {
   }
   WebSocketSession.$metadata$ = interfaceMeta('WebSocketSession', [CoroutineScope]);
-  function Binary_init_$Init$(fin, data, $this) {
+  function Binary_init_$Init$(fin, data, rsv1, rsv2, rsv3, $mask0, $marker, $this) {
+    if (!(($mask0 & 4) === 0))
+      rsv1 = false;
+    if (!(($mask0 & 8) === 0))
+      rsv2 = false;
+    if (!(($mask0 & 16) === 0))
+      rsv3 = false;
+    Binary.call($this, fin, data, rsv1, rsv2, rsv3);
+    return $this;
+  }
+  function Binary_init_$Create$(fin, data, rsv1, rsv2, rsv3, $mask0, $marker) {
+    return Binary_init_$Init$(fin, data, rsv1, rsv2, rsv3, $mask0, $marker, Object.create(Binary.prototype));
+  }
+  function Binary_init_$Init$_0(fin, data, $this) {
     Binary.call($this, fin, data, false, false, false);
     return $this;
   }
-  function Binary_init_$Create$(fin, data) {
-    return Binary_init_$Init$(fin, data, Object.create(Binary.prototype));
+  function Binary_init_$Create$_0(fin, data) {
+    return Binary_init_$Init$_0(fin, data, Object.create(Binary.prototype));
   }
-  function Text_init_$Init$(fin, data, $this) {
+  function Binary_init_$Init$_1(fin, packet, $this) {
+    Binary_init_$Init$_0(fin, readBytes$default(packet, 0, 1, null), $this);
+    return $this;
+  }
+  function Binary_init_$Create$_1(fin, packet) {
+    return Binary_init_$Init$_1(fin, packet, Object.create(Binary.prototype));
+  }
+  function Text_init_$Init$(fin, data, rsv1, rsv2, rsv3, $mask0, $marker, $this) {
+    if (!(($mask0 & 4) === 0))
+      rsv1 = false;
+    if (!(($mask0 & 8) === 0))
+      rsv2 = false;
+    if (!(($mask0 & 16) === 0))
+      rsv3 = false;
+    Text.call($this, fin, data, rsv1, rsv2, rsv3);
+    return $this;
+  }
+  function Text_init_$Create$(fin, data, rsv1, rsv2, rsv3, $mask0, $marker) {
+    return Text_init_$Init$(fin, data, rsv1, rsv2, rsv3, $mask0, $marker, Object.create(Text.prototype));
+  }
+  function Text_init_$Init$_0(fin, data, $this) {
     Text.call($this, fin, data, false, false, false);
     return $this;
   }
-  function Text_init_$Init$_0(text, $this) {
+  function Text_init_$Create$_0(fin, data) {
+    return Text_init_$Init$_0(fin, data, Object.create(Text.prototype));
+  }
+  function Text_init_$Init$_1(text, $this) {
     var tmp$ret$0;
     $l$block: {
-      var tmp0_toByteArray = Charsets_getInstance().w1e_1;
-      if (tmp0_toByteArray.equals(Charsets_getInstance().w1e_1)) {
+      var tmp0_toByteArray = Charsets_getInstance().UTF_8__1;
+      if (tmp0_toByteArray.equals(Charsets_getInstance().UTF_8__1)) {
         tmp$ret$0 = encodeToByteArray(text);
         break $l$block;
       }
-      tmp$ret$0 = encodeToByteArray_0(tmp0_toByteArray.z1e(), text, 0, text.length);
+      tmp$ret$0 = encodeToByteArray_0(tmp0_toByteArray.newEncoder_gqwcdg_k$(), text, 0, text.length);
     }
-    Text_init_$Init$(true, tmp$ret$0, $this);
+    Text_init_$Init$_0(true, tmp$ret$0, $this);
     return $this;
   }
-  function Text_init_$Create$(text) {
-    return Text_init_$Init$_0(text, Object.create(Text.prototype));
+  function Text_init_$Create$_1(text) {
+    return Text_init_$Init$_1(text, Object.create(Text.prototype));
+  }
+  function Text_init_$Init$_2(fin, packet, $this) {
+    Text_init_$Init$_0(fin, readBytes$default(packet, 0, 1, null), $this);
+    return $this;
+  }
+  function Text_init_$Create$_2(fin, packet) {
+    return Text_init_$Init$_2(fin, packet, Object.create(Text.prototype));
   }
   function Close_init_$Init$(reason, $this) {
     var tmp$ret$0;
@@ -429,14 +692,14 @@
       var builder = BytePacketBuilder_init_$Create$(null, 1, null);
       try {
         {
-          writeShort(builder, reason.t20_1);
-          writeText$default(builder, reason.u20_1, 0, 0, null, 14, null);
+          writeShort(builder, reason.code_1);
+          writeText$default(builder, reason.message_1, 0, 0, null, 14, null);
         }
-        tmp$ret$0 = builder.l17();
+        tmp$ret$0 = builder.build_1k0s4u_k$();
         break $l$block;
       } catch ($p) {
         if ($p instanceof Error) {
-          builder.rq();
+          builder.release_wtm6d2_k$();
           throw $p;
         } else {
           throw $p;
@@ -453,6 +716,57 @@
     Close.call($this, readBytes$default(packet, 0, 1, null));
     return $this;
   }
+  function Close_init_$Create$_0(packet) {
+    return Close_init_$Init$_0(packet, Object.create(Close.prototype));
+  }
+  function Close_init_$Init$_1($this) {
+    Close.call($this, Companion_getInstance_1().Empty_1);
+    return $this;
+  }
+  function Close_init_$Create$_1() {
+    return Close_init_$Init$_1(Object.create(Close.prototype));
+  }
+  function Ping_init_$Init$(packet, $this) {
+    Ping.call($this, readBytes$default(packet, 0, 1, null));
+    return $this;
+  }
+  function Ping_init_$Create$(packet) {
+    return Ping_init_$Init$(packet, Object.create(Ping.prototype));
+  }
+  function Pong_init_$Init$(data, disposableHandle, $mask0, $marker, $this) {
+    if (!(($mask0 & 2) === 0))
+      disposableHandle = NonDisposableHandle_getInstance();
+    Pong.call($this, data, disposableHandle);
+    return $this;
+  }
+  function Pong_init_$Create$(data, disposableHandle, $mask0, $marker) {
+    return Pong_init_$Init$(data, disposableHandle, $mask0, $marker, Object.create(Pong.prototype));
+  }
+  function Pong_init_$Init$_0(packet, $this) {
+    Pong.call($this, readBytes$default(packet, 0, 1, null), NonDisposableHandle_getInstance());
+    return $this;
+  }
+  function Pong_init_$Create$_0(packet) {
+    return Pong_init_$Init$_0(packet, Object.create(Pong.prototype));
+  }
+  function _get_Empty__x4mxmk($this) {
+    return $this.Empty_1;
+  }
+  function Frame_init_$Init$(fin, frameType, data, disposableHandle, rsv1, rsv2, rsv3, $mask0, $marker, $this) {
+    if (!(($mask0 & 8) === 0))
+      disposableHandle = NonDisposableHandle_getInstance();
+    if (!(($mask0 & 16) === 0))
+      rsv1 = false;
+    if (!(($mask0 & 32) === 0))
+      rsv2 = false;
+    if (!(($mask0 & 64) === 0))
+      rsv3 = false;
+    Frame.call($this, fin, frameType, data, disposableHandle, rsv1, rsv2, rsv3);
+    return $this;
+  }
+  function Frame_init_$Create$(fin, frameType, data, disposableHandle, rsv1, rsv2, rsv3, $mask0, $marker) {
+    return Frame_init_$Init$(fin, frameType, data, disposableHandle, rsv1, rsv2, rsv3, $mask0, $marker, Object.create(Frame.prototype));
+  }
   function Binary(fin, data, rsv1, rsv2, rsv3) {
     Frame.call(this, fin, FrameType_BINARY_getInstance(), data, NonDisposableHandle_getInstance(), rsv1, rsv2, rsv3);
   }
@@ -465,10 +779,44 @@
     Frame.call(this, true, FrameType_CLOSE_getInstance(), data, NonDisposableHandle_getInstance(), false, false, false);
   }
   Close.$metadata$ = classMeta('Close', undefined, undefined, undefined, undefined, Frame.prototype);
+  function Ping(data) {
+    Frame.call(this, true, FrameType_PING_getInstance(), data, NonDisposableHandle_getInstance(), false, false, false);
+  }
+  Ping.$metadata$ = classMeta('Ping', undefined, undefined, undefined, undefined, Frame.prototype);
+  function Pong(data, disposableHandle) {
+    Frame.call(this, true, FrameType_PONG_getInstance(), data, disposableHandle, false, false, false);
+  }
+  Pong.$metadata$ = classMeta('Pong', undefined, undefined, undefined, undefined, Frame.prototype);
   function Companion_1() {
     Companion_instance_1 = this;
-    this.d21_1 = new Int8Array(0);
+    this.Empty_1 = new Int8Array(0);
   }
+  Companion_1.prototype.byType_l553t_k$ = function (fin, frameType, data, rsv1, rsv2, rsv3) {
+    var tmp0_subject = frameType;
+    var tmp0 = tmp0_subject.get_ordinal_ip24qg_k$();
+    var tmp;
+    switch (tmp0) {
+      case 1:
+        tmp = new Binary(fin, data, rsv1, rsv2, rsv3);
+        break;
+      case 0:
+        tmp = new Text(fin, data, rsv1, rsv2, rsv3);
+        break;
+      case 2:
+        tmp = new Close(data);
+        break;
+      case 3:
+        tmp = new Ping(data);
+        break;
+      case 4:
+        tmp = new Pong(data, NonDisposableHandle_getInstance());
+        break;
+      default:
+        noWhenBranchMatchedException();
+        break;
+    }
+    return tmp;
+  };
   Companion_1.$metadata$ = objectMeta('Companion');
   var Companion_instance_1;
   function Companion_getInstance_1() {
@@ -478,28 +826,64 @@
   }
   function Frame(fin, frameType, data, disposableHandle, rsv1, rsv2, rsv3) {
     Companion_getInstance_1();
-    this.e21_1 = fin;
-    this.f21_1 = frameType;
-    this.g21_1 = data;
-    this.h21_1 = disposableHandle;
-    this.i21_1 = rsv1;
-    this.j21_1 = rsv2;
-    this.k21_1 = rsv3;
+    this.fin_1 = fin;
+    this.frameType_1 = frameType;
+    this.data_1 = data;
+    this.disposableHandle_1 = disposableHandle;
+    this.rsv1__1 = rsv1;
+    this.rsv2__1 = rsv2;
+    this.rsv3__1 = rsv3;
   }
+  Frame.prototype.get_fin_18j5um_k$ = function () {
+    return this.fin_1;
+  };
+  Frame.prototype.get_frameType_hj325a_k$ = function () {
+    return this.frameType_1;
+  };
+  Frame.prototype.get_data_wokkxf_k$ = function () {
+    return this.data_1;
+  };
+  Frame.prototype.get_disposableHandle_9vd6rz_k$ = function () {
+    return this.disposableHandle_1;
+  };
+  Frame.prototype.get_rsv1_wotw3p_k$ = function () {
+    return this.rsv1__1;
+  };
+  Frame.prototype.get_rsv2_wotw3q_k$ = function () {
+    return this.rsv2__1;
+  };
+  Frame.prototype.get_rsv3_wotw3r_k$ = function () {
+    return this.rsv3__1;
+  };
   Frame.prototype.toString = function () {
-    return 'Frame ' + this.f21_1 + ' (fin=' + this.e21_1 + ', buffer len = ' + this.g21_1.length + ')';
+    return 'Frame ' + this.frameType_1 + ' (fin=' + this.fin_1 + ', buffer len = ' + this.data_1.length + ')';
+  };
+  Frame.prototype.copy_1tks5_k$ = function () {
+    var tmp = Companion_getInstance_1();
+    var tmp$ret$1;
+    {
+      var tmp0_copyOf = this.data_1;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = tmp0_copyOf;
+      }
+      tmp$ret$1 = tmp$ret$0.slice();
+    }
+    return tmp.byType_l553t_k$(this.fin_1, this.frameType_1, tmp$ret$1, this.rsv1__1, this.rsv2__1, this.rsv3__1);
   };
   Frame.$metadata$ = classMeta('Frame');
   //region block: exports
   _.$_$ = _.$_$ || {};
   _.$_$.a = Codes_CLOSED_ABNORMALLY_getInstance;
   _.$_$.b = Codes_INTERNAL_ERROR_getInstance;
-  _.$_$.c = Binary_init_$Create$;
-  _.$_$.d = Close_init_$Create$;
-  _.$_$.e = Text_init_$Create$;
-  _.$_$.f = Companion_getInstance;
-  _.$_$.g = CloseReason;
-  _.$_$.h = DefaultWebSocketSession;
+  _.$_$.c = send;
+  _.$_$.d = start$default;
+  _.$_$.e = Binary_init_$Create$_0;
+  _.$_$.f = Close_init_$Create$;
+  _.$_$.g = Text_init_$Create$_1;
+  _.$_$.h = Companion_getInstance;
+  _.$_$.i = CloseReason;
+  _.$_$.j = DefaultWebSocketSession;
   //endregion
   return _;
 }));

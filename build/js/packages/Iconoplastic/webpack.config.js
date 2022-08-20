@@ -37,19 +37,13 @@ config.module.rules.push({
 config.devtool = 'source-map';
 config.ignoreWarnings = [/Failed to parse source map/]
 
-// Report progress to console
-// noinspection JSUnnecessarySemicolon
-;(function(config) {
-    const webpack = require('webpack');
-    const handler = (percentage, message, ...args) => {
-        const p = percentage * 100;
-        let msg = `${Math.trunc(p / 10)}${Math.trunc(p % 10)}% ${message} ${args.join(' ')}`;
-        msg = msg.replace("/home/renattele/StudioProjects/NoBackup/Iconoplastic/build/js", '');;
-        console.log(msg);
-    };
-
-    config.plugins.push(new webpack.ProgressPlugin(handler))
-})(config);
+// dev server
+config.devServer = {
+  "open": true,
+  "static": [
+    "/home/renattele/StudioProjects/NoBackup/Iconoplastic/build/processedResources/js/main"
+  ]
+};
 
 // css settings
 ;(function(config) {

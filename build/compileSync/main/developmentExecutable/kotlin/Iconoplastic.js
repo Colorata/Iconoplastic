@@ -1,106 +1,85 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd)
-    define(['exports', './kotlin-kotlin-stdlib-js-ir.js', './ktor-ktor-client-core-js-ir.js', './ktor-ktor-http-js-ir.js', './ktor-ktor-utils-js-ir.js', './kotlin_org_jetbrains_kotlinx_kotlinx_html.js', './kotlinx.coroutines-kotlinx-coroutines-core-js-ir.js'], factory);
+    define(['exports', './kotlin-kotlin-stdlib-js-ir.js', './kotlinx.coroutines-kotlinx-coroutines-core-js-ir.js', './kotlin_org_jetbrains_kotlinx_kotlinx_html.js'], factory);
   else if (typeof exports === 'object')
-    factory(module.exports, require('./kotlin-kotlin-stdlib-js-ir.js'), require('./ktor-ktor-client-core-js-ir.js'), require('./ktor-ktor-http-js-ir.js'), require('./ktor-ktor-utils-js-ir.js'), require('./kotlin_org_jetbrains_kotlinx_kotlinx_html.js'), require('./kotlinx.coroutines-kotlinx-coroutines-core-js-ir.js'));
+    factory(module.exports, require('./kotlin-kotlin-stdlib-js-ir.js'), require('./kotlinx.coroutines-kotlinx-coroutines-core-js-ir.js'), require('./kotlin_org_jetbrains_kotlinx_kotlinx_html.js'));
   else {
     if (typeof this['kotlin-kotlin-stdlib-js-ir'] === 'undefined') {
       throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlin-kotlin-stdlib-js-ir' was not found. Please, check whether 'kotlin-kotlin-stdlib-js-ir' is loaded prior to 'Iconoplastic'.");
     }
-    if (typeof this['ktor-ktor-client-core-js-ir'] === 'undefined') {
-      throw new Error("Error loading module 'Iconoplastic'. Its dependency 'ktor-ktor-client-core-js-ir' was not found. Please, check whether 'ktor-ktor-client-core-js-ir' is loaded prior to 'Iconoplastic'.");
-    }
-    if (typeof this['ktor-ktor-http-js-ir'] === 'undefined') {
-      throw new Error("Error loading module 'Iconoplastic'. Its dependency 'ktor-ktor-http-js-ir' was not found. Please, check whether 'ktor-ktor-http-js-ir' is loaded prior to 'Iconoplastic'.");
-    }
-    if (typeof this['ktor-ktor-utils-js-ir'] === 'undefined') {
-      throw new Error("Error loading module 'Iconoplastic'. Its dependency 'ktor-ktor-utils-js-ir' was not found. Please, check whether 'ktor-ktor-utils-js-ir' is loaded prior to 'Iconoplastic'.");
+    if (typeof this['kotlinx.coroutines-kotlinx-coroutines-core-js-ir'] === 'undefined') {
+      throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlinx.coroutines-kotlinx-coroutines-core-js-ir' was not found. Please, check whether 'kotlinx.coroutines-kotlinx-coroutines-core-js-ir' is loaded prior to 'Iconoplastic'.");
     }
     if (typeof kotlin_org_jetbrains_kotlinx_kotlinx_html === 'undefined') {
       throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlin_org_jetbrains_kotlinx_kotlinx_html' was not found. Please, check whether 'kotlin_org_jetbrains_kotlinx_kotlinx_html' is loaded prior to 'Iconoplastic'.");
     }
-    if (typeof this['kotlinx.coroutines-kotlinx-coroutines-core-js-ir'] === 'undefined') {
-      throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlinx.coroutines-kotlinx-coroutines-core-js-ir' was not found. Please, check whether 'kotlinx.coroutines-kotlinx-coroutines-core-js-ir' is loaded prior to 'Iconoplastic'.");
-    }
-    root.Iconoplastic = factory(typeof Iconoplastic === 'undefined' ? {} : Iconoplastic, this['kotlin-kotlin-stdlib-js-ir'], this['ktor-ktor-client-core-js-ir'], this['ktor-ktor-http-js-ir'], this['ktor-ktor-utils-js-ir'], kotlin_org_jetbrains_kotlinx_kotlinx_html, this['kotlinx.coroutines-kotlinx-coroutines-core-js-ir']);
+    root.Iconoplastic = factory(typeof Iconoplastic === 'undefined' ? {} : Iconoplastic, this['kotlin-kotlin-stdlib-js-ir'], this['kotlinx.coroutines-kotlinx-coroutines-core-js-ir'], kotlin_org_jetbrains_kotlinx_kotlinx_html);
   }
-}(this, function (_, kotlin_kotlin, kotlin_io_ktor_ktor_client_core, kotlin_io_ktor_ktor_http, kotlin_io_ktor_ktor_utils, kotlin_org_jetbrains_kotlinx_kotlinx_html, kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core) {
+}(this, function (_, kotlin_kotlin, kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core, kotlin_org_jetbrains_kotlinx_kotlinx_html) {
   'use strict';
   //region block: imports
-  var CoroutineImpl = kotlin_kotlin.$_$.c8;
-  var HttpRequestBuilder = kotlin_io_ktor_ktor_client_core.$_$.b;
-  var url = kotlin_io_ktor_ktor_client_core.$_$.c;
-  var Companion_getInstance = kotlin_io_ktor_ktor_http.$_$.i;
-  var HttpStatement = kotlin_io_ktor_ktor_client_core.$_$.d;
-  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.m7;
-  var JsType_getInstance = kotlin_io_ktor_ktor_utils.$_$.e;
-  var PrimitiveClasses_getInstance = kotlin_kotlin.$_$.x3;
-  var arrayOf = kotlin_kotlin.$_$.zc;
-  var createKType = kotlin_kotlin.$_$.a;
-  var typeInfoImpl = kotlin_io_ktor_ktor_utils.$_$.l;
-  var THROW_CCE = kotlin_kotlin.$_$.pc;
-  var isByteArray = kotlin_kotlin.$_$.c9;
-  var classMeta = kotlin_kotlin.$_$.r8;
-  var split$default = kotlin_kotlin.$_$.r;
-  var collectionSizeOrDefault = kotlin_kotlin.$_$.e5;
-  var mapCapacity = kotlin_kotlin.$_$.k6;
-  var coerceAtLeast = kotlin_kotlin.$_$.x9;
-  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.e1;
-  var Companion_getInstance_0 = kotlin_kotlin.$_$.b4;
-  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.p2;
-  var charArrayOf = kotlin_kotlin.$_$.m8;
-  var split$default_0 = kotlin_kotlin.$_$.q;
-  var to = kotlin_kotlin.$_$.pd;
-  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.x2;
-  var createFailure = kotlin_kotlin.$_$.bd;
-  var _Result___get_isFailure__impl__jpiriv = kotlin_kotlin.$_$.z2;
-  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.a3;
-  var isObject = kotlin_kotlin.$_$.k9;
-  var toMap = kotlin_kotlin.$_$.d7;
-  var HttpClient$default = kotlin_io_ktor_ktor_client_core.$_$.a;
-  var Unit_getInstance = kotlin_kotlin.$_$.g4;
+  var CoroutineImpl = kotlin_kotlin.$_$.x2;
+  var await_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.a;
+  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.h2;
+  var split$default = kotlin_kotlin.$_$.e;
+  var collectionSizeOrDefault = kotlin_kotlin.$_$.t1;
+  var mapCapacity = kotlin_kotlin.$_$.a2;
+  var coerceAtLeast = kotlin_kotlin.$_$.t3;
+  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.i;
+  var Companion_getInstance = kotlin_kotlin.$_$.l1;
+  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.y;
+  var charArrayOf = kotlin_kotlin.$_$.e3;
+  var split$default_0 = kotlin_kotlin.$_$.d;
+  var to = kotlin_kotlin.$_$.p4;
+  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.c1;
+  var createFailure = kotlin_kotlin.$_$.j4;
+  var _Result___get_isFailure__impl__jpiriv = kotlin_kotlin.$_$.e1;
+  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.f1;
+  var THROW_CCE = kotlin_kotlin.$_$.g4;
+  var isObject = kotlin_kotlin.$_$.o3;
+  var toMap = kotlin_kotlin.$_$.e2;
+  var classMeta = kotlin_kotlin.$_$.h3;
+  var Unit_getInstance = kotlin_kotlin.$_$.m1;
   var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.h;
   var DIV = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.c;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.z1;
-  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.f1;
-  var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.q;
-  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c1;
-  var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.l;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.r;
+  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.j;
+  var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
+  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
+  var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
   var set_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.i;
-  var toInt = kotlin_kotlin.$_$.ob;
-  var Companion_getInstance_1 = kotlin_kotlin.$_$.z3;
-  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.v2;
-  var numberToChar = kotlin_kotlin.$_$.p9;
-  var toString = kotlin_kotlin.$_$.w2;
+  var toInt = kotlin_kotlin.$_$.x3;
+  var Companion_getInstance_0 = kotlin_kotlin.$_$.j1;
+  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.a1;
+  var numberToChar = kotlin_kotlin.$_$.p3;
+  var toString = kotlin_kotlin.$_$.b1;
   var STYLE = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.f;
   var attributesMapOf_0 = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.g;
   var LINK = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
   var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.a;
-  var charSequenceLength = kotlin_kotlin.$_$.p8;
-  var charSequenceGet = kotlin_kotlin.$_$.o8;
-  var uppercaseChar = kotlin_kotlin.$_$.yb;
+  var charSequenceLength = kotlin_kotlin.$_$.g3;
+  var charSequenceGet = kotlin_kotlin.$_$.f3;
+  var uppercaseChar = kotlin_kotlin.$_$.z3;
   var SPAN = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.e;
-  var replace$default = kotlin_kotlin.$_$.o;
-  var joinToString$default = kotlin_kotlin.$_$.h;
-  var plus = kotlin_kotlin.$_$.kd;
+  var replace$default = kotlin_kotlin.$_$.c;
+  var joinToString$default = kotlin_kotlin.$_$.b;
+  var plus = kotlin_kotlin.$_$.m4;
   var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
-  var CoroutineScope_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d1;
-  var isInterface = kotlin_kotlin.$_$.i9;
-  var SuspendFunction1 = kotlin_kotlin.$_$.d8;
+  var CoroutineScope_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e;
+  var isInterface = kotlin_kotlin.$_$.n3;
+  var SuspendFunction1 = kotlin_kotlin.$_$.y2;
   //endregion
   //region block: pre-declaration
-  $getMainFontCOROUTINE$0.prototype = Object.create(CoroutineImpl.prototype);
-  $getMainFontCOROUTINE$0.prototype.constructor = $getMainFontCOROUTINE$0;
-  $getCodepointsCOROUTINE$1.prototype = Object.create(CoroutineImpl.prototype);
-  $getCodepointsCOROUTINE$1.prototype.constructor = $getCodepointsCOROUTINE$1;
+  $getCodepointsCOROUTINE$0.prototype = Object.create(CoroutineImpl.prototype);
+  $getCodepointsCOROUTINE$0.prototype.constructor = $getCodepointsCOROUTINE$0;
   sayHello$slambda.prototype = Object.create(CoroutineImpl.prototype);
   sayHello$slambda.prototype.constructor = sayHello$slambda;
   //endregion
-  function $getMainFontCOROUTINE$0(_this__u8e3s4, resultContinuation) {
+  function $getCodepointsCOROUTINE$0(_this__u8e3s4, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
     this._this__u8e3s4__1 = _this__u8e3s4;
   }
-  $getMainFontCOROUTINE$0.prototype.doResume_5yljmg_k$ = function () {
+  $getCodepointsCOROUTINE$0.prototype.doResume_5yljmg_k$ = function () {
     var suspendResult = this.result_1;
     $sm: do
       try {
@@ -108,153 +87,59 @@
         switch (tmp) {
           case 0:
             this.exceptionState_1 = 3;
-            var tmp_0 = this;
-            tmp_0.tmp0_get0__1 = this._this__u8e3s4__1.client_1;
-            var tmp_1 = this;
-            tmp_1.tmp1_get1__1 = this._this__u8e3s4__1.baseUrl_1 + '/download/main_font';
-            var tmp_2 = this;
-            var tmp0_apply = new HttpRequestBuilder();
-            url(tmp0_apply, this.tmp1_get1__1);
-            ;
-            tmp_2.tmp1_get2__1 = tmp0_apply;
-            this.tmp1_get2__1.method_1 = Companion_getInstance().Get_1;
             this.state_1 = 1;
-            suspendResult = (new HttpStatement(this.tmp1_get2__1, this.tmp0_get0__1)).execute_t7l9ha_k$(this);
+            suspendResult = await_0(window.fetch(this._this__u8e3s4__1.baseUrl_1 + '/download/codepoints'), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.response3__1 = suspendResult;
+            this.ARGUMENT0__1 = suspendResult;
+            this.ARGUMENT1__1 = this.ARGUMENT0__1.text();
             this.state_1 = 2;
-            var tmp_3 = this.response3__1.get_call_wojxrb_k$();
-            var tmp_4 = JsType_getInstance();
-            var tmp_5 = PrimitiveClasses_getInstance().get_byteArrayClass_57my8g_k$();
-            var tmp_6;
-            try {
-              tmp_6 = createKType(PrimitiveClasses_getInstance().get_byteArrayClass_57my8g_k$(), arrayOf([]), false);
-            } catch ($p) {
-              var tmp_7;
-              if ($p instanceof Error) {
-                tmp_7 = null;
-              } else {
-                throw $p;
-              }
-              tmp_6 = tmp_7;
-            }
-
-            suspendResult = tmp_3.bodyNullable_ld5qr1_k$(typeInfoImpl(tmp_4, tmp_5, tmp_6), this);
+            suspendResult = await_0(this.ARGUMENT1__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 2:
-            return (!(suspendResult == null) ? isByteArray(suspendResult) : false) ? suspendResult : THROW_CCE();
-          case 3:
-            throw this.exception_1;
-        }
-      } catch ($p) {
-        if (this.exceptionState_1 === 3) {
-          throw $p;
-        } else {
-          this.state_1 = this.exceptionState_1;
-          this.exception_1 = $p;
-        }
-      }
-     while (true);
-  };
-  $getMainFontCOROUTINE$0.$metadata$ = classMeta('$getMainFontCOROUTINE$0', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function $getCodepointsCOROUTINE$1(_this__u8e3s4, resultContinuation) {
-    CoroutineImpl.call(this, resultContinuation);
-    this._this__u8e3s4__1 = _this__u8e3s4;
-  }
-  $getCodepointsCOROUTINE$1.prototype.doResume_5yljmg_k$ = function () {
-    var suspendResult = this.result_1;
-    $sm: do
-      try {
-        var tmp = this.state_1;
-        switch (tmp) {
-          case 0:
-            this.exceptionState_1 = 3;
-            var tmp_0 = this;
-            tmp_0.tmp0_get0__1 = this._this__u8e3s4__1.client_1;
-            var tmp_1 = this;
-            tmp_1.tmp1_get1__1 = this._this__u8e3s4__1.baseUrl_1 + '/download/codepoints';
-            var tmp_2 = this;
-            var tmp0_apply = new HttpRequestBuilder();
-            url(tmp0_apply, this.tmp1_get1__1);
-            ;
-            tmp_2.tmp1_get2__1 = tmp0_apply;
-            this.tmp1_get2__1.method_1 = Companion_getInstance().Get_1;
-            this.state_1 = 1;
-            suspendResult = (new HttpStatement(this.tmp1_get2__1, this.tmp0_get0__1)).execute_t7l9ha_k$(this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 1:
-            this.tmp2_body3__1 = suspendResult;
-            this.state_1 = 2;
-            var tmp_3 = this.tmp2_body3__1.get_call_wojxrb_k$();
-            var tmp_4 = JsType_getInstance();
-            var tmp_5 = PrimitiveClasses_getInstance().get_stringClass_bik2gy_k$();
-            var tmp_6;
-            try {
-              tmp_6 = createKType(PrimitiveClasses_getInstance().get_stringClass_bik2gy_k$(), arrayOf([]), false);
-            } catch ($p) {
-              var tmp_7;
-              if ($p instanceof Error) {
-                tmp_7 = null;
-              } else {
-                throw $p;
-              }
-              tmp_6 = tmp_7;
-            }
-
-            suspendResult = tmp_3.bodyNullable_ld5qr1_k$(typeInfoImpl(tmp_4, tmp_5, tmp_6), this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 2:
-            var response = (!(suspendResult == null) ? typeof suspendResult === 'string' : false) ? suspendResult : THROW_CCE();
-            var tmp3_associate = split$default(response, ['\n'], false, 0, 6, null);
-            var capacity = coerceAtLeast(mapCapacity(collectionSizeOrDefault(tmp3_associate, 10)), 16);
+            var response = suspendResult;
+            console.log(response);
+            var tmp0_associate = split$default(response, ['\n'], false, 0, 6, null);
+            var capacity = coerceAtLeast(mapCapacity(collectionSizeOrDefault(tmp0_associate, 10)), 16);
             var tmp1_associateTo = LinkedHashMap_init_$Create$(capacity);
-            var tmp0_iterator = tmp3_associate.iterator_jk1svi_k$();
+            var tmp0_iterator = tmp0_associate.iterator_jk1svi_k$();
             while (tmp0_iterator.hasNext_bitz1p_k$()) {
               var element = tmp0_iterator.next_20eer_k$();
               var tmp$ret$0;
               l$ret$1: do {
-                var tmp_8;
+                var tmp_0;
                 try {
-                  var tmp0_success = Companion_getInstance_0();
-                  var tmp_9 = charArrayOf([_Char___init__impl__6a9atx(32)]);
-                  var final = split$default_0(element, tmp_9, false, 0, 6, null);
+                  var tmp0_success = Companion_getInstance();
+                  var tmp_1 = charArrayOf([_Char___init__impl__6a9atx(32)]);
+                  var final = split$default_0(element, tmp_1, false, 0, 6, null);
                   var tmp1_success = to(final.get_fkrdnv_k$(0), final.get_fkrdnv_k$(1));
-                  tmp_8 = _Result___init__impl__xyqfz8(tmp1_success);
+                  tmp_0 = _Result___init__impl__xyqfz8(tmp1_success);
                 } catch ($p) {
-                  var tmp_10;
+                  var tmp_2;
                   if ($p instanceof Error) {
-                    var tmp2_failure = Companion_getInstance_0();
-                    tmp_10 = _Result___init__impl__xyqfz8(createFailure($p));
+                    var tmp2_failure = Companion_getInstance();
+                    tmp_2 = _Result___init__impl__xyqfz8(createFailure($p));
                   } else {
                     throw $p;
                   }
-                  tmp_8 = tmp_10;
+                  tmp_0 = tmp_2;
                 }
-                var tmp0_getOrDefault = tmp_8;
+                var tmp0_getOrDefault = tmp_0;
                 var tmp1_getOrDefault = to('10mp', 'E8B8');
                 if (_Result___get_isFailure__impl__jpiriv(tmp0_getOrDefault)) {
                   tmp$ret$0 = tmp1_getOrDefault;
                   break l$ret$1;
                 }
-                var tmp_11 = _Result___get_value__impl__bjfvqg(tmp0_getOrDefault);
-                tmp$ret$0 = (tmp_11 == null ? true : isObject(tmp_11)) ? tmp_11 : THROW_CCE();
+                var tmp_3 = _Result___get_value__impl__bjfvqg(tmp0_getOrDefault);
+                tmp$ret$0 = (tmp_3 == null ? true : isObject(tmp_3)) ? tmp_3 : THROW_CCE();
               }
                while (false);
               var tmp0_plusAssign = tmp$ret$0;
@@ -275,26 +160,15 @@
       }
      while (true);
   };
-  $getCodepointsCOROUTINE$1.$metadata$ = classMeta('$getCodepointsCOROUTINE$1', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  $getCodepointsCOROUTINE$0.$metadata$ = classMeta('$getCodepointsCOROUTINE$0', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function Api() {
-    var tmp = this;
-    tmp.client_1 = HttpClient$default(null, 1, null);
     this.baseUrl_1 = 'https://iconoplastic-api.herokuapp.com/';
   }
-  Api.prototype.get_client_byfnx0_k$ = function () {
-    return this.client_1;
-  };
   Api.prototype.get_baseUrl_48hdl7_k$ = function () {
     return this.baseUrl_1;
   };
-  Api.prototype.getMainFont_rppjno_k$ = function ($cont) {
-    var tmp = new $getMainFontCOROUTINE$0(this, $cont);
-    tmp.result_1 = Unit_getInstance();
-    tmp.exception_1 = null;
-    return tmp.doResume_5yljmg_k$();
-  };
   Api.prototype.getCodepoints_78j4ls_k$ = function ($cont) {
-    var tmp = new $getCodepointsCOROUTINE$1(this, $cont);
+    var tmp = new $getCodepointsCOROUTINE$0(this, $cont);
     tmp.result_1 = Unit_getInstance();
     tmp.exception_1 = null;
     return tmp.doResume_5yljmg_k$();
@@ -405,7 +279,7 @@
       var tmp;
       var tmp$ret$0;
       {
-        Companion_getInstance_1();
+        Companion_getInstance_0();
         var tmp0__get_code__88qj9g = _Char___init__impl__6a9atx(0);
         tmp$ret$0 = Char__toInt_impl_vasixd(tmp0__get_code__88qj9g);
       }
@@ -414,7 +288,7 @@
       } else {
         var tmp$ret$1;
         {
-          Companion_getInstance_1();
+          Companion_getInstance_0();
           var tmp1__get_code__adl84j = _Char___init__impl__6a9atx(65535);
           tmp$ret$1 = Char__toInt_impl_vasixd(tmp1__get_code__adl84j);
         }
@@ -661,7 +535,8 @@
     };
   }
   function sayHello$slambda$lambda$lambda($selectedList, $index, $element) {
-    return function (_anonymous_parameter_0__qggqh8) {
+    return function (event) {
+      event.preventDefault();
       var tmp;
       if ($selectedList.containsKey_wgk31w_k$($index)) {
         $selectedList.remove_8hbkc0_k$($index);

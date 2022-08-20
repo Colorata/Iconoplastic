@@ -1,14 +1,11 @@
-import kotlinx.html.dom.append
-import org.w3c.dom.Node
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.html.*
+import kotlinx.html.dom.append
 import kotlinx.html.js.onClickFunction
-import kotlinx.html.stream.appendHTML
-import org.w3c.dom.Text
 
 fun main() {
     window.onload = {
@@ -57,7 +54,8 @@ fun TagConsumer<*>.sayHello() {
                         val index = globalIndex
                         div("grid-item column") {
                             id = "grid-item-$index"
-                            onClickFunction = { _ ->
+                            onClickFunction = { event ->
+                                event.preventDefault()
                                 if (selectedList.containsKey(index)) {
                                     selectedList.remove(index)
                                     selectedList.forEach {

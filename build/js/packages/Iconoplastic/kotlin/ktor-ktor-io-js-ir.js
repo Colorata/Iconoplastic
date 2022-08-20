@@ -19,119 +19,240 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var interfaceMeta = kotlin_kotlin.$_$.y5;
-  var ensureNotNull = kotlin_kotlin.$_$.h8;
-  var Unit_getInstance = kotlin_kotlin.$_$.w2;
-  var toString = kotlin_kotlin.$_$.l6;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.m1;
-  var toLong = kotlin_kotlin.$_$.j6;
-  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.p1;
-  var CoroutineImpl = kotlin_kotlin.$_$.e5;
-  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.p4;
-  var classMeta = kotlin_kotlin.$_$.q5;
-  var Long = kotlin_kotlin.$_$.y7;
-  var atomic$ref$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.c;
-  var atomic$long$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.b;
-  var atomic$int$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.d;
-  var THROW_CCE = kotlin_kotlin.$_$.b8;
-  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.b1;
-  var CancellationException = kotlin_kotlin.$_$.o4;
-  var CancellationException_init_$Init$ = kotlin_kotlin.$_$.a1;
-  var captureStack = kotlin_kotlin.$_$.k5;
-  var Job = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d1;
-  var EmptyCoroutineContext_getInstance = kotlin_kotlin.$_$.p2;
-  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.a1;
-  var cancel$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
-  var invokeOnCompletion$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e;
-  var Key_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.m;
-  var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.j;
-  var isInterface = kotlin_kotlin.$_$.b6;
-  var Key_getInstance_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.q;
-  var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.o;
-  var equals = kotlin_kotlin.$_$.s5;
-  var SuspendFunction1 = kotlin_kotlin.$_$.f5;
-  var toByte = kotlin_kotlin.$_$.i6;
-  var toShort = kotlin_kotlin.$_$.k6;
-  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.e1;
-  var IntCompanionObject_getInstance = kotlin_kotlin.$_$.q2;
-  var charSequenceLength = kotlin_kotlin.$_$.o5;
-  var objectMeta = kotlin_kotlin.$_$.h6;
-  var Exception = kotlin_kotlin.$_$.v7;
-  var Exception_init_$Init$ = kotlin_kotlin.$_$.j1;
-  var numberToChar = kotlin_kotlin.$_$.f6;
-  var coerceAtLeast = kotlin_kotlin.$_$.n6;
-  var coerceAtMost = kotlin_kotlin.$_$.p6;
-  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.g2;
-  var Appendable = kotlin_kotlin.$_$.v6;
-  var encodeToByteArray = kotlin_kotlin.$_$.y6;
-  var _UShort___get_data__impl__g0245 = kotlin_kotlin.$_$.n2;
-  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.z1;
-  var _UShort___init__impl__jigrne = kotlin_kotlin.$_$.m2;
-  var Char = kotlin_kotlin.$_$.q7;
-  var Companion_getInstance = kotlin_kotlin.$_$.v2;
-  var charSequenceGet = kotlin_kotlin.$_$.n5;
-  var isLowSurrogate = kotlin_kotlin.$_$.d7;
-  var isHighSurrogate = kotlin_kotlin.$_$.c7;
-  var Job$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.f;
-  var coerceAtMost_0 = kotlin_kotlin.$_$.o6;
-  var hashCode = kotlin_kotlin.$_$.x5;
-  var lazy = kotlin_kotlin.$_$.k8;
-  var Companion_getInstance_0 = kotlin_kotlin.$_$.t2;
-  var KProperty1 = kotlin_kotlin.$_$.u6;
-  var getPropertyCallableRef = kotlin_kotlin.$_$.v5;
-  var IndexOutOfBoundsException_init_$Create$ = kotlin_kotlin.$_$.t1;
-  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.a2;
-  var replace$default = kotlin_kotlin.$_$.m;
-  var getKClassFromExpression = kotlin_kotlin.$_$.b;
-  var get_js = kotlin_kotlin.$_$.e6;
-  var getStringHashCode = kotlin_kotlin.$_$.w5;
-  var charSequenceSubSequence = kotlin_kotlin.$_$.p5;
-  var extendThrowable = kotlin_kotlin.$_$.t5;
-  var IndexOutOfBoundsException_init_$Create$_0 = kotlin_kotlin.$_$.s1;
-  var Exception_init_$Init$_0 = kotlin_kotlin.$_$.k1;
-  var isCharSequence = kotlin_kotlin.$_$.a6;
-  var trim = kotlin_kotlin.$_$.o7;
-  var decodeToString = kotlin_kotlin.$_$.x6;
-  var setOf = kotlin_kotlin.$_$.f4;
-  var fillArrayVal = kotlin_kotlin.$_$.u5;
-  var isObject = kotlin_kotlin.$_$.c6;
+  var interfaceMeta = kotlin_kotlin.$_$.z8;
+  var CoroutineImpl = kotlin_kotlin.$_$.c8;
+  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.m7;
+  var Unit_getInstance = kotlin_kotlin.$_$.g4;
+  var classMeta = kotlin_kotlin.$_$.r8;
+  var ensureNotNull = kotlin_kotlin.$_$.cd;
+  var toString = kotlin_kotlin.$_$.v9;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.z1;
+  var toLong = kotlin_kotlin.$_$.t9;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.e2;
+  var THROW_CCE = kotlin_kotlin.$_$.pc;
+  var isInterface = kotlin_kotlin.$_$.i9;
+  var Long = kotlin_kotlin.$_$.lc;
+  var coerceAtMost = kotlin_kotlin.$_$.y9;
+  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.p1;
+  var atomic$ref$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.d;
+  var atomic$long$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.c;
+  var atomic$int$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.e;
+  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.k1;
+  var KMutableProperty1 = kotlin_kotlin.$_$.ha;
+  var getPropertyCallableRef = kotlin_kotlin.$_$.w8;
+  var SuspendFunction1 = kotlin_kotlin.$_$.d8;
+  var Companion_getInstance = kotlin_kotlin.$_$.a4;
+  var CancellationException = kotlin_kotlin.$_$.l7;
+  var CancellationException_init_$Init$ = kotlin_kotlin.$_$.j1;
+  var captureStack = kotlin_kotlin.$_$.l8;
+  var Job = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.h1;
+  var EmptyCoroutineContext_getInstance = kotlin_kotlin.$_$.o3;
+  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e1;
+  var cancel$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e;
+  var cancel$default_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.f;
+  var invokeOnCompletion$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.g;
+  var Key_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.p;
+  var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.m;
+  var Key_getInstance_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.t;
+  var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.r;
+  var equals = kotlin_kotlin.$_$.t8;
+  var toByte = kotlin_kotlin.$_$.s9;
+  var toShort = kotlin_kotlin.$_$.u9;
+  var StringBuilder_init_$Create$_0 = kotlin_kotlin.$_$.o1;
+  var IntCompanionObject_getInstance = kotlin_kotlin.$_$.t3;
+  var charSequenceLength = kotlin_kotlin.$_$.p8;
+  var objectMeta = kotlin_kotlin.$_$.r9;
+  var Exception = kotlin_kotlin.$_$.ic;
+  var Exception_init_$Init$ = kotlin_kotlin.$_$.t1;
+  var numberToLong = kotlin_kotlin.$_$.q9;
+  var numberToChar = kotlin_kotlin.$_$.p9;
+  var charSequenceGet = kotlin_kotlin.$_$.o8;
+  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.n2;
+  var Appendable = kotlin_kotlin.$_$.qa;
+  var coerceAtLeast = kotlin_kotlin.$_$.x9;
+  var coerceAtMost_0 = kotlin_kotlin.$_$.z9;
+  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.v2;
+  var toRawBits = kotlin_kotlin.$_$.md;
+  var toRawBits_0 = kotlin_kotlin.$_$.nd;
+  var encodeToByteArray = kotlin_kotlin.$_$.ta;
+  var _UShort___get_data__impl__g0245 = kotlin_kotlin.$_$.l3;
+  var IndexOutOfBoundsException_init_$Create$ = kotlin_kotlin.$_$.i2;
+  var CharSequence = kotlin_kotlin.$_$.ac;
+  var UnsupportedOperationException_init_$Create$_0 = kotlin_kotlin.$_$.o2;
+  var _UShort___init__impl__jigrne = kotlin_kotlin.$_$.k3;
+  var Char = kotlin_kotlin.$_$.bc;
+  var Companion_getInstance_0 = kotlin_kotlin.$_$.f4;
+  var isLowSurrogate = kotlin_kotlin.$_$.ya;
+  var isHighSurrogate = kotlin_kotlin.$_$.xa;
+  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.p2;
+  var Job$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.h;
+  var hashCode = kotlin_kotlin.$_$.y8;
+  var lazy = kotlin_kotlin.$_$.id;
+  var KProperty1 = kotlin_kotlin.$_$.ja;
+  var replace$default = kotlin_kotlin.$_$.p;
+  var getKClassFromExpression = kotlin_kotlin.$_$.c;
+  var get_js = kotlin_kotlin.$_$.n9;
+  var getStringHashCode = kotlin_kotlin.$_$.x8;
+  var charSequenceSubSequence = kotlin_kotlin.$_$.q8;
+  var extendThrowable = kotlin_kotlin.$_$.u8;
+  var THROW_ISE = kotlin_kotlin.$_$.qc;
+  var Enum = kotlin_kotlin.$_$.gc;
+  var IndexOutOfBoundsException_init_$Create$_0 = kotlin_kotlin.$_$.h2;
+  var Exception_init_$Init$_0 = kotlin_kotlin.$_$.u1;
+  var isCharSequence = kotlin_kotlin.$_$.e9;
+  var trim = kotlin_kotlin.$_$.xb;
+  var decodeToString = kotlin_kotlin.$_$.sa;
+  var setOf = kotlin_kotlin.$_$.v6;
+  var fillArrayVal = kotlin_kotlin.$_$.v8;
+  var isObject = kotlin_kotlin.$_$.k9;
   //endregion
   //region block: pre-declaration
   function readRemaining$default(limit, $cont, $mask0, $handler) {
     if (!(($mask0 & 1) === 0)) {
-      Companion_getInstance_0();
+      Companion_getInstance();
       limit = new Long(-1, 2147483647);
     }
-    return $handler == null ? this.p19(limit, $cont) : $handler(limit, $cont);
+    return $handler == null ? this.readRemaining_eg8n80_k$(limit, $cont) : $handler(limit, $cont);
   }
+  function peekTo$default(destination, destinationOffset, offset, min, max, $cont, $mask0, $handler) {
+    if (!(($mask0 & 4) === 0))
+      offset = new Long(0, 0);
+    if (!(($mask0 & 8) === 0))
+      min = new Long(1, 0);
+    if (!(($mask0 & 16) === 0)) {
+      Companion_getInstance();
+      max = new Long(-1, 2147483647);
+    }
+    return $handler == null ? this.peekTo_iy27cy_k$(destination, destinationOffset, offset, min, max, $cont) : $handler(destination, destinationOffset, offset, min, max, $cont);
+  }
+  $tryAwaitCOROUTINE$49.prototype = Object.create(CoroutineImpl.prototype);
+  $tryAwaitCOROUTINE$49.prototype.constructor = $tryAwaitCOROUTINE$49;
+  ByteChannelSequentialBase$readUTF8LineTo$slambda.prototype = Object.create(CoroutineImpl.prototype);
+  ByteChannelSequentialBase$readUTF8LineTo$slambda.prototype.constructor = ByteChannelSequentialBase$readUTF8LineTo$slambda;
+  ByteChannelSequentialBase$peekTo$slambda.prototype = Object.create(CoroutineImpl.prototype);
+  ByteChannelSequentialBase$peekTo$slambda.prototype.constructor = ByteChannelSequentialBase$peekTo$slambda;
   $awaitAtLeastNBytesAvailableForWriteCOROUTINE$0.prototype = Object.create(CoroutineImpl.prototype);
   $awaitAtLeastNBytesAvailableForWriteCOROUTINE$0.prototype.constructor = $awaitAtLeastNBytesAvailableForWriteCOROUTINE$0;
   $awaitAtLeastNBytesAvailableForReadCOROUTINE$1.prototype = Object.create(CoroutineImpl.prototype);
   $awaitAtLeastNBytesAvailableForReadCOROUTINE$1.prototype.constructor = $awaitAtLeastNBytesAvailableForReadCOROUTINE$1;
+  $writeByteCOROUTINE$2.prototype = Object.create(CoroutineImpl.prototype);
+  $writeByteCOROUTINE$2.prototype.constructor = $writeByteCOROUTINE$2;
+  $writeShortCOROUTINE$3.prototype = Object.create(CoroutineImpl.prototype);
+  $writeShortCOROUTINE$3.prototype.constructor = $writeShortCOROUTINE$3;
+  $writeIntCOROUTINE$4.prototype = Object.create(CoroutineImpl.prototype);
+  $writeIntCOROUTINE$4.prototype.constructor = $writeIntCOROUTINE$4;
+  $writeLongCOROUTINE$5.prototype = Object.create(CoroutineImpl.prototype);
+  $writeLongCOROUTINE$5.prototype.constructor = $writeLongCOROUTINE$5;
+  $writeFloatCOROUTINE$6.prototype = Object.create(CoroutineImpl.prototype);
+  $writeFloatCOROUTINE$6.prototype.constructor = $writeFloatCOROUTINE$6;
+  $writeDoubleCOROUTINE$7.prototype = Object.create(CoroutineImpl.prototype);
+  $writeDoubleCOROUTINE$7.prototype.constructor = $writeDoubleCOROUTINE$7;
+  $writePacketCOROUTINE$8.prototype = Object.create(CoroutineImpl.prototype);
+  $writePacketCOROUTINE$8.prototype.constructor = $writePacketCOROUTINE$8;
   $writeFullyCOROUTINE$9.prototype = Object.create(CoroutineImpl.prototype);
   $writeFullyCOROUTINE$9.prototype.constructor = $writeFullyCOROUTINE$9;
   $writeFullyCOROUTINE$10.prototype = Object.create(CoroutineImpl.prototype);
   $writeFullyCOROUTINE$10.prototype.constructor = $writeFullyCOROUTINE$10;
+  $writeFullyCOROUTINE$11.prototype = Object.create(CoroutineImpl.prototype);
+  $writeFullyCOROUTINE$11.prototype.constructor = $writeFullyCOROUTINE$11;
+  $writeAvailableCOROUTINE$12.prototype = Object.create(CoroutineImpl.prototype);
+  $writeAvailableCOROUTINE$12.prototype.constructor = $writeAvailableCOROUTINE$12;
+  $writeAvailableCOROUTINE$13.prototype = Object.create(CoroutineImpl.prototype);
+  $writeAvailableCOROUTINE$13.prototype.constructor = $writeAvailableCOROUTINE$13;
+  $readByteCOROUTINE$14.prototype = Object.create(CoroutineImpl.prototype);
+  $readByteCOROUTINE$14.prototype.constructor = $readByteCOROUTINE$14;
+  $readByteSlowCOROUTINE$15.prototype = Object.create(CoroutineImpl.prototype);
+  $readByteSlowCOROUTINE$15.prototype.constructor = $readByteSlowCOROUTINE$15;
+  $readShortCOROUTINE$16.prototype = Object.create(CoroutineImpl.prototype);
+  $readShortCOROUTINE$16.prototype.constructor = $readShortCOROUTINE$16;
+  $readShortSlowCOROUTINE$17.prototype = Object.create(CoroutineImpl.prototype);
+  $readShortSlowCOROUTINE$17.prototype.constructor = $readShortSlowCOROUTINE$17;
+  $readIntCOROUTINE$18.prototype = Object.create(CoroutineImpl.prototype);
+  $readIntCOROUTINE$18.prototype.constructor = $readIntCOROUTINE$18;
+  $readIntSlowCOROUTINE$19.prototype = Object.create(CoroutineImpl.prototype);
+  $readIntSlowCOROUTINE$19.prototype.constructor = $readIntSlowCOROUTINE$19;
+  $readLongCOROUTINE$20.prototype = Object.create(CoroutineImpl.prototype);
+  $readLongCOROUTINE$20.prototype.constructor = $readLongCOROUTINE$20;
+  $readLongSlowCOROUTINE$21.prototype = Object.create(CoroutineImpl.prototype);
+  $readLongSlowCOROUTINE$21.prototype.constructor = $readLongSlowCOROUTINE$21;
+  $readFloatCOROUTINE$22.prototype = Object.create(CoroutineImpl.prototype);
+  $readFloatCOROUTINE$22.prototype.constructor = $readFloatCOROUTINE$22;
+  $readFloatSlowCOROUTINE$23.prototype = Object.create(CoroutineImpl.prototype);
+  $readFloatSlowCOROUTINE$23.prototype.constructor = $readFloatSlowCOROUTINE$23;
+  $readDoubleCOROUTINE$24.prototype = Object.create(CoroutineImpl.prototype);
+  $readDoubleCOROUTINE$24.prototype.constructor = $readDoubleCOROUTINE$24;
+  $readDoubleSlowCOROUTINE$25.prototype = Object.create(CoroutineImpl.prototype);
+  $readDoubleSlowCOROUTINE$25.prototype.constructor = $readDoubleSlowCOROUTINE$25;
   $readRemainingCOROUTINE$26.prototype = Object.create(CoroutineImpl.prototype);
   $readRemainingCOROUTINE$26.prototype.constructor = $readRemainingCOROUTINE$26;
   $readRemainingSuspendCOROUTINE$27.prototype = Object.create(CoroutineImpl.prototype);
   $readRemainingSuspendCOROUTINE$27.prototype.constructor = $readRemainingSuspendCOROUTINE$27;
+  $readPacketCOROUTINE$28.prototype = Object.create(CoroutineImpl.prototype);
+  $readPacketCOROUTINE$28.prototype.constructor = $readPacketCOROUTINE$28;
+  $readPacketSuspendCOROUTINE$29.prototype = Object.create(CoroutineImpl.prototype);
+  $readPacketSuspendCOROUTINE$29.prototype.constructor = $readPacketSuspendCOROUTINE$29;
   $readAvailableCOROUTINE$30.prototype = Object.create(CoroutineImpl.prototype);
   $readAvailableCOROUTINE$30.prototype.constructor = $readAvailableCOROUTINE$30;
+  $readFullyCOROUTINE$31.prototype = Object.create(CoroutineImpl.prototype);
+  $readFullyCOROUTINE$31.prototype.constructor = $readFullyCOROUTINE$31;
+  $readFullySuspendCOROUTINE$32.prototype = Object.create(CoroutineImpl.prototype);
+  $readFullySuspendCOROUTINE$32.prototype.constructor = $readFullySuspendCOROUTINE$32;
   $readAvailableCOROUTINE$33.prototype = Object.create(CoroutineImpl.prototype);
   $readAvailableCOROUTINE$33.prototype.constructor = $readAvailableCOROUTINE$33;
+  $readFullyCOROUTINE$34.prototype = Object.create(CoroutineImpl.prototype);
+  $readFullyCOROUTINE$34.prototype.constructor = $readFullyCOROUTINE$34;
+  $readFullySuspendCOROUTINE$35.prototype = Object.create(CoroutineImpl.prototype);
+  $readFullySuspendCOROUTINE$35.prototype.constructor = $readFullySuspendCOROUTINE$35;
+  $readBooleanCOROUTINE$36.prototype = Object.create(CoroutineImpl.prototype);
+  $readBooleanCOROUTINE$36.prototype.constructor = $readBooleanCOROUTINE$36;
+  $readBooleanSlowCOROUTINE$37.prototype = Object.create(CoroutineImpl.prototype);
+  $readBooleanSlowCOROUTINE$37.prototype.constructor = $readBooleanSlowCOROUTINE$37;
   $awaitInternalAtLeast1COROUTINE$38.prototype = Object.create(CoroutineImpl.prototype);
   $awaitInternalAtLeast1COROUTINE$38.prototype.constructor = $awaitInternalAtLeast1COROUTINE$38;
   $awaitSuspendCOROUTINE$39.prototype = Object.create(CoroutineImpl.prototype);
   $awaitSuspendCOROUTINE$39.prototype.constructor = $awaitSuspendCOROUTINE$39;
+  $discardCOROUTINE$40.prototype = Object.create(CoroutineImpl.prototype);
+  $discardCOROUTINE$40.prototype.constructor = $discardCOROUTINE$40;
+  $discardSuspendCOROUTINE$41.prototype = Object.create(CoroutineImpl.prototype);
+  $discardSuspendCOROUTINE$41.prototype.constructor = $discardSuspendCOROUTINE$41;
+  $readSuspendableSessionCOROUTINE$42.prototype = Object.create(CoroutineImpl.prototype);
+  $readSuspendableSessionCOROUTINE$42.prototype.constructor = $readSuspendableSessionCOROUTINE$42;
+  $readUTF8LineCOROUTINE$43.prototype = Object.create(CoroutineImpl.prototype);
+  $readUTF8LineCOROUTINE$43.prototype.constructor = $readUTF8LineCOROUTINE$43;
+  $writeAvailableSuspendCOROUTINE$44.prototype = Object.create(CoroutineImpl.prototype);
+  $writeAvailableSuspendCOROUTINE$44.prototype.constructor = $writeAvailableSuspendCOROUTINE$44;
+  $writeAvailableSuspendCOROUTINE$45.prototype = Object.create(CoroutineImpl.prototype);
+  $writeAvailableSuspendCOROUTINE$45.prototype.constructor = $writeAvailableSuspendCOROUTINE$45;
+  $awaitFreeSpaceCOROUTINE$46.prototype = Object.create(CoroutineImpl.prototype);
+  $awaitFreeSpaceCOROUTINE$46.prototype.constructor = $awaitFreeSpaceCOROUTINE$46;
+  $awaitContentCOROUTINE$47.prototype = Object.create(CoroutineImpl.prototype);
+  $awaitContentCOROUTINE$47.prototype.constructor = $awaitContentCOROUTINE$47;
+  $peekToCOROUTINE$48.prototype = Object.create(CoroutineImpl.prototype);
+  $peekToCOROUTINE$48.prototype.constructor = $peekToCOROUTINE$48;
+  function request$default(atLeast, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      atLeast = 1;
+    return $handler == null ? this.request_z0ru36_k$(atLeast) : $handler(atLeast);
+  }
+  function await$default(atLeast, $cont, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      atLeast = 1;
+    return $handler == null ? this.await_a8ddvc_k$(atLeast, $cont) : $handler(atLeast, $cont);
+  }
+  $copyAndCloseCOROUTINE$50.prototype = Object.create(CoroutineImpl.prototype);
+  $copyAndCloseCOROUTINE$50.prototype.constructor = $copyAndCloseCOROUTINE$50;
   ClosedWriteChannelException.prototype = Object.create(CancellationException.prototype);
   ClosedWriteChannelException.prototype.constructor = ClosedWriteChannelException;
   launchChannel$slambda.prototype = Object.create(CoroutineImpl.prototype);
   launchChannel$slambda.prototype.constructor = launchChannel$slambda;
+  MalformedInputException.prototype = Object.create(Error.prototype);
+  MalformedInputException.prototype.constructor = MalformedInputException;
+  TooLongLineException.prototype = Object.create(MalformedInputException.prototype);
+  TooLongLineException.prototype.constructor = TooLongLineException;
   InsufficientSpaceException.prototype = Object.create(Exception.prototype);
   InsufficientSpaceException.prototype.constructor = InsufficientSpaceException;
   function close() {
-    this.vn();
+    this.dispose_3n44we_k$();
   }
   DefaultBufferPool.prototype = Object.create(DefaultPool.prototype);
   DefaultBufferPool.prototype.constructor = DefaultBufferPool;
@@ -147,6 +268,8 @@
   ChunkBuffer.prototype.constructor = ChunkBuffer;
   MalformedUTF8InputException.prototype = Object.create(Exception.prototype);
   MalformedUTF8InputException.prototype.constructor = MalformedUTF8InputException;
+  $decodeUTF8LineLoopSuspendCOROUTINE$51.prototype = Object.create(CoroutineImpl.prototype);
+  $decodeUTF8LineLoopSuspendCOROUTINE$51.prototype.constructor = $decodeUTF8LineLoopSuspendCOROUTINE$51;
   $sleepCOROUTINE$52.prototype = Object.create(CoroutineImpl.prototype);
   $sleepCOROUTINE$52.prototype.constructor = $sleepCOROUTINE$52;
   $trySuspendCOROUTINE$53.prototype = Object.create(CoroutineImpl.prototype);
@@ -157,6 +280,12 @@
   $copyToTailCOROUTINE$55.prototype.constructor = $copyToTailCOROUTINE$55;
   ByteArrayPool$1.prototype = Object.create(DefaultPool.prototype);
   ByteArrayPool$1.prototype.constructor = ByteArrayPool$1;
+  $readAvailableCOROUTINE$56.prototype = Object.create(CoroutineImpl.prototype);
+  $readAvailableCOROUTINE$56.prototype.constructor = $readAvailableCOROUTINE$56;
+  $readAvailableSuspendCOROUTINE$57.prototype = Object.create(CoroutineImpl.prototype);
+  $readAvailableSuspendCOROUTINE$57.prototype.constructor = $readAvailableSuspendCOROUTINE$57;
+  $readFullySuspendCOROUTINE$58.prototype = Object.create(CoroutineImpl.prototype);
+  $readFullySuspendCOROUTINE$58.prototype.constructor = $readFullySuspendCOROUTINE$58;
   ByteChannelJS.prototype = Object.create(ByteChannelSequentialBase.prototype);
   ByteChannelJS.prototype.constructor = ByteChannelJS;
   CharsetImpl.prototype = Object.create(Charset.prototype);
@@ -165,8 +294,8 @@
   CharsetEncoderImpl.prototype.constructor = CharsetEncoderImpl;
   CharsetDecoderImpl.prototype = Object.create(CharsetDecoder.prototype);
   CharsetDecoderImpl.prototype.constructor = CharsetDecoderImpl;
-  MalformedInputException.prototype = Object.create(Error.prototype);
-  MalformedInputException.prototype.constructor = MalformedInputException;
+  ByteOrder.prototype = Object.create(Enum.prototype);
+  ByteOrder.prototype.constructor = ByteOrder;
   IOException.prototype = Object.create(Exception.prototype);
   IOException.prototype.constructor = IOException;
   EOFException.prototype = Object.create(IOException.prototype);
@@ -178,47 +307,148 @@
   function ByteReadChannel(content) {
     return ByteReadChannel_0(content, 0, content.length);
   }
+  function $tryAwaitCOROUTINE$49(_this__u8e3s4, n, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.n_1 = n;
+  }
+  $tryAwaitCOROUTINE$49.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            if (this._this__u8e3s4__1.this$0__1.get_availableForWrite_22rgeu_k$() < this.n_1) {
+              this.state_1 = 1;
+              suspendResult = this._this__u8e3s4__1.this$0__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(this.n_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.state_1 = 2;
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return Unit_getInstance();
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $tryAwaitCOROUTINE$49.$metadata$ = classMeta('$tryAwaitCOROUTINE$49', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function ByteChannelSequentialBase_init_$Init$(initial, autoFlush, pool, $mask0, $marker, $this) {
     if (!(($mask0 & 4) === 0))
-      pool = Companion_getInstance_4().d12_1;
+      pool = Companion_getInstance_4().Pool_1;
     ByteChannelSequentialBase.call($this, initial, autoFlush, pool);
     return $this;
   }
+  function ByteChannelSequentialBase_init_$Create$(initial, autoFlush, pool, $mask0, $marker) {
+    return ByteChannelSequentialBase_init_$Init$(initial, autoFlush, pool, $mask0, $marker, Object.create(ByteChannelSequentialBase.prototype));
+  }
+  function _get__lastReadView__ij231d($this) {
+    return $this._lastReadView_1;
+  }
+  function _get__totalBytesRead__ypqfud($this) {
+    return $this._totalBytesRead_1;
+  }
+  function _get__totalBytesWritten__yty2ze($this) {
+    return $this._totalBytesWritten_1;
+  }
+  function _get__availableForRead__1rfsys($this) {
+    return $this._availableForRead_1;
+  }
+  function _get_channelSize__ptruy5($this) {
+    return $this.channelSize_1;
+  }
+  function _get__closed__hglk9y($this) {
+    return $this._closed_1;
+  }
   function _get_isCancelled__nhbn6y($this) {
-    var tmp0_safe_receiver = $this.o12_1.zj_1;
-    return !((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.w12_1) == null);
+    var tmp0_safe_receiver = $this._closed_1.value_1;
+    return !((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.cause_1) == null);
+  }
+  function _set_lastReadAvailable__98ukjs($this, _set____db54di) {
+    var tmp0_setValue = lastReadAvailable$factory();
+    $this.lastReadAvailable$delegate_1.value_1 = _set____db54di;
+    return Unit_getInstance();
+  }
+  function _get_lastReadAvailable__cgybqk($this) {
+    var tmp$ret$0;
+    {
+      var tmp0_getValue = lastReadAvailable$factory_0();
+      tmp$ret$0 = $this.lastReadAvailable$delegate_1.value_1;
+    }
+    return tmp$ret$0;
+  }
+  function _set_lastReadView__2y3peu($this, _set____db54di) {
+    var tmp0_setValue = lastReadView$factory();
+    $this.lastReadView$delegate_1.value_1 = _set____db54di;
+    return Unit_getInstance();
+  }
+  function _get_lastReadView__ihufyy($this) {
+    var tmp$ret$0;
+    {
+      var tmp0_getValue = lastReadView$factory_0();
+      tmp$ret$0 = $this.lastReadView$delegate_1.value_1;
+    }
+    return tmp$ret$0;
+  }
+  function _get_slot__ddq6fh($this) {
+    return $this.slot_1;
+  }
+  function _get_flushMutex__shnjf4($this) {
+    return $this.flushMutex_1;
+  }
+  function _get_flushBuffer__b837ot($this) {
+    return $this.flushBuffer_1;
   }
   function flushImpl($this) {
-    if ($this.p12_1.lr()) {
-      $this.t12_1.y12();
+    if ($this.writable_1.get_isEmpty_zauvru_k$()) {
+      $this.slot_1.resume_2nhcyk_k$();
       return false;
     }
     flushWrittenBytes($this);
-    $this.t12_1.y12();
+    $this.slot_1.resume_2nhcyk_k$();
     return true;
   }
   function flushWrittenBytes($this) {
     var tmp$ret$1;
     {
-      var tmp0_synchronized = $this.u12_1;
+      var tmp0_synchronized = $this.flushMutex_1;
       var tmp$ret$0;
       {
-        var size = $this.p12_1.g();
-        var buffer = ensureNotNull($this.p12_1.p13());
-        $this.v12_1.q13(buffer);
-        tmp$ret$0 = $this.m12_1.atomicfu$addAndGet(size);
+        var size = $this.writable_1.get_size_woubt6_k$();
+        var buffer = ensureNotNull($this.writable_1.stealAll_nensgi_k$());
+        $this.flushBuffer_1.writeChunkBuffer_g4ats6_k$(buffer);
+        tmp$ret$0 = $this._availableForRead_1.atomicfu$addAndGet(size);
       }
       tmp$ret$1 = tmp$ret$0;
     }
   }
   function ensureNotClosed($this) {
-    if ($this.s13()) {
-      var tmp0_elvis_lhs = $this.r13();
+    if ($this.get_closed_byjrzp_k$()) {
+      var tmp0_elvis_lhs = $this.get_closedCause_o1qcj8_k$();
       throw tmp0_elvis_lhs == null ? new ClosedWriteChannelException('Channel ' + $this + ' is already closed') : tmp0_elvis_lhs;
     }
   }
   function ensureNotFailed($this) {
-    var tmp0_safe_receiver = $this.r13();
+    var tmp0_safe_receiver = $this.get_closedCause_o1qcj8_k$();
     if (tmp0_safe_receiver == null)
       null;
     else {
@@ -231,7 +461,7 @@
     }
   }
   function ensureNotFailed_0($this, closeable) {
-    var tmp0_safe_receiver = $this.r13();
+    var tmp0_safe_receiver = $this.get_closedCause_o1qcj8_k$();
     if (tmp0_safe_receiver == null)
       null;
     else {
@@ -239,16 +469,173 @@
       {
         {
         }
-        closeable.rq();
+        closeable.release_wtm6d2_k$();
         throw tmp0_safe_receiver;
       }
     }
   }
+  function checkClosed($this, remaining, closeable) {
+    var tmp0_safe_receiver = $this.get_closedCause_o1qcj8_k$();
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      var tmp$ret$0;
+      {
+        {
+        }
+        var tmp0_safe_receiver_0 = closeable;
+        if (tmp0_safe_receiver_0 == null)
+          null;
+        else {
+          tmp0_safe_receiver_0.close_ymq55z_k$();
+        }
+        throw tmp0_safe_receiver;
+      }
+    }
+    if ($this.get_closed_byjrzp_k$() ? $this.get_availableForRead_tq0sox_k$() < remaining : false) {
+      var tmp1_safe_receiver = closeable;
+      if (tmp1_safe_receiver == null)
+        null;
+      else {
+        tmp1_safe_receiver.close_ymq55z_k$();
+      }
+      throw new EOFException('' + remaining + ' bytes required but EOF reached');
+    }
+  }
+  function checkClosed$default($this, remaining, closeable, $mask0, $handler) {
+    if (!(($mask0 & 4) === 0))
+      closeable = null;
+    return checkClosed($this, remaining, closeable);
+  }
+  function readByteSlow($this, $cont) {
+    var tmp = new $readByteSlowCOROUTINE$15($this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readShortSlow($this, $cont) {
+    var tmp = new $readShortSlowCOROUTINE$17($this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readIntSlow($this, $cont) {
+    var tmp = new $readIntSlowCOROUTINE$19($this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readLongSlow($this, $cont) {
+    var tmp = new $readLongSlowCOROUTINE$21($this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readFloatSlow($this, $cont) {
+    var tmp = new $readFloatSlowCOROUTINE$23($this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readDoubleSlow($this, $cont) {
+    var tmp = new $readDoubleSlowCOROUTINE$25($this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
   function readRemainingSuspend($this, builder, limit, $cont) {
     var tmp = new $readRemainingSuspendCOROUTINE$27($this, builder, limit, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readPacketSuspend($this, builder, size, $cont) {
+    var tmp = new $readPacketSuspendCOROUTINE$29($this, builder, size, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readFully($this, dst, n, $cont) {
+    var tmp = new $readFullyCOROUTINE$31($this, dst, n, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readFullySuspend($this, dst, n, $cont) {
+    var tmp = new $readFullySuspendCOROUTINE$32($this, dst, n, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readFullySuspend_0($this, dst, offset, length, $cont) {
+    var tmp = new $readFullySuspendCOROUTINE$35($this, dst, offset, length, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readBooleanSlow($this, $cont) {
+    var tmp = new $readBooleanSlowCOROUTINE$37($this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function completeReading($this) {
+    var tmp$ret$0;
+    {
+      var tmp0__get_readRemaining__u3cy9h = _get_lastReadView__ihufyy($this);
+      tmp$ret$0 = tmp0__get_readRemaining__u3cy9h.writePosition_1 - tmp0__get_readRemaining__u3cy9h.readPosition_1 | 0;
+    }
+    var remaining = tmp$ret$0;
+    var delta = _get_lastReadAvailable__cgybqk($this) - remaining | 0;
+    if (!(_get_lastReadView__ihufyy($this) === Companion_getInstance_1().get_Empty_i9b85g_k$())) {
+      completeReadHead($this.readable_1, _get_lastReadView__ihufyy($this));
+    }
+    if (delta > 0) {
+      $this.afterRead_16ll9a_k$(delta);
+    }
+    _set_lastReadAvailable__98ukjs($this, 0);
+    _set_lastReadView__2y3peu($this, Companion_getInstance_4().Empty_1);
+  }
+  function requestNextView($this, atLeast) {
+    var tmp$ret$0;
+    {
+      var tmp0__get_isEmpty__8d2q20 = $this.readable_1;
+      tmp$ret$0 = tmp0__get_isEmpty__8d2q20.get_endOfInput_skegkh_k$();
+    }
+    if (tmp$ret$0) {
+      $this.prepareFlushedBytes_jjdule_k$();
+    }
+    var view = $this.readable_1.prepareReadHead_atci78_k$(atLeast);
+    if (view == null) {
+      _set_lastReadView__2y3peu($this, Companion_getInstance_4().Empty_1);
+      _set_lastReadAvailable__98ukjs($this, 0);
+    } else {
+      _set_lastReadView__2y3peu($this, view);
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = view.writePosition_1 - view.readPosition_1 | 0;
+      }
+      _set_lastReadAvailable__98ukjs($this, tmp$ret$1);
+    }
+    return view;
+  }
+  function discardSuspend($this, max, discarded0, $cont) {
+    var tmp = new $discardSuspendCOROUTINE$41($this, max, discarded0, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function writeAvailableSuspend($this, src, $cont) {
+    var tmp = new $writeAvailableSuspendCOROUTINE$44($this, src, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function writeAvailableSuspend_0($this, src, offset, length, $cont) {
+    var tmp = new $writeAvailableSuspendCOROUTINE$45($this, src, offset, length, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function addBytesRead($this, count) {
     {
@@ -265,35 +652,35 @@
       }
     }
     {
-      var tmp1_minusAssign = $this.n12_1;
+      var tmp1_minusAssign = $this.channelSize_1;
       tmp1_minusAssign.atomicfu$getAndAdd(-count | 0);
     }
-    $this.k12_1.atomicfu$addAndGet$long(toLong(count));
+    $this._totalBytesRead_1.atomicfu$addAndGet$long(toLong(count));
     {
-      var tmp2_minusAssign = $this.m12_1;
+      var tmp2_minusAssign = $this._availableForRead_1;
       tmp2_minusAssign.atomicfu$getAndAdd(-count | 0);
     }
     {
-      var tmp3_check = $this.n12_1.ak_1 >= 0;
+      var tmp3_check = $this.channelSize_1.value_1 >= 0;
       {
       }
       if (!tmp3_check) {
         var tmp$ret$1;
         {
-          tmp$ret$1 = 'Readable bytes count is negative: ' + $this.h14() + ', ' + count + ' in ' + $this;
+          tmp$ret$1 = 'Readable bytes count is negative: ' + $this.get_availableForRead_tq0sox_k$() + ', ' + count + ' in ' + $this;
         }
         var message_0 = tmp$ret$1;
         throw IllegalStateException_init_$Create$(toString(message_0));
       }
     }
     {
-      var tmp4_check = $this.h14() >= 0;
+      var tmp4_check = $this.get_availableForRead_tq0sox_k$() >= 0;
       {
       }
       if (!tmp4_check) {
         var tmp$ret$2;
         {
-          tmp$ret$2 = 'Readable bytes count is negative: ' + $this.h14() + ', ' + count + ' in ' + $this;
+          tmp$ret$2 = 'Readable bytes count is negative: ' + $this.get_availableForRead_tq0sox_k$() + ', ' + count + ' in ' + $this;
         }
         var message_1 = tmp$ret$2;
         throw IllegalStateException_init_$Create$(toString(message_1));
@@ -315,18 +702,18 @@
       }
     }
     {
-      var tmp1_plusAssign = $this.n12_1;
+      var tmp1_plusAssign = $this.channelSize_1;
       tmp1_plusAssign.atomicfu$getAndAdd(count);
     }
-    $this.l12_1.atomicfu$addAndGet$long(toLong(count));
+    $this._totalBytesWritten_1.atomicfu$addAndGet$long(toLong(count));
     {
-      var tmp2_check = $this.n12_1.ak_1 >= 0;
+      var tmp2_check = $this.channelSize_1.value_1 >= 0;
       {
       }
       if (!tmp2_check) {
         var tmp$ret$1;
         {
-          tmp$ret$1 = 'Readable bytes count is negative: ' + $this.n12_1.ak_1 + ', ' + count + ' in ' + $this;
+          tmp$ret$1 = 'Readable bytes count is negative: ' + $this.channelSize_1.value_1 + ', ' + count + ' in ' + $this;
         }
         var message_0 = tmp$ret$1;
         throw IllegalStateException_init_$Create$(toString(message_0));
@@ -335,65 +722,242 @@
   }
   function ByteChannelSequentialBase$awaitAtLeastNBytesAvailableForWrite$lambda(this$0, $count) {
     return function () {
-      return this$0.i14() < $count ? !this$0.s13() : false;
+      return this$0.get_availableForWrite_22rgeu_k$() < $count ? !this$0.get_closed_byjrzp_k$() : false;
     };
   }
   function ByteChannelSequentialBase$awaitAtLeastNBytesAvailableForRead$lambda(this$0, $count) {
     return function () {
-      return this$0.h14() < $count ? !this$0.j14() : false;
+      return this$0.get_availableForRead_tq0sox_k$() < $count ? !this$0.get_isClosedForRead_ajcc1s_k$() : false;
     };
   }
-  function $awaitAtLeastNBytesAvailableForWriteCOROUTINE$0(_this__u8e3s4, count, resultContinuation) {
-    CoroutineImpl.call(this, resultContinuation);
-    this.s14_1 = _this__u8e3s4;
-    this.t14_1 = count;
+  function ByteChannelSequentialBase$beginWriteSession$1(this$0) {
+    this.this$0__1 = this$0;
   }
-  $awaitAtLeastNBytesAvailableForWriteCOROUTINE$0.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  ByteChannelSequentialBase$beginWriteSession$1.prototype.request_z0ru36_k$ = function (min) {
+    if (this.this$0__1.get_availableForWrite_22rgeu_k$() === 0)
+      return null;
+    return this.this$0__1.writable_1.prepareWriteHead_k7upd5_k$(min);
+  };
+  ByteChannelSequentialBase$beginWriteSession$1.prototype.written_crrcc9_k$ = function (n) {
+    this.this$0__1.writable_1.afterHeadWrite_dlo0ku_k$();
+    this.this$0__1.afterWrite_uxn9f1_k$(n);
+  };
+  ByteChannelSequentialBase$beginWriteSession$1.prototype.flush_sgqoqb_k$ = function () {
+    this.this$0__1.flush_sgqoqb_k$();
+  };
+  ByteChannelSequentialBase$beginWriteSession$1.prototype.tryAwait_d0ovbh_k$ = function (n, $cont) {
+    var tmp = new $tryAwaitCOROUTINE$49(this, n, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase$beginWriteSession$1.$metadata$ = classMeta(undefined, [WriterSuspendSession]);
+  function ByteChannelSequentialBase$readUTF8LineTo$slambda(this$0, resultContinuation) {
+    this.this$0__1 = this$0;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  ByteChannelSequentialBase$readUTF8LineTo$slambda.prototype.invoke_xqo7b6_k$ = function (size, $cont) {
+    var tmp = this.create_4s7vdz_k$(size, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase$readUTF8LineTo$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_xqo7b6_k$((!(p1 == null) ? typeof p1 === 'number' : false) ? p1 : THROW_CCE(), $cont);
+  };
+  ByteChannelSequentialBase$readUTF8LineTo$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 4;
-            this.pd_1 = 1;
-            continue $sm;
-          case 1:
-            if (!(this.s14_1.i14() < this.t14_1 ? !this.s14_1.s13() : false)) {
-              this.pd_1 = 5;
-              continue $sm;
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = this.this$0__1.await_a8ddvc_k$(this.size_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
             }
 
-            if (!flushImpl(this.s14_1)) {
-              this.pd_1 = 2;
-              suspendResult = this.s14_1.t12_1.u14(ByteChannelSequentialBase$awaitAtLeastNBytesAvailableForWrite$lambda(this.s14_1, this.t14_1), this);
-              if (suspendResult === get_COROUTINE_SUSPENDED()) {
-                return suspendResult;
-              }
+            continue $sm;
+          case 1:
+            if (suspendResult) {
+              this.WHEN_RESULT0__1 = this.this$0__1.readable_1;
+              this.state_1 = 2;
               continue $sm;
             } else {
-              this.pd_1 = 3;
+              this.WHEN_RESULT0__1 = null;
+              this.state_1 = 2;
               continue $sm;
             }
 
             break;
           case 2:
-            this.pd_1 = 3;
+            return this.WHEN_RESULT0__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  ByteChannelSequentialBase$readUTF8LineTo$slambda.prototype.create_4s7vdz_k$ = function (size, completion) {
+    var i = new ByteChannelSequentialBase$readUTF8LineTo$slambda(this.this$0__1, completion);
+    i.size_1 = size;
+    return i;
+  };
+  ByteChannelSequentialBase$readUTF8LineTo$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_4s7vdz_k$((!(value == null) ? typeof value === 'number' : false) ? value : THROW_CCE(), completion);
+  };
+  ByteChannelSequentialBase$readUTF8LineTo$slambda.$metadata$ = classMeta('ByteChannelSequentialBase$readUTF8LineTo$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
+  function ByteChannelSequentialBase$readUTF8LineTo$slambda_0(this$0, resultContinuation) {
+    var i = new ByteChannelSequentialBase$readUTF8LineTo$slambda(this$0, resultContinuation);
+    var l = function (size, $cont) {
+      return i.invoke_xqo7b6_k$(size, $cont);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function ByteChannelSequentialBase$readUTF8LineTo$lambda(this$0) {
+    return function (it) {
+      this$0.afterRead_16ll9a_k$(it);
+      return Unit_getInstance();
+    };
+  }
+  function ByteChannelSequentialBase$peekTo$slambda($min, $offset, $bytesCopied, $destination, $destinationOffset, $max, resultContinuation) {
+    this.$min_1 = $min;
+    this.$offset_1 = $offset;
+    this.$bytesCopied_1 = $bytesCopied;
+    this.$destination_1 = $destination;
+    this.$destinationOffset_1 = $destinationOffset;
+    this.$max_1 = $max;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  ByteChannelSequentialBase$peekTo$slambda.prototype.invoke_36ra75_k$ = function ($this$readSuspendableSession, $cont) {
+    var tmp = this.create_cudtfw_k$($this$readSuspendableSession, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase$peekTo$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_36ra75_k$((!(p1 == null) ? isInterface(p1, SuspendableReadSession) : false) ? p1 : THROW_CCE(), $cont);
+  };
+  ByteChannelSequentialBase$peekTo$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.desiredSize0__1 = coerceAtMost(this.$min_1.plus_u6jwas_k$(this.$offset_1), new Long(4088, 0)).toInt_1tsl84_k$();
+            this.state_1 = 1;
+            suspendResult = this.$this$readSuspendableSession_1.await_a8ddvc_k$(this.desiredSize0__1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            var tmp0_elvis_lhs = this.$this$readSuspendableSession_1.request_z0ru36_k$(1);
+            var buffer = tmp0_elvis_lhs == null ? Companion_getInstance_4().Empty_1 : tmp0_elvis_lhs;
+            if (toLong(buffer.writePosition_1 - buffer.readPosition_1 | 0).compareTo_n4fqi2_k$(this.$offset_1) > 0) {
+              var tmp0_minOf = toLong(buffer.writePosition_1 - buffer.readPosition_1 | 0).minus_llf5ei_k$(this.$offset_1);
+              var tmp1_minOf = toLong(this.$destination_1.view_1.byteLength).minus_llf5ei_k$(this.$destinationOffset_1);
+              var tmp0_minOf_0 = this.$max_1.compareTo_n4fqi2_k$(tmp1_minOf) <= 0 ? this.$max_1 : tmp1_minOf;
+              this.$bytesCopied_1._v = tmp0_minOf.compareTo_n4fqi2_k$(tmp0_minOf_0) <= 0 ? tmp0_minOf : tmp0_minOf_0;
+              buffer.get_memory_gl4362_k$().copyTo_w9dpzg_k$(this.$destination_1, this.$offset_1, this.$bytesCopied_1._v, this.$destinationOffset_1);
+            }
+
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  ByteChannelSequentialBase$peekTo$slambda.prototype.create_cudtfw_k$ = function ($this$readSuspendableSession, completion) {
+    var i = new ByteChannelSequentialBase$peekTo$slambda(this.$min_1, this.$offset_1, this.$bytesCopied_1, this.$destination_1, this.$destinationOffset_1, this.$max_1, completion);
+    i.$this$readSuspendableSession_1 = $this$readSuspendableSession;
+    return i;
+  };
+  ByteChannelSequentialBase$peekTo$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_cudtfw_k$((!(value == null) ? isInterface(value, SuspendableReadSession) : false) ? value : THROW_CCE(), completion);
+  };
+  ByteChannelSequentialBase$peekTo$slambda.$metadata$ = classMeta('ByteChannelSequentialBase$peekTo$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
+  function ByteChannelSequentialBase$peekTo$slambda_0($min, $offset, $bytesCopied, $destination, $destinationOffset, $max, resultContinuation) {
+    var i = new ByteChannelSequentialBase$peekTo$slambda($min, $offset, $bytesCopied, $destination, $destinationOffset, $max, resultContinuation);
+    var l = function ($this$readSuspendableSession, $cont) {
+      return i.invoke_36ra75_k$($this$readSuspendableSession, $cont);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function $awaitAtLeastNBytesAvailableForWriteCOROUTINE$0(_this__u8e3s4, count, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.count_1 = count;
+  }
+  $awaitAtLeastNBytesAvailableForWriteCOROUTINE$0.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 4;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            if (!(this._this__u8e3s4__1.get_availableForWrite_22rgeu_k$() < this.count_1 ? !this._this__u8e3s4__1.get_closed_byjrzp_k$() : false)) {
+              this.state_1 = 5;
+              continue $sm;
+            }
+
+            if (!flushImpl(this._this__u8e3s4__1)) {
+              this.state_1 = 2;
+              suspendResult = this._this__u8e3s4__1.slot_1.sleep_4rbna1_k$(ByteChannelSequentialBase$awaitAtLeastNBytesAvailableForWrite$lambda(this._this__u8e3s4__1, this.count_1), this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.state_1 = 3;
+              continue $sm;
+            }
+
+            break;
+          case 2:
+            this.state_1 = 3;
             continue $sm;
           case 3:
-            this.pd_1 = 1;
+            this.state_1 = 1;
             continue $sm;
           case 4:
-            throw this.sd_1;
+            throw this.exception_1;
           case 5:
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 4) {
+        if (this.exceptionState_1 === 4) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -401,85 +965,352 @@
   $awaitAtLeastNBytesAvailableForWriteCOROUTINE$0.$metadata$ = classMeta('$awaitAtLeastNBytesAvailableForWriteCOROUTINE$0', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $awaitAtLeastNBytesAvailableForReadCOROUTINE$1(_this__u8e3s4, count, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.d15_1 = _this__u8e3s4;
-    this.e15_1 = count;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.count_1 = count;
   }
-  $awaitAtLeastNBytesAvailableForReadCOROUTINE$1.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $awaitAtLeastNBytesAvailableForReadCOROUTINE$1.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            if (!(this.d15_1.h14() < this.e15_1 ? !this.d15_1.j14() : false)) {
-              this.pd_1 = 4;
+            if (!(this._this__u8e3s4__1.get_availableForRead_tq0sox_k$() < this.count_1 ? !this._this__u8e3s4__1.get_isClosedForRead_ajcc1s_k$() : false)) {
+              this.state_1 = 4;
               continue $sm;
             }
 
-            this.pd_1 = 2;
-            suspendResult = this.d15_1.t12_1.u14(ByteChannelSequentialBase$awaitAtLeastNBytesAvailableForRead$lambda(this.d15_1, this.e15_1), this);
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.slot_1.sleep_4rbna1_k$(ByteChannelSequentialBase$awaitAtLeastNBytesAvailableForRead$lambda(this._this__u8e3s4__1, this.count_1), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 2:
-            this.pd_1 = 1;
+            this.state_1 = 1;
             continue $sm;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
           case 4:
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $awaitAtLeastNBytesAvailableForReadCOROUTINE$1.$metadata$ = classMeta('$awaitAtLeastNBytesAvailableForReadCOROUTINE$1', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function $writeFullyCOROUTINE$9(_this__u8e3s4, src, resultContinuation) {
+  function $writeByteCOROUTINE$2(_this__u8e3s4, b, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.n15_1 = _this__u8e3s4;
-    this.o15_1 = src;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.b_1 = b;
   }
-  $writeFullyCOROUTINE$9.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $writeByteCOROUTINE$2.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            this.pd_1 = 1;
-            suspendResult = this.n15_1.p15(1, this);
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            var count = this.o15_1.s15_1 - this.o15_1.r15_1 | 0;
-            writeFully$default(this.n15_1.p12_1, this.o15_1, 0, 2, null);
-            this.n15_1.w15(count);
+            this._this__u8e3s4__1.writable_1.writeByte_jvpujw_k$(this.b_1);
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(1);
             return Unit_getInstance();
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeByteCOROUTINE$2.$metadata$ = classMeta('$writeByteCOROUTINE$2', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeShortCOROUTINE$3(_this__u8e3s4, s, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.s_1 = s;
+  }
+  $writeShortCOROUTINE$3.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(2, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            writeShort_0(this._this__u8e3s4__1.writable_1, this.s_1);
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(2);
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeShortCOROUTINE$3.$metadata$ = classMeta('$writeShortCOROUTINE$3', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeIntCOROUTINE$4(_this__u8e3s4, i, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.i_1 = i;
+  }
+  $writeIntCOROUTINE$4.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(4, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            writeInt_0(this._this__u8e3s4__1.writable_1, this.i_1);
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(4);
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeIntCOROUTINE$4.$metadata$ = classMeta('$writeIntCOROUTINE$4', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeLongCOROUTINE$5(_this__u8e3s4, l, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.l_1 = l;
+  }
+  $writeLongCOROUTINE$5.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(8, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            writeLong_0(this._this__u8e3s4__1.writable_1, this.l_1);
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(8);
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeLongCOROUTINE$5.$metadata$ = classMeta('$writeLongCOROUTINE$5', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeFloatCOROUTINE$6(_this__u8e3s4, f, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.f_1 = f;
+  }
+  $writeFloatCOROUTINE$6.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(4, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            writeFloat(this._this__u8e3s4__1.writable_1, this.f_1);
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(4);
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeFloatCOROUTINE$6.$metadata$ = classMeta('$writeFloatCOROUTINE$6', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeDoubleCOROUTINE$7(_this__u8e3s4, d, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.d_1 = d;
+  }
+  $writeDoubleCOROUTINE$7.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(8, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            writeDouble(this._this__u8e3s4__1.writable_1, this.d_1);
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(8);
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeDoubleCOROUTINE$7.$metadata$ = classMeta('$writeDoubleCOROUTINE$7', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writePacketCOROUTINE$8(_this__u8e3s4, packet, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.packet_1 = packet;
+  }
+  $writePacketCOROUTINE$8.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            var size = this.packet_1.get_remaining_mwegr1_k$().toInt_1tsl84_k$();
+            this._this__u8e3s4__1.writable_1.writePacket_leumkr_k$(this.packet_1);
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(size);
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writePacketCOROUTINE$8.$metadata$ = classMeta('$writePacketCOROUTINE$8', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeFullyCOROUTINE$9(_this__u8e3s4, src, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.src_1 = src;
+  }
+  $writeFullyCOROUTINE$9.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            var count = this.src_1.writePosition_1 - this.src_1.readPosition_1 | 0;
+            writeFully$default_0(this._this__u8e3s4__1.writable_1, this.src_1, 0, 2, null);
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(count);
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -487,96 +1318,257 @@
   $writeFullyCOROUTINE$9.$metadata$ = classMeta('$writeFullyCOROUTINE$9', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $writeFullyCOROUTINE$10(_this__u8e3s4, src, offset, length, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.f16_1 = _this__u8e3s4;
-    this.g16_1 = src;
-    this.h16_1 = offset;
-    this.i16_1 = length;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.src_1 = src;
+    this.offset_1 = offset;
+    this.length_1 = length;
   }
-  $writeFullyCOROUTINE$10.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $writeFullyCOROUTINE$10.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 4;
-            this.j16_1 = this.h16_1;
-            this.k16_1 = this.h16_1 + this.i16_1 | 0;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 4;
+            this.currentIndex0__1 = this.offset_1;
+            this.endIndex1__1 = this.offset_1 + this.length_1 | 0;
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            if (!(this.j16_1 < this.k16_1)) {
-              this.pd_1 = 3;
+            if (!(this.currentIndex0__1 < this.endIndex1__1)) {
+              this.state_1 = 3;
               continue $sm;
             }
 
-            this.pd_1 = 2;
-            suspendResult = this.f16_1.p15(1, this);
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 2:
-            var tmp0_min = this.f16_1.i14();
-            var tmp1_min = this.k16_1 - this.j16_1 | 0;
+            var tmp0_min = this._this__u8e3s4__1.get_availableForWrite_22rgeu_k$();
+            var tmp1_min = this.endIndex1__1 - this.currentIndex0__1 | 0;
             var bytesCount = Math.min(tmp0_min, tmp1_min);
-            writeFully_3(this.f16_1.p12_1, this.g16_1, this.j16_1, bytesCount);
-            this.j16_1 = this.j16_1 + bytesCount | 0;
-            this.f16_1.w15(bytesCount);
-            this.pd_1 = 1;
+            writeFully_3(this._this__u8e3s4__1.writable_1, this.src_1, this.currentIndex0__1, bytesCount);
+            this.currentIndex0__1 = this.currentIndex0__1 + bytesCount | 0;
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(bytesCount);
+            this.state_1 = 1;
             continue $sm;
           case 3:
             return Unit_getInstance();
           case 4:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 4) {
+        if (this.exceptionState_1 === 4) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $writeFullyCOROUTINE$10.$metadata$ = classMeta('$writeFullyCOROUTINE$10', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function $readRemainingCOROUTINE$26(_this__u8e3s4, limit, resultContinuation) {
+  function $writeFullyCOROUTINE$11(_this__u8e3s4, memory, startIndex, endIndex, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.t16_1 = _this__u8e3s4;
-    this.u16_1 = limit;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.memory_1 = memory;
+    this.startIndex_1 = startIndex;
+    this.endIndex_1 = endIndex;
   }
-  $readRemainingCOROUTINE$26.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $writeFullyCOROUTINE$11.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            ensureNotFailed(this.t16_1);
+            this.exceptionState_1 = 4;
+            this.currentIndex0__1 = this.startIndex_1;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            if (!(this.currentIndex0__1 < this.endIndex_1)) {
+              this.state_1 = 3;
+              continue $sm;
+            }
+
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            var tmp0_min = this._this__u8e3s4__1.get_availableForWrite_22rgeu_k$();
+            var tmp1_min = this.endIndex_1 - this.currentIndex0__1 | 0;
+            var bytesCount = Math.min(tmp0_min, tmp1_min);
+            writeFully_4(this._this__u8e3s4__1.writable_1, this.memory_1, this.currentIndex0__1, bytesCount);
+            this.currentIndex0__1 = this.currentIndex0__1 + bytesCount | 0;
+            this._this__u8e3s4__1.afterWrite_uxn9f1_k$(bytesCount);
+            this.state_1 = 1;
+            continue $sm;
+          case 3:
+            return Unit_getInstance();
+          case 4:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 4) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeFullyCOROUTINE$11.$metadata$ = classMeta('$writeFullyCOROUTINE$11', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeAvailableCOROUTINE$12(_this__u8e3s4, src, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.src_1 = src;
+  }
+  $writeAvailableCOROUTINE$12.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
             var tmp_0 = this;
-            tmp_0.v16_1 = BytePacketBuilder_init_$Create$(null, 1, null);
+            tmp_0.srcRemaining0__1 = this.src_1.writePosition_1 - this.src_1.readPosition_1 | 0;
+            if (this.srcRemaining0__1 === 0)
+              return 0;
             var tmp_1 = this;
             var tmp_2 = this;
-            tmp_2.w16_1 = this.t16_1.q12_1.i17();
-            tmp_1.x16_1 = this.u16_1.a1(this.w16_1) <= 0 ? this.u16_1 : this.w16_1;
-            this.v16_1.j17(this.t16_1.q12_1, this.x16_1);
-            this.t16_1.k17(this.x16_1.md());
-            var tmp_3 = this;
-            var tmp_4 = this;
-            tmp_4.y16_1 = this.v16_1.g();
-            tmp_3.z16_1 = this.u16_1.c4(toLong(this.y16_1));
-            if (this.z16_1.equals(new Long(0, 0)) ? true : this.t16_1.j14()) {
-              var tmp_5 = this;
-              ensureNotFailed_0(this.t16_1, this.v16_1);
-              tmp_5.a17_1 = this.v16_1.l17();
-              this.pd_1 = 2;
+            tmp_2.tmp0_minOf1__1 = this._this__u8e3s4__1.get_availableForWrite_22rgeu_k$();
+            tmp_1.size2__1 = Math.min(this.srcRemaining0__1, this.tmp0_minOf1__1);
+            if (this.size2__1 === 0) {
+              this.state_1 = 1;
+              suspendResult = writeAvailableSuspend(this._this__u8e3s4__1, this.src_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
               continue $sm;
             } else {
-              this.pd_1 = 1;
-              suspendResult = readRemainingSuspend(this.t16_1, this.v16_1, this.u16_1, this);
+              var tmp_3 = this;
+              writeFully_2(this._this__u8e3s4__1.writable_1, this.src_1, this.size2__1);
+              this._this__u8e3s4__1.afterWrite_uxn9f1_k$(this.size2__1);
+              tmp_3.WHEN_RESULT3__1 = this.size2__1;
+              this.state_1 = 2;
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT3__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT3__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeAvailableCOROUTINE$12.$metadata$ = classMeta('$writeAvailableCOROUTINE$12', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeAvailableCOROUTINE$13(_this__u8e3s4, src, offset, length, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.src_1 = src;
+    this.offset_1 = offset;
+    this.length_1 = length;
+  }
+  $writeAvailableCOROUTINE$13.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            if (this.length_1 === 0)
+              return 0;
+            var tmp_0 = this;
+            var tmp_1 = this;
+            tmp_1.tmp0_minOf0__1 = this._this__u8e3s4__1.get_availableForWrite_22rgeu_k$();
+            tmp_0.size1__1 = Math.min(this.length_1, this.tmp0_minOf0__1);
+            if (this.size1__1 === 0) {
+              this.state_1 = 1;
+              suspendResult = writeAvailableSuspend_0(this._this__u8e3s4__1, this.src_1, this.offset_1, this.length_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              var tmp_2 = this;
+              writeFully_3(this._this__u8e3s4__1.writable_1, this.src_1, this.offset_1, this.size1__1);
+              this._this__u8e3s4__1.afterWrite_uxn9f1_k$(this.size1__1);
+              tmp_2.WHEN_RESULT2__1 = this.size1__1;
+              this.state_1 = 2;
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT2__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT2__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeAvailableCOROUTINE$13.$metadata$ = classMeta('$writeAvailableCOROUTINE$13', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readByteCOROUTINE$14(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readByteCOROUTINE$14.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            var tmp_0 = this;
+            tmp_0.tmp0__get_isNotEmpty_1_ru2h1g_1 = this._this__u8e3s4__1.readable_1;
+            if (!this.tmp0__get_isNotEmpty_1_ru2h1g_1.get_endOfInput_skegkh_k$()) {
+              var tmp_1 = this;
+              var tmp1_also = this._this__u8e3s4__1.readable_1.readByte_ectjk2_k$();
+              this._this__u8e3s4__1.afterRead_16ll9a_k$(1);
+              tmp_1.WHEN_RESULT0__1 = tmp1_also;
+              this.state_1 = 3;
+              continue $sm;
+            } else {
+              this.state_1 = 1;
+              suspendResult = readByteSlow(this._this__u8e3s4__1, this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
@@ -585,20 +1577,572 @@
 
             break;
           case 1:
-            this.a17_1 = suspendResult;
-            this.pd_1 = 2;
+            this.WHEN_RESULT0__1 = suspendResult;
+            this.state_1 = 3;
             continue $sm;
           case 2:
-            return this.a17_1;
+            throw this.exception_1;
           case 3:
-            throw this.sd_1;
+            return this.WHEN_RESULT0__1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readByteCOROUTINE$14.$metadata$ = classMeta('$readByteCOROUTINE$14', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readByteSlowCOROUTINE$15(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readByteSlowCOROUTINE$15.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 4;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            ;
+            var tmp0__get_isNotEmpty__a29w5p = this._this__u8e3s4__1.readable_1;
+            if (!tmp0__get_isNotEmpty__a29w5p.get_endOfInput_skegkh_k$()) {
+              var tmp1_also = this._this__u8e3s4__1.readable_1.readByte_ectjk2_k$();
+              this._this__u8e3s4__1.afterRead_16ll9a_k$(1);
+              return tmp1_also;
+            }
+
+            checkClosed$default(this._this__u8e3s4__1, 1, null, 4, null);
+            {
+              this.state_1 = 1;
+              continue $sm;
+            }
+
+            this.state_1 = 3;
+            continue $sm;
+          case 3:
+            return Unit_getInstance();
+          case 4:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 4) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readByteSlowCOROUTINE$15.$metadata$ = classMeta('$readByteSlowCOROUTINE$15', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readShortCOROUTINE$16(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readShortCOROUTINE$16.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            if (this._this__u8e3s4__1.readable_1.hasBytes_voh6kw_k$(2)) {
+              var tmp_0 = this;
+              var tmp0_also = readShort_0(this._this__u8e3s4__1.readable_1);
+              this._this__u8e3s4__1.afterRead_16ll9a_k$(2);
+              tmp_0.WHEN_RESULT0__1 = tmp0_also;
+              this.state_1 = 2;
+              continue $sm;
+            } else {
+              this.state_1 = 1;
+              suspendResult = readShortSlow(this._this__u8e3s4__1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT0__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT0__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readShortCOROUTINE$16.$metadata$ = classMeta('$readShortCOROUTINE$16', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readShortSlowCOROUTINE$17(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readShortSlowCOROUTINE$17.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(2, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            var result = readShort_0(this._this__u8e3s4__1.readable_1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(2);
+            return result;
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readShortSlowCOROUTINE$17.$metadata$ = classMeta('$readShortSlowCOROUTINE$17', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readIntCOROUTINE$18(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readIntCOROUTINE$18.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            if (this._this__u8e3s4__1.readable_1.hasBytes_voh6kw_k$(4)) {
+              var tmp_0 = this;
+              var tmp0_also = readInt_0(this._this__u8e3s4__1.readable_1);
+              this._this__u8e3s4__1.afterRead_16ll9a_k$(4);
+              tmp_0.WHEN_RESULT0__1 = tmp0_also;
+              this.state_1 = 2;
+              continue $sm;
+            } else {
+              this.state_1 = 1;
+              suspendResult = readIntSlow(this._this__u8e3s4__1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT0__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT0__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readIntCOROUTINE$18.$metadata$ = classMeta('$readIntCOROUTINE$18', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readIntSlowCOROUTINE$19(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readIntSlowCOROUTINE$19.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(4, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            var result = readInt_0(this._this__u8e3s4__1.readable_1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(4);
+            return result;
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readIntSlowCOROUTINE$19.$metadata$ = classMeta('$readIntSlowCOROUTINE$19', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readLongCOROUTINE$20(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readLongCOROUTINE$20.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            if (this._this__u8e3s4__1.readable_1.hasBytes_voh6kw_k$(8)) {
+              var tmp_0 = this;
+              var tmp0_also = readLong_0(this._this__u8e3s4__1.readable_1);
+              this._this__u8e3s4__1.afterRead_16ll9a_k$(8);
+              tmp_0.WHEN_RESULT0__1 = tmp0_also;
+              this.state_1 = 2;
+              continue $sm;
+            } else {
+              this.state_1 = 1;
+              suspendResult = readLongSlow(this._this__u8e3s4__1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT0__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT0__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readLongCOROUTINE$20.$metadata$ = classMeta('$readLongCOROUTINE$20', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readLongSlowCOROUTINE$21(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readLongSlowCOROUTINE$21.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(8, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            var result = readLong_0(this._this__u8e3s4__1.readable_1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(8);
+            return result;
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readLongSlowCOROUTINE$21.$metadata$ = classMeta('$readLongSlowCOROUTINE$21', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readFloatCOROUTINE$22(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readFloatCOROUTINE$22.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            if (this._this__u8e3s4__1.readable_1.hasBytes_voh6kw_k$(4)) {
+              var tmp_0 = this;
+              var tmp0_also = readFloat_0(this._this__u8e3s4__1.readable_1);
+              this._this__u8e3s4__1.afterRead_16ll9a_k$(4);
+              tmp_0.WHEN_RESULT0__1 = tmp0_also;
+              this.state_1 = 2;
+              continue $sm;
+            } else {
+              this.state_1 = 1;
+              suspendResult = readFloatSlow(this._this__u8e3s4__1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT0__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT0__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readFloatCOROUTINE$22.$metadata$ = classMeta('$readFloatCOROUTINE$22', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readFloatSlowCOROUTINE$23(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readFloatSlowCOROUTINE$23.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(4, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            var result = readFloat_0(this._this__u8e3s4__1.readable_1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(4);
+            return result;
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readFloatSlowCOROUTINE$23.$metadata$ = classMeta('$readFloatSlowCOROUTINE$23', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readDoubleCOROUTINE$24(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readDoubleCOROUTINE$24.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            if (this._this__u8e3s4__1.readable_1.hasBytes_voh6kw_k$(8)) {
+              var tmp_0 = this;
+              var tmp0_also = readDouble_0(this._this__u8e3s4__1.readable_1);
+              this._this__u8e3s4__1.afterRead_16ll9a_k$(8);
+              tmp_0.WHEN_RESULT0__1 = tmp0_also;
+              this.state_1 = 2;
+              continue $sm;
+            } else {
+              this.state_1 = 1;
+              suspendResult = readDoubleSlow(this._this__u8e3s4__1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT0__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT0__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readDoubleCOROUTINE$24.$metadata$ = classMeta('$readDoubleCOROUTINE$24', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readDoubleSlowCOROUTINE$25(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readDoubleSlowCOROUTINE$25.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(8, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            var result = readDouble_0(this._this__u8e3s4__1.readable_1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(8);
+            return result;
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readDoubleSlowCOROUTINE$25.$metadata$ = classMeta('$readDoubleSlowCOROUTINE$25', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readRemainingCOROUTINE$26(_this__u8e3s4, limit, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.limit_1 = limit;
+  }
+  $readRemainingCOROUTINE$26.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            ensureNotFailed(this._this__u8e3s4__1);
+            var tmp_0 = this;
+            tmp_0.builder0__1 = BytePacketBuilder_init_$Create$(null, 1, null);
+            var tmp_1 = this;
+            var tmp_2 = this;
+            tmp_2.tmp0_minOf1__1 = this._this__u8e3s4__1.readable_1.get_remaining_mwegr1_k$();
+            tmp_1.size2__1 = this.limit_1.compareTo_n4fqi2_k$(this.tmp0_minOf1__1) <= 0 ? this.limit_1 : this.tmp0_minOf1__1;
+            this.builder0__1.writePacket_h832q3_k$(this._this__u8e3s4__1.readable_1, this.size2__1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(this.size2__1.toInt_1tsl84_k$());
+            var tmp_3 = this;
+            var tmp_4 = this;
+            tmp_4.tmp1_minus3__1 = this.builder0__1.get_size_woubt6_k$();
+            tmp_3.newLimit4__1 = this.limit_1.minus_llf5ei_k$(toLong(this.tmp1_minus3__1));
+            if (this.newLimit4__1.equals(new Long(0, 0)) ? true : this._this__u8e3s4__1.get_isClosedForRead_ajcc1s_k$()) {
+              var tmp_5 = this;
+              ensureNotFailed_0(this._this__u8e3s4__1, this.builder0__1);
+              tmp_5.WHEN_RESULT5__1 = this.builder0__1.build_1k0s4u_k$();
+              this.state_1 = 2;
+              continue $sm;
+            } else {
+              this.state_1 = 1;
+              suspendResult = readRemainingSuspend(this._this__u8e3s4__1, this.builder0__1, this.limit_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT5__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT5__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -606,48 +2150,48 @@
   $readRemainingCOROUTINE$26.$metadata$ = classMeta('$readRemainingCOROUTINE$26', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $readRemainingSuspendCOROUTINE$27(_this__u8e3s4, builder, limit, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.b14_1 = _this__u8e3s4;
-    this.c14_1 = builder;
-    this.d14_1 = limit;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.builder_1 = builder;
+    this.limit_1 = limit;
   }
-  $readRemainingSuspendCOROUTINE$27.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $readRemainingSuspendCOROUTINE$27.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 5;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 5;
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            if (!(toLong(this.c14_1.g()).a1(this.d14_1) < 0)) {
-              this.pd_1 = 4;
+            if (!(toLong(this.builder_1.get_size_woubt6_k$()).compareTo_n4fqi2_k$(this.limit_1) < 0)) {
+              this.state_1 = 4;
               continue $sm;
             }
 
             var tmp_0 = this;
             var tmp_1 = this;
-            var tmp0_minus = this.c14_1.g();
-            tmp_1.e14_1 = this.d14_1.c4(toLong(tmp0_minus));
+            var tmp0_minus = this.builder_1.get_size_woubt6_k$();
+            tmp_1.tmp1_minOf0__1 = this.limit_1.minus_llf5ei_k$(toLong(tmp0_minus));
             var tmp_2 = this;
-            tmp_2.f14_1 = this.b14_1.q12_1.i17();
-            tmp_0.g14_1 = this.e14_1.a1(this.f14_1) <= 0 ? this.e14_1 : this.f14_1;
-            this.c14_1.j17(this.b14_1.q12_1, this.g14_1);
-            this.b14_1.k17(this.g14_1.md());
-            ensureNotFailed_0(this.b14_1, this.c14_1);
-            if (this.b14_1.j14() ? true : this.c14_1.g() === this.d14_1.md()) {
-              this.pd_1 = 4;
+            tmp_2.tmp2_minOf1__1 = this._this__u8e3s4__1.readable_1.get_remaining_mwegr1_k$();
+            tmp_0.partLimit2__1 = this.tmp1_minOf0__1.compareTo_n4fqi2_k$(this.tmp2_minOf1__1) <= 0 ? this.tmp1_minOf0__1 : this.tmp2_minOf1__1;
+            this.builder_1.writePacket_h832q3_k$(this._this__u8e3s4__1.readable_1, this.partLimit2__1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(this.partLimit2__1.toInt_1tsl84_k$());
+            ensureNotFailed_0(this._this__u8e3s4__1, this.builder_1);
+            if (this._this__u8e3s4__1.get_isClosedForRead_ajcc1s_k$() ? true : this.builder_1.get_size_woubt6_k$() === this.limit_1.toInt_1tsl84_k$()) {
+              this.state_1 = 4;
               continue $sm;
             } else {
-              this.pd_1 = 2;
+              this.state_1 = 2;
               continue $sm;
             }
 
             break;
           case 2:
-            this.pd_1 = 3;
-            suspendResult = this.b14_1.m17(1, this);
+            this.state_1 = 3;
+            suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -655,39 +2199,170 @@
             continue $sm;
           case 3:
             ;
-            this.pd_1 = 1;
+            this.state_1 = 1;
             continue $sm;
           case 4:
-            ensureNotFailed_0(this.b14_1, this.c14_1);
-            return this.c14_1.l17();
+            ensureNotFailed_0(this._this__u8e3s4__1, this.builder_1);
+            return this.builder_1.build_1k0s4u_k$();
           case 5:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 5) {
+        if (this.exceptionState_1 === 5) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $readRemainingSuspendCOROUTINE$27.$metadata$ = classMeta('$readRemainingSuspendCOROUTINE$27', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function $readAvailableCOROUTINE$30(_this__u8e3s4, dst, resultContinuation) {
+  function $readPacketCOROUTINE$28(_this__u8e3s4, size, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.v17_1 = _this__u8e3s4;
-    this.w17_1 = dst;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.size_1 = size;
   }
-  $readAvailableCOROUTINE$30.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $readPacketCOROUTINE$28.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            var tmp0_safe_receiver = this.v17_1.r13();
+            this.exceptionState_1 = 3;
+            checkClosed$default(this._this__u8e3s4__1, this.size_1, null, 4, null);
+            var tmp_0 = this;
+            tmp_0.builder0__1 = BytePacketBuilder_init_$Create$(null, 1, null);
+            this.remaining1__1 = this.size_1;
+            var tmp_1 = this;
+            var tmp_2 = this;
+            tmp_2.tmp0_minOf2__1 = toLong(this.remaining1__1);
+            var tmp_3 = this;
+            tmp_3.tmp1_minOf3__1 = this._this__u8e3s4__1.readable_1.get_remaining_mwegr1_k$();
+            tmp_1.partSize4__1 = (this.tmp0_minOf2__1.compareTo_n4fqi2_k$(this.tmp1_minOf3__1) <= 0 ? this.tmp0_minOf2__1 : this.tmp1_minOf3__1).toInt_1tsl84_k$();
+            this.remaining1__1 = this.remaining1__1 - this.partSize4__1 | 0;
+            this.builder0__1.writePacket_xwtkvg_k$(this._this__u8e3s4__1.readable_1, this.partSize4__1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(this.partSize4__1);
+            checkClosed(this._this__u8e3s4__1, this.remaining1__1, this.builder0__1);
+            if (this.remaining1__1 > 0) {
+              this.state_1 = 1;
+              suspendResult = readPacketSuspend(this._this__u8e3s4__1, this.builder0__1, this.remaining1__1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.WHEN_RESULT5__1 = this.builder0__1.build_1k0s4u_k$();
+              this.state_1 = 2;
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT5__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT5__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readPacketCOROUTINE$28.$metadata$ = classMeta('$readPacketCOROUTINE$28', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readPacketSuspendCOROUTINE$29(_this__u8e3s4, builder, size, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.builder_1 = builder;
+    this.size_1 = size;
+  }
+  $readPacketSuspendCOROUTINE$29.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 5;
+            this.remaining0__1 = this.size_1;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            if (!(this.remaining0__1 > 0)) {
+              this.state_1 = 4;
+              continue $sm;
+            }
+
+            var tmp_0 = this;
+            var tmp_1 = this;
+            tmp_1.tmp0_minOf1__1 = toLong(this.remaining0__1);
+            var tmp_2 = this;
+            tmp_2.tmp1_minOf2__1 = this._this__u8e3s4__1.readable_1.get_remaining_mwegr1_k$();
+            tmp_0.partSize3__1 = (this.tmp0_minOf1__1.compareTo_n4fqi2_k$(this.tmp1_minOf2__1) <= 0 ? this.tmp0_minOf1__1 : this.tmp1_minOf2__1).toInt_1tsl84_k$();
+            this.remaining0__1 = this.remaining0__1 - this.partSize3__1 | 0;
+            this.builder_1.writePacket_xwtkvg_k$(this._this__u8e3s4__1.readable_1, this.partSize3__1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(this.partSize3__1);
+            checkClosed(this._this__u8e3s4__1, this.remaining0__1, this.builder_1);
+            if (this.remaining0__1 > 0) {
+              this.state_1 = 2;
+              suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.state_1 = 3;
+              continue $sm;
+            }
+
+            break;
+          case 2:
+            ;
+            this.state_1 = 3;
+            continue $sm;
+          case 3:
+            this.state_1 = 1;
+            continue $sm;
+          case 4:
+            checkClosed(this._this__u8e3s4__1, this.remaining0__1, this.builder_1);
+            return this.builder_1.build_1k0s4u_k$();
+          case 5:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 5) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readPacketSuspendCOROUTINE$29.$metadata$ = classMeta('$readPacketSuspendCOROUTINE$29', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readAvailableCOROUTINE$30(_this__u8e3s4, dst, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+  }
+  $readAvailableCOROUTINE$30.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            var tmp0_safe_receiver = this._this__u8e3s4__1.get_closedCause_o1qcj8_k$();
             if (tmp0_safe_receiver == null)
               null;
             else {
@@ -695,68 +2370,185 @@
             }
 
             ;
-            if (this.v17_1.s13() ? this.v17_1.h14() === 0 : false)
+            if (this._this__u8e3s4__1.get_closed_byjrzp_k$() ? this._this__u8e3s4__1.get_availableForRead_tq0sox_k$() === 0 : false)
               return -1;
-            if ((this.w17_1.u15_1 - this.w17_1.s15_1 | 0) === 0)
+            if ((this.dst_1.limit_1 - this.dst_1.writePosition_1 | 0) === 0)
               return 0;
-            if (this.v17_1.h14() === 0) {
-              this.pd_1 = 1;
-              suspendResult = this.v17_1.m17(1, this);
+            if (this._this__u8e3s4__1.get_availableForRead_tq0sox_k$() === 0) {
+              this.state_1 = 1;
+              suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(1, this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              this.pd_1 = 2;
+              this.state_1 = 2;
               continue $sm;
             }
 
             break;
           case 1:
             ;
-            this.pd_1 = 2;
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            if (!this.v17_1.q12_1.y17()) {
-              this.v17_1.x17();
+            if (!this._this__u8e3s4__1.readable_1.canRead_93a6bq_k$()) {
+              this._this__u8e3s4__1.prepareFlushedBytes_jjdule_k$();
             }
 
-            var tmp0_minOf = toLong(this.w17_1.u15_1 - this.w17_1.s15_1 | 0);
-            var tmp1_minOf = this.v17_1.q12_1.i17();
-            var size = (tmp0_minOf.a1(tmp1_minOf) <= 0 ? tmp0_minOf : tmp1_minOf).md();
-            readFully_3(this.v17_1.q12_1, this.w17_1, size);
-            this.v17_1.k17(size);
+            var tmp0_minOf = toLong(this.dst_1.limit_1 - this.dst_1.writePosition_1 | 0);
+            var tmp1_minOf = this._this__u8e3s4__1.readable_1.get_remaining_mwegr1_k$();
+            var size = (tmp0_minOf.compareTo_n4fqi2_k$(tmp1_minOf) <= 0 ? tmp0_minOf : tmp1_minOf).toInt_1tsl84_k$();
+            readFully_4(this._this__u8e3s4__1.readable_1, this.dst_1, size);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(size);
             return size;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $readAvailableCOROUTINE$30.$metadata$ = classMeta('$readAvailableCOROUTINE$30', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function $readAvailableCOROUTINE$33(_this__u8e3s4, dst, offset, length, resultContinuation) {
+  function $readFullyCOROUTINE$31(_this__u8e3s4, dst, n, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.h18_1 = _this__u8e3s4;
-    this.i18_1 = dst;
-    this.j18_1 = offset;
-    this.k18_1 = length;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.n_1 = n;
   }
-  $readAvailableCOROUTINE$33.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $readFullyCOROUTINE$31.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            var tmp0_safe_receiver = this.h18_1.r13();
+            this.exceptionState_1 = 3;
+            var tmp_0 = this;
+            tmp_0.tmp0_require0__1 = this.n_1 <= (this.dst_1.limit_1 - this.dst_1.writePosition_1 | 0);
+            if (!this.tmp0_require0__1) {
+              var message = 'Not enough space in the destination buffer to write ' + this.n_1 + ' bytes';
+              throw IllegalArgumentException_init_$Create$(toString(message));
+            }
+
+            var tmp_1 = this;
+            tmp_1.tmp1_require1__1 = this.n_1 >= 0;
+            if (!this.tmp1_require1__1) {
+              var message_0 = "n shouldn't be negative";
+              throw IllegalArgumentException_init_$Create$(toString(message_0));
+            }
+
+            if (!(this._this__u8e3s4__1.get_closedCause_o1qcj8_k$() == null)) {
+              throw ensureNotNull(this._this__u8e3s4__1.get_closedCause_o1qcj8_k$());
+            } else {
+              if (this._this__u8e3s4__1.readable_1.get_remaining_mwegr1_k$().compareTo_n4fqi2_k$(toLong(this.n_1)) >= 0) {
+                var tmp_2 = this;
+                tmp_2.tmp2_also2__1 = readFully_4(this._this__u8e3s4__1.readable_1, this.dst_1, this.n_1);
+                this._this__u8e3s4__1.afterRead_16ll9a_k$(this.n_1);
+                this.state_1 = 2;
+                continue $sm;
+              } else {
+                if (this._this__u8e3s4__1.get_closed_byjrzp_k$()) {
+                  throw new EOFException('Channel is closed and not enough bytes available: required ' + this.n_1 + ' but ' + this._this__u8e3s4__1.get_availableForRead_tq0sox_k$() + ' available');
+                } else {
+                  this.state_1 = 1;
+                  suspendResult = readFullySuspend(this._this__u8e3s4__1, this.dst_1, this.n_1, this);
+                  if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                    return suspendResult;
+                  }
+                  continue $sm;
+                }
+              }
+            }
+
+            break;
+          case 1:
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return Unit_getInstance();
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readFullyCOROUTINE$31.$metadata$ = classMeta('$readFullyCOROUTINE$31', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readFullySuspendCOROUTINE$32(_this__u8e3s4, dst, n, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.n_1 = n;
+  }
+  $readFullySuspendCOROUTINE$32.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(this.n_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            this.state_1 = 2;
+            suspendResult = readFully(this._this__u8e3s4__1, this.dst_1, this.n_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            return Unit_getInstance();
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readFullySuspendCOROUTINE$32.$metadata$ = classMeta('$readFullySuspendCOROUTINE$32', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readAvailableCOROUTINE$33(_this__u8e3s4, dst, offset, length, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.offset_1 = offset;
+    this.length_1 = length;
+  }
+  $readAvailableCOROUTINE$33.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            var tmp0_safe_receiver = this._this__u8e3s4__1.get_closedCause_o1qcj8_k$();
             if (tmp0_safe_receiver == null)
               null;
             else {
@@ -764,74 +2556,180 @@
             }
 
             ;
-            if (this.h18_1.s13() ? this.h18_1.h14() === 0 : false)
+            if (this._this__u8e3s4__1.get_closed_byjrzp_k$() ? this._this__u8e3s4__1.get_availableForRead_tq0sox_k$() === 0 : false)
               return -1;
-            if (this.k18_1 === 0)
+            if (this.length_1 === 0)
               return 0;
-            if (this.h18_1.h14() === 0) {
-              this.pd_1 = 1;
-              suspendResult = this.h18_1.m17(1, this);
+            if (this._this__u8e3s4__1.get_availableForRead_tq0sox_k$() === 0) {
+              this.state_1 = 1;
+              suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(1, this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              this.pd_1 = 2;
+              this.state_1 = 2;
               continue $sm;
             }
 
             break;
           case 1:
             ;
-            this.pd_1 = 2;
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            if (!this.h18_1.q12_1.y17()) {
-              this.h18_1.x17();
+            if (!this._this__u8e3s4__1.readable_1.canRead_93a6bq_k$()) {
+              this._this__u8e3s4__1.prepareFlushedBytes_jjdule_k$();
             }
 
-            var tmp0_minOf = toLong(this.k18_1);
-            var tmp1_minOf = this.h18_1.q12_1.i17();
-            var size = (tmp0_minOf.a1(tmp1_minOf) <= 0 ? tmp0_minOf : tmp1_minOf).md();
-            readFully_2(this.h18_1.q12_1, this.i18_1, this.j18_1, size);
-            this.h18_1.k17(size);
+            var tmp0_minOf = toLong(this.length_1);
+            var tmp1_minOf = this._this__u8e3s4__1.readable_1.get_remaining_mwegr1_k$();
+            var size = (tmp0_minOf.compareTo_n4fqi2_k$(tmp1_minOf) <= 0 ? tmp0_minOf : tmp1_minOf).toInt_1tsl84_k$();
+            readFully_3(this._this__u8e3s4__1.readable_1, this.dst_1, this.offset_1, size);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(size);
             return size;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $readAvailableCOROUTINE$33.$metadata$ = classMeta('$readAvailableCOROUTINE$33', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function $awaitInternalAtLeast1COROUTINE$38(_this__u8e3s4, resultContinuation) {
+  function $readFullyCOROUTINE$34(_this__u8e3s4, dst, offset, length, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.t18_1 = _this__u8e3s4;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.offset_1 = offset;
+    this.length_1 = length;
   }
-  $awaitInternalAtLeast1COROUTINE$38.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $readFullyCOROUTINE$34.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            var tmp_0 = this;
-            tmp_0.v18_1 = this.t18_1.q12_1;
-            if (!this.v18_1.w18()) {
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.readAvailable_sp23sc_k$(this.dst_1, this.offset_1, this.length_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.rc0__1 = suspendResult;
+            if (this.rc0__1 === this.length_1)
+              return Unit_getInstance();
+            if (this.rc0__1 === -1)
+              throw new EOFException('Unexpected end of stream');
+            this.state_1 = 2;
+            suspendResult = readFullySuspend_0(this._this__u8e3s4__1, this.dst_1, this.offset_1 + this.rc0__1 | 0, this.length_1 - this.rc0__1 | 0, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            return Unit_getInstance();
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readFullyCOROUTINE$34.$metadata$ = classMeta('$readFullyCOROUTINE$34', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readFullySuspendCOROUTINE$35(_this__u8e3s4, dst, offset, length, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.offset_1 = offset;
+    this.length_1 = length;
+  }
+  $readFullySuspendCOROUTINE$35.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 4;
+            this.written0__1 = 0;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            if (!(this.written0__1 < this.length_1)) {
+              this.state_1 = 3;
+              continue $sm;
+            }
+
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.readAvailable_sp23sc_k$(this.dst_1, this.offset_1 + this.written0__1 | 0, this.length_1 - this.written0__1 | 0, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            var rc = suspendResult;
+            if (rc === -1)
+              throw new EOFException('Unexpected end of stream');
+            this.written0__1 = this.written0__1 + rc | 0;
+            this.state_1 = 1;
+            continue $sm;
+          case 3:
+            return Unit_getInstance();
+          case 4:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 4) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readFullySuspendCOROUTINE$35.$metadata$ = classMeta('$readFullySuspendCOROUTINE$35', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readBooleanCOROUTINE$36(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readBooleanCOROUTINE$36.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            if (this._this__u8e3s4__1.readable_1.canRead_93a6bq_k$()) {
+              var tmp_0 = this;
               var tmp_1 = this;
-              tmp_1.u18_1 = true;
-              this.pd_1 = 3;
+              tmp_1.tmp0_also1__1 = this._this__u8e3s4__1.readable_1.readByte_ectjk2_k$() === 1;
+              this._this__u8e3s4__1.afterRead_16ll9a_k$(1);
+              tmp_0.WHEN_RESULT0__1 = this.tmp0_also1__1;
+              this.state_1 = 2;
               continue $sm;
             } else {
-              this.pd_1 = 1;
-              suspendResult = this.t18_1.m17(1, this);
+              this.state_1 = 1;
+              suspendResult = readBooleanSlow(this._this__u8e3s4__1, this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
@@ -840,20 +2738,114 @@
 
             break;
           case 1:
-            this.u18_1 = suspendResult;
-            this.pd_1 = 3;
+            this.WHEN_RESULT0__1 = suspendResult;
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            throw this.sd_1;
+            return this.WHEN_RESULT0__1;
           case 3:
-            return this.u18_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readBooleanCOROUTINE$36.$metadata$ = classMeta('$readBooleanCOROUTINE$36', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readBooleanSlowCOROUTINE$37(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $readBooleanSlowCOROUTINE$37.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            checkClosed$default(this._this__u8e3s4__1, 1, null, 4, null);
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.readBoolean_airz8v_k$(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            return suspendResult;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readBooleanSlowCOROUTINE$37.$metadata$ = classMeta('$readBooleanSlowCOROUTINE$37', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $awaitInternalAtLeast1COROUTINE$38(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $awaitInternalAtLeast1COROUTINE$38.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            var tmp_0 = this;
+            tmp_0.tmp0__get_isNotEmpty_1_ru2h1g_1 = this._this__u8e3s4__1.readable_1;
+            if (!this.tmp0__get_isNotEmpty_1_ru2h1g_1.get_endOfInput_skegkh_k$()) {
+              var tmp_1 = this;
+              tmp_1.WHEN_RESULT0__1 = true;
+              this.state_1 = 3;
+              continue $sm;
+            } else {
+              this.state_1 = 1;
+              suspendResult = this._this__u8e3s4__1.awaitSuspend_tm3kfc_k$(1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT0__1 = suspendResult;
+            this.state_1 = 3;
+            continue $sm;
+          case 2:
+            throw this.exception_1;
+          case 3:
+            return this.WHEN_RESULT0__1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -861,34 +2853,34 @@
   $awaitInternalAtLeast1COROUTINE$38.$metadata$ = classMeta('$awaitInternalAtLeast1COROUTINE$38', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $awaitSuspendCOROUTINE$39(_this__u8e3s4, atLeast, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.f19_1 = _this__u8e3s4;
-    this.g19_1 = atLeast;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.atLeast_1 = atLeast;
   }
-  $awaitSuspendCOROUTINE$39.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $awaitSuspendCOROUTINE$39.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
+            this.exceptionState_1 = 2;
             var tmp_0 = this;
-            tmp_0.h19_1 = this.g19_1 >= 0;
-            if (!this.h19_1) {
+            tmp_0.tmp0_require0__1 = this.atLeast_1 >= 0;
+            if (!this.tmp0_require0__1) {
               var message = 'Failed requirement.';
               throw IllegalArgumentException_init_$Create$(toString(message));
             }
 
-            this.pd_1 = 1;
-            suspendResult = this.f19_1.i19(this.g19_1, this);
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForRead_fts81x_k$(this.atLeast_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.f19_1.x17();
-            var tmp0_safe_receiver = this.f19_1.r13();
+            this._this__u8e3s4__1.prepareFlushedBytes_jjdule_k$();
+            var tmp0_safe_receiver = this._this__u8e3s4__1.get_closedCause_o1qcj8_k$();
             if (tmp0_safe_receiver == null)
               null;
             else {
@@ -896,199 +2888,1000 @@
             }
 
             ;
-            return !this.f19_1.j14() ? this.f19_1.h14() >= this.g19_1 : false;
+            return !this._this__u8e3s4__1.get_isClosedForRead_ajcc1s_k$() ? this._this__u8e3s4__1.get_availableForRead_tq0sox_k$() >= this.atLeast_1 : false;
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $awaitSuspendCOROUTINE$39.$metadata$ = classMeta('$awaitSuspendCOROUTINE$39', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function ByteChannelSequentialBase(initial, autoFlush, pool) {
-    this.i12_1 = autoFlush;
-    this.j12_1 = atomic$ref$1(Companion_getInstance_4().f12_1);
-    this.k12_1 = atomic$long$1(new Long(0, 0));
-    this.l12_1 = atomic$long$1(new Long(0, 0));
-    this.m12_1 = atomic$int$1(0);
-    this.n12_1 = atomic$int$1(0);
-    this.o12_1 = atomic$ref$1(null);
-    this.p12_1 = new BytePacketBuilder(pool);
-    this.q12_1 = ByteReadPacket_init_$Create$(initial, pool);
-    this.r12_1 = atomic$int$1(0);
-    this.s12_1 = atomic$ref$1(Companion_getInstance_4().f12_1);
-    this.t12_1 = new AwaitingSlot();
-    this.u12_1 = new Object();
-    var tmp = this;
-    tmp.v12_1 = BytePacketBuilder_init_$Create$(null, 1, null);
-    var count = remainingAll(initial).md();
-    this.w15(count);
-    this.m12_1.atomicfu$addAndGet(count);
+  function $discardCOROUTINE$40(_this__u8e3s4, max, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.max_1 = max;
   }
-  ByteChannelSequentialBase.prototype.j19 = function () {
-    return this.i12_1;
+  $discardCOROUTINE$40.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            this.discarded0__1 = this._this__u8e3s4__1.readable_1.discard_mdg52w_k$(this.max_1);
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(this.discarded0__1.toInt_1tsl84_k$());
+            if (this.discarded0__1.equals(this.max_1) ? true : this._this__u8e3s4__1.get_isClosedForRead_ajcc1s_k$()) {
+              var tmp_0 = this;
+              ensureNotFailed(this._this__u8e3s4__1);
+              return this.discarded0__1;
+            } else {
+              this.state_1 = 1;
+              suspendResult = discardSuspend(this._this__u8e3s4__1, this.max_1, this.discarded0__1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT1__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT1__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
   };
-  ByteChannelSequentialBase.prototype.s13 = function () {
-    return !(this.o12_1.zj_1 == null);
+  $discardCOROUTINE$40.$metadata$ = classMeta('$discardCOROUTINE$40', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $discardSuspendCOROUTINE$41(_this__u8e3s4, max, discarded0, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.max_1 = max;
+    this.discarded0__1 = discarded0;
+  }
+  $discardSuspendCOROUTINE$41.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 5;
+            this.discarded0__2 = this.discarded0__1;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.await_a8ddvc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            var ARGUMENT = suspendResult;
+            if (!ARGUMENT) {
+              this.state_1 = 4;
+              continue $sm;
+            } else {
+              this.state_1 = 3;
+              continue $sm;
+            }
+
+            break;
+          case 3:
+            var count = this._this__u8e3s4__1.readable_1.discard_mdg52w_k$(this.max_1.minus_llf5ei_k$(this.discarded0__2));
+            this._this__u8e3s4__1.afterRead_16ll9a_k$(count.toInt_1tsl84_k$());
+            this.discarded0__2 = this.discarded0__2.plus_u6jwas_k$(count);
+            if (this.discarded0__2.compareTo_n4fqi2_k$(this.max_1) < 0 ? !this._this__u8e3s4__1.get_isClosedForRead_ajcc1s_k$() : false) {
+              this.state_1 = 1;
+              continue $sm;
+            }
+
+            this.state_1 = 4;
+            continue $sm;
+          case 4:
+            ensureNotFailed(this._this__u8e3s4__1);
+            return this.discarded0__2;
+          case 5:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 5) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
   };
-  ByteChannelSequentialBase.prototype.k19 = function () {
-    return this.p12_1;
+  $discardSuspendCOROUTINE$41.$metadata$ = classMeta('$discardSuspendCOROUTINE$41', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readSuspendableSessionCOROUTINE$42(_this__u8e3s4, consumer, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.consumer_1 = consumer;
+  }
+  $readSuspendableSessionCOROUTINE$42.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 5;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            this.exceptionState_1 = 4;
+            this.state_1 = 2;
+            suspendResult = this.consumer_1(this._this__u8e3s4__1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            this.tmp$ret$00__1 = suspendResult;
+            this.exceptionState_1 = 5;
+            this.state_1 = 3;
+            continue $sm;
+          case 3:
+            completeReading(this._this__u8e3s4__1);
+            return Unit_getInstance();
+          case 4:
+            this.exceptionState_1 = 5;
+            var t = this.exception_1;
+            completeReading(this._this__u8e3s4__1);
+            throw t;
+          case 5:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 5) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
   };
-  ByteChannelSequentialBase.prototype.l19 = function () {
-    return this.q12_1;
+  $readSuspendableSessionCOROUTINE$42.$metadata$ = classMeta('$readSuspendableSessionCOROUTINE$42', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readUTF8LineCOROUTINE$43(_this__u8e3s4, limit, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.limit_1 = limit;
+  }
+  $readUTF8LineCOROUTINE$43.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            this.builder0__1 = StringBuilder_init_$Create$();
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.readUTF8LineTo_o8lben_k$(this.builder0__1, this.limit_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            var ARGUMENT = suspendResult;
+            if (!ARGUMENT) {
+              return null;
+            } else {
+              this.state_1 = 2;
+              continue $sm;
+            }
+
+            break;
+          case 2:
+            return this.builder0__1.toString();
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
   };
-  ByteChannelSequentialBase.prototype.h14 = function () {
-    return this.m12_1.ak_1;
+  $readUTF8LineCOROUTINE$43.$metadata$ = classMeta('$readUTF8LineCOROUTINE$43', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeAvailableSuspendCOROUTINE$44(_this__u8e3s4, src, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.src_1 = src;
+  }
+  $writeAvailableSuspendCOROUTINE$44.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.writeAvailable_w2v2wd_k$(this.src_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            return suspendResult;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
   };
-  ByteChannelSequentialBase.prototype.i14 = function () {
+  $writeAvailableSuspendCOROUTINE$44.$metadata$ = classMeta('$writeAvailableSuspendCOROUTINE$44', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $writeAvailableSuspendCOROUTINE$45(_this__u8e3s4, src, offset, length, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.src_1 = src;
+    this.offset_1 = offset;
+    this.length_1 = length;
+  }
+  $writeAvailableSuspendCOROUTINE$45.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.writeAvailable_3s2hfn_k$(this.src_1, this.offset_1, this.length_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            return suspendResult;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $writeAvailableSuspendCOROUTINE$45.$metadata$ = classMeta('$writeAvailableSuspendCOROUTINE$45', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $awaitFreeSpaceCOROUTINE$46(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $awaitFreeSpaceCOROUTINE$46.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this._this__u8e3s4__1.flush_sgqoqb_k$();
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ensureNotClosed(this._this__u8e3s4__1);
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $awaitFreeSpaceCOROUTINE$46.$metadata$ = classMeta('$awaitFreeSpaceCOROUTINE$46', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $awaitContentCOROUTINE$47(_this__u8e3s4, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+  }
+  $awaitContentCOROUTINE$47.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.await_a8ddvc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $awaitContentCOROUTINE$47.$metadata$ = classMeta('$awaitContentCOROUTINE$47', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $peekToCOROUTINE$48(_this__u8e3s4, destination, destinationOffset, offset, min, max, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.destination_1 = destination;
+    this.destinationOffset_1 = destinationOffset;
+    this.offset_1 = offset;
+    this.min_1 = min;
+    this.max_1 = max;
+  }
+  $peekToCOROUTINE$48.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.bytesCopied0__1 = {_v: new Long(0, 0)};
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.readSuspendableSession_llvgvv_k$(ByteChannelSequentialBase$peekTo$slambda_0(this.min_1, this.offset_1, this.bytesCopied0__1, this.destination_1, this.destinationOffset_1, this.max_1, null), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return this.bytesCopied0__1._v;
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $peekToCOROUTINE$48.$metadata$ = classMeta('$peekToCOROUTINE$48', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function ByteChannelSequentialBase(initial, autoFlush, pool) {
+    this.autoFlush_1 = autoFlush;
+    this._lastReadView_1 = atomic$ref$1(Companion_getInstance_4().Empty_1);
+    this._totalBytesRead_1 = atomic$long$1(new Long(0, 0));
+    this._totalBytesWritten_1 = atomic$long$1(new Long(0, 0));
+    this._availableForRead_1 = atomic$int$1(0);
+    this.channelSize_1 = atomic$int$1(0);
+    this._closed_1 = atomic$ref$1(null);
+    this.writable_1 = new BytePacketBuilder(pool);
+    this.readable_1 = ByteReadPacket_init_$Create$(initial, pool);
+    this.lastReadAvailable$delegate_1 = atomic$int$1(0);
+    this.lastReadView$delegate_1 = atomic$ref$1(Companion_getInstance_4().Empty_1);
+    this.slot_1 = new AwaitingSlot();
+    this.flushMutex_1 = new Object();
+    var tmp = this;
+    tmp.flushBuffer_1 = BytePacketBuilder_init_$Create$(null, 1, null);
+    var count = remainingAll(initial).toInt_1tsl84_k$();
+    this.afterWrite_uxn9f1_k$(count);
+    this._availableForRead_1.atomicfu$addAndGet(count);
+  }
+  ByteChannelSequentialBase.prototype.get_autoFlush_zfdl3o_k$ = function () {
+    return this.autoFlush_1;
+  };
+  ByteChannelSequentialBase.prototype.set_closed_7uamg0_k$ = function (_anonymous_parameter_0__qggqh8) {
+    {
+      throw IllegalStateException_init_$Create$('Setting is not allowed for closed');
+    }
+  };
+  ByteChannelSequentialBase.prototype.get_closed_byjrzp_k$ = function () {
+    return !(this._closed_1.value_1 == null);
+  };
+  ByteChannelSequentialBase.prototype.get_writable_8ork2x_k$ = function () {
+    return this.writable_1;
+  };
+  ByteChannelSequentialBase.prototype.get_readable_ovw33t_k$ = function () {
+    return this.readable_1;
+  };
+  ByteChannelSequentialBase.prototype.get_availableForRead_tq0sox_k$ = function () {
+    return this._availableForRead_1.value_1;
+  };
+  ByteChannelSequentialBase.prototype.get_availableForWrite_22rgeu_k$ = function () {
     var tmp$ret$0;
     {
-      var tmp0_maxOf = 4088 - this.n12_1.ak_1 | 0;
+      var tmp0_maxOf = 4088 - this.channelSize_1.value_1 | 0;
       tmp$ret$0 = Math.max(0, tmp0_maxOf);
     }
     return tmp$ret$0;
   };
-  ByteChannelSequentialBase.prototype.j14 = function () {
-    return _get_isCancelled__nhbn6y(this) ? true : this.s13() ? this.n12_1.ak_1 === 0 : false;
+  ByteChannelSequentialBase.prototype.get_isClosedForRead_ajcc1s_k$ = function () {
+    return _get_isCancelled__nhbn6y(this) ? true : this.get_closed_byjrzp_k$() ? this.channelSize_1.value_1 === 0 : false;
   };
-  ByteChannelSequentialBase.prototype.r13 = function () {
-    var tmp0_safe_receiver = this.o12_1.zj_1;
-    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.w12_1;
+  ByteChannelSequentialBase.prototype.get_isClosedForWrite_seyg5n_k$ = function () {
+    return this.get_closed_byjrzp_k$();
   };
-  ByteChannelSequentialBase.prototype.p15 = function (count, $cont) {
+  ByteChannelSequentialBase.prototype.get_totalBytesRead_dai8jq_k$ = function () {
+    return this._totalBytesRead_1.value_1;
+  };
+  ByteChannelSequentialBase.prototype.get_totalBytesWritten_b5quc9_k$ = function () {
+    return this._totalBytesWritten_1.value_1;
+  };
+  ByteChannelSequentialBase.prototype.set_closedCause_uj1fmk_k$ = function (_anonymous_parameter_0__qggqh8) {
+    {
+      throw IllegalStateException_init_$Create$("Closed cause shouldn't be changed directly");
+    }
+  };
+  ByteChannelSequentialBase.prototype.get_closedCause_o1qcj8_k$ = function () {
+    var tmp0_safe_receiver = this._closed_1.value_1;
+    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.cause_1;
+  };
+  ByteChannelSequentialBase.prototype.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$ = function (count, $cont) {
     var tmp = new $awaitAtLeastNBytesAvailableForWriteCOROUTINE$0(this, count, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.i19 = function (count, $cont) {
+  ByteChannelSequentialBase.prototype.awaitAtLeastNBytesAvailableForRead_fts81x_k$ = function (count, $cont) {
     var tmp = new $awaitAtLeastNBytesAvailableForReadCOROUTINE$1(this, count, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.m19 = function () {
+  ByteChannelSequentialBase.prototype.flush_sgqoqb_k$ = function () {
     flushImpl(this);
   };
-  ByteChannelSequentialBase.prototype.x17 = function () {
+  ByteChannelSequentialBase.prototype.prepareFlushedBytes_jjdule_k$ = function () {
     var tmp$ret$1;
     {
-      var tmp0_synchronized = this.u12_1;
+      var tmp0_synchronized = this.flushMutex_1;
       var tmp$ret$0;
       {
-        tmp$ret$0 = unsafeAppend(this.q12_1, this.v12_1);
+        tmp$ret$0 = unsafeAppend(this.readable_1, this.flushBuffer_1);
       }
       tmp$ret$1 = tmp$ret$0;
     }
   };
-  ByteChannelSequentialBase.prototype.n19 = function (src, $cont) {
+  ByteChannelSequentialBase.prototype.writeByte_bz5guu_k$ = function (b, $cont) {
+    var tmp = new $writeByteCOROUTINE$2(this, b, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writeShort_lrjrsy_k$ = function (s, $cont) {
+    var tmp = new $writeShortCOROUTINE$3(this, s, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writeInt_v2a7oi_k$ = function (i, $cont) {
+    var tmp = new $writeIntCOROUTINE$4(this, i, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writeLong_4p088e_k$ = function (l, $cont) {
+    var tmp = new $writeLongCOROUTINE$5(this, l, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writeFloat_tuvmo2_k$ = function (f, $cont) {
+    var tmp = new $writeFloatCOROUTINE$6(this, f, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writeDouble_deiofw_k$ = function (d, $cont) {
+    var tmp = new $writeDoubleCOROUTINE$7(this, d, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writePacket_89drk9_k$ = function (packet, $cont) {
+    var tmp = new $writePacketCOROUTINE$8(this, packet, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writeFully_92qlrz_k$ = function (src, $cont) {
     var tmp = new $writeFullyCOROUTINE$9(this, src, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.o19 = function (src, offset, length, $cont) {
+  ByteChannelSequentialBase.prototype.writeFully_ol1csb_k$ = function (src, offset, length, $cont) {
     var tmp = new $writeFullyCOROUTINE$10(this, src, offset, length, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.k17 = function (count) {
+  ByteChannelSequentialBase.prototype.writeFully_42qnx5_k$ = function (memory, startIndex, endIndex, $cont) {
+    var tmp = new $writeFullyCOROUTINE$11(this, memory, startIndex, endIndex, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writeAvailable_w2v2wd_k$ = function (src, $cont) {
+    var tmp = new $writeAvailableCOROUTINE$12(this, src, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writeAvailable_3s2hfn_k$ = function (src, offset, length, $cont) {
+    var tmp = new $writeAvailableCOROUTINE$13(this, src, offset, length, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.writeSuspendSession_g00crp_k$ = function (visitor, $cont) {
+    var session = this.beginWriteSession_k7m9kw_k$();
+    return visitor(session, $cont);
+  };
+  ByteChannelSequentialBase.prototype.beginWriteSession_k7m9kw_k$ = function () {
+    return new ByteChannelSequentialBase$beginWriteSession$1(this);
+  };
+  ByteChannelSequentialBase.prototype.endWriteSession_oxela6_k$ = function (written) {
+    this.writable_1.afterHeadWrite_dlo0ku_k$();
+    this.afterWrite_uxn9f1_k$(written);
+  };
+  ByteChannelSequentialBase.prototype.readByte_hy5aw7_k$ = function ($cont) {
+    var tmp = new $readByteCOROUTINE$14(this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.readShort_3dqo2x_k$ = function ($cont) {
+    var tmp = new $readShortCOROUTINE$16(this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.afterRead_16ll9a_k$ = function (count) {
     addBytesRead(this, count);
-    this.t12_1.y12();
+    this.slot_1.resume_2nhcyk_k$();
   };
-  ByteChannelSequentialBase.prototype.p19 = function (limit, $cont) {
+  ByteChannelSequentialBase.prototype.readInt_lyxqd9_k$ = function ($cont) {
+    var tmp = new $readIntCOROUTINE$18(this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.readLong_fb76e1_k$ = function ($cont) {
+    var tmp = new $readLongCOROUTINE$20(this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.readFloat_8f6r87_k$ = function ($cont) {
+    var tmp = new $readFloatCOROUTINE$22(this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.readDouble_cbfe2h_k$ = function ($cont) {
+    var tmp = new $readDoubleCOROUTINE$24(this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.readRemaining_eg8n80_k$ = function (limit, $cont) {
     var tmp = new $readRemainingCOROUTINE$26(this, limit, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.r19 = function (dst, $cont) {
-    return this.s19(dst instanceof Buffer ? dst : THROW_CCE(), $cont);
+  ByteChannelSequentialBase.prototype.readPacket_9wj513_k$ = function (size, $cont) {
+    var tmp = new $readPacketCOROUTINE$28(this, size, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.s19 = function (dst, $cont) {
+  ByteChannelSequentialBase.prototype.readAvailableClosed_uidty9_k$ = function () {
+    var tmp0_safe_receiver = this.get_closedCause_o1qcj8_k$();
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      var tmp$ret$0;
+      {
+        {
+        }
+        throw tmp0_safe_receiver;
+      }
+    }
+    if (this.get_availableForRead_tq0sox_k$() > 0) {
+      this.prepareFlushedBytes_jjdule_k$();
+    }
+    return -1;
+  };
+  ByteChannelSequentialBase.prototype.readAvailable_9j2oye_k$ = function (dst, $cont) {
+    return this.readAvailable_andnsi_k$(dst instanceof Buffer ? dst : THROW_CCE(), $cont);
+  };
+  ByteChannelSequentialBase.prototype.readAvailable_andnsi_k$ = function (dst, $cont) {
     var tmp = new $readAvailableCOROUTINE$30(this, dst, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.t19 = function (dst, offset, length, $cont) {
+  ByteChannelSequentialBase.prototype.readFully_47dy09_k$ = function (dst, n, $cont) {
+    return readFully(this, dst instanceof Buffer ? dst : THROW_CCE(), n, $cont);
+  };
+  ByteChannelSequentialBase.prototype.readAvailable_sp23sc_k$ = function (dst, offset, length, $cont) {
     var tmp = new $readAvailableCOROUTINE$33(this, dst, offset, length, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.u19 = function ($cont) {
+  ByteChannelSequentialBase.prototype.readFully_itjl8k_k$ = function (dst, offset, length, $cont) {
+    var tmp = new $readFullyCOROUTINE$34(this, dst, offset, length, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.readBoolean_airz8v_k$ = function ($cont) {
+    var tmp = new $readBooleanCOROUTINE$36(this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.await_a8ddvc_k$ = function (atLeast, $cont) {
+    {
+      var tmp0_require = atLeast >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = "atLeast parameter shouldn't be negative: " + atLeast;
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$(toString(message));
+      }
+    }
+    {
+      var tmp1_require = toLong(atLeast).compareTo_n4fqi2_k$(new Long(4088, 0)) <= 0;
+      {
+      }
+      if (!tmp1_require) {
+        var tmp$ret$1;
+        {
+          tmp$ret$1 = "atLeast parameter shouldn't be larger than max buffer size of 4088: " + atLeast;
+        }
+        var message_0 = tmp$ret$1;
+        throw IllegalArgumentException_init_$Create$(toString(message_0));
+      }
+    }
+    completeReading(this);
+    if (atLeast === 0)
+      return !this.get_isClosedForRead_ajcc1s_k$();
+    if (this.readable_1.get_remaining_mwegr1_k$().compareTo_n4fqi2_k$(toLong(atLeast)) >= 0)
+      return true;
+    return this.awaitSuspend_tm3kfc_k$(atLeast, $cont);
+  };
+  ByteChannelSequentialBase.prototype.awaitInternalAtLeast1_h3c2wl_k$ = function ($cont) {
     var tmp = new $awaitInternalAtLeast1COROUTINE$38(this, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.m17 = function (atLeast, $cont) {
+  ByteChannelSequentialBase.prototype.awaitSuspend_tm3kfc_k$ = function (atLeast, $cont) {
     var tmp = new $awaitSuspendCOROUTINE$39(this, atLeast, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ByteChannelSequentialBase.prototype.qo = function (cause) {
-    if (!(this.r13() == null) ? true : this.s13()) {
+  ByteChannelSequentialBase.prototype.discard_z3ao9p_k$ = function (n) {
+    var tmp0_safe_receiver = this.get_closedCause_o1qcj8_k$();
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      var tmp$ret$0;
+      {
+        {
+        }
+        throw tmp0_safe_receiver;
+      }
+    }
+    if (n === 0) {
+      return 0;
+    }
+    var tmp$ret$1;
+    {
+      var tmp0_also = this.readable_1.discard_z3ao9p_k$(n);
+      {
+      }
+      {
+        this.afterRead_16ll9a_k$(n);
+        requestNextView(this, 1);
+      }
+      tmp$ret$1 = tmp0_also;
+    }
+    return tmp$ret$1;
+  };
+  ByteChannelSequentialBase.prototype.request_z0ru36_k$ = function (atLeast) {
+    var tmp0_safe_receiver = this.get_closedCause_o1qcj8_k$();
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      var tmp$ret$0;
+      {
+        {
+        }
+        throw tmp0_safe_receiver;
+      }
+    }
+    completeReading(this);
+    return requestNextView(this, atLeast);
+  };
+  ByteChannelSequentialBase.prototype.discard_20y29v_k$ = function (max, $cont) {
+    var tmp = new $discardCOROUTINE$40(this, max, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.readSession_nxyd8o_k$ = function (consumer) {
+    try {
+      consumer(this);
+    }finally {
+      completeReading(this);
+    }
+  };
+  ByteChannelSequentialBase.prototype.startReadSession_et8im_k$ = function () {
+    return this;
+  };
+  ByteChannelSequentialBase.prototype.endReadSession_r7i704_k$ = function () {
+    completeReading(this);
+  };
+  ByteChannelSequentialBase.prototype.readSuspendableSession_llvgvv_k$ = function (consumer, $cont) {
+    var tmp = new $readSuspendableSessionCOROUTINE$42(this, consumer, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.readUTF8LineTo_o8lben_k$ = function (out, limit, $cont) {
+    if (this.get_isClosedForRead_ajcc1s_k$()) {
+      var cause = this.get_closedCause_o1qcj8_k$();
+      if (!(cause == null)) {
+        throw cause;
+      }
+      return false;
+    }
+    var tmp = ByteChannelSequentialBase$readUTF8LineTo$slambda_0(this, null);
+    return decodeUTF8LineLoopSuspend(out, limit, tmp, ByteChannelSequentialBase$readUTF8LineTo$lambda(this), $cont);
+  };
+  ByteChannelSequentialBase.prototype.readUTF8Line_8zq913_k$ = function (limit, $cont) {
+    var tmp = new $readUTF8LineCOROUTINE$43(this, limit, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.cancel_as6ug7_k$ = function (cause) {
+    if (!(this.get_closedCause_o1qcj8_k$() == null) ? true : this.get_closed_byjrzp_k$()) {
       return false;
     }
     var tmp0_elvis_lhs = cause;
-    return this.zx(tmp0_elvis_lhs == null ? CancellationException_init_$Create$('Channel cancelled') : tmp0_elvis_lhs);
+    return this.close_9zy44b_k$(tmp0_elvis_lhs == null ? CancellationException_init_$Create$('Channel cancelled') : tmp0_elvis_lhs);
   };
-  ByteChannelSequentialBase.prototype.zx = function (cause) {
+  ByteChannelSequentialBase.prototype.close_9zy44b_k$ = function (cause) {
     var closeElement = cause == null ? get_CLOSED_SUCCESS() : new CloseElement(cause);
-    if (!this.o12_1.atomicfu$compareAndSet(null, closeElement))
+    if (!this._closed_1.atomicfu$compareAndSet(null, closeElement))
       return false;
     if (!(cause == null)) {
-      this.q12_1.rq();
-      this.p12_1.rq();
-      this.v12_1.rq();
+      this.readable_1.release_wtm6d2_k$();
+      this.writable_1.release_wtm6d2_k$();
+      this.flushBuffer_1.release_wtm6d2_k$();
     } else {
-      this.m19();
+      this.flush_sgqoqb_k$();
     }
-    this.t12_1.v19(cause);
+    this.slot_1.cancel_g8hup6_k$(cause);
     return true;
   };
-  ByteChannelSequentialBase.prototype.w19 = function (dst, limit) {
-    var size = this.q12_1.i17();
+  ByteChannelSequentialBase.prototype.transferTo_esaosj_k$ = function (dst, limit) {
+    var size = this.readable_1.get_remaining_mwegr1_k$();
     var tmp;
-    if (size.a1(limit) <= 0) {
-      dst.p12_1.x19(this.q12_1);
-      dst.w15(size.md());
-      this.k17(size.md());
+    if (size.compareTo_n4fqi2_k$(limit) <= 0) {
+      dst.writable_1.writePacket_leumkr_k$(this.readable_1);
+      dst.afterWrite_uxn9f1_k$(size.toInt_1tsl84_k$());
+      this.afterRead_16ll9a_k$(size.toInt_1tsl84_k$());
       tmp = size;
     } else {
       tmp = new Long(0, 0);
     }
     return tmp;
   };
-  ByteChannelSequentialBase.prototype.w15 = function (count) {
+  ByteChannelSequentialBase.prototype.afterWrite_uxn9f1_k$ = function (count) {
     addBytesWritten(this, count);
-    if (this.s13()) {
-      this.p12_1.rq();
+    if (this.get_closed_byjrzp_k$()) {
+      this.writable_1.release_wtm6d2_k$();
       ensureNotClosed(this);
     }
-    if (this.j19() ? true : this.i14() === 0) {
-      this.m19();
+    if (this.get_autoFlush_zfdl3o_k$() ? true : this.get_availableForWrite_22rgeu_k$() === 0) {
+      this.flush_sgqoqb_k$();
     }
   };
+  ByteChannelSequentialBase.prototype.awaitFreeSpace_b7semn_k$ = function ($cont) {
+    var tmp = new $awaitFreeSpaceCOROUTINE$46(this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.awaitContent_aynhio_k$ = function ($cont) {
+    var tmp = new $awaitContentCOROUTINE$47(this, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelSequentialBase.prototype.peekTo_iy27cy_k$ = function (destination, destinationOffset, offset, min, max, $cont) {
+    var tmp = new $peekToCOROUTINE$48(this, destination, destinationOffset, offset, min, max, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
   ByteChannelSequentialBase.$metadata$ = classMeta('ByteChannelSequentialBase', [ByteChannel, ByteReadChannel_1, ByteWriteChannel, SuspendableReadSession, HasReadSession, HasWriteSession]);
+  function get_EXPECTED_CAPACITY() {
+    return EXPECTED_CAPACITY;
+  }
+  var EXPECTED_CAPACITY;
+  function lastReadAvailable$factory() {
+    return getPropertyCallableRef('lastReadAvailable', 1, KMutableProperty1, function (receiver) {
+      return _get_lastReadAvailable__cgybqk(receiver);
+    }, function (receiver, value) {
+      return _set_lastReadAvailable__98ukjs(receiver, value);
+    });
+  }
+  function lastReadAvailable$factory_0() {
+    return getPropertyCallableRef('lastReadAvailable', 1, KMutableProperty1, function (receiver) {
+      return _get_lastReadAvailable__cgybqk(receiver);
+    }, function (receiver, value) {
+      return _set_lastReadAvailable__98ukjs(receiver, value);
+    });
+  }
+  function lastReadView$factory() {
+    return getPropertyCallableRef('lastReadView', 1, KMutableProperty1, function (receiver) {
+      return _get_lastReadView__ihufyy(receiver);
+    }, function (receiver, value) {
+      return _set_lastReadView__2y3peu(receiver, value);
+    });
+  }
+  function lastReadView$factory_0() {
+    return getPropertyCallableRef('lastReadView', 1, KMutableProperty1, function (receiver) {
+      return _get_lastReadView__ihufyy(receiver);
+    }, function (receiver, value) {
+      return _set_lastReadView__2y3peu(receiver, value);
+    });
+  }
+  function copyAndClose(_this__u8e3s4, dst, limit, $cont) {
+    var tmp = new $copyAndCloseCOROUTINE$50(_this__u8e3s4, dst, limit, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function copyAndClose$default(_this__u8e3s4, dst, limit, $cont, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0)) {
+      Companion_getInstance();
+      limit = new Long(-1, 2147483647);
+    }
+    return copyAndClose(_this__u8e3s4, dst, limit, $cont);
+  }
   function cancel(_this__u8e3s4) {
-    return _this__u8e3s4.qo(null);
+    return _this__u8e3s4.cancel_as6ug7_k$(null);
   }
   function readAvailable(_this__u8e3s4, dst, $cont) {
-    return _this__u8e3s4.t19(dst, 0, dst.length, $cont);
+    return _this__u8e3s4.readAvailable_sp23sc_k$(dst, 0, dst.length, $cont);
   }
+  function $copyAndCloseCOROUTINE$50(_this__u8e3s4, dst, limit, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.limit_1 = limit;
+  }
+  $copyAndCloseCOROUTINE$50.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = copyTo(this._this__u8e3s4__1, this.dst_1, this.limit_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            var count = suspendResult;
+            close_0(this.dst_1);
+            ;
+            return count;
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $copyAndCloseCOROUTINE$50.$metadata$ = classMeta('$copyAndCloseCOROUTINE$50', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function close_0(_this__u8e3s4) {
-    return _this__u8e3s4.zx(null);
+    return _this__u8e3s4.close_9zy44b_k$(null);
   }
   function ClosedWriteChannelException(message) {
     CancellationException_init_$Init$(message, this);
@@ -1096,7 +3889,7 @@
   }
   ClosedWriteChannelException.$metadata$ = classMeta('ClosedWriteChannelException', undefined, undefined, undefined, undefined, CancellationException.prototype);
   function writeFully(_this__u8e3s4, src, $cont) {
-    return _this__u8e3s4.o19(src, 0, src.length, $cont);
+    return _this__u8e3s4.writeFully_ol1csb_k$(src, 0, src.length, $cont);
   }
   function get_CLOSED_SUCCESS() {
     init_properties_CloseElement_kt_zcr6ie();
@@ -1104,8 +3897,11 @@
   }
   var CLOSED_SUCCESS;
   function CloseElement(cause) {
-    this.w12_1 = cause;
+    this.cause_1 = cause;
   }
+  CloseElement.prototype.get_cause_iplhs0_k$ = function () {
+    return this.cause_1;
+  };
   CloseElement.$metadata$ = classMeta('CloseElement');
   var properties_initialized_CloseElement_kt_clkism;
   function init_properties_CloseElement_kt_zcr6ie() {
@@ -1131,168 +3927,198 @@
   function WriterScope() {
   }
   WriterScope.$metadata$ = interfaceMeta('WriterScope', [CoroutineScope]);
-  function ChannelJob(delegate, channel) {
-    this.y19_1 = delegate;
-    this.z19_1 = channel;
+  function _get_delegate__idh0py($this) {
+    return $this.delegate_1;
   }
-  ChannelJob.prototype.rw = function () {
-    return this.z19_1;
+  function ChannelJob(delegate, channel) {
+    this.delegate_1 = delegate;
+    this.channel_1 = channel;
+  }
+  ChannelJob.prototype.get_channel_dhi7tm_k$ = function () {
+    return this.channel_1;
   };
-  ChannelJob.prototype.rk = function () {
-    return this.y19_1.rk();
+  ChannelJob.prototype.get_children_4cwbp4_k$ = function () {
+    return this.delegate_1.get_children_4cwbp4_k$();
   };
-  ChannelJob.prototype.r = function () {
-    return this.y19_1.r();
+  ChannelJob.prototype.get_isActive_quafmh_k$ = function () {
+    return this.delegate_1.get_isActive_quafmh_k$();
   };
-  ChannelJob.prototype.em = function (child) {
-    return this.y19_1.em(child);
+  ChannelJob.prototype.get_isCancelled_trk8pu_k$ = function () {
+    return this.delegate_1.get_isCancelled_trk8pu_k$();
   };
-  ChannelJob.prototype.wl = function (cause) {
-    this.y19_1.wl(cause);
+  ChannelJob.prototype.get_isCompleted_a6j6c8_k$ = function () {
+    return this.delegate_1.get_isCompleted_a6j6c8_k$();
   };
-  ChannelJob.prototype.h3 = function (initial, operation) {
-    return this.y19_1.h3(initial, operation);
+  ChannelJob.prototype.get_key_18j28a_k$ = function () {
+    return this.delegate_1.get_key_18j28a_k$();
   };
-  ChannelJob.prototype.b3 = function (key) {
-    return this.y19_1.b3(key);
+  ChannelJob.prototype.get_onJoin_hnj4j6_k$ = function () {
+    return this.delegate_1.get_onJoin_hnj4j6_k$();
   };
-  ChannelJob.prototype.ol = function () {
-    return this.y19_1.ol();
+  ChannelJob.prototype.attachChild_ik9c8b_k$ = function (child) {
+    return this.delegate_1.attachChild_ik9c8b_k$(child);
   };
-  ChannelJob.prototype.sl = function (onCancelling, invokeImmediately, handler) {
-    return this.y19_1.sl(onCancelling, invokeImmediately, handler);
+  ChannelJob.prototype.cancel_2kogtl_k$ = function () {
+    this.delegate_1.cancel_2kogtl_k$();
   };
-  ChannelJob.prototype.rl = function (handler) {
-    return this.y19_1.rl(handler);
+  ChannelJob.prototype.cancel_as6ug7_k$ = function (cause) {
+    return this.delegate_1.cancel_as6ug7_k$(cause);
   };
-  ChannelJob.prototype.g3 = function (key) {
-    return this.y19_1.g3(key);
+  ChannelJob.prototype.cancel_4b7aim_k$ = function (cause) {
+    this.delegate_1.cancel_4b7aim_k$(cause);
   };
-  ChannelJob.prototype.i3 = function (context) {
-    return this.y19_1.i3(context);
+  ChannelJob.prototype.fold_6dbyow_k$ = function (initial, operation) {
+    return this.delegate_1.fold_6dbyow_k$(initial, operation);
   };
-  ChannelJob.prototype.ml = function () {
-    return this.y19_1.ml();
+  ChannelJob.prototype.get_1pi7hg_k$ = function (key) {
+    return this.delegate_1.get_1pi7hg_k$(key);
+  };
+  ChannelJob.prototype.getCancellationException_8i1q6u_k$ = function () {
+    return this.delegate_1.getCancellationException_8i1q6u_k$();
+  };
+  ChannelJob.prototype.invokeOnCompletion_npwpyn_k$ = function (onCancelling, invokeImmediately, handler) {
+    return this.delegate_1.invokeOnCompletion_npwpyn_k$(onCancelling, invokeImmediately, handler);
+  };
+  ChannelJob.prototype.invokeOnCompletion_t2apld_k$ = function (handler) {
+    return this.delegate_1.invokeOnCompletion_t2apld_k$(handler);
+  };
+  ChannelJob.prototype.join_kbq7u1_k$ = function ($cont) {
+    return this.delegate_1.join_kbq7u1_k$($cont);
+  };
+  ChannelJob.prototype.minusKey_y21q55_k$ = function (key) {
+    return this.delegate_1.minusKey_y21q55_k$(key);
+  };
+  ChannelJob.prototype.plus_rgw9wi_k$ = function (context) {
+    return this.delegate_1.plus_rgw9wi_k$(context);
+  };
+  ChannelJob.prototype.plus_ee14jq_k$ = function (other) {
+    return this.delegate_1.plus_ee14jq_k$(other);
+  };
+  ChannelJob.prototype.start_1tchgi_k$ = function () {
+    return this.delegate_1.start_1tchgi_k$();
   };
   ChannelJob.prototype.toString = function () {
-    return 'ChannelJob[' + this.y19_1 + ']';
+    return 'ChannelJob[' + this.delegate_1 + ']';
   };
   ChannelJob.$metadata$ = classMeta('ChannelJob', [ReaderJob, WriterJob, Job]);
   function launchChannel(_this__u8e3s4, context, channel, attachJob, block) {
-    var dispatcher = _this__u8e3s4.qk().b3(Key_getInstance());
+    var dispatcher = _this__u8e3s4.get_coroutineContext_115oqo_k$().get_1pi7hg_k$(Key_getInstance());
     var job = launch$default(_this__u8e3s4, context, null, launchChannel$slambda_0(attachJob, channel, block, dispatcher, null), 2, null);
-    job.rl(launchChannel$lambda(channel));
+    job.invokeOnCompletion_t2apld_k$(launchChannel$lambda(channel));
     return new ChannelJob(job, channel);
   }
   function ReaderJob() {
   }
   ReaderJob.$metadata$ = interfaceMeta('ReaderJob', [Job]);
   function ChannelScope(delegate, channel) {
-    this.a1a_1 = channel;
-    this.b1a_1 = delegate;
+    this.channel_1 = channel;
+    this.$$delegate_0__1 = delegate;
   }
-  ChannelScope.prototype.rw = function () {
-    return this.a1a_1;
+  ChannelScope.prototype.get_channel_dhi7tm_k$ = function () {
+    return this.channel_1;
   };
-  ChannelScope.prototype.qk = function () {
-    return this.b1a_1.qk();
+  ChannelScope.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.$$delegate_0__1.get_coroutineContext_115oqo_k$();
   };
   ChannelScope.$metadata$ = classMeta('ChannelScope', [ReaderScope, WriterScope, CoroutineScope]);
   function ReaderScope() {
   }
   ReaderScope.$metadata$ = interfaceMeta('ReaderScope', [CoroutineScope]);
   function launchChannel$slambda($attachJob, $channel, $block, $dispatcher, resultContinuation) {
-    this.k1a_1 = $attachJob;
-    this.l1a_1 = $channel;
-    this.m1a_1 = $block;
-    this.n1a_1 = $dispatcher;
+    this.$attachJob_1 = $attachJob;
+    this.$channel_1 = $channel;
+    this.$block_1 = $block;
+    this.$dispatcher_1 = $dispatcher;
     CoroutineImpl.call(this, resultContinuation);
   }
-  launchChannel$slambda.prototype.q1a = function ($this$launch, $cont) {
-    var tmp = this.r1a($this$launch, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  launchChannel$slambda.prototype.invoke_d6gbsu_k$ = function ($this$launch, $cont) {
+    var tmp = this.create_b6qu53_k$($this$launch, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  launchChannel$slambda.prototype.ae = function (p1, $cont) {
-    return this.q1a((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
+  launchChannel$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_d6gbsu_k$((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  launchChannel$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  launchChannel$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            if (this.k1a_1) {
-              this.l1a_1.c12(ensureNotNull(this.o1a_1.qk().b3(Key_getInstance_0())));
+            this.exceptionState_1 = 3;
+            if (this.$attachJob_1) {
+              this.$channel_1.attachJob_65ac2f_k$(ensureNotNull(this.$this$launch_1.get_coroutineContext_115oqo_k$().get_1pi7hg_k$(Key_getInstance_0())));
             }
 
             var tmp_0 = this;
-            var tmp_1 = new ChannelScope(this.o1a_1, this.l1a_1);
-            tmp_0.p1a_1 = isInterface(tmp_1, CoroutineScope) ? tmp_1 : THROW_CCE();
-            this.qd_1 = 2;
-            this.pd_1 = 1;
-            suspendResult = this.m1a_1(this.p1a_1, this);
+            var tmp_1 = new ChannelScope(this.$this$launch_1, this.$channel_1);
+            tmp_0.scope0__1 = isInterface(tmp_1, CoroutineScope) ? tmp_1 : THROW_CCE();
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this.$block_1(this.scope0__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.qd_1 = 3;
-            this.pd_1 = 4;
+            this.exceptionState_1 = 3;
+            this.state_1 = 4;
             continue $sm;
           case 2:
-            this.qd_1 = 3;
-            var tmp_2 = this.sd_1;
+            this.exceptionState_1 = 3;
+            var tmp_2 = this.exception_1;
             if (tmp_2 instanceof Error) {
-              var cause = this.sd_1;
-              if (!equals(this.n1a_1, Dispatchers_getInstance().nv_1) ? !(this.n1a_1 == null) : false) {
+              var cause = this.exception_1;
+              if (!equals(this.$dispatcher_1, Dispatchers_getInstance().Unconfined_1) ? !(this.$dispatcher_1 == null) : false) {
                 throw cause;
               }
-              this.l1a_1.qo(cause);
-              this.pd_1 = 4;
+              this.$channel_1.cancel_as6ug7_k$(cause);
+              this.state_1 = 4;
               continue $sm;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
           case 4:
-            this.qd_1 = 3;
+            this.exceptionState_1 = 3;
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  launchChannel$slambda.prototype.r1a = function ($this$launch, completion) {
-    var i = new launchChannel$slambda(this.k1a_1, this.l1a_1, this.m1a_1, this.n1a_1, completion);
-    i.o1a_1 = $this$launch;
+  launchChannel$slambda.prototype.create_b6qu53_k$ = function ($this$launch, completion) {
+    var i = new launchChannel$slambda(this.$attachJob_1, this.$channel_1, this.$block_1, this.$dispatcher_1, completion);
+    i.$this$launch_1 = $this$launch;
     return i;
+  };
+  launchChannel$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_b6qu53_k$((!(value == null) ? isInterface(value, CoroutineScope) : false) ? value : THROW_CCE(), completion);
   };
   launchChannel$slambda.$metadata$ = classMeta('launchChannel$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function launchChannel$slambda_0($attachJob, $channel, $block, $dispatcher, resultContinuation) {
     var i = new launchChannel$slambda($attachJob, $channel, $block, $dispatcher, resultContinuation);
     var l = function ($this$launch, $cont) {
-      return i.q1a($this$launch, $cont);
+      return i.invoke_d6gbsu_k$($this$launch, $cont);
     };
     l.$arity = 1;
     return l;
   }
   function launchChannel$lambda($channel) {
     return function (cause) {
-      $channel.zx(cause);
+      $channel.close_9zy44b_k$(cause);
       return Unit_getInstance();
     };
   }
@@ -1325,14 +4151,26 @@
   function HasReadSession() {
   }
   HasReadSession.$metadata$ = interfaceMeta('HasReadSession');
+  function WriterSuspendSession() {
+  }
+  WriterSuspendSession.$metadata$ = interfaceMeta('WriterSuspendSession', [WriterSession]);
   function HasWriteSession() {
   }
   HasWriteSession.$metadata$ = interfaceMeta('HasWriteSession');
+  function WriterSession() {
+  }
+  WriterSession.$metadata$ = interfaceMeta('WriterSession');
   function get_highByte(_this__u8e3s4) {
     return toByte(_this__u8e3s4 >>> 8 | 0);
   }
   function get_lowByte(_this__u8e3s4) {
     return toByte(_this__u8e3s4 & 255);
+  }
+  function get_highInt(_this__u8e3s4) {
+    return _this__u8e3s4.ushr_rr8rvr_k$(32).toInt_1tsl84_k$();
+  }
+  function get_lowInt(_this__u8e3s4) {
+    return _this__u8e3s4.and_jhajnj_k$(new Long(-1, 0)).toInt_1tsl84_k$();
   }
   function get_highShort(_this__u8e3s4) {
     return toShort(_this__u8e3s4 >>> 16 | 0);
@@ -1343,12 +4181,12 @@
   function get(_this__u8e3s4, index) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = _this__u8e3s4.s1a_1.getInt8(index);
+      tmp$ret$0 = _this__u8e3s4.view_1.getInt8(index);
     }
     return tmp$ret$0;
   }
   function set(_this__u8e3s4, index, value) {
-    return _this__u8e3s4.s1a_1.setInt8(index, value);
+    return _this__u8e3s4.view_1.setInt8(index, value);
   }
   function Allocator() {
   }
@@ -1363,10 +4201,13 @@
         var tmp0_let = of(Companion_getInstance_6(), source, sourceOffset, count);
         {
         }
-        tmp$ret$0 = tmp0_let.v1a(_this__u8e3s4, 0, count, offset);
+        tmp$ret$0 = tmp0_let.copyTo_b1j9k9_k$(_this__u8e3s4, 0, count, offset);
       }
       tmp$ret$1 = tmp$ret$0;
     }
+  }
+  function loadByteArray(_this__u8e3s4, offset, destination, destinationOffset, count) {
+    copyTo_0(_this__u8e3s4, destination, offset, count, destinationOffset);
   }
   function decode(_this__u8e3s4, input, max) {
     var tmp$ret$2;
@@ -1375,14 +4216,14 @@
       {
         var tmp0_minOf = toLong(max);
         var tmp1_minOf = sizeEstimate(input);
-        tmp$ret$0 = tmp0_minOf.a1(tmp1_minOf) <= 0 ? tmp0_minOf : tmp1_minOf;
+        tmp$ret$0 = tmp0_minOf.compareTo_n4fqi2_k$(tmp1_minOf) <= 0 ? tmp0_minOf : tmp1_minOf;
       }
-      var tmp2_buildString = tmp$ret$0.md();
+      var tmp2_buildString = tmp$ret$0.toInt_1tsl84_k$();
       {
       }
       var tmp$ret$1;
       {
-        var tmp0_apply = StringBuilder_init_$Create$(tmp2_buildString);
+        var tmp0_apply = StringBuilder_init_$Create$_0(tmp2_buildString);
         {
         }
         {
@@ -1396,26 +4237,26 @@
   }
   function decode$default(_this__u8e3s4, input, max, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
-      max = IntCompanionObject_getInstance().v_1;
+      max = IntCompanionObject_getInstance().MAX_VALUE_1;
     return decode(_this__u8e3s4, input, max);
   }
   function encodeToByteArrayImpl1(_this__u8e3s4, input, fromIndex, toIndex) {
     var start = fromIndex;
     if (start >= toIndex)
       return get_EmptyByteArray();
-    var single = Companion_getInstance_4().d12_1.w1a();
+    var single = Companion_getInstance_4().Pool_1.borrow_mvkpor_k$();
     try {
       var rc = encodeImpl(_this__u8e3s4, input, start, toIndex, single);
       start = start + rc | 0;
       if (start === toIndex) {
         var tmp$ret$0;
         {
-          tmp$ret$0 = single.s15_1 - single.r15_1 | 0;
+          tmp$ret$0 = single.writePosition_1 - single.readPosition_1 | 0;
         }
         var result = new Int8Array(tmp$ret$0);
         {
           var tmp0_readFully = result.length - 0 | 0;
-          readFully_0(single instanceof Buffer ? single : THROW_CCE(), result, 0, tmp0_readFully);
+          readFully_1(single instanceof Buffer ? single : THROW_CCE(), result, 0, tmp0_readFully);
         }
         return result;
       }
@@ -1426,14 +4267,14 @@
         var builder = BytePacketBuilder_init_$Create$(null, 1, null);
         try {
           {
-            builder.i1b(single.h1b());
+            builder.appendSingleChunk_ll2zwj_k$(single.duplicate_jvgc97_k$());
             encodeToImpl(_this__u8e3s4, builder, input, start, toIndex);
           }
-          tmp$ret$1 = builder.l17();
+          tmp$ret$1 = builder.build_1k0s4u_k$();
           break $l$block;
         } catch ($p) {
           if ($p instanceof Error) {
-            builder.rq();
+            builder.release_wtm6d2_k$();
             throw $p;
           } else {
             throw $p;
@@ -1443,19 +4284,26 @@
       var tmp = tmp$ret$1;
       return readBytes$default(tmp, 0, 1, null);
     }finally {
-      single.j1b(Companion_getInstance_4().d12_1);
+      single.release_49hdgr_k$(Companion_getInstance_4().Pool_1);
     }
+  }
+  function encodeToByteArrayImpl1$default(_this__u8e3s4, input, fromIndex, toIndex, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      fromIndex = 0;
+    if (!(($mask0 & 4) === 0))
+      toIndex = charSequenceLength(input);
+    return encodeToByteArrayImpl1(_this__u8e3s4, input, fromIndex, toIndex);
   }
   function sizeEstimate(_this__u8e3s4) {
     var tmp0_subject = _this__u8e3s4;
     var tmp;
     if (tmp0_subject instanceof ByteReadPacket) {
-      tmp = _this__u8e3s4.i17();
+      tmp = _this__u8e3s4.get_remaining_mwegr1_k$();
     } else {
       var tmp$ret$0;
       {
-        var tmp0_maxOf = _this__u8e3s4.i17();
-        tmp$ret$0 = tmp0_maxOf.a1(new Long(16, 0)) >= 0 ? tmp0_maxOf : new Long(16, 0);
+        var tmp0_maxOf = _this__u8e3s4.get_remaining_mwegr1_k$();
+        tmp$ret$0 = tmp0_maxOf.compareTo_n4fqi2_k$(new Long(16, 0)) >= 0 ? tmp0_maxOf : new Long(16, 0);
       }
       tmp = tmp$ret$0;
     }
@@ -1476,7 +4324,7 @@
             var tmp0__anonymous__q1qw7t = tail;
             var tmp$ret$0;
             {
-              tmp$ret$0 = tmp0__anonymous__q1qw7t.u15_1 - tmp0__anonymous__q1qw7t.s15_1 | 0;
+              tmp$ret$0 = tmp0__anonymous__q1qw7t.limit_1 - tmp0__anonymous__q1qw7t.writePosition_1 | 0;
             }
             var before = tmp$ret$0;
             var rc = encodeImpl(_this__u8e3s4, input, start, toIndex, tmp0__anonymous__q1qw7t);
@@ -1501,7 +4349,7 @@
             var tmp = bytesWritten;
             var tmp$ret$2;
             {
-              tmp$ret$2 = tmp0__anonymous__q1qw7t.u15_1 - tmp0__anonymous__q1qw7t.s15_1 | 0;
+              tmp$ret$2 = tmp0__anonymous__q1qw7t.limit_1 - tmp0__anonymous__q1qw7t.writePosition_1 | 0;
             }
             bytesWritten = tmp + (before - tmp$ret$2 | 0) | 0;
             tmp$ret$3 = start >= toIndex ? 0 : rc === 0 ? 8 : 1;
@@ -1512,7 +4360,7 @@
           tail = prepareWriteHead(destination, size, tail);
         }
       }finally {
-        destination.k1b();
+        destination.afterHeadWrite_dlo0ku_k$();
       }
     }
     bytesWritten = bytesWritten + encodeCompleteImpl(_this__u8e3s4, destination) | 0;
@@ -1530,7 +4378,7 @@
             var tmp0__anonymous__q1qw7t = tail;
             var tmp$ret$0;
             {
-              tmp$ret$0 = tmp0__anonymous__q1qw7t.u15_1 - tmp0__anonymous__q1qw7t.s15_1 | 0;
+              tmp$ret$0 = tmp0__anonymous__q1qw7t.limit_1 - tmp0__anonymous__q1qw7t.writePosition_1 | 0;
             }
             var before = tmp$ret$0;
             if (encodeComplete(_this__u8e3s4, tmp0__anonymous__q1qw7t)) {
@@ -1542,7 +4390,7 @@
             var tmp = bytesWritten;
             var tmp$ret$1;
             {
-              tmp$ret$1 = tmp0__anonymous__q1qw7t.u15_1 - tmp0__anonymous__q1qw7t.s15_1 | 0;
+              tmp$ret$1 = tmp0__anonymous__q1qw7t.limit_1 - tmp0__anonymous__q1qw7t.writePosition_1 | 0;
             }
             bytesWritten = tmp + (before - tmp$ret$1 | 0) | 0;
             tmp$ret$2 = size > 0;
@@ -1552,12 +4400,65 @@
           tail = prepareWriteHead(dst, 1, tail);
         }
       }finally {
-        dst.k1b();
+        dst.afterHeadWrite_dlo0ku_k$();
       }
     }
     return bytesWritten;
   }
-  function encode(_this__u8e3s4, input, fromIndex, toIndex) {
+  function TooLongLineException(message) {
+    MalformedInputException.call(this, message);
+    captureStack(this, TooLongLineException);
+  }
+  TooLongLineException.$metadata$ = classMeta('TooLongLineException', undefined, undefined, undefined, undefined, MalformedInputException.prototype);
+  function encode(_this__u8e3s4, input, fromIndex, toIndex, dst) {
+    var start = fromIndex;
+    if (start >= toIndex)
+      return Unit_getInstance();
+    {
+      var tail = prepareWriteHead(dst, 1, null);
+      try {
+        var size;
+        $l$loop: while (true) {
+          var tmp$ret$1;
+          {
+            var tmp0__anonymous__q1qw7t = tail;
+            var rc = encodeArrayImpl(_this__u8e3s4, input, start, toIndex, tmp0__anonymous__q1qw7t);
+            {
+              var tmp0_check = rc >= 0;
+              {
+              }
+              {
+                {
+                }
+                if (!tmp0_check) {
+                  var tmp$ret$0;
+                  {
+                    tmp$ret$0 = 'Check failed.';
+                  }
+                  var message = tmp$ret$0;
+                  throw IllegalStateException_init_$Create$(toString(message));
+                }
+              }
+            }
+            start = start + rc | 0;
+            tmp$ret$1 = start >= toIndex ? 0 : rc === 0 ? 8 : 1;
+          }
+          size = tmp$ret$1;
+          if (size <= 0)
+            break $l$loop;
+          tail = prepareWriteHead(dst, size, tail);
+        }
+      }finally {
+        dst.afterHeadWrite_dlo0ku_k$();
+      }
+    }
+    encodeCompleteImpl(_this__u8e3s4, dst);
+  }
+  function encodeArrayImpl(_this__u8e3s4, input, fromIndex, toIndex, dst) {
+    var length = toIndex - fromIndex | 0;
+    return encodeImpl(_this__u8e3s4, new CharArraySequence(input, fromIndex, length), 0, length, dst);
+  }
+  function encode_0(_this__u8e3s4, input, fromIndex, toIndex) {
     var tmp$ret$0;
     $l$block: {
       {
@@ -1567,11 +4468,11 @@
         {
           encodeToImpl(_this__u8e3s4, builder, input, fromIndex, toIndex);
         }
-        tmp$ret$0 = builder.l17();
+        tmp$ret$0 = builder.build_1k0s4u_k$();
         break $l$block;
       } catch ($p) {
         if ($p instanceof Error) {
-          builder.rq();
+          builder.release_wtm6d2_k$();
           throw $p;
         } else {
           throw $p;
@@ -1585,17 +4486,29 @@
       fromIndex = 0;
     if (!(($mask0 & 4) === 0))
       toIndex = charSequenceLength(input);
-    return encode(_this__u8e3s4, input, fromIndex, toIndex);
+    return encode_0(_this__u8e3s4, input, fromIndex, toIndex);
+  }
+  function _set_readPosition__n6qkdk($this, _set____db54di) {
+    $this.readPosition_1 = _set____db54di;
+  }
+  function _set_writePosition__sxej31($this, _set____db54di) {
+    $this.writePosition_1 = _set____db54di;
+  }
+  function _set_startGap__236j43($this, _set____db54di) {
+    $this.startGap_1 = _set____db54di;
+  }
+  function _set_limit__hazgmi($this, _set____db54di) {
+    $this.limit_1 = _set____db54di;
   }
   function Companion() {
     Companion_instance = this;
-    this.l1b_1 = 8;
+    this.ReservedSize_1 = 8;
   }
-  Companion.prototype.m1b = function () {
-    return this.l1b_1;
+  Companion.prototype.get_ReservedSize_b4jt5a_k$ = function () {
+    return this.ReservedSize_1;
   };
-  Companion.prototype.n1b = function () {
-    return Companion_getInstance_4().f12_1;
+  Companion.prototype.get_Empty_i9b85g_k$ = function () {
+    return Companion_getInstance_4().Empty_1;
   };
   Companion.$metadata$ = objectMeta('Companion');
   var Companion_instance;
@@ -1606,122 +4519,139 @@
   }
   function Buffer(memory) {
     Companion_getInstance_1();
-    this.q15_1 = memory;
-    this.r15_1 = 0;
-    this.s15_1 = 0;
-    this.t15_1 = 0;
+    this.memory_1 = memory;
+    this.readPosition_1 = 0;
+    this.writePosition_1 = 0;
+    this.startGap_1 = 0;
     var tmp = this;
     var tmp$ret$0;
     {
-      var tmp0__get_size32__ezg0pb = this.q15_1;
-      tmp$ret$0 = tmp0__get_size32__ezg0pb.s1a_1.byteLength;
+      var tmp0__get_size32__ezg0pb = this.memory_1;
+      tmp$ret$0 = tmp0__get_size32__ezg0pb.view_1.byteLength;
     }
-    tmp.u15_1 = tmp$ret$0;
+    tmp.limit_1 = tmp$ret$0;
     var tmp_0 = this;
     var tmp$ret$1;
     {
-      var tmp0__get_size32__ezg0pb_0 = this.q15_1;
-      tmp$ret$1 = tmp0__get_size32__ezg0pb_0.s1a_1.byteLength;
+      var tmp0__get_size32__ezg0pb_0 = this.memory_1;
+      tmp$ret$1 = tmp0__get_size32__ezg0pb_0.view_1.byteLength;
     }
-    tmp_0.v15_1 = tmp$ret$1;
+    tmp_0.capacity_1 = tmp$ret$1;
   }
-  Buffer.prototype.o1b = function () {
-    return this.q15_1;
+  Buffer.prototype.get_memory_gl4362_k$ = function () {
+    return this.memory_1;
   };
-  Buffer.prototype.p1b = function () {
-    return this.r15_1;
+  Buffer.prototype.get_readPosition_70qxnc_k$ = function () {
+    return this.readPosition_1;
   };
-  Buffer.prototype.q1b = function () {
-    return this.s15_1;
+  Buffer.prototype.get_writePosition_jdt81t_k$ = function () {
+    return this.writePosition_1;
   };
-  Buffer.prototype.r1b = function () {
-    return this.t15_1;
+  Buffer.prototype.get_startGap_a0yplv_k$ = function () {
+    return this.startGap_1;
   };
-  Buffer.prototype.s1b = function () {
-    return this.u15_1;
+  Buffer.prototype.get_limit_iuokuq_k$ = function () {
+    return this.limit_1;
   };
-  Buffer.prototype.t1b = function () {
-    return this.v15_1 - this.u15_1 | 0;
+  Buffer.prototype.get_endGap_cxioec_k$ = function () {
+    return this.capacity_1 - this.limit_1 | 0;
   };
-  Buffer.prototype.u1b = function () {
-    return this.v15_1;
+  Buffer.prototype.get_capacity_wxbgcd_k$ = function () {
+    return this.capacity_1;
   };
-  Buffer.prototype.v1b = function () {
-    return this.s15_1 - this.r15_1 | 0;
+  Buffer.prototype.get_readRemaining_ieclyh_k$ = function () {
+    return this.writePosition_1 - this.readPosition_1 | 0;
   };
-  Buffer.prototype.w1b = function () {
-    return this.u15_1 - this.s15_1 | 0;
+  Buffer.prototype.get_writeRemaining_ojcrfk_k$ = function () {
+    return this.limit_1 - this.writePosition_1 | 0;
   };
-  Buffer.prototype.x1b = function (count) {
+  Buffer.prototype.discardExact_ijr9ip_k$ = function (count) {
     if (count === 0)
       return Unit_getInstance();
-    var newReadPosition = this.r15_1 + count | 0;
-    if (count < 0 ? true : newReadPosition > this.s15_1) {
+    var newReadPosition = this.readPosition_1 + count | 0;
+    if (count < 0 ? true : newReadPosition > this.writePosition_1) {
       var tmp$ret$1;
       {
-        tmp$ret$1 = this.s15_1 - this.r15_1 | 0;
+        tmp$ret$1 = this.writePosition_1 - this.readPosition_1 | 0;
       }
       discardFailed(count, tmp$ret$1);
     }
-    this.r15_1 = newReadPosition;
+    this.readPosition_1 = newReadPosition;
   };
-  Buffer.prototype.y1b = function (count) {
-    var newWritePosition = this.s15_1 + count | 0;
-    if (count < 0 ? true : newWritePosition > this.u15_1) {
+  Buffer.prototype.discardExact$default_sizhgu_k$ = function (count, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0)) {
+      var tmp$ret$0;
+      var tmp$ret$0_0;
+      {
+        tmp$ret$0 = this.writePosition_1 - this.readPosition_1 | 0;
+        tmp$ret$0_0 = Unit_getInstance();
+      }
+      count = tmp$ret$0;
+    }
+    return this.discardExact_ijr9ip_k$(count);
+  };
+  Buffer.prototype.commitWritten_xiy30w_k$ = function (count) {
+    var newWritePosition = this.writePosition_1 + count | 0;
+    if (count < 0 ? true : newWritePosition > this.limit_1) {
       var tmp$ret$0;
       {
-        tmp$ret$0 = this.u15_1 - this.s15_1 | 0;
+        tmp$ret$0 = this.limit_1 - this.writePosition_1 | 0;
       }
       commitWrittenFailed(count, tmp$ret$0);
     }
-    this.s15_1 = newWritePosition;
+    this.writePosition_1 = newWritePosition;
   };
-  Buffer.prototype.z1b = function (position) {
-    var limit = this.u15_1;
-    if (position < this.s15_1) {
-      var tmp = position - this.s15_1 | 0;
+  Buffer.prototype.commitWrittenUntilIndex_vgi103_k$ = function (position) {
+    var limit = this.limit_1;
+    if (position < this.writePosition_1) {
+      var tmp = position - this.writePosition_1 | 0;
       var tmp$ret$0;
       {
-        tmp$ret$0 = this.u15_1 - this.s15_1 | 0;
+        tmp$ret$0 = this.limit_1 - this.writePosition_1 | 0;
       }
       commitWrittenFailed(tmp, tmp$ret$0);
     }
     if (position >= limit) {
       if (position === limit) {
-        this.s15_1 = position;
+        this.writePosition_1 = position;
         return false;
       }
-      var tmp_0 = position - this.s15_1 | 0;
+      var tmp_0 = position - this.writePosition_1 | 0;
       var tmp$ret$1;
       {
-        tmp$ret$1 = this.u15_1 - this.s15_1 | 0;
+        tmp$ret$1 = this.limit_1 - this.writePosition_1 | 0;
       }
       commitWrittenFailed(tmp_0, tmp$ret$1);
     }
-    this.s15_1 = position;
+    this.writePosition_1 = position;
     return true;
   };
-  Buffer.prototype.a1c = function (position) {
-    if (position < 0 ? true : position > this.s15_1) {
-      var tmp = position - this.r15_1 | 0;
+  Buffer.prototype.discardUntilIndex_gbx9um_k$ = function (position) {
+    if (position < 0 ? true : position > this.writePosition_1) {
+      var tmp = position - this.readPosition_1 | 0;
       var tmp$ret$0;
       {
-        tmp$ret$0 = this.s15_1 - this.r15_1 | 0;
+        tmp$ret$0 = this.writePosition_1 - this.readPosition_1 | 0;
       }
       discardFailed(tmp, tmp$ret$0);
     }
-    if (!(this.r15_1 === position)) {
-      this.r15_1 = position;
+    if (!(this.readPosition_1 === position)) {
+      this.readPosition_1 = position;
     }
   };
-  Buffer.prototype.b1c = function (count) {
-    var newReadPosition = this.r15_1 - count | 0;
-    if (newReadPosition < this.t15_1) {
-      rewindFailed(count, this.r15_1 - this.t15_1 | 0);
+  Buffer.prototype.rewind_7344q3_k$ = function (count) {
+    var newReadPosition = this.readPosition_1 - count | 0;
+    if (newReadPosition < this.startGap_1) {
+      rewindFailed(count, this.readPosition_1 - this.startGap_1 | 0);
     }
-    this.r15_1 = newReadPosition;
+    this.readPosition_1 = newReadPosition;
   };
-  Buffer.prototype.c1c = function (startGap) {
+  Buffer.prototype.rewind$default_66vixk_k$ = function (count, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      count = this.readPosition_1 - this.startGap_1 | 0;
+    return this.rewind_7344q3_k$(count);
+  };
+  Buffer.prototype.reserveStartGap_c2e7nk_k$ = function (startGap) {
     {
       var tmp0_require = startGap >= 0;
       {
@@ -1735,22 +4665,22 @@
         throw IllegalArgumentException_init_$Create$(toString(message));
       }
     }
-    if (this.r15_1 >= startGap) {
-      this.t15_1 = startGap;
+    if (this.readPosition_1 >= startGap) {
+      this.startGap_1 = startGap;
       return Unit_getInstance();
     }
-    if (this.r15_1 === this.s15_1) {
-      if (startGap > this.u15_1) {
+    if (this.readPosition_1 === this.writePosition_1) {
+      if (startGap > this.limit_1) {
         startGapReservationFailedDueToLimit(this, startGap);
       }
-      this.s15_1 = startGap;
-      this.r15_1 = startGap;
-      this.t15_1 = startGap;
+      this.writePosition_1 = startGap;
+      this.readPosition_1 = startGap;
+      this.startGap_1 = startGap;
       return Unit_getInstance();
     }
     startGapReservationFailed(this, startGap);
   };
-  Buffer.prototype.d1c = function (endGap) {
+  Buffer.prototype.reserveEndGap_1tynif_k$ = function (endGap) {
     {
       var tmp0_require = endGap >= 0;
       {
@@ -1764,48 +4694,48 @@
         throw IllegalArgumentException_init_$Create$(toString(message));
       }
     }
-    var newLimit = this.v15_1 - endGap | 0;
-    if (newLimit >= this.s15_1) {
-      this.u15_1 = newLimit;
+    var newLimit = this.capacity_1 - endGap | 0;
+    if (newLimit >= this.writePosition_1) {
+      this.limit_1 = newLimit;
       return Unit_getInstance();
     }
     if (newLimit < 0) {
       endGapReservationFailedDueToCapacity(this, endGap);
     }
-    if (newLimit < this.t15_1) {
+    if (newLimit < this.startGap_1) {
       endGapReservationFailedDueToStartGap(this, endGap);
     }
-    if (this.r15_1 === this.s15_1) {
-      this.u15_1 = newLimit;
-      this.r15_1 = newLimit;
-      this.s15_1 = newLimit;
+    if (this.readPosition_1 === this.writePosition_1) {
+      this.limit_1 = newLimit;
+      this.readPosition_1 = newLimit;
+      this.writePosition_1 = newLimit;
       return Unit_getInstance();
     }
     endGapReservationFailedDueToContent(this, endGap);
   };
-  Buffer.prototype.e1c = function () {
-    this.t15_1 = 0;
-    this.r15_1 = 0;
-    var capacity = this.v15_1;
-    this.s15_1 = capacity;
+  Buffer.prototype.resetForRead_c551zz_k$ = function () {
+    this.startGap_1 = 0;
+    this.readPosition_1 = 0;
+    var capacity = this.capacity_1;
+    this.writePosition_1 = capacity;
   };
-  Buffer.prototype.f1c = function () {
-    this.g1c(this.v15_1 - this.t15_1 | 0);
+  Buffer.prototype.resetForWrite_2nqt9w_k$ = function () {
+    this.resetForWrite_ckloqd_k$(this.capacity_1 - this.startGap_1 | 0);
   };
-  Buffer.prototype.g1c = function (limit) {
-    var startGap = this.t15_1;
-    this.r15_1 = startGap;
-    this.s15_1 = startGap;
-    this.u15_1 = limit;
+  Buffer.prototype.resetForWrite_ckloqd_k$ = function (limit) {
+    var startGap = this.startGap_1;
+    this.readPosition_1 = startGap;
+    this.writePosition_1 = startGap;
+    this.limit_1 = limit;
   };
-  Buffer.prototype.h1c = function () {
-    this.i1c(0);
-    this.j1c();
+  Buffer.prototype.releaseGaps_362sel_k$ = function () {
+    this.releaseStartGap_hew2nf_k$(0);
+    this.releaseEndGap_v67o29_k$();
   };
-  Buffer.prototype.j1c = function () {
-    this.u15_1 = this.v15_1;
+  Buffer.prototype.releaseEndGap_v67o29_k$ = function () {
+    this.limit_1 = this.capacity_1;
   };
-  Buffer.prototype.i1c = function (newReadPosition) {
+  Buffer.prototype.releaseStartGap_hew2nf_k$ = function (newReadPosition) {
     {
       var tmp0_require = newReadPosition >= 0;
       {
@@ -1820,79 +4750,123 @@
       }
     }
     {
-      var tmp1_require = newReadPosition <= this.r15_1;
+      var tmp1_require = newReadPosition <= this.readPosition_1;
       {
       }
       if (!tmp1_require) {
         var tmp$ret$1;
         {
-          tmp$ret$1 = "newReadPosition shouldn't be ahead of the read position: " + newReadPosition + ' > ' + this.r15_1;
+          tmp$ret$1 = "newReadPosition shouldn't be ahead of the read position: " + newReadPosition + ' > ' + this.readPosition_1;
         }
         var message_0 = tmp$ret$1;
         throw IllegalArgumentException_init_$Create$(toString(message_0));
       }
     }
-    this.r15_1 = newReadPosition;
-    if (this.t15_1 > newReadPosition) {
-      this.t15_1 = newReadPosition;
+    this.readPosition_1 = newReadPosition;
+    if (this.startGap_1 > newReadPosition) {
+      this.startGap_1 = newReadPosition;
     }
   };
-  Buffer.prototype.k1c = function (copy) {
-    copy.u15_1 = this.u15_1;
-    copy.t15_1 = this.t15_1;
-    copy.r15_1 = this.r15_1;
-    copy.s15_1 = this.s15_1;
+  Buffer.prototype.duplicateTo_qcdasm_k$ = function (copy) {
+    copy.limit_1 = this.limit_1;
+    copy.startGap_1 = this.startGap_1;
+    copy.readPosition_1 = this.readPosition_1;
+    copy.writePosition_1 = this.writePosition_1;
   };
-  Buffer.prototype.l1c = function () {
-    var readPosition = this.r15_1;
-    if (readPosition === this.s15_1) {
-      throw new EOFException('No readable bytes available.');
+  Buffer.prototype.duplicate_jvgc97_k$ = function () {
+    var tmp$ret$0;
+    {
+      var tmp0_apply = new Buffer(this.memory_1);
+      {
+      }
+      {
+        tmp0_apply.duplicateTo_qcdasm_k$(tmp0_apply);
+      }
+      tmp$ret$0 = tmp0_apply;
     }
-    this.r15_1 = readPosition + 1 | 0;
+    return tmp$ret$0;
+  };
+  Buffer.prototype.tryPeekByte_ple8ke_k$ = function () {
+    var readPosition = this.readPosition_1;
+    if (readPosition === this.writePosition_1)
+      return -1;
     var tmp$ret$1;
     {
-      var tmp0_get = this.q15_1;
+      var tmp0_get = this.memory_1;
       var tmp$ret$0;
       {
-        tmp$ret$0 = tmp0_get.s1a_1.getInt8(readPosition);
+        tmp$ret$0 = tmp0_get.view_1.getInt8(readPosition);
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return tmp$ret$1 & 255;
+  };
+  Buffer.prototype.tryReadByte_a7i2zd_k$ = function () {
+    var readPosition = this.readPosition_1;
+    if (readPosition === this.writePosition_1)
+      return -1;
+    this.readPosition_1 = readPosition + 1 | 0;
+    var tmp$ret$1;
+    {
+      var tmp0_get = this.memory_1;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = tmp0_get.view_1.getInt8(readPosition);
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return tmp$ret$1 & 255;
+  };
+  Buffer.prototype.readByte_ectjk2_k$ = function () {
+    var readPosition = this.readPosition_1;
+    if (readPosition === this.writePosition_1) {
+      throw new EOFException('No readable bytes available.');
+    }
+    this.readPosition_1 = readPosition + 1 | 0;
+    var tmp$ret$1;
+    {
+      var tmp0_get = this.memory_1;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = tmp0_get.view_1.getInt8(readPosition);
       }
       tmp$ret$1 = tmp$ret$0;
     }
     return tmp$ret$1;
   };
-  Buffer.prototype.m1c = function (value) {
-    var writePosition = this.s15_1;
-    if (writePosition === this.u15_1) {
+  Buffer.prototype.writeByte_jvpujw_k$ = function (value) {
+    var writePosition = this.writePosition_1;
+    if (writePosition === this.limit_1) {
       throw new InsufficientSpaceException('No free space in the buffer to write a byte');
     }
     var tmp$ret$0;
     {
-      var tmp0_set = this.q15_1;
-      tmp$ret$0 = tmp0_set.s1a_1.setInt8(writePosition, value);
+      var tmp0_set = this.memory_1;
+      tmp$ret$0 = tmp0_set.view_1.setInt8(writePosition, value);
     }
-    this.s15_1 = writePosition + 1 | 0;
+    this.writePosition_1 = writePosition + 1 | 0;
   };
-  Buffer.prototype.n1c = function () {
-    this.h1c();
-    this.f1c();
+  Buffer.prototype.reset_5tn5dq_k$ = function () {
+    this.releaseGaps_362sel_k$();
+    this.resetForWrite_2nqt9w_k$();
   };
   Buffer.prototype.toString = function () {
     var tmp$ret$0;
     {
-      tmp$ret$0 = this.s15_1 - this.r15_1 | 0;
+      tmp$ret$0 = this.writePosition_1 - this.readPosition_1 | 0;
     }
     var tmp = tmp$ret$0;
     var tmp$ret$1;
     {
-      tmp$ret$1 = this.u15_1 - this.s15_1 | 0;
+      tmp$ret$1 = this.limit_1 - this.writePosition_1 | 0;
     }
     var tmp_0 = tmp$ret$1;
-    var tmp_1 = this.t15_1;
+    var tmp_1 = this.startGap_1;
     var tmp$ret$2;
     {
-      tmp$ret$2 = this.v15_1 - this.u15_1 | 0;
+      tmp$ret$2 = this.capacity_1 - this.limit_1 | 0;
     }
-    return 'Buffer(' + tmp + ' used, ' + tmp_0 + ' free, ' + (tmp_1 + tmp$ret$2 | 0) + ' reserved of ' + this.v15_1 + ')';
+    return 'Buffer(' + tmp + ' used, ' + tmp_0 + ' free, ' + (tmp_1 + tmp$ret$2 | 0) + ' reserved of ' + this.capacity_1 + ')';
   };
   Buffer.$metadata$ = classMeta('Buffer');
   function discardFailed(count, readRemaining) {
@@ -1905,12 +4879,12 @@
     throw IllegalArgumentException_init_$Create$('Unable to rewind ' + count + ' bytes: only ' + rewindRemaining + ' could be rewinded');
   }
   function startGapReservationFailedDueToLimit(_this__u8e3s4, startGap) {
-    if (startGap > _this__u8e3s4.v15_1) {
-      throw IllegalArgumentException_init_$Create$('Start gap ' + startGap + ' is bigger than the capacity ' + _this__u8e3s4.v15_1);
+    if (startGap > _this__u8e3s4.capacity_1) {
+      throw IllegalArgumentException_init_$Create$('Start gap ' + startGap + ' is bigger than the capacity ' + _this__u8e3s4.capacity_1);
     }
     var tmp$ret$0;
     {
-      tmp$ret$0 = _this__u8e3s4.v15_1 - _this__u8e3s4.u15_1 | 0;
+      tmp$ret$0 = _this__u8e3s4.capacity_1 - _this__u8e3s4.limit_1 | 0;
     }
     throw IllegalStateException_init_$Create$('Unable to reserve ' + startGap + ' start gap: there are already ' + tmp$ret$0 + ' bytes reserved in the end');
   }
@@ -1918,31 +4892,60 @@
     var tmp = 'Unable to reserve ' + startGap + ' start gap: ';
     var tmp$ret$0;
     {
-      tmp$ret$0 = _this__u8e3s4.s15_1 - _this__u8e3s4.r15_1 | 0;
+      tmp$ret$0 = _this__u8e3s4.writePosition_1 - _this__u8e3s4.readPosition_1 | 0;
     }
-    throw IllegalStateException_init_$Create$(tmp + ('there are already ' + tmp$ret$0 + ' content bytes starting at offset ' + _this__u8e3s4.r15_1));
+    throw IllegalStateException_init_$Create$(tmp + ('there are already ' + tmp$ret$0 + ' content bytes starting at offset ' + _this__u8e3s4.readPosition_1));
   }
   function endGapReservationFailedDueToCapacity(_this__u8e3s4, endGap) {
-    throw IllegalArgumentException_init_$Create$('End gap ' + endGap + ' is too big: capacity is ' + _this__u8e3s4.v15_1);
+    throw IllegalArgumentException_init_$Create$('End gap ' + endGap + ' is too big: capacity is ' + _this__u8e3s4.capacity_1);
   }
   function endGapReservationFailedDueToStartGap(_this__u8e3s4, endGap) {
-    throw IllegalArgumentException_init_$Create$('End gap ' + endGap + ' is too big: there are already ' + _this__u8e3s4.t15_1 + ' bytes reserved in the beginning');
+    throw IllegalArgumentException_init_$Create$('End gap ' + endGap + ' is too big: there are already ' + _this__u8e3s4.startGap_1 + ' bytes reserved in the beginning');
   }
   function endGapReservationFailedDueToContent(_this__u8e3s4, endGap) {
     var tmp = 'Unable to reserve end gap ' + endGap + ':';
     var tmp$ret$0;
     {
-      tmp$ret$0 = _this__u8e3s4.s15_1 - _this__u8e3s4.r15_1 | 0;
+      tmp$ret$0 = _this__u8e3s4.writePosition_1 - _this__u8e3s4.readPosition_1 | 0;
     }
-    throw IllegalArgumentException_init_$Create$(tmp + (' there are already ' + tmp$ret$0 + ' content bytes at offset ' + _this__u8e3s4.r15_1));
+    throw IllegalArgumentException_init_$Create$(tmp + (' there are already ' + tmp$ret$0 + ' content bytes at offset ' + _this__u8e3s4.readPosition_1));
   }
-  function InsufficientSpaceException_init_$Init$(name, size, availableSpace, $this) {
+  function InsufficientSpaceException_init_$Init$(message, $mask0, $marker, $this) {
+    if (!(($mask0 & 1) === 0))
+      message = 'Not enough free space';
+    InsufficientSpaceException.call($this, message);
+    return $this;
+  }
+  function InsufficientSpaceException_init_$Create$(message, $mask0, $marker) {
+    var tmp = InsufficientSpaceException_init_$Init$(message, $mask0, $marker, Object.create(InsufficientSpaceException.prototype));
+    captureStack(tmp, InsufficientSpaceException_init_$Create$);
+    return tmp;
+  }
+  function InsufficientSpaceException_init_$Init$_0(size, availableSpace, $this) {
+    InsufficientSpaceException.call($this, 'Not enough free space to write ' + size + ' bytes, available ' + availableSpace + ' bytes.');
+    return $this;
+  }
+  function InsufficientSpaceException_init_$Create$_0(size, availableSpace) {
+    var tmp = InsufficientSpaceException_init_$Init$_0(size, availableSpace, Object.create(InsufficientSpaceException.prototype));
+    captureStack(tmp, InsufficientSpaceException_init_$Create$_0);
+    return tmp;
+  }
+  function InsufficientSpaceException_init_$Init$_1(name, size, availableSpace, $this) {
     InsufficientSpaceException.call($this, 'Not enough free space to write ' + name + ' of ' + size + ' bytes, available ' + availableSpace + ' bytes.');
     return $this;
   }
-  function InsufficientSpaceException_init_$Create$(name, size, availableSpace) {
-    var tmp = InsufficientSpaceException_init_$Init$(name, size, availableSpace, Object.create(InsufficientSpaceException.prototype));
-    captureStack(tmp, InsufficientSpaceException_init_$Create$);
+  function InsufficientSpaceException_init_$Create$_1(name, size, availableSpace) {
+    var tmp = InsufficientSpaceException_init_$Init$_1(name, size, availableSpace, Object.create(InsufficientSpaceException.prototype));
+    captureStack(tmp, InsufficientSpaceException_init_$Create$_1);
+    return tmp;
+  }
+  function InsufficientSpaceException_init_$Init$_2(size, availableSpace, $this) {
+    InsufficientSpaceException.call($this, 'Not enough free space to write ' + toString(size) + ' bytes, available ' + toString(availableSpace) + ' bytes.');
+    return $this;
+  }
+  function InsufficientSpaceException_init_$Create$_2(size, availableSpace) {
+    var tmp = InsufficientSpaceException_init_$Init$_2(size, availableSpace, Object.create(InsufficientSpaceException.prototype));
+    captureStack(tmp, InsufficientSpaceException_init_$Create$_2);
     return tmp;
   }
   function InsufficientSpaceException(message) {
@@ -1951,23 +4954,23 @@
   }
   InsufficientSpaceException.$metadata$ = classMeta('InsufficientSpaceException', undefined, undefined, undefined, undefined, Exception.prototype);
   function restoreStartGap(_this__u8e3s4, size) {
-    _this__u8e3s4.i1c(_this__u8e3s4.r15_1 - size | 0);
+    _this__u8e3s4.releaseStartGap_hew2nf_k$(_this__u8e3s4.readPosition_1 - size | 0);
   }
   function canRead(_this__u8e3s4) {
-    return _this__u8e3s4.s15_1 > _this__u8e3s4.r15_1;
+    return _this__u8e3s4.writePosition_1 > _this__u8e3s4.readPosition_1;
   }
   function write(_this__u8e3s4, block) {
     {
     }
-    var rc = block(_this__u8e3s4.q15_1, _this__u8e3s4.s15_1, _this__u8e3s4.u15_1);
-    _this__u8e3s4.y1b(rc);
+    var rc = block(_this__u8e3s4.memory_1, _this__u8e3s4.writePosition_1, _this__u8e3s4.limit_1);
+    _this__u8e3s4.commitWritten_xiy30w_k$(rc);
     return rc;
   }
   function read(_this__u8e3s4, block) {
     {
     }
-    var rc = block(_this__u8e3s4.q15_1, _this__u8e3s4.r15_1, _this__u8e3s4.s15_1);
-    _this__u8e3s4.x1b(rc);
+    var rc = block(_this__u8e3s4.memory_1, _this__u8e3s4.readPosition_1, _this__u8e3s4.writePosition_1);
+    _this__u8e3s4.discardExact_ijr9ip_k$(rc);
     return rc;
   }
   function writeBufferAppend(_this__u8e3s4, other, maxSize) {
@@ -1975,7 +4978,7 @@
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = other.s15_1 - other.r15_1 | 0;
+        tmp$ret$0 = other.writePosition_1 - other.readPosition_1 | 0;
       }
       var tmp0_minOf = tmp$ret$0;
       tmp$ret$1 = Math.min(tmp0_minOf, maxSize);
@@ -1983,7 +4986,7 @@
     var size = tmp$ret$1;
     var tmp$ret$2;
     {
-      tmp$ret$2 = _this__u8e3s4.u15_1 - _this__u8e3s4.s15_1 | 0;
+      tmp$ret$2 = _this__u8e3s4.limit_1 - _this__u8e3s4.writePosition_1 | 0;
     }
     if (tmp$ret$2 <= size) {
       writeBufferAppendUnreserve(_this__u8e3s4, size);
@@ -1994,29 +4997,29 @@
       }
       var tmp$ret$5;
       {
-        var tmp1__anonymous__uwfjfc = _this__u8e3s4.q15_1;
-        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.s15_1;
-        var tmp3__anonymous__ufb84q = _this__u8e3s4.u15_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.memory_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
+        var tmp3__anonymous__ufb84q = _this__u8e3s4.limit_1;
         var tmp$ret$4;
         {
           {
           }
           var tmp$ret$3;
           {
-            var tmp0__anonymous__q1qw7t = other.q15_1;
-            var tmp1__anonymous__uwfjfc_0 = other.r15_1;
-            var tmp2__anonymous__z9zvc9_0 = other.s15_1;
-            tmp0__anonymous__q1qw7t.v1a(tmp1__anonymous__uwfjfc, tmp1__anonymous__uwfjfc_0, size, tmp2__anonymous__z9zvc9);
+            var tmp0__anonymous__q1qw7t = other.memory_1;
+            var tmp1__anonymous__uwfjfc_0 = other.readPosition_1;
+            var tmp2__anonymous__z9zvc9_0 = other.writePosition_1;
+            tmp0__anonymous__q1qw7t.copyTo_b1j9k9_k$(tmp1__anonymous__uwfjfc, tmp1__anonymous__uwfjfc_0, size, tmp2__anonymous__z9zvc9);
             tmp$ret$3 = size;
           }
           var rc = tmp$ret$3;
-          other.x1b(rc);
+          other.discardExact_ijr9ip_k$(rc);
           tmp$ret$4 = rc;
         }
         tmp$ret$5 = tmp$ret$4;
       }
       var rc_0 = tmp$ret$5;
-      _this__u8e3s4.y1b(rc_0);
+      _this__u8e3s4.commitWritten_xiy30w_k$(rc_0);
       tmp$ret$6 = rc_0;
     }
     return tmp$ret$6;
@@ -2024,36 +5027,36 @@
   function writeBufferAppendUnreserve(_this__u8e3s4, writeSize) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = _this__u8e3s4.u15_1 - _this__u8e3s4.s15_1 | 0;
+      tmp$ret$0 = _this__u8e3s4.limit_1 - _this__u8e3s4.writePosition_1 | 0;
     }
     var tmp = tmp$ret$0;
     var tmp$ret$1;
     {
-      tmp$ret$1 = _this__u8e3s4.v15_1 - _this__u8e3s4.u15_1 | 0;
+      tmp$ret$1 = _this__u8e3s4.capacity_1 - _this__u8e3s4.limit_1 | 0;
     }
     if ((tmp + tmp$ret$1 | 0) < writeSize) {
       throw IllegalArgumentException_init_$Create$("Can't append buffer: not enough free space at the end");
     }
-    var newWritePosition = _this__u8e3s4.s15_1 + writeSize | 0;
-    var overrunSize = newWritePosition - _this__u8e3s4.u15_1 | 0;
+    var newWritePosition = _this__u8e3s4.writePosition_1 + writeSize | 0;
+    var overrunSize = newWritePosition - _this__u8e3s4.limit_1 | 0;
     if (overrunSize > 0) {
-      _this__u8e3s4.j1c();
+      _this__u8e3s4.releaseEndGap_v67o29_k$();
     }
   }
   function writeBufferPrepend(_this__u8e3s4, other) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = other.s15_1 - other.r15_1 | 0;
+      tmp$ret$0 = other.writePosition_1 - other.readPosition_1 | 0;
     }
     var size = tmp$ret$0;
-    var readPosition = _this__u8e3s4.r15_1;
+    var readPosition = _this__u8e3s4.readPosition_1;
     if (readPosition < size) {
       throw IllegalArgumentException_init_$Create$('Not enough space in the beginning to prepend bytes');
     }
     var newReadPosition = readPosition - size | 0;
-    other.q15_1.v1a(_this__u8e3s4.q15_1, other.r15_1, size, newReadPosition);
-    other.x1b(size);
-    _this__u8e3s4.i1c(newReadPosition);
+    other.memory_1.copyTo_b1j9k9_k$(_this__u8e3s4.memory_1, other.readPosition_1, size, newReadPosition);
+    other.discardExact_ijr9ip_k$(size);
+    _this__u8e3s4.releaseStartGap_hew2nf_k$(newReadPosition);
     return size;
   }
   function get_DefaultChunkedBufferPool() {
@@ -2074,31 +5077,37 @@
   function DefaultBufferPool_init_$Create$(bufferSize, capacity, allocator, $mask0, $marker) {
     return DefaultBufferPool_init_$Init$(bufferSize, capacity, allocator, $mask0, $marker, Object.create(DefaultBufferPool.prototype));
   }
+  function _get_bufferSize__mp12kq($this) {
+    return $this.bufferSize_1;
+  }
+  function _get_allocator__hrvkpy($this) {
+    return $this.allocator_1;
+  }
   function DefaultBufferPool(bufferSize, capacity, allocator) {
     DefaultPool.call(this, capacity);
-    this.r1c_1 = bufferSize;
-    this.s1c_1 = allocator;
+    this.bufferSize_1 = bufferSize;
+    this.allocator_1 = allocator;
   }
-  DefaultBufferPool.prototype.t1c = function () {
-    return new ChunkBuffer(this.s1c_1.t1a(this.r1c_1), null, this);
+  DefaultBufferPool.prototype.produceInstance_xswihh_k$ = function () {
+    return new ChunkBuffer(this.allocator_1.alloc_d56nv8_k$(this.bufferSize_1), null, this);
   };
-  DefaultBufferPool.prototype.u1c = function (instance) {
-    this.s1c_1.u1a(instance.o1b());
-    DefaultPool.prototype.y1c.call(this, instance);
-    instance.z1c();
+  DefaultBufferPool.prototype.disposeInstance_6ja3vw_k$ = function (instance) {
+    this.allocator_1.free_muwe56_k$(instance.get_memory_gl4362_k$());
+    DefaultPool.prototype.disposeInstance_neq6qw_k$.call(this, instance);
+    instance.unlink_ietmwu_k$();
   };
-  DefaultBufferPool.prototype.y1c = function (instance) {
-    return this.u1c(instance instanceof ChunkBuffer ? instance : THROW_CCE());
+  DefaultBufferPool.prototype.disposeInstance_neq6qw_k$ = function (instance) {
+    return this.disposeInstance_6ja3vw_k$(instance instanceof ChunkBuffer ? instance : THROW_CCE());
   };
-  DefaultBufferPool.prototype.a1d = function (instance) {
-    DefaultPool.prototype.b1d.call(this, instance);
+  DefaultBufferPool.prototype.validateInstance_axbz43_k$ = function (instance) {
+    DefaultPool.prototype.validateInstance_e9p7ch_k$.call(this, instance);
     {
       var tmp$ret$0;
       {
-        var tmp0__get_size__8hfv5c = instance.o1b();
-        tmp$ret$0 = toLong(tmp0__get_size__8hfv5c.s1a_1.byteLength);
+        var tmp0__get_size__8hfv5c = instance.get_memory_gl4362_k$();
+        tmp$ret$0 = toLong(tmp0__get_size__8hfv5c.view_1.byteLength);
       }
-      var tmp1_check = tmp$ret$0.equals(toLong(this.r1c_1));
+      var tmp1_check = tmp$ret$0.equals(toLong(this.bufferSize_1));
       {
       }
       if (!tmp1_check) {
@@ -2106,17 +5115,17 @@
         {
           var tmp$ret$1;
           {
-            var tmp0__get_size__8hfv5c_0 = instance.o1b();
-            tmp$ret$1 = toLong(tmp0__get_size__8hfv5c_0.s1a_1.byteLength);
+            var tmp0__get_size__8hfv5c_0 = instance.get_memory_gl4362_k$();
+            tmp$ret$1 = toLong(tmp0__get_size__8hfv5c_0.view_1.byteLength);
           }
-          tmp$ret$2 = 'Buffer size mismatch. Expected: ' + this.r1c_1 + ', actual: ' + toString(tmp$ret$1);
+          tmp$ret$2 = 'Buffer size mismatch. Expected: ' + this.bufferSize_1 + ', actual: ' + toString(tmp$ret$1);
         }
         var message = tmp$ret$2;
         throw IllegalStateException_init_$Create$(toString(message));
       }
     }
     {
-      var tmp2_check = !(instance === Companion_getInstance_4().f12_1);
+      var tmp2_check = !(instance === Companion_getInstance_4().Empty_1);
       {
       }
       if (!tmp2_check) {
@@ -2129,7 +5138,7 @@
       }
     }
     {
-      var tmp3_check = !(instance === Companion_getInstance_1().n1b());
+      var tmp3_check = !(instance === Companion_getInstance_1().get_Empty_i9b85g_k$());
       {
       }
       if (!tmp3_check) {
@@ -2142,7 +5151,7 @@
       }
     }
     {
-      var tmp4_check = instance.c1d() === 0;
+      var tmp4_check = instance.get_referenceCount_1ialcd_k$() === 0;
       {
       }
       if (!tmp4_check) {
@@ -2155,7 +5164,7 @@
       }
     }
     {
-      var tmp5_check = instance.d1d() == null;
+      var tmp5_check = instance.get_next_wor1vg_k$() == null;
       {
       }
       if (!tmp5_check) {
@@ -2168,7 +5177,7 @@
       }
     }
     {
-      var tmp6_check = instance.g1b_1 == null;
+      var tmp6_check = instance.origin_1 == null;
       {
       }
       if (!tmp6_check) {
@@ -2181,25 +5190,25 @@
       }
     }
   };
-  DefaultBufferPool.prototype.b1d = function (instance) {
-    return this.a1d(instance instanceof ChunkBuffer ? instance : THROW_CCE());
+  DefaultBufferPool.prototype.validateInstance_e9p7ch_k$ = function (instance) {
+    return this.validateInstance_axbz43_k$(instance instanceof ChunkBuffer ? instance : THROW_CCE());
   };
-  DefaultBufferPool.prototype.e1d = function (instance) {
+  DefaultBufferPool.prototype.clearInstance_5admtl_k$ = function (instance) {
     var tmp$ret$0;
     {
-      var tmp0_apply = DefaultPool.prototype.f1d.call(this, instance);
+      var tmp0_apply = DefaultPool.prototype.clearInstance_26evkn_k$.call(this, instance);
       {
       }
       {
-        tmp0_apply.g1d();
-        tmp0_apply.n1c();
+        tmp0_apply.unpark_b93g2_k$();
+        tmp0_apply.reset_5tn5dq_k$();
       }
       tmp$ret$0 = tmp0_apply;
     }
     return tmp$ret$0;
   };
-  DefaultBufferPool.prototype.f1d = function (instance) {
-    return this.e1d(instance instanceof ChunkBuffer ? instance : THROW_CCE());
+  DefaultBufferPool.prototype.clearInstance_26evkn_k$ = function (instance) {
+    return this.clearInstance_5admtl_k$(instance instanceof ChunkBuffer ? instance : THROW_CCE());
   };
   DefaultBufferPool.$metadata$ = classMeta('DefaultBufferPool', undefined, undefined, undefined, undefined, DefaultPool.prototype);
   function get_DEFAULT_BUFFER_SIZE() {
@@ -2224,12 +5233,12 @@
         }
         var tmp$ret$2;
         {
-          var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-          var tmp1__anonymous__uwfjfc = _this__u8e3s4.s15_1;
-          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.u15_1;
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+          var tmp1__anonymous__uwfjfc = _this__u8e3s4.writePosition_1;
+          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.limit_1;
           var writeRemaining = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
           if (writeRemaining < length) {
-            throw InsufficientSpaceException_init_$Create$('byte array', length, writeRemaining);
+            throw InsufficientSpaceException_init_$Create$_1('byte array', length, writeRemaining);
           }
           {
             {
@@ -2242,7 +5251,7 @@
                   var tmp0_let = of(Companion_getInstance_6(), source, offset, length);
                   {
                   }
-                  tmp$ret$0 = tmp0_let.v1a(tmp0__anonymous__q1qw7t, 0, length, tmp1__anonymous__uwfjfc);
+                  tmp$ret$0 = tmp0_let.copyTo_b1j9k9_k$(tmp0__anonymous__q1qw7t, 0, length, tmp1__anonymous__uwfjfc);
                 }
                 tmp$ret$1 = tmp$ret$0;
               }
@@ -2251,10 +5260,17 @@
           tmp$ret$2 = length;
         }
         var rc = tmp$ret$2;
-        _this__u8e3s4.y1b(rc);
+        _this__u8e3s4.commitWritten_xiy30w_k$(rc);
         tmp$ret$3 = rc;
       }
     }
+  }
+  function writeFully$default(_this__u8e3s4, source, offset, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      offset = 0;
+    if (!(($mask0 & 4) === 0))
+      length = source.length - offset | 0;
+    return writeFully_0(_this__u8e3s4, source, offset, length);
   }
   function writeFully_1(_this__u8e3s4, src, length) {
     {
@@ -2273,7 +5289,7 @@
     {
       var tmp$ret$1;
       {
-        tmp$ret$1 = src.s15_1 - src.r15_1 | 0;
+        tmp$ret$1 = src.writePosition_1 - src.readPosition_1 | 0;
       }
       var tmp1_require = length <= tmp$ret$1;
       {
@@ -2283,7 +5299,7 @@
         {
           var tmp$ret$2;
           {
-            tmp$ret$2 = src.s15_1 - src.r15_1 | 0;
+            tmp$ret$2 = src.writePosition_1 - src.readPosition_1 | 0;
           }
           tmp$ret$3 = "length shouldn't be greater than the source read remaining: " + length + ' > ' + tmp$ret$2;
         }
@@ -2294,7 +5310,7 @@
     {
       var tmp$ret$4;
       {
-        tmp$ret$4 = _this__u8e3s4.u15_1 - _this__u8e3s4.s15_1 | 0;
+        tmp$ret$4 = _this__u8e3s4.limit_1 - _this__u8e3s4.writePosition_1 | 0;
       }
       var tmp2_require = length <= tmp$ret$4;
       {
@@ -2304,7 +5320,7 @@
         {
           var tmp$ret$5;
           {
-            tmp$ret$5 = _this__u8e3s4.u15_1 - _this__u8e3s4.s15_1 | 0;
+            tmp$ret$5 = _this__u8e3s4.limit_1 - _this__u8e3s4.writePosition_1 | 0;
           }
           tmp$ret$6 = "length shouldn't be greater than the destination write remaining space: " + length + ' > ' + tmp$ret$5;
         }
@@ -2321,27 +5337,27 @@
         }
         var tmp$ret$7;
         {
-          var tmp3__anonymous__ufb84q = _this__u8e3s4.q15_1;
-          var tmp4__anonymous__pkmkx7 = _this__u8e3s4.s15_1;
-          var tmp5__anonymous__kpxxpo = _this__u8e3s4.u15_1;
+          var tmp3__anonymous__ufb84q = _this__u8e3s4.memory_1;
+          var tmp4__anonymous__pkmkx7 = _this__u8e3s4.writePosition_1;
+          var tmp5__anonymous__kpxxpo = _this__u8e3s4.limit_1;
           var writeRemaining = tmp5__anonymous__kpxxpo - tmp4__anonymous__pkmkx7 | 0;
           if (writeRemaining < length) {
-            throw InsufficientSpaceException_init_$Create$('buffer readable content', length, writeRemaining);
+            throw InsufficientSpaceException_init_$Create$_1('buffer readable content', length, writeRemaining);
           }
           {
-            src.q15_1.v1a(tmp3__anonymous__ufb84q, src.r15_1, length, tmp4__anonymous__pkmkx7);
-            src.x1b(length);
+            src.memory_1.copyTo_b1j9k9_k$(tmp3__anonymous__ufb84q, src.readPosition_1, length, tmp4__anonymous__pkmkx7);
+            src.discardExact_ijr9ip_k$(length);
           }
           tmp$ret$7 = length;
         }
         var rc = tmp$ret$7;
-        _this__u8e3s4.y1b(rc);
+        _this__u8e3s4.commitWritten_xiy30w_k$(rc);
         tmp$ret$8 = rc;
       }
     }
   }
-  function readFully(_this__u8e3s4, destination, offset, length) {
-    readFully_0(_this__u8e3s4 instanceof Buffer ? _this__u8e3s4 : THROW_CCE(), destination, offset, length);
+  function readFully_0(_this__u8e3s4, destination, offset, length) {
+    readFully_1(_this__u8e3s4 instanceof Buffer ? _this__u8e3s4 : THROW_CCE(), destination, offset, length);
   }
   function writeExact(_this__u8e3s4, size, name, block) {
     {
@@ -2352,22 +5368,22 @@
       }
       var tmp$ret$0;
       {
-        var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-        var tmp1__anonymous__uwfjfc = _this__u8e3s4.s15_1;
-        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.u15_1;
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.writePosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.limit_1;
         var writeRemaining = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
         if (writeRemaining < size) {
-          throw InsufficientSpaceException_init_$Create$(name, size, writeRemaining);
+          throw InsufficientSpaceException_init_$Create$_1(name, size, writeRemaining);
         }
         block(tmp0__anonymous__q1qw7t, tmp1__anonymous__uwfjfc);
         tmp$ret$0 = size;
       }
       var rc = tmp$ret$0;
-      _this__u8e3s4.y1b(rc);
+      _this__u8e3s4.commitWritten_xiy30w_k$(rc);
       tmp$ret$1 = rc;
     }
   }
-  function readFully_0(_this__u8e3s4, destination, offset, length) {
+  function readFully_1(_this__u8e3s4, destination, offset, length) {
     var tmp$ret$2;
     {
       {
@@ -2379,9 +5395,9 @@
         }
         var tmp$ret$0;
         {
-          var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-          var tmp1__anonymous__uwfjfc = _this__u8e3s4.r15_1;
-          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.s15_1;
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+          var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
           if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < length) {
             throw new EOFException('Not enough bytes to read a byte array of size ' + length + '.');
           }
@@ -2389,11 +5405,18 @@
           tmp$ret$0 = length;
         }
         var rc = tmp$ret$0;
-        _this__u8e3s4.x1b(rc);
+        _this__u8e3s4.discardExact_ijr9ip_k$(rc);
         tmp$ret$1 = rc;
       }
       tmp$ret$2 = value;
     }
+  }
+  function readFully$default(_this__u8e3s4, destination, offset, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      offset = 0;
+    if (!(($mask0 & 4) === 0))
+      length = destination.length - offset | 0;
+    return readFully_1(_this__u8e3s4, destination, offset, length);
   }
   function readExact(_this__u8e3s4, size, name, block) {
     {
@@ -2405,9 +5428,9 @@
       }
       var tmp$ret$0;
       {
-        var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-        var tmp1__anonymous__uwfjfc = _this__u8e3s4.r15_1;
-        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.s15_1;
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
         if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < size) {
           throw new EOFException('Not enough bytes to read a ' + name + ' of size ' + size + '.');
         }
@@ -2415,12 +5438,12 @@
         tmp$ret$0 = size;
       }
       var rc = tmp$ret$0;
-      _this__u8e3s4.x1b(rc);
+      _this__u8e3s4.discardExact_ijr9ip_k$(rc);
       tmp$ret$1 = rc;
     }
     return value;
   }
-  function readFully_1(_this__u8e3s4, dst, length) {
+  function readFully_2(_this__u8e3s4, dst, length) {
     {
       var tmp0_require = length >= 0;
       {
@@ -2441,7 +5464,7 @@
     {
       var tmp$ret$2;
       {
-        tmp$ret$2 = dst.u15_1 - dst.s15_1 | 0;
+        tmp$ret$2 = dst.limit_1 - dst.writePosition_1 | 0;
       }
       var tmp1_require = length <= tmp$ret$2;
       {
@@ -2470,23 +5493,35 @@
         }
         var tmp$ret$4;
         {
-          var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-          var tmp1__anonymous__uwfjfc = _this__u8e3s4.r15_1;
-          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.s15_1;
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+          var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
           if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < length) {
             throw new EOFException('Not enough bytes to read a buffer content of size ' + length + '.');
           }
-          tmp0__anonymous__q1qw7t.v1a(dst.q15_1, tmp1__anonymous__uwfjfc, length, dst.s15_1);
-          value = dst.y1b(length);
+          tmp0__anonymous__q1qw7t.copyTo_b1j9k9_k$(dst.memory_1, tmp1__anonymous__uwfjfc, length, dst.writePosition_1);
+          value = dst.commitWritten_xiy30w_k$(length);
           tmp$ret$4 = length;
         }
         var rc = tmp$ret$4;
-        _this__u8e3s4.x1b(rc);
+        _this__u8e3s4.discardExact_ijr9ip_k$(rc);
         tmp$ret$5 = rc;
       }
       tmp$ret$6 = value;
     }
     return length;
+  }
+  function readFully$default_0(_this__u8e3s4, dst, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0)) {
+      var tmp$ret$0;
+      var tmp$ret$0_0;
+      {
+        tmp$ret$0 = dst.limit_1 - dst.writePosition_1 | 0;
+        tmp$ret$0_0 = Unit_getInstance();
+      }
+      length = tmp$ret$0;
+    }
+    return readFully_2(_this__u8e3s4, dst, length);
   }
   function writeShort(_this__u8e3s4, value) {
     {
@@ -2497,22 +5532,81 @@
       }
       var tmp$ret$0;
       {
-        var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-        var tmp1__anonymous__uwfjfc = _this__u8e3s4.s15_1;
-        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.u15_1;
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.writePosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.limit_1;
         var writeRemaining = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
         if (writeRemaining < 2) {
-          throw InsufficientSpaceException_init_$Create$('short integer', 2, writeRemaining);
+          throw InsufficientSpaceException_init_$Create$_1('short integer', 2, writeRemaining);
         }
         {
           {
-            tmp0__anonymous__q1qw7t.s1a_1.setInt16(tmp1__anonymous__uwfjfc, value, false);
+            tmp0__anonymous__q1qw7t.view_1.setInt16(tmp1__anonymous__uwfjfc, value, false);
           }
         }
         tmp$ret$0 = 2;
       }
       var rc = tmp$ret$0;
-      _this__u8e3s4.y1b(rc);
+      _this__u8e3s4.commitWritten_xiy30w_k$(rc);
+      tmp$ret$1 = rc;
+    }
+    return Unit_getInstance();
+  }
+  function writeInt(_this__u8e3s4, value) {
+    {
+    }
+    var tmp$ret$1;
+    {
+      {
+      }
+      var tmp$ret$0;
+      {
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.writePosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.limit_1;
+        var writeRemaining = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
+        if (writeRemaining < 4) {
+          throw InsufficientSpaceException_init_$Create$_1('regular integer', 4, writeRemaining);
+        }
+        {
+          {
+            tmp0__anonymous__q1qw7t.view_1.setInt32(tmp1__anonymous__uwfjfc, value, false);
+          }
+        }
+        tmp$ret$0 = 4;
+      }
+      var rc = tmp$ret$0;
+      _this__u8e3s4.commitWritten_xiy30w_k$(rc);
+      tmp$ret$1 = rc;
+    }
+    return Unit_getInstance();
+  }
+  function writeLong(_this__u8e3s4, value) {
+    {
+    }
+    var tmp$ret$1;
+    {
+      {
+      }
+      var tmp$ret$0;
+      {
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.writePosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.limit_1;
+        var writeRemaining = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
+        if (writeRemaining < 8) {
+          throw InsufficientSpaceException_init_$Create$_1('long integer', 8, writeRemaining);
+        }
+        {
+          {
+            tmp0__anonymous__q1qw7t.view_1.setInt32(tmp1__anonymous__uwfjfc, value.shr_wjue3g_k$(32).toInt_1tsl84_k$(), false);
+            tmp0__anonymous__q1qw7t.view_1.setInt32(tmp1__anonymous__uwfjfc + 4 | 0, value.and_jhajnj_k$(new Long(-1, 0)).toInt_1tsl84_k$(), false);
+          }
+        }
+        tmp$ret$0 = 8;
+      }
+      var rc = tmp$ret$0;
+      _this__u8e3s4.commitWritten_xiy30w_k$(rc);
       tmp$ret$1 = rc;
     }
     return Unit_getInstance();
@@ -2529,9 +5623,9 @@
         }
         var tmp$ret$2;
         {
-          var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-          var tmp1__anonymous__uwfjfc = _this__u8e3s4.r15_1;
-          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.s15_1;
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+          var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
           if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < 2) {
             throw new EOFException('Not enough bytes to read a short integer of size 2.');
           }
@@ -2539,7 +5633,7 @@
           {
             var tmp$ret$0;
             {
-              tmp$ret$0 = tmp0__anonymous__q1qw7t.s1a_1.getInt16(tmp1__anonymous__uwfjfc, false);
+              tmp$ret$0 = tmp0__anonymous__q1qw7t.view_1.getInt16(tmp1__anonymous__uwfjfc, false);
             }
             tmp$ret$1 = tmp$ret$0;
           }
@@ -2547,7 +5641,155 @@
           tmp$ret$2 = 2;
         }
         var rc = tmp$ret$2;
-        _this__u8e3s4.x1b(rc);
+        _this__u8e3s4.discardExact_ijr9ip_k$(rc);
+        tmp$ret$3 = rc;
+      }
+      tmp$ret$4 = value;
+    }
+    return tmp$ret$4;
+  }
+  function readInt(_this__u8e3s4) {
+    var tmp$ret$4;
+    {
+      {
+      }
+      var value;
+      var tmp$ret$3;
+      {
+        {
+        }
+        var tmp$ret$2;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+          var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
+          if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < 4) {
+            throw new EOFException('Not enough bytes to read a regular integer of size 4.');
+          }
+          var tmp$ret$1;
+          {
+            var tmp$ret$0;
+            {
+              tmp$ret$0 = tmp0__anonymous__q1qw7t.view_1.getInt32(tmp1__anonymous__uwfjfc, false);
+            }
+            tmp$ret$1 = tmp$ret$0;
+          }
+          value = tmp$ret$1;
+          tmp$ret$2 = 4;
+        }
+        var rc = tmp$ret$2;
+        _this__u8e3s4.discardExact_ijr9ip_k$(rc);
+        tmp$ret$3 = rc;
+      }
+      tmp$ret$4 = value;
+    }
+    return tmp$ret$4;
+  }
+  function readLong(_this__u8e3s4) {
+    var tmp$ret$4;
+    {
+      {
+      }
+      var value;
+      var tmp$ret$3;
+      {
+        {
+        }
+        var tmp$ret$2;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+          var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
+          if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < 8) {
+            throw new EOFException('Not enough bytes to read a long integer of size 8.');
+          }
+          var tmp$ret$1;
+          {
+            var tmp$ret$0;
+            {
+              tmp$ret$0 = toLong(tmp0__anonymous__q1qw7t.view_1.getUint32(tmp1__anonymous__uwfjfc, false)).shl_po5ip6_k$(32).or_s401rn_k$(toLong(tmp0__anonymous__q1qw7t.view_1.getUint32(tmp1__anonymous__uwfjfc + 4 | 0, false)));
+            }
+            tmp$ret$1 = tmp$ret$0;
+          }
+          value = tmp$ret$1;
+          tmp$ret$2 = 8;
+        }
+        var rc = tmp$ret$2;
+        _this__u8e3s4.discardExact_ijr9ip_k$(rc);
+        tmp$ret$3 = rc;
+      }
+      tmp$ret$4 = value;
+    }
+    return tmp$ret$4;
+  }
+  function readFloat(_this__u8e3s4) {
+    var tmp$ret$4;
+    {
+      {
+      }
+      var value;
+      var tmp$ret$3;
+      {
+        {
+        }
+        var tmp$ret$2;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+          var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
+          if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < 4) {
+            throw new EOFException('Not enough bytes to read a floating point number of size 4.');
+          }
+          var tmp$ret$1;
+          {
+            var tmp$ret$0;
+            {
+              tmp$ret$0 = tmp0__anonymous__q1qw7t.view_1.getFloat32(tmp1__anonymous__uwfjfc, false);
+            }
+            tmp$ret$1 = tmp$ret$0;
+          }
+          value = tmp$ret$1;
+          tmp$ret$2 = 4;
+        }
+        var rc = tmp$ret$2;
+        _this__u8e3s4.discardExact_ijr9ip_k$(rc);
+        tmp$ret$3 = rc;
+      }
+      tmp$ret$4 = value;
+    }
+    return tmp$ret$4;
+  }
+  function readDouble(_this__u8e3s4) {
+    var tmp$ret$4;
+    {
+      {
+      }
+      var value;
+      var tmp$ret$3;
+      {
+        {
+        }
+        var tmp$ret$2;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+          var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+          var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
+          if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < 8) {
+            throw new EOFException('Not enough bytes to read a long floating point number of size 8.');
+          }
+          var tmp$ret$1;
+          {
+            var tmp$ret$0;
+            {
+              tmp$ret$0 = tmp0__anonymous__q1qw7t.view_1.getFloat64(tmp1__anonymous__uwfjfc, false);
+            }
+            tmp$ret$1 = tmp$ret$0;
+          }
+          value = tmp$ret$1;
+          tmp$ret$2 = 8;
+        }
+        var rc = tmp$ret$2;
+        _this__u8e3s4.discardExact_ijr9ip_k$(rc);
         tmp$ret$3 = rc;
       }
       tmp$ret$4 = value;
@@ -2555,18 +5797,30 @@
     return tmp$ret$4;
   }
   function coerceAtMostMaxIntOrFail(_this__u8e3s4, message) {
-    if (_this__u8e3s4.a1(toLong(IntCompanionObject_getInstance().v_1)) > 0)
+    if (_this__u8e3s4.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) > 0)
       throw IllegalArgumentException_init_$Create$(message);
-    return _this__u8e3s4.md();
+    return _this__u8e3s4.toInt_1tsl84_k$();
   }
   function remainingAll(_this__u8e3s4) {
     return remainingAll_0(_this__u8e3s4, new Long(0, 0));
+  }
+  function copyAll(_this__u8e3s4) {
+    var copied = _this__u8e3s4.duplicate_jvgc97_k$();
+    var tmp0_elvis_lhs = _this__u8e3s4.get_next_wor1vg_k$();
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      return copied;
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    var next = tmp;
+    return copyAll_0(next, copied, copied);
   }
   function findTail(_this__u8e3s4) {
     var $this = _this__u8e3s4;
     while (true) {
       var $this_0 = $this;
-      var tmp0_elvis_lhs = $this_0.d1d();
+      var tmp0_elvis_lhs = $this_0.get_next_wor1vg_k$();
       var tmp;
       if (tmp0_elvis_lhs == null) {
         return $this_0;
@@ -2582,8 +5836,8 @@
   function releaseAll(_this__u8e3s4, pool) {
     var current = _this__u8e3s4;
     while (!(current == null)) {
-      var next = current.i1d();
-      current.j1b(pool);
+      var next = current.cleanNext_l2yy3o_k$();
+      current.release_49hdgr_k$(pool);
       current = next;
     }
   }
@@ -2595,10 +5849,10 @@
       var n_1 = n_0;
       var tmp$ret$0;
       {
-        tmp$ret$0 = $this_0.s15_1 - $this_0.r15_1 | 0;
+        tmp$ret$0 = $this_0.writePosition_1 - $this_0.readPosition_1 | 0;
       }
-      var rem = toLong(tmp$ret$0).b4(n_1);
-      var tmp0_elvis_lhs = $this_0.d1d();
+      var rem = toLong(tmp$ret$0).plus_u6jwas_k$(n_1);
+      var tmp0_elvis_lhs = $this_0.get_next_wor1vg_k$();
       var tmp;
       if (tmp0_elvis_lhs == null) {
         return rem;
@@ -2613,13 +5867,40 @@
       continue;
     }
   }
+  function copyAll_0(_this__u8e3s4, head, prev) {
+    var $this = _this__u8e3s4;
+    var head_0 = head;
+    var prev_0 = prev;
+    while (true) {
+      var $this_0 = $this;
+      var head_1 = head_0;
+      var prev_1 = prev_0;
+      var copied = $this_0.duplicate_jvgc97_k$();
+      prev_1.set_next_scf7lx_k$(copied);
+      var tmp0_elvis_lhs = $this_0.get_next_wor1vg_k$();
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        return head_1;
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      var next = tmp;
+      var tmp0 = next;
+      var tmp1 = head_1;
+      var tmp2 = copied;
+      $this = tmp0;
+      head_0 = tmp1;
+      prev_0 = tmp2;
+      continue;
+    }
+  }
   function forEachChunk(_this__u8e3s4, block) {
     {
     }
     var current = _this__u8e3s4;
     $l$loop: do {
       block(current);
-      var tmp0_elvis_lhs = current.d1d();
+      var tmp0_elvis_lhs = current.get_next_wor1vg_k$();
       var tmp;
       if (tmp0_elvis_lhs == null) {
         break $l$loop;
@@ -2636,10 +5917,10 @@
     var builder = BytePacketBuilder_init_$Create$(null, 1, null);
     try {
       block(builder);
-      return builder.l17();
+      return builder.build_1k0s4u_k$();
     } catch ($p) {
       if ($p instanceof Error) {
-        builder.rq();
+        builder.release_wtm6d2_k$();
         throw $p;
       } else {
         throw $p;
@@ -2648,7 +5929,7 @@
   }
   function BytePacketBuilder_init_$Init$(pool, $mask0, $marker, $this) {
     if (!(($mask0 & 1) === 0))
-      pool = Companion_getInstance_4().d12_1;
+      pool = Companion_getInstance_4().Pool_1;
     BytePacketBuilder.call($this, pool);
     return $this;
   }
@@ -2658,35 +5939,41 @@
   function BytePacketBuilder(pool) {
     Output.call(this, pool);
   }
-  BytePacketBuilder.prototype.g = function () {
-    return this.j1d();
+  BytePacketBuilder.prototype.get_size_woubt6_k$ = function () {
+    return this.get__size_inpkfr_k$();
   };
-  BytePacketBuilder.prototype.lr = function () {
-    return this.j1d() === 0;
+  BytePacketBuilder.prototype.get_isEmpty_zauvru_k$ = function () {
+    return this.get__size_inpkfr_k$() === 0;
   };
-  BytePacketBuilder.prototype.k1d = function () {
+  BytePacketBuilder.prototype.get_isNotEmpty_7mbqpf_k$ = function () {
+    return this.get__size_inpkfr_k$() > 0;
   };
-  BytePacketBuilder.prototype.l1d = function (source, offset, length) {
+  BytePacketBuilder.prototype.get__pool_innro2_k$ = function () {
+    return this.get_pool_wosj1h_k$();
   };
-  BytePacketBuilder.prototype.x3 = function (value) {
-    var tmp = Output.prototype.x3.call(this, value);
+  BytePacketBuilder.prototype.closeDestination_mrlaor_k$ = function () {
+  };
+  BytePacketBuilder.prototype.flush_2k57tq_k$ = function (source, offset, length) {
+  };
+  BytePacketBuilder.prototype.append_t8oh9e_k$ = function (value) {
+    var tmp = Output.prototype.append_t8oh9e_k$.call(this, value);
     return tmp instanceof BytePacketBuilder ? tmp : THROW_CCE();
   };
-  BytePacketBuilder.prototype.c = function (value) {
-    var tmp = Output.prototype.c.call(this, value);
+  BytePacketBuilder.prototype.append_oz4qxs_k$ = function (value) {
+    var tmp = Output.prototype.append_oz4qxs_k$.call(this, value);
     return tmp instanceof BytePacketBuilder ? tmp : THROW_CCE();
   };
-  BytePacketBuilder.prototype.cc = function (value, startIndex, endIndex) {
-    var tmp = Output.prototype.cc.call(this, value, startIndex, endIndex);
+  BytePacketBuilder.prototype.append_tbojcw_k$ = function (value, startIndex, endIndex) {
+    var tmp = Output.prototype.append_tbojcw_k$.call(this, value, startIndex, endIndex);
     return tmp instanceof BytePacketBuilder ? tmp : THROW_CCE();
   };
-  BytePacketBuilder.prototype.l17 = function () {
-    var size = this.g();
-    var head = this.p13();
-    return head == null ? Companion_getInstance_2().n1d_1 : new ByteReadPacket(head, toLong(size), this.m1d());
+  BytePacketBuilder.prototype.build_1k0s4u_k$ = function () {
+    var size = this.get_size_woubt6_k$();
+    var head = this.stealAll_nensgi_k$();
+    return head == null ? Companion_getInstance_2().Empty_1 : new ByteReadPacket(head, toLong(size), this.get_pool_wosj1h_k$());
   };
   BytePacketBuilder.prototype.toString = function () {
-    return 'BytePacketBuilder(' + this.g() + ' bytes written)';
+    return 'BytePacketBuilder(' + this.get_size_woubt6_k$() + ' bytes written)';
   };
   BytePacketBuilder.$metadata$ = classMeta('BytePacketBuilder', undefined, undefined, undefined, undefined, Output.prototype);
   function ByteReadPacket_init_$Init$(head, pool, $this) {
@@ -2698,8 +5985,11 @@
   }
   function Companion_0() {
     Companion_instance_0 = this;
-    this.n1d_1 = new ByteReadPacket(Companion_getInstance_4().f12_1, new Long(0, 0), Companion_getInstance_4().e12_1);
+    this.Empty_1 = new ByteReadPacket(Companion_getInstance_4().Empty_1, new Long(0, 0), Companion_getInstance_4().EmptyPool_1);
   }
+  Companion_0.prototype.get_Empty_i9b85g_k$ = function () {
+    return this.Empty_1;
+  };
   Companion_0.$metadata$ = objectMeta('Companion');
   var Companion_instance_0;
   function Companion_getInstance_2() {
@@ -2710,30 +6000,133 @@
   function ByteReadPacket(head, remaining, pool) {
     Companion_getInstance_2();
     Input.call(this, head, remaining, pool);
-    this.u1d();
+    this.markNoMoreChunksAvailable_j2pq0h_k$();
   }
-  ByteReadPacket.prototype.c1e = function () {
+  ByteReadPacket.prototype.copy_1tks5_k$ = function () {
+    return new ByteReadPacket(copyAll(this.get_head_won7e1_k$()), this.get_remaining_mwegr1_k$(), this.get_pool_wosj1h_k$());
+  };
+  ByteReadPacket.prototype.fill_1vd6r_k$ = function () {
     return null;
   };
-  ByteReadPacket.prototype.d1e = function (destination, offset, length) {
+  ByteReadPacket.prototype.fill_yxu5qs_k$ = function (destination, offset, length) {
     return 0;
   };
-  ByteReadPacket.prototype.e1e = function () {
+  ByteReadPacket.prototype.closeSource_lblfku_k$ = function () {
   };
   ByteReadPacket.prototype.toString = function () {
-    return 'ByteReadPacket(' + toString(this.i17()) + ' bytes remaining)';
+    return 'ByteReadPacket(' + toString(this.get_remaining_mwegr1_k$()) + ' bytes remaining)';
   };
   ByteReadPacket.$metadata$ = classMeta('ByteReadPacket', undefined, undefined, undefined, undefined, Input.prototype);
+  function _set_idx__4w7ld4($this, _set____db54di) {
+    $this.idx_1 = _set____db54di;
+  }
+  function _get_idx__e6a6ic($this) {
+    return $this.idx_1;
+  }
+  function Input_init_$Init$(head, remaining, pool, $mask0, $marker, $this) {
+    if (!(($mask0 & 1) === 0))
+      head = Companion_getInstance_4().Empty_1;
+    if (!(($mask0 & 2) === 0))
+      remaining = remainingAll(head);
+    if (!(($mask0 & 4) === 0))
+      pool = Companion_getInstance_4().Pool_1;
+    Input.call($this, head, remaining, pool);
+    return $this;
+  }
+  function Input_init_$Create$(head, remaining, pool, $mask0, $marker) {
+    return Input_init_$Init$(head, remaining, pool, $mask0, $marker, Object.create(Input.prototype));
+  }
   function _set__head__b4pap2($this, newHead) {
-    $this.c17_1 = newHead;
-    $this.d17_1 = newHead.o1b();
-    $this.e17_1 = newHead.p1b();
-    $this.f17_1 = newHead.q1b();
+    $this._head_1 = newHead;
+    $this.headMemory_1 = newHead.get_memory_gl4362_k$();
+    $this.headPosition_1 = newHead.get_readPosition_70qxnc_k$();
+    $this.headEndExclusive_1 = newHead.get_writePosition_jdt81t_k$();
+  }
+  function _get__head__kwf5se($this) {
+    return $this._head_1;
+  }
+  function doPrefetch($this, min) {
+    var tail = findTail($this._head_1);
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = $this.headEndExclusive_1 - $this.headPosition_1 | 0;
+    }
+    var available = numberToLong(tmp$ret$0).plus_u6jwas_k$($this.tailRemaining_1);
+    do {
+      var next = $this.fill_1vd6r_k$();
+      if (next == null) {
+        $this.noMoreChunksAvailable_1 = true;
+        return false;
+      }
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = next.writePosition_1 - next.readPosition_1 | 0;
+      }
+      var chunkSize = tmp$ret$1;
+      if (tail === Companion_getInstance_4().Empty_1) {
+        _set__head__b4pap2($this, next);
+        tail = next;
+      } else {
+        tail.set_next_scf7lx_k$(next);
+        var tmp0_this = $this;
+        var tmp$ret$2;
+        {
+          var tmp0_plus = tmp0_this.tailRemaining_1;
+          tmp$ret$2 = tmp0_plus.plus_u6jwas_k$(toLong(chunkSize));
+        }
+        tmp0_this.set_tailRemaining_h0rade_k$(tmp$ret$2);
+      }
+      var tmp$ret$3;
+      {
+        var tmp1_plus = available;
+        tmp$ret$3 = tmp1_plus.plus_u6jwas_k$(toLong(chunkSize));
+      }
+      available = tmp$ret$3;
+    }
+     while (available.compareTo_n4fqi2_k$(min) < 0);
+    return true;
+  }
+  function _set_noMoreChunksAvailable__phi5hk($this, _set____db54di) {
+    $this.noMoreChunksAvailable_1 = _set____db54di;
+  }
+  function _get_noMoreChunksAvailable__vn4hx8($this) {
+    return $this.noMoreChunksAvailable_1;
+  }
+  function readByteSlow_0($this) {
+    var index = $this.headPosition_1;
+    if (index < $this.headEndExclusive_1) {
+      var tmp$ret$1;
+      {
+        var tmp0_get = $this.headMemory_1;
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = tmp0_get.view_1.getInt8(index);
+        }
+        tmp$ret$1 = tmp$ret$0;
+      }
+      var value = tmp$ret$1;
+      $this.headPosition_1 = index;
+      var head = $this._head_1;
+      head.discardUntilIndex_gbx9um_k$(index);
+      $this.ensureNext_r5itmw_k$(head);
+      return value;
+    }
+    var tmp0_elvis_lhs = $this.prepareRead_i1grdw_k$(1);
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      prematureEndOfStream(1);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    var head_0 = tmp;
+    var byte = head_0.readByte_ectjk2_k$();
+    completeReadHead($this, head_0);
+    return byte;
   }
   function readASCII($this, out, min, max) {
     if (max === 0 ? min === 0 : false)
       return 0;
-    else if ($this.w18())
+    else if ($this.get_endOfInput_skegkh_k$())
       if (min === 0)
         return 0;
       else {
@@ -2769,9 +6162,9 @@
                 }
                 var tmp$ret$5;
                 {
-                  var tmp0__anonymous__q1qw7t_0 = tmp0__anonymous__q1qw7t.q15_1;
-                  var tmp1__anonymous__uwfjfc = tmp0__anonymous__q1qw7t.r15_1;
-                  var tmp2__anonymous__z9zvc9 = tmp0__anonymous__q1qw7t.s15_1;
+                  var tmp0__anonymous__q1qw7t_0 = tmp0__anonymous__q1qw7t.memory_1;
+                  var tmp1__anonymous__uwfjfc = tmp0__anonymous__q1qw7t.readPosition_1;
+                  var tmp2__anonymous__z9zvc9 = tmp0__anonymous__q1qw7t.writePosition_1;
                   var inductionVariable = tmp1__anonymous__uwfjfc;
                   if (inductionVariable < tmp2__anonymous__z9zvc9)
                     do {
@@ -2781,7 +6174,7 @@
                       {
                         var tmp$ret$1;
                         {
-                          tmp$ret$1 = tmp0__anonymous__q1qw7t_0.s1a_1.getInt8(index);
+                          tmp$ret$1 = tmp0__anonymous__q1qw7t_0.view_1.getInt8(index);
                         }
                         tmp$ret$2 = tmp$ret$1;
                       }
@@ -2797,7 +6190,7 @@
                           if (copied === max) {
                             tmp_1 = false;
                           } else {
-                            out.x3(tmp3__anonymous__ufb84q);
+                            out.append_t8oh9e_k$(tmp3__anonymous__ufb84q);
                             var tmp0 = copied;
                             copied = tmp0 + 1 | 0;
                             tmp_1 = true;
@@ -2807,7 +6200,7 @@
                         tmp_0 = !tmp$ret$3;
                       }
                       if (tmp_0) {
-                        tmp0__anonymous__q1qw7t.x1b(index - tmp1__anonymous__uwfjfc | 0);
+                        tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(index - tmp1__anonymous__uwfjfc | 0);
                         tmp$ret$4 = false;
                         break $l$block_0;
                       }
@@ -2816,7 +6209,7 @@
                   tmp$ret$5 = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
                 }
                 var rc = tmp$ret$5;
-                tmp0__anonymous__q1qw7t.x1b(rc);
+                tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(rc);
                 tmp$ret$6 = rc;
               }
               tmp$ret$4 = true;
@@ -2892,7 +6285,7 @@
           var tmp$ret$1;
           {
             var tmp0__get_readRemaining__u3cy9h = current;
-            tmp$ret$1 = tmp0__get_readRemaining__u3cy9h.s15_1 - tmp0__get_readRemaining__u3cy9h.r15_1 | 0;
+            tmp$ret$1 = tmp0__get_readRemaining__u3cy9h.writePosition_1 - tmp0__get_readRemaining__u3cy9h.readPosition_1 | 0;
           }
           var before = tmp$ret$1;
           var after;
@@ -2912,9 +6305,9 @@
                     }
                     var tmp$ret$9;
                     {
-                      var tmp0__anonymous__q1qw7t = tmp3__anonymous__ufb84q.q15_1;
-                      var tmp1__anonymous__uwfjfc = tmp3__anonymous__ufb84q.r15_1;
-                      var tmp2__anonymous__z9zvc9 = tmp3__anonymous__ufb84q.s15_1;
+                      var tmp0__anonymous__q1qw7t = tmp3__anonymous__ufb84q.memory_1;
+                      var tmp1__anonymous__uwfjfc = tmp3__anonymous__ufb84q.readPosition_1;
+                      var tmp2__anonymous__z9zvc9 = tmp3__anonymous__ufb84q.writePosition_1;
                       var inductionVariable = tmp1__anonymous__uwfjfc;
                       if (inductionVariable < tmp2__anonymous__z9zvc9)
                         do {
@@ -2924,7 +6317,7 @@
                           {
                             var tmp$ret$2;
                             {
-                              tmp$ret$2 = tmp0__anonymous__q1qw7t.s1a_1.getInt8(index);
+                              tmp$ret$2 = tmp0__anonymous__q1qw7t.view_1.getInt8(index);
                             }
                             tmp$ret$3 = tmp$ret$2;
                           }
@@ -2940,7 +6333,7 @@
                               if (copied === max) {
                                 tmp_0 = false;
                               } else {
-                                out.x3(tmp3__anonymous__ufb84q_0);
+                                out.append_t8oh9e_k$(tmp3__anonymous__ufb84q_0);
                                 var tmp0 = copied;
                                 copied = tmp0 + 1 | 0;
                                 tmp_0 = true;
@@ -2948,7 +6341,7 @@
                               tmp$ret$4 = tmp_0;
                             }
                             if (!tmp$ret$4) {
-                              tmp3__anonymous__ufb84q.x1b(index - tmp1__anonymous__uwfjfc | 0);
+                              tmp3__anonymous__ufb84q.discardExact_ijr9ip_k$(index - tmp1__anonymous__uwfjfc | 0);
                               tmp$ret$5 = -1;
                               break $l$block_3;
                             }
@@ -2974,7 +6367,7 @@
                             var tmp3 = byteCount;
                             byteCount = tmp3 - 1 | 0;
                             if (lastByteCount > (tmp2__anonymous__z9zvc9 - index | 0)) {
-                              tmp3__anonymous__ufb84q.x1b(index - tmp1__anonymous__uwfjfc | 0);
+                              tmp3__anonymous__ufb84q.discardExact_ijr9ip_k$(index - tmp1__anonymous__uwfjfc | 0);
                               tmp$ret$5 = lastByteCount;
                               break $l$block_3;
                             }
@@ -2991,7 +6384,7 @@
                                   if (copied === max) {
                                     tmp_1 = false;
                                   } else {
-                                    out.x3(tmp4__anonymous__pkmkx7);
+                                    out.append_t8oh9e_k$(tmp4__anonymous__pkmkx7);
                                     var tmp0_0 = copied;
                                     copied = tmp0_0 + 1 | 0;
                                     tmp_1 = true;
@@ -2999,7 +6392,7 @@
                                   tmp$ret$6 = tmp_1;
                                 }
                                 if (!tmp$ret$6) {
-                                  tmp3__anonymous__ufb84q.x1b(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
+                                  tmp3__anonymous__ufb84q.discardExact_ijr9ip_k$(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
                                   tmp$ret$5 = -1;
                                   break $l$block_3;
                                 }
@@ -3014,7 +6407,7 @@
                                   if (copied === max) {
                                     tmp_3 = false;
                                   } else {
-                                    out.x3(tmp5__anonymous__kpxxpo);
+                                    out.append_t8oh9e_k$(tmp5__anonymous__kpxxpo);
                                     var tmp0_1 = copied;
                                     copied = tmp0_1 + 1 | 0;
                                     tmp_3 = true;
@@ -3031,7 +6424,7 @@
                                     if (copied === max) {
                                       tmp_4 = false;
                                     } else {
-                                      out.x3(tmp6__anonymous__fv9ai5);
+                                      out.append_t8oh9e_k$(tmp6__anonymous__fv9ai5);
                                       var tmp0_2 = copied;
                                       copied = tmp0_2 + 1 | 0;
                                       tmp_4 = true;
@@ -3041,7 +6434,7 @@
                                   tmp_2 = !tmp$ret$8;
                                 }
                                 if (tmp_2) {
-                                  tmp3__anonymous__ufb84q.x1b(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
+                                  tmp3__anonymous__ufb84q.discardExact_ijr9ip_k$(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
                                   tmp$ret$5 = -1;
                                   break $l$block_3;
                                 }
@@ -3054,7 +6447,7 @@
                       tmp$ret$9 = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
                     }
                     var rc = tmp$ret$9;
-                    tmp3__anonymous__ufb84q.x1b(rc);
+                    tmp3__anonymous__ufb84q.discardExact_ijr9ip_k$(rc);
                     tmp$ret$10 = rc;
                   }
                   tmp$ret$5 = 0;
@@ -3067,7 +6460,7 @@
               var tmp$ret$12;
               {
                 var tmp1__get_readRemaining__qliyus = current;
-                tmp$ret$12 = tmp1__get_readRemaining__qliyus.s15_1 - tmp1__get_readRemaining__qliyus.r15_1 | 0;
+                tmp$ret$12 = tmp1__get_readRemaining__qliyus.writePosition_1 - tmp1__get_readRemaining__qliyus.readPosition_1 | 0;
               }
               after = tmp$ret$12;
             }
@@ -3086,7 +6479,7 @@
               var tmp$ret$13;
               {
                 var tmp2__get_endGap__m31424 = current;
-                tmp$ret$13 = tmp2__get_endGap__m31424.v15_1 - tmp2__get_endGap__m31424.u15_1 | 0;
+                tmp$ret$13 = tmp2__get_endGap__m31424.capacity_1 - tmp2__get_endGap__m31424.limit_1 | 0;
               }
               var tmp_7 = tmp$ret$13;
               Companion_getInstance_1();
@@ -3123,13 +6516,62 @@
     return copied;
   }
   function discardAsMuchAsPossible($this, n, skipped) {
+    var $this_0 = $this;
+    var n_0 = n;
+    var skipped_0 = skipped;
+    while (true) {
+      var $this_1 = $this_0;
+      var n_1 = n_0;
+      var skipped_1 = skipped_0;
+      if (n_1.equals(new Long(0, 0)))
+        return skipped_1;
+      var tmp0_elvis_lhs = $this_1.prepareRead_i1grdw_k$(1);
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        return skipped_1;
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      var current = tmp;
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = current.writePosition_1 - current.readPosition_1 | 0;
+        }
+        var tmp0_minOf = toLong(tmp$ret$0);
+        tmp$ret$1 = tmp0_minOf.compareTo_n4fqi2_k$(n_1) <= 0 ? tmp0_minOf : n_1;
+      }
+      var size = tmp$ret$1.toInt_1tsl84_k$();
+      current.discardExact_ijr9ip_k$(size);
+      var tmp1_this = $this_1;
+      tmp1_this.headPosition_1 = tmp1_this.headPosition_1 + size | 0;
+      afterRead($this_1, current);
+      var tmp0 = $this_1;
+      var tmp$ret$2;
+      {
+        tmp$ret$2 = n_1.minus_llf5ei_k$(toLong(size));
+      }
+      var tmp1 = tmp$ret$2;
+      var tmp$ret$3;
+      {
+        tmp$ret$3 = skipped_1.plus_u6jwas_k$(toLong(size));
+      }
+      var tmp2 = tmp$ret$3;
+      $this_0 = tmp0;
+      n_0 = tmp1;
+      skipped_0 = tmp2;
+      continue;
+    }
+  }
+  function discardAsMuchAsPossible_0($this, n, skipped) {
     var currentCount = n;
     var currentSkipped = skipped;
     while (true) {
       if (currentCount === 0) {
         return currentSkipped;
       }
-      var tmp0_elvis_lhs = $this.s1e(1);
+      var tmp0_elvis_lhs = $this.prepareRead_i1grdw_k$(1);
       var tmp;
       if (tmp0_elvis_lhs == null) {
         return currentSkipped;
@@ -3141,31 +6583,100 @@
       {
         var tmp$ret$0;
         {
-          tmp$ret$0 = current.s15_1 - current.r15_1 | 0;
+          tmp$ret$0 = current.writePosition_1 - current.readPosition_1 | 0;
         }
         var tmp0_minOf = tmp$ret$0;
         var tmp1_minOf = currentCount;
         tmp$ret$1 = Math.min(tmp0_minOf, tmp1_minOf);
       }
       var size = tmp$ret$1;
-      current.x1b(size);
+      current.discardExact_ijr9ip_k$(size);
       var tmp1_this = $this;
-      tmp1_this.e17_1 = tmp1_this.e17_1 + size | 0;
+      tmp1_this.headPosition_1 = tmp1_this.headPosition_1 + size | 0;
       afterRead($this, current);
       currentCount = currentCount - size | 0;
       currentSkipped = currentSkipped + size | 0;
     }
   }
+  function readAsMuchAsPossible($this, array, offset, length, copied) {
+    var $this_0 = $this;
+    var array_0 = array;
+    var offset_0 = offset;
+    var length_0 = length;
+    var copied_0 = copied;
+    $l$loop: while (true) {
+      var $this_1 = $this_0;
+      var array_1 = array_0;
+      var offset_1 = offset_0;
+      var length_1 = length_0;
+      var copied_1 = copied_0;
+      if (length_1 === 0)
+        return copied_1;
+      var tmp0_elvis_lhs = $this_1.prepareRead_i1grdw_k$(1);
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        return copied_1;
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      var current = tmp;
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = current.writePosition_1 - current.readPosition_1 | 0;
+        }
+        var tmp0_minOf = tmp$ret$0;
+        tmp$ret$1 = Math.min(length_1, tmp0_minOf);
+      }
+      var size = tmp$ret$1;
+      {
+        readFully_1(current instanceof Buffer ? current : THROW_CCE(), array_1, offset_1, size);
+      }
+      $this_1.headPosition_1 = current.get_readPosition_70qxnc_k$();
+      var tmp_0;
+      var tmp_1;
+      if (!(size === length_1)) {
+        tmp_1 = true;
+      } else {
+        var tmp$ret$2;
+        {
+          tmp$ret$2 = current.writePosition_1 - current.readPosition_1 | 0;
+        }
+        tmp_1 = tmp$ret$2 === 0;
+      }
+      if (tmp_1) {
+        afterRead($this_1, current);
+        var tmp0 = $this_1;
+        var tmp1 = array_1;
+        var tmp2 = offset_1 + size | 0;
+        var tmp3 = length_1 - size | 0;
+        var tmp4 = copied_1 + size | 0;
+        $this_0 = tmp0;
+        array_0 = tmp1;
+        offset_0 = tmp2;
+        length_0 = tmp3;
+        copied_0 = tmp4;
+        continue $l$loop;
+      } else {
+        tmp_0 = copied_1 + size | 0;
+      }
+      return tmp_0;
+    }
+  }
+  function notEnoughBytesAvailable($this, n) {
+    throw new EOFException('Not enough data in packet (' + toString($this.get_remaining_mwegr1_k$()) + ') to read ' + n + ' byte(s)');
+  }
   function fixGapAfterReadFallback($this, current) {
-    if ($this.h17_1 ? current.d1d() == null : false) {
-      $this.e17_1 = current.p1b();
-      $this.f17_1 = current.q1b();
-      $this.g1e(new Long(0, 0));
+    if ($this.noMoreChunksAvailable_1 ? current.get_next_wor1vg_k$() == null : false) {
+      $this.headPosition_1 = current.get_readPosition_70qxnc_k$();
+      $this.headEndExclusive_1 = current.get_writePosition_jdt81t_k$();
+      $this.set_tailRemaining_h0rade_k$(new Long(0, 0));
       return Unit_getInstance();
     }
     var tmp$ret$0;
     {
-      tmp$ret$0 = current.s15_1 - current.r15_1 | 0;
+      tmp$ret$0 = current.writePosition_1 - current.readPosition_1 | 0;
     }
     var size = tmp$ret$0;
     var tmp$ret$2;
@@ -3173,7 +6684,7 @@
       Companion_getInstance_1();
       var tmp$ret$1;
       {
-        tmp$ret$1 = current.v15_1 - current.u15_1 | 0;
+        tmp$ret$1 = current.capacity_1 - current.limit_1 | 0;
       }
       var tmp0_minOf = 8 - tmp$ret$1 | 0;
       tmp$ret$2 = Math.min(size, tmp0_minOf);
@@ -3182,28 +6693,28 @@
     if (size > overrun) {
       fixGapAfterReadFallbackUnreserved($this, current, size, overrun);
     } else {
-      var new_0 = $this.b17_1.w1a();
+      var new_0 = $this.pool_1.borrow_mvkpor_k$();
       Companion_getInstance_1();
-      new_0.d1c(8);
-      new_0.u1e(current.i1d());
+      new_0.reserveEndGap_1tynif_k$(8);
+      new_0.set_next_scf7lx_k$(current.cleanNext_l2yy3o_k$());
       writeBufferAppend(new_0, current, size);
       _set__head__b4pap2($this, new_0);
     }
-    current.j1b($this.b17_1);
+    current.release_49hdgr_k$($this.pool_1);
   }
   function fixGapAfterReadFallbackUnreserved($this, current, size, overrun) {
-    var chunk1 = $this.b17_1.w1a();
-    var chunk2 = $this.b17_1.w1a();
+    var chunk1 = $this.pool_1.borrow_mvkpor_k$();
+    var chunk2 = $this.pool_1.borrow_mvkpor_k$();
     Companion_getInstance_1();
-    chunk1.d1c(8);
+    chunk1.reserveEndGap_1tynif_k$(8);
     Companion_getInstance_1();
-    chunk2.d1c(8);
-    chunk1.u1e(chunk2);
-    chunk2.u1e(current.i1d());
+    chunk2.reserveEndGap_1tynif_k$(8);
+    chunk1.set_next_scf7lx_k$(chunk2);
+    chunk2.set_next_scf7lx_k$(current.cleanNext_l2yy3o_k$());
     writeBufferAppend(chunk1, current, size - overrun | 0);
     writeBufferAppend(chunk2, current, overrun);
     _set__head__b4pap2($this, chunk1);
-    $this.g1e(remainingAll(chunk2));
+    $this.set_tailRemaining_h0rade_k$(remainingAll(chunk2));
   }
   function ensureNext($this, current, empty) {
     var $this_0 = $this;
@@ -3216,12 +6727,12 @@
       if (current_1 === empty_1) {
         return doFill($this_1);
       }
-      var next = current_1.i1d();
-      current_1.j1b($this_1.b17_1);
+      var next = current_1.cleanNext_l2yy3o_k$();
+      current_1.release_49hdgr_k$($this_1.pool_1);
       var tmp;
       if (next == null) {
         _set__head__b4pap2($this_1, empty_1);
-        $this_1.g1e(new Long(0, 0));
+        $this_1.set_tailRemaining_h0rade_k$(new Long(0, 0));
         var tmp0 = $this_1;
         var tmp1 = empty_1;
         var tmp2 = empty_1;
@@ -3232,22 +6743,22 @@
       } else {
         var tmp$ret$0;
         {
-          tmp$ret$0 = next.s15_1 > next.r15_1;
+          tmp$ret$0 = next.writePosition_1 > next.readPosition_1;
         }
         if (tmp$ret$0) {
           _set__head__b4pap2($this_1, next);
           var tmp0_this = $this_1;
           var tmp$ret$2;
           {
-            var tmp0_minus = tmp0_this.g17_1;
+            var tmp0_minus = tmp0_this.tailRemaining_1;
             var tmp$ret$1;
             {
-              tmp$ret$1 = next.s15_1 - next.r15_1 | 0;
+              tmp$ret$1 = next.writePosition_1 - next.readPosition_1 | 0;
             }
             var tmp1_minus = tmp$ret$1;
-            tmp$ret$2 = tmp0_minus.c4(toLong(tmp1_minus));
+            tmp$ret$2 = tmp0_minus.minus_llf5ei_k$(toLong(tmp1_minus));
           }
-          tmp0_this.g1e(tmp$ret$2);
+          tmp0_this.set_tailRemaining_h0rade_k$(tmp$ret$2);
           tmp = next;
         } else {
           var tmp3 = $this_1;
@@ -3263,35 +6774,35 @@
     }
   }
   function doFill($this) {
-    if ($this.h17_1)
+    if ($this.noMoreChunksAvailable_1)
       return null;
-    var chunk = $this.c1e();
+    var chunk = $this.fill_1vd6r_k$();
     if (chunk == null) {
-      $this.h17_1 = true;
+      $this.noMoreChunksAvailable_1 = true;
       return null;
     }
     appendView($this, chunk);
     return chunk;
   }
   function appendView($this, chunk) {
-    var tail = findTail($this.c17_1);
-    if (tail === Companion_getInstance_4().f12_1) {
+    var tail = findTail($this._head_1);
+    if (tail === Companion_getInstance_4().Empty_1) {
       _set__head__b4pap2($this, chunk);
       {
-        var tmp0_require = $this.g17_1.equals(new Long(0, 0));
+        var tmp0_require = $this.tailRemaining_1.equals(new Long(0, 0));
         {
         }
         if (!tmp0_require) {
           throw IllegalStateException_init_$Create$('It should be no tail remaining bytes if current tail is EmptyBuffer');
         }
       }
-      var tmp0_safe_receiver = chunk.d1d();
+      var tmp0_safe_receiver = chunk.get_next_wor1vg_k$();
       var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : remainingAll(tmp0_safe_receiver);
-      $this.g1e(tmp1_elvis_lhs == null ? new Long(0, 0) : tmp1_elvis_lhs);
+      $this.set_tailRemaining_h0rade_k$(tmp1_elvis_lhs == null ? new Long(0, 0) : tmp1_elvis_lhs);
     } else {
-      tail.u1e(chunk);
+      tail.set_next_scf7lx_k$(chunk);
       var tmp2_this = $this;
-      tmp2_this.g1e(tmp2_this.g17_1.b4(remainingAll(chunk)));
+      tmp2_this.set_tailRemaining_h0rade_k$(tmp2_this.tailRemaining_1.plus_u6jwas_k$(remainingAll(chunk)));
     }
   }
   function prepareReadLoop($this, minSize, head) {
@@ -3304,12 +6815,12 @@
       var head_1 = head_0;
       var tmp$ret$0;
       {
-        tmp$ret$0 = $this_1.f17_1 - $this_1.e17_1 | 0;
+        tmp$ret$0 = $this_1.headEndExclusive_1 - $this_1.headPosition_1 | 0;
       }
       var headSize = tmp$ret$0;
       if (headSize >= minSize_1)
         return head_1;
-      var tmp0_elvis_lhs = head_1.d1d();
+      var tmp0_elvis_lhs = head_1.get_next_wor1vg_k$();
       var tmp1_elvis_lhs = tmp0_elvis_lhs == null ? doFill($this_1) : tmp0_elvis_lhs;
       var tmp;
       if (tmp1_elvis_lhs == null) {
@@ -3319,8 +6830,8 @@
       }
       var next = tmp;
       if (headSize === 0) {
-        if (!(head_1 === Companion_getInstance_4().f12_1)) {
-          $this_1.t1e(head_1);
+        if (!(head_1 === Companion_getInstance_4().Empty_1)) {
+          $this_1.releaseHead_hhdbbm_k$(head_1);
         }
         var tmp0 = $this_1;
         var tmp1 = minSize_1;
@@ -3332,29 +6843,29 @@
       } else {
         var desiredExtraBytes = minSize_1 - headSize | 0;
         var copied = writeBufferAppend(head_1, next, desiredExtraBytes);
-        $this_1.f17_1 = head_1.q1b();
+        $this_1.headEndExclusive_1 = head_1.get_writePosition_jdt81t_k$();
         var tmp2_this = $this_1;
         var tmp$ret$1;
         {
-          var tmp0_minus = tmp2_this.g17_1;
-          tmp$ret$1 = tmp0_minus.c4(toLong(copied));
+          var tmp0_minus = tmp2_this.tailRemaining_1;
+          tmp$ret$1 = tmp0_minus.minus_llf5ei_k$(toLong(copied));
         }
-        tmp2_this.g1e(tmp$ret$1);
+        tmp2_this.set_tailRemaining_h0rade_k$(tmp$ret$1);
         var tmp$ret$2;
         {
-          tmp$ret$2 = next.s15_1 > next.r15_1;
+          tmp$ret$2 = next.writePosition_1 > next.readPosition_1;
         }
         if (!tmp$ret$2) {
-          head_1.u1e(null);
-          head_1.u1e(next.i1d());
-          next.j1b($this_1.b17_1);
+          head_1.set_next_scf7lx_k$(null);
+          head_1.set_next_scf7lx_k$(next.cleanNext_l2yy3o_k$());
+          next.release_49hdgr_k$($this_1.pool_1);
         } else {
-          next.c1c(copied);
+          next.reserveStartGap_c2e7nk_k$(copied);
         }
       }
       var tmp$ret$3;
       {
-        tmp$ret$3 = head_1.s15_1 - head_1.r15_1 | 0;
+        tmp$ret$3 = head_1.writePosition_1 - head_1.readPosition_1 | 0;
       }
       if (tmp$ret$3 >= minSize_1)
         return head_1;
@@ -3378,10 +6889,10 @@
   function afterRead($this, head) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = head.s15_1 - head.r15_1 | 0;
+      tmp$ret$0 = head.writePosition_1 - head.readPosition_1 | 0;
     }
     if (tmp$ret$0 === 0) {
-      $this.t1e(head);
+      $this.releaseHead_hhdbbm_k$(head);
     }
   }
   function Companion_1() {
@@ -3394,63 +6905,116 @@
       new Companion_1();
     return Companion_instance_1;
   }
+  function Input$readAvailableCharacters$out$1($off, $destination) {
+    this.$destination_1 = $destination;
+    this.idx_1 = $off;
+  }
+  Input$readAvailableCharacters$out$1.prototype.append_t8oh9e_k$ = function (value) {
+    var tmp0_this = this;
+    var tmp1 = tmp0_this.idx_1;
+    tmp0_this.idx_1 = tmp1 + 1 | 0;
+    this.$destination_1[tmp1] = value;
+    return this;
+  };
+  Input$readAvailableCharacters$out$1.prototype.append_oz4qxs_k$ = function (value) {
+    if (!(value == null) ? typeof value === 'string' : false) {
+      getCharsInternal(value, this.$destination_1, this.idx_1);
+      var tmp0_this = this;
+      tmp0_this.idx_1 = tmp0_this.idx_1 + charSequenceLength(value) | 0;
+    } else {
+      if (!(value == null)) {
+        var inductionVariable = 0;
+        var last = charSequenceLength(value);
+        if (inductionVariable < last)
+          do {
+            var i = inductionVariable;
+            inductionVariable = inductionVariable + 1 | 0;
+            var tmp2_this = this;
+            var tmp3 = tmp2_this.idx_1;
+            tmp2_this.idx_1 = tmp3 + 1 | 0;
+            this.$destination_1[tmp3] = charSequenceGet(value, i);
+          }
+           while (inductionVariable < last);
+      }
+    }
+    return this;
+  };
+  Input$readAvailableCharacters$out$1.prototype.append_tbojcw_k$ = function (value, startIndex, endIndex) {
+    throw UnsupportedOperationException_init_$Create$();
+  };
+  Input$readAvailableCharacters$out$1.$metadata$ = classMeta(undefined, [Appendable]);
   function Input(head, remaining, pool) {
     Companion_getInstance_3();
-    this.b17_1 = pool;
-    this.c17_1 = head;
-    this.d17_1 = head.o1b();
-    this.e17_1 = head.p1b();
-    this.f17_1 = head.q1b();
+    this.pool_1 = pool;
+    this._head_1 = head;
+    this.headMemory_1 = head.get_memory_gl4362_k$();
+    this.headPosition_1 = head.get_readPosition_70qxnc_k$();
+    this.headEndExclusive_1 = head.get_writePosition_jdt81t_k$();
     var tmp = this;
     var tmp$ret$0;
     {
-      var tmp0_minus = this.f17_1 - this.e17_1 | 0;
-      tmp$ret$0 = remaining.c4(toLong(tmp0_minus));
+      var tmp0_minus = this.headEndExclusive_1 - this.headPosition_1 | 0;
+      tmp$ret$0 = remaining.minus_llf5ei_k$(toLong(tmp0_minus));
     }
-    tmp.g17_1 = tmp$ret$0;
-    this.h17_1 = false;
+    tmp.tailRemaining_1 = tmp$ret$0;
+    this.noMoreChunksAvailable_1 = false;
   }
-  Input.prototype.m1d = function () {
-    return this.b17_1;
+  Input.prototype.get_pool_wosj1h_k$ = function () {
+    return this.pool_1;
   };
-  Input.prototype.w18 = function () {
+  Input.prototype.get_endOfInput_skegkh_k$ = function () {
     var tmp;
     var tmp_0;
     var tmp$ret$0;
     {
-      tmp$ret$0 = this.f17_1 - this.e17_1 | 0;
+      tmp$ret$0 = this.headEndExclusive_1 - this.headPosition_1 | 0;
     }
     if (tmp$ret$0 === 0) {
-      tmp_0 = this.g17_1.equals(new Long(0, 0));
+      tmp_0 = this.tailRemaining_1.equals(new Long(0, 0));
     } else {
       tmp_0 = false;
     }
     if (tmp_0) {
-      tmp = this.h17_1 ? true : doFill(this) == null;
+      tmp = this.noMoreChunksAvailable_1 ? true : doFill(this) == null;
     } else {
       tmp = false;
     }
     return tmp;
   };
-  Input.prototype.o1d = function () {
+  Input.prototype.get_head_won7e1_k$ = function () {
     var tmp$ret$0;
     {
-      var tmp0_also = this.c17_1;
+      var tmp0_also = this._head_1;
       {
       }
       {
-        tmp0_also.a1c(this.e17_1);
+        tmp0_also.discardUntilIndex_gbx9um_k$(this.headPosition_1);
       }
       tmp$ret$0 = tmp0_also;
     }
     return tmp$ret$0;
   };
-  Input.prototype.f1e = function () {
-    return this.e17_1;
+  Input.prototype.set_headMemory_b8mhfc_k$ = function (_set____db54di) {
+    this.headMemory_1 = _set____db54di;
   };
-  Input.prototype.g1e = function (newValue) {
+  Input.prototype.get_headMemory_zbxxm_k$ = function () {
+    return this.headMemory_1;
+  };
+  Input.prototype.set_headPosition_ouxn9m_k$ = function (_set____db54di) {
+    this.headPosition_1 = _set____db54di;
+  };
+  Input.prototype.get_headPosition_sd9ua6_k$ = function () {
+    return this.headPosition_1;
+  };
+  Input.prototype.set_headEndExclusive_4rcols_k$ = function (_set____db54di) {
+    this.headEndExclusive_1 = _set____db54di;
+  };
+  Input.prototype.get_headEndExclusive_yba4hg_k$ = function () {
+    return this.headEndExclusive_1;
+  };
+  Input.prototype.set_tailRemaining_h0rade_k$ = function (newValue) {
     {
-      var tmp0_require = newValue.a1(new Long(0, 0)) >= 0;
+      var tmp0_require = newValue.compareTo_n4fqi2_k$(new Long(0, 0)) >= 0;
       {
       }
       if (!tmp0_require) {
@@ -3462,100 +7026,187 @@
         throw IllegalArgumentException_init_$Create$(toString(message));
       }
     }
-    this.g17_1 = newValue;
+    this.tailRemaining_1 = newValue;
   };
-  Input.prototype.h1e = function () {
-    return this.f17_1 - this.e17_1 | 0;
+  Input.prototype.get_tailRemaining_g9jelf_k$ = function () {
+    return this.tailRemaining_1;
   };
-  Input.prototype.i17 = function () {
+  Input.prototype.get_headRemaining_u4hu4t_k$ = function () {
+    return this.headEndExclusive_1 - this.headPosition_1 | 0;
+  };
+  Input.prototype.prefetch_1yhhk1_k$ = function (min) {
+    if (min.compareTo_n4fqi2_k$(new Long(0, 0)) <= 0)
+      return true;
     var tmp$ret$0;
     {
-      tmp$ret$0 = this.f17_1 - this.e17_1 | 0;
+      tmp$ret$0 = this.headEndExclusive_1 - this.headPosition_1 | 0;
     }
-    return toLong(tmp$ret$0).b4(this.g17_1);
+    var headRemaining = tmp$ret$0;
+    if (toLong(headRemaining).compareTo_n4fqi2_k$(min) >= 0 ? true : numberToLong(headRemaining).plus_u6jwas_k$(this.tailRemaining_1).compareTo_n4fqi2_k$(min) >= 0)
+      return true;
+    return doPrefetch(this, min);
   };
-  Input.prototype.y17 = function () {
-    return !(this.e17_1 === this.f17_1) ? true : !this.g17_1.equals(new Long(0, 0));
+  Input.prototype.peekTo_56eakp_k$ = function (destination, destinationOffset, offset, min, max) {
+    this.prefetch_1yhhk1_k$(min.plus_u6jwas_k$(offset));
+    var current = this.get_head_won7e1_k$();
+    var copied = new Long(0, 0);
+    var skip = offset;
+    var writePosition = destinationOffset;
+    var tmp$ret$1;
+    {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = toLong(destination.view_1.byteLength);
+      }
+      var tmp0_minOf = tmp$ret$0.minus_llf5ei_k$(destinationOffset);
+      tmp$ret$1 = max.compareTo_n4fqi2_k$(tmp0_minOf) <= 0 ? max : tmp0_minOf;
+    }
+    var maxCopySize = tmp$ret$1;
+    $l$loop: while (copied.compareTo_n4fqi2_k$(min) < 0 ? copied.compareTo_n4fqi2_k$(maxCopySize) < 0 : false) {
+      var tmp$ret$2;
+      {
+        var tmp1__get_readRemaining__qliyus = current;
+        tmp$ret$2 = tmp1__get_readRemaining__qliyus.writePosition_1 - tmp1__get_readRemaining__qliyus.readPosition_1 | 0;
+      }
+      var chunkSize = tmp$ret$2;
+      if (toLong(chunkSize).compareTo_n4fqi2_k$(skip) > 0) {
+        var tmp$ret$3;
+        {
+          var tmp2_minOf = numberToLong(chunkSize).minus_llf5ei_k$(skip);
+          var tmp3_minOf = maxCopySize.minus_llf5ei_k$(copied);
+          tmp$ret$3 = tmp2_minOf.compareTo_n4fqi2_k$(tmp3_minOf) <= 0 ? tmp2_minOf : tmp3_minOf;
+        }
+        var size = tmp$ret$3;
+        current.get_memory_gl4362_k$().copyTo_w9dpzg_k$(destination, numberToLong(current.get_readPosition_70qxnc_k$()).plus_u6jwas_k$(skip), size, writePosition);
+        skip = new Long(0, 0);
+        copied = copied.plus_u6jwas_k$(size);
+        writePosition = writePosition.plus_u6jwas_k$(size);
+      } else {
+        var tmp$ret$4;
+        {
+          var tmp4_minus = skip;
+          tmp$ret$4 = tmp4_minus.minus_llf5ei_k$(toLong(chunkSize));
+        }
+        skip = tmp$ret$4;
+      }
+      var tmp0_elvis_lhs = current.get_next_wor1vg_k$();
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        break $l$loop;
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      current = tmp;
+    }
+    return copied;
   };
-  Input.prototype.rq = function () {
-    var head = this.o1d();
-    var empty = Companion_getInstance_4().f12_1;
+  Input.prototype.peekTo$default_otg67q_k$ = function (destination, destinationOffset, offset, min, max, $mask0, $handler) {
+    if (!(($mask0 & 4) === 0))
+      offset = new Long(0, 0);
+    if (!(($mask0 & 8) === 0))
+      min = new Long(1, 0);
+    if (!(($mask0 & 16) === 0)) {
+      Companion_getInstance();
+      max = new Long(-1, 2147483647);
+    }
+    return this.peekTo_56eakp_k$(destination, destinationOffset, offset, min, max);
+  };
+  Input.prototype.get_remaining_mwegr1_k$ = function () {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = this.headEndExclusive_1 - this.headPosition_1 | 0;
+    }
+    return toLong(tmp$ret$0).plus_u6jwas_k$(this.tailRemaining_1);
+  };
+  Input.prototype.canRead_93a6bq_k$ = function () {
+    return !(this.headPosition_1 === this.headEndExclusive_1) ? true : !this.tailRemaining_1.equals(new Long(0, 0));
+  };
+  Input.prototype.hasBytes_voh6kw_k$ = function (n) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = this.headEndExclusive_1 - this.headPosition_1 | 0;
+    }
+    return numberToLong(tmp$ret$0).plus_u6jwas_k$(this.tailRemaining_1).compareTo_n4fqi2_k$(toLong(n)) >= 0;
+  };
+  Input.prototype.release_wtm6d2_k$ = function () {
+    var head = this.get_head_won7e1_k$();
+    var empty = Companion_getInstance_4().Empty_1;
     if (!(head === empty)) {
       _set__head__b4pap2(this, empty);
-      this.g1e(new Long(0, 0));
-      releaseAll(head, this.b17_1);
+      this.set_tailRemaining_h0rade_k$(new Long(0, 0));
+      releaseAll(head, this.pool_1);
     }
   };
-  Input.prototype.i10 = function () {
-    this.rq();
-    if (!this.h17_1) {
-      this.h17_1 = true;
+  Input.prototype.close_ymq55z_k$ = function () {
+    this.release_wtm6d2_k$();
+    if (!this.noMoreChunksAvailable_1) {
+      this.noMoreChunksAvailable_1 = true;
     }
-    this.e1e();
+    this.closeSource_lblfku_k$();
   };
-  Input.prototype.p13 = function () {
-    var head = this.o1d();
-    var empty = Companion_getInstance_4().f12_1;
+  Input.prototype.stealAll_nensgi_k$ = function () {
+    var head = this.get_head_won7e1_k$();
+    var empty = Companion_getInstance_4().Empty_1;
     if (head === empty)
       return null;
     _set__head__b4pap2(this, empty);
-    this.g1e(new Long(0, 0));
+    this.set_tailRemaining_h0rade_k$(new Long(0, 0));
     return head;
   };
-  Input.prototype.i1e = function () {
-    var head = this.o1d();
-    var next = head.d1d();
-    var empty = Companion_getInstance_4().f12_1;
+  Input.prototype.steal_1tck0f_k$ = function () {
+    var head = this.get_head_won7e1_k$();
+    var next = head.get_next_wor1vg_k$();
+    var empty = Companion_getInstance_4().Empty_1;
     if (head === empty)
       return null;
     if (next == null) {
       _set__head__b4pap2(this, empty);
-      this.g1e(new Long(0, 0));
+      this.set_tailRemaining_h0rade_k$(new Long(0, 0));
     } else {
       _set__head__b4pap2(this, next);
       var tmp0_this = this;
       var tmp$ret$1;
       {
-        var tmp0_minus = tmp0_this.g17_1;
+        var tmp0_minus = tmp0_this.tailRemaining_1;
         var tmp$ret$0;
         {
-          tmp$ret$0 = next.s15_1 - next.r15_1 | 0;
+          tmp$ret$0 = next.writePosition_1 - next.readPosition_1 | 0;
         }
         var tmp1_minus = tmp$ret$0;
-        tmp$ret$1 = tmp0_minus.c4(toLong(tmp1_minus));
+        tmp$ret$1 = tmp0_minus.minus_llf5ei_k$(toLong(tmp1_minus));
       }
-      tmp0_this.g1e(tmp$ret$1);
+      tmp0_this.set_tailRemaining_h0rade_k$(tmp$ret$1);
     }
-    head.u1e(null);
+    head.set_next_scf7lx_k$(null);
     return head;
   };
-  Input.prototype.j1e = function (chain) {
-    if (chain === Companion_getInstance_4().f12_1)
+  Input.prototype.append_vlkz76_k$ = function (chain) {
+    if (chain === Companion_getInstance_4().Empty_1)
       return Unit_getInstance();
     var size = remainingAll(chain);
-    if (this.c17_1 === Companion_getInstance_4().f12_1) {
+    if (this._head_1 === Companion_getInstance_4().Empty_1) {
       _set__head__b4pap2(this, chain);
       var tmp$ret$1;
       {
         var tmp$ret$0;
         {
-          tmp$ret$0 = this.f17_1 - this.e17_1 | 0;
+          tmp$ret$0 = this.headEndExclusive_1 - this.headPosition_1 | 0;
         }
         var tmp0_minus = tmp$ret$0;
-        tmp$ret$1 = size.c4(toLong(tmp0_minus));
+        tmp$ret$1 = size.minus_llf5ei_k$(toLong(tmp0_minus));
       }
-      this.g1e(tmp$ret$1);
+      this.set_tailRemaining_h0rade_k$(tmp$ret$1);
     } else {
-      findTail(this.c17_1).u1e(chain);
+      findTail(this._head_1).set_next_scf7lx_k$(chain);
       var tmp0_this = this;
-      tmp0_this.g1e(tmp0_this.g17_1.b4(size));
+      tmp0_this.set_tailRemaining_h0rade_k$(tmp0_this.tailRemaining_1.plus_u6jwas_k$(size));
     }
   };
-  Input.prototype.k1e = function (chain) {
-    var tail = findTail(this.o1d());
+  Input.prototype.tryWriteAppend_i5mkbp_k$ = function (chain) {
+    var tail = findTail(this.get_head_won7e1_k$());
     var tmp$ret$0;
     {
-      tmp$ret$0 = chain.s15_1 - chain.r15_1 | 0;
+      tmp$ret$0 = chain.writePosition_1 - chain.readPosition_1 | 0;
     }
     var size = tmp$ret$0;
     var tmp;
@@ -3564,27 +7215,45 @@
     } else {
       var tmp$ret$1;
       {
-        tmp$ret$1 = tail.u15_1 - tail.s15_1 | 0;
+        tmp$ret$1 = tail.limit_1 - tail.writePosition_1 | 0;
       }
       tmp = tmp$ret$1 < size;
     }
     if (tmp)
       return false;
     writeBufferAppend(tail, chain, size);
-    if (this.o1d() === tail) {
-      this.f17_1 = tail.q1b();
+    if (this.get_head_won7e1_k$() === tail) {
+      this.headEndExclusive_1 = tail.get_writePosition_jdt81t_k$();
     } else {
       var tmp0_this = this;
       var tmp$ret$2;
       {
-        var tmp0_plus = tmp0_this.g17_1;
-        tmp$ret$2 = tmp0_plus.b4(toLong(size));
+        var tmp0_plus = tmp0_this.tailRemaining_1;
+        tmp$ret$2 = tmp0_plus.plus_u6jwas_k$(toLong(size));
       }
-      tmp0_this.g1e(tmp$ret$2);
+      tmp0_this.set_tailRemaining_h0rade_k$(tmp$ret$2);
     }
     return true;
   };
-  Input.prototype.l1e = function (n) {
+  Input.prototype.readByte_ectjk2_k$ = function () {
+    var index = this.headPosition_1;
+    var nextIndex = index + 1 | 0;
+    if (nextIndex < this.headEndExclusive_1) {
+      this.headPosition_1 = nextIndex;
+      var tmp$ret$1;
+      {
+        var tmp0_get = this.headMemory_1;
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = tmp0_get.view_1.getInt8(index);
+        }
+        tmp$ret$1 = tmp$ret$0;
+      }
+      return tmp$ret$1;
+    }
+    return readByteSlow_0(this);
+  };
+  Input.prototype.discard_z3ao9p_k$ = function (n) {
     {
       var tmp0_require = n >= 0;
       {
@@ -3598,28 +7267,100 @@
         throw IllegalArgumentException_init_$Create$(toString(message));
       }
     }
-    return discardAsMuchAsPossible(this, n, 0);
+    return discardAsMuchAsPossible_0(this, n, 0);
   };
-  Input.prototype.x1b = function (n) {
-    if (!(this.l1e(n) === n))
+  Input.prototype.discardExact_ijr9ip_k$ = function (n) {
+    if (!(this.discard_z3ao9p_k$(n) === n))
       throw new EOFException('Unable to discard ' + n + ' bytes due to end of packet');
   };
-  Input.prototype.m1e = function (min, max) {
-    if (min === 0 ? max === 0 ? true : this.w18() : false)
+  Input.prototype.tryPeek_han6fe_k$ = function () {
+    var head = this.get_head_won7e1_k$();
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = this.headEndExclusive_1 - this.headPosition_1 | 0;
+    }
+    if (tmp$ret$0 > 0) {
+      return head.tryPeekByte_ple8ke_k$();
+    }
+    if (this.tailRemaining_1.equals(new Long(0, 0)) ? this.noMoreChunksAvailable_1 : false)
+      return -1;
+    var tmp0_safe_receiver = prepareReadLoop(this, 1, head);
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.tryPeekByte_ple8ke_k$();
+    return tmp1_elvis_lhs == null ? -1 : tmp1_elvis_lhs;
+  };
+  Input.prototype.peekTo_xjswhp_k$ = function (buffer) {
+    var tmp0_elvis_lhs = this.prepareReadHead_atci78_k$(1);
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      return -1;
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    var head = tmp;
+    var tmp$ret$2;
+    {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = buffer.limit_1 - buffer.writePosition_1 | 0;
+      }
+      var tmp0_minOf = tmp$ret$0;
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = head.writePosition_1 - head.readPosition_1 | 0;
+      }
+      var tmp1_minOf = tmp$ret$1;
+      tmp$ret$2 = Math.min(tmp0_minOf, tmp1_minOf);
+    }
+    var size = tmp$ret$2;
+    writeFully_1(buffer instanceof Buffer ? buffer : THROW_CCE(), head, size);
+    return size;
+  };
+  Input.prototype.discard_mdg52w_k$ = function (n) {
+    if (n.compareTo_n4fqi2_k$(new Long(0, 0)) <= 0)
+      return new Long(0, 0);
+    return discardAsMuchAsPossible(this, n, new Long(0, 0));
+  };
+  Input.prototype.readAvailableCharacters_ioiag8_k$ = function (destination, off, len) {
+    if (this.get_endOfInput_skegkh_k$())
+      return -1;
+    var out = new Input$readAvailableCharacters$out$1(off, destination);
+    return this.readText_p5a56k_k$(out, 0, len);
+  };
+  Input.prototype.readText_p5a56k_k$ = function (out, min, max) {
+    if (toLong(max).compareTo_n4fqi2_k$(this.get_remaining_mwegr1_k$()) >= 0) {
+      var tmp = this.get_remaining_mwegr1_k$().toInt_1tsl84_k$();
+      var s = readTextExactBytes$default(this, tmp, null, 2, null);
+      out.append_oz4qxs_k$(s);
+      return s.length;
+    }
+    return readASCII(this, out, min, max);
+  };
+  Input.prototype.readText$default_6q58t7_k$ = function (out, min, max, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      min = 0;
+    if (!(($mask0 & 4) === 0))
+      max = IntCompanionObject_getInstance().MAX_VALUE_1;
+    return this.readText_p5a56k_k$(out, min, max);
+  };
+  Input.prototype.readTextExact_f1hr0l_k$ = function (out, exactCharacters) {
+    this.readText_p5a56k_k$(out, exactCharacters, exactCharacters);
+  };
+  Input.prototype.readText_g4qnst_k$ = function (min, max) {
+    if (min === 0 ? max === 0 ? true : this.get_endOfInput_skegkh_k$() : false)
       return '';
-    var remaining = this.i17();
-    if (remaining.a1(new Long(0, 0)) > 0 ? toLong(max).a1(remaining) >= 0 : false) {
-      var tmp = remaining.md();
+    var remaining = this.get_remaining_mwegr1_k$();
+    if (remaining.compareTo_n4fqi2_k$(new Long(0, 0)) > 0 ? toLong(max).compareTo_n4fqi2_k$(remaining) >= 0 : false) {
+      var tmp = remaining.toInt_1tsl84_k$();
       return readTextExactBytes$default(this, tmp, null, 2, null);
     }
     var tmp$ret$1;
     {
-      var tmp0_buildString = coerceAtMost(coerceAtLeast(min, 16), max);
+      var tmp0_buildString = coerceAtMost_0(coerceAtLeast(min, 16), max);
       {
       }
       var tmp$ret$0;
       {
-        var tmp0_apply = StringBuilder_init_$Create$(tmp0_buildString);
+        var tmp0_apply = StringBuilder_init_$Create$_0(tmp0_buildString);
         {
         }
         {
@@ -3631,24 +7372,27 @@
     }
     return tmp$ret$1;
   };
-  Input.prototype.n1e = function (min, max, $mask0, $handler) {
+  Input.prototype.readText$default_mjq276_k$ = function (min, max, $mask0, $handler) {
     if (!(($mask0 & 1) === 0))
       min = 0;
     if (!(($mask0 & 2) === 0))
-      max = IntCompanionObject_getInstance().v_1;
-    return this.m1e(min, max);
+      max = IntCompanionObject_getInstance().MAX_VALUE_1;
+    return this.readText_g4qnst_k$(min, max);
   };
-  Input.prototype.o1e = function (minSize) {
-    return prepareReadLoop(this, minSize, this.o1d());
+  Input.prototype.readTextExact_ejulr9_k$ = function (exactCharacters) {
+    return this.readText_g4qnst_k$(exactCharacters, exactCharacters);
   };
-  Input.prototype.p1e = function (current) {
-    return this.q1e(current);
+  Input.prototype.prepareReadHead_atci78_k$ = function (minSize) {
+    return prepareReadLoop(this, minSize, this.get_head_won7e1_k$());
   };
-  Input.prototype.q1e = function (current) {
-    return ensureNext(this, current, Companion_getInstance_4().f12_1);
+  Input.prototype.ensureNextHead_x7ynew_k$ = function (current) {
+    return this.ensureNext_r5itmw_k$(current);
   };
-  Input.prototype.r1e = function (current) {
-    var tmp0_elvis_lhs = current.d1d();
+  Input.prototype.ensureNext_r5itmw_k$ = function (current) {
+    return ensureNext(this, current, Companion_getInstance_4().Empty_1);
+  };
+  Input.prototype.fixGapAfterRead_y10io9_k$ = function (current) {
+    var tmp0_elvis_lhs = current.get_next_wor1vg_k$();
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return fixGapAfterReadFallback(this, current);
@@ -3658,7 +7402,7 @@
     var next = tmp;
     var tmp$ret$0;
     {
-      tmp$ret$0 = current.s15_1 - current.r15_1 | 0;
+      tmp$ret$0 = current.writePosition_1 - current.readPosition_1 | 0;
     }
     var remaining = tmp$ret$0;
     var tmp$ret$2;
@@ -3666,106 +7410,111 @@
       Companion_getInstance_1();
       var tmp$ret$1;
       {
-        tmp$ret$1 = current.v15_1 - current.u15_1 | 0;
+        tmp$ret$1 = current.capacity_1 - current.limit_1 | 0;
       }
       var tmp0_minOf = 8 - tmp$ret$1 | 0;
       tmp$ret$2 = Math.min(remaining, tmp0_minOf);
     }
     var overrunSize = tmp$ret$2;
-    if (next.r1b() < overrunSize) {
+    if (next.get_startGap_a0yplv_k$() < overrunSize) {
       return fixGapAfterReadFallback(this, current);
     }
     restoreStartGap(next, overrunSize);
     if (remaining > overrunSize) {
-      current.j1c();
-      this.f17_1 = current.q1b();
+      current.releaseEndGap_v67o29_k$();
+      this.headEndExclusive_1 = current.get_writePosition_jdt81t_k$();
       var tmp1_this = this;
       var tmp$ret$3;
       {
-        var tmp1_plus = tmp1_this.g17_1;
-        tmp$ret$3 = tmp1_plus.b4(toLong(overrunSize));
+        var tmp1_plus = tmp1_this.tailRemaining_1;
+        tmp$ret$3 = tmp1_plus.plus_u6jwas_k$(toLong(overrunSize));
       }
-      tmp1_this.g1e(tmp$ret$3);
+      tmp1_this.set_tailRemaining_h0rade_k$(tmp$ret$3);
     } else {
       _set__head__b4pap2(this, next);
       var tmp2_this = this;
       var tmp$ret$5;
       {
-        var tmp2_minus = tmp2_this.g17_1;
+        var tmp2_minus = tmp2_this.tailRemaining_1;
         var tmp$ret$4;
         {
-          tmp$ret$4 = next.s15_1 - next.r15_1 | 0;
+          tmp$ret$4 = next.writePosition_1 - next.readPosition_1 | 0;
         }
         var tmp3_minus = tmp$ret$4 - overrunSize | 0;
-        tmp$ret$5 = tmp2_minus.c4(toLong(tmp3_minus));
+        tmp$ret$5 = tmp2_minus.minus_llf5ei_k$(toLong(tmp3_minus));
       }
-      tmp2_this.g1e(tmp$ret$5);
-      current.i1d();
-      current.j1b(this.b17_1);
+      tmp2_this.set_tailRemaining_h0rade_k$(tmp$ret$5);
+      current.cleanNext_l2yy3o_k$();
+      current.release_49hdgr_k$(this.pool_1);
     }
   };
-  Input.prototype.c1e = function () {
-    var buffer = this.b17_1.w1a();
+  Input.prototype.fill_1vd6r_k$ = function () {
+    var buffer = this.pool_1.borrow_mvkpor_k$();
     try {
       Companion_getInstance_1();
-      buffer.d1c(8);
-      var tmp = buffer.o1b();
-      var tmp_0 = buffer.q1b();
+      buffer.reserveEndGap_1tynif_k$(8);
+      var tmp = buffer.get_memory_gl4362_k$();
+      var tmp_0 = buffer.get_writePosition_jdt81t_k$();
       var tmp$ret$0;
       {
-        tmp$ret$0 = buffer.u15_1 - buffer.s15_1 | 0;
+        tmp$ret$0 = buffer.limit_1 - buffer.writePosition_1 | 0;
       }
-      var copied = this.d1e(tmp, tmp_0, tmp$ret$0);
+      var copied = this.fill_yxu5qs_k$(tmp, tmp_0, tmp$ret$0);
       if (copied === 0) {
-        this.h17_1 = true;
+        this.noMoreChunksAvailable_1 = true;
         var tmp$ret$1;
         {
-          tmp$ret$1 = buffer.s15_1 > buffer.r15_1;
+          tmp$ret$1 = buffer.writePosition_1 > buffer.readPosition_1;
         }
         if (!tmp$ret$1) {
-          buffer.j1b(this.b17_1);
+          buffer.release_49hdgr_k$(this.pool_1);
           return null;
         }
       }
-      buffer.y1b(copied);
+      buffer.commitWritten_xiy30w_k$(copied);
       return buffer;
     } catch ($p) {
       if ($p instanceof Error) {
-        buffer.j1b(this.b17_1);
+        buffer.release_49hdgr_k$(this.pool_1);
         throw $p;
       } else {
         throw $p;
       }
     }
   };
-  Input.prototype.u1d = function () {
-    if (!this.h17_1) {
-      this.h17_1 = true;
+  Input.prototype.markNoMoreChunksAvailable_j2pq0h_k$ = function () {
+    if (!this.noMoreChunksAvailable_1) {
+      this.noMoreChunksAvailable_1 = true;
     }
   };
-  Input.prototype.s1e = function (minSize) {
-    var head = this.o1d();
-    if ((this.f17_1 - this.e17_1 | 0) >= minSize)
+  Input.prototype.prepareRead_i1grdw_k$ = function (minSize) {
+    var head = this.get_head_won7e1_k$();
+    if ((this.headEndExclusive_1 - this.headPosition_1 | 0) >= minSize)
       return head;
     return prepareReadLoop(this, minSize, head);
   };
-  Input.prototype.t1e = function (head) {
-    var tmp0_elvis_lhs = head.i1d();
-    var next = tmp0_elvis_lhs == null ? Companion_getInstance_4().f12_1 : tmp0_elvis_lhs;
+  Input.prototype.prepareRead_70no7p_k$ = function (minSize, head) {
+    if ((this.headEndExclusive_1 - this.headPosition_1 | 0) >= minSize)
+      return head;
+    return prepareReadLoop(this, minSize, head);
+  };
+  Input.prototype.releaseHead_hhdbbm_k$ = function (head) {
+    var tmp0_elvis_lhs = head.cleanNext_l2yy3o_k$();
+    var next = tmp0_elvis_lhs == null ? Companion_getInstance_4().Empty_1 : tmp0_elvis_lhs;
     _set__head__b4pap2(this, next);
     var tmp1_this = this;
     var tmp$ret$1;
     {
-      var tmp0_minus = tmp1_this.g17_1;
+      var tmp0_minus = tmp1_this.tailRemaining_1;
       var tmp$ret$0;
       {
-        tmp$ret$0 = next.s15_1 - next.r15_1 | 0;
+        tmp$ret$0 = next.writePosition_1 - next.readPosition_1 | 0;
       }
       var tmp1_minus = tmp$ret$0;
-      tmp$ret$1 = tmp0_minus.c4(toLong(tmp1_minus));
+      tmp$ret$1 = tmp0_minus.minus_llf5ei_k$(toLong(tmp1_minus));
     }
-    tmp1_this.g1e(tmp$ret$1);
-    head.j1b(this.b17_1);
+    tmp1_this.set_tailRemaining_h0rade_k$(tmp$ret$1);
+    head.release_49hdgr_k$(this.pool_1);
     return next;
   };
   Input.$metadata$ = classMeta('Input', [Closeable]);
@@ -3819,7 +7568,7 @@
         var tmp$ret$0;
         {
           var tmp0__get_readRemaining__u3cy9h = current;
-          tmp$ret$0 = tmp0__get_readRemaining__u3cy9h.s15_1 - tmp0__get_readRemaining__u3cy9h.r15_1 | 0;
+          tmp$ret$0 = tmp0__get_readRemaining__u3cy9h.writePosition_1 - tmp0__get_readRemaining__u3cy9h.readPosition_1 | 0;
         }
         var before = tmp$ret$0;
         var after;
@@ -3830,7 +7579,7 @@
             var tmp$ret$1;
             {
               var tmp1__get_readRemaining__qliyus = current;
-              tmp$ret$1 = tmp1__get_readRemaining__qliyus.s15_1 - tmp1__get_readRemaining__qliyus.r15_1 | 0;
+              tmp$ret$1 = tmp1__get_readRemaining__qliyus.writePosition_1 - tmp1__get_readRemaining__qliyus.readPosition_1 | 0;
             }
             after = tmp$ret$1;
           }
@@ -3849,7 +7598,7 @@
             var tmp$ret$2;
             {
               var tmp2__get_endGap__m31424 = current;
-              tmp$ret$2 = tmp2__get_endGap__m31424.v15_1 - tmp2__get_endGap__m31424.u15_1 | 0;
+              tmp$ret$2 = tmp2__get_endGap__m31424.capacity_1 - tmp2__get_endGap__m31424.limit_1 | 0;
             }
             var tmp_2 = tmp$ret$2;
             Companion_getInstance_1();
@@ -3880,7 +7629,7 @@
       }
     }
   }
-  function readFully_2(_this__u8e3s4, dst, offset, length) {
+  function readFully_3(_this__u8e3s4, dst, offset, length) {
     {
       var tmp$ret$4;
       {
@@ -3908,7 +7657,7 @@
                   var tmp0_minOf = remaining;
                   var tmp$ret$1;
                   {
-                    tmp$ret$1 = tmp0__anonymous__q1qw7t.s15_1 - tmp0__anonymous__q1qw7t.r15_1 | 0;
+                    tmp$ret$1 = tmp0__anonymous__q1qw7t.writePosition_1 - tmp0__anonymous__q1qw7t.readPosition_1 | 0;
                   }
                   var tmp1_minOf = tmp$ret$1;
                   tmp$ret$2 = Math.min(tmp0_minOf, tmp1_minOf);
@@ -3916,7 +7665,7 @@
                 var count = tmp$ret$2;
                 {
                   var tmp1__anonymous__uwfjfc = dstOffset;
-                  readFully_0(tmp0__anonymous__q1qw7t, dst, tmp1__anonymous__uwfjfc, count);
+                  readFully_1(tmp0__anonymous__q1qw7t, dst, tmp1__anonymous__uwfjfc, count);
                 }
                 remaining = remaining - count | 0;
                 dstOffset = dstOffset + count | 0;
@@ -3952,7 +7701,14 @@
       }
     }
   }
-  function readFully_3(_this__u8e3s4, dst, length) {
+  function readFully$default_1(_this__u8e3s4, dst, offset, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      offset = 0;
+    if (!(($mask0 & 4) === 0))
+      length = dst.length - offset | 0;
+    return readFully_3(_this__u8e3s4, dst, offset, length);
+  }
+  function readFully_4(_this__u8e3s4, dst, length) {
     {
       var tmp$ret$5;
       {
@@ -3980,7 +7736,7 @@
                   var tmp0_minOf = remaining;
                   var tmp$ret$2;
                   {
-                    tmp$ret$2 = tmp0__anonymous__q1qw7t.s15_1 - tmp0__anonymous__q1qw7t.r15_1 | 0;
+                    tmp$ret$2 = tmp0__anonymous__q1qw7t.writePosition_1 - tmp0__anonymous__q1qw7t.readPosition_1 | 0;
                   }
                   var tmp1_minOf = tmp$ret$2;
                   tmp$ret$3 = Math.min(tmp0_minOf, tmp1_minOf);
@@ -3988,7 +7744,7 @@
                 var count = tmp$ret$3;
                 {
                   var tmp1__anonymous__uwfjfc = dstOffset;
-                  readFully_1(tmp0__anonymous__q1qw7t, dst, count);
+                  readFully_2(tmp0__anonymous__q1qw7t, dst, count);
                 }
                 remaining = remaining - count | 0;
                 dstOffset = dstOffset + count | 0;
@@ -4024,6 +7780,18 @@
       }
     }
   }
+  function readFully$default_2(_this__u8e3s4, dst, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0)) {
+      var tmp$ret$0;
+      var tmp$ret$0_0;
+      {
+        tmp$ret$0 = dst.limit_1 - dst.writePosition_1 | 0;
+        tmp$ret$0_0 = Unit_getInstance();
+      }
+      length = tmp$ret$0;
+    }
+    return readFully_4(_this__u8e3s4, dst, length);
+  }
   function requireNoRemaining(_this__u8e3s4) {
     if (_this__u8e3s4 > 0) {
       prematureEndOfStream(_this__u8e3s4);
@@ -4054,7 +7822,7 @@
               var tmp0_minOf = remaining;
               var tmp$ret$1;
               {
-                tmp$ret$1 = tmp0__anonymous__q1qw7t.s15_1 - tmp0__anonymous__q1qw7t.r15_1 | 0;
+                tmp$ret$1 = tmp0__anonymous__q1qw7t.writePosition_1 - tmp0__anonymous__q1qw7t.readPosition_1 | 0;
               }
               var tmp1_minOf = tmp$ret$1;
               tmp$ret$2 = Math.min(tmp0_minOf, tmp1_minOf);
@@ -4094,17 +7862,17 @@
     $l$block: {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _this__u8e3s4.f17_1 - _this__u8e3s4.e17_1 | 0;
+        tmp$ret$0 = _this__u8e3s4.headEndExclusive_1 - _this__u8e3s4.headPosition_1 | 0;
       }
       if (tmp$ret$0 > 2) {
-        var index = _this__u8e3s4.e17_1;
-        _this__u8e3s4.e17_1 = index + 2 | 0;
+        var index = _this__u8e3s4.headPosition_1;
+        _this__u8e3s4.headPosition_1 = index + 2 | 0;
         var tmp$ret$2;
         {
-          var tmp0__anonymous__q1qw7t = _this__u8e3s4.d17_1;
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.headMemory_1;
           var tmp$ret$1;
           {
-            tmp$ret$1 = tmp0__anonymous__q1qw7t.s1a_1.getInt16(index, false);
+            tmp$ret$1 = tmp0__anonymous__q1qw7t.view_1.getInt16(index, false);
           }
           tmp$ret$2 = tmp$ret$1;
         }
@@ -4119,15 +7887,135 @@
     }
     return tmp$ret$3;
   }
+  function readInt_0(_this__u8e3s4) {
+    var tmp$ret$3;
+    $l$block: {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = _this__u8e3s4.headEndExclusive_1 - _this__u8e3s4.headPosition_1 | 0;
+      }
+      if (tmp$ret$0 > 4) {
+        var index = _this__u8e3s4.headPosition_1;
+        _this__u8e3s4.headPosition_1 = index + 4 | 0;
+        var tmp$ret$2;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.headMemory_1;
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = tmp0__anonymous__q1qw7t.view_1.getInt32(index, false);
+          }
+          tmp$ret$2 = tmp$ret$1;
+        }
+        tmp$ret$3 = tmp$ret$2;
+        break $l$block;
+      }
+      var tmp$ret$4;
+      {
+        tmp$ret$4 = readIntFallback(_this__u8e3s4);
+      }
+      tmp$ret$3 = tmp$ret$4;
+    }
+    return tmp$ret$3;
+  }
+  function readLong_0(_this__u8e3s4) {
+    var tmp$ret$3;
+    $l$block: {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = _this__u8e3s4.headEndExclusive_1 - _this__u8e3s4.headPosition_1 | 0;
+      }
+      if (tmp$ret$0 > 8) {
+        var index = _this__u8e3s4.headPosition_1;
+        _this__u8e3s4.headPosition_1 = index + 8 | 0;
+        var tmp$ret$2;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.headMemory_1;
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = toLong(tmp0__anonymous__q1qw7t.view_1.getUint32(index, false)).shl_po5ip6_k$(32).or_s401rn_k$(toLong(tmp0__anonymous__q1qw7t.view_1.getUint32(index + 4 | 0, false)));
+          }
+          tmp$ret$2 = tmp$ret$1;
+        }
+        tmp$ret$3 = tmp$ret$2;
+        break $l$block;
+      }
+      var tmp$ret$4;
+      {
+        tmp$ret$4 = readLongFallback(_this__u8e3s4);
+      }
+      tmp$ret$3 = tmp$ret$4;
+    }
+    return tmp$ret$3;
+  }
+  function readFloat_0(_this__u8e3s4) {
+    var tmp$ret$3;
+    $l$block: {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = _this__u8e3s4.headEndExclusive_1 - _this__u8e3s4.headPosition_1 | 0;
+      }
+      if (tmp$ret$0 > 4) {
+        var index = _this__u8e3s4.headPosition_1;
+        _this__u8e3s4.headPosition_1 = index + 4 | 0;
+        var tmp$ret$2;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.headMemory_1;
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = tmp0__anonymous__q1qw7t.view_1.getFloat32(index, false);
+          }
+          tmp$ret$2 = tmp$ret$1;
+        }
+        tmp$ret$3 = tmp$ret$2;
+        break $l$block;
+      }
+      var tmp$ret$4;
+      {
+        tmp$ret$4 = readFloatFallback(_this__u8e3s4);
+      }
+      tmp$ret$3 = tmp$ret$4;
+    }
+    return tmp$ret$3;
+  }
+  function readDouble_0(_this__u8e3s4) {
+    var tmp$ret$3;
+    $l$block: {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = _this__u8e3s4.headEndExclusive_1 - _this__u8e3s4.headPosition_1 | 0;
+      }
+      if (tmp$ret$0 > 8) {
+        var index = _this__u8e3s4.headPosition_1;
+        _this__u8e3s4.headPosition_1 = index + 8 | 0;
+        var tmp$ret$2;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.headMemory_1;
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = tmp0__anonymous__q1qw7t.view_1.getFloat64(index, false);
+          }
+          tmp$ret$2 = tmp$ret$1;
+        }
+        tmp$ret$3 = tmp$ret$2;
+        break $l$block;
+      }
+      var tmp$ret$4;
+      {
+        tmp$ret$4 = readDoubleFallback(_this__u8e3s4);
+      }
+      tmp$ret$3 = tmp$ret$4;
+    }
+    return tmp$ret$3;
+  }
   function readPrimitive(_this__u8e3s4, size, main, fallback) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = _this__u8e3s4.f17_1 - _this__u8e3s4.e17_1 | 0;
+      tmp$ret$0 = _this__u8e3s4.headEndExclusive_1 - _this__u8e3s4.headPosition_1 | 0;
     }
     if (tmp$ret$0 > size) {
-      var index = _this__u8e3s4.e17_1;
-      _this__u8e3s4.e17_1 = index + size | 0;
-      return main(_this__u8e3s4.d17_1, index);
+      var index = _this__u8e3s4.headPosition_1;
+      _this__u8e3s4.headPosition_1 = index + size | 0;
+      return main(_this__u8e3s4.headMemory_1, index);
     }
     return fallback();
   }
@@ -4152,6 +8040,90 @@
     }
     return tmp$ret$1;
   }
+  function readIntFallback(_this__u8e3s4) {
+    var tmp$ret$1;
+    {
+      var tmp0_elvis_lhs = prepareReadFirstHead(_this__u8e3s4, 4);
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        prematureEndOfStream(4);
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      var head = tmp;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = readInt(head);
+      }
+      var value = tmp$ret$0;
+      completeReadHead(_this__u8e3s4, head);
+      tmp$ret$1 = value;
+    }
+    return tmp$ret$1;
+  }
+  function readLongFallback(_this__u8e3s4) {
+    var tmp$ret$1;
+    {
+      var tmp0_elvis_lhs = prepareReadFirstHead(_this__u8e3s4, 8);
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        prematureEndOfStream(8);
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      var head = tmp;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = readLong(head);
+      }
+      var value = tmp$ret$0;
+      completeReadHead(_this__u8e3s4, head);
+      tmp$ret$1 = value;
+    }
+    return tmp$ret$1;
+  }
+  function readFloatFallback(_this__u8e3s4) {
+    var tmp$ret$1;
+    {
+      var tmp0_elvis_lhs = prepareReadFirstHead(_this__u8e3s4, 4);
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        prematureEndOfStream(4);
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      var head = tmp;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = readFloat(head);
+      }
+      var value = tmp$ret$0;
+      completeReadHead(_this__u8e3s4, head);
+      tmp$ret$1 = value;
+    }
+    return tmp$ret$1;
+  }
+  function readDoubleFallback(_this__u8e3s4) {
+    var tmp$ret$1;
+    {
+      var tmp0_elvis_lhs = prepareReadFirstHead(_this__u8e3s4, 8);
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        prematureEndOfStream(8);
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      var head = tmp;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = readDouble(head);
+      }
+      var value = tmp$ret$0;
+      completeReadHead(_this__u8e3s4, head);
+      tmp$ret$1 = value;
+    }
+    return tmp$ret$1;
+  }
   function readPrimitiveFallback(_this__u8e3s4, size, read) {
     var tmp0_elvis_lhs = prepareReadFirstHead(_this__u8e3s4, size);
     var tmp;
@@ -4165,8 +8137,39 @@
     completeReadHead(_this__u8e3s4, head);
     return value;
   }
+  function Output_init_$Init$($this) {
+    Output.call($this, Companion_getInstance_4().Pool_1);
+    return $this;
+  }
+  function Output_init_$Create$() {
+    return Output_init_$Init$(Object.create(Output.prototype));
+  }
+  function _set__head__b4pap2_0($this, _set____db54di) {
+    $this._head_1 = _set____db54di;
+  }
+  function _get__head__kwf5se_0($this) {
+    return $this._head_1;
+  }
+  function _set__tail__bb8fzq($this, _set____db54di) {
+    $this._tail_1 = _set____db54di;
+  }
+  function _get__tail__kpw0hq($this) {
+    return $this._tail_1;
+  }
+  function _set_tailInitialPosition__matoco($this, _set____db54di) {
+    $this.tailInitialPosition_1 = _set____db54di;
+  }
+  function _get_tailInitialPosition__zfk4q4($this) {
+    return $this.tailInitialPosition_1;
+  }
+  function _set_chainedSize__unajg($this, _set____db54di) {
+    $this.chainedSize_1 = _set____db54di;
+  }
+  function _get_chainedSize__tfqvsg($this) {
+    return $this.chainedSize_1;
+  }
   function flushChain($this) {
-    var tmp0_elvis_lhs = $this.p13();
+    var tmp0_elvis_lhs = $this.stealAll_nensgi_k$();
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return Unit_getInstance();
@@ -4182,15 +8185,15 @@
         $l$loop: do {
           {
             var tmp0__anonymous__q1qw7t = current;
-            var tmp_0 = tmp0__anonymous__q1qw7t.o1b();
-            var tmp_1 = tmp0__anonymous__q1qw7t.p1b();
+            var tmp_0 = tmp0__anonymous__q1qw7t.get_memory_gl4362_k$();
+            var tmp_1 = tmp0__anonymous__q1qw7t.get_readPosition_70qxnc_k$();
             var tmp$ret$0;
             {
-              tmp$ret$0 = tmp0__anonymous__q1qw7t.s15_1 - tmp0__anonymous__q1qw7t.r15_1 | 0;
+              tmp$ret$0 = tmp0__anonymous__q1qw7t.writePosition_1 - tmp0__anonymous__q1qw7t.readPosition_1 | 0;
             }
-            $this.l1d(tmp_0, tmp_1, tmp$ret$0);
+            $this.flush_2k57tq_k$(tmp_0, tmp_1, tmp$ret$0);
           }
-          var tmp0_elvis_lhs_0 = current.d1d();
+          var tmp0_elvis_lhs_0 = current.get_next_wor1vg_k$();
           var tmp_2;
           if (tmp0_elvis_lhs_0 == null) {
             break $l$loop;
@@ -4202,53 +8205,53 @@
          while (true);
       }
     }finally {
-      releaseAll(oldTail, $this.h13_1);
+      releaseAll(oldTail, $this.pool_1);
     }
   }
   function appendNewChunk($this) {
-    var new_0 = $this.h13_1.w1a();
+    var new_0 = $this.pool_1.borrow_mvkpor_k$();
     Companion_getInstance_1();
-    new_0.d1c(8);
-    $this.i1b(new_0);
+    new_0.reserveEndGap_1tynif_k$(8);
+    $this.appendSingleChunk_ll2zwj_k$(new_0);
     return new_0;
   }
   function appendChainImpl($this, head, newTail, chainedSizeDelta) {
-    var _tail = $this.j13_1;
+    var _tail = $this._tail_1;
     if (_tail == null) {
-      $this.i13_1 = head;
-      $this.o13_1 = 0;
+      $this._head_1 = head;
+      $this.chainedSize_1 = 0;
     } else {
-      _tail.u1e(head);
-      var tailPosition = $this.l13_1;
-      _tail.z1b(tailPosition);
+      _tail.set_next_scf7lx_k$(head);
+      var tailPosition = $this.tailPosition_1;
+      _tail.commitWrittenUntilIndex_vgi103_k$(tailPosition);
       var tmp0_this = $this;
-      tmp0_this.o13_1 = tmp0_this.o13_1 + (tailPosition - $this.n13_1 | 0) | 0;
+      tmp0_this.chainedSize_1 = tmp0_this.chainedSize_1 + (tailPosition - $this.tailInitialPosition_1 | 0) | 0;
     }
-    $this.j13_1 = newTail;
+    $this._tail_1 = newTail;
     var tmp1_this = $this;
-    tmp1_this.o13_1 = tmp1_this.o13_1 + chainedSizeDelta | 0;
-    $this.k13_1 = newTail.o1b();
-    $this.l13_1 = newTail.q1b();
-    $this.n13_1 = newTail.p1b();
-    $this.m13_1 = newTail.s1b();
+    tmp1_this.chainedSize_1 = tmp1_this.chainedSize_1 + chainedSizeDelta | 0;
+    $this.tailMemory_1 = newTail.get_memory_gl4362_k$();
+    $this.tailPosition_1 = newTail.get_writePosition_jdt81t_k$();
+    $this.tailInitialPosition_1 = newTail.get_readPosition_70qxnc_k$();
+    $this.tailEndExclusive_1 = newTail.get_limit_iuokuq_k$();
   }
   function writeByteFallback($this, v) {
-    appendNewChunk($this).m1c(v);
+    appendNewChunk($this).writeByte_jvpujw_k$(v);
     var tmp0_this = $this;
-    var tmp1 = tmp0_this.l13_1;
-    tmp0_this.l13_1 = tmp1 + 1 | 0;
+    var tmp1 = tmp0_this.tailPosition_1;
+    tmp0_this.tailPosition_1 = tmp1 + 1 | 0;
   }
   function appendCharFallback($this, c) {
     var tmp$ret$13;
     $l$block: {
-      var buffer = $this.r1d(3);
+      var buffer = $this.prepareWriteHead_k7upd5_k$(3);
       try {
         var tmp$ret$11;
         {
           var tmp$ret$10;
           {
-            var tmp16_putUtf8Char = buffer.q15_1;
-            var tmp17_putUtf8Char = buffer.s15_1;
+            var tmp16_putUtf8Char = buffer.memory_1;
+            var tmp17_putUtf8Char = buffer.writePosition_1;
             var tmp$ret$0;
             {
               tmp$ret$0 = Char__toInt_impl_vasixd(c);
@@ -4259,64 +8262,64 @@
             if (0 <= tmp0_subject ? tmp0_subject <= 127 : false) {
               {
                 var tmp0_storeAt = toByte(tmp18_putUtf8Char);
-                tmp16_putUtf8Char.s1a_1.setInt8(tmp17_putUtf8Char, tmp0_storeAt);
+                tmp16_putUtf8Char.view_1.setInt8(tmp17_putUtf8Char, tmp0_storeAt);
               }
               tmp = 1;
             } else if (128 <= tmp0_subject ? tmp0_subject <= 2047 : false) {
               var tmp$ret$1;
               {
                 var tmp1_set = toByte(192 | tmp18_putUtf8Char >> 6 & 31);
-                tmp$ret$1 = tmp16_putUtf8Char.s1a_1.setInt8(tmp17_putUtf8Char, tmp1_set);
+                tmp$ret$1 = tmp16_putUtf8Char.view_1.setInt8(tmp17_putUtf8Char, tmp1_set);
               }
               var tmp$ret$2;
               {
                 var tmp2_set = tmp17_putUtf8Char + 1 | 0;
                 var tmp3_set = toByte(128 | tmp18_putUtf8Char & 63);
-                tmp$ret$2 = tmp16_putUtf8Char.s1a_1.setInt8(tmp2_set, tmp3_set);
+                tmp$ret$2 = tmp16_putUtf8Char.view_1.setInt8(tmp2_set, tmp3_set);
               }
               tmp = 2;
             } else if (2048 <= tmp0_subject ? tmp0_subject <= 65535 : false) {
               var tmp$ret$3;
               {
                 var tmp4_set = toByte(224 | tmp18_putUtf8Char >> 12 & 15);
-                tmp$ret$3 = tmp16_putUtf8Char.s1a_1.setInt8(tmp17_putUtf8Char, tmp4_set);
+                tmp$ret$3 = tmp16_putUtf8Char.view_1.setInt8(tmp17_putUtf8Char, tmp4_set);
               }
               var tmp$ret$4;
               {
                 var tmp5_set = tmp17_putUtf8Char + 1 | 0;
                 var tmp6_set = toByte(128 | tmp18_putUtf8Char >> 6 & 63);
-                tmp$ret$4 = tmp16_putUtf8Char.s1a_1.setInt8(tmp5_set, tmp6_set);
+                tmp$ret$4 = tmp16_putUtf8Char.view_1.setInt8(tmp5_set, tmp6_set);
               }
               var tmp$ret$5;
               {
                 var tmp7_set = tmp17_putUtf8Char + 2 | 0;
                 var tmp8_set = toByte(128 | tmp18_putUtf8Char & 63);
-                tmp$ret$5 = tmp16_putUtf8Char.s1a_1.setInt8(tmp7_set, tmp8_set);
+                tmp$ret$5 = tmp16_putUtf8Char.view_1.setInt8(tmp7_set, tmp8_set);
               }
               tmp = 3;
             } else if (65536 <= tmp0_subject ? tmp0_subject <= 1114111 : false) {
               var tmp$ret$6;
               {
                 var tmp9_set = toByte(240 | tmp18_putUtf8Char >> 18 & 7);
-                tmp$ret$6 = tmp16_putUtf8Char.s1a_1.setInt8(tmp17_putUtf8Char, tmp9_set);
+                tmp$ret$6 = tmp16_putUtf8Char.view_1.setInt8(tmp17_putUtf8Char, tmp9_set);
               }
               var tmp$ret$7;
               {
                 var tmp10_set = tmp17_putUtf8Char + 1 | 0;
                 var tmp11_set = toByte(128 | tmp18_putUtf8Char >> 12 & 63);
-                tmp$ret$7 = tmp16_putUtf8Char.s1a_1.setInt8(tmp10_set, tmp11_set);
+                tmp$ret$7 = tmp16_putUtf8Char.view_1.setInt8(tmp10_set, tmp11_set);
               }
               var tmp$ret$8;
               {
                 var tmp12_set = tmp17_putUtf8Char + 2 | 0;
                 var tmp13_set = toByte(128 | tmp18_putUtf8Char >> 6 & 63);
-                tmp$ret$8 = tmp16_putUtf8Char.s1a_1.setInt8(tmp12_set, tmp13_set);
+                tmp$ret$8 = tmp16_putUtf8Char.view_1.setInt8(tmp12_set, tmp13_set);
               }
               var tmp$ret$9;
               {
                 var tmp14_set = tmp17_putUtf8Char + 3 | 0;
                 var tmp15_set = toByte(128 | tmp18_putUtf8Char & 63);
-                tmp$ret$9 = tmp16_putUtf8Char.s1a_1.setInt8(tmp14_set, tmp15_set);
+                tmp$ret$9 = tmp16_putUtf8Char.view_1.setInt8(tmp14_set, tmp15_set);
               }
               tmp = 4;
             } else {
@@ -4325,7 +8328,7 @@
             tmp$ret$10 = tmp;
           }
           var size = tmp$ret$10;
-          buffer.y1b(size);
+          buffer.commitWritten_xiy30w_k$(size);
           tmp$ret$11 = size;
         }
         var result = tmp$ret$11;
@@ -4345,20 +8348,20 @@
         tmp$ret$13 = result;
         break $l$block;
       }finally {
-        $this.k1b();
+        $this.afterHeadWrite_dlo0ku_k$();
       }
     }
   }
   function writePacketMerging($this, tail, foreignStolen, pool) {
-    tail.z1b($this.l13_1);
+    tail.commitWrittenUntilIndex_vgi103_k$($this.tailPosition_1);
     var tmp$ret$0;
     {
-      tmp$ret$0 = tail.s15_1 - tail.r15_1 | 0;
+      tmp$ret$0 = tail.writePosition_1 - tail.readPosition_1 | 0;
     }
     var lastSize = tmp$ret$0;
     var tmp$ret$1;
     {
-      tmp$ret$1 = foreignStolen.s15_1 - foreignStolen.r15_1 | 0;
+      tmp$ret$1 = foreignStolen.writePosition_1 - foreignStolen.readPosition_1 | 0;
     }
     var nextSize = tmp$ret$1;
     var maxCopySize = get_PACKET_MAX_COPY_SIZE();
@@ -4367,12 +8370,12 @@
     if (nextSize < maxCopySize) {
       var tmp$ret$2;
       {
-        tmp$ret$2 = tail.v15_1 - tail.u15_1 | 0;
+        tmp$ret$2 = tail.capacity_1 - tail.limit_1 | 0;
       }
       var tmp_1 = tmp$ret$2;
       var tmp$ret$3;
       {
-        tmp$ret$3 = tail.u15_1 - tail.s15_1 | 0;
+        tmp$ret$3 = tail.limit_1 - tail.writePosition_1 | 0;
       }
       tmp_0 = nextSize <= (tmp_1 + tmp$ret$3 | 0);
     } else {
@@ -4385,27 +8388,27 @@
     }
     var appendSize = tmp;
     var tmp_2;
-    if ((lastSize < maxCopySize ? lastSize <= foreignStolen.r1b() : false) ? isExclusivelyOwned(foreignStolen) : false) {
+    if ((lastSize < maxCopySize ? lastSize <= foreignStolen.get_startGap_a0yplv_k$() : false) ? isExclusivelyOwned(foreignStolen) : false) {
       tmp_2 = lastSize;
     } else {
       tmp_2 = -1;
     }
     var prependSize = tmp_2;
     if (appendSize === -1 ? prependSize === -1 : false) {
-      $this.q1d(foreignStolen);
+      $this.appendChain_diq39b_k$(foreignStolen);
     } else if (prependSize === -1 ? true : appendSize <= prependSize) {
       var tmp$ret$4;
       {
-        tmp$ret$4 = tail.u15_1 - tail.s15_1 | 0;
+        tmp$ret$4 = tail.limit_1 - tail.writePosition_1 | 0;
       }
       var tmp_3 = tmp$ret$4;
       var tmp$ret$5;
       {
-        tmp$ret$5 = tail.v15_1 - tail.u15_1 | 0;
+        tmp$ret$5 = tail.capacity_1 - tail.limit_1 | 0;
       }
       writeBufferAppend(tail, foreignStolen, tmp_3 + tmp$ret$5 | 0);
-      $this.k1b();
-      var tmp0_safe_receiver = foreignStolen.i1d();
+      $this.afterHeadWrite_dlo0ku_k$();
+      var tmp0_safe_receiver = foreignStolen.cleanNext_l2yy3o_k$();
       if (tmp0_safe_receiver == null)
         null;
       else {
@@ -4413,10 +8416,10 @@
         {
           {
           }
-          tmp$ret$6 = $this.q1d(tmp0_safe_receiver);
+          tmp$ret$6 = $this.appendChain_diq39b_k$(tmp0_safe_receiver);
         }
       }
-      foreignStolen.j1b(pool);
+      foreignStolen.release_49hdgr_k$(pool);
     } else if (appendSize === -1 ? true : prependSize < appendSize) {
       writePacketSlowPrepend($this, foreignStolen, tail);
     } else {
@@ -4425,7 +8428,7 @@
   }
   function writePacketSlowPrepend($this, foreignStolen, tail) {
     writeBufferPrepend(foreignStolen, tail);
-    var tmp0_elvis_lhs = $this.i13_1;
+    var tmp0_elvis_lhs = $this._head_1;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       throw IllegalStateException_init_$Create$("head should't be null since it is already handled in the fast-path");
@@ -4434,48 +8437,66 @@
     }
     var _head = tmp;
     if (_head === tail) {
-      $this.i13_1 = foreignStolen;
+      $this._head_1 = foreignStolen;
     } else {
       var pre = _head;
       $l$loop: while (true) {
-        var next = ensureNotNull(pre.d1d());
+        var next = ensureNotNull(pre.get_next_wor1vg_k$());
         if (next === tail)
           break $l$loop;
         pre = next;
       }
-      pre.u1e(foreignStolen);
+      pre.set_next_scf7lx_k$(foreignStolen);
     }
-    tail.j1b($this.h13_1);
-    $this.j13_1 = findTail(foreignStolen);
+    tail.release_49hdgr_k$($this.pool_1);
+    $this._tail_1 = findTail(foreignStolen);
   }
   function Output(pool) {
-    this.h13_1 = pool;
-    this.i13_1 = null;
-    this.j13_1 = null;
-    this.k13_1 = Companion_getInstance_6().v1e_1;
-    this.l13_1 = 0;
-    this.m13_1 = 0;
-    this.n13_1 = 0;
-    this.o13_1 = 0;
+    this.pool_1 = pool;
+    this._head_1 = null;
+    this._tail_1 = null;
+    this.tailMemory_1 = Companion_getInstance_6().Empty_1;
+    this.tailPosition_1 = 0;
+    this.tailEndExclusive_1 = 0;
+    this.tailInitialPosition_1 = 0;
+    this.chainedSize_1 = 0;
   }
-  Output.prototype.m1d = function () {
-    return this.h13_1;
+  Output.prototype.get_pool_wosj1h_k$ = function () {
+    return this.pool_1;
   };
-  Output.prototype.j1d = function () {
-    return this.o13_1 + (this.l13_1 - this.n13_1 | 0) | 0;
+  Output.prototype.get__size_inpkfr_k$ = function () {
+    return this.chainedSize_1 + (this.tailPosition_1 - this.tailInitialPosition_1 | 0) | 0;
   };
-  Output.prototype.o1d = function () {
-    var tmp0_elvis_lhs = this.i13_1;
-    return tmp0_elvis_lhs == null ? Companion_getInstance_4().f12_1 : tmp0_elvis_lhs;
+  Output.prototype.get_head_won7e1_k$ = function () {
+    var tmp0_elvis_lhs = this._head_1;
+    return tmp0_elvis_lhs == null ? Companion_getInstance_4().Empty_1 : tmp0_elvis_lhs;
   };
-  Output.prototype.p1d = function () {
-    return this.m13_1 - this.l13_1 | 0;
+  Output.prototype.set_tailMemory_ffk15k_k$ = function (_set____db54di) {
+    this.tailMemory_1 = _set____db54di;
   };
-  Output.prototype.m19 = function () {
+  Output.prototype.get_tailMemory_3da60q_k$ = function () {
+    return this.tailMemory_1;
+  };
+  Output.prototype.set_tailPosition_ze93tm_k$ = function (_set____db54di) {
+    this.tailPosition_1 = _set____db54di;
+  };
+  Output.prototype.get_tailPosition_6y9qfy_k$ = function () {
+    return this.tailPosition_1;
+  };
+  Output.prototype.set_tailEndExclusive_mocutc_k$ = function (_set____db54di) {
+    this.tailEndExclusive_1 = _set____db54di;
+  };
+  Output.prototype.get_tailEndExclusive_e33hh8_k$ = function () {
+    return this.tailEndExclusive_1;
+  };
+  Output.prototype.get_tailRemaining_g9jelf_k$ = function () {
+    return this.tailEndExclusive_1 - this.tailPosition_1 | 0;
+  };
+  Output.prototype.flush_sgqoqb_k$ = function () {
     flushChain(this);
   };
-  Output.prototype.p13 = function () {
-    var tmp0_elvis_lhs = this.i13_1;
+  Output.prototype.stealAll_nensgi_k$ = function () {
+    var tmp0_elvis_lhs = this._head_1;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return null;
@@ -4483,23 +8504,23 @@
       tmp = tmp0_elvis_lhs;
     }
     var head = tmp;
-    var tmp1_safe_receiver = this.j13_1;
+    var tmp1_safe_receiver = this._tail_1;
     if (tmp1_safe_receiver == null)
       null;
     else
-      tmp1_safe_receiver.z1b(this.l13_1);
-    this.i13_1 = null;
-    this.j13_1 = null;
-    this.l13_1 = 0;
-    this.m13_1 = 0;
-    this.n13_1 = 0;
-    this.o13_1 = 0;
-    this.k13_1 = Companion_getInstance_6().v1e_1;
+      tmp1_safe_receiver.commitWrittenUntilIndex_vgi103_k$(this.tailPosition_1);
+    this._head_1 = null;
+    this._tail_1 = null;
+    this.tailPosition_1 = 0;
+    this.tailEndExclusive_1 = 0;
+    this.tailInitialPosition_1 = 0;
+    this.chainedSize_1 = 0;
+    this.tailMemory_1 = Companion_getInstance_6().Empty_1;
     return head;
   };
-  Output.prototype.i1b = function (buffer) {
+  Output.prototype.appendSingleChunk_ll2zwj_k$ = function (buffer) {
     {
-      var tmp0_check = buffer.d1d() == null;
+      var tmp0_check = buffer.get_next_wor1vg_k$() == null;
       {
       }
       if (!tmp0_check) {
@@ -4513,7 +8534,7 @@
     }
     appendChainImpl(this, buffer, buffer, 0);
   };
-  Output.prototype.q1d = function (head) {
+  Output.prototype.appendChain_diq39b_k$ = function (head) {
     var tail = findTail(head);
     var tmp$ret$2;
     {
@@ -4522,46 +8543,46 @@
         var tmp0_minus = remainingAll(head);
         var tmp$ret$0;
         {
-          tmp$ret$0 = tail.s15_1 - tail.r15_1 | 0;
+          tmp$ret$0 = tail.writePosition_1 - tail.readPosition_1 | 0;
         }
         var tmp1_minus = tmp$ret$0;
-        tmp$ret$1 = tmp0_minus.c4(toLong(tmp1_minus));
+        tmp$ret$1 = tmp0_minus.minus_llf5ei_k$(toLong(tmp1_minus));
       }
       var tmp2_toIntOrFail = tmp$ret$1;
-      if (tmp2_toIntOrFail.a1(toLong(IntCompanionObject_getInstance().v_1)) >= 0) {
+      if (tmp2_toIntOrFail.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
         failLongToIntConversion(tmp2_toIntOrFail, 'total size increase');
       }
-      tmp$ret$2 = tmp2_toIntOrFail.md();
+      tmp$ret$2 = tmp2_toIntOrFail.toInt_1tsl84_k$();
     }
     var chainedSizeDelta = tmp$ret$2;
     appendChainImpl(this, head, tail, chainedSizeDelta);
   };
-  Output.prototype.m1c = function (v) {
-    var index = this.l13_1;
-    if (index < this.m13_1) {
-      this.l13_1 = index + 1 | 0;
+  Output.prototype.writeByte_jvpujw_k$ = function (v) {
+    var index = this.tailPosition_1;
+    if (index < this.tailEndExclusive_1) {
+      this.tailPosition_1 = index + 1 | 0;
       var tmp$ret$0;
       {
-        var tmp0_set = this.k13_1;
-        tmp$ret$0 = tmp0_set.s1a_1.setInt8(index, v);
+        var tmp0_set = this.tailMemory_1;
+        tmp$ret$0 = tmp0_set.view_1.setInt8(index, v);
       }
       return Unit_getInstance();
     }
     return writeByteFallback(this, v);
   };
-  Output.prototype.i10 = function () {
+  Output.prototype.close_ymq55z_k$ = function () {
     try {
-      this.m19();
+      this.flush_sgqoqb_k$();
     }finally {
-      this.k1d();
+      this.closeDestination_mrlaor_k$();
     }
   };
-  Output.prototype.x3 = function (value) {
-    var tailPosition = this.l13_1;
-    if ((this.m13_1 - tailPosition | 0) >= 3) {
+  Output.prototype.append_t8oh9e_k$ = function (value) {
+    var tailPosition = this.tailPosition_1;
+    if ((this.tailEndExclusive_1 - tailPosition | 0) >= 3) {
       var tmp$ret$10;
       {
-        var tmp16_putUtf8Char = this.k13_1;
+        var tmp16_putUtf8Char = this.tailMemory_1;
         var tmp$ret$0;
         {
           tmp$ret$0 = Char__toInt_impl_vasixd(value);
@@ -4572,64 +8593,64 @@
         if (0 <= tmp0_subject ? tmp0_subject <= 127 : false) {
           {
             var tmp0_storeAt = toByte(tmp17_putUtf8Char);
-            tmp16_putUtf8Char.s1a_1.setInt8(tailPosition, tmp0_storeAt);
+            tmp16_putUtf8Char.view_1.setInt8(tailPosition, tmp0_storeAt);
           }
           tmp = 1;
         } else if (128 <= tmp0_subject ? tmp0_subject <= 2047 : false) {
           var tmp$ret$1;
           {
             var tmp1_set = toByte(192 | tmp17_putUtf8Char >> 6 & 31);
-            tmp$ret$1 = tmp16_putUtf8Char.s1a_1.setInt8(tailPosition, tmp1_set);
+            tmp$ret$1 = tmp16_putUtf8Char.view_1.setInt8(tailPosition, tmp1_set);
           }
           var tmp$ret$2;
           {
             var tmp2_set = tailPosition + 1 | 0;
             var tmp3_set = toByte(128 | tmp17_putUtf8Char & 63);
-            tmp$ret$2 = tmp16_putUtf8Char.s1a_1.setInt8(tmp2_set, tmp3_set);
+            tmp$ret$2 = tmp16_putUtf8Char.view_1.setInt8(tmp2_set, tmp3_set);
           }
           tmp = 2;
         } else if (2048 <= tmp0_subject ? tmp0_subject <= 65535 : false) {
           var tmp$ret$3;
           {
             var tmp4_set = toByte(224 | tmp17_putUtf8Char >> 12 & 15);
-            tmp$ret$3 = tmp16_putUtf8Char.s1a_1.setInt8(tailPosition, tmp4_set);
+            tmp$ret$3 = tmp16_putUtf8Char.view_1.setInt8(tailPosition, tmp4_set);
           }
           var tmp$ret$4;
           {
             var tmp5_set = tailPosition + 1 | 0;
             var tmp6_set = toByte(128 | tmp17_putUtf8Char >> 6 & 63);
-            tmp$ret$4 = tmp16_putUtf8Char.s1a_1.setInt8(tmp5_set, tmp6_set);
+            tmp$ret$4 = tmp16_putUtf8Char.view_1.setInt8(tmp5_set, tmp6_set);
           }
           var tmp$ret$5;
           {
             var tmp7_set = tailPosition + 2 | 0;
             var tmp8_set = toByte(128 | tmp17_putUtf8Char & 63);
-            tmp$ret$5 = tmp16_putUtf8Char.s1a_1.setInt8(tmp7_set, tmp8_set);
+            tmp$ret$5 = tmp16_putUtf8Char.view_1.setInt8(tmp7_set, tmp8_set);
           }
           tmp = 3;
         } else if (65536 <= tmp0_subject ? tmp0_subject <= 1114111 : false) {
           var tmp$ret$6;
           {
             var tmp9_set = toByte(240 | tmp17_putUtf8Char >> 18 & 7);
-            tmp$ret$6 = tmp16_putUtf8Char.s1a_1.setInt8(tailPosition, tmp9_set);
+            tmp$ret$6 = tmp16_putUtf8Char.view_1.setInt8(tailPosition, tmp9_set);
           }
           var tmp$ret$7;
           {
             var tmp10_set = tailPosition + 1 | 0;
             var tmp11_set = toByte(128 | tmp17_putUtf8Char >> 12 & 63);
-            tmp$ret$7 = tmp16_putUtf8Char.s1a_1.setInt8(tmp10_set, tmp11_set);
+            tmp$ret$7 = tmp16_putUtf8Char.view_1.setInt8(tmp10_set, tmp11_set);
           }
           var tmp$ret$8;
           {
             var tmp12_set = tailPosition + 2 | 0;
             var tmp13_set = toByte(128 | tmp17_putUtf8Char >> 6 & 63);
-            tmp$ret$8 = tmp16_putUtf8Char.s1a_1.setInt8(tmp12_set, tmp13_set);
+            tmp$ret$8 = tmp16_putUtf8Char.view_1.setInt8(tmp12_set, tmp13_set);
           }
           var tmp$ret$9;
           {
             var tmp14_set = tailPosition + 3 | 0;
             var tmp15_set = toByte(128 | tmp17_putUtf8Char & 63);
-            tmp$ret$9 = tmp16_putUtf8Char.s1a_1.setInt8(tmp14_set, tmp15_set);
+            tmp$ret$9 = tmp16_putUtf8Char.view_1.setInt8(tmp14_set, tmp15_set);
           }
           tmp = 4;
         } else {
@@ -4638,71 +8659,71 @@
         tmp$ret$10 = tmp;
       }
       var size = tmp$ret$10;
-      this.l13_1 = tailPosition + size | 0;
+      this.tailPosition_1 = tailPosition + size | 0;
       return this;
     }
     appendCharFallback(this, value);
     return this;
   };
-  Output.prototype.c = function (value) {
+  Output.prototype.append_oz4qxs_k$ = function (value) {
     if (value == null) {
-      this.cc('null', 0, 4);
+      this.append_tbojcw_k$('null', 0, 4);
     } else {
-      this.cc(value, 0, charSequenceLength(value));
+      this.append_tbojcw_k$(value, 0, charSequenceLength(value));
     }
     return this;
   };
-  Output.prototype.cc = function (value, startIndex, endIndex) {
+  Output.prototype.append_tbojcw_k$ = function (value, startIndex, endIndex) {
     if (value == null) {
-      return this.cc('null', startIndex, endIndex);
+      return this.append_tbojcw_k$('null', startIndex, endIndex);
     }
-    writeText(this, value, startIndex, endIndex, Charsets_getInstance().w1e_1);
+    writeText(this, value, startIndex, endIndex, Charsets_getInstance().UTF_8__1);
     return this;
   };
-  Output.prototype.x19 = function (packet) {
-    var foreignStolen = packet.p13();
+  Output.prototype.writePacket_leumkr_k$ = function (packet) {
+    var foreignStolen = packet.stealAll_nensgi_k$();
     if (foreignStolen == null) {
-      packet.rq();
+      packet.release_wtm6d2_k$();
       return Unit_getInstance();
     }
-    var tail = this.j13_1;
+    var tail = this._tail_1;
     if (tail == null) {
-      this.q1d(foreignStolen);
+      this.appendChain_diq39b_k$(foreignStolen);
       return Unit_getInstance();
     }
-    writePacketMerging(this, tail, foreignStolen, packet.m1d());
+    writePacketMerging(this, tail, foreignStolen, packet.get_pool_wosj1h_k$());
   };
-  Output.prototype.q13 = function (chunkBuffer) {
-    var _tail = this.j13_1;
+  Output.prototype.writeChunkBuffer_g4ats6_k$ = function (chunkBuffer) {
+    var _tail = this._tail_1;
     if (_tail == null) {
-      this.q1d(chunkBuffer);
+      this.appendChain_diq39b_k$(chunkBuffer);
       return Unit_getInstance();
     }
-    writePacketMerging(this, _tail, chunkBuffer, this.h13_1);
+    writePacketMerging(this, _tail, chunkBuffer, this.pool_1);
   };
-  Output.prototype.j17 = function (p, n) {
+  Output.prototype.writePacket_xwtkvg_k$ = function (p, n) {
     var remaining = n;
-    $l$loop: while (remaining.a1(new Long(0, 0)) > 0) {
+    $l$loop: while (remaining > 0) {
       var tmp$ret$0;
       {
-        tmp$ret$0 = p.f17_1 - p.e17_1 | 0;
+        tmp$ret$0 = p.headEndExclusive_1 - p.headPosition_1 | 0;
       }
-      var headRemaining = toLong(tmp$ret$0);
-      if (headRemaining.a1(remaining) <= 0) {
-        remaining = remaining.c4(headRemaining);
-        var tmp0_elvis_lhs = p.i1e();
+      var headRemaining = tmp$ret$0;
+      if (headRemaining <= remaining) {
+        remaining = remaining - headRemaining | 0;
+        var tmp0_elvis_lhs = p.steal_1tck0f_k$();
         var tmp;
         if (tmp0_elvis_lhs == null) {
           throw new EOFException('Unexpected end of packet');
         } else {
           tmp = tmp0_elvis_lhs;
         }
-        this.i1b(tmp);
+        this.appendSingleChunk_ll2zwj_k$(tmp);
       } else {
         {
           {
           }
-          var tmp0_elvis_lhs_0 = p.s1e(1);
+          var tmp0_elvis_lhs_0 = p.prepareRead_i1grdw_k$(1);
           var tmp_0;
           if (tmp0_elvis_lhs_0 == null) {
             prematureEndOfStream(1);
@@ -4710,20 +8731,20 @@
             tmp_0 = tmp0_elvis_lhs_0;
           }
           var buffer = tmp_0;
-          var positionBefore = buffer.p1b();
+          var positionBefore = buffer.get_readPosition_70qxnc_k$();
           try {
             {
-              writeFully_2(this, buffer, remaining.md());
+              writeFully_2(this, buffer, remaining);
             }
           }finally {
-            var positionAfter = buffer.p1b();
+            var positionAfter = buffer.get_readPosition_70qxnc_k$();
             if (positionAfter < positionBefore) {
               throw IllegalStateException_init_$Create$("Buffer's position shouldn't be rewinded");
             }
-            if (positionAfter === buffer.q1b()) {
-              p.q1e(buffer);
+            if (positionAfter === buffer.get_writePosition_jdt81t_k$()) {
+              p.ensureNext_r5itmw_k$(buffer);
             } else {
-              p.e17_1 = positionAfter;
+              p.headPosition_1 = positionAfter;
             }
           }
         }
@@ -4731,16 +8752,71 @@
       }
     }
   };
-  Output.prototype.rq = function () {
-    this.i10();
+  Output.prototype.writePacket_h832q3_k$ = function (p, n) {
+    var remaining = n;
+    $l$loop: while (remaining.compareTo_n4fqi2_k$(new Long(0, 0)) > 0) {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = p.headEndExclusive_1 - p.headPosition_1 | 0;
+      }
+      var headRemaining = toLong(tmp$ret$0);
+      if (headRemaining.compareTo_n4fqi2_k$(remaining) <= 0) {
+        remaining = remaining.minus_llf5ei_k$(headRemaining);
+        var tmp0_elvis_lhs = p.steal_1tck0f_k$();
+        var tmp;
+        if (tmp0_elvis_lhs == null) {
+          throw new EOFException('Unexpected end of packet');
+        } else {
+          tmp = tmp0_elvis_lhs;
+        }
+        this.appendSingleChunk_ll2zwj_k$(tmp);
+      } else {
+        {
+          {
+          }
+          var tmp0_elvis_lhs_0 = p.prepareRead_i1grdw_k$(1);
+          var tmp_0;
+          if (tmp0_elvis_lhs_0 == null) {
+            prematureEndOfStream(1);
+          } else {
+            tmp_0 = tmp0_elvis_lhs_0;
+          }
+          var buffer = tmp_0;
+          var positionBefore = buffer.get_readPosition_70qxnc_k$();
+          try {
+            {
+              writeFully_2(this, buffer, remaining.toInt_1tsl84_k$());
+            }
+          }finally {
+            var positionAfter = buffer.get_readPosition_70qxnc_k$();
+            if (positionAfter < positionBefore) {
+              throw IllegalStateException_init_$Create$("Buffer's position shouldn't be rewinded");
+            }
+            if (positionAfter === buffer.get_writePosition_jdt81t_k$()) {
+              p.ensureNext_r5itmw_k$(buffer);
+            } else {
+              p.headPosition_1 = positionAfter;
+            }
+          }
+        }
+        break $l$loop;
+      }
+    }
   };
-  Output.prototype.r1d = function (n) {
+  Output.prototype.append_xtkvi3_k$ = function (csq, start, end) {
+    writeText_0(this, csq, start, end, Charsets_getInstance().UTF_8__1);
+    return this;
+  };
+  Output.prototype.release_wtm6d2_k$ = function () {
+    this.close_ymq55z_k$();
+  };
+  Output.prototype.prepareWriteHead_k7upd5_k$ = function (n) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = this.m13_1 - this.l13_1 | 0;
+      tmp$ret$0 = this.tailEndExclusive_1 - this.tailPosition_1 | 0;
     }
     if (tmp$ret$0 >= n) {
-      var tmp0_safe_receiver = this.j13_1;
+      var tmp0_safe_receiver = this._tail_1;
       if (tmp0_safe_receiver == null)
         null;
       else {
@@ -4748,15 +8824,15 @@
         {
           {
           }
-          tmp0_safe_receiver.z1b(this.l13_1);
+          tmp0_safe_receiver.commitWrittenUntilIndex_vgi103_k$(this.tailPosition_1);
           return tmp0_safe_receiver;
         }
       }
     }
     return appendNewChunk(this);
   };
-  Output.prototype.k1b = function () {
-    var tmp0_safe_receiver = this.j13_1;
+  Output.prototype.afterHeadWrite_dlo0ku_k$ = function () {
+    var tmp0_safe_receiver = this._tail_1;
     if (tmp0_safe_receiver == null)
       null;
     else {
@@ -4764,13 +8840,13 @@
       {
         {
         }
-        this.l13_1 = tmp0_safe_receiver.q1b();
+        this.tailPosition_1 = tmp0_safe_receiver.get_writePosition_jdt81t_k$();
         tmp$ret$0 = Unit_getInstance();
       }
     }
   };
-  Output.prototype.s1d = function (size, block) {
-    var buffer = this.r1d(size);
+  Output.prototype.write_hy465b_k$ = function (size, block) {
+    var buffer = this.prepareWriteHead_k7upd5_k$(size);
     try {
       var result = block(buffer);
       {
@@ -4788,14 +8864,17 @@
       }
       return result;
     }finally {
-      this.k1b();
+      this.afterHeadWrite_dlo0ku_k$();
     }
   };
-  Output.prototype.t1d = function () {
-    var head = this.o1d();
-    if (!(head === Companion_getInstance_4().f12_1)) {
+  Output.prototype.last_l8rlf2_k$ = function (buffer) {
+    this.appendSingleChunk_ll2zwj_k$(buffer);
+  };
+  Output.prototype.afterBytesStolen_szt7l1_k$ = function () {
+    var head = this.get_head_won7e1_k$();
+    if (!(head === Companion_getInstance_4().Empty_1)) {
       {
-        var tmp0_check = head.d1d() == null;
+        var tmp0_check = head.get_next_wor1vg_k$() == null;
         {
         }
         {
@@ -4811,12 +8890,12 @@
           }
         }
       }
-      head.f1c();
+      head.resetForWrite_2nqt9w_k$();
       Companion_getInstance_1();
-      head.d1c(8);
-      this.l13_1 = head.q1b();
-      this.n13_1 = this.l13_1;
-      this.m13_1 = head.s1b();
+      head.reserveEndGap_1tynif_k$(8);
+      this.tailPosition_1 = head.get_writePosition_jdt81t_k$();
+      this.tailInitialPosition_1 = this.tailPosition_1;
+      this.tailEndExclusive_1 = head.get_limit_iuokuq_k$();
     }
   };
   Output.$metadata$ = classMeta('Output', [Appendable, Closeable]);
@@ -4831,7 +8910,7 @@
         tail = prepareWriteHead(_this__u8e3s4, size, tail);
       }
     }finally {
-      _this__u8e3s4.k1b();
+      _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
     }
   }
   function writeWhile(_this__u8e3s4, block) {
@@ -4843,7 +8922,7 @@
         tail = prepareWriteHead(_this__u8e3s4, 1, tail);
       }
     }finally {
-      _this__u8e3s4.k1b();
+      _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
     }
   }
   function writeFully_2(_this__u8e3s4, src, length) {
@@ -4862,7 +8941,7 @@
                 var tmp0_minOf = remaining;
                 var tmp$ret$1;
                 {
-                  tmp$ret$1 = tmp0__anonymous__q1qw7t.u15_1 - tmp0__anonymous__q1qw7t.s15_1 | 0;
+                  tmp$ret$1 = tmp0__anonymous__q1qw7t.limit_1 - tmp0__anonymous__q1qw7t.writePosition_1 | 0;
                 }
                 var tmp1_minOf = tmp$ret$1;
                 tmp$ret$2 = Math.min(tmp0_minOf, tmp1_minOf);
@@ -4881,17 +8960,17 @@
             tail = prepareWriteHead(_this__u8e3s4, 1, tail);
           }
         }finally {
-          _this__u8e3s4.k1b();
+          _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
         }
       }
     }
   }
-  function writeFully$default(_this__u8e3s4, src, length, $mask0, $handler) {
+  function writeFully$default_0(_this__u8e3s4, src, length, $mask0, $handler) {
     if (!(($mask0 & 2) === 0)) {
       var tmp$ret$0;
       var tmp$ret$0_0;
       {
-        tmp$ret$0 = src.s15_1 - src.r15_1 | 0;
+        tmp$ret$0 = src.writePosition_1 - src.readPosition_1 | 0;
         tmp$ret$0_0 = Unit_getInstance();
       }
       length = tmp$ret$0;
@@ -4914,7 +8993,7 @@
                 var tmp0_minOf = remaining;
                 var tmp$ret$0;
                 {
-                  tmp$ret$0 = tmp0__anonymous__q1qw7t.u15_1 - tmp0__anonymous__q1qw7t.s15_1 | 0;
+                  tmp$ret$0 = tmp0__anonymous__q1qw7t.limit_1 - tmp0__anonymous__q1qw7t.writePosition_1 | 0;
                 }
                 var tmp1_minOf = tmp$ret$0;
                 tmp$ret$1 = Math.min(tmp0_minOf, tmp1_minOf);
@@ -4933,17 +9012,20 @@
             tail = prepareWriteHead(_this__u8e3s4, 1, tail);
           }
         }finally {
-          _this__u8e3s4.k1b();
+          _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
         }
       }
     }
   }
-  function writeFully$default_0(_this__u8e3s4, src, offset, length, $mask0, $handler) {
+  function writeFully$default_1(_this__u8e3s4, src, offset, length, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
       offset = 0;
     if (!(($mask0 & 4) === 0))
       length = src.length - offset | 0;
     return writeFully_3(_this__u8e3s4, src, offset, length);
+  }
+  function writeFully_4(_this__u8e3s4, src, offset, length) {
+    writeFully_5(_this__u8e3s4, src, toLong(offset), toLong(length));
   }
   function writeFullyBytesTemplate(_this__u8e3s4, offset, length, block) {
     var currentOffset = offset;
@@ -4960,7 +9042,7 @@
               var tmp0_minOf = remaining;
               var tmp$ret$0;
               {
-                tmp$ret$0 = tmp0__anonymous__q1qw7t.u15_1 - tmp0__anonymous__q1qw7t.s15_1 | 0;
+                tmp$ret$0 = tmp0__anonymous__q1qw7t.limit_1 - tmp0__anonymous__q1qw7t.writePosition_1 | 0;
               }
               var tmp1_minOf = tmp$ret$0;
               tmp$ret$1 = Math.min(tmp0_minOf, tmp1_minOf);
@@ -4976,20 +9058,99 @@
           tail = prepareWriteHead(_this__u8e3s4, 1, tail);
         }
       }finally {
-        _this__u8e3s4.k1b();
+        _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
+      }
+    }
+  }
+  function writeFully_5(_this__u8e3s4, src, offset, length) {
+    {
+      var currentOffset = offset;
+      var remaining = length;
+      {
+        var tail = prepareWriteHead(_this__u8e3s4, 1, null);
+        try {
+          $l$loop: while (true) {
+            var tmp$ret$2;
+            {
+              var tmp0__anonymous__q1qw7t = tail;
+              var tmp$ret$1;
+              {
+                var tmp0_minOf = remaining;
+                var tmp$ret$0;
+                {
+                  tmp$ret$0 = tmp0__anonymous__q1qw7t.limit_1 - tmp0__anonymous__q1qw7t.writePosition_1 | 0;
+                }
+                var tmp1_minOf = toLong(tmp$ret$0);
+                tmp$ret$1 = tmp0_minOf.compareTo_n4fqi2_k$(tmp1_minOf) <= 0 ? tmp0_minOf : tmp1_minOf;
+              }
+              var size = tmp$ret$1;
+              {
+                var tmp1__anonymous__uwfjfc = tmp0__anonymous__q1qw7t.memory_1;
+                var tmp2__anonymous__z9zvc9 = toLong(tmp0__anonymous__q1qw7t.writePosition_1);
+                var tmp3__anonymous__ufb84q = currentOffset;
+                src.copyTo_w9dpzg_k$(tmp1__anonymous__uwfjfc, tmp3__anonymous__ufb84q, size, tmp2__anonymous__z9zvc9);
+              }
+              tmp0__anonymous__q1qw7t.commitWritten_xiy30w_k$(size.toInt_1tsl84_k$());
+              currentOffset = currentOffset.plus_u6jwas_k$(size);
+              remaining = remaining.minus_llf5ei_k$(size);
+              tmp$ret$2 = remaining.compareTo_n4fqi2_k$(new Long(0, 0)) > 0;
+            }
+            if (!tmp$ret$2)
+              break $l$loop;
+            tail = prepareWriteHead(_this__u8e3s4, 1, tail);
+          }
+        }finally {
+          _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
+        }
+      }
+    }
+  }
+  function writeFullyBytesTemplate_0(_this__u8e3s4, initialOffset, length, block) {
+    var currentOffset = initialOffset;
+    var remaining = length;
+    {
+      var tail = prepareWriteHead(_this__u8e3s4, 1, null);
+      try {
+        $l$loop: while (true) {
+          var tmp$ret$2;
+          {
+            var tmp0__anonymous__q1qw7t = tail;
+            var tmp$ret$1;
+            {
+              var tmp0_minOf = remaining;
+              var tmp$ret$0;
+              {
+                tmp$ret$0 = tmp0__anonymous__q1qw7t.limit_1 - tmp0__anonymous__q1qw7t.writePosition_1 | 0;
+              }
+              var tmp1_minOf = toLong(tmp$ret$0);
+              tmp$ret$1 = tmp0_minOf.compareTo_n4fqi2_k$(tmp1_minOf) <= 0 ? tmp0_minOf : tmp1_minOf;
+            }
+            var size = tmp$ret$1;
+            block(tmp0__anonymous__q1qw7t.memory_1, toLong(tmp0__anonymous__q1qw7t.writePosition_1), currentOffset, size);
+            tmp0__anonymous__q1qw7t.commitWritten_xiy30w_k$(size.toInt_1tsl84_k$());
+            currentOffset = currentOffset.plus_u6jwas_k$(size);
+            remaining = remaining.minus_llf5ei_k$(size);
+            tmp$ret$2 = remaining.compareTo_n4fqi2_k$(new Long(0, 0)) > 0;
+          }
+          if (!tmp$ret$2)
+            break $l$loop;
+          tail = prepareWriteHead(_this__u8e3s4, 1, tail);
+        }
+      }finally {
+        _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
       }
     }
   }
   function writeShort_0(_this__u8e3s4, value) {
     var tmp$ret$0;
     $l$block: {
-      var index = _this__u8e3s4.l13_1;
-      if ((_this__u8e3s4.m13_1 - index | 0) > 2) {
-        _this__u8e3s4.l13_1 = index + 2 | 0;
+      var index = _this__u8e3s4.tailPosition_1;
+      if ((_this__u8e3s4.tailEndExclusive_1 - index | 0) > 2) {
+        _this__u8e3s4.tailPosition_1 = index + 2 | 0;
         {
-          var tmp0__anonymous__q1qw7t = _this__u8e3s4.k13_1;
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.tailMemory_1;
           {
-            tmp0__anonymous__q1qw7t.s1a_1.setInt16(index, value, false);
+            tmp0__anonymous__q1qw7t.view_1.setInt16(index, value, false);
           }
         }
         tmp$ret$0 = true;
@@ -5001,11 +9162,96 @@
       writeShortFallback(_this__u8e3s4, value);
     }
   }
+  function writeInt_0(_this__u8e3s4, value) {
+    var tmp$ret$0;
+    $l$block: {
+      var index = _this__u8e3s4.tailPosition_1;
+      if ((_this__u8e3s4.tailEndExclusive_1 - index | 0) > 4) {
+        _this__u8e3s4.tailPosition_1 = index + 4 | 0;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.tailMemory_1;
+          {
+            tmp0__anonymous__q1qw7t.view_1.setInt32(index, value, false);
+          }
+        }
+        tmp$ret$0 = true;
+        break $l$block;
+      }
+      tmp$ret$0 = false;
+    }
+    if (!tmp$ret$0) {
+      writeIntFallback(_this__u8e3s4, value);
+    }
+  }
+  function writeLong_0(_this__u8e3s4, value) {
+    var tmp$ret$0;
+    $l$block: {
+      var index = _this__u8e3s4.tailPosition_1;
+      if ((_this__u8e3s4.tailEndExclusive_1 - index | 0) > 8) {
+        _this__u8e3s4.tailPosition_1 = index + 8 | 0;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.tailMemory_1;
+          {
+            tmp0__anonymous__q1qw7t.view_1.setInt32(index, value.shr_wjue3g_k$(32).toInt_1tsl84_k$(), false);
+            tmp0__anonymous__q1qw7t.view_1.setInt32(index + 4 | 0, value.and_jhajnj_k$(new Long(-1, 0)).toInt_1tsl84_k$(), false);
+          }
+        }
+        tmp$ret$0 = true;
+        break $l$block;
+      }
+      tmp$ret$0 = false;
+    }
+    if (!tmp$ret$0) {
+      writeLongFallback(_this__u8e3s4, value);
+    }
+  }
+  function writeFloat(_this__u8e3s4, value) {
+    var tmp$ret$0;
+    $l$block: {
+      var index = _this__u8e3s4.tailPosition_1;
+      if ((_this__u8e3s4.tailEndExclusive_1 - index | 0) > 4) {
+        _this__u8e3s4.tailPosition_1 = index + 4 | 0;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.tailMemory_1;
+          {
+            tmp0__anonymous__q1qw7t.view_1.setFloat32(index, value, false);
+          }
+        }
+        tmp$ret$0 = true;
+        break $l$block;
+      }
+      tmp$ret$0 = false;
+    }
+    if (!tmp$ret$0) {
+      writeIntFallback(_this__u8e3s4, toRawBits(value));
+    }
+  }
+  function writeDouble(_this__u8e3s4, value) {
+    var tmp$ret$0;
+    $l$block: {
+      var index = _this__u8e3s4.tailPosition_1;
+      if ((_this__u8e3s4.tailEndExclusive_1 - index | 0) > 8) {
+        _this__u8e3s4.tailPosition_1 = index + 8 | 0;
+        {
+          var tmp0__anonymous__q1qw7t = _this__u8e3s4.tailMemory_1;
+          {
+            tmp0__anonymous__q1qw7t.view_1.setFloat64(index, value, false);
+          }
+        }
+        tmp$ret$0 = true;
+        break $l$block;
+      }
+      tmp$ret$0 = false;
+    }
+    if (!tmp$ret$0) {
+      writeLongFallback(_this__u8e3s4, toRawBits_0(value));
+    }
+  }
   function writePrimitiveTemplate(_this__u8e3s4, componentSize, block) {
-    var index = _this__u8e3s4.l13_1;
-    if ((_this__u8e3s4.m13_1 - index | 0) > componentSize) {
-      _this__u8e3s4.l13_1 = index + componentSize | 0;
-      block(_this__u8e3s4.k13_1, index);
+    var index = _this__u8e3s4.tailPosition_1;
+    if ((_this__u8e3s4.tailEndExclusive_1 - index | 0) > componentSize) {
+      _this__u8e3s4.tailPosition_1 = index + componentSize | 0;
+      block(_this__u8e3s4.tailMemory_1, index);
       return true;
     }
     return false;
@@ -5013,11 +9259,11 @@
   function writeShortFallback(_this__u8e3s4, value) {
     var tmp$ret$0;
     {
-      var tail = _this__u8e3s4.r1d(2);
+      var tail = _this__u8e3s4.prepareWriteHead_k7upd5_k$(2);
       {
         writeShort(tail, value);
       }
-      _this__u8e3s4.k1b();
+      _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
       tmp$ret$0 = true;
     }
     if (!tmp$ret$0) {
@@ -5025,24 +9271,109 @@
       {
         tmp$ret$1 = toByte(value >>> 8 | 0);
       }
-      _this__u8e3s4.m1c(tmp$ret$1);
+      _this__u8e3s4.writeByte_jvpujw_k$(tmp$ret$1);
       var tmp$ret$2;
       {
         tmp$ret$2 = toByte(value & 255);
       }
-      _this__u8e3s4.m1c(tmp$ret$2);
+      _this__u8e3s4.writeByte_jvpujw_k$(tmp$ret$2);
+    }
+  }
+  function writeIntFallback(_this__u8e3s4, value) {
+    var tmp$ret$0;
+    {
+      var tail = _this__u8e3s4.prepareWriteHead_k7upd5_k$(4);
+      {
+        writeInt(tail, value);
+      }
+      _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
+      tmp$ret$0 = true;
+    }
+    if (!tmp$ret$0) {
+      writeIntByteByByte(_this__u8e3s4, value);
+    }
+  }
+  function writeLongFallback(_this__u8e3s4, value) {
+    var tmp$ret$0;
+    {
+      var tail = _this__u8e3s4.prepareWriteHead_k7upd5_k$(8);
+      {
+        writeLong(tail, value);
+      }
+      _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
+      tmp$ret$0 = true;
+    }
+    if (!tmp$ret$0) {
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = value.ushr_rr8rvr_k$(32).toInt_1tsl84_k$();
+      }
+      writeIntByteByByte(_this__u8e3s4, tmp$ret$1);
+      var tmp$ret$2;
+      {
+        tmp$ret$2 = value.and_jhajnj_k$(new Long(-1, 0)).toInt_1tsl84_k$();
+      }
+      writeIntByteByByte(_this__u8e3s4, tmp$ret$2);
     }
   }
   function writePrimitiveFallbackTemplate(_this__u8e3s4, componentSize, writeOperation) {
-    var tail = _this__u8e3s4.r1d(componentSize);
+    var tail = _this__u8e3s4.prepareWriteHead_k7upd5_k$(componentSize);
     writeOperation(tail);
-    _this__u8e3s4.k1b();
+    _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
     return true;
+  }
+  function writeIntByteByByte(_this__u8e3s4, value) {
+    var tmp$ret$3;
+    {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = toShort(value >>> 16 | 0);
+      }
+      var tmp0_let = tmp$ret$0;
+      {
+      }
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = toByte(tmp0_let >>> 8 | 0);
+      }
+      _this__u8e3s4.writeByte_jvpujw_k$(tmp$ret$1);
+      var tmp$ret$2;
+      {
+        tmp$ret$2 = toByte(tmp0_let & 255);
+      }
+      tmp$ret$3 = _this__u8e3s4.writeByte_jvpujw_k$(tmp$ret$2);
+    }
+    var tmp$ret$7;
+    {
+      var tmp$ret$4;
+      {
+        tmp$ret$4 = toShort(value & 65535);
+      }
+      var tmp1_let = tmp$ret$4;
+      {
+      }
+      var tmp$ret$5;
+      {
+        tmp$ret$5 = toByte(tmp1_let >>> 8 | 0);
+      }
+      _this__u8e3s4.writeByte_jvpujw_k$(tmp$ret$5);
+      var tmp$ret$6;
+      {
+        tmp$ret$6 = toByte(tmp1_let & 255);
+      }
+      tmp$ret$7 = _this__u8e3s4.writeByte_jvpujw_k$(tmp$ret$6);
+    }
+  }
+  function get_isEmpty(_this__u8e3s4) {
+    return _this__u8e3s4.get_endOfInput_skegkh_k$();
+  }
+  function get_isNotEmpty(_this__u8e3s4) {
+    return !_this__u8e3s4.get_endOfInput_skegkh_k$();
   }
   function read_0(_this__u8e3s4, n, block) {
     {
     }
-    var tmp0_elvis_lhs = _this__u8e3s4.s1e(n);
+    var tmp0_elvis_lhs = _this__u8e3s4.prepareRead_i1grdw_k$(n);
     var tmp;
     if (tmp0_elvis_lhs == null) {
       prematureEndOfStream(n);
@@ -5050,34 +9381,34 @@
       tmp = tmp0_elvis_lhs;
     }
     var buffer = tmp;
-    var positionBefore = buffer.p1b();
+    var positionBefore = buffer.get_readPosition_70qxnc_k$();
     try {
       block(buffer);
     }finally {
-      var positionAfter = buffer.p1b();
+      var positionAfter = buffer.get_readPosition_70qxnc_k$();
       if (positionAfter < positionBefore) {
         throw IllegalStateException_init_$Create$("Buffer's position shouldn't be rewinded");
       }
-      if (positionAfter === buffer.q1b()) {
-        _this__u8e3s4.q1e(buffer);
+      if (positionAfter === buffer.get_writePosition_jdt81t_k$()) {
+        _this__u8e3s4.ensureNext_r5itmw_k$(buffer);
       } else {
-        _this__u8e3s4.e17_1 = positionAfter;
+        _this__u8e3s4.headPosition_1 = positionAfter;
       }
     }
   }
   function toByteArray(_this__u8e3s4, charset) {
-    if (charset.equals(Charsets_getInstance().w1e_1))
+    if (charset.equals(Charsets_getInstance().UTF_8__1))
       return encodeToByteArray(_this__u8e3s4);
-    return encodeToByteArray_0(charset.z1e(), _this__u8e3s4, 0, _this__u8e3s4.length);
+    return encodeToByteArray_0(charset.newEncoder_gqwcdg_k$(), _this__u8e3s4, 0, _this__u8e3s4.length);
   }
   function readText(_this__u8e3s4, charset, max) {
-    return decode(charset.a1f(), _this__u8e3s4, max);
+    return decode(charset.newDecoder_zcettw_k$(), _this__u8e3s4, max);
   }
   function readText$default(_this__u8e3s4, charset, max, $mask0, $handler) {
     if (!(($mask0 & 1) === 0))
-      charset = Charsets_getInstance().w1e_1;
+      charset = Charsets_getInstance().UTF_8__1;
     if (!(($mask0 & 2) === 0))
-      max = IntCompanionObject_getInstance().v_1;
+      max = IntCompanionObject_getInstance().MAX_VALUE_1;
     return readText(_this__u8e3s4, charset, max);
   }
   function readBytes(_this__u8e3s4, n) {
@@ -5089,7 +9420,7 @@
         {
         }
         {
-          readFully_2(_this__u8e3s4, tmp0_also, 0, n);
+          readFully_3(_this__u8e3s4, tmp0_also, 0, n);
         }
         tmp$ret$1 = tmp0_also;
       }
@@ -5104,10 +9435,10 @@
       var tmp$ret$0;
       var tmp$ret$0_0;
       {
-        var tmp0_coerceAtMostMaxIntOrFail = _this__u8e3s4.i17();
-        if (tmp0_coerceAtMostMaxIntOrFail.a1(toLong(IntCompanionObject_getInstance().v_1)) > 0)
+        var tmp0_coerceAtMostMaxIntOrFail = _this__u8e3s4.get_remaining_mwegr1_k$();
+        if (tmp0_coerceAtMostMaxIntOrFail.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) > 0)
           throw IllegalArgumentException_init_$Create$('Unable to convert to a ByteArray: packet is too big');
-        tmp$ret$0 = tmp0_coerceAtMostMaxIntOrFail.md();
+        tmp$ret$0 = tmp0_coerceAtMostMaxIntOrFail.toInt_1tsl84_k$();
         tmp$ret$0_0 = Unit_getInstance();
       }
       n = tmp$ret$0;
@@ -5118,18 +9449,18 @@
     throw new EOFException('Premature end of stream: expected ' + size + ' bytes');
   }
   function readTextExactBytes(_this__u8e3s4, bytesCount, charset) {
-    return decodeExactBytes(charset.a1f(), _this__u8e3s4, bytesCount);
+    return decodeExactBytes(charset.newDecoder_zcettw_k$(), _this__u8e3s4, bytesCount);
   }
   function readTextExactBytes$default(_this__u8e3s4, bytesCount, charset, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
-      charset = Charsets_getInstance().w1e_1;
+      charset = Charsets_getInstance().UTF_8__1;
     return readTextExactBytes(_this__u8e3s4, bytesCount, charset);
   }
   function writeText(_this__u8e3s4, text, fromIndex, toIndex, charset) {
-    if (charset === Charsets_getInstance().w1e_1) {
+    if (charset === Charsets_getInstance().UTF_8__1) {
       return writeTextUtf8(_this__u8e3s4, text, fromIndex, toIndex);
     }
-    encodeToImpl(charset.z1e(), _this__u8e3s4, text, fromIndex, toIndex);
+    encodeToImpl(charset.newEncoder_gqwcdg_k$(), _this__u8e3s4, text, fromIndex, toIndex);
   }
   function writeText$default(_this__u8e3s4, text, fromIndex, toIndex, charset, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
@@ -5137,8 +9468,23 @@
     if (!(($mask0 & 4) === 0))
       toIndex = charSequenceLength(text);
     if (!(($mask0 & 8) === 0))
-      charset = Charsets_getInstance().w1e_1;
+      charset = Charsets_getInstance().UTF_8__1;
     return writeText(_this__u8e3s4, text, fromIndex, toIndex, charset);
+  }
+  function writeText_0(_this__u8e3s4, text, fromIndex, toIndex, charset) {
+    if (charset === Charsets_getInstance().UTF_8__1) {
+      return writeTextUtf8(_this__u8e3s4, new CharArraySequence(text, 0, text.length), fromIndex, toIndex);
+    }
+    encode(charset.newEncoder_gqwcdg_k$(), text, fromIndex, toIndex, _this__u8e3s4);
+  }
+  function writeText$default_0(_this__u8e3s4, text, fromIndex, toIndex, charset, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      fromIndex = 0;
+    if (!(($mask0 & 4) === 0))
+      toIndex = text.length;
+    if (!(($mask0 & 8) === 0))
+      charset = Charsets_getInstance().UTF_8__1;
+    return writeText_0(_this__u8e3s4, text, fromIndex, toIndex, charset);
   }
   function writeTextUtf8(_this__u8e3s4, text, fromIndex, toIndex) {
     var index = fromIndex;
@@ -5150,9 +9496,9 @@
           var tmp$ret$3;
           {
             var tmp0__anonymous__q1qw7t = tail;
-            var memory = tmp0__anonymous__q1qw7t.q15_1;
-            var dstOffset = tmp0__anonymous__q1qw7t.s15_1;
-            var dstLimit = tmp0__anonymous__q1qw7t.u15_1;
+            var memory = tmp0__anonymous__q1qw7t.memory_1;
+            var dstOffset = tmp0__anonymous__q1qw7t.writePosition_1;
+            var dstLimit = tmp0__anonymous__q1qw7t.limit_1;
             var tmp0_container = encodeUTF8(memory, text, index, toIndex, dstOffset, dstLimit);
             var characters = EncodeResult__component1_impl_36tlhi(tmp0_container);
             var bytes = EncodeResult__component2_impl_3nv7vp(tmp0_container);
@@ -5166,7 +9512,7 @@
             {
               tmp$ret$1 = _UShort___get_data__impl__g0245(bytes) & 65535;
             }
-            tmp0__anonymous__q1qw7t.y1b(tmp$ret$1);
+            tmp0__anonymous__q1qw7t.commitWritten_xiy30w_k$(tmp$ret$1);
             var tmp_0;
             var tmp_1;
             var tmp$ret$2;
@@ -5195,33 +9541,118 @@
           tail = prepareWriteHead(_this__u8e3s4, size, tail);
         }
       }finally {
-        _this__u8e3s4.k1b();
+        _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
       }
     }
   }
+  function _get_array__jslnqg($this) {
+    return $this.array_1;
+  }
+  function _get_offset__c6qzmg($this) {
+    return $this.offset_1;
+  }
+  function indexOutOfBounds($this, index) {
+    throw IndexOutOfBoundsException_init_$Create$('String index out of bounds: ' + index + ' > ' + $this.length_1);
+  }
+  function CharArraySequence(array, offset, length) {
+    this.array_1 = array;
+    this.offset_1 = offset;
+    this.length_1 = length;
+  }
+  CharArraySequence.prototype.get_length_g42xv3_k$ = function () {
+    return this.length_1;
+  };
+  CharArraySequence.prototype.get_a7b70_k$ = function (index) {
+    if (index >= this.length_1) {
+      indexOutOfBounds(this, index);
+    }
+    return this.array_1[index + this.offset_1 | 0];
+  };
+  CharArraySequence.prototype.subSequence_5fh70h_k$ = function (startIndex, endIndex) {
+    {
+      var tmp0_require = startIndex >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = "startIndex shouldn't be negative: " + startIndex;
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$(toString(message));
+      }
+    }
+    {
+      var tmp1_require = startIndex <= this.length_1;
+      {
+      }
+      if (!tmp1_require) {
+        var tmp$ret$1;
+        {
+          tmp$ret$1 = 'startIndex is too large: ' + startIndex + ' > ' + this.length_1;
+        }
+        var message_0 = tmp$ret$1;
+        throw IllegalArgumentException_init_$Create$(toString(message_0));
+      }
+    }
+    {
+      var tmp2_require = (startIndex + endIndex | 0) <= this.length_1;
+      {
+      }
+      if (!tmp2_require) {
+        var tmp$ret$2;
+        {
+          tmp$ret$2 = 'endIndex is too large: ' + endIndex + ' > ' + this.length_1;
+        }
+        var message_1 = tmp$ret$2;
+        throw IllegalArgumentException_init_$Create$(toString(message_1));
+      }
+    }
+    {
+      var tmp3_require = endIndex >= startIndex;
+      {
+      }
+      if (!tmp3_require) {
+        var tmp$ret$3;
+        {
+          tmp$ret$3 = 'endIndex should be greater or equal to startIndex: ' + startIndex + ' > ' + endIndex;
+        }
+        var message_2 = tmp$ret$3;
+        throw IllegalArgumentException_init_$Create$(toString(message_2));
+      }
+    }
+    return new CharArraySequence(this.array_1, this.offset_1 + startIndex | 0, endIndex - startIndex | 0);
+  };
+  CharArraySequence.$metadata$ = classMeta('CharArraySequence', [CharSequence]);
   function ChunkBuffer$Companion$Pool$1() {
   }
-  ChunkBuffer$Companion$Pool$1.prototype.w1a = function () {
-    return get_DefaultChunkedBufferPool().w1a();
+  ChunkBuffer$Companion$Pool$1.prototype.get_capacity_wxbgcd_k$ = function () {
+    return get_DefaultChunkedBufferPool().get_capacity_wxbgcd_k$();
   };
-  ChunkBuffer$Companion$Pool$1.prototype.b1f = function (instance) {
-    get_DefaultChunkedBufferPool().h1d(instance);
+  ChunkBuffer$Companion$Pool$1.prototype.borrow_mvkpor_k$ = function () {
+    return get_DefaultChunkedBufferPool().borrow_mvkpor_k$();
   };
-  ChunkBuffer$Companion$Pool$1.prototype.h1d = function (instance) {
-    return this.b1f(instance instanceof ChunkBuffer ? instance : THROW_CCE());
+  ChunkBuffer$Companion$Pool$1.prototype.recycle_rqvxvv_k$ = function (instance) {
+    get_DefaultChunkedBufferPool().recycle_ln1phz_k$(instance);
   };
-  ChunkBuffer$Companion$Pool$1.prototype.vn = function () {
-    get_DefaultChunkedBufferPool().vn();
+  ChunkBuffer$Companion$Pool$1.prototype.recycle_ln1phz_k$ = function (instance) {
+    return this.recycle_rqvxvv_k$(instance instanceof ChunkBuffer ? instance : THROW_CCE());
+  };
+  ChunkBuffer$Companion$Pool$1.prototype.dispose_3n44we_k$ = function () {
+    get_DefaultChunkedBufferPool().dispose_3n44we_k$();
   };
   ChunkBuffer$Companion$Pool$1.$metadata$ = classMeta(undefined, [ObjectPool]);
   function ChunkBuffer$Companion$EmptyPool$1() {
   }
-  ChunkBuffer$Companion$EmptyPool$1.prototype.w1a = function () {
-    return Companion_getInstance_4().f12_1;
+  ChunkBuffer$Companion$EmptyPool$1.prototype.get_capacity_wxbgcd_k$ = function () {
+    return 1;
   };
-  ChunkBuffer$Companion$EmptyPool$1.prototype.b1f = function (instance) {
+  ChunkBuffer$Companion$EmptyPool$1.prototype.borrow_mvkpor_k$ = function () {
+    return Companion_getInstance_4().Empty_1;
+  };
+  ChunkBuffer$Companion$EmptyPool$1.prototype.recycle_rqvxvv_k$ = function (instance) {
     {
-      var tmp0_require = instance === Companion_getInstance_4().f12_1;
+      var tmp0_require = instance === Companion_getInstance_4().Empty_1;
       {
       }
       if (!tmp0_require) {
@@ -5234,54 +9665,78 @@
       }
     }
   };
-  ChunkBuffer$Companion$EmptyPool$1.prototype.h1d = function (instance) {
-    return this.b1f(instance instanceof ChunkBuffer ? instance : THROW_CCE());
+  ChunkBuffer$Companion$EmptyPool$1.prototype.recycle_ln1phz_k$ = function (instance) {
+    return this.recycle_rqvxvv_k$(instance instanceof ChunkBuffer ? instance : THROW_CCE());
   };
-  ChunkBuffer$Companion$EmptyPool$1.prototype.vn = function () {
+  ChunkBuffer$Companion$EmptyPool$1.prototype.dispose_3n44we_k$ = function () {
   };
   ChunkBuffer$Companion$EmptyPool$1.$metadata$ = classMeta(undefined, [ObjectPool]);
   function ChunkBuffer$Companion$NoPool$1() {
     NoPoolImpl.call(this);
   }
-  ChunkBuffer$Companion$NoPool$1.prototype.w1a = function () {
-    return new ChunkBuffer(DefaultAllocator_getInstance().t1a(get_DEFAULT_BUFFER_SIZE()), null, this);
+  ChunkBuffer$Companion$NoPool$1.prototype.borrow_mvkpor_k$ = function () {
+    return new ChunkBuffer(DefaultAllocator_getInstance().alloc_d56nv8_k$(get_DEFAULT_BUFFER_SIZE()), null, this);
   };
-  ChunkBuffer$Companion$NoPool$1.prototype.b1f = function (instance) {
-    DefaultAllocator_getInstance().u1a(instance.o1b());
+  ChunkBuffer$Companion$NoPool$1.prototype.recycle_rqvxvv_k$ = function (instance) {
+    DefaultAllocator_getInstance().free_muwe56_k$(instance.get_memory_gl4362_k$());
   };
-  ChunkBuffer$Companion$NoPool$1.prototype.h1d = function (instance) {
-    return this.b1f(instance instanceof ChunkBuffer ? instance : THROW_CCE());
+  ChunkBuffer$Companion$NoPool$1.prototype.recycle_ln1phz_k$ = function (instance) {
+    return this.recycle_rqvxvv_k$(instance instanceof ChunkBuffer ? instance : THROW_CCE());
   };
   ChunkBuffer$Companion$NoPool$1.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, NoPoolImpl.prototype);
   function ChunkBuffer$Companion$NoPoolManuallyManaged$1() {
     NoPoolImpl.call(this);
   }
-  ChunkBuffer$Companion$NoPoolManuallyManaged$1.prototype.w1a = function () {
-    throw UnsupportedOperationException_init_$Create$("This pool doesn't support borrow");
+  ChunkBuffer$Companion$NoPoolManuallyManaged$1.prototype.borrow_mvkpor_k$ = function () {
+    throw UnsupportedOperationException_init_$Create$_0("This pool doesn't support borrow");
   };
-  ChunkBuffer$Companion$NoPoolManuallyManaged$1.prototype.b1f = function (instance) {
+  ChunkBuffer$Companion$NoPoolManuallyManaged$1.prototype.recycle_rqvxvv_k$ = function (instance) {
   };
-  ChunkBuffer$Companion$NoPoolManuallyManaged$1.prototype.h1d = function (instance) {
-    return this.b1f(instance instanceof ChunkBuffer ? instance : THROW_CCE());
+  ChunkBuffer$Companion$NoPoolManuallyManaged$1.prototype.recycle_ln1phz_k$ = function (instance) {
+    return this.recycle_rqvxvv_k$(instance instanceof ChunkBuffer ? instance : THROW_CCE());
   };
   ChunkBuffer$Companion$NoPoolManuallyManaged$1.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, NoPoolImpl.prototype);
+  function _get_nextRef__cbbs0f($this) {
+    return $this.nextRef_1;
+  }
+  function _get_refCount__6xgqup($this) {
+    return $this.refCount_1;
+  }
+  function _set_origin__gfzohd($this, _set____db54di) {
+    $this.origin_1 = _set____db54di;
+  }
   function appendNext($this, chunk) {
-    if (!$this.e1b_1.atomicfu$compareAndSet(null, chunk)) {
+    if (!$this.nextRef_1.atomicfu$compareAndSet(null, chunk)) {
       throw IllegalStateException_init_$Create$('This chunk has already a next chunk.');
     }
   }
   function Companion_2() {
     Companion_instance_2 = this;
     var tmp = this;
-    tmp.d12_1 = new ChunkBuffer$Companion$Pool$1();
+    tmp.Pool_1 = new ChunkBuffer$Companion$Pool$1();
     var tmp_0 = this;
-    tmp_0.e12_1 = new ChunkBuffer$Companion$EmptyPool$1();
-    this.f12_1 = new ChunkBuffer(Companion_getInstance_6().v1e_1, null, this.e12_1);
+    tmp_0.EmptyPool_1 = new ChunkBuffer$Companion$EmptyPool$1();
+    this.Empty_1 = new ChunkBuffer(Companion_getInstance_6().Empty_1, null, this.EmptyPool_1);
     var tmp_1 = this;
-    tmp_1.g12_1 = new ChunkBuffer$Companion$NoPool$1();
+    tmp_1.NoPool_1 = new ChunkBuffer$Companion$NoPool$1();
     var tmp_2 = this;
-    tmp_2.h12_1 = new ChunkBuffer$Companion$NoPoolManuallyManaged$1();
+    tmp_2.NoPoolManuallyManaged_1 = new ChunkBuffer$Companion$NoPoolManuallyManaged$1();
   }
+  Companion_2.prototype.get_Pool_wo83gl_k$ = function () {
+    return this.Pool_1;
+  };
+  Companion_2.prototype.get_EmptyPool_i65buo_k$ = function () {
+    return this.EmptyPool_1;
+  };
+  Companion_2.prototype.get_Empty_i9b85g_k$ = function () {
+    return this.Empty_1;
+  };
+  Companion_2.prototype.get_NoPool_21p86e_k$ = function () {
+    return this.NoPool_1;
+  };
+  Companion_2.prototype.get_NoPoolManuallyManaged_qxqaiu_k$ = function () {
+    return this.NoPoolManuallyManaged_1;
+  };
   Companion_2.$metadata$ = objectMeta('Companion');
   var Companion_instance_2;
   function Companion_getInstance_4() {
@@ -5292,7 +9747,7 @@
   function ChunkBuffer(memory, origin, parentPool) {
     Companion_getInstance_4();
     Buffer.call(this, memory);
-    this.d1b_1 = parentPool;
+    this.parentPool_1 = parentPool;
     {
       var tmp0_require = !(origin === this);
       {
@@ -5306,46 +9761,49 @@
         throw IllegalArgumentException_init_$Create$(toString(message));
       }
     }
-    this.e1b_1 = atomic$ref$1(null);
-    this.f1b_1 = atomic$int$1(1);
-    this.g1b_1 = origin;
+    this.nextRef_1 = atomic$ref$1(null);
+    this.refCount_1 = atomic$int$1(1);
+    this.origin_1 = origin;
   }
-  ChunkBuffer.prototype.c1f = function () {
-    return this.d1b_1;
+  ChunkBuffer.prototype.get_parentPool_o7zxjl_k$ = function () {
+    return this.parentPool_1;
   };
-  ChunkBuffer.prototype.u1e = function (newValue) {
+  ChunkBuffer.prototype.get_origin_hq9xkf_k$ = function () {
+    return this.origin_1;
+  };
+  ChunkBuffer.prototype.set_next_scf7lx_k$ = function (newValue) {
     if (newValue == null) {
-      this.i1d();
+      this.cleanNext_l2yy3o_k$();
     } else {
       appendNext(this, newValue);
     }
   };
-  ChunkBuffer.prototype.d1d = function () {
-    return this.e1b_1.zj_1;
+  ChunkBuffer.prototype.get_next_wor1vg_k$ = function () {
+    return this.nextRef_1.value_1;
   };
-  ChunkBuffer.prototype.c1d = function () {
-    return this.f1b_1.ak_1;
+  ChunkBuffer.prototype.get_referenceCount_1ialcd_k$ = function () {
+    return this.refCount_1.value_1;
   };
-  ChunkBuffer.prototype.i1d = function () {
-    return this.e1b_1.atomicfu$getAndSet(null);
+  ChunkBuffer.prototype.cleanNext_l2yy3o_k$ = function () {
+    return this.nextRef_1.atomicfu$getAndSet(null);
   };
-  ChunkBuffer.prototype.h1b = function () {
+  ChunkBuffer.prototype.duplicate_jvgc97_k$ = function () {
     var tmp$ret$2;
     {
-      var tmp0_elvis_lhs = this.g1b_1;
+      var tmp0_elvis_lhs = this.origin_1;
       var tmp0_let = tmp0_elvis_lhs == null ? this : tmp0_elvis_lhs;
       {
       }
       var tmp$ret$1;
       {
-        tmp0_let.d1f();
+        tmp0_let.acquire_9hh9bv_k$();
         var tmp$ret$0;
         {
-          var tmp0_also = new ChunkBuffer(this.o1b(), tmp0_let, this.d1b_1);
+          var tmp0_also = new ChunkBuffer(this.get_memory_gl4362_k$(), tmp0_let, this.parentPool_1);
           {
           }
           {
-            this.k1c(tmp0_also);
+            this.duplicateTo_qcdasm_k$(tmp0_also);
           }
           tmp$ret$0 = tmp0_also;
         }
@@ -5355,32 +9813,32 @@
     }
     return tmp$ret$2;
   };
-  ChunkBuffer.prototype.j1b = function (pool) {
-    if (this.e1f()) {
-      var origin = this.g1b_1;
+  ChunkBuffer.prototype.release_49hdgr_k$ = function (pool) {
+    if (this.release_i1b8cn_k$()) {
+      var origin = this.origin_1;
       if (!(origin == null)) {
-        this.z1c();
-        origin.j1b(pool);
+        this.unlink_ietmwu_k$();
+        origin.release_49hdgr_k$(pool);
       } else {
-        var tmp0_elvis_lhs = this.d1b_1;
+        var tmp0_elvis_lhs = this.parentPool_1;
         var poolToUse = tmp0_elvis_lhs == null ? pool : tmp0_elvis_lhs;
-        poolToUse.h1d(this);
+        poolToUse.recycle_ln1phz_k$(this);
       }
     }
   };
-  ChunkBuffer.prototype.z1c = function () {
-    if (!this.f1b_1.atomicfu$compareAndSet(0, -1)) {
+  ChunkBuffer.prototype.unlink_ietmwu_k$ = function () {
+    if (!this.refCount_1.atomicfu$compareAndSet(0, -1)) {
       throw IllegalStateException_init_$Create$('Unable to unlink: buffer is in use.');
     }
-    this.i1d();
-    this.g1b_1 = null;
+    this.cleanNext_l2yy3o_k$();
+    this.origin_1 = null;
   };
-  ChunkBuffer.prototype.d1f = function () {
+  ChunkBuffer.prototype.acquire_9hh9bv_k$ = function () {
     var tmp$ret$1;
     $l$block: {
-      var tmp0_update = this.f1b_1;
+      var tmp0_update = this.refCount_1;
       while (true) {
-        var cur = tmp0_update.ak_1;
+        var cur = tmp0_update.value_1;
         var tmp$ret$0;
         {
           if (cur <= 0)
@@ -5395,12 +9853,12 @@
       }
     }
   };
-  ChunkBuffer.prototype.g1d = function () {
+  ChunkBuffer.prototype.unpark_b93g2_k$ = function () {
     var tmp$ret$1;
     $l$block: {
-      var tmp0_update = this.f1b_1;
+      var tmp0_update = this.refCount_1;
       while (true) {
-        var cur = tmp0_update.ak_1;
+        var cur = tmp0_update.value_1;
         var tmp$ret$0;
         {
           if (cur < 0) {
@@ -5419,12 +9877,12 @@
       }
     }
   };
-  ChunkBuffer.prototype.e1f = function () {
+  ChunkBuffer.prototype.release_i1b8cn_k$ = function () {
     var tmp$ret$1;
     $l$block: {
-      var tmp0_updateAndGet = this.f1b_1;
+      var tmp0_updateAndGet = this.refCount_1;
       while (true) {
-        var cur = tmp0_updateAndGet.ak_1;
+        var cur = tmp0_updateAndGet.value_1;
         var tmp$ret$0;
         {
           if (cur <= 0)
@@ -5440,9 +9898,9 @@
     }
     return tmp$ret$1 === 0;
   };
-  ChunkBuffer.prototype.n1c = function () {
+  ChunkBuffer.prototype.reset_5tn5dq_k$ = function () {
     {
-      var tmp0_require = this.g1b_1 == null;
+      var tmp0_require = this.origin_1 == null;
       {
       }
       if (!tmp0_require) {
@@ -5454,12 +9912,12 @@
         throw IllegalArgumentException_init_$Create$(toString(message));
       }
     }
-    Buffer.prototype.n1c.call(this);
-    this.e1b_1.zj_1 = null;
+    Buffer.prototype.reset_5tn5dq_k$.call(this);
+    this.nextRef_1.value_1 = null;
   };
   ChunkBuffer.$metadata$ = classMeta('ChunkBuffer', undefined, undefined, undefined, undefined, Buffer.prototype);
   function isExclusivelyOwned(_this__u8e3s4) {
-    return _this__u8e3s4.c1d() === 1;
+    return _this__u8e3s4.get_referenceCount_1ialcd_k$() === 1;
   }
   function _EncodeResult___init__impl__vkc0cy(value) {
     return value;
@@ -5512,11 +9970,38 @@
   function EncodeResult__component2_impl_3nv7vp($this) {
     return _EncodeResult___get_bytes__impl__bt0kq0($this);
   }
+  function EncodeResult__toString_impl_ck9qjy($this) {
+    return 'EncodeResult(value=' + $this + ')';
+  }
+  function EncodeResult__hashCode_impl_96w68x($this) {
+    return $this;
+  }
+  function EncodeResult__equals_impl_szairf($this, other) {
+    if (!(other instanceof EncodeResult))
+      return false;
+    var tmp0_other_with_cast = other instanceof EncodeResult ? other.value_1 : THROW_CCE();
+    if (!($this === tmp0_other_with_cast))
+      return false;
+    return true;
+  }
+  function EncodeResult(value) {
+    this.value_1 = value;
+  }
+  EncodeResult.prototype.toString = function () {
+    return EncodeResult__toString_impl_ck9qjy(this.value_1);
+  };
+  EncodeResult.prototype.hashCode = function () {
+    return EncodeResult__hashCode_impl_96w68x(this.value_1);
+  };
+  EncodeResult.prototype.equals = function (other) {
+    return EncodeResult__equals_impl_szairf(this.value_1, other);
+  };
+  EncodeResult.$metadata$ = classMeta('EncodeResult');
   function toIntOrFail(_this__u8e3s4, name) {
-    if (_this__u8e3s4.a1(toLong(IntCompanionObject_getInstance().v_1)) >= 0) {
+    if (_this__u8e3s4.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
       failLongToIntConversion(_this__u8e3s4, name);
     }
-    return _this__u8e3s4.md();
+    return _this__u8e3s4.toInt_1tsl84_k$();
   }
   function failLongToIntConversion(value, name) {
     throw IllegalArgumentException_init_$Create$('Long value ' + toString(value) + ' of ' + name + " doesn't fit into 32-bit integer");
@@ -5528,9 +10013,9 @@
       }
       var tmp$ret$2;
       {
-        var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-        var tmp1__anonymous__uwfjfc = _this__u8e3s4.r15_1;
-        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.s15_1;
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
         var inductionVariable = tmp1__anonymous__uwfjfc;
         if (inductionVariable < tmp2__anonymous__z9zvc9)
           do {
@@ -5540,13 +10025,13 @@
             {
               var tmp$ret$0;
               {
-                tmp$ret$0 = tmp0__anonymous__q1qw7t.s1a_1.getInt8(index);
+                tmp$ret$0 = tmp0__anonymous__q1qw7t.view_1.getInt8(index);
               }
               tmp$ret$1 = tmp$ret$0;
             }
             var codepoint = tmp$ret$1 & 255;
             if ((codepoint & 128) === 128 ? true : !consumer(new Char(numberToChar(codepoint)))) {
-              _this__u8e3s4.x1b(index - tmp1__anonymous__uwfjfc | 0);
+              _this__u8e3s4.discardExact_ijr9ip_k$(index - tmp1__anonymous__uwfjfc | 0);
               return false;
             }
           }
@@ -5554,7 +10039,7 @@
         tmp$ret$2 = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
       }
       var rc = tmp$ret$2;
-      _this__u8e3s4.x1b(rc);
+      _this__u8e3s4.discardExact_ijr9ip_k$(rc);
       tmp$ret$3 = rc;
     }
     return true;
@@ -5574,9 +10059,9 @@
       }
       var tmp$ret$2;
       {
-        var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-        var tmp1__anonymous__uwfjfc = _this__u8e3s4.r15_1;
-        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.s15_1;
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
         var inductionVariable = tmp1__anonymous__uwfjfc;
         if (inductionVariable < tmp2__anonymous__z9zvc9)
           do {
@@ -5586,7 +10071,7 @@
             {
               var tmp$ret$0;
               {
-                tmp$ret$0 = tmp0__anonymous__q1qw7t.s1a_1.getInt8(index);
+                tmp$ret$0 = tmp0__anonymous__q1qw7t.view_1.getInt8(index);
               }
               tmp$ret$1 = tmp$ret$0;
             }
@@ -5596,7 +10081,7 @@
                 malformedByteCount(byteCount);
               }
               if (!consumer(new Char(numberToChar(v)))) {
-                _this__u8e3s4.x1b(index - tmp1__anonymous__uwfjfc | 0);
+                _this__u8e3s4.discardExact_ijr9ip_k$(index - tmp1__anonymous__uwfjfc | 0);
                 return -1;
               }
             } else if (byteCount === 0) {
@@ -5621,7 +10106,7 @@
               var tmp3 = byteCount;
               byteCount = tmp3 - 1 | 0;
               if (lastByteCount > (tmp2__anonymous__z9zvc9 - index | 0)) {
-                _this__u8e3s4.x1b(index - tmp1__anonymous__uwfjfc | 0);
+                _this__u8e3s4.discardExact_ijr9ip_k$(index - tmp1__anonymous__uwfjfc | 0);
                 return lastByteCount;
               }
             } else {
@@ -5631,14 +10116,14 @@
               if (byteCount === 0) {
                 if (isBmpCodePoint(value)) {
                   if (!consumer(new Char(numberToChar(value)))) {
-                    _this__u8e3s4.x1b(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
+                    _this__u8e3s4.discardExact_ijr9ip_k$(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
                     return -1;
                   }
                 } else if (!isValidCodePoint(value)) {
                   malformedCodePoint(value);
                 } else {
                   if (!consumer(new Char(numberToChar(highSurrogate(value)))) ? true : !consumer(new Char(numberToChar(lowSurrogate(value))))) {
-                    _this__u8e3s4.x1b(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
+                    _this__u8e3s4.discardExact_ijr9ip_k$(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
                     return -1;
                   }
                 }
@@ -5650,10 +10135,16 @@
         tmp$ret$2 = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
       }
       var rc = tmp$ret$2;
-      _this__u8e3s4.x1b(rc);
+      _this__u8e3s4.discardExact_ijr9ip_k$(rc);
       tmp$ret$3 = rc;
     }
     return 0;
+  }
+  function decodeUTF8LineLoopSuspend(out, limit, nextChunk, afterRead, $cont) {
+    var tmp = new $decodeUTF8LineLoopSuspendCOROUTINE$51(out, limit, nextChunk, afterRead, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function malformedByteCount(byteCount) {
     throw new MalformedUTF8InputException('Expected ' + byteCount + ' more character bytes');
@@ -5673,70 +10164,85 @@
   function lowSurrogate(cp) {
     return (cp & 1023) + 56320 | 0;
   }
+  function prematureEndOfStreamUtf(size) {
+    throw new EOFException('Premature end of stream: expected ' + size + ' bytes to decode UTF-8 char');
+  }
+  function get_MaxCodePoint() {
+    return MaxCodePoint;
+  }
+  var MaxCodePoint;
+  function get_HighSurrogateMagic() {
+    return HighSurrogateMagic;
+  }
+  var HighSurrogateMagic;
+  function get_MinLowSurrogate() {
+    return MinLowSurrogate;
+  }
+  var MinLowSurrogate;
   function putUtf8Char(_this__u8e3s4, offset, v) {
     var tmp0_subject = v;
     var tmp;
     if (0 <= tmp0_subject ? tmp0_subject <= 127 : false) {
       {
         var tmp0_storeAt = toByte(v);
-        _this__u8e3s4.s1a_1.setInt8(offset, tmp0_storeAt);
+        _this__u8e3s4.view_1.setInt8(offset, tmp0_storeAt);
       }
       tmp = 1;
     } else if (128 <= tmp0_subject ? tmp0_subject <= 2047 : false) {
       var tmp$ret$0;
       {
         var tmp1_set = toByte(192 | v >> 6 & 31);
-        tmp$ret$0 = _this__u8e3s4.s1a_1.setInt8(offset, tmp1_set);
+        tmp$ret$0 = _this__u8e3s4.view_1.setInt8(offset, tmp1_set);
       }
       var tmp$ret$1;
       {
         var tmp2_set = offset + 1 | 0;
         var tmp3_set = toByte(128 | v & 63);
-        tmp$ret$1 = _this__u8e3s4.s1a_1.setInt8(tmp2_set, tmp3_set);
+        tmp$ret$1 = _this__u8e3s4.view_1.setInt8(tmp2_set, tmp3_set);
       }
       tmp = 2;
     } else if (2048 <= tmp0_subject ? tmp0_subject <= 65535 : false) {
       var tmp$ret$2;
       {
         var tmp4_set = toByte(224 | v >> 12 & 15);
-        tmp$ret$2 = _this__u8e3s4.s1a_1.setInt8(offset, tmp4_set);
+        tmp$ret$2 = _this__u8e3s4.view_1.setInt8(offset, tmp4_set);
       }
       var tmp$ret$3;
       {
         var tmp5_set = offset + 1 | 0;
         var tmp6_set = toByte(128 | v >> 6 & 63);
-        tmp$ret$3 = _this__u8e3s4.s1a_1.setInt8(tmp5_set, tmp6_set);
+        tmp$ret$3 = _this__u8e3s4.view_1.setInt8(tmp5_set, tmp6_set);
       }
       var tmp$ret$4;
       {
         var tmp7_set = offset + 2 | 0;
         var tmp8_set = toByte(128 | v & 63);
-        tmp$ret$4 = _this__u8e3s4.s1a_1.setInt8(tmp7_set, tmp8_set);
+        tmp$ret$4 = _this__u8e3s4.view_1.setInt8(tmp7_set, tmp8_set);
       }
       tmp = 3;
     } else if (65536 <= tmp0_subject ? tmp0_subject <= 1114111 : false) {
       var tmp$ret$5;
       {
         var tmp9_set = toByte(240 | v >> 18 & 7);
-        tmp$ret$5 = _this__u8e3s4.s1a_1.setInt8(offset, tmp9_set);
+        tmp$ret$5 = _this__u8e3s4.view_1.setInt8(offset, tmp9_set);
       }
       var tmp$ret$6;
       {
         var tmp10_set = offset + 1 | 0;
         var tmp11_set = toByte(128 | v >> 12 & 63);
-        tmp$ret$6 = _this__u8e3s4.s1a_1.setInt8(tmp10_set, tmp11_set);
+        tmp$ret$6 = _this__u8e3s4.view_1.setInt8(tmp10_set, tmp11_set);
       }
       var tmp$ret$7;
       {
         var tmp12_set = offset + 2 | 0;
         var tmp13_set = toByte(128 | v >> 6 & 63);
-        tmp$ret$7 = _this__u8e3s4.s1a_1.setInt8(tmp12_set, tmp13_set);
+        tmp$ret$7 = _this__u8e3s4.view_1.setInt8(tmp12_set, tmp13_set);
       }
       var tmp$ret$8;
       {
         var tmp14_set = offset + 3 | 0;
         var tmp15_set = toByte(128 | v & 63);
-        tmp$ret$8 = _this__u8e3s4.s1a_1.setInt8(tmp14_set, tmp15_set);
+        tmp$ret$8 = _this__u8e3s4.view_1.setInt8(tmp14_set, tmp15_set);
       }
       tmp = 4;
     } else {
@@ -5749,7 +10255,7 @@
     {
       var tmp$ret$0;
       {
-        Companion_getInstance();
+        Companion_getInstance_0();
         var tmp0_toInt = _UShort___init__impl__jigrne(-1);
         tmp$ret$0 = _UShort___get_data__impl__g0245(tmp0_toInt) & 65535;
       }
@@ -5759,11 +10265,11 @@
     var lastCharIndex = tmp$ret$1;
     var tmp$ret$2;
     {
-      Companion_getInstance();
+      Companion_getInstance_0();
       var tmp2_toInt = _UShort___init__impl__jigrne(-1);
       tmp$ret$2 = _UShort___get_data__impl__g0245(tmp2_toInt) & 65535;
     }
-    var resultLimit = coerceAtMost(dstLimit, tmp$ret$2);
+    var resultLimit = coerceAtMost_0(dstLimit, tmp$ret$2);
     var resultPosition = dstOffset;
     var index = from;
     $l$loop: do {
@@ -5795,7 +10301,7 @@
           resultPosition = tmp1 + 1 | 0;
           var tmp6_storeAt = tmp1;
           var tmp7_storeAt = toByte(character);
-          _this__u8e3s4.s1a_1.setInt8(tmp6_storeAt, tmp7_storeAt);
+          _this__u8e3s4.view_1.setInt8(tmp6_storeAt, tmp7_storeAt);
         }
       } else {
         break $l$loop;
@@ -5845,64 +10351,64 @@
         if (0 <= tmp0_subject ? tmp0_subject <= 127 : false) {
           {
             var tmp0_storeAt = toByte(codepoint);
-            _this__u8e3s4.s1a_1.setInt8(tmp0_putUtf8Char, tmp0_storeAt);
+            _this__u8e3s4.view_1.setInt8(tmp0_putUtf8Char, tmp0_storeAt);
           }
           tmp_1 = 1;
         } else if (128 <= tmp0_subject ? tmp0_subject <= 2047 : false) {
           var tmp$ret$1;
           {
             var tmp1_set = toByte(192 | codepoint >> 6 & 31);
-            tmp$ret$1 = _this__u8e3s4.s1a_1.setInt8(tmp0_putUtf8Char, tmp1_set);
+            tmp$ret$1 = _this__u8e3s4.view_1.setInt8(tmp0_putUtf8Char, tmp1_set);
           }
           var tmp$ret$2;
           {
             var tmp2_set = tmp0_putUtf8Char + 1 | 0;
             var tmp3_set = toByte(128 | codepoint & 63);
-            tmp$ret$2 = _this__u8e3s4.s1a_1.setInt8(tmp2_set, tmp3_set);
+            tmp$ret$2 = _this__u8e3s4.view_1.setInt8(tmp2_set, tmp3_set);
           }
           tmp_1 = 2;
         } else if (2048 <= tmp0_subject ? tmp0_subject <= 65535 : false) {
           var tmp$ret$3;
           {
             var tmp4_set = toByte(224 | codepoint >> 12 & 15);
-            tmp$ret$3 = _this__u8e3s4.s1a_1.setInt8(tmp0_putUtf8Char, tmp4_set);
+            tmp$ret$3 = _this__u8e3s4.view_1.setInt8(tmp0_putUtf8Char, tmp4_set);
           }
           var tmp$ret$4;
           {
             var tmp5_set = tmp0_putUtf8Char + 1 | 0;
             var tmp6_set = toByte(128 | codepoint >> 6 & 63);
-            tmp$ret$4 = _this__u8e3s4.s1a_1.setInt8(tmp5_set, tmp6_set);
+            tmp$ret$4 = _this__u8e3s4.view_1.setInt8(tmp5_set, tmp6_set);
           }
           var tmp$ret$5;
           {
             var tmp7_set = tmp0_putUtf8Char + 2 | 0;
             var tmp8_set = toByte(128 | codepoint & 63);
-            tmp$ret$5 = _this__u8e3s4.s1a_1.setInt8(tmp7_set, tmp8_set);
+            tmp$ret$5 = _this__u8e3s4.view_1.setInt8(tmp7_set, tmp8_set);
           }
           tmp_1 = 3;
         } else if (65536 <= tmp0_subject ? tmp0_subject <= 1114111 : false) {
           var tmp$ret$6;
           {
             var tmp9_set = toByte(240 | codepoint >> 18 & 7);
-            tmp$ret$6 = _this__u8e3s4.s1a_1.setInt8(tmp0_putUtf8Char, tmp9_set);
+            tmp$ret$6 = _this__u8e3s4.view_1.setInt8(tmp0_putUtf8Char, tmp9_set);
           }
           var tmp$ret$7;
           {
             var tmp10_set = tmp0_putUtf8Char + 1 | 0;
             var tmp11_set = toByte(128 | codepoint >> 12 & 63);
-            tmp$ret$7 = _this__u8e3s4.s1a_1.setInt8(tmp10_set, tmp11_set);
+            tmp$ret$7 = _this__u8e3s4.view_1.setInt8(tmp10_set, tmp11_set);
           }
           var tmp$ret$8;
           {
             var tmp12_set = tmp0_putUtf8Char + 2 | 0;
             var tmp13_set = toByte(128 | codepoint >> 6 & 63);
-            tmp$ret$8 = _this__u8e3s4.s1a_1.setInt8(tmp12_set, tmp13_set);
+            tmp$ret$8 = _this__u8e3s4.view_1.setInt8(tmp12_set, tmp13_set);
           }
           var tmp$ret$9;
           {
             var tmp14_set = tmp0_putUtf8Char + 3 | 0;
             var tmp15_set = toByte(128 | codepoint & 63);
-            tmp$ret$9 = _this__u8e3s4.s1a_1.setInt8(tmp14_set, tmp15_set);
+            tmp$ret$9 = _this__u8e3s4.view_1.setInt8(tmp14_set, tmp15_set);
           }
           tmp_1 = 4;
         } else {
@@ -6003,64 +10509,64 @@
         if (0 <= tmp0_subject_0 ? tmp0_subject_0 <= 127 : false) {
           {
             var tmp0_storeAt = toByte(codepoint);
-            _this__u8e3s4.s1a_1.setInt8(tmp0_putUtf8Char, tmp0_storeAt);
+            _this__u8e3s4.view_1.setInt8(tmp0_putUtf8Char, tmp0_storeAt);
           }
           tmp_2 = 1;
         } else if (128 <= tmp0_subject_0 ? tmp0_subject_0 <= 2047 : false) {
           var tmp$ret$2;
           {
             var tmp1_set = toByte(192 | codepoint >> 6 & 31);
-            tmp$ret$2 = _this__u8e3s4.s1a_1.setInt8(tmp0_putUtf8Char, tmp1_set);
+            tmp$ret$2 = _this__u8e3s4.view_1.setInt8(tmp0_putUtf8Char, tmp1_set);
           }
           var tmp$ret$3;
           {
             var tmp2_set = tmp0_putUtf8Char + 1 | 0;
             var tmp3_set = toByte(128 | codepoint & 63);
-            tmp$ret$3 = _this__u8e3s4.s1a_1.setInt8(tmp2_set, tmp3_set);
+            tmp$ret$3 = _this__u8e3s4.view_1.setInt8(tmp2_set, tmp3_set);
           }
           tmp_2 = 2;
         } else if (2048 <= tmp0_subject_0 ? tmp0_subject_0 <= 65535 : false) {
           var tmp$ret$4;
           {
             var tmp4_set = toByte(224 | codepoint >> 12 & 15);
-            tmp$ret$4 = _this__u8e3s4.s1a_1.setInt8(tmp0_putUtf8Char, tmp4_set);
+            tmp$ret$4 = _this__u8e3s4.view_1.setInt8(tmp0_putUtf8Char, tmp4_set);
           }
           var tmp$ret$5;
           {
             var tmp5_set = tmp0_putUtf8Char + 1 | 0;
             var tmp6_set = toByte(128 | codepoint >> 6 & 63);
-            tmp$ret$5 = _this__u8e3s4.s1a_1.setInt8(tmp5_set, tmp6_set);
+            tmp$ret$5 = _this__u8e3s4.view_1.setInt8(tmp5_set, tmp6_set);
           }
           var tmp$ret$6;
           {
             var tmp7_set = tmp0_putUtf8Char + 2 | 0;
             var tmp8_set = toByte(128 | codepoint & 63);
-            tmp$ret$6 = _this__u8e3s4.s1a_1.setInt8(tmp7_set, tmp8_set);
+            tmp$ret$6 = _this__u8e3s4.view_1.setInt8(tmp7_set, tmp8_set);
           }
           tmp_2 = 3;
         } else if (65536 <= tmp0_subject_0 ? tmp0_subject_0 <= 1114111 : false) {
           var tmp$ret$7;
           {
             var tmp9_set = toByte(240 | codepoint >> 18 & 7);
-            tmp$ret$7 = _this__u8e3s4.s1a_1.setInt8(tmp0_putUtf8Char, tmp9_set);
+            tmp$ret$7 = _this__u8e3s4.view_1.setInt8(tmp0_putUtf8Char, tmp9_set);
           }
           var tmp$ret$8;
           {
             var tmp10_set = tmp0_putUtf8Char + 1 | 0;
             var tmp11_set = toByte(128 | codepoint >> 12 & 63);
-            tmp$ret$8 = _this__u8e3s4.s1a_1.setInt8(tmp10_set, tmp11_set);
+            tmp$ret$8 = _this__u8e3s4.view_1.setInt8(tmp10_set, tmp11_set);
           }
           var tmp$ret$9;
           {
             var tmp12_set = tmp0_putUtf8Char + 2 | 0;
             var tmp13_set = toByte(128 | codepoint >> 6 & 63);
-            tmp$ret$9 = _this__u8e3s4.s1a_1.setInt8(tmp12_set, tmp13_set);
+            tmp$ret$9 = _this__u8e3s4.view_1.setInt8(tmp12_set, tmp13_set);
           }
           var tmp$ret$10;
           {
             var tmp14_set = tmp0_putUtf8Char + 3 | 0;
             var tmp15_set = toByte(128 | codepoint & 63);
-            tmp$ret$10 = _this__u8e3s4.s1a_1.setInt8(tmp14_set, tmp15_set);
+            tmp$ret$10 = _this__u8e3s4.view_1.setInt8(tmp14_set, tmp15_set);
           }
           tmp_2 = 4;
         } else {
@@ -6101,6 +10607,399 @@
     }
     return tmp;
   }
+  function $decodeUTF8LineLoopSuspendCOROUTINE$51(out, limit, nextChunk, afterRead, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this.out_1 = out;
+    this.limit_1 = limit;
+    this.nextChunk_1 = nextChunk;
+    this.afterRead_1 = afterRead;
+  }
+  $decodeUTF8LineLoopSuspendCOROUTINE$51.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 4;
+            this.decoded0__1 = 0;
+            this.size1__1 = 1;
+            this.cr2__1 = false;
+            this.end3__1 = false;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            if (!(!this.end3__1 ? !(this.size1__1 === 0) : false)) {
+              this.state_1 = 5;
+              continue $sm;
+            }
+
+            this.state_1 = 2;
+            suspendResult = this.nextChunk_1(this.size1__1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            var tmp0_elvis_lhs = suspendResult;
+            var WHEN_RESULT;
+            if (tmp0_elvis_lhs == null) {
+              this.state_1 = 5;
+              continue $sm;
+            } else {
+              WHEN_RESULT = tmp0_elvis_lhs;
+              this.state_1 = 3;
+              continue $sm;
+            }
+
+            break;
+          case 3:
+            var chunk = WHEN_RESULT;
+            var totalBytes = chunk.get_remaining_mwegr1_k$();
+            var tmp$ret$0;
+            l$ret$1: do {
+              var release = true;
+              var tmp0_elvis_lhs_0 = prepareReadFirstHead(chunk, 1);
+              var tmp_0;
+              if (tmp0_elvis_lhs_0 == null) {
+                tmp$ret$0 = Unit_getInstance();
+                break l$ret$1;
+              } else {
+                tmp_0 = tmp0_elvis_lhs_0;
+              }
+              var current = tmp_0;
+              var size = 1;
+              var tmp$ret$14;
+              l$ret$15: do {
+                try {
+                  $l$loop_0: do {
+                    var tmp0__get_readRemaining__u3cy9h = current;
+                    var before = tmp0__get_readRemaining__u3cy9h.writePosition_1 - tmp0__get_readRemaining__u3cy9h.readPosition_1 | 0;
+                    var after;
+                    if (before >= size) {
+                      var tmp$ret$12;
+                      l$ret$13: do {
+                        try {
+                          var tmp0__anonymous__q1qw7t = current;
+                          var skip = 0;
+                          var tmp_1 = this;
+                          var tmp$ret$4;
+                          l$ret$5: do {
+                            var byteCount = 0;
+                            var value = 0;
+                            var lastByteCount = 0;
+                            var tmp0__anonymous__q1qw7t_0 = tmp0__anonymous__q1qw7t.memory_1;
+                            var tmp1__anonymous__uwfjfc = tmp0__anonymous__q1qw7t.readPosition_1;
+                            var tmp2__anonymous__z9zvc9 = tmp0__anonymous__q1qw7t.writePosition_1;
+                            var inductionVariable = tmp1__anonymous__uwfjfc;
+                            if (inductionVariable < tmp2__anonymous__z9zvc9)
+                              do {
+                                var index = inductionVariable;
+                                inductionVariable = inductionVariable + 1 | 0;
+                                var v = tmp0__anonymous__q1qw7t_0.view_1.getInt8(index) & 255;
+                                if ((v & 128) === 0) {
+                                  if (!(byteCount === 0)) {
+                                    malformedByteCount(byteCount);
+                                  }
+                                  var tmp$ret$2;
+                                  l$ret$3: do {
+                                    var tmp0__anonymous__q1qw7t_1 = numberToChar(v);
+                                    var tmp0_subject = tmp0__anonymous__q1qw7t_1;
+                                    var tmp_2;
+                                    if (equals(new Char(tmp0_subject), new Char(_Char___init__impl__6a9atx(13)))) {
+                                      if (this.cr2__1) {
+                                        this.end3__1 = true;
+                                        tmp$ret$2 = false;
+                                        break l$ret$3;
+                                      }
+                                      this.cr2__1 = true;
+                                      tmp_2 = true;
+                                    } else if (equals(new Char(tmp0_subject), new Char(_Char___init__impl__6a9atx(10)))) {
+                                      this.end3__1 = true;
+                                      skip = 1;
+                                      tmp_2 = false;
+                                    } else {
+                                      if (this.cr2__1) {
+                                        this.end3__1 = true;
+                                        tmp$ret$2 = false;
+                                        break l$ret$3;
+                                      }
+                                      if (this.decoded0__1 === this.limit_1) {
+                                        throw new TooLongLineException('Too many characters in line: limit ' + this.limit_1 + ' exceeded');
+                                      }
+                                      var tmp1 = this.decoded0__1;
+                                      this.decoded0__1 = tmp1 + 1 | 0;
+                                      this.out_1.append_t8oh9e_k$(tmp0__anonymous__q1qw7t_1);
+                                      tmp_2 = true;
+                                    }
+                                    tmp$ret$2 = tmp_2;
+                                  }
+                                   while (false);
+                                  if (!tmp$ret$2) {
+                                    tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(index - tmp1__anonymous__uwfjfc | 0);
+                                    tmp$ret$4 = -1;
+                                    break l$ret$5;
+                                  }
+                                } else if (byteCount === 0) {
+                                  var mask = 128;
+                                  value = v;
+                                  var inductionVariable_0 = 1;
+                                  if (inductionVariable_0 <= 6)
+                                    $l$loop: do {
+                                      var i = inductionVariable_0;
+                                      inductionVariable_0 = inductionVariable_0 + 1 | 0;
+                                      if (!((value & mask) === 0)) {
+                                        value = value & ~mask;
+                                        mask = mask >> 1;
+                                        var tmp2 = byteCount;
+                                        byteCount = tmp2 + 1 | 0;
+                                      } else {
+                                        break $l$loop;
+                                      }
+                                    }
+                                     while (inductionVariable_0 <= 6);
+                                  lastByteCount = byteCount;
+                                  var tmp3 = byteCount;
+                                  byteCount = tmp3 - 1 | 0;
+                                  if (lastByteCount > (tmp2__anonymous__z9zvc9 - index | 0)) {
+                                    tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(index - tmp1__anonymous__uwfjfc | 0);
+                                    tmp$ret$4 = lastByteCount;
+                                    break l$ret$5;
+                                  }
+                                } else {
+                                  value = value << 6 | v & 127;
+                                  var tmp4 = byteCount;
+                                  byteCount = tmp4 - 1 | 0;
+                                  if (byteCount === 0) {
+                                    if (isBmpCodePoint(value)) {
+                                      var tmp$ret$6;
+                                      l$ret$7: do {
+                                        var tmp1__anonymous__uwfjfc_0 = numberToChar(value);
+                                        var tmp0_subject_0 = tmp1__anonymous__uwfjfc_0;
+                                        var tmp_3;
+                                        if (equals(new Char(tmp0_subject_0), new Char(_Char___init__impl__6a9atx(13)))) {
+                                          if (this.cr2__1) {
+                                            this.end3__1 = true;
+                                            tmp$ret$6 = false;
+                                            break l$ret$7;
+                                          }
+                                          this.cr2__1 = true;
+                                          tmp_3 = true;
+                                        } else if (equals(new Char(tmp0_subject_0), new Char(_Char___init__impl__6a9atx(10)))) {
+                                          this.end3__1 = true;
+                                          skip = 1;
+                                          tmp_3 = false;
+                                        } else {
+                                          if (this.cr2__1) {
+                                            this.end3__1 = true;
+                                            tmp$ret$6 = false;
+                                            break l$ret$7;
+                                          }
+                                          if (this.decoded0__1 === this.limit_1) {
+                                            throw new TooLongLineException('Too many characters in line: limit ' + this.limit_1 + ' exceeded');
+                                          }
+                                          var tmp1_0 = this.decoded0__1;
+                                          this.decoded0__1 = tmp1_0 + 1 | 0;
+                                          this.out_1.append_t8oh9e_k$(tmp1__anonymous__uwfjfc_0);
+                                          tmp_3 = true;
+                                        }
+                                        tmp$ret$6 = tmp_3;
+                                      }
+                                       while (false);
+                                      if (!tmp$ret$6) {
+                                        tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
+                                        tmp$ret$4 = -1;
+                                        break l$ret$5;
+                                      }
+                                    } else if (!isValidCodePoint(value)) {
+                                      malformedCodePoint(value);
+                                    } else {
+                                      var tmp_4;
+                                      var tmp$ret$8;
+                                      l$ret$9: do {
+                                        var tmp2__anonymous__z9zvc9_0 = numberToChar(highSurrogate(value));
+                                        var tmp0_subject_1 = tmp2__anonymous__z9zvc9_0;
+                                        var tmp_5;
+                                        if (equals(new Char(tmp0_subject_1), new Char(_Char___init__impl__6a9atx(13)))) {
+                                          if (this.cr2__1) {
+                                            this.end3__1 = true;
+                                            tmp$ret$8 = false;
+                                            break l$ret$9;
+                                          }
+                                          this.cr2__1 = true;
+                                          tmp_5 = true;
+                                        } else if (equals(new Char(tmp0_subject_1), new Char(_Char___init__impl__6a9atx(10)))) {
+                                          this.end3__1 = true;
+                                          skip = 1;
+                                          tmp_5 = false;
+                                        } else {
+                                          if (this.cr2__1) {
+                                            this.end3__1 = true;
+                                            tmp$ret$8 = false;
+                                            break l$ret$9;
+                                          }
+                                          if (this.decoded0__1 === this.limit_1) {
+                                            throw new TooLongLineException('Too many characters in line: limit ' + this.limit_1 + ' exceeded');
+                                          }
+                                          var tmp1_1 = this.decoded0__1;
+                                          this.decoded0__1 = tmp1_1 + 1 | 0;
+                                          this.out_1.append_t8oh9e_k$(tmp2__anonymous__z9zvc9_0);
+                                          tmp_5 = true;
+                                        }
+                                        tmp$ret$8 = tmp_5;
+                                      }
+                                       while (false);
+                                      if (!tmp$ret$8) {
+                                        tmp_4 = true;
+                                      } else {
+                                        var tmp$ret$10;
+                                        l$ret$11: do {
+                                          var tmp3__anonymous__ufb84q = numberToChar(lowSurrogate(value));
+                                          var tmp0_subject_2 = tmp3__anonymous__ufb84q;
+                                          var tmp_6;
+                                          if (equals(new Char(tmp0_subject_2), new Char(_Char___init__impl__6a9atx(13)))) {
+                                            if (this.cr2__1) {
+                                              this.end3__1 = true;
+                                              tmp$ret$10 = false;
+                                              break l$ret$11;
+                                            }
+                                            this.cr2__1 = true;
+                                            tmp_6 = true;
+                                          } else if (equals(new Char(tmp0_subject_2), new Char(_Char___init__impl__6a9atx(10)))) {
+                                            this.end3__1 = true;
+                                            skip = 1;
+                                            tmp_6 = false;
+                                          } else {
+                                            if (this.cr2__1) {
+                                              this.end3__1 = true;
+                                              tmp$ret$10 = false;
+                                              break l$ret$11;
+                                            }
+                                            if (this.decoded0__1 === this.limit_1) {
+                                              throw new TooLongLineException('Too many characters in line: limit ' + this.limit_1 + ' exceeded');
+                                            }
+                                            var tmp1_2 = this.decoded0__1;
+                                            this.decoded0__1 = tmp1_2 + 1 | 0;
+                                            this.out_1.append_t8oh9e_k$(tmp3__anonymous__ufb84q);
+                                            tmp_6 = true;
+                                          }
+                                          tmp$ret$10 = tmp_6;
+                                        }
+                                         while (false);
+                                        tmp_4 = !tmp$ret$10;
+                                      }
+                                      if (tmp_4) {
+                                        tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(((index - tmp1__anonymous__uwfjfc | 0) - lastByteCount | 0) + 1 | 0);
+                                        tmp$ret$4 = -1;
+                                        break l$ret$5;
+                                      }
+                                    }
+                                    value = 0;
+                                  }
+                                }
+                              }
+                               while (inductionVariable < tmp2__anonymous__z9zvc9);
+                            var rc = tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0;
+                            tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(rc);
+                            tmp$ret$4 = 0;
+                          }
+                           while (false);
+                          tmp_1.size1__1 = tmp$ret$4;
+                          if (skip > 0) {
+                            tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(skip);
+                          }
+                          this.size1__1 = this.end3__1 ? 0 : coerceAtLeast(this.size1__1, 1);
+                          size = this.size1__1;
+                          tmp$ret$12 = Unit_getInstance();
+                          break l$ret$13;
+                        } catch ($p) {
+                          var tmp1__get_readRemaining__qliyus = current;
+                          after = tmp1__get_readRemaining__qliyus.writePosition_1 - tmp1__get_readRemaining__qliyus.readPosition_1 | 0;
+                          throw $p;
+                        }
+                      }
+                       while (false);
+                      var tmp1__get_readRemaining__qliyus_0 = current;
+                      after = tmp1__get_readRemaining__qliyus_0.writePosition_1 - tmp1__get_readRemaining__qliyus_0.readPosition_1 | 0;
+                    } else {
+                      after = before;
+                    }
+                    release = false;
+                    var tmp_7;
+                    if (after === 0) {
+                      tmp_7 = prepareReadNextHead(chunk, current);
+                    } else {
+                      var tmp_8;
+                      if (after < size) {
+                        tmp_8 = true;
+                      } else {
+                        var tmp2__get_endGap__m31424 = current;
+                        var tmp_9 = tmp2__get_endGap__m31424.capacity_1 - tmp2__get_endGap__m31424.limit_1 | 0;
+                        Companion_getInstance_1();
+                        tmp_8 = tmp_9 < 8;
+                      }
+                      if (tmp_8) {
+                        completeReadHead(chunk, current);
+                        tmp_7 = prepareReadFirstHead(chunk, size);
+                      } else {
+                        tmp_7 = current;
+                      }
+                    }
+                    var tmp1_elvis_lhs = tmp_7;
+                    var tmp_10;
+                    if (tmp1_elvis_lhs == null) {
+                      break $l$loop_0;
+                    } else {
+                      tmp_10 = tmp1_elvis_lhs;
+                    }
+                    var next = tmp_10;
+                    current = next;
+                    release = true;
+                  }
+                   while (size > 0);
+                  tmp$ret$14 = Unit_getInstance();
+                  break l$ret$15;
+                } catch ($p) {
+                  if (release) {
+                    completeReadHead(chunk, current);
+                  }
+                  throw $p;
+                }
+              }
+               while (false);
+              if (release) {
+                completeReadHead(chunk, current);
+              }
+            }
+             while (false);
+            this.afterRead_1(totalBytes.minus_llf5ei_k$(chunk.get_remaining_mwegr1_k$()).toInt_1tsl84_k$());
+            this.state_1 = 1;
+            continue $sm;
+          case 4:
+            throw this.exception_1;
+          case 5:
+            if (this.size1__1 > 1) {
+              prematureEndOfStreamUtf(this.size1__1);
+            }
+
+            if (this.cr2__1) {
+              this.end3__1 = true;
+            }
+
+            return this.decoded0__1 > 0 ? true : this.end3__1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 4) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $decodeUTF8LineLoopSuspendCOROUTINE$51.$metadata$ = classMeta('$decodeUTF8LineLoopSuspendCOROUTINE$51', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function get_EmptyByteArray() {
     init_properties_Unsafe_kt_ayh6vg();
     return EmptyByteArray;
@@ -6113,40 +11012,40 @@
     else {
       var tmp$ret$0;
       {
-        tmp$ret$0 = current.s15_1 > current.r15_1;
+        tmp$ret$0 = current.writePosition_1 > current.readPosition_1;
       }
       if (!tmp$ret$0) {
-        _this__u8e3s4.q1e(current);
+        _this__u8e3s4.ensureNext_r5itmw_k$(current);
       } else {
         var tmp$ret$1;
         {
-          tmp$ret$1 = current.v15_1 - current.u15_1 | 0;
+          tmp$ret$1 = current.capacity_1 - current.limit_1 | 0;
         }
         var tmp = tmp$ret$1;
         Companion_getInstance_1();
         if (tmp < 8)
-          _this__u8e3s4.r1e(current);
+          _this__u8e3s4.fixGapAfterRead_y10io9_k$(current);
         else {
-          _this__u8e3s4.e17_1 = current.p1b();
+          _this__u8e3s4.headPosition_1 = current.get_readPosition_70qxnc_k$();
         }
       }
     }
   }
   function prepareReadFirstHead(_this__u8e3s4, minSize) {
     init_properties_Unsafe_kt_ayh6vg();
-    return _this__u8e3s4.o1e(minSize);
+    return _this__u8e3s4.prepareReadHead_atci78_k$(minSize);
   }
   function prepareReadNextHead(_this__u8e3s4, current) {
     init_properties_Unsafe_kt_ayh6vg();
     if (current === _this__u8e3s4) {
-      return _this__u8e3s4.y17() ? _this__u8e3s4 : null;
+      return _this__u8e3s4.canRead_93a6bq_k$() ? _this__u8e3s4 : null;
     }
-    return _this__u8e3s4.p1e(current);
+    return _this__u8e3s4.ensureNextHead_x7ynew_k$(current);
   }
   function unsafeAppend(_this__u8e3s4, builder) {
     init_properties_Unsafe_kt_ayh6vg();
-    var builderSize = builder.g();
-    var tmp0_elvis_lhs = builder.p13();
+    var builderSize = builder.get_size_woubt6_k$();
+    var tmp0_elvis_lhs = builder.stealAll_nensgi_k$();
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return 0;
@@ -6154,19 +11053,19 @@
       tmp = tmp0_elvis_lhs;
     }
     var builderHead = tmp;
-    if ((builderSize <= get_PACKET_MAX_COPY_SIZE() ? builderHead.d1d() == null : false) ? _this__u8e3s4.k1e(builderHead) : false) {
-      builder.t1d();
+    if ((builderSize <= get_PACKET_MAX_COPY_SIZE() ? builderHead.get_next_wor1vg_k$() == null : false) ? _this__u8e3s4.tryWriteAppend_i5mkbp_k$(builderHead) : false) {
+      builder.afterBytesStolen_szt7l1_k$();
       return builderSize;
     }
-    _this__u8e3s4.j1e(builderHead);
+    _this__u8e3s4.append_vlkz76_k$(builderHead);
     return builderSize;
   }
   function prepareWriteHead(_this__u8e3s4, capacity, current) {
     init_properties_Unsafe_kt_ayh6vg();
     if (!(current == null)) {
-      _this__u8e3s4.k1b();
+      _this__u8e3s4.afterHeadWrite_dlo0ku_k$();
     }
-    return _this__u8e3s4.r1d(capacity);
+    return _this__u8e3s4.prepareWriteHead_k7upd5_k$(capacity);
   }
   var properties_initialized_Unsafe_kt_o5mw48;
   function init_properties_Unsafe_kt_ayh6vg() {
@@ -6176,27 +11075,30 @@
       EmptyByteArray = new Int8Array(0);
     }
   }
+  function _get_suspension__g1gp0y($this) {
+    return $this.suspension_1;
+  }
   function trySuspend($this, sleepCondition, $cont) {
     var tmp = new $trySuspendCOROUTINE$53($this, sleepCondition, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function $sleepCOROUTINE$52(_this__u8e3s4, sleepCondition, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.z1f_1 = _this__u8e3s4;
-    this.a1g_1 = sleepCondition;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.sleepCondition_1 = sleepCondition;
   }
-  $sleepCOROUTINE$52.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $sleepCOROUTINE$52.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            this.pd_1 = 1;
-            suspendResult = trySuspend(this.z1f_1, this.a1g_1, this);
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = trySuspend(this._this__u8e3s4__1, this.sleepCondition_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -6206,23 +11108,23 @@
             if (suspendResult) {
               return Unit_getInstance();
             } else {
-              this.pd_1 = 2;
+              this.state_1 = 2;
               continue $sm;
             }
 
             break;
           case 2:
-            this.z1f_1.y12();
+            this._this__u8e3s4__1.resume_2nhcyk_k$();
             return Unit_getInstance();
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -6230,71 +11132,71 @@
   $sleepCOROUTINE$52.$metadata$ = classMeta('$sleepCOROUTINE$52', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $trySuspendCOROUTINE$53(_this__u8e3s4, sleepCondition, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.n1f_1 = _this__u8e3s4;
-    this.o1f_1 = sleepCondition;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.sleepCondition_1 = sleepCondition;
   }
-  $trySuspendCOROUTINE$53.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $trySuspendCOROUTINE$53.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            this.p1f_1 = false;
+            this.exceptionState_1 = 3;
+            this.suspended0__1 = false;
             var tmp_0 = this;
-            tmp_0.q1f_1 = Job$default(null, 1, null);
-            if (this.n1f_1.x12_1.atomicfu$compareAndSet(null, this.q1f_1) ? this.o1f_1() : false) {
-              this.p1f_1 = true;
-              this.pd_1 = 1;
-              suspendResult = this.q1f_1.lq(this);
+            tmp_0.job1__1 = Job$default(null, 1, null);
+            if (this._this__u8e3s4__1.suspension_1.atomicfu$compareAndSet(null, this.job1__1) ? this.sleepCondition_1() : false) {
+              this.suspended0__1 = true;
+              this.state_1 = 1;
+              suspendResult = this.job1__1.join_kbq7u1_k$(this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              this.pd_1 = 2;
+              this.state_1 = 2;
               continue $sm;
             }
 
             break;
           case 1:
-            this.pd_1 = 2;
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            return this.p1f_1;
+            return this.suspended0__1;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $trySuspendCOROUTINE$53.$metadata$ = classMeta('$trySuspendCOROUTINE$53', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function AwaitingSlot() {
-    this.x12_1 = atomic$ref$1(null);
+    this.suspension_1 = atomic$ref$1(null);
   }
-  AwaitingSlot.prototype.u14 = function (sleepCondition, $cont) {
+  AwaitingSlot.prototype.sleep_4rbna1_k$ = function (sleepCondition, $cont) {
     var tmp = new $sleepCOROUTINE$52(this, sleepCondition, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  AwaitingSlot.prototype.y12 = function () {
-    var tmp0_safe_receiver = this.x12_1.atomicfu$getAndSet(null);
+  AwaitingSlot.prototype.resume_2nhcyk_k$ = function () {
+    var tmp0_safe_receiver = this.suspension_1.atomicfu$getAndSet(null);
     if (tmp0_safe_receiver == null)
       null;
     else
-      tmp0_safe_receiver.kq();
+      tmp0_safe_receiver.complete_9ww6vb_k$();
   };
-  AwaitingSlot.prototype.v19 = function (cause) {
-    var tmp0_elvis_lhs = this.x12_1.atomicfu$getAndSet(null);
+  AwaitingSlot.prototype.cancel_g8hup6_k$ = function (cause) {
+    var tmp0_elvis_lhs = this.suspension_1.atomicfu$getAndSet(null);
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return Unit_getInstance();
@@ -6303,143 +11205,143 @@
     }
     var continuation = tmp;
     if (!(cause == null)) {
-      continuation.xp(cause);
+      continuation.completeExceptionally_7s0ccc_k$(cause);
     } else {
-      continuation.kq();
+      continuation.complete_9ww6vb_k$();
     }
   };
   AwaitingSlot.$metadata$ = classMeta('AwaitingSlot');
   function copyToSequentialImpl(_this__u8e3s4, dst, limit, $cont) {
     var tmp = new $copyToSequentialImplCOROUTINE$54(_this__u8e3s4, dst, limit, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function copyToTail(_this__u8e3s4, dst, limit, $cont) {
     var tmp = new $copyToTailCOROUTINE$55(_this__u8e3s4, dst, limit, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function $copyToSequentialImplCOROUTINE$54(_this__u8e3s4, dst, limit, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.j1g_1 = _this__u8e3s4;
-    this.k1g_1 = dst;
-    this.l1g_1 = limit;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.limit_1 = limit;
   }
-  $copyToSequentialImplCOROUTINE$54.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $copyToSequentialImplCOROUTINE$54.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 10;
+            this.exceptionState_1 = 10;
             var tmp_0 = this;
-            tmp_0.m1g_1 = !(this.j1g_1 === this.k1g_1);
-            if (!this.m1g_1) {
+            tmp_0.tmp0_require0__1 = !(this._this__u8e3s4__1 === this.dst_1);
+            if (!this.tmp0_require0__1) {
               var message = 'Failed requirement.';
               throw IllegalArgumentException_init_$Create$(toString(message));
             }
 
-            if (!(this.j1g_1.r13() == null)) {
-              this.k1g_1.zx(this.j1g_1.r13());
+            if (!(this._this__u8e3s4__1.get_closedCause_o1qcj8_k$() == null)) {
+              this.dst_1.close_9zy44b_k$(this._this__u8e3s4__1.get_closedCause_o1qcj8_k$());
               return new Long(0, 0);
             }
 
-            this.n1g_1 = this.l1g_1;
-            this.pd_1 = 1;
+            this.remainingLimit1__1 = this.limit_1;
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            if (!(this.n1g_1.a1(new Long(0, 0)) > 0)) {
-              this.pd_1 = 9;
+            if (!(this.remainingLimit1__1.compareTo_n4fqi2_k$(new Long(0, 0)) > 0)) {
+              this.state_1 = 9;
               continue $sm;
             }
 
-            this.pd_1 = 2;
-            suspendResult = this.j1g_1.u19(this);
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.awaitInternalAtLeast1_h3c2wl_k$(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 2:
-            this.o1g_1 = suspendResult;
-            if (!this.o1g_1) {
-              this.pd_1 = 9;
+            this.ARGUMENT2__1 = suspendResult;
+            if (!this.ARGUMENT2__1) {
+              this.state_1 = 9;
               continue $sm;
             } else {
-              this.pd_1 = 3;
+              this.state_1 = 3;
               continue $sm;
             }
 
             break;
           case 3:
-            this.p1g_1 = this.j1g_1.w19(this.k1g_1, this.n1g_1);
-            if (this.p1g_1.equals(new Long(0, 0))) {
-              this.pd_1 = 6;
-              suspendResult = copyToTail(this.j1g_1, this.k1g_1, this.n1g_1, this);
+            this.transferred3__1 = this._this__u8e3s4__1.transferTo_esaosj_k$(this.dst_1, this.remainingLimit1__1);
+            if (this.transferred3__1.equals(new Long(0, 0))) {
+              this.state_1 = 6;
+              suspendResult = copyToTail(this._this__u8e3s4__1, this.dst_1, this.remainingLimit1__1, this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              if (this.k1g_1.i14() === 0) {
-                this.pd_1 = 4;
-                suspendResult = this.k1g_1.p15(1, this);
+              if (this.dst_1.get_availableForWrite_22rgeu_k$() === 0) {
+                this.state_1 = 4;
+                suspendResult = this.dst_1.awaitAtLeastNBytesAvailableForWrite_k0daqc_k$(1, this);
                 if (suspendResult === get_COROUTINE_SUSPENDED()) {
                   return suspendResult;
                 }
                 continue $sm;
               } else {
-                this.pd_1 = 5;
+                this.state_1 = 5;
                 continue $sm;
               }
             }
 
             break;
           case 4:
-            this.pd_1 = 5;
+            this.state_1 = 5;
             continue $sm;
           case 5:
-            this.q1g_1 = this.p1g_1;
-            this.pd_1 = 8;
+            this.WHEN_RESULT4__1 = this.transferred3__1;
+            this.state_1 = 8;
             continue $sm;
           case 6:
             var tail = suspendResult;
             if (tail.equals(new Long(0, 0))) {
-              this.pd_1 = 9;
+              this.state_1 = 9;
               continue $sm;
             } else {
-              this.pd_1 = 7;
+              this.state_1 = 7;
               continue $sm;
             }
 
             break;
           case 7:
-            this.q1g_1 = tail;
-            this.pd_1 = 8;
+            this.WHEN_RESULT4__1 = tail;
+            this.state_1 = 8;
             continue $sm;
           case 8:
-            var copied = this.q1g_1;
-            this.n1g_1 = this.n1g_1.c4(copied);
-            if (copied.a1(new Long(0, 0)) > 0) {
-              this.k1g_1.m19();
+            var copied = this.WHEN_RESULT4__1;
+            this.remainingLimit1__1 = this.remainingLimit1__1.minus_llf5ei_k$(copied);
+            if (copied.compareTo_n4fqi2_k$(new Long(0, 0)) > 0) {
+              this.dst_1.flush_sgqoqb_k$();
             }
 
-            this.pd_1 = 1;
+            this.state_1 = 1;
             continue $sm;
           case 9:
-            return this.l1g_1.c4(this.n1g_1);
+            return this.limit_1.minus_llf5ei_k$(this.remainingLimit1__1);
           case 10:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 10) {
+        if (this.exceptionState_1 === 10) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -6447,83 +11349,83 @@
   $copyToSequentialImplCOROUTINE$54.$metadata$ = classMeta('$copyToSequentialImplCOROUTINE$54', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $copyToTailCOROUTINE$55(_this__u8e3s4, dst, limit, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.z1g_1 = _this__u8e3s4;
-    this.a1h_1 = dst;
-    this.b1h_1 = limit;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.limit_1 = limit;
   }
-  $copyToTailCOROUTINE$55.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $copyToTailCOROUTINE$55.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 9;
-            this.c1h_1 = Companion_getInstance_4().d12_1.w1a();
-            this.pd_1 = 1;
+            this.exceptionState_1 = 9;
+            this.lastPiece0__1 = Companion_getInstance_4().Pool_1.borrow_mvkpor_k$();
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            this.pd_1 = 2;
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            this.qd_1 = 8;
-            this.c1h_1.g1c(coerceAtMost_0(this.b1h_1, toLong(this.c1h_1.u1b())).md());
-            this.pd_1 = 3;
-            suspendResult = this.z1g_1.r19(this.c1h_1, this);
+            this.exceptionState_1 = 8;
+            this.lastPiece0__1.resetForWrite_ckloqd_k$(coerceAtMost(this.limit_1, toLong(this.lastPiece0__1.get_capacity_wxbgcd_k$())).toInt_1tsl84_k$());
+            this.state_1 = 3;
+            suspendResult = this._this__u8e3s4__1.readAvailable_9j2oye_k$(this.lastPiece0__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 3:
-            this.e1h_1 = suspendResult;
-            if (this.e1h_1 === -1) {
-              this.c1h_1.j1b(Companion_getInstance_4().d12_1);
-              this.d1h_1 = new Long(0, 0);
-              this.qd_1 = 9;
-              this.pd_1 = 6;
+            this.rc3__1 = suspendResult;
+            if (this.rc3__1 === -1) {
+              this.lastPiece0__1.release_49hdgr_k$(Companion_getInstance_4().Pool_1);
+              this.tmp$ret$02__1 = new Long(0, 0);
+              this.exceptionState_1 = 9;
+              this.state_1 = 6;
               continue $sm;
             } else {
-              this.pd_1 = 4;
+              this.state_1 = 4;
               continue $sm;
             }
 
             break;
           case 4:
-            this.pd_1 = 5;
-            suspendResult = this.a1h_1.n19(this.c1h_1, this);
+            this.state_1 = 5;
+            suspendResult = this.dst_1.writeFully_92qlrz_k$(this.lastPiece0__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 5:
-            this.d1h_1 = toLong(this.e1h_1);
-            this.qd_1 = 9;
-            this.pd_1 = 6;
+            this.tmp$ret$02__1 = toLong(this.rc3__1);
+            this.exceptionState_1 = 9;
+            this.state_1 = 6;
             var tmp_0 = this;
             continue $sm;
           case 6:
-            var tmp_1 = this.d1h_1;
-            this.c1h_1.j1b(Companion_getInstance_4().d12_1);
+            var tmp_1 = this.tmp$ret$02__1;
+            this.lastPiece0__1.release_49hdgr_k$(Companion_getInstance_4().Pool_1);
             return tmp_1;
           case 7:
-            this.c1h_1.j1b(Companion_getInstance_4().d12_1);
+            this.lastPiece0__1.release_49hdgr_k$(Companion_getInstance_4().Pool_1);
             return Unit_getInstance();
           case 8:
-            this.qd_1 = 9;
-            var t = this.sd_1;
-            this.c1h_1.j1b(Companion_getInstance_4().d12_1);
+            this.exceptionState_1 = 9;
+            var t = this.exception_1;
+            this.lastPiece0__1.release_49hdgr_k$(Companion_getInstance_4().Pool_1);
             throw t;
           case 9:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 9) {
+        if (this.exceptionState_1 === 9) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -6537,7 +11439,7 @@
   function ByteArrayPool$1() {
     DefaultPool.call(this, 128);
   }
-  ByteArrayPool$1.prototype.t1c = function () {
+  ByteArrayPool$1.prototype.produceInstance_xswihh_k$ = function () {
     return new Int8Array(4096);
   };
   ByteArrayPool$1.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, DefaultPool.prototype);
@@ -6554,13 +11456,29 @@
   ObjectPool.$metadata$ = interfaceMeta('ObjectPool', [Closeable]);
   function NoPoolImpl() {
   }
-  NoPoolImpl.prototype.h1d = function (instance) {
+  NoPoolImpl.prototype.get_capacity_wxbgcd_k$ = function () {
+    return 0;
   };
-  NoPoolImpl.prototype.vn = function () {
+  NoPoolImpl.prototype.recycle_ln1phz_k$ = function (instance) {
+  };
+  NoPoolImpl.prototype.dispose_3n44we_k$ = function () {
   };
   NoPoolImpl.$metadata$ = classMeta('NoPoolImpl', [ObjectPool]);
+  function useInstance(_this__u8e3s4, block) {
+    var instance = _this__u8e3s4.borrow_mvkpor_k$();
+    try {
+      return block(instance);
+    }finally {
+      _this__u8e3s4.recycle_ln1phz_k$(instance);
+    }
+  }
   function ByteChannel_0(autoFlush) {
-    return new ByteChannelJS(Companion_getInstance_4().f12_1, autoFlush);
+    return new ByteChannelJS(Companion_getInstance_4().Empty_1, autoFlush);
+  }
+  function ByteChannel$default(autoFlush, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      autoFlush = false;
+    return ByteChannel_0(autoFlush);
   }
   function copyTo(_this__u8e3s4, dst, limit, $cont) {
     var tmp = _this__u8e3s4 instanceof ByteChannelSequentialBase ? _this__u8e3s4 : THROW_CCE();
@@ -6572,20 +11490,20 @@
       tmp$ret$0 = content.length === 0;
     }
     if (tmp$ret$0)
-      return Companion_getInstance_5().n1b();
-    var head = Companion_getInstance_4().d12_1.w1a();
+      return Companion_getInstance_5().get_Empty_i9b85g_k$();
+    var head = Companion_getInstance_4().Pool_1.borrow_mvkpor_k$();
     var tail = head;
     var start = offset;
     var end = start + length | 0;
     $l$loop: while (true) {
-      tail.d1c(8);
+      tail.reserveEndGap_1tynif_k$(8);
       var tmp$ret$2;
       {
         var tmp1_minOf = end - start | 0;
         var tmp$ret$1;
         {
           var tmp0__get_writeRemaining__z8qq3e = tail;
-          tmp$ret$1 = tmp0__get_writeRemaining__z8qq3e.u15_1 - tmp0__get_writeRemaining__z8qq3e.s15_1 | 0;
+          tmp$ret$1 = tmp0__get_writeRemaining__z8qq3e.limit_1 - tmp0__get_writeRemaining__z8qq3e.writePosition_1 | 0;
         }
         var tmp2_minOf = tmp$ret$1;
         tmp$ret$2 = Math.min(tmp1_minOf, tmp2_minOf);
@@ -6596,8 +11514,8 @@
       if (start === end)
         break $l$loop;
       var current = tail;
-      tail = Companion_getInstance_4().d12_1.w1a();
-      current.u1e(tail);
+      tail = Companion_getInstance_4().Pool_1.borrow_mvkpor_k$();
+      current.set_next_scf7lx_k$(tail);
     }
     var tmp$ret$3;
     {
@@ -6611,44 +11529,260 @@
     }
     return tmp$ret$3;
   }
+  function _set_attachedJob__ugwmz8($this, _set____db54di) {
+    $this.attachedJob_1 = _set____db54di;
+  }
+  function _get_attachedJob__6ignc($this) {
+    return $this.attachedJob_1;
+  }
+  function readAvailableSuspend($this, dst, offset, length, $cont) {
+    var tmp = new $readAvailableSuspendCOROUTINE$57($this, dst, offset, length, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function readFullySuspend_1($this, dst, offset, length, $cont) {
+    var tmp = new $readFullySuspendCOROUTINE$58($this, dst, offset, length, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
   function ByteChannelJS$attachJob$lambda(this$0) {
     return function (cause) {
-      this$0.x1h_1 = null;
+      this$0.attachedJob_1 = null;
       var tmp;
       if (!(cause == null)) {
-        this$0.qo(unwrapCancellationException(cause));
+        this$0.cancel_as6ug7_k$(unwrapCancellationException(cause));
         tmp = Unit_getInstance();
       }
       return Unit_getInstance();
     };
   }
+  function $readAvailableCOROUTINE$56(_this__u8e3s4, dst, offset, length, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.offset_1 = offset;
+    this.length_1 = length;
+  }
+  $readAvailableCOROUTINE$56.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            var tmp_0 = this;
+            tmp_0.tmp0__get_isEmpty_1_ov3s53__1 = this._this__u8e3s4__1.get_readable_ovw33t_k$();
+            if (this.tmp0__get_isEmpty_1_ov3s53__1.get_endOfInput_skegkh_k$()) {
+              this.state_1 = 1;
+              suspendResult = readAvailableSuspend(this._this__u8e3s4__1, this.dst_1, this.offset_1, this.length_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              var tmp_1 = this;
+              var tmp0_safe_receiver = this._this__u8e3s4__1.get_closedCause_o1qcj8_k$();
+              if (tmp0_safe_receiver == null)
+                null;
+              else {
+                throw tmp0_safe_receiver;
+              }
+              var count = readAvailable_1(this._this__u8e3s4__1.get_readable_ovw33t_k$(), this.dst_1, this.offset_1, this.length_1);
+              this._this__u8e3s4__1.afterRead_16ll9a_k$(count);
+              tmp_1.WHEN_RESULT0__1 = count;
+              this.state_1 = 2;
+              continue $sm;
+            }
+
+            break;
+          case 1:
+            this.WHEN_RESULT0__1 = suspendResult;
+            this.state_1 = 2;
+            continue $sm;
+          case 2:
+            return this.WHEN_RESULT0__1;
+          case 3:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 3) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readAvailableCOROUTINE$56.$metadata$ = classMeta('$readAvailableCOROUTINE$56', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readAvailableSuspendCOROUTINE$57(_this__u8e3s4, dst, offset, length, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.offset_1 = offset;
+    this.length_1 = length;
+  }
+  $readAvailableSuspendCOROUTINE$57.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 4;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.await_a8ddvc_k$(1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            this.ARGUMENT0__1 = suspendResult;
+            if (!this.ARGUMENT0__1) {
+              return -1;
+            } else {
+              this.state_1 = 2;
+              continue $sm;
+            }
+
+            break;
+          case 2:
+            this.state_1 = 3;
+            suspendResult = this._this__u8e3s4__1.readAvailable_jo32po_k$(this.dst_1, this.offset_1, this.length_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 3:
+            return suspendResult;
+          case 4:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 4) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readAvailableSuspendCOROUTINE$57.$metadata$ = classMeta('$readAvailableSuspendCOROUTINE$57', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $readFullySuspendCOROUTINE$58(_this__u8e3s4, dst, offset, length, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.dst_1 = dst;
+    this.offset_1 = offset;
+    this.length_1 = length;
+  }
+  $readFullySuspendCOROUTINE$58.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 4;
+            this.start0__1 = this.offset_1;
+            this.end1__1 = this.offset_1 + this.length_1 | 0;
+            this.remaining2__1 = this.length_1;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            if (!(this.start0__1 < this.end1__1)) {
+              this.state_1 = 3;
+              continue $sm;
+            }
+
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.readAvailable_jo32po_k$(this.dst_1, this.start0__1, this.remaining2__1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            var rc = suspendResult;
+            if (rc === -1)
+              throw new EOFException('Premature end of stream: required ' + this.remaining2__1 + ' more bytes');
+            this.start0__1 = this.start0__1 + rc | 0;
+            this.remaining2__1 = this.remaining2__1 - rc | 0;
+            this.state_1 = 1;
+            continue $sm;
+          case 3:
+            return Unit_getInstance();
+          case 4:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 4) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $readFullySuspendCOROUTINE$58.$metadata$ = classMeta('$readFullySuspendCOROUTINE$58', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function ByteChannelJS(initial, autoFlush) {
     ByteChannelSequentialBase_init_$Init$(initial, autoFlush, null, 4, null, this);
-    this.x1h_1 = null;
+    this.attachedJob_1 = null;
   }
-  ByteChannelJS.prototype.c12 = function (job) {
-    var tmp0_safe_receiver = this.x1h_1;
+  ByteChannelJS.prototype.attachJob_65ac2f_k$ = function (job) {
+    var tmp0_safe_receiver = this.attachedJob_1;
     if (tmp0_safe_receiver == null)
       null;
     else {
-      tmp0_safe_receiver.xl(null, 1, null);
+      tmp0_safe_receiver.cancel$default_bm1z3z_k$(null, 1, null);
     }
-    this.x1h_1 = job;
-    job.tl(true, false, ByteChannelJS$attachJob$lambda(this), 2, null);
+    this.attachedJob_1 = job;
+    job.invokeOnCompletion$default_7q548c_k$(true, false, ByteChannelJS$attachJob$lambda(this), 2, null);
+  };
+  ByteChannelJS.prototype.readAvailable_jo32po_k$ = function (dst, offset, length, $cont) {
+    var tmp = new $readAvailableCOROUTINE$56(this, dst, offset, length, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  ByteChannelJS.prototype.readFully_yij892_k$ = function (dst, offset, length, $cont) {
+    if (this.get_availableForRead_tq0sox_k$() >= length) {
+      var tmp0_safe_receiver = this.get_closedCause_o1qcj8_k$();
+      if (tmp0_safe_receiver == null)
+        null;
+      else {
+        var tmp$ret$0;
+        {
+          {
+          }
+          throw tmp0_safe_receiver;
+        }
+      }
+      readFully_6(this.get_readable_ovw33t_k$(), dst, offset, length);
+      this.afterRead_16ll9a_k$(length - offset | 0);
+      return Unit_getInstance();
+    }
+    return readFullySuspend_1(this, dst, offset, length, $cont);
   };
   ByteChannelJS.prototype.toString = function () {
-    return 'ByteChannel[' + this.x1h_1 + ', ' + hashCode(this) + ']';
+    return 'ByteChannel[' + this.attachedJob_1 + ', ' + hashCode(this) + ']';
   };
   ByteChannelJS.$metadata$ = classMeta('ByteChannelJS', undefined, undefined, undefined, undefined, ByteChannelSequentialBase.prototype);
   function ByteReadChannel$Companion$Empty$delegate$lambda() {
     return function () {
       var tmp$ret$0;
       {
-        var tmp0_apply = new ByteChannelJS(Companion_getInstance_4().f12_1, false);
+        var tmp0_apply = new ByteChannelJS(Companion_getInstance_4().Empty_1, false);
         {
         }
         {
-          tmp0_apply.zx(null);
+          tmp0_apply.close_9zy44b_k$(null);
         }
         tmp$ret$0 = tmp0_apply;
       }
@@ -6658,13 +11792,13 @@
   function Companion_3() {
     Companion_instance_3 = this;
     var tmp = this;
-    tmp.i1h_1 = lazy(ByteReadChannel$Companion$Empty$delegate$lambda());
+    tmp.Empty$delegate_1 = lazy(ByteReadChannel$Companion$Empty$delegate$lambda());
   }
-  Companion_3.prototype.n1b = function () {
+  Companion_3.prototype.get_Empty_i9b85g_k$ = function () {
     var tmp$ret$0;
     {
       var tmp0_getValue = Empty$factory();
-      tmp$ret$0 = this.i1h_1.s();
+      tmp$ret$0 = this.Empty$delegate_1.get_value_j01efc_k$();
     }
     return tmp$ret$0;
   };
@@ -6681,7 +11815,7 @@
   ByteReadChannel_1.$metadata$ = interfaceMeta('ByteReadChannel');
   function Empty$factory() {
     return getPropertyCallableRef('Empty', 1, KProperty1, function (receiver) {
-      return receiver.n1b();
+      return receiver.get_Empty_i9b85g_k$();
     }, null);
   }
   function ByteWriteChannel() {
@@ -6690,10 +11824,20 @@
   function DefaultAllocator() {
     DefaultAllocator_instance = this;
   }
-  DefaultAllocator.prototype.t1a = function (size) {
+  DefaultAllocator.prototype.alloc_d56nv8_k$ = function (size) {
     return new Memory(new DataView(new ArrayBuffer(size)));
   };
-  DefaultAllocator.prototype.u1a = function (instance) {
+  DefaultAllocator.prototype.alloc_ipzplr_k$ = function (size) {
+    var tmp$ret$0;
+    {
+      if (size.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
+        failLongToIntConversion(size, 'size');
+      }
+      tmp$ret$0 = size.toInt_1tsl84_k$();
+    }
+    return new Memory(new DataView(new ArrayBuffer(tmp$ret$0)));
+  };
+  DefaultAllocator.prototype.free_muwe56_k$ = function (instance) {
   };
   DefaultAllocator.$metadata$ = objectMeta('DefaultAllocator', [Allocator]);
   var DefaultAllocator_instance;
@@ -6722,13 +11866,27 @@
     var typedArray = tmp$ret$0;
     return of_0(Companion_getInstance_6(), typedArray, offset, length);
   }
+  function of$default(_this__u8e3s4, array, offset, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      offset = 0;
+    if (!(($mask0 & 4) === 0))
+      length = array.length - offset | 0;
+    return of(_this__u8e3s4, array, offset, length);
+  }
   function of_0(_this__u8e3s4, view, offset, length) {
     return of_1(Companion_getInstance_6(), view.buffer, view.byteOffset + offset | 0, length);
+  }
+  function of$default_0(_this__u8e3s4, view, offset, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      offset = 0;
+    if (!(($mask0 & 4) === 0))
+      length = view.byteLength;
+    return of_0(_this__u8e3s4, view, offset, length);
   }
   function of_1(_this__u8e3s4, buffer, offset, length) {
     return new Memory(new DataView(buffer, offset, length));
   }
-  function of$default(_this__u8e3s4, buffer, offset, length, $mask0, $handler) {
+  function of$default_1(_this__u8e3s4, buffer, offset, length, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
       offset = 0;
     if (!(($mask0 & 4) === 0))
@@ -6737,8 +11895,11 @@
   }
   function Companion_4() {
     Companion_instance_4 = this;
-    this.v1e_1 = new Memory(new DataView(new ArrayBuffer(0)));
+    this.Empty_1 = new Memory(new DataView(new ArrayBuffer(0)));
   }
+  Companion_4.prototype.get_Empty_i9b85g_k$ = function () {
+    return this.Empty_1;
+  };
   Companion_4.$metadata$ = objectMeta('Companion');
   var Companion_instance_4;
   function Companion_getInstance_6() {
@@ -6748,24 +11909,44 @@
   }
   function Memory(view) {
     Companion_getInstance_6();
-    this.s1a_1 = view;
+    this.view_1 = view;
   }
-  Memory.prototype.y1h = function () {
-    return this.s1a_1;
+  Memory.prototype.get_view_wow8a6_k$ = function () {
+    return this.view_1;
   };
-  Memory.prototype.g = function () {
-    return toLong(this.s1a_1.byteLength);
+  Memory.prototype.get_size_woubt6_k$ = function () {
+    return toLong(this.view_1.byteLength);
   };
-  Memory.prototype.z1h = function () {
-    return this.s1a_1.byteLength;
+  Memory.prototype.get_size32_jht1rd_k$ = function () {
+    return this.view_1.byteLength;
   };
-  Memory.prototype.a1i = function (index) {
-    return this.s1a_1.getInt8(index);
+  Memory.prototype.loadAt_624qqg_k$ = function (index) {
+    return this.view_1.getInt8(index);
   };
-  Memory.prototype.b1i = function (index, value) {
-    this.s1a_1.setInt8(index, value);
+  Memory.prototype.loadAt_p9b2sj_k$ = function (index) {
+    var tmp$ret$0;
+    {
+      if (index.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
+        failLongToIntConversion(index, 'index');
+      }
+      tmp$ret$0 = index.toInt_1tsl84_k$();
+    }
+    return this.view_1.getInt8(tmp$ret$0);
   };
-  Memory.prototype.c1i = function (offset, length) {
+  Memory.prototype.storeAt_fs3ojy_k$ = function (index, value) {
+    this.view_1.setInt8(index, value);
+  };
+  Memory.prototype.storeAt_64gupp_k$ = function (index, value) {
+    var tmp$ret$0;
+    {
+      if (index.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
+        failLongToIntConversion(index, 'index');
+      }
+      tmp$ret$0 = index.toInt_1tsl84_k$();
+    }
+    this.view_1.setInt8(tmp$ret$0, value);
+  };
+  Memory.prototype.slice_z7nwcu_k$ = function (offset, length) {
     {
       var tmp0_require = offset >= 0;
       {
@@ -6795,21 +11976,65 @@
     var tmp = toLong(offset + length | 0);
     var tmp$ret$2;
     {
-      tmp$ret$2 = toLong(this.s1a_1.byteLength);
+      tmp$ret$2 = toLong(this.view_1.byteLength);
     }
-    if (tmp.a1(tmp$ret$2) > 0) {
+    if (tmp.compareTo_n4fqi2_k$(tmp$ret$2) > 0) {
       var tmp$ret$3;
       {
-        tmp$ret$3 = toLong(this.s1a_1.byteLength);
+        tmp$ret$3 = toLong(this.view_1.byteLength);
       }
       throw IndexOutOfBoundsException_init_$Create$('offset + length > size: ' + offset + ' + ' + length + ' > ' + toString(tmp$ret$3));
     }
-    return new Memory(new DataView(this.s1a_1.buffer, this.s1a_1.byteOffset + offset | 0, length));
+    return new Memory(new DataView(this.view_1.buffer, this.view_1.byteOffset + offset | 0, length));
   };
-  Memory.prototype.v1a = function (destination, offset, length, destinationOffset) {
-    var src = new Int8Array(this.s1a_1.buffer, this.s1a_1.byteOffset + offset | 0, length);
-    var dst = new Int8Array(destination.s1a_1.buffer, destination.s1a_1.byteOffset + destinationOffset | 0, length);
+  Memory.prototype.slice_xkfcbe_k$ = function (offset, length) {
+    var tmp$ret$0;
+    {
+      if (offset.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
+        failLongToIntConversion(offset, 'offset');
+      }
+      tmp$ret$0 = offset.toInt_1tsl84_k$();
+    }
+    var tmp = tmp$ret$0;
+    var tmp$ret$1;
+    {
+      if (length.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
+        failLongToIntConversion(length, 'length');
+      }
+      tmp$ret$1 = length.toInt_1tsl84_k$();
+    }
+    return this.slice_z7nwcu_k$(tmp, tmp$ret$1);
+  };
+  Memory.prototype.copyTo_b1j9k9_k$ = function (destination, offset, length, destinationOffset) {
+    var src = new Int8Array(this.view_1.buffer, this.view_1.byteOffset + offset | 0, length);
+    var dst = new Int8Array(destination.view_1.buffer, destination.view_1.byteOffset + destinationOffset | 0, length);
     dst.set(src);
+  };
+  Memory.prototype.copyTo_w9dpzg_k$ = function (destination, offset, length, destinationOffset) {
+    var tmp$ret$0;
+    {
+      if (offset.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
+        failLongToIntConversion(offset, 'offset');
+      }
+      tmp$ret$0 = offset.toInt_1tsl84_k$();
+    }
+    var tmp = tmp$ret$0;
+    var tmp$ret$1;
+    {
+      if (length.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
+        failLongToIntConversion(length, 'length');
+      }
+      tmp$ret$1 = length.toInt_1tsl84_k$();
+    }
+    var tmp_0 = tmp$ret$1;
+    var tmp$ret$2;
+    {
+      if (destinationOffset.compareTo_n4fqi2_k$(toLong(IntCompanionObject_getInstance().MAX_VALUE_1)) >= 0) {
+        failLongToIntConversion(destinationOffset, 'destinationOffset');
+      }
+      tmp$ret$2 = destinationOffset.toInt_1tsl84_k$();
+    }
+    this.copyTo_b1j9k9_k$(destination, tmp, tmp_0, tmp$ret$2);
   };
   Memory.$metadata$ = classMeta('Memory');
   function copyTo_0(_this__u8e3s4, destination, offset, length, destinationOffset) {
@@ -6818,33 +12043,76 @@
       tmp$ret$0 = destination;
     }
     var to = tmp$ret$0;
-    var from = new Int8Array(_this__u8e3s4.s1a_1.buffer, _this__u8e3s4.s1a_1.byteOffset + offset | 0, length);
+    var from = new Int8Array(_this__u8e3s4.view_1.buffer, _this__u8e3s4.view_1.byteOffset + offset | 0, length);
     to.set(from, destinationOffset);
   }
   function copyTo_1(_this__u8e3s4, destination, offset, length, destinationOffset) {
-    copyTo_2(_this__u8e3s4.buffer, destination, offset + _this__u8e3s4.byteOffset | 0, length, destinationOffset);
+    copyTo_3(_this__u8e3s4.buffer, destination, offset + _this__u8e3s4.byteOffset | 0, length, destinationOffset);
   }
   function copyTo_2(_this__u8e3s4, destination, offset, length, destinationOffset) {
+    var to = new Int8Array(destination, destinationOffset, length);
+    var from = new Int8Array(_this__u8e3s4.view_1.buffer, _this__u8e3s4.view_1.byteOffset + offset | 0, length);
+    to.set(from, 0);
+  }
+  function copyTo_3(_this__u8e3s4, destination, offset, length, destinationOffset) {
     var from = new Int8Array(_this__u8e3s4, offset, length);
-    var to = new Int8Array(destination.s1a_1.buffer, destination.s1a_1.byteOffset + destinationOffset | 0, length);
+    var to = new Int8Array(destination.view_1.buffer, destination.view_1.byteOffset + destinationOffset | 0, length);
     to.set(from, 0);
   }
   function storeShortAt(_this__u8e3s4, offset, value) {
-    _this__u8e3s4.s1a_1.setInt16(offset, value, false);
+    _this__u8e3s4.view_1.setInt16(offset, value, false);
+  }
+  function storeIntAt(_this__u8e3s4, offset, value) {
+    _this__u8e3s4.view_1.setInt32(offset, value, false);
+  }
+  function storeLongAt(_this__u8e3s4, offset, value) {
+    _this__u8e3s4.view_1.setInt32(offset, value.shr_wjue3g_k$(32).toInt_1tsl84_k$(), false);
+    _this__u8e3s4.view_1.setInt32(offset + 4 | 0, value.and_jhajnj_k$(new Long(-1, 0)).toInt_1tsl84_k$(), false);
+  }
+  function storeFloatAt(_this__u8e3s4, offset, value) {
+    _this__u8e3s4.view_1.setFloat32(offset, value, false);
+  }
+  function storeDoubleAt(_this__u8e3s4, offset, value) {
+    _this__u8e3s4.view_1.setFloat64(offset, value, false);
   }
   function loadShortAt(_this__u8e3s4, offset) {
-    return _this__u8e3s4.s1a_1.getInt16(offset, false);
+    return _this__u8e3s4.view_1.getInt16(offset, false);
+  }
+  function loadIntAt(_this__u8e3s4, offset) {
+    return _this__u8e3s4.view_1.getInt32(offset, false);
+  }
+  function loadLongAt(_this__u8e3s4, offset) {
+    return toLong(_this__u8e3s4.view_1.getUint32(offset, false)).shl_po5ip6_k$(32).or_s401rn_k$(toLong(_this__u8e3s4.view_1.getUint32(offset + 4 | 0, false)));
+  }
+  function loadFloatAt(_this__u8e3s4, offset) {
+    return _this__u8e3s4.view_1.getFloat32(offset, false);
+  }
+  function loadDoubleAt(_this__u8e3s4, offset) {
+    return _this__u8e3s4.view_1.getFloat64(offset, false);
+  }
+  function get_isLittleEndianPlatform() {
+    init_properties_PrimitiveArraysJs_kt_gd0gp6();
+    return isLittleEndianPlatform;
+  }
+  var isLittleEndianPlatform;
+  var properties_initialized_PrimitiveArraysJs_kt_2zxjae;
+  function init_properties_PrimitiveArraysJs_kt_gd0gp6() {
+    if (properties_initialized_PrimitiveArraysJs_kt_2zxjae) {
+    } else {
+      properties_initialized_PrimitiveArraysJs_kt_2zxjae = true;
+      isLittleEndianPlatform = Companion_getInstance_8().nativeOrder_spqstz_k$() === ByteOrder_LITTLE_ENDIAN_getInstance();
+    }
   }
   function Companion_5() {
     Companion_instance_5 = this;
   }
-  Companion_5.prototype.d1i = function (name) {
+  Companion_5.prototype.forName_7lnpzh_k$ = function (name) {
     switch (name) {
       case 'UTF-8':
       case 'utf-8':
       case 'UTF8':
       case 'utf8':
-        return Charsets_getInstance().w1e_1;
+        return Charsets_getInstance().UTF_8__1;
     }
     var tmp;
     var tmp_0;
@@ -6897,9 +12165,75 @@
       tmp = name === 'Latin1';
     }
     if (tmp) {
-      return Charsets_getInstance().x1e_1;
+      return Charsets_getInstance().ISO_8859_1__1;
     }
     throw IllegalArgumentException_init_$Create$('Charset ' + name + ' is not supported');
+  };
+  Companion_5.prototype.isSupported_4w3rs3_k$ = function (charset) {
+    var tmp;
+    switch (charset) {
+      case 'UTF-8':
+      case 'utf-8':
+      case 'UTF8':
+      case 'utf8':
+        tmp = true;
+        break;
+      default:
+        var tmp_0;
+        var tmp_1;
+        switch (charset) {
+          case 'ISO-8859-1':
+          case 'iso-8859-1':
+            tmp_1 = true;
+            break;
+          default:
+            var tmp$ret$3;
+            {
+              var tmp_2 = _Char___init__impl__6a9atx(95);
+              var tmp_3 = _Char___init__impl__6a9atx(45);
+              var tmp0_let = replace$default(charset, tmp_2, tmp_3, false, 4, null);
+              {
+              }
+              var tmp$ret$2;
+              {
+                var tmp_4;
+                if (tmp0_let === 'iso-8859-1') {
+                  tmp_4 = true;
+                } else {
+                  var tmp$ret$1;
+                  {
+                    var tmp$ret$0;
+                    {
+                      tmp$ret$0 = tmp0_let;
+                    }
+                    tmp$ret$1 = tmp$ret$0.toLowerCase();
+                  }
+                  tmp_4 = tmp$ret$1 === 'iso-8859-1';
+                }
+                tmp$ret$2 = tmp_4;
+              }
+              tmp$ret$3 = tmp$ret$2;
+            }
+
+            tmp_1 = tmp$ret$3;
+            break;
+        }
+
+        if (tmp_1) {
+          tmp_0 = true;
+        } else {
+          tmp_0 = charset === 'latin1';
+        }
+
+        if (tmp_0) {
+          tmp = true;
+        } else {
+          tmp = false;
+        }
+
+        break;
+    }
+    return tmp;
   };
   Companion_5.$metadata$ = objectMeta('Companion');
   var Companion_instance_5;
@@ -6910,8 +12244,11 @@
   }
   function Charset(_name) {
     Companion_getInstance_7();
-    this.y1e_1 = _name;
+    this._name_1 = _name;
   }
+  Charset.prototype.get__name_inm79d_k$ = function () {
+    return this._name_1;
+  };
   Charset.prototype.equals = function (other) {
     if (this === other)
       return true;
@@ -6921,27 +12258,30 @@
       other;
     else
       THROW_CCE();
-    if (!(this.y1e_1 === other.y1e_1))
+    if (!(this._name_1 === other._name_1))
       return false;
     return true;
   };
   Charset.prototype.hashCode = function () {
-    return getStringHashCode(this.y1e_1);
+    return getStringHashCode(this._name_1);
   };
   Charset.prototype.toString = function () {
-    return this.y1e_1;
+    return this._name_1;
   };
   Charset.$metadata$ = classMeta('Charset');
   function get_name(_this__u8e3s4) {
-    return _this__u8e3s4.y1e_1;
+    return _this__u8e3s4._name_1;
   }
   function Charsets() {
     Charsets_instance = this;
-    this.w1e_1 = new CharsetImpl('UTF-8');
-    this.x1e_1 = new CharsetImpl('ISO-8859-1');
+    this.UTF_8__1 = new CharsetImpl('UTF-8');
+    this.ISO_8859_1__1 = new CharsetImpl('ISO-8859-1');
   }
-  Charsets.prototype.e1i = function () {
-    return this.w1e_1;
+  Charsets.prototype.get_UTF_8_ihn39z_k$ = function () {
+    return this.UTF_8__1;
+  };
+  Charsets.prototype.get_ISO_8859_1_y3qebr_k$ = function () {
+    return this.ISO_8859_1__1;
   };
   Charsets.$metadata$ = objectMeta('Charsets');
   var Charsets_instance;
@@ -6951,31 +12291,58 @@
     return Charsets_instance;
   }
   function CharsetDecoder(_charset) {
-    this.f1i_1 = _charset;
+    this._charset_1 = _charset;
   }
+  CharsetDecoder.prototype.get__charset_jf44ie_k$ = function () {
+    return this._charset_1;
+  };
   CharsetDecoder.$metadata$ = classMeta('CharsetDecoder');
   function encodeToByteArray_0(_this__u8e3s4, input, fromIndex, toIndex) {
     return encodeToByteArrayImpl1(_this__u8e3s4, input, fromIndex, toIndex);
   }
-  function CharsetEncoder(_charset) {
-    this.g1i_1 = _charset;
+  function encodeToByteArray$default(_this__u8e3s4, input, fromIndex, toIndex, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      fromIndex = 0;
+    if (!(($mask0 & 4) === 0))
+      toIndex = charSequenceLength(input);
+    return encodeToByteArray_0(_this__u8e3s4, input, fromIndex, toIndex);
   }
+  function CharsetEncoder(_charset) {
+    this._charset_1 = _charset;
+  }
+  CharsetEncoder.prototype.get__charset_jf44ie_k$ = function () {
+    return this._charset_1;
+  };
   CharsetEncoder.$metadata$ = classMeta('CharsetEncoder');
   function CharsetImpl(name) {
     Charset.call(this, name);
-    this.i1i_1 = name;
+    this.name_1 = name;
   }
-  CharsetImpl.prototype.z1e = function () {
+  CharsetImpl.prototype.get_name_woqyms_k$ = function () {
+    return this.name_1;
+  };
+  CharsetImpl.prototype.newEncoder_gqwcdg_k$ = function () {
     return new CharsetEncoderImpl(this);
   };
-  CharsetImpl.prototype.a1f = function () {
+  CharsetImpl.prototype.newDecoder_zcettw_k$ = function () {
     return new CharsetDecoderImpl(this);
   };
+  CharsetImpl.prototype.component1_7eebsc_k$ = function () {
+    return this.name_1;
+  };
+  CharsetImpl.prototype.copy_3t26ic_k$ = function (name) {
+    return new CharsetImpl(name);
+  };
+  CharsetImpl.prototype.copy$default_q3pzg4_k$ = function (name, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      name = this.name_1;
+    return this.copy_3t26ic_k$(name);
+  };
   CharsetImpl.prototype.toString = function () {
-    return 'CharsetImpl(name=' + this.i1i_1 + ')';
+    return 'CharsetImpl(name=' + this.name_1 + ')';
   };
   CharsetImpl.prototype.hashCode = function () {
-    return getStringHashCode(this.i1i_1);
+    return getStringHashCode(this.name_1);
   };
   CharsetImpl.prototype.equals = function (other) {
     if (this === other)
@@ -6983,20 +12350,34 @@
     if (!(other instanceof CharsetImpl))
       return false;
     var tmp0_other_with_cast = other instanceof CharsetImpl ? other : THROW_CCE();
-    if (!(this.i1i_1 === tmp0_other_with_cast.i1i_1))
+    if (!(this.name_1 === tmp0_other_with_cast.name_1))
       return false;
     return true;
   };
   CharsetImpl.$metadata$ = classMeta('CharsetImpl', undefined, undefined, undefined, undefined, Charset.prototype);
+  function _get_charset__c43qgr($this) {
+    return $this.charset_1;
+  }
+  function component1($this) {
+    return $this.charset_1;
+  }
   function CharsetEncoderImpl(charset) {
     CharsetEncoder.call(this, charset);
-    this.k1i_1 = charset;
+    this.charset_1 = charset;
   }
+  CharsetEncoderImpl.prototype.copy_t1wufg_k$ = function (charset) {
+    return new CharsetEncoderImpl(charset);
+  };
+  CharsetEncoderImpl.prototype.copy$default_wk0p1o_k$ = function (charset, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      charset = this.charset_1;
+    return this.copy_t1wufg_k$(charset);
+  };
   CharsetEncoderImpl.prototype.toString = function () {
-    return 'CharsetEncoderImpl(charset=' + this.k1i_1 + ')';
+    return 'CharsetEncoderImpl(charset=' + this.charset_1 + ')';
   };
   CharsetEncoderImpl.prototype.hashCode = function () {
-    return this.k1i_1.hashCode();
+    return this.charset_1.hashCode();
   };
   CharsetEncoderImpl.prototype.equals = function (other) {
     if (this === other)
@@ -7004,20 +12385,34 @@
     if (!(other instanceof CharsetEncoderImpl))
       return false;
     var tmp0_other_with_cast = other instanceof CharsetEncoderImpl ? other : THROW_CCE();
-    if (!this.k1i_1.equals(tmp0_other_with_cast.k1i_1))
+    if (!this.charset_1.equals(tmp0_other_with_cast.charset_1))
       return false;
     return true;
   };
   CharsetEncoderImpl.$metadata$ = classMeta('CharsetEncoderImpl', undefined, undefined, undefined, undefined, CharsetEncoder.prototype);
+  function _get_charset__c43qgr_0($this) {
+    return $this.charset_1;
+  }
+  function component1_0($this) {
+    return $this.charset_1;
+  }
   function CharsetDecoderImpl(charset) {
     CharsetDecoder.call(this, charset);
-    this.m1i_1 = charset;
+    this.charset_1 = charset;
   }
+  CharsetDecoderImpl.prototype.copy_t1wufg_k$ = function (charset) {
+    return new CharsetDecoderImpl(charset);
+  };
+  CharsetDecoderImpl.prototype.copy$default_wk0p1o_k$ = function (charset, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      charset = this.charset_1;
+    return this.copy_t1wufg_k$(charset);
+  };
   CharsetDecoderImpl.prototype.toString = function () {
-    return 'CharsetDecoderImpl(charset=' + this.m1i_1 + ')';
+    return 'CharsetDecoderImpl(charset=' + this.charset_1 + ')';
   };
   CharsetDecoderImpl.prototype.hashCode = function () {
-    return this.m1i_1.hashCode();
+    return this.charset_1.hashCode();
   };
   CharsetDecoderImpl.prototype.equals = function (other) {
     if (this === other)
@@ -7025,7 +12420,7 @@
     if (!(other instanceof CharsetDecoderImpl))
       return false;
     var tmp0_other_with_cast = other instanceof CharsetDecoderImpl ? other : THROW_CCE();
-    if (!this.m1i_1.equals(tmp0_other_with_cast.m1i_1))
+    if (!this.charset_1.equals(tmp0_other_with_cast.charset_1))
       return false;
     return true;
   };
@@ -7051,7 +12446,7 @@
           var tmp$ret$1;
           {
             var tmp0__get_readRemaining__u3cy9h = current;
-            tmp$ret$1 = tmp0__get_readRemaining__u3cy9h.s15_1 - tmp0__get_readRemaining__u3cy9h.r15_1 | 0;
+            tmp$ret$1 = tmp0__get_readRemaining__u3cy9h.writePosition_1 - tmp0__get_readRemaining__u3cy9h.readPosition_1 | 0;
           }
           var before = tmp$ret$1;
           var after;
@@ -7063,7 +12458,7 @@
                 var rem = max - charactersCopied | 0;
                 var tmp$ret$2;
                 {
-                  tmp$ret$2 = tmp0__anonymous__q1qw7t.s15_1 - tmp0__anonymous__q1qw7t.r15_1 | 0;
+                  tmp$ret$2 = tmp0__anonymous__q1qw7t.writePosition_1 - tmp0__anonymous__q1qw7t.readPosition_1 | 0;
                 }
                 var bufferSize = tmp$ret$2;
                 if (rem < bufferSize) {
@@ -7080,12 +12475,12 @@
                     }
                     var tmp$ret$9;
                     {
-                      var tmp0__anonymous__q1qw7t_0 = tmp0__anonymous__q1qw7t.q15_1;
-                      var tmp1__anonymous__uwfjfc = tmp0__anonymous__q1qw7t.r15_1;
-                      var tmp2__anonymous__z9zvc9 = tmp0__anonymous__q1qw7t.s15_1;
+                      var tmp0__anonymous__q1qw7t_0 = tmp0__anonymous__q1qw7t.memory_1;
+                      var tmp1__anonymous__uwfjfc = tmp0__anonymous__q1qw7t.readPosition_1;
+                      var tmp2__anonymous__z9zvc9 = tmp0__anonymous__q1qw7t.writePosition_1;
                       var tmp$ret$8;
                       {
-                        var tmp3__anonymous__ufb84q = new Int8Array(tmp0__anonymous__q1qw7t_0.s1a_1.buffer, tmp0__anonymous__q1qw7t_0.s1a_1.byteOffset + tmp1__anonymous__uwfjfc | 0, tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0);
+                        var tmp3__anonymous__ufb84q = new Int8Array(tmp0__anonymous__q1qw7t_0.view_1.buffer, tmp0__anonymous__q1qw7t_0.view_1.byteOffset + tmp1__anonymous__uwfjfc | 0, tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0);
                         var tmp$ret$7;
                         $l$block_2: {
                           try {
@@ -7096,7 +12491,7 @@
                                 var tmp$ret$5;
                                 {
                                   try {
-                                    tmp$ret$4 = decoder.n1i(tmp3__anonymous__ufb84q, decodeOptions(true));
+                                    tmp$ret$4 = decoder.decode_pc4594_k$(tmp3__anonymous__ufb84q, decodeOptions(true));
                                     break $l$block_1;
                                   } catch ($p) {
                                     if ($p instanceof Error) {
@@ -7122,14 +12517,14 @@
                           }
                         }
                         var decodedText = tmp$ret$7;
-                        dst.c(decodedText);
+                        dst.append_oz4qxs_k$(decodedText);
                         charactersCopied = charactersCopied + decodedText.length | 0;
                         tmp$ret$8 = tmp3__anonymous__ufb84q.byteLength;
                       }
                       tmp$ret$9 = tmp$ret$8;
                     }
                     var rc = tmp$ret$9;
-                    tmp0__anonymous__q1qw7t.x1b(rc);
+                    tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(rc);
                     tmp$ret$10 = rc;
                   }
                   tmp$ret$11 = tmp$ret$10;
@@ -7138,7 +12533,7 @@
                 if (charactersCopied === max) {
                   var tmp_1;
                   try {
-                    tmp_1 = decoder.o1i();
+                    tmp_1 = decoder.decode_m3924y_k$();
                   } catch ($p) {
                     var tmp_2;
                     {
@@ -7152,7 +12547,7 @@
                     tmp$ret$12 = charSequenceLength(tail) > 0;
                   }
                   if (tmp$ret$12) {
-                    tmp0__anonymous__q1qw7t.b1c(bufferSize);
+                    tmp0__anonymous__q1qw7t.rewind_7344q3_k$(bufferSize);
                   }
                   tmp_0 = 0;
                 } else if (charactersCopied < max) {
@@ -7167,7 +12562,7 @@
               var tmp$ret$13;
               {
                 var tmp1__get_readRemaining__qliyus = current;
-                tmp$ret$13 = tmp1__get_readRemaining__qliyus.s15_1 - tmp1__get_readRemaining__qliyus.r15_1 | 0;
+                tmp$ret$13 = tmp1__get_readRemaining__qliyus.writePosition_1 - tmp1__get_readRemaining__qliyus.readPosition_1 | 0;
               }
               after = tmp$ret$13;
             }
@@ -7186,7 +12581,7 @@
               var tmp$ret$14;
               {
                 var tmp2__get_endGap__m31424 = current;
-                tmp$ret$14 = tmp2__get_endGap__m31424.v15_1 - tmp2__get_endGap__m31424.u15_1 | 0;
+                tmp$ret$14 = tmp2__get_endGap__m31424.capacity_1 - tmp2__get_endGap__m31424.limit_1 | 0;
               }
               var tmp_5 = tmp$ret$14;
               Companion_getInstance_1();
@@ -7237,7 +12632,7 @@
             var tmp$ret$16;
             {
               var tmp0__get_readRemaining__u3cy9h_0 = current_0;
-              tmp$ret$16 = tmp0__get_readRemaining__u3cy9h_0.s15_1 - tmp0__get_readRemaining__u3cy9h_0.r15_1 | 0;
+              tmp$ret$16 = tmp0__get_readRemaining__u3cy9h_0.writePosition_1 - tmp0__get_readRemaining__u3cy9h_0.readPosition_1 | 0;
             }
             var before_0 = tmp$ret$16;
             var after_0;
@@ -7256,21 +12651,21 @@
                       }
                       var tmp$ret$18;
                       {
-                        var tmp0__anonymous__q1qw7t_1 = tmp1__anonymous__uwfjfc_0.q15_1;
-                        var tmp1__anonymous__uwfjfc_1 = tmp1__anonymous__uwfjfc_0.r15_1;
-                        var tmp2__anonymous__z9zvc9_0 = tmp1__anonymous__uwfjfc_0.s15_1;
+                        var tmp0__anonymous__q1qw7t_1 = tmp1__anonymous__uwfjfc_0.memory_1;
+                        var tmp1__anonymous__uwfjfc_1 = tmp1__anonymous__uwfjfc_0.readPosition_1;
+                        var tmp2__anonymous__z9zvc9_0 = tmp1__anonymous__uwfjfc_0.writePosition_1;
                         var tmp$ret$17;
                         {
-                          var tmp3__anonymous__ufb84q_0 = new Int8Array(tmp0__anonymous__q1qw7t_1.s1a_1.buffer, tmp0__anonymous__q1qw7t_1.s1a_1.byteOffset + tmp1__anonymous__uwfjfc_1 | 0, tmp2__anonymous__z9zvc9_0 - tmp1__anonymous__uwfjfc_1 | 0);
+                          var tmp3__anonymous__ufb84q_0 = new Int8Array(tmp0__anonymous__q1qw7t_1.view_1.buffer, tmp0__anonymous__q1qw7t_1.view_1.byteOffset + tmp1__anonymous__uwfjfc_1 | 0, tmp2__anonymous__z9zvc9_0 - tmp1__anonymous__uwfjfc_1 | 0);
                           var result = decodeBufferImpl(tmp3__anonymous__ufb84q_0, decoder, max - charactersCopied | 0);
-                          dst.c(result.p1i_1);
-                          charactersCopied = charactersCopied + result.p1i_1.length | 0;
-                          tmp$ret$17 = result.q1i_1;
+                          dst.append_oz4qxs_k$(result.charactersDecoded_1);
+                          charactersCopied = charactersCopied + result.charactersDecoded_1.length | 0;
+                          tmp$ret$17 = result.bytesConsumed_1;
                         }
                         tmp$ret$18 = tmp$ret$17;
                       }
                       var rc_0 = tmp$ret$18;
-                      tmp1__anonymous__uwfjfc_0.x1b(rc_0);
+                      tmp1__anonymous__uwfjfc_0.discardExact_ijr9ip_k$(rc_0);
                       tmp$ret$19 = rc_0;
                     }
                     tmp$ret$20 = tmp$ret$19;
@@ -7291,7 +12686,7 @@
                 var tmp$ret$22;
                 {
                   var tmp1__get_readRemaining__qliyus_0 = current_0;
-                  tmp$ret$22 = tmp1__get_readRemaining__qliyus_0.s15_1 - tmp1__get_readRemaining__qliyus_0.r15_1 | 0;
+                  tmp$ret$22 = tmp1__get_readRemaining__qliyus_0.writePosition_1 - tmp1__get_readRemaining__qliyus_0.readPosition_1 | 0;
                 }
                 after_0 = tmp$ret$22;
               }
@@ -7310,7 +12705,7 @@
                 var tmp$ret$23;
                 {
                   var tmp2__get_endGap__m31424_0 = current_0;
-                  tmp$ret$23 = tmp2__get_endGap__m31424_0.v15_1 - tmp2__get_endGap__m31424_0.u15_1 | 0;
+                  tmp$ret$23 = tmp2__get_endGap__m31424_0.capacity_1 - tmp2__get_endGap__m31424_0.limit_1 | 0;
                 }
                 var tmp_10 = tmp$ret$23;
                 Companion_getInstance_1();
@@ -7362,11 +12757,11 @@
         }
       }
     }
-    if (get_charset_0(_this__u8e3s4).equals(Charsets_getInstance().x1e_1)) {
+    if (get_charset_0(_this__u8e3s4).equals(Charsets_getInstance().ISO_8859_1__1)) {
       return encodeISO88591(input, fromIndex, toIndex, dst);
     }
     {
-      var tmp1_require = get_charset_0(_this__u8e3s4) === Charsets_getInstance().w1e_1;
+      var tmp1_require = get_charset_0(_this__u8e3s4) === Charsets_getInstance().UTF_8__1;
       {
       }
       if (!tmp1_require) {
@@ -7382,7 +12777,7 @@
     var start = fromIndex;
     var tmp$ret$2;
     {
-      tmp$ret$2 = dst.u15_1 - dst.s15_1 | 0;
+      tmp$ret$2 = dst.limit_1 - dst.writePosition_1 | 0;
     }
     var dstRemaining = tmp$ret$2;
     $l$loop: while (start < toIndex ? dstRemaining > 0 : false) {
@@ -7403,7 +12798,7 @@
       var array1 = encoder.encode(tmp$ret$4);
       if (array1.length > dstRemaining)
         break $l$loop;
-      writeFully$default_1(dst, array1, 0, 0, 6, null);
+      writeFully$default_2(dst, array1, 0, 0, 6, null);
       start = endIndexExclusive;
       dstRemaining = dstRemaining - array1.length | 0;
     }
@@ -7417,19 +12812,19 @@
       return '';
     var tmp$ret$0;
     {
-      tmp$ret$0 = input.f17_1 - input.e17_1 | 0;
+      tmp$ret$0 = input.headEndExclusive_1 - input.headPosition_1 | 0;
     }
     if (tmp$ret$0 >= inputLength) {
-      var decoder = Decoder_0(get_charset(_this__u8e3s4).y1e_1, true);
-      var head = input.o1d();
-      var view = input.d17_1.s1a_1;
+      var decoder = Decoder_0(get_charset(_this__u8e3s4)._name_1, true);
+      var head = input.get_head_won7e1_k$();
+      var view = input.headMemory_1.view_1;
       var tmp$ret$2;
       $l$block: {
         try {
           var tmp$ret$1;
           {
-            var subView = (head.p1b() === 0 ? inputLength === view.byteLength : false) ? view : new DataView(view.buffer, view.byteOffset + head.p1b() | 0, inputLength);
-            tmp$ret$1 = decoder.r1i(subView);
+            var subView = (head.get_readPosition_70qxnc_k$() === 0 ? inputLength === view.byteLength : false) ? view : new DataView(view.buffer, view.byteOffset + head.get_readPosition_70qxnc_k$() | 0, inputLength);
+            tmp$ret$1 = decoder.decode_ne2v88_k$(subView);
           }
           tmp$ret$2 = tmp$ret$1;
           break $l$block;
@@ -7443,21 +12838,21 @@
         }
       }
       var text = tmp$ret$2;
-      input.x1b(inputLength);
+      input.discardExact_ijr9ip_k$(inputLength);
       return text;
     }
     return decodeExactBytesSlow(_this__u8e3s4, input, inputLength);
   }
   function get_charset(_this__u8e3s4) {
-    return _this__u8e3s4.f1i_1;
+    return _this__u8e3s4._charset_1;
   }
   function get_charset_0(_this__u8e3s4) {
-    return _this__u8e3s4.g1i_1;
+    return _this__u8e3s4._charset_1;
   }
   function decodeExactBytesSlow(_this__u8e3s4, input, inputLength) {
     var decoder = Decoder_0(get_name(get_charset(_this__u8e3s4)), true);
     var inputRemaining = inputLength;
-    var sb = StringBuilder_init_$Create$(inputLength);
+    var sb = StringBuilder_init_$Create$_0(inputLength);
     var tmp$ret$18;
     $l$block_4: {
       try {
@@ -7481,7 +12876,7 @@
                 var tmp$ret$1;
                 {
                   var tmp0__get_readRemaining__u3cy9h = current;
-                  tmp$ret$1 = tmp0__get_readRemaining__u3cy9h.s15_1 - tmp0__get_readRemaining__u3cy9h.r15_1 | 0;
+                  tmp$ret$1 = tmp0__get_readRemaining__u3cy9h.writePosition_1 - tmp0__get_readRemaining__u3cy9h.readPosition_1 | 0;
                 }
                 var before = tmp$ret$1;
                 var after;
@@ -7492,7 +12887,7 @@
                       var tmp0__anonymous__q1qw7t = current;
                       var tmp$ret$2;
                       {
-                        tmp$ret$2 = tmp0__anonymous__q1qw7t.s15_1 - tmp0__anonymous__q1qw7t.r15_1 | 0;
+                        tmp$ret$2 = tmp0__anonymous__q1qw7t.writePosition_1 - tmp0__anonymous__q1qw7t.readPosition_1 | 0;
                       }
                       var chunkSize = tmp$ret$2;
                       var tmp$ret$3;
@@ -7502,14 +12897,14 @@
                       }
                       var size_0 = tmp$ret$3;
                       var tmp_0;
-                      if (tmp0__anonymous__q1qw7t.r15_1 === 0 ? tmp0__anonymous__q1qw7t.q15_1.s1a_1.byteLength === size_0 : false) {
+                      if (tmp0__anonymous__q1qw7t.readPosition_1 === 0 ? tmp0__anonymous__q1qw7t.memory_1.view_1.byteLength === size_0 : false) {
                         var tmp$ret$4;
                         $l$block_0: {
-                          var tmp1_decodeStream = tmp0__anonymous__q1qw7t.q15_1.s1a_1;
+                          var tmp1_decodeStream = tmp0__anonymous__q1qw7t.memory_1.view_1;
                           var tmp$ret$5;
                           {
                             try {
-                              tmp$ret$4 = decoder.n1i(tmp1_decodeStream, decodeOptions(true));
+                              tmp$ret$4 = decoder.decode_pc4594_k$(tmp1_decodeStream, decodeOptions(true));
                               break $l$block_0;
                             } catch ($p) {
                               if ($p instanceof Error) {
@@ -7525,11 +12920,11 @@
                       } else {
                         var tmp$ret$6;
                         $l$block_1: {
-                          var tmp2_decodeStream = new Int8Array(tmp0__anonymous__q1qw7t.q15_1.s1a_1.buffer, tmp0__anonymous__q1qw7t.q15_1.s1a_1.byteOffset + tmp0__anonymous__q1qw7t.r15_1 | 0, size_0);
+                          var tmp2_decodeStream = new Int8Array(tmp0__anonymous__q1qw7t.memory_1.view_1.buffer, tmp0__anonymous__q1qw7t.memory_1.view_1.byteOffset + tmp0__anonymous__q1qw7t.readPosition_1 | 0, size_0);
                           var tmp$ret$7;
                           {
                             try {
-                              tmp$ret$6 = decoder.n1i(tmp2_decodeStream, decodeOptions(true));
+                              tmp$ret$6 = decoder.decode_pc4594_k$(tmp2_decodeStream, decodeOptions(true));
                               break $l$block_1;
                             } catch ($p) {
                               if ($p instanceof Error) {
@@ -7544,8 +12939,8 @@
                         tmp_0 = tmp$ret$6;
                       }
                       var text = tmp_0;
-                      sb.fc(text);
-                      tmp0__anonymous__q1qw7t.x1b(size_0);
+                      sb.append_ssq29y_k$(text);
+                      tmp0__anonymous__q1qw7t.discardExact_ijr9ip_k$(size_0);
                       inputRemaining = inputRemaining - size_0 | 0;
                       tmp$ret$8 = inputRemaining > 0 ? 6 : 0;
                     }
@@ -7554,7 +12949,7 @@
                     var tmp$ret$9;
                     {
                       var tmp1__get_readRemaining__qliyus = current;
-                      tmp$ret$9 = tmp1__get_readRemaining__qliyus.s15_1 - tmp1__get_readRemaining__qliyus.r15_1 | 0;
+                      tmp$ret$9 = tmp1__get_readRemaining__qliyus.writePosition_1 - tmp1__get_readRemaining__qliyus.readPosition_1 | 0;
                     }
                     after = tmp$ret$9;
                   }
@@ -7573,7 +12968,7 @@
                     var tmp$ret$10;
                     {
                       var tmp2__get_endGap__m31424 = current;
-                      tmp$ret$10 = tmp2__get_endGap__m31424.v15_1 - tmp2__get_endGap__m31424.u15_1 | 0;
+                      tmp$ret$10 = tmp2__get_endGap__m31424.capacity_1 - tmp2__get_endGap__m31424.limit_1 | 0;
                     }
                     var tmp_3 = tmp$ret$10;
                     Companion_getInstance_1();
@@ -7624,7 +13019,7 @@
                     var tmp1__anonymous__uwfjfc = current_0;
                     var tmp$ret$12;
                     {
-                      tmp$ret$12 = tmp1__anonymous__uwfjfc.s15_1 - tmp1__anonymous__uwfjfc.r15_1 | 0;
+                      tmp$ret$12 = tmp1__anonymous__uwfjfc.writePosition_1 - tmp1__anonymous__uwfjfc.readPosition_1 | 0;
                     }
                     var chunkSize_0 = tmp$ret$12;
                     var tmp$ret$13;
@@ -7634,16 +13029,16 @@
                     }
                     var size_1 = tmp$ret$13;
                     var tmp_6;
-                    if (tmp1__anonymous__uwfjfc.r15_1 === 0 ? tmp1__anonymous__uwfjfc.q15_1.s1a_1.byteLength === size_1 : false) {
-                      tmp_6 = decoder.r1i(tmp1__anonymous__uwfjfc.q15_1.s1a_1);
+                    if (tmp1__anonymous__uwfjfc.readPosition_1 === 0 ? tmp1__anonymous__uwfjfc.memory_1.view_1.byteLength === size_1 : false) {
+                      tmp_6 = decoder.decode_ne2v88_k$(tmp1__anonymous__uwfjfc.memory_1.view_1);
                     } else {
                       var tmp$ret$14;
                       $l$block_3: {
-                        var tmp1_decodeStream_0 = new Int8Array(tmp1__anonymous__uwfjfc.q15_1.s1a_1.buffer, tmp1__anonymous__uwfjfc.q15_1.s1a_1.byteOffset + tmp1__anonymous__uwfjfc.r15_1 | 0, size_1);
+                        var tmp1_decodeStream_0 = new Int8Array(tmp1__anonymous__uwfjfc.memory_1.view_1.buffer, tmp1__anonymous__uwfjfc.memory_1.view_1.byteOffset + tmp1__anonymous__uwfjfc.readPosition_1 | 0, size_1);
                         var tmp$ret$15;
                         {
                           try {
-                            tmp$ret$14 = decoder.n1i(tmp1_decodeStream_0, decodeOptions(true));
+                            tmp$ret$14 = decoder.decode_pc4594_k$(tmp1_decodeStream_0, decodeOptions(true));
                             break $l$block_3;
                           } catch ($p) {
                             if ($p instanceof Error) {
@@ -7658,8 +13053,8 @@
                       tmp_6 = tmp$ret$14;
                     }
                     var text_0 = tmp_6;
-                    sb.fc(text_0);
-                    tmp1__anonymous__uwfjfc.x1b(size_1);
+                    sb.append_ssq29y_k$(text_0);
+                    tmp1__anonymous__uwfjfc.discardExact_ijr9ip_k$(size_1);
                     inputRemaining = inputRemaining - size_1 | 0;
                     tmp$ret$16 = true;
                   }
@@ -7686,7 +13081,7 @@
               }
             }
           }
-          tmp$ret$17 = sb.fc(decoder.o1i());
+          tmp$ret$17 = sb.append_ssq29y_k$(decoder.decode_m3924y_k$());
         }
         tmp$ret$18 = tmp$ret$17;
         break $l$block_4;
@@ -7714,21 +13109,37 @@
   }
   var MAX_CHARACTERS_SIZE_IN_BYTES;
   function DecodeBufferResult(charactersDecoded, bytesConsumed) {
-    this.p1i_1 = charactersDecoded;
-    this.q1i_1 = bytesConsumed;
+    this.charactersDecoded_1 = charactersDecoded;
+    this.bytesConsumed_1 = bytesConsumed;
   }
-  DecodeBufferResult.prototype.s1i = function () {
-    return this.p1i_1;
+  DecodeBufferResult.prototype.get_charactersDecoded_mdwn5p_k$ = function () {
+    return this.charactersDecoded_1;
   };
-  DecodeBufferResult.prototype.t1i = function () {
-    return this.q1i_1;
+  DecodeBufferResult.prototype.get_bytesConsumed_ic9jre_k$ = function () {
+    return this.bytesConsumed_1;
+  };
+  DecodeBufferResult.prototype.component1_7eebsc_k$ = function () {
+    return this.charactersDecoded_1;
+  };
+  DecodeBufferResult.prototype.component2_7eebsb_k$ = function () {
+    return this.bytesConsumed_1;
+  };
+  DecodeBufferResult.prototype.copy_ftyo7h_k$ = function (charactersDecoded, bytesConsumed) {
+    return new DecodeBufferResult(charactersDecoded, bytesConsumed);
+  };
+  DecodeBufferResult.prototype.copy$default_9ke13l_k$ = function (charactersDecoded, bytesConsumed, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      charactersDecoded = this.charactersDecoded_1;
+    if (!(($mask0 & 2) === 0))
+      bytesConsumed = this.bytesConsumed_1;
+    return this.copy_ftyo7h_k$(charactersDecoded, bytesConsumed);
   };
   DecodeBufferResult.prototype.toString = function () {
-    return 'DecodeBufferResult(charactersDecoded=' + this.p1i_1 + ', bytesConsumed=' + this.q1i_1 + ')';
+    return 'DecodeBufferResult(charactersDecoded=' + this.charactersDecoded_1 + ', bytesConsumed=' + this.bytesConsumed_1 + ')';
   };
   DecodeBufferResult.prototype.hashCode = function () {
-    var result = getStringHashCode(this.p1i_1);
-    result = imul(result, 31) + this.q1i_1 | 0;
+    var result = getStringHashCode(this.charactersDecoded_1);
+    result = imul(result, 31) + this.bytesConsumed_1 | 0;
     return result;
   };
   DecodeBufferResult.prototype.equals = function (other) {
@@ -7737,9 +13148,9 @@
     if (!(other instanceof DecodeBufferResult))
       return false;
     var tmp0_other_with_cast = other instanceof DecodeBufferResult ? other : THROW_CCE();
-    if (!(this.p1i_1 === tmp0_other_with_cast.p1i_1))
+    if (!(this.charactersDecoded_1 === tmp0_other_with_cast.charactersDecoded_1))
       return false;
-    if (!(this.q1i_1 === tmp0_other_with_cast.q1i_1))
+    if (!(this.bytesConsumed_1 === tmp0_other_with_cast.bytesConsumed_1))
       return false;
     return true;
   };
@@ -7749,8 +13160,8 @@
       return new DecodeBufferResult('', 0);
     }
     try {
-      var sizeInBytes = coerceAtMost(maxCharacters, _this__u8e3s4.byteLength);
-      var text = nativeDecoder.r1i(_this__u8e3s4.subarray(0, sizeInBytes));
+      var sizeInBytes = coerceAtMost_0(maxCharacters, _this__u8e3s4.byteLength);
+      var text = nativeDecoder.decode_ne2v88_k$(_this__u8e3s4.subarray(0, sizeInBytes));
       if (text.length <= maxCharacters) {
         return new DecodeBufferResult(text, sizeInBytes);
       }
@@ -7759,11 +13170,11 @@
     return decodeBufferImplSlow(_this__u8e3s4, nativeDecoder, maxCharacters);
   }
   function decodeBufferImplSlow(_this__u8e3s4, nativeDecoder, maxCharacters) {
-    var maxBytes = coerceAtMost(maxCharacters >= 268435455 ? IntCompanionObject_getInstance().v_1 : imul(maxCharacters, 8), _this__u8e3s4.byteLength);
+    var maxBytes = coerceAtMost_0(maxCharacters >= 268435455 ? IntCompanionObject_getInstance().MAX_VALUE_1 : imul(maxCharacters, 8), _this__u8e3s4.byteLength);
     var sizeInBytes = maxBytes;
     while (sizeInBytes > 8) {
       try {
-        var text = nativeDecoder.r1i(_this__u8e3s4.subarray(0, sizeInBytes));
+        var text = nativeDecoder.decode_ne2v88_k$(_this__u8e3s4.subarray(0, sizeInBytes));
         if (text.length <= maxCharacters) {
           return new DecodeBufferResult(text, sizeInBytes);
         }
@@ -7774,7 +13185,7 @@
     sizeInBytes = 8;
     while (sizeInBytes > 0) {
       try {
-        var text_0 = nativeDecoder.r1i(_this__u8e3s4.subarray(0, sizeInBytes));
+        var text_0 = nativeDecoder.decode_ne2v88_k$(_this__u8e3s4.subarray(0, sizeInBytes));
         if (text_0.length <= maxCharacters) {
           return new DecodeBufferResult(text_0, sizeInBytes);
         }
@@ -7788,7 +13199,7 @@
       try {
         var tmp$ret$0;
         {
-          tmp$ret$0 = nativeDecoder.r1i(_this__u8e3s4);
+          tmp$ret$0 = nativeDecoder.decode_ne2v88_k$(_this__u8e3s4);
         }
         tmp$ret$1 = tmp$ret$0;
         break $l$block;
@@ -7803,6 +13214,10 @@
     }
     throw new MalformedInputException('Unable to decode buffer');
   }
+  function get_MAX_CHARACTERS_COUNT() {
+    return MAX_CHARACTERS_COUNT;
+  }
+  var MAX_CHARACTERS_COUNT;
   function encodeISO88591(input, fromIndex, toIndex, dst) {
     if (fromIndex >= toIndex)
       return 0;
@@ -7816,12 +13231,12 @@
         }
         var tmp$ret$3;
         {
-          var tmp0__anonymous__q1qw7t = dst.q15_1;
-          var tmp1__anonymous__uwfjfc = dst.s15_1;
-          var tmp2__anonymous__z9zvc9 = dst.u15_1;
+          var tmp0__anonymous__q1qw7t = dst.memory_1;
+          var tmp1__anonymous__uwfjfc = dst.writePosition_1;
+          var tmp2__anonymous__z9zvc9 = dst.limit_1;
           var tmp$ret$2;
           {
-            var tmp3__anonymous__ufb84q = tmp0__anonymous__q1qw7t.c1i(tmp1__anonymous__uwfjfc, tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0).s1a_1;
+            var tmp3__anonymous__ufb84q = tmp0__anonymous__q1qw7t.slice_z7nwcu_k$(tmp1__anonymous__uwfjfc, tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0).view_1;
             var i8 = new Int8Array(tmp3__anonymous__ufb84q.buffer, tmp3__anonymous__ufb84q.byteOffset, tmp3__anonymous__ufb84q.byteLength);
             var writeIndex = 0;
             var inductionVariable = fromIndex;
@@ -7856,7 +13271,7 @@
           tmp$ret$3 = tmp$ret$2;
         }
         var rc = tmp$ret$3;
-        dst.y1b(rc);
+        dst.commitWritten_xiy30w_k$(rc);
         tmp$ret$4 = rc;
       }
       tmp$ret$5 = tmp$ret$4;
@@ -7865,6 +13280,33 @@
   }
   function failedToMapError(ch) {
     throw new MalformedInputException('The character with unicode point ' + ch + " couldn't be mapped to ISO-8859-1 character");
+  }
+  function readAvailable_0(_this__u8e3s4, dst, offset, length) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4.writePosition_1 > _this__u8e3s4.readPosition_1;
+    }
+    if (!tmp$ret$0)
+      return -1;
+    var tmp$ret$2;
+    {
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = _this__u8e3s4.writePosition_1 - _this__u8e3s4.readPosition_1 | 0;
+      }
+      var tmp0_minOf = tmp$ret$1;
+      tmp$ret$2 = Math.min(length, tmp0_minOf);
+    }
+    var readSize = tmp$ret$2;
+    readFully_5(_this__u8e3s4, dst, offset, readSize);
+    return readSize;
+  }
+  function readAvailable$default(_this__u8e3s4, dst, offset, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      offset = 0;
+    if (!(($mask0 & 4) === 0))
+      length = dst.byteLength - offset | 0;
+    return readAvailable_0(_this__u8e3s4, dst, offset, length);
   }
   function readDirectInt8Array(_this__u8e3s4, block) {
     {
@@ -7875,27 +13317,27 @@
       }
       var tmp$ret$0;
       {
-        var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-        var tmp1__anonymous__uwfjfc = _this__u8e3s4.r15_1;
-        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.s15_1;
-        tmp$ret$0 = block(new Int8Array(tmp0__anonymous__q1qw7t.s1a_1.buffer, tmp0__anonymous__q1qw7t.s1a_1.byteOffset + tmp1__anonymous__uwfjfc | 0, tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0));
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
+        tmp$ret$0 = block(new Int8Array(tmp0__anonymous__q1qw7t.view_1.buffer, tmp0__anonymous__q1qw7t.view_1.byteOffset + tmp1__anonymous__uwfjfc | 0, tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0));
       }
       var rc = tmp$ret$0;
-      _this__u8e3s4.x1b(rc);
+      _this__u8e3s4.discardExact_ijr9ip_k$(rc);
       tmp$ret$1 = rc;
     }
     return tmp$ret$1;
   }
-  function writeFully_4(_this__u8e3s4, src, offset, length) {
+  function writeFully_6(_this__u8e3s4, src, offset, length) {
     var tmp$ret$1;
     {
       {
       }
       var tmp$ret$0;
       {
-        var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-        var tmp1__anonymous__uwfjfc = _this__u8e3s4.s15_1;
-        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.u15_1;
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.writePosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.limit_1;
         if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < length) {
           throw new InsufficientSpaceException('Not enough free space to write ' + length + ' bytes');
         }
@@ -7903,16 +13345,44 @@
         tmp$ret$0 = length;
       }
       var rc = tmp$ret$0;
-      _this__u8e3s4.y1b(rc);
+      _this__u8e3s4.commitWritten_xiy30w_k$(rc);
       tmp$ret$1 = rc;
     }
   }
-  function writeFully$default_1(_this__u8e3s4, src, offset, length, $mask0, $handler) {
+  function writeFully$default_2(_this__u8e3s4, src, offset, length, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
       offset = 0;
     if (!(($mask0 & 4) === 0))
       length = src.byteLength - offset | 0;
-    return writeFully_4(_this__u8e3s4, src, offset, length);
+    return writeFully_6(_this__u8e3s4, src, offset, length);
+  }
+  function readFully_5(_this__u8e3s4, dst, offset, length) {
+    var tmp$ret$1;
+    {
+      {
+      }
+      var tmp$ret$0;
+      {
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.readPosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.writePosition_1;
+        if ((tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0) < length) {
+          throw new EOFException('Not enough bytes available to read ' + length + ' bytes');
+        }
+        copyTo_2(tmp0__anonymous__q1qw7t, dst, tmp1__anonymous__uwfjfc, length, offset);
+        tmp$ret$0 = length;
+      }
+      var rc = tmp$ret$0;
+      _this__u8e3s4.discardExact_ijr9ip_k$(rc);
+      tmp$ret$1 = rc;
+    }
+  }
+  function readFully$default_3(_this__u8e3s4, dst, offset, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      offset = 0;
+    if (!(($mask0 & 4) === 0))
+      length = dst.byteLength - offset | 0;
+    return readFully_5(_this__u8e3s4, dst, offset, length);
   }
   function writeDirect(_this__u8e3s4, block) {
     {
@@ -7923,24 +13393,198 @@
       }
       var tmp$ret$0;
       {
-        var tmp0__anonymous__q1qw7t = _this__u8e3s4.q15_1;
-        var tmp1__anonymous__uwfjfc = _this__u8e3s4.s15_1;
-        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.u15_1;
-        tmp$ret$0 = block(tmp0__anonymous__q1qw7t.c1i(tmp1__anonymous__uwfjfc, tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0).s1a_1);
+        var tmp0__anonymous__q1qw7t = _this__u8e3s4.memory_1;
+        var tmp1__anonymous__uwfjfc = _this__u8e3s4.writePosition_1;
+        var tmp2__anonymous__z9zvc9 = _this__u8e3s4.limit_1;
+        tmp$ret$0 = block(tmp0__anonymous__q1qw7t.slice_z7nwcu_k$(tmp1__anonymous__uwfjfc, tmp2__anonymous__z9zvc9 - tmp1__anonymous__uwfjfc | 0).view_1);
       }
       var rc = tmp$ret$0;
-      _this__u8e3s4.y1b(rc);
+      _this__u8e3s4.commitWritten_xiy30w_k$(rc);
       tmp$ret$1 = rc;
     }
     return tmp$ret$1;
   }
+  function _get_native__4ncbvw($this) {
+    return $this.native_1;
+  }
+  var ByteOrder_BIG_ENDIAN_instance;
+  var ByteOrder_LITTLE_ENDIAN_instance;
+  function Companion_6() {
+    Companion_instance_6 = this;
+    var buffer = new ArrayBuffer(4);
+    var arr = new Int32Array(buffer);
+    var view = new DataView(buffer);
+    {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = arr;
+      }
+      tmp$ret$0[0] = 287454020;
+    }
+    this.native_1 = view.getInt32(0, true) === 287454020 ? ByteOrder_LITTLE_ENDIAN_getInstance() : ByteOrder_BIG_ENDIAN_getInstance();
+  }
+  Companion_6.prototype.nativeOrder_spqstz_k$ = function () {
+    return this.native_1;
+  };
+  Companion_6.$metadata$ = objectMeta('Companion');
+  var Companion_instance_6;
+  function Companion_getInstance_8() {
+    ByteOrder_initEntries();
+    if (Companion_instance_6 == null)
+      new Companion_6();
+    return Companion_instance_6;
+  }
+  function values() {
+    return [ByteOrder_BIG_ENDIAN_getInstance(), ByteOrder_LITTLE_ENDIAN_getInstance()];
+  }
+  function valueOf(value) {
+    switch (value) {
+      case 'BIG_ENDIAN':
+        return ByteOrder_BIG_ENDIAN_getInstance();
+      case 'LITTLE_ENDIAN':
+        return ByteOrder_LITTLE_ENDIAN_getInstance();
+      default:
+        ByteOrder_initEntries();
+        THROW_ISE();
+        break;
+    }
+  }
+  var ByteOrder_entriesInitialized;
+  function ByteOrder_initEntries() {
+    if (ByteOrder_entriesInitialized)
+      return Unit_getInstance();
+    ByteOrder_entriesInitialized = true;
+    ByteOrder_BIG_ENDIAN_instance = new ByteOrder('BIG_ENDIAN', 0);
+    ByteOrder_LITTLE_ENDIAN_instance = new ByteOrder('LITTLE_ENDIAN', 1);
+    Companion_getInstance_8();
+  }
+  function ByteOrder(name, ordinal) {
+    Enum.call(this, name, ordinal);
+  }
+  ByteOrder.$metadata$ = classMeta('ByteOrder', undefined, undefined, undefined, undefined, Enum.prototype);
+  function ByteOrder_BIG_ENDIAN_getInstance() {
+    ByteOrder_initEntries();
+    return ByteOrder_BIG_ENDIAN_instance;
+  }
+  function ByteOrder_LITTLE_ENDIAN_getInstance() {
+    ByteOrder_initEntries();
+    return ByteOrder_LITTLE_ENDIAN_instance;
+  }
   function Closeable() {
   }
   Closeable.$metadata$ = interfaceMeta('Closeable');
+  function readAvailable_1(_this__u8e3s4, dst, offset, length) {
+    var remaining = _this__u8e3s4.get_remaining_mwegr1_k$();
+    if (remaining.equals(new Long(0, 0)))
+      return -1;
+    var tmp$ret$0;
+    {
+      var tmp0_minOf = toLong(length);
+      tmp$ret$0 = remaining.compareTo_n4fqi2_k$(tmp0_minOf) <= 0 ? remaining : tmp0_minOf;
+    }
+    var size = tmp$ret$0.toInt_1tsl84_k$();
+    readFully_6(_this__u8e3s4, dst, offset, size);
+    return size;
+  }
+  function readAvailable$default_0(_this__u8e3s4, dst, offset, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      offset = 0;
+    if (!(($mask0 & 4) === 0))
+      length = dst.byteLength - offset | 0;
+    return readAvailable_1(_this__u8e3s4, dst, offset, length);
+  }
+  function readFully_6(_this__u8e3s4, dst, offset, length) {
+    if (_this__u8e3s4.get_remaining_mwegr1_k$().compareTo_n4fqi2_k$(toLong(length)) < 0) {
+      throw IllegalArgumentException_init_$Create$('Not enough bytes available (' + toString(_this__u8e3s4.get_remaining_mwegr1_k$()) + ') to read ' + length + ' bytes');
+    }
+    var copied = 0;
+    var tmp$ret$0;
+    $l$block: {
+      var release = true;
+      var tmp0_elvis_lhs = prepareReadFirstHead(_this__u8e3s4, 1);
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        tmp$ret$0 = Unit_getInstance();
+        break $l$block;
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      var current = tmp;
+      try {
+        $l$loop_0: do {
+          var tmp$ret$1;
+          {
+            var tmp0__anonymous__q1qw7t = current;
+            var rc = readAvailable_0(tmp0__anonymous__q1qw7t, dst, offset + copied | 0, length - copied | 0);
+            if (rc > 0)
+              copied = copied + rc | 0;
+            tmp$ret$1 = copied < length;
+          }
+          if (!tmp$ret$1) {
+            break $l$loop_0;
+          }
+          release = false;
+          var tmp1_elvis_lhs = prepareReadNextHead(_this__u8e3s4, current);
+          var tmp_0;
+          if (tmp1_elvis_lhs == null) {
+            break $l$loop_0;
+          } else {
+            tmp_0 = tmp1_elvis_lhs;
+          }
+          var next = tmp_0;
+          current = next;
+          release = true;
+        }
+         while (true);
+      }finally {
+        if (release) {
+          completeReadHead(_this__u8e3s4, current);
+        }
+      }
+    }
+  }
+  function readFully$default_4(_this__u8e3s4, dst, offset, length, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      offset = 0;
+    if (!(($mask0 & 4) === 0))
+      length = dst.byteLength - offset | 0;
+    return readFully_6(_this__u8e3s4, dst, offset, length);
+  }
   function get_PACKET_MAX_COPY_SIZE() {
     return PACKET_MAX_COPY_SIZE;
   }
   var PACKET_MAX_COPY_SIZE;
+  function getCharsInternal(_this__u8e3s4, dst, dstOffset) {
+    var length = _this__u8e3s4.length;
+    {
+      var tmp0_require = (dstOffset + length | 0) <= dst.length;
+      {
+      }
+      {
+        {
+        }
+        if (!tmp0_require) {
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = 'Failed requirement.';
+          }
+          var message = tmp$ret$0;
+          throw IllegalArgumentException_init_$Create$(toString(message));
+        }
+      }
+    }
+    var dstIndex = dstOffset;
+    var inductionVariable = 0;
+    if (inductionVariable < length)
+      do {
+        var srcIndex = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        var tmp1 = dstIndex;
+        dstIndex = tmp1 + 1 | 0;
+        dst[tmp1] = charSequenceGet(_this__u8e3s4, srcIndex);
+      }
+       while (inductionVariable < length);
+  }
   function String_0(bytes, offset, length, charset) {
     if ((offset < 0 ? true : length < 0) ? true : (offset + length | 0) > bytes.length) {
       checkIndices(offset, length, bytes);
@@ -7953,10 +13597,10 @@
     var bufferOffset = i8.byteOffset + offset | 0;
     var buffer = i8.buffer.slice(bufferOffset, bufferOffset + length | 0);
     var tmp = Companion_getInstance_6();
-    var view = new ChunkBuffer(of$default(tmp, buffer, 0, 0, 6, null), null, Companion_getInstance_4().g12_1);
-    view.e1c();
-    var packet = ByteReadPacket_init_$Create$(view, Companion_getInstance_4().h12_1);
-    return decode(charset.a1f(), packet, IntCompanionObject_getInstance().v_1);
+    var view = new ChunkBuffer(of$default_1(tmp, buffer, 0, 0, 6, null), null, Companion_getInstance_4().NoPool_1);
+    view.resetForRead_c551zz_k$();
+    var packet = ByteReadPacket_init_$Create$(view, Companion_getInstance_4().NoPoolManuallyManaged_1);
+    return decode(charset.newDecoder_zcettw_k$(), packet, IntCompanionObject_getInstance().MAX_VALUE_1);
   }
   function String$default(bytes, offset, length, charset, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
@@ -7964,7 +13608,7 @@
     if (!(($mask0 & 4) === 0))
       length = bytes.length;
     if (!(($mask0 & 8) === 0))
-      charset = Charsets_getInstance().w1e_1;
+      charset = Charsets_getInstance().UTF_8__1;
     return String_0(bytes, offset, length, charset);
   }
   function checkIndices(offset, length, bytes) {
@@ -8003,6 +13647,11 @@
     IOException.call($this, message, null);
     return $this;
   }
+  function IOException_init_$Create$(message) {
+    var tmp = IOException_init_$Init$(message, Object.create(IOException.prototype));
+    captureStack(tmp, IOException_init_$Create$);
+    return tmp;
+  }
   function IOException(message, cause) {
     Exception_init_$Init$_0(message, cause, this);
     captureStack(this, IOException);
@@ -8026,11 +13675,16 @@
     }
     return tmp;
   }
+  function Decoder$default(encoding, fatal, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      fatal = true;
+    return Decoder_0(encoding, fatal);
+  }
   function decodeStream(_this__u8e3s4, buffer, stream) {
     var tmp$ret$0;
     {
       try {
-        return _this__u8e3s4.n1i(buffer, decodeOptions(stream));
+        return _this__u8e3s4.decode_pc4594_k$(buffer, decodeOptions(stream));
       } catch ($p) {
         if ($p instanceof Error) {
           var tmp0_elvis_lhs = $p.message;
@@ -8090,17 +13744,22 @@
     }
     return tmp$ret$2;
   }
-  function toKtor$1($this_toKtor) {
-    this.u1i_1 = $this_toKtor;
+  function textDecoderOptions$default(fatal, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      fatal = false;
+    return textDecoderOptions(fatal);
   }
-  toKtor$1.prototype.o1i = function () {
-    return this.u1i_1.decode();
+  function toKtor$1($this_toKtor) {
+    this.$this_toKtor_1 = $this_toKtor;
+  }
+  toKtor$1.prototype.decode_m3924y_k$ = function () {
+    return this.$this_toKtor_1.decode();
   };
-  toKtor$1.prototype.r1i = function (buffer) {
-    return this.u1i_1.decode(buffer);
+  toKtor$1.prototype.decode_ne2v88_k$ = function (buffer) {
+    return this.$this_toKtor_1.decode(buffer);
   };
-  toKtor$1.prototype.n1i = function (buffer, options) {
-    return this.u1i_1.decode(buffer, options);
+  toKtor$1.prototype.decode_pc4594_k$ = function (buffer, options) {
+    return this.$this_toKtor_1.decode(buffer, options);
   };
   toKtor$1.$metadata$ = classMeta(undefined, [Decoder]);
   function get_ENCODING_ALIASES() {
@@ -8114,7 +13773,7 @@
   }
   var REPLACEMENT;
   function TextDecoderFallback(encoding, fatal) {
-    this.v1i_1 = fatal;
+    this.fatal_1 = fatal;
     var tmp$ret$2;
     {
       var tmp$ret$0;
@@ -8130,7 +13789,7 @@
     }
     var requestedEncoding = tmp$ret$2;
     {
-      var tmp1_check = get_ENCODING_ALIASES().h1(requestedEncoding);
+      var tmp1_check = get_ENCODING_ALIASES().contains_2ehdt1_k$(requestedEncoding);
       {
       }
       if (!tmp1_check) {
@@ -8143,13 +13802,13 @@
       }
     }
   }
-  TextDecoderFallback.prototype.w1i = function () {
-    return this.v1i_1;
+  TextDecoderFallback.prototype.get_fatal_ir8ue3_k$ = function () {
+    return this.fatal_1;
   };
-  TextDecoderFallback.prototype.o1i = function () {
+  TextDecoderFallback.prototype.decode_m3924y_k$ = function () {
     return '';
   };
-  TextDecoderFallback.prototype.r1i = function (buffer) {
+  TextDecoderFallback.prototype.decode_ne2v88_k$ = function (buffer) {
     var tmp$ret$3;
     $l$block: {
       {
@@ -8176,7 +13835,7 @@
               var point = toCodePoint(byte);
               if (point < 0) {
                 {
-                  var tmp0_check = !this.v1i_1;
+                  var tmp0_check = !this.fatal_1;
                   {
                   }
                   if (!tmp0_check) {
@@ -8189,21 +13848,21 @@
                   }
                 }
                 var tmp = get_REPLACEMENT();
-                writeFully$default_0(builder, tmp, 0, 0, 6, null);
+                writeFully$default_1(builder, tmp, 0, 0, 6, null);
                 continue $l$loop;
               }
               if (point > 255) {
-                builder.m1c(toByte(point >> 8));
+                builder.writeByte_jvpujw_k$(toByte(point >> 8));
               }
-              builder.m1c(toByte(point & 255));
+              builder.writeByte_jvpujw_k$(toByte(point & 255));
             }
              while (inductionVariable < last);
         }
-        tmp$ret$3 = builder.l17();
+        tmp$ret$3 = builder.build_1k0s4u_k$();
         break $l$block;
       } catch ($p) {
         if ($p instanceof Error) {
-          builder.rq();
+          builder.release_wtm6d2_k$();
           throw $p;
         } else {
           throw $p;
@@ -8213,8 +13872,8 @@
     var tmp_0 = tmp$ret$3;
     return decodeToString(readBytes$default(tmp_0, 0, 1, null));
   };
-  TextDecoderFallback.prototype.n1i = function (buffer, options) {
-    return this.r1i(buffer);
+  TextDecoderFallback.prototype.decode_pc4594_k$ = function (buffer, options) {
+    return this.decode_ne2v88_k$(buffer);
   };
   TextDecoderFallback.$metadata$ = classMeta('TextDecoderFallback', [Decoder]);
   function toCodePoint(_this__u8e3s4) {
@@ -8272,79 +13931,103 @@
       WIN1252_TABLE = tmp$ret$0;
     }
   }
+  function _get_instances__6pklt9($this) {
+    return $this.instances_1;
+  }
+  function _set_size__9twho6($this, _set____db54di) {
+    $this.size_1 = _set____db54di;
+  }
+  function _get_size__ddoh9m($this) {
+    return $this.size_1;
+  }
   function DefaultPool(capacity) {
-    this.v1c_1 = capacity;
+    this.capacity_1 = capacity;
     var tmp = this;
     var tmp$ret$0;
     {
-      var tmp0_arrayOfNulls = this.v1c_1;
+      var tmp0_arrayOfNulls = this.capacity_1;
       tmp$ret$0 = fillArrayVal(Array(tmp0_arrayOfNulls), null);
     }
-    tmp.w1c_1 = tmp$ret$0;
-    this.x1c_1 = 0;
+    tmp.instances_1 = tmp$ret$0;
+    this.size_1 = 0;
   }
-  DefaultPool.prototype.y1c = function (instance) {
+  DefaultPool.prototype.get_capacity_wxbgcd_k$ = function () {
+    return this.capacity_1;
   };
-  DefaultPool.prototype.f1d = function (instance) {
+  DefaultPool.prototype.disposeInstance_neq6qw_k$ = function (instance) {
+  };
+  DefaultPool.prototype.clearInstance_26evkn_k$ = function (instance) {
     return instance;
   };
-  DefaultPool.prototype.b1d = function (instance) {
+  DefaultPool.prototype.validateInstance_e9p7ch_k$ = function (instance) {
   };
-  DefaultPool.prototype.w1a = function () {
-    if (this.x1c_1 === 0)
-      return this.t1c();
+  DefaultPool.prototype.borrow_mvkpor_k$ = function () {
+    if (this.size_1 === 0)
+      return this.produceInstance_xswihh_k$();
     var tmp0_this = this;
-    tmp0_this.x1c_1 = tmp0_this.x1c_1 - 1 | 0;
-    var idx = tmp0_this.x1c_1;
-    var tmp = this.w1c_1[idx];
+    tmp0_this.size_1 = tmp0_this.size_1 - 1 | 0;
+    var idx = tmp0_this.size_1;
+    var tmp = this.instances_1[idx];
     var instance = isObject(tmp) ? tmp : THROW_CCE();
-    this.w1c_1[idx] = null;
-    return this.f1d(instance);
+    this.instances_1[idx] = null;
+    return this.clearInstance_26evkn_k$(instance);
   };
-  DefaultPool.prototype.h1d = function (instance) {
-    this.b1d(instance);
-    if (this.x1c_1 === this.v1c_1) {
-      this.y1c(instance);
+  DefaultPool.prototype.recycle_ln1phz_k$ = function (instance) {
+    this.validateInstance_e9p7ch_k$(instance);
+    if (this.size_1 === this.capacity_1) {
+      this.disposeInstance_neq6qw_k$(instance);
     } else {
       var tmp0_this = this;
-      var tmp1 = tmp0_this.x1c_1;
-      tmp0_this.x1c_1 = tmp1 + 1 | 0;
-      this.w1c_1[tmp1] = instance;
+      var tmp1 = tmp0_this.size_1;
+      tmp0_this.size_1 = tmp1 + 1 | 0;
+      this.instances_1[tmp1] = instance;
     }
   };
-  DefaultPool.prototype.vn = function () {
+  DefaultPool.prototype.dispose_3n44we_k$ = function () {
     var inductionVariable = 0;
-    var last = this.x1c_1;
+    var last = this.size_1;
     if (inductionVariable < last)
       do {
         var i = inductionVariable;
         inductionVariable = inductionVariable + 1 | 0;
-        var tmp = this.w1c_1[i];
+        var tmp = this.instances_1[i];
         var instance = isObject(tmp) ? tmp : THROW_CCE();
-        this.w1c_1[i] = null;
-        this.y1c(instance);
+        this.instances_1[i] = null;
+        this.disposeInstance_neq6qw_k$(instance);
       }
        while (inductionVariable < last);
-    this.x1c_1 = 0;
+    this.size_1 = 0;
   };
   DefaultPool.$metadata$ = classMeta('DefaultPool', [ObjectPool]);
   //region block: post-declaration
-  ByteChannelSequentialBase.prototype.q19 = readRemaining$default;
-  ChannelJob.prototype.xl = cancel$default;
-  ChannelJob.prototype.tl = invokeOnCompletion$default;
-  DefaultPool.prototype.i10 = close;
-  DefaultBufferPool.prototype.i10 = close;
-  ChunkBuffer$Companion$Pool$1.prototype.i10 = close;
-  ChunkBuffer$Companion$EmptyPool$1.prototype.i10 = close;
-  NoPoolImpl.prototype.i10 = close;
-  ChunkBuffer$Companion$NoPool$1.prototype.i10 = close;
-  ChunkBuffer$Companion$NoPoolManuallyManaged$1.prototype.i10 = close;
-  ByteArrayPool$1.prototype.i10 = close;
-  ByteChannelJS.prototype.q19 = readRemaining$default;
+  ByteChannelSequentialBase.prototype.readRemaining$default_u0hcq7_k$ = readRemaining$default;
+  ByteChannelSequentialBase.prototype.await$default_loqqcz_k$ = await$default;
+  ByteChannelSequentialBase.prototype.request$default_7hudmb_k$ = request$default;
+  ByteChannelSequentialBase.prototype.peekTo$default_ss6lup_k$ = peekTo$default;
+  ChannelJob.prototype.cancel$default_5qyvia_k$ = cancel$default;
+  ChannelJob.prototype.cancel$default_bm1z3z_k$ = cancel$default_0;
+  ChannelJob.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
+  DefaultPool.prototype.close_ymq55z_k$ = close;
+  DefaultBufferPool.prototype.close_ymq55z_k$ = close;
+  ChunkBuffer$Companion$Pool$1.prototype.close_ymq55z_k$ = close;
+  ChunkBuffer$Companion$EmptyPool$1.prototype.close_ymq55z_k$ = close;
+  NoPoolImpl.prototype.close_ymq55z_k$ = close;
+  ChunkBuffer$Companion$NoPool$1.prototype.close_ymq55z_k$ = close;
+  ChunkBuffer$Companion$NoPoolManuallyManaged$1.prototype.close_ymq55z_k$ = close;
+  ByteArrayPool$1.prototype.close_ymq55z_k$ = close;
+  ByteChannelJS.prototype.readRemaining$default_u0hcq7_k$ = readRemaining$default;
+  ByteChannelJS.prototype.await$default_loqqcz_k$ = await$default;
+  ByteChannelJS.prototype.request$default_7hudmb_k$ = request$default;
+  ByteChannelJS.prototype.peekTo$default_ss6lup_k$ = peekTo$default;
   //endregion
   //region block: init
+  EXPECTED_CAPACITY = new Long(4088, 0);
   DEFAULT_BUFFER_SIZE = 4096;
+  MaxCodePoint = 1114111;
+  HighSurrogateMagic = 55232;
+  MinLowSurrogate = 56320;
   MAX_CHARACTERS_SIZE_IN_BYTES = 8;
+  MAX_CHARACTERS_COUNT = 268435455;
   PACKET_MAX_COPY_SIZE = 200;
   //endregion
   //region block: exports
@@ -8352,38 +14035,40 @@
   _.$_$.a = copyTo;
   _.$_$.b = readAvailable;
   _.$_$.c = writeFully;
-  _.$_$.d = decode$default;
-  _.$_$.e = encode$default;
-  _.$_$.f = String$default;
-  _.$_$.g = readBytes$default;
-  _.$_$.h = readText$default;
-  _.$_$.i = writeFully$default_0;
-  _.$_$.j = writeText$default;
-  _.$_$.k = writer$default;
-  _.$_$.l = BytePacketBuilder_init_$Create$;
-  _.$_$.m = IOException_init_$Init$;
-  _.$_$.n = Companion_getInstance_7;
-  _.$_$.o = Charsets_getInstance;
-  _.$_$.p = Companion_getInstance_5;
-  _.$_$.q = encodeToByteArray_0;
-  _.$_$.r = encode;
-  _.$_$.s = get_name;
-  _.$_$.t = completeReadHead;
-  _.$_$.u = prepareReadFirstHead;
-  _.$_$.v = prepareReadNextHead;
-  _.$_$.w = ByteReadPacket;
-  _.$_$.x = Closeable;
-  _.$_$.y = Input;
-  _.$_$.z = String_0;
-  _.$_$.a1 = readShort_0;
-  _.$_$.b1 = writeShort_0;
-  _.$_$.c1 = IOException;
-  _.$_$.d1 = get_ByteArrayPool;
-  _.$_$.e1 = ByteReadChannel;
-  _.$_$.f1 = ByteReadChannel_1;
-  _.$_$.g1 = WriterScope;
-  _.$_$.h1 = cancel;
-  _.$_$.i1 = writer;
+  _.$_$.d = copyAndClose$default;
+  _.$_$.e = decode$default;
+  _.$_$.f = encode$default;
+  _.$_$.g = String$default;
+  _.$_$.h = readBytes$default;
+  _.$_$.i = readText$default;
+  _.$_$.j = writeFully$default_1;
+  _.$_$.k = writeText$default;
+  _.$_$.l = ByteChannel$default;
+  _.$_$.m = writer$default;
+  _.$_$.n = BytePacketBuilder_init_$Create$;
+  _.$_$.o = IOException_init_$Init$;
+  _.$_$.p = Companion_getInstance_7;
+  _.$_$.q = Charsets_getInstance;
+  _.$_$.r = Companion_getInstance_5;
+  _.$_$.s = encodeToByteArray_0;
+  _.$_$.t = encode_0;
+  _.$_$.u = get_name;
+  _.$_$.v = completeReadHead;
+  _.$_$.w = prepareReadFirstHead;
+  _.$_$.x = prepareReadNextHead;
+  _.$_$.y = ByteReadPacket;
+  _.$_$.z = Closeable;
+  _.$_$.a1 = Input;
+  _.$_$.b1 = String_0;
+  _.$_$.c1 = readShort_0;
+  _.$_$.d1 = writeShort_0;
+  _.$_$.e1 = IOException;
+  _.$_$.f1 = get_ByteArrayPool;
+  _.$_$.g1 = ByteReadChannel;
+  _.$_$.h1 = ByteReadChannel_1;
+  _.$_$.i1 = WriterScope;
+  _.$_$.j1 = cancel;
+  _.$_$.k1 = writer;
   //endregion
   return _;
 }));

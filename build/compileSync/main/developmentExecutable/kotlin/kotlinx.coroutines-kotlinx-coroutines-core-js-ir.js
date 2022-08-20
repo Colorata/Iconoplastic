@@ -16,97 +16,88 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var THROW_CCE = kotlin_kotlin.$_$.pc;
-  var isObject = kotlin_kotlin.$_$.k9;
-  var Unit_getInstance = kotlin_kotlin.$_$.g4;
-  var plus = kotlin_kotlin.$_$.b8;
-  var get = kotlin_kotlin.$_$.x7;
-  var fold = kotlin_kotlin.$_$.w7;
-  var minusKey = kotlin_kotlin.$_$.y7;
-  var Continuation = kotlin_kotlin.$_$.v7;
-  var classMeta = kotlin_kotlin.$_$.r8;
-  var Annotation = kotlin_kotlin.$_$.zb;
-  var EmptyCoroutineContext_getInstance = kotlin_kotlin.$_$.o3;
-  var createCoroutineUnintercepted = kotlin_kotlin.$_$.o7;
-  var CoroutineImpl = kotlin_kotlin.$_$.c8;
-  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.m7;
-  var intercepted = kotlin_kotlin.$_$.p7;
-  var interfaceMeta = kotlin_kotlin.$_$.z8;
-  var isInterface = kotlin_kotlin.$_$.i9;
-  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.e2;
-  var toString = kotlin_kotlin.$_$.od;
-  var toString_0 = kotlin_kotlin.$_$.v9;
+  var THROW_CCE = kotlin_kotlin.$_$.g4;
+  var isObject = kotlin_kotlin.$_$.o3;
+  var Unit_getInstance = kotlin_kotlin.$_$.m1;
+  var plus = kotlin_kotlin.$_$.w2;
+  var get = kotlin_kotlin.$_$.s2;
+  var fold = kotlin_kotlin.$_$.r2;
+  var minusKey = kotlin_kotlin.$_$.t2;
+  var Continuation = kotlin_kotlin.$_$.q2;
+  var classMeta = kotlin_kotlin.$_$.h3;
+  var Annotation = kotlin_kotlin.$_$.a4;
+  var EmptyCoroutineContext_getInstance = kotlin_kotlin.$_$.h1;
+  var createCoroutineUnintercepted = kotlin_kotlin.$_$.j2;
+  var intercepted = kotlin_kotlin.$_$.k2;
+  var interfaceMeta = kotlin_kotlin.$_$.m3;
+  var isInterface = kotlin_kotlin.$_$.n3;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.s;
+  var toString = kotlin_kotlin.$_$.o4;
+  var toString_0 = kotlin_kotlin.$_$.s3;
   var atomic$int$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.e;
   var atomic$ref$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.d;
-  var objectMeta = kotlin_kotlin.$_$.r9;
-  var hashCode = kotlin_kotlin.$_$.y8;
-  var equals = kotlin_kotlin.$_$.t8;
+  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.h2;
+  var objectMeta = kotlin_kotlin.$_$.q3;
+  var hashCode = kotlin_kotlin.$_$.l3;
+  var equals = kotlin_kotlin.$_$.i3;
   var atomic$boolean$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.b;
-  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.k1;
-  var Result__exceptionOrNull_impl_p6xea9 = kotlin_kotlin.$_$.y2;
-  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.a3;
-  var AbstractCoroutineContextKey = kotlin_kotlin.$_$.r7;
-  var Key_getInstance = kotlin_kotlin.$_$.n3;
-  var AbstractCoroutineContextElement = kotlin_kotlin.$_$.q7;
-  var get_0 = kotlin_kotlin.$_$.s7;
-  var minusKey_0 = kotlin_kotlin.$_$.t7;
-  var ContinuationInterceptor = kotlin_kotlin.$_$.u7;
-  var Key = kotlin_kotlin.$_$.a8;
-  var Element = kotlin_kotlin.$_$.z7;
-  var RuntimeException_init_$Create$ = kotlin_kotlin.$_$.l2;
-  var getStringHashCode = kotlin_kotlin.$_$.x8;
-  var CancellationException_init_$Create$_0 = kotlin_kotlin.$_$.m1;
-  var THROW_ISE = kotlin_kotlin.$_$.qc;
-  var Enum = kotlin_kotlin.$_$.gc;
-  var startCoroutine = kotlin_kotlin.$_$.f8;
-  var noWhenBranchMatchedException = kotlin_kotlin.$_$.jd;
-  var startCoroutine_0 = kotlin_kotlin.$_$.g8;
-  var Long = kotlin_kotlin.$_$.lc;
-  var Companion_getInstance = kotlin_kotlin.$_$.a4;
-  var RuntimeException = kotlin_kotlin.$_$.oc;
-  var RuntimeException_init_$Init$ = kotlin_kotlin.$_$.k2;
-  var captureStack = kotlin_kotlin.$_$.l8;
-  var Error_0 = kotlin_kotlin.$_$.hc;
-  var Error_init_$Init$ = kotlin_kotlin.$_$.r1;
-  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.p1;
-  var anyToString = kotlin_kotlin.$_$.i8;
-  var throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.ld;
-  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.v;
-  var CancellationException = kotlin_kotlin.$_$.l7;
-  var ArrayList = kotlin_kotlin.$_$.h4;
-  var SequenceScope = kotlin_kotlin.$_$.la;
-  var IllegalStateException_init_$Create$_0 = kotlin_kotlin.$_$.g2;
-  var sequence = kotlin_kotlin.$_$.oa;
-  var Companion_getInstance_0 = kotlin_kotlin.$_$.b4;
-  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.x2;
-  var createFailure = kotlin_kotlin.$_$.bd;
-  var SuspendFunction1 = kotlin_kotlin.$_$.d8;
-  var UnsupportedOperationException = kotlin_kotlin.$_$.xc;
-  var CancellationException_init_$Init$ = kotlin_kotlin.$_$.j1;
-  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.o2;
-  var isSuspendFunction = kotlin_kotlin.$_$.m9;
-  var addSuppressed = kotlin_kotlin.$_$.yc;
-  var fillArrayVal = kotlin_kotlin.$_$.v8;
-  var fill = kotlin_kotlin.$_$.v5;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.z1;
-  var fill$default = kotlin_kotlin.$_$.g;
-  var ensureNotNull = kotlin_kotlin.$_$.cd;
-  var NoSuchElementException = kotlin_kotlin.$_$.mc;
-  var NoSuchElementException_init_$Init$ = kotlin_kotlin.$_$.j2;
-  var IllegalStateException = kotlin_kotlin.$_$.kc;
-  var IllegalStateException_init_$Init$ = kotlin_kotlin.$_$.d2;
-  var IntCompanionObject_getInstance = kotlin_kotlin.$_$.t3;
-  var arrayCopy = kotlin_kotlin.$_$.a5;
-  var toLong = kotlin_kotlin.$_$.t9;
+  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.m;
+  var Result__exceptionOrNull_impl_p6xea9 = kotlin_kotlin.$_$.d1;
+  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.f1;
+  var AbstractCoroutineContextKey = kotlin_kotlin.$_$.m2;
+  var Key_getInstance = kotlin_kotlin.$_$.g1;
+  var AbstractCoroutineContextElement = kotlin_kotlin.$_$.l2;
+  var get_0 = kotlin_kotlin.$_$.n2;
+  var minusKey_0 = kotlin_kotlin.$_$.o2;
+  var ContinuationInterceptor = kotlin_kotlin.$_$.p2;
+  var Key = kotlin_kotlin.$_$.v2;
+  var Element = kotlin_kotlin.$_$.u2;
+  var RuntimeException_init_$Create$ = kotlin_kotlin.$_$.v;
+  var THROW_ISE = kotlin_kotlin.$_$.h4;
+  var Enum = kotlin_kotlin.$_$.c4;
+  var startCoroutine = kotlin_kotlin.$_$.z2;
+  var noWhenBranchMatchedException = kotlin_kotlin.$_$.l4;
+  var startCoroutine_0 = kotlin_kotlin.$_$.a3;
+  var Long = kotlin_kotlin.$_$.e4;
+  var Companion_getInstance = kotlin_kotlin.$_$.k1;
+  var RuntimeException = kotlin_kotlin.$_$.f4;
+  var RuntimeException_init_$Init$ = kotlin_kotlin.$_$.u;
+  var captureStack = kotlin_kotlin.$_$.d3;
+  var Error_0 = kotlin_kotlin.$_$.d4;
+  var Error_init_$Init$ = kotlin_kotlin.$_$.q;
+  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.p;
+  var anyToString = kotlin_kotlin.$_$.c3;
+  var throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.n4;
+  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.f;
+  var CancellationException = kotlin_kotlin.$_$.g2;
+  var ArrayList = kotlin_kotlin.$_$.n1;
+  var CoroutineImpl = kotlin_kotlin.$_$.x2;
+  var SequenceScope = kotlin_kotlin.$_$.v3;
+  var IllegalStateException_init_$Create$_0 = kotlin_kotlin.$_$.t;
+  var sequence = kotlin_kotlin.$_$.w3;
+  var Companion_getInstance_0 = kotlin_kotlin.$_$.l1;
+  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.c1;
+  var createFailure = kotlin_kotlin.$_$.j4;
+  var SuspendFunction1 = kotlin_kotlin.$_$.y2;
+  var UnsupportedOperationException = kotlin_kotlin.$_$.i4;
+  var CancellationException_init_$Init$ = kotlin_kotlin.$_$.l;
+  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.x;
+  var fillArrayVal = kotlin_kotlin.$_$.j3;
+  var IntCompanionObject_getInstance = kotlin_kotlin.$_$.i1;
+  var arrayCopy = kotlin_kotlin.$_$.s1;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.r;
+  var ensureNotNull = kotlin_kotlin.$_$.k4;
+  var toLong = kotlin_kotlin.$_$.r3;
   var atomic$long$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.c;
   var atomicfu$AtomicRefArray$ofNulls = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.a;
-  var toLongOrNull = kotlin_kotlin.$_$.pb;
-  var createCoroutineUnintercepted_0 = kotlin_kotlin.$_$.n7;
-  var getKClassFromExpression = kotlin_kotlin.$_$.c;
-  var CancellationException_init_$Init$_0 = kotlin_kotlin.$_$.l1;
-  var coerceIn = kotlin_kotlin.$_$.aa;
-  var HashSet_init_$Create$ = kotlin_kotlin.$_$.b1;
-  var UnsupportedOperationException_init_$Create$_0 = kotlin_kotlin.$_$.n2;
+  var toLongOrNull = kotlin_kotlin.$_$.y3;
+  var createCoroutineUnintercepted_0 = kotlin_kotlin.$_$.i2;
+  var getKClassFromExpression = kotlin_kotlin.$_$.a;
+  var CancellationException_init_$Init$_0 = kotlin_kotlin.$_$.n;
+  var getStringHashCode = kotlin_kotlin.$_$.k3;
+  var coerceIn = kotlin_kotlin.$_$.u3;
+  var HashSet_init_$Create$ = kotlin_kotlin.$_$.h;
+  var UnsupportedOperationException_init_$Create$_0 = kotlin_kotlin.$_$.w;
   //endregion
   //region block: pre-declaration
   function cancel$default(cause, $mask0, $handler) {
@@ -138,12 +129,6 @@
   StandaloneCoroutine.prototype.constructor = StandaloneCoroutine;
   LazyStandaloneCoroutine.prototype = Object.create(StandaloneCoroutine.prototype);
   LazyStandaloneCoroutine.prototype.constructor = LazyStandaloneCoroutine;
-  $awaitCOROUTINE$0.prototype = Object.create(CoroutineImpl.prototype);
-  $awaitCOROUTINE$0.prototype.constructor = $awaitCOROUTINE$0;
-  DeferredCoroutine.prototype = Object.create(AbstractCoroutine.prototype);
-  DeferredCoroutine.prototype.constructor = DeferredCoroutine;
-  LazyDeferredCoroutine.prototype = Object.create(DeferredCoroutine.prototype);
-  LazyDeferredCoroutine.prototype.constructor = LazyDeferredCoroutine;
   function tryResume$default(value, idempotent, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
       idempotent = null;
@@ -158,30 +143,20 @@
   CancelHandler.prototype.constructor = CancelHandler;
   DisposeOnCancel.prototype = Object.create(CancelHandler.prototype);
   DisposeOnCancel.prototype.constructor = DisposeOnCancel;
-  BeforeResumeCancelHandler.prototype = Object.create(CancelHandler.prototype);
-  BeforeResumeCancelHandler.prototype.constructor = BeforeResumeCancelHandler;
-  RemoveOnCancel.prototype = Object.create(BeforeResumeCancelHandler.prototype);
-  RemoveOnCancel.prototype.constructor = RemoveOnCancel;
   DispatchedTask.prototype = Object.create(SchedulerTask.prototype);
   DispatchedTask.prototype.constructor = DispatchedTask;
   CancellableContinuationImpl.prototype = Object.create(DispatchedTask.prototype);
   CancellableContinuationImpl.prototype.constructor = CancellableContinuationImpl;
+  BeforeResumeCancelHandler.prototype = Object.create(CancelHandler.prototype);
+  BeforeResumeCancelHandler.prototype.constructor = BeforeResumeCancelHandler;
   InvokeOnCancel.prototype = Object.create(CancelHandler.prototype);
   InvokeOnCancel.prototype.constructor = InvokeOnCancel;
-  $awaitCOROUTINE$1.prototype = Object.create(CoroutineImpl.prototype);
-  $awaitCOROUTINE$1.prototype.constructor = $awaitCOROUTINE$1;
-  CompletableDeferredImpl.prototype = Object.create(JobSupport.prototype);
-  CompletableDeferredImpl.prototype.constructor = CompletableDeferredImpl;
   CancelledContinuation.prototype = Object.create(CompletedExceptionally.prototype);
   CancelledContinuation.prototype.constructor = CancelledContinuation;
   Key_0.prototype = Object.create(AbstractCoroutineContextKey.prototype);
   Key_0.prototype.constructor = Key_0;
   CoroutineDispatcher.prototype = Object.create(AbstractCoroutineContextElement.prototype);
   CoroutineDispatcher.prototype.constructor = CoroutineDispatcher;
-  _no_name_provided__qut3iv.prototype = Object.create(AbstractCoroutineContextElement.prototype);
-  _no_name_provided__qut3iv.prototype.constructor = _no_name_provided__qut3iv;
-  CoroutineName.prototype = Object.create(AbstractCoroutineContextElement.prototype);
-  CoroutineName.prototype.constructor = CoroutineName;
   CoroutineStart.prototype = Object.create(Enum.prototype);
   CoroutineStart.prototype.constructor = CoroutineStart;
   function delay(time, $cont) {
@@ -244,145 +219,18 @@
   JobImpl.prototype.constructor = JobImpl;
   MainCoroutineDispatcher.prototype = Object.create(CoroutineDispatcher.prototype);
   MainCoroutineDispatcher.prototype.constructor = MainCoroutineDispatcher;
-  SupervisorJobImpl.prototype = Object.create(JobImpl.prototype);
-  SupervisorJobImpl.prototype.constructor = SupervisorJobImpl;
   TimeoutCancellationException.prototype = Object.create(CancellationException.prototype);
   TimeoutCancellationException.prototype.constructor = TimeoutCancellationException;
   Unconfined.prototype = Object.create(CoroutineDispatcher.prototype);
   Unconfined.prototype.constructor = Unconfined;
   YieldContext.prototype = Object.create(AbstractCoroutineContextElement.prototype);
   YieldContext.prototype.constructor = YieldContext;
-  AbstractAtomicDesc.prototype = Object.create(AtomicDesc.prototype);
-  AbstractAtomicDesc.prototype.constructor = AbstractAtomicDesc;
-  RemoveFirstDesc.prototype = Object.create(AbstractAtomicDesc.prototype);
-  RemoveFirstDesc.prototype.constructor = RemoveFirstDesc;
-  TryPollDesc.prototype = Object.create(RemoveFirstDesc.prototype);
-  TryPollDesc.prototype.constructor = TryPollDesc;
-  RemoveReceiveOnCancel.prototype = Object.create(BeforeResumeCancelHandler.prototype);
-  RemoveReceiveOnCancel.prototype.constructor = RemoveReceiveOnCancel;
-  function next0($cont) {
-    var tmp = new $next0COROUTINE$3(this, $cont);
-    tmp.result_1 = Unit_getInstance();
-    tmp.exception_1 = null;
-    return tmp.doResume_5yljmg_k$();
-  }
-  Receive.prototype = Object.create(LinkedListNode.prototype);
-  Receive.prototype.constructor = Receive;
-  ReceiveElement.prototype = Object.create(Receive.prototype);
-  ReceiveElement.prototype.constructor = ReceiveElement;
-  ReceiveElementWithUndeliveredHandler.prototype = Object.create(ReceiveElement.prototype);
-  ReceiveElementWithUndeliveredHandler.prototype.constructor = ReceiveElementWithUndeliveredHandler;
-  ReceiveHasNext.prototype = Object.create(Receive.prototype);
-  ReceiveHasNext.prototype.constructor = ReceiveHasNext;
-  ReceiveSelect.prototype = Object.create(Receive.prototype);
-  ReceiveSelect.prototype.constructor = ReceiveSelect;
-  function close$default(cause, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      cause = null;
-    return $handler == null ? this.close_9zy44b_k$(cause) : $handler(cause);
-  }
-  function offer(element) {
-    var result = this.trySend_3hclq4_k$(element);
-    if (_ChannelResult___get_isSuccess__impl__odq1z9(result))
-      return true;
-    var tmp0_elvis_lhs = ChannelResult__exceptionOrNull_impl_16ei30(result);
-    var tmp;
-    if (tmp0_elvis_lhs == null) {
-      return false;
-    } else {
-      tmp = tmp0_elvis_lhs;
-    }
-    throw recoverStackTrace_0(tmp);
-  }
-  function cancel$default_2(cause, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      cause = null;
-    return $handler == null ? this.cancel_4b7aim_k$(cause) : $handler(cause);
-  }
-  function cancel_0() {
-    return this.cancel_4b7aim_k$(null);
-  }
-  function cancel$default_3(cause, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      cause = null;
-    return $handler == null ? this.cancel_as6ug7_k$(cause) : $handler(cause);
-  }
-  function poll() {
-    var result = this.tryReceive_5r5v2p_k$();
-    if (_ChannelResult___get_isSuccess__impl__odq1z9(result))
-      return ChannelResult__getOrThrow_impl_od1axs(result);
-    var tmp0_elvis_lhs = ChannelResult__exceptionOrNull_impl_16ei30(result);
-    var tmp;
-    if (tmp0_elvis_lhs == null) {
-      return null;
-    } else {
-      tmp = tmp0_elvis_lhs;
-    }
-    throw recoverStackTrace_0(tmp);
-  }
-  function receiveOrNull($cont) {
-    var tmp = new $receiveOrNullCOROUTINE$2(this, $cont);
-    tmp.result_1 = Unit_getInstance();
-    tmp.exception_1 = null;
-    return tmp.doResume_5yljmg_k$();
-  }
-  function get_onReceiveOrNull() {
-    return new ReceiveChannel$onReceiveOrNull$1(this);
-  }
-  AbstractChannel.prototype = Object.create(AbstractSendChannel.prototype);
-  AbstractChannel.prototype.constructor = AbstractChannel;
-  AddLastDesc.prototype = Object.create(AbstractAtomicDesc.prototype);
-  AddLastDesc.prototype.constructor = AddLastDesc;
-  SendBufferedDesc.prototype = Object.create(AddLastDesc.prototype);
-  SendBufferedDesc.prototype.constructor = SendBufferedDesc;
-  TryOfferDesc.prototype = Object.create(RemoveFirstDesc.prototype);
-  TryOfferDesc.prototype.constructor = TryOfferDesc;
-  Send.prototype = Object.create(LinkedListNode.prototype);
-  Send.prototype.constructor = Send;
-  SendSelect.prototype = Object.create(Send.prototype);
-  SendSelect.prototype.constructor = SendSelect;
-  SendBuffered.prototype = Object.create(Send.prototype);
-  SendBuffered.prototype.constructor = SendBuffered;
-  Closed.prototype = Object.create(Send.prototype);
-  Closed.prototype.constructor = Closed;
-  SendElement.prototype = Object.create(Send.prototype);
-  SendElement.prototype.constructor = SendElement;
-  SendElementWithUndeliveredHandler.prototype = Object.create(SendElement.prototype);
-  SendElementWithUndeliveredHandler.prototype.constructor = SendElementWithUndeliveredHandler;
-  ArrayChannel.prototype = Object.create(AbstractChannel.prototype);
-  ArrayChannel.prototype.constructor = ArrayChannel;
-  BufferOverflow.prototype = Object.create(Enum.prototype);
-  BufferOverflow.prototype.constructor = BufferOverflow;
-  ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt.prototype = Object.create(CoroutineImpl.prototype);
-  ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt.prototype.constructor = ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt;
-  $receiveOrNullCOROUTINE$2.prototype = Object.create(CoroutineImpl.prototype);
-  $receiveOrNullCOROUTINE$2.prototype.constructor = $receiveOrNullCOROUTINE$2;
-  Closed_0.prototype = Object.create(Failed.prototype);
-  Closed_0.prototype.constructor = Closed_0;
-  $next0COROUTINE$3.prototype = Object.create(CoroutineImpl.prototype);
-  $next0COROUTINE$3.prototype.constructor = $next0COROUTINE$3;
-  ClosedReceiveChannelException.prototype = Object.create(NoSuchElementException.prototype);
-  ClosedReceiveChannelException.prototype.constructor = ClosedReceiveChannelException;
-  ClosedSendChannelException.prototype = Object.create(IllegalStateException.prototype);
-  ClosedSendChannelException.prototype.constructor = ClosedSendChannelException;
-  $consumeEachCOROUTINE$4.prototype = Object.create(CoroutineImpl.prototype);
-  $consumeEachCOROUTINE$4.prototype.constructor = $consumeEachCOROUTINE$4;
-  ConflatedChannel.prototype = Object.create(AbstractChannel.prototype);
-  ConflatedChannel.prototype.constructor = ConflatedChannel;
-  LinkedListChannel.prototype = Object.create(AbstractChannel.prototype);
-  LinkedListChannel.prototype.constructor = LinkedListChannel;
-  RendezvousChannel.prototype = Object.create(AbstractChannel.prototype);
-  RendezvousChannel.prototype.constructor = RendezvousChannel;
   AtomicOp.prototype = Object.create(OpDescriptor.prototype);
   AtomicOp.prototype.constructor = AtomicOp;
   DispatchedContinuation.prototype = Object.create(DispatchedTask.prototype);
   DispatchedContinuation.prototype.constructor = DispatchedContinuation;
   LimitedDispatcher.prototype = Object.create(CoroutineDispatcher.prototype);
   LimitedDispatcher.prototype.constructor = LimitedDispatcher;
-  UndeliveredElementException.prototype = Object.create(RuntimeException.prototype);
-  UndeliveredElementException.prototype.constructor = UndeliveredElementException;
-  CloseableCoroutineDispatcher.prototype = Object.create(CoroutineDispatcher.prototype);
-  CloseableCoroutineDispatcher.prototype.constructor = CloseableCoroutineDispatcher;
   JsMainDispatcher.prototype = Object.create(MainCoroutineDispatcher.prototype);
   JsMainDispatcher.prototype.constructor = JsMainDispatcher;
   UnconfinedEventLoop.prototype = Object.create(EventLoop.prototype);
@@ -407,11 +255,13 @@
   WindowMessageQueue.prototype.constructor = WindowMessageQueue;
   PrepareOp.prototype = Object.create(OpDescriptor.prototype);
   PrepareOp.prototype.constructor = PrepareOp;
+  AbstractAtomicDesc.prototype = Object.create(AtomicDesc.prototype);
+  AbstractAtomicDesc.prototype.constructor = AbstractAtomicDesc;
   //endregion
   function AbstractCoroutine(parentContext, initParentJob, active) {
     JobSupport.call(this, active);
     if (initParentJob)
-      this.initParentJob_4c2lht_k$(parentContext.get_1pi7hg_k$(Key_getInstance_3()));
+      this.initParentJob_4c2lht_k$(parentContext.get_1pi7hg_k$(Key_getInstance_2()));
     this.context_1 = parentContext.plus_rgw9wi_k$(this);
   }
   AbstractCoroutine.prototype.get_context_h02k06_k$ = function () {
@@ -509,21 +359,6 @@
     return '@kotlinx.coroutines.ExperimentalCoroutinesApi()';
   };
   ExperimentalCoroutinesApi.$metadata$ = classMeta('ExperimentalCoroutinesApi', [Annotation]);
-  function DelicateCoroutinesApi() {
-  }
-  DelicateCoroutinesApi.prototype.equals = function (other) {
-    if (!(other instanceof DelicateCoroutinesApi))
-      return false;
-    var tmp0_other_with_cast = other instanceof DelicateCoroutinesApi ? other : THROW_CCE();
-    return true;
-  };
-  DelicateCoroutinesApi.prototype.hashCode = function () {
-    return 0;
-  };
-  DelicateCoroutinesApi.prototype.toString = function () {
-    return '@kotlinx.coroutines.DelicateCoroutinesApi()';
-  };
-  DelicateCoroutinesApi.$metadata$ = classMeta('DelicateCoroutinesApi', [Annotation]);
   function launch(_this__u8e3s4, context, start, block) {
     var newContext = newCoroutineContext(_this__u8e3s4, context);
     var coroutine = start.get_isLazy_ew1d53_k$() ? new LazyStandaloneCoroutine(newContext, block) : new StandaloneCoroutine(newContext, true);
@@ -536,19 +371,6 @@
     if (!(($mask0 & 2) === 0))
       start = CoroutineStart_DEFAULT_getInstance();
     return launch(_this__u8e3s4, context, start, block);
-  }
-  function async(_this__u8e3s4, context, start, block) {
-    var newContext = newCoroutineContext(_this__u8e3s4, context);
-    var coroutine = start.get_isLazy_ew1d53_k$() ? new LazyDeferredCoroutine(newContext, block) : new DeferredCoroutine(newContext, true);
-    coroutine.start_1ln6k9_k$(start, coroutine, block);
-    return coroutine;
-  }
-  function async$default(_this__u8e3s4, context, start, block, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      context = EmptyCoroutineContext_getInstance();
-    if (!(($mask0 & 2) === 0))
-      start = CoroutineStart_DEFAULT_getInstance();
-    return async(_this__u8e3s4, context, start, block);
   }
   function StandaloneCoroutine(parentContext, active) {
     AbstractCoroutine.call(this, parentContext, true, active);
@@ -569,75 +391,6 @@
     startCoroutineCancellable_1(this.continuation_1, this);
   };
   LazyStandaloneCoroutine.$metadata$ = classMeta('LazyStandaloneCoroutine', undefined, undefined, undefined, undefined, StandaloneCoroutine.prototype);
-  function $awaitCOROUTINE$0(_this__u8e3s4, resultContinuation) {
-    CoroutineImpl.call(this, resultContinuation);
-    this._this__u8e3s4__1 = _this__u8e3s4;
-  }
-  $awaitCOROUTINE$0.prototype.doResume_5yljmg_k$ = function () {
-    var suspendResult = this.result_1;
-    $sm: do
-      try {
-        var tmp = this.state_1;
-        switch (tmp) {
-          case 0:
-            this.exceptionState_1 = 2;
-            this.state_1 = 1;
-            suspendResult = this._this__u8e3s4__1.awaitInternal_pz51jj_k$(this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 1:
-            return (suspendResult == null ? true : isObject(suspendResult)) ? suspendResult : THROW_CCE();
-          case 2:
-            throw this.exception_1;
-        }
-      } catch ($p) {
-        if (this.exceptionState_1 === 2) {
-          throw $p;
-        } else {
-          this.state_1 = this.exceptionState_1;
-          this.exception_1 = $p;
-        }
-      }
-     while (true);
-  };
-  $awaitCOROUTINE$0.$metadata$ = classMeta('$awaitCOROUTINE$0', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function DeferredCoroutine(parentContext, active) {
-    AbstractCoroutine.call(this, parentContext, true, active);
-  }
-  DeferredCoroutine.prototype.getCompleted_nczk2z_k$ = function () {
-    var tmp = this.getCompletedInternal_26f4i6_k$();
-    return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
-  };
-  DeferredCoroutine.prototype.await_xhs9og_k$ = function ($cont) {
-    var tmp = new $awaitCOROUTINE$0(this, $cont);
-    tmp.result_1 = Unit_getInstance();
-    tmp.exception_1 = null;
-    return tmp.doResume_5yljmg_k$();
-  };
-  DeferredCoroutine.prototype.get_onAwait_l48qpe_k$ = function () {
-    return this;
-  };
-  DeferredCoroutine.prototype.registerSelectClause1_8z4167_k$ = function (select, block) {
-    return this.registerSelectClause1Internal_amjpx5_k$(select, block);
-  };
-  DeferredCoroutine.prototype.registerSelectClause1_bb3j78_k$ = function (select, block) {
-    return this.registerSelectClause1_8z4167_k$(select, block);
-  };
-  DeferredCoroutine.$metadata$ = classMeta('DeferredCoroutine', [Deferred, SelectClause1], undefined, undefined, undefined, AbstractCoroutine.prototype);
-  function _get_continuation__y3gzck_0($this) {
-    return $this.continuation_1;
-  }
-  function LazyDeferredCoroutine(parentContext, block) {
-    DeferredCoroutine.call(this, parentContext, false);
-    this.continuation_1 = createCoroutineUnintercepted(block, this, this);
-  }
-  LazyDeferredCoroutine.prototype.onStart_qth026_k$ = function () {
-    startCoroutineCancellable_1(this.continuation_1, this);
-  };
-  LazyDeferredCoroutine.$metadata$ = classMeta('LazyDeferredCoroutine', undefined, undefined, undefined, undefined, DeferredCoroutine.prototype);
   function suspendCancellableCoroutine(block, $cont) {
     var tmp$ret$0;
     {
@@ -681,81 +434,6 @@
     return 'DisposeOnCancel[' + this.handle_1 + ']';
   };
   DisposeOnCancel.$metadata$ = classMeta('DisposeOnCancel', undefined, undefined, undefined, undefined, CancelHandler.prototype);
-  function suspendCancellableCoroutineReusable(block, $cont) {
-    var tmp$ret$0;
-    {
-      var tmp0__anonymous__q1qw7t = $cont;
-      var cancellable = getOrCreateCancellableContinuation(intercepted(tmp0__anonymous__q1qw7t));
-      block(cancellable);
-      tmp$ret$0 = cancellable.getResult_clfhg3_k$();
-    }
-    return tmp$ret$0;
-  }
-  function removeOnCancellation(_this__u8e3s4, node) {
-    var tmp$ret$1;
-    {
-      var tmp0__get_asHandler__gq3rkj = new RemoveOnCancel(node);
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = tmp0__get_asHandler__gq3rkj;
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return _this__u8e3s4.invokeOnCancellation_yygv6h_k$(tmp$ret$1);
-  }
-  function getOrCreateCancellableContinuation(delegate) {
-    if (!(delegate instanceof DispatchedContinuation)) {
-      return new CancellableContinuationImpl(delegate, get_MODE_CANCELLABLE());
-    }
-    var tmp0_safe_receiver = delegate.claimReusableCancellableContinuation_oatv30_k$();
-    var tmp;
-    if (tmp0_safe_receiver == null) {
-      tmp = null;
-    } else {
-      var tmp$ret$1;
-      {
-        {
-        }
-        var tmp_0;
-        var tmp$ret$0;
-        {
-          tmp$ret$0 = tmp0_safe_receiver.resetStateReusable_a3kq5v_k$();
-        }
-        if (tmp$ret$0) {
-          tmp_0 = tmp0_safe_receiver;
-        } else {
-          tmp_0 = null;
-        }
-        tmp$ret$1 = tmp_0;
-      }
-      tmp = tmp$ret$1;
-    }
-    var tmp1_elvis_lhs = tmp;
-    var tmp_1;
-    if (tmp1_elvis_lhs == null) {
-      return new CancellableContinuationImpl(delegate, get_MODE_CANCELLABLE_REUSABLE());
-    } else {
-      tmp_1 = tmp1_elvis_lhs;
-    }
-    return tmp_1;
-  }
-  function _get_node__db0vwp($this) {
-    return $this.node_1;
-  }
-  function RemoveOnCancel(node) {
-    BeforeResumeCancelHandler.call(this);
-    this.node_1 = node;
-  }
-  RemoveOnCancel.prototype.invoke_7fb7sc_k$ = function (cause) {
-    this.node_1.remove_fgfybg_k$();
-  };
-  RemoveOnCancel.prototype.invoke = function (cause) {
-    return this.invoke_7fb7sc_k$(cause);
-  };
-  RemoveOnCancel.prototype.toString = function () {
-    return 'RemoveOnCancel[' + this.node_1 + ']';
-  };
-  RemoveOnCancel.$metadata$ = classMeta('RemoveOnCancel', undefined, undefined, undefined, undefined, BeforeResumeCancelHandler.prototype);
   function get_RESUME_TOKEN() {
     init_properties_CancellableContinuationImpl_kt_jcze1b();
     return RESUME_TOKEN;
@@ -873,7 +551,7 @@
     }
   }
   function installParentHandle($this) {
-    var tmp0_elvis_lhs = $this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_3());
+    var tmp0_elvis_lhs = $this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return null;
@@ -1262,7 +940,7 @@
     if (state instanceof CompletedExceptionally)
       throw recoverStackTrace(state.cause_1, this);
     if (get_isCancellableMode(this.get_resumeMode_te1i4n_k$())) {
-      var job = this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_3());
+      var job = this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
       if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
         var cause = job.getCancellationException_8i1q6u_k$();
         this.cancelCompletedResult_tweln2_k$(state, cause);
@@ -1606,85 +1284,6 @@
       RESUME_TOKEN = new Symbol('RESUME_TOKEN');
     }
   }
-  function CompletableDeferred() {
-  }
-  CompletableDeferred.$metadata$ = interfaceMeta('CompletableDeferred', [Deferred]);
-  function CompletableDeferred_0(parent) {
-    return new CompletableDeferredImpl(parent);
-  }
-  function CompletableDeferred$default(parent, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      parent = null;
-    return CompletableDeferred_0(parent);
-  }
-  function $awaitCOROUTINE$1(_this__u8e3s4, resultContinuation) {
-    CoroutineImpl.call(this, resultContinuation);
-    this._this__u8e3s4__1 = _this__u8e3s4;
-  }
-  $awaitCOROUTINE$1.prototype.doResume_5yljmg_k$ = function () {
-    var suspendResult = this.result_1;
-    $sm: do
-      try {
-        var tmp = this.state_1;
-        switch (tmp) {
-          case 0:
-            this.exceptionState_1 = 2;
-            this.state_1 = 1;
-            suspendResult = this._this__u8e3s4__1.awaitInternal_pz51jj_k$(this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 1:
-            return (suspendResult == null ? true : isObject(suspendResult)) ? suspendResult : THROW_CCE();
-          case 2:
-            throw this.exception_1;
-        }
-      } catch ($p) {
-        if (this.exceptionState_1 === 2) {
-          throw $p;
-        } else {
-          this.state_1 = this.exceptionState_1;
-          this.exception_1 = $p;
-        }
-      }
-     while (true);
-  };
-  $awaitCOROUTINE$1.$metadata$ = classMeta('$awaitCOROUTINE$1', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function CompletableDeferredImpl(parent) {
-    JobSupport.call(this, true);
-    this.initParentJob_4c2lht_k$(parent);
-  }
-  CompletableDeferredImpl.prototype.get_onCancelComplete_4lfsth_k$ = function () {
-    return true;
-  };
-  CompletableDeferredImpl.prototype.getCompleted_nczk2z_k$ = function () {
-    var tmp = this.getCompletedInternal_26f4i6_k$();
-    return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
-  };
-  CompletableDeferredImpl.prototype.await_xhs9og_k$ = function ($cont) {
-    var tmp = new $awaitCOROUTINE$1(this, $cont);
-    tmp.result_1 = Unit_getInstance();
-    tmp.exception_1 = null;
-    return tmp.doResume_5yljmg_k$();
-  };
-  CompletableDeferredImpl.prototype.get_onAwait_l48qpe_k$ = function () {
-    return this;
-  };
-  CompletableDeferredImpl.prototype.registerSelectClause1_8z4167_k$ = function (select, block) {
-    return this.registerSelectClause1Internal_amjpx5_k$(select, block);
-  };
-  CompletableDeferredImpl.prototype.registerSelectClause1_bb3j78_k$ = function (select, block) {
-    return this.registerSelectClause1_8z4167_k$(select, block);
-  };
-  CompletableDeferredImpl.prototype.complete_8y7ynm_k$ = function (value) {
-    return this.makeCompleting_2ycklh_k$(value);
-  };
-  CompletableDeferredImpl.prototype.completeExceptionally_7s0ccc_k$ = function (exception) {
-    return this.makeCompleting_2ycklh_k$(CompletedExceptionally_init_$Create$(exception, false, 2, null));
-  };
-  CompletableDeferredImpl.$metadata$ = classMeta('CompletableDeferredImpl', [CompletableDeferred, SelectClause1], undefined, undefined, undefined, JobSupport.prototype);
   function CompletableJob() {
   }
   CompletableJob.$metadata$ = interfaceMeta('CompletableJob', [Job]);
@@ -1933,112 +1532,17 @@
     }
     return tmp$ret$0;
   }
-  function CoroutineExceptionHandler_0(handler) {
-    return new _no_name_provided__qut3iv(handler);
-  }
-  function _no_name_provided__qut3iv($handler) {
-    this.$handler_1 = $handler;
-    AbstractCoroutineContextElement.call(this, Key_getInstance_1());
-  }
-  _no_name_provided__qut3iv.prototype.handleException_w1h9is_k$ = function (context, exception) {
-    return this.$handler_1(context, exception);
-  };
-  _no_name_provided__qut3iv.$metadata$ = classMeta(undefined, [CoroutineExceptionHandler], undefined, undefined, undefined, AbstractCoroutineContextElement.prototype);
-  function Key_2() {
-    Key_instance_1 = this;
-  }
-  Key_2.$metadata$ = objectMeta('Key', [Key]);
-  var Key_instance_1;
-  function Key_getInstance_2() {
-    if (Key_instance_1 == null)
-      new Key_2();
-    return Key_instance_1;
-  }
-  function CoroutineName(name) {
-    Key_getInstance_2();
-    AbstractCoroutineContextElement.call(this, Key_getInstance_2());
-    this.name_1 = name;
-  }
-  CoroutineName.prototype.get_name_woqyms_k$ = function () {
-    return this.name_1;
-  };
-  CoroutineName.prototype.toString = function () {
-    return 'CoroutineName(' + this.name_1 + ')';
-  };
-  CoroutineName.prototype.component1_7eebsc_k$ = function () {
-    return this.name_1;
-  };
-  CoroutineName.prototype.copy_3t26ic_k$ = function (name) {
-    return new CoroutineName(name);
-  };
-  CoroutineName.prototype.copy$default_q3pzg4_k$ = function (name, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      name = this.name_1;
-    return this.copy_3t26ic_k$(name);
-  };
-  CoroutineName.prototype.hashCode = function () {
-    return getStringHashCode(this.name_1);
-  };
-  CoroutineName.prototype.equals = function (other) {
-    if (this === other)
-      return true;
-    if (!(other instanceof CoroutineName))
-      return false;
-    var tmp0_other_with_cast = other instanceof CoroutineName ? other : THROW_CCE();
-    if (!(this.name_1 === tmp0_other_with_cast.name_1))
-      return false;
-    return true;
-  };
-  CoroutineName.$metadata$ = classMeta('CoroutineName', undefined, undefined, undefined, undefined, AbstractCoroutineContextElement.prototype);
   function CoroutineScope() {
   }
   CoroutineScope.$metadata$ = interfaceMeta('CoroutineScope');
   function CoroutineScope_0(context) {
     var tmp;
-    if (!(context.get_1pi7hg_k$(Key_getInstance_3()) == null)) {
+    if (!(context.get_1pi7hg_k$(Key_getInstance_2()) == null)) {
       tmp = context;
     } else {
       tmp = context.plus_rgw9wi_k$(Job$default(null, 1, null));
     }
     return new ContextScope(tmp);
-  }
-  function cancel_1(_this__u8e3s4, cause) {
-    var tmp0_elvis_lhs = _this__u8e3s4.get_coroutineContext_115oqo_k$().get_1pi7hg_k$(Key_getInstance_3());
-    var tmp;
-    if (tmp0_elvis_lhs == null) {
-      var tmp0_error = 'Scope cannot be cancelled because it does not have a job: ' + _this__u8e3s4;
-      throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-    } else {
-      tmp = tmp0_elvis_lhs;
-    }
-    var job = tmp;
-    job.cancel_4b7aim_k$(cause);
-  }
-  function cancel$default_4(_this__u8e3s4, cause, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      cause = null;
-    return cancel_1(_this__u8e3s4, cause);
-  }
-  function cancel_2(_this__u8e3s4, message, cause) {
-    return cancel_1(_this__u8e3s4, CancellationException_init_$Create$_0(message, cause));
-  }
-  function cancel$default_5(_this__u8e3s4, message, cause, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      cause = null;
-    return cancel_2(_this__u8e3s4, message, cause);
-  }
-  function GlobalScope() {
-    GlobalScope_instance = this;
-  }
-  GlobalScope.prototype.get_coroutineContext_115oqo_k$ = function () {
-    return EmptyCoroutineContext_getInstance();
-  };
-  GlobalScope.$metadata$ = objectMeta('GlobalScope', [CoroutineScope]);
-  var GlobalScope_instance;
-  function GlobalScope_getInstance() {
-    if (GlobalScope_instance == null)
-      new GlobalScope();
-    return GlobalScope_instance;
   }
   var CoroutineStart_DEFAULT_instance;
   var CoroutineStart_LAZY_instance;
@@ -2145,35 +1649,9 @@
   function CopyableThrowable() {
   }
   CopyableThrowable.$metadata$ = interfaceMeta('CopyableThrowable');
-  function Deferred() {
-  }
-  Deferred.$metadata$ = interfaceMeta('Deferred', [Job]);
   function Delay() {
   }
   Delay.$metadata$ = interfaceMeta('Delay');
-  function delay_0(timeMillis, $cont) {
-    if (timeMillis.compareTo_n4fqi2_k$(new Long(0, 0)) <= 0)
-      return Unit_getInstance();
-    var tmp$ret$0;
-    {
-      var tmp0__anonymous__q1qw7t = $cont;
-      var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
-      cancellable.initCancellability_sh6jkn_k$();
-      {
-        Companion_getInstance();
-        if (timeMillis.compareTo_n4fqi2_k$(new Long(-1, 2147483647)) < 0) {
-          get_delay(cancellable.get_context_h02k06_k$()).scheduleResumeAfterDelay_5x4w1l_k$(timeMillis, cancellable);
-        }
-      }
-      tmp$ret$0 = cancellable.getResult_clfhg3_k$();
-    }
-    return tmp$ret$0;
-  }
-  function get_delay(_this__u8e3s4) {
-    var tmp = _this__u8e3s4.get_1pi7hg_k$(Key_getInstance());
-    var tmp0_elvis_lhs = (!(tmp == null) ? isInterface(tmp, Delay) : false) ? tmp : null;
-    return tmp0_elvis_lhs == null ? get_DefaultDelay() : tmp0_elvis_lhs;
-  }
   function get_DISPOSED_TASK() {
     init_properties_EventLoop_common_kt_xtc85b();
     return DISPOSED_TASK;
@@ -2394,18 +1872,18 @@
   function DisposableHandle() {
   }
   DisposableHandle.$metadata$ = interfaceMeta('DisposableHandle');
-  function Key_3() {
-    Key_instance_2 = this;
+  function Key_2() {
+    Key_instance_1 = this;
   }
-  Key_3.$metadata$ = objectMeta('Key', [Key]);
-  var Key_instance_2;
-  function Key_getInstance_3() {
-    if (Key_instance_2 == null)
-      new Key_3();
-    return Key_instance_2;
+  Key_2.$metadata$ = objectMeta('Key', [Key]);
+  var Key_instance_1;
+  function Key_getInstance_2() {
+    if (Key_instance_1 == null)
+      new Key_2();
+    return Key_instance_1;
   }
   function Job() {
-    Key_getInstance_3();
+    Key_getInstance_2();
   }
   Job.$metadata$ = interfaceMeta('Job', [Element]);
   function ChildJob() {
@@ -2439,7 +1917,7 @@
     return NonDisposableHandle_instance;
   }
   function ensureActive(_this__u8e3s4) {
-    var tmp0_safe_receiver = _this__u8e3s4.get_1pi7hg_k$(Key_getInstance_3());
+    var tmp0_safe_receiver = _this__u8e3s4.get_1pi7hg_k$(Key_getInstance_2());
     if (tmp0_safe_receiver == null)
       null;
     else {
@@ -2457,38 +1935,6 @@
     if (!(($mask0 & 1) === 0))
       parent = null;
     return Job_0(parent);
-  }
-  function cancel_3(_this__u8e3s4, message, cause) {
-    return _this__u8e3s4.cancel_4b7aim_k$(CancellationException_init_$Create$_0(message, cause));
-  }
-  function cancel$default_6(_this__u8e3s4, message, cause, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      cause = null;
-    return cancel_3(_this__u8e3s4, message, cause);
-  }
-  function get_job(_this__u8e3s4) {
-    var tmp0_elvis_lhs = _this__u8e3s4.get_1pi7hg_k$(Key_getInstance_3());
-    var tmp;
-    if (tmp0_elvis_lhs == null) {
-      var tmp0_error = "Current context doesn't contain Job in it: " + _this__u8e3s4;
-      throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-    } else {
-      tmp = tmp0_elvis_lhs;
-    }
-    return tmp;
-  }
-  function cancel_4(_this__u8e3s4, cause) {
-    var tmp0_safe_receiver = _this__u8e3s4.get_1pi7hg_k$(Key_getInstance_3());
-    if (tmp0_safe_receiver == null)
-      null;
-    else {
-      tmp0_safe_receiver.cancel_4b7aim_k$(cause);
-    }
-  }
-  function cancel$default_7(_this__u8e3s4, cause, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      cause = null;
-    return cancel_4(_this__u8e3s4, cause);
   }
   function get_COMPLETING_ALREADY() {
     init_properties_JobSupport_kt_iaxwag();
@@ -3834,7 +3280,7 @@
     this._parentHandle_1 = atomic$ref$1(null);
   }
   JobSupport.prototype.get_key_18j28a_k$ = function () {
-    return Key_getInstance_3();
+    return Key_getInstance_2();
   };
   JobSupport.prototype.set_parentHandle_voxu0m_k$ = function (value) {
     this._parentHandle_1.value_1 = value;
@@ -4550,7 +3996,7 @@
     return this.invoke_7fb7sc_k$(cause);
   };
   InvokeOnCompletion.$metadata$ = classMeta('InvokeOnCompletion', undefined, undefined, undefined, undefined, JobNode.prototype);
-  function _get_continuation__y3gzck_1($this) {
+  function _get_continuation__y3gzck_0($this) {
     return $this.continuation_1;
   }
   function ResumeOnCompletion(continuation) {
@@ -4599,7 +4045,7 @@
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.state_1;
     return tmp1_elvis_lhs == null ? _this__u8e3s4 : tmp1_elvis_lhs;
   }
-  function _get_continuation__y3gzck_2($this) {
+  function _get_continuation__y3gzck_1($this) {
     return $this.continuation_1;
   }
   function ResumeAwaitOnCompletion(continuation) {
@@ -4772,21 +4218,6 @@
     return null;
   };
   MainCoroutineDispatcher.$metadata$ = classMeta('MainCoroutineDispatcher', undefined, undefined, undefined, undefined, CoroutineDispatcher.prototype);
-  function SupervisorJob(parent) {
-    return new SupervisorJobImpl(parent);
-  }
-  function SupervisorJob$default(parent, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      parent = null;
-    return SupervisorJob(parent);
-  }
-  function SupervisorJobImpl(parent) {
-    JobImpl.call(this, parent);
-  }
-  SupervisorJobImpl.prototype.childCancelled_fdoq8t_k$ = function (cause) {
-    return false;
-  };
-  SupervisorJobImpl.$metadata$ = classMeta('SupervisorJobImpl', undefined, undefined, undefined, undefined, JobImpl.prototype);
   function TimeoutCancellationException_init_$Init$(message, $this) {
     TimeoutCancellationException.call($this, message, null);
     return $this;
@@ -4830,7 +4261,7 @@
     return false;
   };
   Unconfined.prototype.dispatch_o98ux7_k$ = function (context, block) {
-    var yieldContext = context.get_1pi7hg_k$(Key_getInstance_4());
+    var yieldContext = context.get_1pi7hg_k$(Key_getInstance_3());
     if (!(yieldContext == null)) {
       yieldContext.dispatcherWasUnconfined_1 = true;
       return Unit_getInstance();
@@ -4847,19 +4278,19 @@
       new Unconfined();
     return Unconfined_instance;
   }
-  function Key_4() {
-    Key_instance_3 = this;
+  function Key_3() {
+    Key_instance_2 = this;
   }
-  Key_4.$metadata$ = objectMeta('Key', [Key]);
-  var Key_instance_3;
-  function Key_getInstance_4() {
-    if (Key_instance_3 == null)
-      new Key_4();
-    return Key_instance_3;
+  Key_3.$metadata$ = objectMeta('Key', [Key]);
+  var Key_instance_2;
+  function Key_getInstance_3() {
+    if (Key_instance_2 == null)
+      new Key_3();
+    return Key_instance_2;
   }
   function YieldContext() {
-    Key_getInstance_4();
-    AbstractCoroutineContextElement.call(this, Key_getInstance_4());
+    Key_getInstance_3();
+    AbstractCoroutineContextElement.call(this, Key_getInstance_3());
     this.dispatcherWasUnconfined_1 = false;
   }
   YieldContext.prototype.set_dispatcherWasUnconfined_6oi8pp_k$ = function (_set____db54di) {
@@ -4899,1780 +4330,6 @@
     return HANDLER_INVOKED;
   }
   var HANDLER_INVOKED;
-  function _get_receive__lsa4cu($this) {
-    return $this.receive_1;
-  }
-  function hasNextResult($this, result) {
-    if (result instanceof Closed) {
-      if (!(result.closeCause_1 == null))
-        throw recoverStackTrace_0(result.get_receiveException_nqbiq3_k$());
-      return false;
-    }
-    return true;
-  }
-  function hasNextSuspend($this, $cont) {
-    var tmp$ret$5;
-    {
-      var tmp0__anonymous__q1qw7t = $cont;
-      var cancellable = getOrCreateCancellableContinuation(intercepted(tmp0__anonymous__q1qw7t));
-      var tmp$ret$0;
-      $l$block_1: {
-        var receive = new ReceiveHasNext($this, cancellable);
-        while (true) {
-          if (enqueueReceive($this.channel_1, receive)) {
-            removeReceiveOnCancel($this.channel_1, cancellable, receive);
-            tmp$ret$0 = Unit_getInstance();
-            break $l$block_1;
-          }
-          var result = $this.channel_1.pollInternal_ml771g_k$();
-          $this.result_1 = result;
-          if (result instanceof Closed) {
-            if (result.closeCause_1 == null) {
-              var tmp$ret$2;
-              {
-                var tmp$ret$1;
-                {
-                  var tmp0_success = Companion_getInstance_0();
-                  tmp$ret$1 = _Result___init__impl__xyqfz8(false);
-                }
-                tmp$ret$2 = cancellable.resumeWith_s3a3yh_k$(tmp$ret$1);
-              }
-            } else {
-              var tmp$ret$4;
-              {
-                var tmp0_resumeWithException = result.get_receiveException_nqbiq3_k$();
-                var tmp$ret$3;
-                {
-                  var tmp0_failure = Companion_getInstance_0();
-                  tmp$ret$3 = _Result___init__impl__xyqfz8(createFailure(tmp0_resumeWithException));
-                }
-                tmp$ret$4 = cancellable.resumeWith_s3a3yh_k$(tmp$ret$3);
-              }
-            }
-            tmp$ret$0 = Unit_getInstance();
-            break $l$block_1;
-          }
-          if (!(result === get_POLL_FAILED())) {
-            var tmp0_safe_receiver = $this.channel_1.get_onUndeliveredElement_a8l4w7_k$();
-            var tmp;
-            if (tmp0_safe_receiver == null) {
-              tmp = null;
-            } else {
-              tmp = bindCancellationFun(tmp0_safe_receiver, (result == null ? true : isObject(result)) ? result : THROW_CCE(), cancellable.get_context_h02k06_k$());
-            }
-            cancellable.resume_l1w5in_k$(true, tmp);
-            tmp$ret$0 = Unit_getInstance();
-            break $l$block_1;
-          }
-        }
-      }
-      tmp$ret$5 = cancellable.getResult_clfhg3_k$();
-    }
-    return tmp$ret$5;
-  }
-  function receiveSuspend($this, receiveMode, $cont) {
-    var tmp$ret$1;
-    {
-      var tmp0__anonymous__q1qw7t = $cont;
-      var cancellable = getOrCreateCancellableContinuation(intercepted(tmp0__anonymous__q1qw7t));
-      var tmp$ret$0;
-      $l$block_1: {
-        var tmp;
-        if ($this.get_onUndeliveredElement_a8l4w7_k$() == null) {
-          tmp = new ReceiveElement(isInterface(cancellable, CancellableContinuation) ? cancellable : THROW_CCE(), receiveMode);
-        } else {
-          tmp = new ReceiveElementWithUndeliveredHandler(isInterface(cancellable, CancellableContinuation) ? cancellable : THROW_CCE(), receiveMode, $this.get_onUndeliveredElement_a8l4w7_k$());
-        }
-        var receive = tmp;
-        while (true) {
-          if (enqueueReceive($this, receive)) {
-            removeReceiveOnCancel($this, cancellable, receive);
-            tmp$ret$0 = Unit_getInstance();
-            break $l$block_1;
-          }
-          var result = $this.pollInternal_ml771g_k$();
-          if (result instanceof Closed) {
-            receive.resumeReceiveClosed_ep2qlw_k$(result);
-            tmp$ret$0 = Unit_getInstance();
-            break $l$block_1;
-          }
-          if (!(result === get_POLL_FAILED())) {
-            var tmp_0 = receive.resumeValue_nsekne_k$((result == null ? true : isObject(result)) ? result : THROW_CCE());
-            cancellable.resume_l1w5in_k$(tmp_0, receive.resumeOnCancellationFun_ya26h6_k$((result == null ? true : isObject(result)) ? result : THROW_CCE()));
-            tmp$ret$0 = Unit_getInstance();
-            break $l$block_1;
-          }
-        }
-      }
-      tmp$ret$1 = cancellable.getResult_clfhg3_k$();
-    }
-    return tmp$ret$1;
-  }
-  function enqueueReceive($this, receive) {
-    var tmp$ret$0;
-    {
-      var tmp0_also = $this.enqueueReceiveInternal_rxtsl7_k$(receive);
-      {
-      }
-      {
-        if (tmp0_also)
-          $this.onReceiveEnqueued_xu1a6p_k$();
-      }
-      tmp$ret$0 = tmp0_also;
-    }
-    return tmp$ret$0;
-  }
-  function TryPollDesc(queue) {
-    RemoveFirstDesc.call(this, queue);
-  }
-  TryPollDesc.prototype.failure_mowj19_k$ = function (affected) {
-    var tmp0_subject = affected;
-    var tmp;
-    if (tmp0_subject instanceof Closed) {
-      tmp = affected;
-    } else {
-      if (!(tmp0_subject instanceof Send)) {
-        tmp = get_POLL_FAILED();
-      } else {
-        tmp = null;
-      }
-    }
-    return tmp;
-  };
-  TryPollDesc.prototype.onPrepare_soaf0c_k$ = function (prepareOp) {
-    var tmp = prepareOp.affected_1;
-    var affected = tmp instanceof Send ? tmp : THROW_CCE();
-    var tmp0_elvis_lhs = affected.tryResumeSend_93c6it_k$(prepareOp);
-    var tmp_0;
-    if (tmp0_elvis_lhs == null) {
-      return get_REMOVE_PREPARED();
-    } else {
-      tmp_0 = tmp0_elvis_lhs;
-    }
-    var token = tmp_0;
-    if (token === get_RETRY_ATOMIC())
-      return get_RETRY_ATOMIC();
-    {
-    }
-    return null;
-  };
-  TryPollDesc.prototype.onRemoved_gagg6z_k$ = function (affected) {
-    (affected instanceof Send ? affected : THROW_CCE()).undeliveredElement_djsee8_k$();
-  };
-  TryPollDesc.$metadata$ = classMeta('TryPollDesc', undefined, undefined, undefined, undefined, RemoveFirstDesc.prototype);
-  function registerSelectReceiveMode($this, select, receiveMode, block) {
-    while (true) {
-      if (select.get_isSelected_dl432q_k$())
-        return Unit_getInstance();
-      if ($this.get_isEmptyImpl_9w6w0q_k$()) {
-        if (enqueueReceiveSelect($this, select, block, receiveMode))
-          return Unit_getInstance();
-      } else {
-        var pollResult = $this.pollSelectInternal_puj25v_k$(select);
-        if (pollResult === get_ALREADY_SELECTED())
-          return Unit_getInstance();
-        else if (pollResult === get_POLL_FAILED()) {
-        } else if (pollResult === get_RETRY_ATOMIC()) {
-        } else
-          tryStartBlockUnintercepted(block, $this, select, receiveMode, pollResult);
-      }
-    }
-  }
-  function tryStartBlockUnintercepted(_this__u8e3s4, $this, select, receiveMode, value) {
-    var tmp0_subject = value;
-    if (tmp0_subject instanceof Closed) {
-      var tmp1_subject = receiveMode;
-      if (tmp1_subject === 0) {
-        throw recoverStackTrace_0(value.get_receiveException_nqbiq3_k$());
-      } else if (tmp1_subject === 1) {
-        if (!select.trySelect_1ivjiv_k$())
-          return Unit_getInstance();
-        startCoroutineUnintercepted_0(_this__u8e3s4, new ChannelResult(Companion_getInstance_1().closed_o16byb_k$(value.closeCause_1)), select.get_completion_t4gxwb_k$());
-      }
-    } else {
-      if (receiveMode === 1) {
-        var tmp$ret$0;
-        {
-          var tmp;
-          if (value instanceof Closed) {
-            tmp = Companion_getInstance_1().closed_o16byb_k$(value.closeCause_1);
-          } else {
-            var tmp_0 = Companion_getInstance_1();
-            tmp = tmp_0.success_prl0f3_k$((value == null ? true : isObject(value)) ? value : THROW_CCE());
-          }
-          tmp$ret$0 = tmp;
-        }
-        startCoroutineUnintercepted_0(_this__u8e3s4, new ChannelResult(tmp$ret$0), select.get_completion_t4gxwb_k$());
-      } else {
-        startCoroutineUnintercepted_0(_this__u8e3s4, value, select.get_completion_t4gxwb_k$());
-      }
-    }
-  }
-  function enqueueReceiveSelect($this, select, block, receiveMode) {
-    var node = new ReceiveSelect($this, select, block, receiveMode);
-    var result = enqueueReceive($this, node);
-    if (result)
-      select.disposeOnSelect_lrl426_k$(node);
-    return result;
-  }
-  function removeReceiveOnCancel($this, cont, receive) {
-    var tmp$ret$1;
-    {
-      var tmp0__get_asHandler__gq3rkj = new RemoveReceiveOnCancel($this, receive);
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = tmp0__get_asHandler__gq3rkj;
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return cont.invokeOnCancellation_yygv6h_k$(tmp$ret$1);
-  }
-  function RemoveReceiveOnCancel($outer, receive) {
-    this.$this_1 = $outer;
-    BeforeResumeCancelHandler.call(this);
-    this.receive_1 = receive;
-  }
-  RemoveReceiveOnCancel.prototype.invoke_7fb7sc_k$ = function (cause) {
-    if (this.receive_1.remove_fgfybg_k$())
-      this.$this_1.onReceiveDequeued_4wpjax_k$();
-  };
-  RemoveReceiveOnCancel.prototype.invoke = function (cause) {
-    return this.invoke_7fb7sc_k$(cause);
-  };
-  RemoveReceiveOnCancel.prototype.toString = function () {
-    return 'RemoveReceiveOnCancel[' + this.receive_1 + ']';
-  };
-  RemoveReceiveOnCancel.$metadata$ = classMeta('RemoveReceiveOnCancel', undefined, undefined, undefined, undefined, BeforeResumeCancelHandler.prototype);
-  function Itr(channel) {
-    this.channel_1 = channel;
-    this.result_1 = get_POLL_FAILED();
-  }
-  Itr.prototype.get_channel_dhi7tm_k$ = function () {
-    return this.channel_1;
-  };
-  Itr.prototype.set_result_kw7ubu_k$ = function (_set____db54di) {
-    this.result_1 = _set____db54di;
-  };
-  Itr.prototype.get_result_iyg5d2_k$ = function () {
-    return this.result_1;
-  };
-  Itr.prototype.hasNext_4tgia2_k$ = function ($cont) {
-    if (!(this.result_1 === get_POLL_FAILED()))
-      return hasNextResult(this, this.result_1);
-    this.result_1 = this.channel_1.pollInternal_ml771g_k$();
-    if (!(this.result_1 === get_POLL_FAILED()))
-      return hasNextResult(this, this.result_1);
-    return hasNextSuspend(this, $cont);
-  };
-  Itr.prototype.next_20eer_k$ = function () {
-    var result = this.result_1;
-    if (result instanceof Closed)
-      throw recoverStackTrace_0(result.get_receiveException_nqbiq3_k$());
-    if (!(result === get_POLL_FAILED())) {
-      this.result_1 = get_POLL_FAILED();
-      return (result == null ? true : isObject(result)) ? result : THROW_CCE();
-    }
-    throw IllegalStateException_init_$Create$("'hasNext' should be called prior to 'next' invocation");
-  };
-  Itr.$metadata$ = classMeta('Itr', [ChannelIterator]);
-  function ReceiveElement(cont, receiveMode) {
-    Receive.call(this);
-    this.cont_1 = cont;
-    this.receiveMode_1 = receiveMode;
-  }
-  ReceiveElement.prototype.get_cont_wok86z_k$ = function () {
-    return this.cont_1;
-  };
-  ReceiveElement.prototype.get_receiveMode_kw93yb_k$ = function () {
-    return this.receiveMode_1;
-  };
-  ReceiveElement.prototype.resumeValue_nsekne_k$ = function (value) {
-    var tmp0_subject = this.receiveMode_1;
-    return tmp0_subject === 1 ? new ChannelResult(Companion_getInstance_1().success_prl0f3_k$(value)) : value;
-  };
-  ReceiveElement.prototype.tryResumeReceive_mpjrre_k$ = function (value, otherOp) {
-    var tmp = this.resumeValue_nsekne_k$(value);
-    var tmp0_safe_receiver = otherOp;
-    var tmp1_elvis_lhs = this.cont_1.tryResume_93jc0s_k$(tmp, tmp0_safe_receiver == null ? null : tmp0_safe_receiver.desc_1, this.resumeOnCancellationFun_ya26h6_k$(value));
-    var tmp_0;
-    if (tmp1_elvis_lhs == null) {
-      return null;
-    } else {
-      tmp_0 = tmp1_elvis_lhs;
-    }
-    var token = tmp_0;
-    {
-    }
-    var tmp2_safe_receiver = otherOp;
-    if (tmp2_safe_receiver == null)
-      null;
-    else {
-      tmp2_safe_receiver.finishPrepare_o9c8d9_k$();
-    }
-    return get_RESUME_TOKEN();
-  };
-  ReceiveElement.prototype.completeResumeReceive_1cyi5u_k$ = function (value) {
-    return this.cont_1.completeResume_fu4ex_k$(get_RESUME_TOKEN());
-  };
-  ReceiveElement.prototype.resumeReceiveClosed_ep2qlw_k$ = function (closed) {
-    if (this.receiveMode_1 === 1) {
-      var tmp$ret$2;
-      {
-        var tmp0_resume = this.cont_1;
-        var tmp$ret$0;
-        {
-          tmp$ret$0 = Companion_getInstance_1().closed_o16byb_k$(closed.closeCause_1);
-        }
-        var tmp1_resume = tmp$ret$0;
-        var tmp$ret$1;
-        {
-          var tmp0_success = Companion_getInstance_0();
-          tmp$ret$1 = _Result___init__impl__xyqfz8(new ChannelResult(tmp1_resume));
-        }
-        tmp$ret$2 = tmp0_resume.resumeWith_s3a3yh_k$(tmp$ret$1);
-      }
-    } else {
-      var tmp$ret$4;
-      {
-        var tmp2_resumeWithException = this.cont_1;
-        var tmp3_resumeWithException = closed.get_receiveException_nqbiq3_k$();
-        var tmp$ret$3;
-        {
-          var tmp0_failure = Companion_getInstance_0();
-          tmp$ret$3 = _Result___init__impl__xyqfz8(createFailure(tmp3_resumeWithException));
-        }
-        tmp$ret$4 = tmp2_resumeWithException.resumeWith_s3a3yh_k$(tmp$ret$3);
-      }
-    }
-  };
-  ReceiveElement.prototype.toString = function () {
-    return 'ReceiveElement@' + get_hexAddress(this) + '[receiveMode=' + this.receiveMode_1 + ']';
-  };
-  ReceiveElement.$metadata$ = classMeta('ReceiveElement', undefined, undefined, undefined, undefined, Receive.prototype);
-  function ReceiveElementWithUndeliveredHandler(cont, receiveMode, onUndeliveredElement) {
-    ReceiveElement.call(this, cont, receiveMode);
-    this.onUndeliveredElement_1 = onUndeliveredElement;
-  }
-  ReceiveElementWithUndeliveredHandler.prototype.get_onUndeliveredElement_a8l4w7_k$ = function () {
-    return this.onUndeliveredElement_1;
-  };
-  ReceiveElementWithUndeliveredHandler.prototype.resumeOnCancellationFun_ya26h6_k$ = function (value) {
-    return bindCancellationFun(this.onUndeliveredElement_1, value, this.get_cont_wok86z_k$().get_context_h02k06_k$());
-  };
-  ReceiveElementWithUndeliveredHandler.$metadata$ = classMeta('ReceiveElementWithUndeliveredHandler', undefined, undefined, undefined, undefined, ReceiveElement.prototype);
-  function ReceiveHasNext(iterator, cont) {
-    Receive.call(this);
-    this.iterator_1 = iterator;
-    this.cont_1 = cont;
-  }
-  ReceiveHasNext.prototype.get_iterator_c8vxs9_k$ = function () {
-    return this.iterator_1;
-  };
-  ReceiveHasNext.prototype.get_cont_wok86z_k$ = function () {
-    return this.cont_1;
-  };
-  ReceiveHasNext.prototype.tryResumeReceive_mpjrre_k$ = function (value, otherOp) {
-    var tmp0_safe_receiver = otherOp;
-    var tmp1_elvis_lhs = this.cont_1.tryResume_93jc0s_k$(true, tmp0_safe_receiver == null ? null : tmp0_safe_receiver.desc_1, this.resumeOnCancellationFun_ya26h6_k$(value));
-    var tmp;
-    if (tmp1_elvis_lhs == null) {
-      return null;
-    } else {
-      tmp = tmp1_elvis_lhs;
-    }
-    var token = tmp;
-    {
-    }
-    var tmp2_safe_receiver = otherOp;
-    if (tmp2_safe_receiver == null)
-      null;
-    else {
-      tmp2_safe_receiver.finishPrepare_o9c8d9_k$();
-    }
-    return get_RESUME_TOKEN();
-  };
-  ReceiveHasNext.prototype.completeResumeReceive_1cyi5u_k$ = function (value) {
-    this.iterator_1.result_1 = value;
-    this.cont_1.completeResume_fu4ex_k$(get_RESUME_TOKEN());
-  };
-  ReceiveHasNext.prototype.resumeReceiveClosed_ep2qlw_k$ = function (closed) {
-    var tmp;
-    if (closed.closeCause_1 == null) {
-      tmp = this.cont_1.tryResume$default_sti3on_k$(false, null, 2, null);
-    } else {
-      tmp = this.cont_1.tryResumeWithException_3icka9_k$(closed.get_receiveException_nqbiq3_k$());
-    }
-    var token = tmp;
-    if (!(token == null)) {
-      this.iterator_1.result_1 = closed;
-      this.cont_1.completeResume_fu4ex_k$(token);
-    }
-  };
-  ReceiveHasNext.prototype.resumeOnCancellationFun_ya26h6_k$ = function (value) {
-    var tmp0_safe_receiver = this.iterator_1.channel_1.get_onUndeliveredElement_a8l4w7_k$();
-    return tmp0_safe_receiver == null ? null : bindCancellationFun(tmp0_safe_receiver, value, this.cont_1.get_context_h02k06_k$());
-  };
-  ReceiveHasNext.prototype.toString = function () {
-    return 'ReceiveHasNext@' + get_hexAddress(this);
-  };
-  ReceiveHasNext.$metadata$ = classMeta('ReceiveHasNext', undefined, undefined, undefined, undefined, Receive.prototype);
-  function ReceiveSelect(channel, select, block, receiveMode) {
-    Receive.call(this);
-    this.channel_1 = channel;
-    this.select_1 = select;
-    this.block_1 = block;
-    this.receiveMode_1 = receiveMode;
-  }
-  ReceiveSelect.prototype.get_channel_dhi7tm_k$ = function () {
-    return this.channel_1;
-  };
-  ReceiveSelect.prototype.get_select_jfcyrp_k$ = function () {
-    return this.select_1;
-  };
-  ReceiveSelect.prototype.get_block_ip8l7o_k$ = function () {
-    return this.block_1;
-  };
-  ReceiveSelect.prototype.get_receiveMode_kw93yb_k$ = function () {
-    return this.receiveMode_1;
-  };
-  ReceiveSelect.prototype.tryResumeReceive_mpjrre_k$ = function (value, otherOp) {
-    var tmp = this.select_1.trySelectOther_zha44u_k$(otherOp);
-    return (tmp == null ? true : tmp instanceof Symbol) ? tmp : THROW_CCE();
-  };
-  ReceiveSelect.prototype.completeResumeReceive_1cyi5u_k$ = function (value) {
-    startCoroutineCancellable(this.block_1, this.receiveMode_1 === 1 ? new ChannelResult(Companion_getInstance_1().success_prl0f3_k$(value)) : value, this.select_1.get_completion_t4gxwb_k$(), this.resumeOnCancellationFun_ya26h6_k$(value));
-  };
-  ReceiveSelect.prototype.resumeReceiveClosed_ep2qlw_k$ = function (closed) {
-    if (!this.select_1.trySelect_1ivjiv_k$())
-      return Unit_getInstance();
-    var tmp0_subject = this.receiveMode_1;
-    if (tmp0_subject === 0)
-      this.select_1.resumeSelectWithException_xs2ljz_k$(closed.get_receiveException_nqbiq3_k$());
-    else if (tmp0_subject === 1) {
-      var tmp = new ChannelResult(Companion_getInstance_1().closed_o16byb_k$(closed.closeCause_1));
-      var tmp_0 = this.select_1.get_completion_t4gxwb_k$();
-      startCoroutineCancellable$default(this.block_1, tmp, tmp_0, null, 4, null);
-    }
-  };
-  ReceiveSelect.prototype.dispose_3n44we_k$ = function () {
-    if (this.remove_fgfybg_k$())
-      this.channel_1.onReceiveDequeued_4wpjax_k$();
-  };
-  ReceiveSelect.prototype.resumeOnCancellationFun_ya26h6_k$ = function (value) {
-    var tmp0_safe_receiver = this.channel_1.get_onUndeliveredElement_a8l4w7_k$();
-    return tmp0_safe_receiver == null ? null : bindCancellationFun(tmp0_safe_receiver, value, this.select_1.get_completion_t4gxwb_k$().get_context_h02k06_k$());
-  };
-  ReceiveSelect.prototype.toString = function () {
-    return 'ReceiveSelect@' + get_hexAddress(this) + '[' + this.select_1 + ',receiveMode=' + this.receiveMode_1 + ']';
-  };
-  ReceiveSelect.$metadata$ = classMeta('ReceiveSelect', [DisposableHandle], undefined, undefined, undefined, Receive.prototype);
-  function AbstractChannel$onReceive$1(this$0) {
-    this.this$0__1 = this$0;
-  }
-  AbstractChannel$onReceive$1.prototype.registerSelectClause1_letqps_k$ = function (select, block) {
-    registerSelectReceiveMode(this.this$0__1, select, 0, isSuspendFunction(block, 1) ? block : THROW_CCE());
-  };
-  AbstractChannel$onReceive$1.prototype.registerSelectClause1_bb3j78_k$ = function (select, block) {
-    return this.registerSelectClause1_letqps_k$(select, block);
-  };
-  AbstractChannel$onReceive$1.$metadata$ = classMeta(undefined, [SelectClause1]);
-  function AbstractChannel$onReceiveCatching$1(this$0) {
-    this.this$0__1 = this$0;
-  }
-  AbstractChannel$onReceiveCatching$1.prototype.registerSelectClause1_a8859q_k$ = function (select, block) {
-    registerSelectReceiveMode(this.this$0__1, select, 1, isSuspendFunction(block, 1) ? block : THROW_CCE());
-  };
-  AbstractChannel$onReceiveCatching$1.prototype.registerSelectClause1_bb3j78_k$ = function (select, block) {
-    return this.registerSelectClause1_a8859q_k$(select, block);
-  };
-  AbstractChannel$onReceiveCatching$1.$metadata$ = classMeta(undefined, [SelectClause1]);
-  function AbstractChannel(onUndeliveredElement) {
-    AbstractSendChannel.call(this, onUndeliveredElement);
-  }
-  AbstractChannel.prototype.pollInternal_ml771g_k$ = function () {
-    while (true) {
-      var tmp0_elvis_lhs = this.takeFirstSendOrPeekClosed_h7sgez_k$();
-      var tmp;
-      if (tmp0_elvis_lhs == null) {
-        return get_POLL_FAILED();
-      } else {
-        tmp = tmp0_elvis_lhs;
-      }
-      var send = tmp;
-      var token = send.tryResumeSend_93c6it_k$(null);
-      if (!(token == null)) {
-        {
-        }
-        send.completeResumeSend_upvqar_k$();
-        return send.get_pollResult_t5mkl7_k$();
-      }
-      send.undeliveredElement_djsee8_k$();
-    }
-  };
-  AbstractChannel.prototype.pollSelectInternal_puj25v_k$ = function (select) {
-    var pollOp = this.describeTryPoll_k2m4a9_k$();
-    var failure = select.performAtomicTrySelect_9r1u91_k$(pollOp);
-    if (!(failure == null))
-      return failure;
-    var send = pollOp.get_result_iyg5d2_k$();
-    send.completeResumeSend_upvqar_k$();
-    return pollOp.get_result_iyg5d2_k$().get_pollResult_t5mkl7_k$();
-  };
-  AbstractChannel.prototype.get_hasReceiveOrClosed_wl54xr_k$ = function () {
-    var tmp$ret$0;
-    {
-      var tmp0__get_nextNode__vg4li4 = this.get_queue_ixn208_k$();
-      tmp$ret$0 = tmp0__get_nextNode__vg4li4._next_1;
-    }
-    var tmp = tmp$ret$0;
-    return isInterface(tmp, ReceiveOrClosed);
-  };
-  AbstractChannel.prototype.get_isClosedForReceive_v0r77d_k$ = function () {
-    return !(this.get_closedForReceive_iep3v5_k$() == null) ? this.get_isBufferEmpty_t57jne_k$() : false;
-  };
-  AbstractChannel.prototype.get_isEmpty_zauvru_k$ = function () {
-    return this.get_isEmptyImpl_9w6w0q_k$();
-  };
-  AbstractChannel.prototype.get_isEmptyImpl_9w6w0q_k$ = function () {
-    var tmp;
-    var tmp$ret$0;
-    {
-      var tmp0__get_nextNode__vg4li4 = this.get_queue_ixn208_k$();
-      tmp$ret$0 = tmp0__get_nextNode__vg4li4._next_1;
-    }
-    var tmp_0 = tmp$ret$0;
-    if (!(tmp_0 instanceof Send)) {
-      tmp = this.get_isBufferEmpty_t57jne_k$();
-    } else {
-      tmp = false;
-    }
-    return tmp;
-  };
-  AbstractChannel.prototype.receive_ihhf9g_k$ = function ($cont) {
-    var result = this.pollInternal_ml771g_k$();
-    var tmp;
-    if (!(result === get_POLL_FAILED())) {
-      tmp = !(result instanceof Closed);
-    } else {
-      tmp = false;
-    }
-    if (tmp) {
-      return (result == null ? true : isObject(result)) ? result : THROW_CCE();
-    }
-    return receiveSuspend(this, 0, $cont);
-  };
-  AbstractChannel.prototype.enqueueReceiveInternal_rxtsl7_k$ = function (receive) {
-    var tmp;
-    if (this.get_isBufferAlwaysEmpty_ross6j_k$()) {
-      var tmp$ret$1;
-      $l$block: {
-        var tmp0_addLastIfPrev = this.get_queue_ixn208_k$();
-        var tmp$ret$0;
-        {
-          var tmp1__anonymous__uwfjfc = tmp0_addLastIfPrev._prev_1;
-          tmp$ret$0 = !(tmp1__anonymous__uwfjfc instanceof Send);
-        }
-        if (!tmp$ret$0) {
-          tmp$ret$1 = false;
-          break $l$block;
-        }
-        tmp0_addLastIfPrev.addLast_uyctnf_k$(receive);
-        tmp$ret$1 = true;
-      }
-      tmp = tmp$ret$1;
-    } else {
-      var tmp$ret$3;
-      $l$block_1: {
-        var tmp2_addLastIfPrevAndIf = this.get_queue_ixn208_k$();
-        var tmp$ret$2;
-        {
-          var tmp3__anonymous__ufb84q = tmp2_addLastIfPrevAndIf._prev_1;
-          tmp$ret$2 = !(tmp3__anonymous__ufb84q instanceof Send);
-        }
-        if (!tmp$ret$2) {
-          tmp$ret$3 = false;
-          break $l$block_1;
-        }
-        var tmp$ret$4;
-        {
-          tmp$ret$4 = this.get_isBufferEmpty_t57jne_k$();
-        }
-        if (!tmp$ret$4) {
-          tmp$ret$3 = false;
-          break $l$block_1;
-        }
-        tmp2_addLastIfPrevAndIf.addLast_uyctnf_k$(receive);
-        tmp$ret$3 = true;
-      }
-      tmp = tmp$ret$3;
-    }
-    return tmp;
-  };
-  AbstractChannel.prototype.receiveCatching_wrys2l_k$ = function ($cont) {
-    var result = this.pollInternal_ml771g_k$();
-    if (!(result === get_POLL_FAILED())) {
-      var tmp$ret$0;
-      {
-        var tmp;
-        if (result instanceof Closed) {
-          tmp = Companion_getInstance_1().closed_o16byb_k$(result.closeCause_1);
-        } else {
-          var tmp_0 = Companion_getInstance_1();
-          tmp = tmp_0.success_prl0f3_k$((result == null ? true : isObject(result)) ? result : THROW_CCE());
-        }
-        tmp$ret$0 = tmp;
-      }
-      return new ChannelResult(tmp$ret$0);
-    }
-    var tmp_1 = receiveSuspend(this, 1, $cont);
-    if (tmp_1 === get_COROUTINE_SUSPENDED())
-      return tmp_1;
-    return new ChannelResult(tmp_1.holder_1);
-  };
-  AbstractChannel.prototype.tryReceive_5r5v2p_k$ = function () {
-    var result = this.pollInternal_ml771g_k$();
-    if (result === get_POLL_FAILED())
-      return Companion_getInstance_1().failure_qsocya_k$();
-    if (result instanceof Closed)
-      return Companion_getInstance_1().closed_o16byb_k$(result.closeCause_1);
-    var tmp = Companion_getInstance_1();
-    return tmp.success_prl0f3_k$((result == null ? true : isObject(result)) ? result : THROW_CCE());
-  };
-  AbstractChannel.prototype.cancel_as6ug7_k$ = function (cause) {
-    return this.cancelInternal_vex9ac_k$(cause);
-  };
-  AbstractChannel.prototype.cancel_4b7aim_k$ = function (cause) {
-    if (this.get_isClosedForReceive_v0r77d_k$())
-      return Unit_getInstance();
-    var tmp0_elvis_lhs = cause;
-    this.cancelInternal_vex9ac_k$(tmp0_elvis_lhs == null ? CancellationException_init_$Create$(get_classSimpleName(this) + ' was cancelled') : tmp0_elvis_lhs);
-  };
-  AbstractChannel.prototype.cancelInternal_vex9ac_k$ = function (cause) {
-    var tmp$ret$0;
-    {
-      var tmp0_also = this.close_9zy44b_k$(cause);
-      {
-      }
-      {
-        this.onCancelIdempotent_1zp8pj_k$(tmp0_also);
-      }
-      tmp$ret$0 = tmp0_also;
-    }
-    return tmp$ret$0;
-  };
-  AbstractChannel.prototype.onCancelIdempotent_1zp8pj_k$ = function (wasClosed) {
-    var tmp0_elvis_lhs = this.get_closedForSend_4r8ipo_k$();
-    var tmp;
-    if (tmp0_elvis_lhs == null) {
-      throw IllegalStateException_init_$Create$('Cannot happen');
-    } else {
-      tmp = tmp0_elvis_lhs;
-    }
-    var closed = tmp;
-    var list = _InlineList___init__impl__z8n56_0(null, 1, null);
-    $l$loop_0: while (true) {
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = closed._prev_1;
-      }
-      var previous = tmp$ret$0;
-      if (previous instanceof LinkedListHead) {
-        break $l$loop_0;
-      }
-      {
-      }
-      if (!previous.remove_fgfybg_k$()) {
-        previous.helpRemove_v3vfak_k$();
-        continue $l$loop_0;
-      }
-      var tmp_0 = list;
-      list = InlineList__plus_impl_nuetvo(tmp_0, previous instanceof Send ? previous : THROW_CCE());
-    }
-    this.onCancelIdempotentList_icdvp_k$(list, closed);
-  };
-  AbstractChannel.prototype.onCancelIdempotentList_icdvp_k$ = function (list, closed) {
-    var tmp$ret$0;
-    $l$block: {
-      var tmp0_subject = _get_holder__f6h5pd(list);
-      if (tmp0_subject == null) {
-        tmp$ret$0 = Unit_getInstance();
-        break $l$block;
-      } else {
-        if (!(tmp0_subject instanceof ArrayList)) {
-          var tmp = _get_holder__f6h5pd(list);
-          var tmp0__anonymous__q1qw7t = (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
-          tmp0__anonymous__q1qw7t.resumeSendClosed_r0hgr7_k$(closed);
-        } else {
-          var tmp_0 = _get_holder__f6h5pd(list);
-          var list_0 = tmp_0 instanceof ArrayList ? tmp_0 : THROW_CCE();
-          var inductionVariable = list_0.get_size_woubt6_k$() - 1 | 0;
-          if (0 <= inductionVariable)
-            do {
-              var i = inductionVariable;
-              inductionVariable = inductionVariable + -1 | 0;
-              {
-                var tmp1__anonymous__uwfjfc = list_0.get_fkrdnv_k$(i);
-                tmp1__anonymous__uwfjfc.resumeSendClosed_r0hgr7_k$(closed);
-              }
-            }
-             while (0 <= inductionVariable);
-        }
-      }
-    }
-  };
-  AbstractChannel.prototype.iterator_jk1svi_k$ = function () {
-    return new Itr(this);
-  };
-  AbstractChannel.prototype.describeTryPoll_k2m4a9_k$ = function () {
-    return new TryPollDesc(this.get_queue_ixn208_k$());
-  };
-  AbstractChannel.prototype.get_onReceive_mimw11_k$ = function () {
-    return new AbstractChannel$onReceive$1(this);
-  };
-  AbstractChannel.prototype.get_onReceiveCatching_ajg9xa_k$ = function () {
-    return new AbstractChannel$onReceiveCatching$1(this);
-  };
-  AbstractChannel.prototype.takeFirstReceiveOrPeekClosed_ri9e84_k$ = function () {
-    var tmp$ret$0;
-    {
-      var tmp0_also = AbstractSendChannel.prototype.takeFirstReceiveOrPeekClosed_ri9e84_k$.call(this);
-      {
-      }
-      {
-        var tmp;
-        if (!(tmp0_also == null)) {
-          tmp = !(tmp0_also instanceof Closed);
-        } else {
-          tmp = false;
-        }
-        if (tmp)
-          this.onReceiveDequeued_4wpjax_k$();
-      }
-      tmp$ret$0 = tmp0_also;
-    }
-    return tmp$ret$0;
-  };
-  AbstractChannel.prototype.onReceiveEnqueued_xu1a6p_k$ = function () {
-  };
-  AbstractChannel.prototype.onReceiveDequeued_4wpjax_k$ = function () {
-  };
-  AbstractChannel.$metadata$ = classMeta('AbstractChannel', [Channel], undefined, undefined, undefined, AbstractSendChannel.prototype);
-  function _get_onCloseHandler__k3p6yi($this) {
-    return $this.onCloseHandler_1;
-  }
-  function SendBufferedDesc(queue, element) {
-    AddLastDesc.call(this, queue, new SendBuffered(element));
-  }
-  SendBufferedDesc.prototype.failure_mowj19_k$ = function (affected) {
-    var tmp0_subject = affected;
-    var tmp;
-    if (tmp0_subject instanceof Closed) {
-      tmp = affected;
-    } else {
-      if (isInterface(tmp0_subject, ReceiveOrClosed)) {
-        tmp = get_OFFER_FAILED();
-      } else {
-        tmp = null;
-      }
-    }
-    return tmp;
-  };
-  SendBufferedDesc.$metadata$ = classMeta('SendBufferedDesc', undefined, undefined, undefined, undefined, AddLastDesc.prototype);
-  function _get_isFullImpl__v905xu($this) {
-    var tmp;
-    var tmp$ret$0;
-    {
-      var tmp0__get_nextNode__vg4li4 = $this.queue_1;
-      tmp$ret$0 = tmp0__get_nextNode__vg4li4._next_1;
-    }
-    var tmp_0 = tmp$ret$0;
-    if (!isInterface(tmp_0, ReceiveOrClosed)) {
-      tmp = $this.get_isBufferFull_xv8jm_k$();
-    } else {
-      tmp = false;
-    }
-    return tmp;
-  }
-  function helpCloseAndGetSendException($this, closed) {
-    helpClose($this, closed);
-    return closed.get_sendException_qpq1ry_k$();
-  }
-  function helpCloseAndGetSendException_0($this, element, closed) {
-    helpClose($this, closed);
-    var tmp0_safe_receiver = $this.onUndeliveredElement_1;
-    var tmp;
-    if (tmp0_safe_receiver == null) {
-      tmp = null;
-    } else {
-      tmp = callUndeliveredElementCatchingException$default(tmp0_safe_receiver, element, null, 2, null);
-    }
-    var tmp1_safe_receiver = tmp;
-    if (tmp1_safe_receiver == null)
-      null;
-    else {
-      var tmp$ret$0;
-      {
-        {
-        }
-        addSuppressed(tmp1_safe_receiver, closed.get_sendException_qpq1ry_k$());
-        throw tmp1_safe_receiver;
-      }
-    }
-    return closed.get_sendException_qpq1ry_k$();
-  }
-  function sendSuspend($this, element, $cont) {
-    var tmp$ret$3;
-    {
-      var tmp0__anonymous__q1qw7t = $cont;
-      var cancellable = getOrCreateCancellableContinuation(intercepted(tmp0__anonymous__q1qw7t));
-      var tmp$ret$0;
-      $l$block_2: {
-        loop: while (true) {
-          if (_get_isFullImpl__v905xu($this)) {
-            var send = $this.onUndeliveredElement_1 == null ? new SendElement(element, cancellable) : new SendElementWithUndeliveredHandler(element, cancellable, $this.onUndeliveredElement_1);
-            var enqueueResult = $this.enqueueSend_9ksp3t_k$(send);
-            if (enqueueResult == null) {
-              removeOnCancellation(cancellable, send);
-              tmp$ret$0 = Unit_getInstance();
-              break $l$block_2;
-            } else {
-              if (enqueueResult instanceof Closed) {
-                helpCloseAndResumeWithSendException(cancellable, $this, element, enqueueResult);
-                tmp$ret$0 = Unit_getInstance();
-                break $l$block_2;
-              } else {
-                if (enqueueResult === get_ENQUEUE_FAILED()) {
-                } else {
-                  if (enqueueResult instanceof Receive) {
-                  } else {
-                    var tmp0_error = 'enqueueSend returned ' + toString(enqueueResult);
-                    throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-                  }
-                }
-              }
-            }
-          }
-          var offerResult = $this.offerInternal_tuzlq7_k$(element);
-          if (offerResult === get_OFFER_SUCCESS()) {
-            var tmp$ret$2;
-            {
-              var tmp$ret$1;
-              {
-                var tmp0_success = Companion_getInstance_0();
-                tmp$ret$1 = _Result___init__impl__xyqfz8(Unit_getInstance());
-              }
-              tmp$ret$2 = cancellable.resumeWith_s3a3yh_k$(tmp$ret$1);
-            }
-            tmp$ret$0 = Unit_getInstance();
-            break $l$block_2;
-          } else {
-            if (offerResult === get_OFFER_FAILED())
-              continue loop;
-            else {
-              if (offerResult instanceof Closed) {
-                helpCloseAndResumeWithSendException(cancellable, $this, element, offerResult);
-                tmp$ret$0 = Unit_getInstance();
-                break $l$block_2;
-              } else {
-                var tmp1_error = 'offerInternal returned ' + toString_0(offerResult);
-                throw IllegalStateException_init_$Create$(toString_0(tmp1_error));
-              }
-            }
-          }
-        }
-      }
-      tmp$ret$3 = cancellable.getResult_clfhg3_k$();
-    }
-    return tmp$ret$3;
-  }
-  function helpCloseAndResumeWithSendException(_this__u8e3s4, $this, element, closed) {
-    helpClose($this, closed);
-    var sendException = closed.get_sendException_qpq1ry_k$();
-    var tmp0_safe_receiver = $this.onUndeliveredElement_1;
-    var tmp;
-    if (tmp0_safe_receiver == null) {
-      tmp = null;
-    } else {
-      tmp = callUndeliveredElementCatchingException$default(tmp0_safe_receiver, element, null, 2, null);
-    }
-    var tmp1_safe_receiver = tmp;
-    if (tmp1_safe_receiver == null)
-      null;
-    else {
-      var tmp$ret$2;
-      {
-        {
-        }
-        addSuppressed(tmp1_safe_receiver, sendException);
-        var tmp$ret$1;
-        {
-          var tmp$ret$0;
-          {
-            var tmp0_failure = Companion_getInstance_0();
-            tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(tmp1_safe_receiver));
-          }
-          tmp$ret$1 = _this__u8e3s4.resumeWith_s3a3yh_k$(tmp$ret$0);
-        }
-        return Unit_getInstance();
-      }
-    }
-    var tmp$ret$4;
-    {
-      var tmp$ret$3;
-      {
-        var tmp0_failure_0 = Companion_getInstance_0();
-        tmp$ret$3 = _Result___init__impl__xyqfz8(createFailure(sendException));
-      }
-      tmp$ret$4 = _this__u8e3s4.resumeWith_s3a3yh_k$(tmp$ret$3);
-    }
-  }
-  function invokeOnCloseHandler($this, cause) {
-    var handler = $this.onCloseHandler_1.value_1;
-    if ((!(handler === null) ? !(handler === get_HANDLER_INVOKED()) : false) ? $this.onCloseHandler_1.atomicfu$compareAndSet(handler, get_HANDLER_INVOKED()) : false) {
-      ((!(handler == null) ? typeof handler === 'function' : false) ? handler : THROW_CCE())(cause);
-    }
-  }
-  function helpClose($this, closed) {
-    var closedList = _InlineList___init__impl__z8n56_0(null, 1, null);
-    $l$loop_0: while (true) {
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = closed._prev_1;
-      }
-      var tmp = tmp$ret$0;
-      var tmp0_elvis_lhs = tmp instanceof Receive ? tmp : null;
-      var tmp_0;
-      if (tmp0_elvis_lhs == null) {
-        break $l$loop_0;
-      } else {
-        tmp_0 = tmp0_elvis_lhs;
-      }
-      var previous = tmp_0;
-      if (!previous.remove_fgfybg_k$()) {
-        previous.helpRemove_v3vfak_k$();
-        continue $l$loop_0;
-      }
-      closedList = InlineList__plus_impl_nuetvo(closedList, previous);
-    }
-    var tmp$ret$1;
-    $l$block: {
-      var tmp0_forEachReversed = closedList;
-      var tmp0_subject = _get_holder__f6h5pd(tmp0_forEachReversed);
-      if (tmp0_subject == null) {
-        tmp$ret$1 = Unit_getInstance();
-        break $l$block;
-      } else {
-        if (!(tmp0_subject instanceof ArrayList)) {
-          var tmp_1 = _get_holder__f6h5pd(tmp0_forEachReversed);
-          var tmp1__anonymous__uwfjfc = (tmp_1 == null ? true : isObject(tmp_1)) ? tmp_1 : THROW_CCE();
-          tmp1__anonymous__uwfjfc.resumeReceiveClosed_ep2qlw_k$(closed);
-        } else {
-          var tmp_2 = _get_holder__f6h5pd(tmp0_forEachReversed);
-          var list = tmp_2 instanceof ArrayList ? tmp_2 : THROW_CCE();
-          var inductionVariable = list.get_size_woubt6_k$() - 1 | 0;
-          if (0 <= inductionVariable)
-            do {
-              var i = inductionVariable;
-              inductionVariable = inductionVariable + -1 | 0;
-              {
-                var tmp2__anonymous__z9zvc9 = list.get_fkrdnv_k$(i);
-                tmp2__anonymous__z9zvc9.resumeReceiveClosed_ep2qlw_k$(closed);
-              }
-            }
-             while (0 <= inductionVariable);
-        }
-      }
-    }
-    $this.onClosedIdempotent_57xn14_k$(closed);
-  }
-  function TryOfferDesc(element, queue) {
-    RemoveFirstDesc.call(this, queue);
-    this.element_1 = element;
-  }
-  TryOfferDesc.prototype.get_element_q8gf71_k$ = function () {
-    return this.element_1;
-  };
-  TryOfferDesc.prototype.failure_mowj19_k$ = function (affected) {
-    var tmp0_subject = affected;
-    var tmp;
-    if (tmp0_subject instanceof Closed) {
-      tmp = affected;
-    } else {
-      if (!isInterface(tmp0_subject, ReceiveOrClosed)) {
-        tmp = get_OFFER_FAILED();
-      } else {
-        tmp = null;
-      }
-    }
-    return tmp;
-  };
-  TryOfferDesc.prototype.onPrepare_soaf0c_k$ = function (prepareOp) {
-    var tmp = prepareOp.affected_1;
-    var affected = isInterface(tmp, ReceiveOrClosed) ? tmp : THROW_CCE();
-    var tmp0_elvis_lhs = affected.tryResumeReceive_mpjrre_k$(this.element_1, prepareOp);
-    var tmp_0;
-    if (tmp0_elvis_lhs == null) {
-      return get_REMOVE_PREPARED();
-    } else {
-      tmp_0 = tmp0_elvis_lhs;
-    }
-    var token = tmp_0;
-    if (token === get_RETRY_ATOMIC())
-      return get_RETRY_ATOMIC();
-    {
-    }
-    return null;
-  };
-  TryOfferDesc.$metadata$ = classMeta('TryOfferDesc', undefined, undefined, undefined, undefined, RemoveFirstDesc.prototype);
-  function registerSelectSend($this, select, element, block) {
-    while (true) {
-      if (select.get_isSelected_dl432q_k$())
-        return Unit_getInstance();
-      if (_get_isFullImpl__v905xu($this)) {
-        var node = new SendSelect(element, $this, select, block);
-        var enqueueResult = $this.enqueueSend_9ksp3t_k$(node);
-        if (enqueueResult == null) {
-          select.disposeOnSelect_lrl426_k$(node);
-          return Unit_getInstance();
-        } else {
-          if (enqueueResult instanceof Closed)
-            throw recoverStackTrace_0(helpCloseAndGetSendException_0($this, element, enqueueResult));
-          else {
-            if (enqueueResult === get_ENQUEUE_FAILED()) {
-            } else {
-              if (enqueueResult instanceof Receive) {
-              } else {
-                var tmp0_error = 'enqueueSend returned ' + toString(enqueueResult) + ' ';
-                throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-              }
-            }
-          }
-        }
-      }
-      var offerResult = $this.offerSelectInternal_lspj9s_k$(element, select);
-      if (offerResult === get_ALREADY_SELECTED())
-        return Unit_getInstance();
-      else {
-        if (offerResult === get_OFFER_FAILED()) {
-        } else {
-          if (offerResult === get_RETRY_ATOMIC()) {
-          } else {
-            if (offerResult === get_OFFER_SUCCESS()) {
-              startCoroutineUnintercepted_0(block, $this, select.get_completion_t4gxwb_k$());
-              return Unit_getInstance();
-            } else {
-              if (offerResult instanceof Closed)
-                throw recoverStackTrace_0(helpCloseAndGetSendException_0($this, element, offerResult));
-              else {
-                var tmp1_error = 'offerSelectInternal returned ' + toString_0(offerResult);
-                throw IllegalStateException_init_$Create$(toString_0(tmp1_error));
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  function _get_queueDebugStateString__k7jj75($this) {
-    var tmp$ret$0;
-    {
-      var tmp0__get_nextNode__vg4li4 = $this.queue_1;
-      tmp$ret$0 = tmp0__get_nextNode__vg4li4._next_1;
-    }
-    var head = tmp$ret$0;
-    if (head === $this.queue_1)
-      return 'EmptyQueue';
-    var tmp0_subject = head;
-    var tmp;
-    if (tmp0_subject instanceof Closed) {
-      tmp = toString_0(head);
-    } else {
-      if (tmp0_subject instanceof Receive) {
-        tmp = 'ReceiveQueued';
-      } else {
-        if (tmp0_subject instanceof Send) {
-          tmp = 'SendQueued';
-        } else {
-          tmp = 'UNEXPECTED:' + head;
-        }
-      }
-    }
-    var result = tmp;
-    var tmp$ret$1;
-    {
-      var tmp1__get_prevNode__b1i0ed = $this.queue_1;
-      tmp$ret$1 = tmp1__get_prevNode__b1i0ed._prev_1;
-    }
-    var tail = tmp$ret$1;
-    if (!(tail === head)) {
-      result = result + (',queueSize=' + countQueueSize($this));
-      if (tail instanceof Closed)
-        result = result + (',closedForSend=' + tail);
-    }
-    return result;
-  }
-  function countQueueSize($this) {
-    var size = 0;
-    {
-      var tmp0_forEach = $this.queue_1;
-      var cur = tmp0_forEach.get__next_inmai1_k$();
-      while (!equals(cur, tmp0_forEach)) {
-        if (cur instanceof LinkedListNode) {
-          var tmp1__anonymous__uwfjfc = cur;
-          var tmp0 = size;
-          size = tmp0 + 1 | 0;
-        }
-        cur = cur._next_1;
-      }
-    }
-    return size;
-  }
-  function SendSelect(pollResult, channel, select, block) {
-    Send.call(this);
-    this.pollResult_1 = pollResult;
-    this.channel_1 = channel;
-    this.select_1 = select;
-    this.block_1 = block;
-  }
-  SendSelect.prototype.get_pollResult_t5mkl7_k$ = function () {
-    return this.pollResult_1;
-  };
-  SendSelect.prototype.get_channel_dhi7tm_k$ = function () {
-    return this.channel_1;
-  };
-  SendSelect.prototype.get_select_jfcyrp_k$ = function () {
-    return this.select_1;
-  };
-  SendSelect.prototype.get_block_ip8l7o_k$ = function () {
-    return this.block_1;
-  };
-  SendSelect.prototype.tryResumeSend_93c6it_k$ = function (otherOp) {
-    var tmp = this.select_1.trySelectOther_zha44u_k$(otherOp);
-    return (tmp == null ? true : tmp instanceof Symbol) ? tmp : THROW_CCE();
-  };
-  SendSelect.prototype.completeResumeSend_upvqar_k$ = function () {
-    var tmp = this.select_1.get_completion_t4gxwb_k$();
-    startCoroutineCancellable$default(this.block_1, this.channel_1, tmp, null, 4, null);
-  };
-  SendSelect.prototype.dispose_3n44we_k$ = function () {
-    if (!this.remove_fgfybg_k$())
-      return Unit_getInstance();
-    this.undeliveredElement_djsee8_k$();
-  };
-  SendSelect.prototype.resumeSendClosed_r0hgr7_k$ = function (closed) {
-    if (this.select_1.trySelect_1ivjiv_k$())
-      this.select_1.resumeSelectWithException_xs2ljz_k$(closed.get_sendException_qpq1ry_k$());
-  };
-  SendSelect.prototype.undeliveredElement_djsee8_k$ = function () {
-    var tmp0_safe_receiver = this.channel_1.onUndeliveredElement_1;
-    if (tmp0_safe_receiver == null)
-      null;
-    else {
-      callUndeliveredElement(tmp0_safe_receiver, this.pollResult_1, this.select_1.get_completion_t4gxwb_k$().get_context_h02k06_k$());
-    }
-  };
-  SendSelect.prototype.toString = function () {
-    return 'SendSelect@' + get_hexAddress(this) + '(' + this.pollResult_1 + ')[' + this.channel_1 + ', ' + this.select_1 + ']';
-  };
-  SendSelect.$metadata$ = classMeta('SendSelect', [DisposableHandle], undefined, undefined, undefined, Send.prototype);
-  function SendBuffered(element) {
-    Send.call(this);
-    this.element_1 = element;
-  }
-  SendBuffered.prototype.get_element_q8gf71_k$ = function () {
-    return this.element_1;
-  };
-  SendBuffered.prototype.get_pollResult_t5mkl7_k$ = function () {
-    return this.element_1;
-  };
-  SendBuffered.prototype.tryResumeSend_93c6it_k$ = function (otherOp) {
-    var tmp$ret$0;
-    {
-      var tmp0_also = get_RESUME_TOKEN();
-      {
-      }
-      {
-        var tmp0_safe_receiver = otherOp;
-        if (tmp0_safe_receiver == null)
-          null;
-        else {
-          tmp0_safe_receiver.finishPrepare_o9c8d9_k$();
-        }
-      }
-      tmp$ret$0 = tmp0_also;
-    }
-    return tmp$ret$0;
-  };
-  SendBuffered.prototype.completeResumeSend_upvqar_k$ = function () {
-  };
-  SendBuffered.prototype.resumeSendClosed_r0hgr7_k$ = function (closed) {
-    {
-    }
-  };
-  SendBuffered.prototype.toString = function () {
-    return 'SendBuffered@' + get_hexAddress(this) + '(' + this.element_1 + ')';
-  };
-  SendBuffered.$metadata$ = classMeta('SendBuffered', undefined, undefined, undefined, undefined, Send.prototype);
-  function AbstractSendChannel$onSend$1(this$0) {
-    this.this$0__1 = this$0;
-  }
-  AbstractSendChannel$onSend$1.prototype.registerSelectClause2_tx9czq_k$ = function (select, param, block) {
-    registerSelectSend(this.this$0__1, select, param, block);
-  };
-  AbstractSendChannel$onSend$1.prototype.registerSelectClause2_2icbei_k$ = function (select, param, block) {
-    return this.registerSelectClause2_tx9czq_k$(select, (param == null ? true : isObject(param)) ? param : THROW_CCE(), block);
-  };
-  AbstractSendChannel$onSend$1.$metadata$ = classMeta(undefined, [SelectClause2]);
-  function AbstractSendChannel(onUndeliveredElement) {
-    this.onUndeliveredElement_1 = onUndeliveredElement;
-    this.queue_1 = new LinkedListHead();
-    this.onCloseHandler_1 = atomic$ref$1(null);
-  }
-  AbstractSendChannel.prototype.get_onUndeliveredElement_a8l4w7_k$ = function () {
-    return this.onUndeliveredElement_1;
-  };
-  AbstractSendChannel.prototype.get_queue_ixn208_k$ = function () {
-    return this.queue_1;
-  };
-  AbstractSendChannel.prototype.offerInternal_tuzlq7_k$ = function (element) {
-    while (true) {
-      var tmp0_elvis_lhs = this.takeFirstReceiveOrPeekClosed_ri9e84_k$();
-      var tmp;
-      if (tmp0_elvis_lhs == null) {
-        return get_OFFER_FAILED();
-      } else {
-        tmp = tmp0_elvis_lhs;
-      }
-      var receive = tmp;
-      var token = receive.tryResumeReceive_mpjrre_k$(element, null);
-      if (!(token == null)) {
-        {
-        }
-        receive.completeResumeReceive_1cyi5u_k$(element);
-        return receive.get_offerResult_jdi2i8_k$();
-      }
-    }
-  };
-  AbstractSendChannel.prototype.offerSelectInternal_lspj9s_k$ = function (element, select) {
-    var offerOp = this.describeTryOffer_6o0iky_k$(element);
-    var failure = select.performAtomicTrySelect_9r1u91_k$(offerOp);
-    if (!(failure == null))
-      return failure;
-    var receive = offerOp.get_result_iyg5d2_k$();
-    receive.completeResumeReceive_1cyi5u_k$(element);
-    return receive.get_offerResult_jdi2i8_k$();
-  };
-  AbstractSendChannel.prototype.get_closedForSend_4r8ipo_k$ = function () {
-    var tmp$ret$0;
-    {
-      var tmp0__get_prevNode__2ljhpg = this.queue_1;
-      tmp$ret$0 = tmp0__get_prevNode__2ljhpg._prev_1;
-    }
-    var tmp = tmp$ret$0;
-    var tmp0_safe_receiver = tmp instanceof Closed ? tmp : null;
-    var tmp_0;
-    if (tmp0_safe_receiver == null) {
-      tmp_0 = null;
-    } else {
-      var tmp$ret$1;
-      {
-        {
-        }
-        {
-          helpClose(this, tmp0_safe_receiver);
-        }
-        tmp$ret$1 = tmp0_safe_receiver;
-      }
-      tmp_0 = tmp$ret$1;
-    }
-    return tmp_0;
-  };
-  AbstractSendChannel.prototype.get_closedForReceive_iep3v5_k$ = function () {
-    var tmp$ret$0;
-    {
-      var tmp0__get_nextNode__vg4li4 = this.queue_1;
-      tmp$ret$0 = tmp0__get_nextNode__vg4li4._next_1;
-    }
-    var tmp = tmp$ret$0;
-    var tmp0_safe_receiver = tmp instanceof Closed ? tmp : null;
-    var tmp_0;
-    if (tmp0_safe_receiver == null) {
-      tmp_0 = null;
-    } else {
-      var tmp$ret$1;
-      {
-        {
-        }
-        {
-          helpClose(this, tmp0_safe_receiver);
-        }
-        tmp$ret$1 = tmp0_safe_receiver;
-      }
-      tmp_0 = tmp$ret$1;
-    }
-    return tmp_0;
-  };
-  AbstractSendChannel.prototype.takeFirstSendOrPeekClosed_h7sgez_k$ = function () {
-    var tmp$ret$0;
-    $l$block_1: {
-      var tmp1_removeFirstIfIsInstanceOfOrPeekIf = this.queue_1;
-      var next = tmp1_removeFirstIfIsInstanceOfOrPeekIf._next_1;
-      if (next === tmp1_removeFirstIfIsInstanceOfOrPeekIf) {
-        tmp$ret$0 = null;
-        break $l$block_1;
-      }
-      if (!(next instanceof Send)) {
-        tmp$ret$0 = null;
-        break $l$block_1;
-      }
-      var tmp$ret$1;
-      {
-        var tmp2__anonymous__z9zvc9 = next;
-        tmp$ret$1 = tmp2__anonymous__z9zvc9 instanceof Closed;
-      }
-      if (tmp$ret$1) {
-        tmp$ret$0 = next;
-        break $l$block_1;
-      }
-      {
-        var tmp0_check = next.removeImpl_i5v938_k$();
-        {
-        }
-        if (!tmp0_check) {
-          var tmp$ret$2;
-          {
-            tmp$ret$2 = 'Should remove';
-          }
-          var message = tmp$ret$2;
-          throw IllegalStateException_init_$Create$(toString_0(message));
-        }
-      }
-      tmp$ret$0 = next;
-    }
-    return tmp$ret$0;
-  };
-  AbstractSendChannel.prototype.sendBuffered_4b6ooj_k$ = function (element) {
-    var tmp$ret$1;
-    $l$block: {
-      var tmp0_addLastIfPrev = this.queue_1;
-      var tmp1_addLastIfPrev = new SendBuffered(element);
-      var tmp$ret$0;
-      {
-        var tmp2__anonymous__z9zvc9 = tmp0_addLastIfPrev._prev_1;
-        if (isInterface(tmp2__anonymous__z9zvc9, ReceiveOrClosed))
-          return tmp2__anonymous__z9zvc9;
-        tmp$ret$0 = true;
-      }
-      if (!tmp$ret$0) {
-        tmp$ret$1 = false;
-        break $l$block;
-      }
-      tmp0_addLastIfPrev.addLast_uyctnf_k$(tmp1_addLastIfPrev);
-      tmp$ret$1 = true;
-    }
-    return null;
-  };
-  AbstractSendChannel.prototype.describeSendBuffered_gmw7y0_k$ = function (element) {
-    return new SendBufferedDesc(this.queue_1, element);
-  };
-  AbstractSendChannel.prototype.get_isClosedForSend_ajczci_k$ = function () {
-    return !(this.get_closedForSend_4r8ipo_k$() == null);
-  };
-  AbstractSendChannel.prototype.send_4idxxh_k$ = function (element, $cont) {
-    if (this.offerInternal_tuzlq7_k$(element) === get_OFFER_SUCCESS())
-      return Unit_getInstance();
-    return sendSuspend(this, element, $cont);
-  };
-  AbstractSendChannel.prototype.offer_pm4fdq_k$ = function (element) {
-    try {
-      return offer.call(this, element);
-    } catch ($p) {
-      if ($p instanceof Error) {
-        var tmp0_safe_receiver = this.onUndeliveredElement_1;
-        var tmp;
-        if (tmp0_safe_receiver == null) {
-          tmp = null;
-        } else {
-          tmp = callUndeliveredElementCatchingException$default(tmp0_safe_receiver, element, null, 2, null);
-        }
-        var tmp1_safe_receiver = tmp;
-        if (tmp1_safe_receiver == null)
-          null;
-        else {
-          var tmp$ret$0;
-          {
-            {
-            }
-            addSuppressed(tmp1_safe_receiver, $p);
-            throw tmp1_safe_receiver;
-          }
-        }
-        throw $p;
-      } else {
-        throw $p;
-      }
-    }
-  };
-  AbstractSendChannel.prototype.trySend_3hclq4_k$ = function (element) {
-    var result = this.offerInternal_tuzlq7_k$(element);
-    var tmp;
-    if (result === get_OFFER_SUCCESS()) {
-      tmp = Companion_getInstance_1().success_prl0f3_k$(Unit_getInstance());
-    } else {
-      if (result === get_OFFER_FAILED()) {
-        var tmp0_elvis_lhs = this.get_closedForSend_4r8ipo_k$();
-        var tmp_0;
-        if (tmp0_elvis_lhs == null) {
-          return Companion_getInstance_1().failure_qsocya_k$();
-        } else {
-          tmp_0 = tmp0_elvis_lhs;
-        }
-        var closedForSend = tmp_0;
-        tmp = Companion_getInstance_1().closed_o16byb_k$(helpCloseAndGetSendException(this, closedForSend));
-      } else {
-        if (result instanceof Closed) {
-          tmp = Companion_getInstance_1().closed_o16byb_k$(helpCloseAndGetSendException(this, result));
-        } else {
-          var tmp0_error = 'trySend returned ' + toString_0(result);
-          throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-        }
-      }
-    }
-    return tmp;
-  };
-  AbstractSendChannel.prototype.enqueueSend_9ksp3t_k$ = function (send) {
-    if (this.get_isBufferAlwaysFull_v6nbtb_k$()) {
-      var tmp$ret$1;
-      $l$block: {
-        var tmp0_addLastIfPrev = this.queue_1;
-        var tmp$ret$0;
-        {
-          var tmp1__anonymous__uwfjfc = tmp0_addLastIfPrev._prev_1;
-          if (isInterface(tmp1__anonymous__uwfjfc, ReceiveOrClosed))
-            return tmp1__anonymous__uwfjfc;
-          tmp$ret$0 = true;
-        }
-        if (!tmp$ret$0) {
-          tmp$ret$1 = false;
-          break $l$block;
-        }
-        tmp0_addLastIfPrev.addLast_uyctnf_k$(send);
-        tmp$ret$1 = true;
-      }
-    } else {
-      var tmp$ret$3;
-      $l$block_1: {
-        var tmp2_addLastIfPrevAndIf = this.queue_1;
-        var tmp$ret$2;
-        {
-          var tmp3__anonymous__ufb84q = tmp2_addLastIfPrevAndIf._prev_1;
-          if (isInterface(tmp3__anonymous__ufb84q, ReceiveOrClosed))
-            return tmp3__anonymous__ufb84q;
-          tmp$ret$2 = true;
-        }
-        if (!tmp$ret$2) {
-          tmp$ret$3 = false;
-          break $l$block_1;
-        }
-        var tmp$ret$4;
-        {
-          tmp$ret$4 = this.get_isBufferFull_xv8jm_k$();
-        }
-        if (!tmp$ret$4) {
-          tmp$ret$3 = false;
-          break $l$block_1;
-        }
-        tmp2_addLastIfPrevAndIf.addLast_uyctnf_k$(send);
-        tmp$ret$3 = true;
-      }
-      if (!tmp$ret$3)
-        return get_ENQUEUE_FAILED();
-    }
-    return null;
-  };
-  AbstractSendChannel.prototype.close_9zy44b_k$ = function (cause) {
-    var closed = new Closed(cause);
-    var tmp$ret$1;
-    $l$block: {
-      var tmp0_addLastIfPrev = this.queue_1;
-      var tmp$ret$0;
-      {
-        var tmp1__anonymous__uwfjfc = tmp0_addLastIfPrev._prev_1;
-        tmp$ret$0 = !(tmp1__anonymous__uwfjfc instanceof Closed);
-      }
-      if (!tmp$ret$0) {
-        tmp$ret$1 = false;
-        break $l$block;
-      }
-      tmp0_addLastIfPrev.addLast_uyctnf_k$(closed);
-      tmp$ret$1 = true;
-    }
-    var closeAdded = tmp$ret$1;
-    var tmp;
-    if (closeAdded) {
-      tmp = closed;
-    } else {
-      var tmp$ret$2;
-      {
-        var tmp2__get_prevNode__jhgj3a = this.queue_1;
-        tmp$ret$2 = tmp2__get_prevNode__jhgj3a._prev_1;
-      }
-      var tmp_0 = tmp$ret$2;
-      tmp = tmp_0 instanceof Closed ? tmp_0 : THROW_CCE();
-    }
-    var actuallyClosed = tmp;
-    helpClose(this, actuallyClosed);
-    if (closeAdded)
-      invokeOnCloseHandler(this, cause);
-    return closeAdded;
-  };
-  AbstractSendChannel.prototype.invokeOnClose_88rhe6_k$ = function (handler) {
-    if (!this.onCloseHandler_1.atomicfu$compareAndSet(null, handler)) {
-      var value = this.onCloseHandler_1.value_1;
-      if (value === get_HANDLER_INVOKED()) {
-        throw IllegalStateException_init_$Create$('Another handler was already registered and successfully invoked');
-      }
-      throw IllegalStateException_init_$Create$('Another handler was already registered: ' + toString(value));
-    } else {
-      var closedToken = this.get_closedForSend_4r8ipo_k$();
-      if (!(closedToken == null) ? this.onCloseHandler_1.atomicfu$compareAndSet(handler, get_HANDLER_INVOKED()) : false) {
-        handler(closedToken.closeCause_1);
-      }
-    }
-  };
-  AbstractSendChannel.prototype.onClosedIdempotent_57xn14_k$ = function (closed) {
-  };
-  AbstractSendChannel.prototype.takeFirstReceiveOrPeekClosed_ri9e84_k$ = function () {
-    var tmp$ret$0;
-    $l$block_1: {
-      var tmp1_removeFirstIfIsInstanceOfOrPeekIf = this.queue_1;
-      var next = tmp1_removeFirstIfIsInstanceOfOrPeekIf._next_1;
-      if (next === tmp1_removeFirstIfIsInstanceOfOrPeekIf) {
-        tmp$ret$0 = null;
-        break $l$block_1;
-      }
-      if (!isInterface(next, ReceiveOrClosed)) {
-        tmp$ret$0 = null;
-        break $l$block_1;
-      }
-      var tmp$ret$1;
-      {
-        var tmp2__anonymous__z9zvc9 = next;
-        tmp$ret$1 = tmp2__anonymous__z9zvc9 instanceof Closed;
-      }
-      if (tmp$ret$1) {
-        tmp$ret$0 = next;
-        break $l$block_1;
-      }
-      {
-        var tmp0_check = next.removeImpl_i5v938_k$();
-        {
-        }
-        if (!tmp0_check) {
-          var tmp$ret$2;
-          {
-            tmp$ret$2 = 'Should remove';
-          }
-          var message = tmp$ret$2;
-          throw IllegalStateException_init_$Create$(toString_0(message));
-        }
-      }
-      tmp$ret$0 = next;
-    }
-    return tmp$ret$0;
-  };
-  AbstractSendChannel.prototype.describeTryOffer_6o0iky_k$ = function (element) {
-    return new TryOfferDesc(element, this.queue_1);
-  };
-  AbstractSendChannel.prototype.get_onSend_hnoo40_k$ = function () {
-    return new AbstractSendChannel$onSend$1(this);
-  };
-  AbstractSendChannel.prototype.toString = function () {
-    return get_classSimpleName(this) + '@' + get_hexAddress(this) + '{' + _get_queueDebugStateString__k7jj75(this) + '}' + this.get_bufferDebugString_66mwn9_k$();
-  };
-  AbstractSendChannel.prototype.get_bufferDebugString_66mwn9_k$ = function () {
-    return '';
-  };
-  AbstractSendChannel.$metadata$ = classMeta('AbstractSendChannel', [SendChannel]);
-  function Send() {
-    LinkedListNode.call(this);
-  }
-  Send.prototype.undeliveredElement_djsee8_k$ = function () {
-  };
-  Send.$metadata$ = classMeta('Send', undefined, undefined, undefined, undefined, LinkedListNode.prototype);
-  function ReceiveOrClosed() {
-  }
-  ReceiveOrClosed.$metadata$ = interfaceMeta('ReceiveOrClosed');
-  function Closed(closeCause) {
-    Send.call(this);
-    this.closeCause_1 = closeCause;
-  }
-  Closed.prototype.get_closeCause_gbqkm2_k$ = function () {
-    return this.closeCause_1;
-  };
-  Closed.prototype.get_sendException_qpq1ry_k$ = function () {
-    var tmp0_elvis_lhs = this.closeCause_1;
-    return tmp0_elvis_lhs == null ? new ClosedSendChannelException(get_DEFAULT_CLOSE_MESSAGE()) : tmp0_elvis_lhs;
-  };
-  Closed.prototype.get_receiveException_nqbiq3_k$ = function () {
-    var tmp0_elvis_lhs = this.closeCause_1;
-    return tmp0_elvis_lhs == null ? new ClosedReceiveChannelException(get_DEFAULT_CLOSE_MESSAGE()) : tmp0_elvis_lhs;
-  };
-  Closed.prototype.get_offerResult_jdi2i8_k$ = function () {
-    return this;
-  };
-  Closed.prototype.get_pollResult_t5mkl7_k$ = function () {
-    return this;
-  };
-  Closed.prototype.tryResumeSend_93c6it_k$ = function (otherOp) {
-    var tmp$ret$0;
-    {
-      var tmp0_also = get_RESUME_TOKEN();
-      {
-      }
-      {
-        var tmp0_safe_receiver = otherOp;
-        if (tmp0_safe_receiver == null)
-          null;
-        else {
-          tmp0_safe_receiver.finishPrepare_o9c8d9_k$();
-        }
-      }
-      tmp$ret$0 = tmp0_also;
-    }
-    return tmp$ret$0;
-  };
-  Closed.prototype.completeResumeSend_upvqar_k$ = function () {
-  };
-  Closed.prototype.tryResumeReceive_mpjrre_k$ = function (value, otherOp) {
-    var tmp$ret$0;
-    {
-      var tmp0_also = get_RESUME_TOKEN();
-      {
-      }
-      {
-        var tmp0_safe_receiver = otherOp;
-        if (tmp0_safe_receiver == null)
-          null;
-        else {
-          tmp0_safe_receiver.finishPrepare_o9c8d9_k$();
-        }
-      }
-      tmp$ret$0 = tmp0_also;
-    }
-    return tmp$ret$0;
-  };
-  Closed.prototype.completeResumeReceive_1cyi5u_k$ = function (value) {
-  };
-  Closed.prototype.resumeSendClosed_r0hgr7_k$ = function (closed) {
-    return Unit_getInstance();
-  };
-  Closed.prototype.toString = function () {
-    return 'Closed@' + get_hexAddress(this) + '[' + this.closeCause_1 + ']';
-  };
-  Closed.$metadata$ = classMeta('Closed', [ReceiveOrClosed], undefined, undefined, undefined, Send.prototype);
-  function get_RECEIVE_THROWS_ON_CLOSE() {
-    return RECEIVE_THROWS_ON_CLOSE;
-  }
-  var RECEIVE_THROWS_ON_CLOSE;
-  function Receive() {
-    LinkedListNode.call(this);
-  }
-  Receive.prototype.get_offerResult_jdi2i8_k$ = function () {
-    return get_OFFER_SUCCESS();
-  };
-  Receive.prototype.resumeOnCancellationFun_ya26h6_k$ = function (value) {
-    return null;
-  };
-  Receive.$metadata$ = classMeta('Receive', [ReceiveOrClosed], undefined, undefined, undefined, LinkedListNode.prototype);
-  function toResult(_this__u8e3s4) {
-    init_properties_AbstractChannel_kt_mjk5bh();
-    var tmp;
-    if (_this__u8e3s4 instanceof Closed) {
-      tmp = Companion_getInstance_1().closed_o16byb_k$(_this__u8e3s4.closeCause_1);
-    } else {
-      var tmp_0 = Companion_getInstance_1();
-      tmp = tmp_0.success_prl0f3_k$((_this__u8e3s4 == null ? true : isObject(_this__u8e3s4)) ? _this__u8e3s4 : THROW_CCE());
-    }
-    return tmp;
-  }
-  function get_RECEIVE_RESULT() {
-    return RECEIVE_RESULT;
-  }
-  var RECEIVE_RESULT;
-  function toResult_0(_this__u8e3s4) {
-    init_properties_AbstractChannel_kt_mjk5bh();
-    return Companion_getInstance_1().closed_o16byb_k$(_this__u8e3s4.closeCause_1);
-  }
-  function SendElement(pollResult, cont) {
-    Send.call(this);
-    this.pollResult_1 = pollResult;
-    this.cont_1 = cont;
-  }
-  SendElement.prototype.get_pollResult_t5mkl7_k$ = function () {
-    return this.pollResult_1;
-  };
-  SendElement.prototype.get_cont_wok86z_k$ = function () {
-    return this.cont_1;
-  };
-  SendElement.prototype.tryResumeSend_93c6it_k$ = function (otherOp) {
-    var tmp0_safe_receiver = otherOp;
-    var tmp1_elvis_lhs = this.cont_1.tryResume_10oxem_k$(Unit_getInstance(), tmp0_safe_receiver == null ? null : tmp0_safe_receiver.desc_1);
-    var tmp;
-    if (tmp1_elvis_lhs == null) {
-      return null;
-    } else {
-      tmp = tmp1_elvis_lhs;
-    }
-    var token = tmp;
-    {
-    }
-    var tmp2_safe_receiver = otherOp;
-    if (tmp2_safe_receiver == null)
-      null;
-    else {
-      tmp2_safe_receiver.finishPrepare_o9c8d9_k$();
-    }
-    return get_RESUME_TOKEN();
-  };
-  SendElement.prototype.completeResumeSend_upvqar_k$ = function () {
-    return this.cont_1.completeResume_fu4ex_k$(get_RESUME_TOKEN());
-  };
-  SendElement.prototype.resumeSendClosed_r0hgr7_k$ = function (closed) {
-    var tmp$ret$1;
-    {
-      var tmp0_resumeWithException = this.cont_1;
-      var tmp1_resumeWithException = closed.get_sendException_qpq1ry_k$();
-      var tmp$ret$0;
-      {
-        var tmp0_failure = Companion_getInstance_0();
-        tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(tmp1_resumeWithException));
-      }
-      tmp$ret$1 = tmp0_resumeWithException.resumeWith_s3a3yh_k$(tmp$ret$0);
-    }
-    return tmp$ret$1;
-  };
-  SendElement.prototype.toString = function () {
-    return get_classSimpleName(this) + '@' + get_hexAddress(this) + '(' + this.get_pollResult_t5mkl7_k$() + ')';
-  };
-  SendElement.$metadata$ = classMeta('SendElement', undefined, undefined, undefined, undefined, Send.prototype);
-  function SendElementWithUndeliveredHandler(pollResult, cont, onUndeliveredElement) {
-    SendElement.call(this, pollResult, cont);
-    this.onUndeliveredElement_1 = onUndeliveredElement;
-  }
-  SendElementWithUndeliveredHandler.prototype.get_onUndeliveredElement_a8l4w7_k$ = function () {
-    return this.onUndeliveredElement_1;
-  };
-  SendElementWithUndeliveredHandler.prototype.remove_fgfybg_k$ = function () {
-    if (!SendElement.prototype.remove_fgfybg_k$.call(this))
-      return false;
-    this.undeliveredElement_djsee8_k$();
-    return true;
-  };
-  SendElementWithUndeliveredHandler.prototype.undeliveredElement_djsee8_k$ = function () {
-    callUndeliveredElement(this.onUndeliveredElement_1, this.get_pollResult_t5mkl7_k$(), this.get_cont_wok86z_k$().get_context_h02k06_k$());
-  };
-  SendElementWithUndeliveredHandler.$metadata$ = classMeta('SendElementWithUndeliveredHandler', undefined, undefined, undefined, undefined, SendElement.prototype);
   var properties_initialized_AbstractChannel_kt_uwqnpt;
   function init_properties_AbstractChannel_kt_mjk5bh() {
     if (properties_initialized_AbstractChannel_kt_uwqnpt) {
@@ -6686,1557 +4343,6 @@
       HANDLER_INVOKED = new Symbol('ON_CLOSE_HANDLER_INVOKED');
     }
   }
-  function _get_capacity__a9k9f3($this) {
-    return $this.capacity_1;
-  }
-  function _get_onBufferOverflow__4ha2pi($this) {
-    return $this.onBufferOverflow_1;
-  }
-  function _get_lock__d9xa4g($this) {
-    return $this.lock_1;
-  }
-  function _set_buffer__uxh4x5($this, _set____db54di) {
-    $this.buffer_1 = _set____db54di;
-  }
-  function _get_buffer__tgqkad($this) {
-    return $this.buffer_1;
-  }
-  function _set_head__9nromv($this, _set____db54di) {
-    $this.head_1 = _set____db54di;
-  }
-  function _get_head__d7jo8b($this) {
-    return $this.head_1;
-  }
-  function _get_size__ddoh9m($this) {
-    return $this.size_1;
-  }
-  function updateBufferSize($this, currentSize) {
-    if (currentSize < $this.capacity_1) {
-      $this.size_1.value_1 = currentSize + 1 | 0;
-      return null;
-    }
-    var tmp0_subject = $this.onBufferOverflow_1;
-    var tmp0 = tmp0_subject.get_ordinal_ip24qg_k$();
-    var tmp;
-    switch (tmp0) {
-      case 0:
-        tmp = get_OFFER_FAILED();
-        break;
-      case 2:
-        tmp = get_OFFER_SUCCESS();
-        break;
-      case 1:
-        tmp = null;
-        break;
-      default:
-        noWhenBranchMatchedException();
-        break;
-    }
-    return tmp;
-  }
-  function enqueueElement($this, currentSize, element) {
-    if (currentSize < $this.capacity_1) {
-      ensureCapacity($this, currentSize);
-      $this.buffer_1[($this.head_1 + currentSize | 0) % $this.buffer_1.length | 0] = element;
-    } else {
-      {
-      }
-      $this.buffer_1[$this.head_1 % $this.buffer_1.length | 0] = null;
-      $this.buffer_1[($this.head_1 + currentSize | 0) % $this.buffer_1.length | 0] = element;
-      $this.head_1 = ($this.head_1 + 1 | 0) % $this.buffer_1.length | 0;
-    }
-  }
-  function ensureCapacity($this, currentSize) {
-    if (currentSize >= $this.buffer_1.length) {
-      var tmp$ret$0;
-      {
-        var tmp0_min = imul($this.buffer_1.length, 2);
-        var tmp1_min = $this.capacity_1;
-        tmp$ret$0 = Math.min(tmp0_min, tmp1_min);
-      }
-      var newSize = tmp$ret$0;
-      var tmp$ret$1;
-      {
-        tmp$ret$1 = fillArrayVal(Array(newSize), null);
-      }
-      var newBuffer = tmp$ret$1;
-      var inductionVariable = 0;
-      if (inductionVariable < currentSize)
-        do {
-          var i = inductionVariable;
-          inductionVariable = inductionVariable + 1 | 0;
-          newBuffer[i] = $this.buffer_1[($this.head_1 + i | 0) % $this.buffer_1.length | 0];
-        }
-         while (inductionVariable < currentSize);
-      fill(newBuffer, get_EMPTY(), currentSize, newSize);
-      $this.buffer_1 = newBuffer;
-      $this.head_1 = 0;
-    }
-  }
-  function ArrayChannel(capacity, onBufferOverflow, onUndeliveredElement) {
-    AbstractChannel.call(this, onUndeliveredElement);
-    this.capacity_1 = capacity;
-    this.onBufferOverflow_1 = onBufferOverflow;
-    {
-      var tmp0_require = this.capacity_1 >= 1;
-      {
-      }
-      if (!tmp0_require) {
-        var tmp$ret$0;
-        {
-          tmp$ret$0 = 'ArrayChannel capacity must be at least 1, but ' + this.capacity_1 + ' was specified';
-        }
-        var message = tmp$ret$0;
-        throw IllegalArgumentException_init_$Create$(toString_0(message));
-      }
-    }
-    this.lock_1 = new NoOpLock();
-    var tmp = this;
-    var tmp$ret$3;
-    {
-      var tmp$ret$2;
-      {
-        var tmp$ret$1;
-        {
-          var tmp0_min = this.capacity_1;
-          tmp$ret$1 = Math.min(tmp0_min, 8);
-        }
-        var tmp1_arrayOfNulls = tmp$ret$1;
-        tmp$ret$2 = fillArrayVal(Array(tmp1_arrayOfNulls), null);
-      }
-      var tmp2_apply = tmp$ret$2;
-      {
-      }
-      {
-        var tmp_0 = get_EMPTY();
-        fill$default(tmp2_apply, tmp_0, 0, 0, 6, null);
-      }
-      tmp$ret$3 = tmp2_apply;
-    }
-    tmp.buffer_1 = tmp$ret$3;
-    this.head_1 = 0;
-    this.size_1 = atomic$int$1(0);
-  }
-  ArrayChannel.prototype.get_isBufferAlwaysEmpty_ross6j_k$ = function () {
-    return false;
-  };
-  ArrayChannel.prototype.get_isBufferEmpty_t57jne_k$ = function () {
-    return this.size_1.value_1 === 0;
-  };
-  ArrayChannel.prototype.get_isBufferAlwaysFull_v6nbtb_k$ = function () {
-    return false;
-  };
-  ArrayChannel.prototype.get_isBufferFull_xv8jm_k$ = function () {
-    return this.size_1.value_1 === this.capacity_1 ? this.onBufferOverflow_1.equals(BufferOverflow_SUSPEND_getInstance()) : false;
-  };
-  ArrayChannel.prototype.get_isEmpty_zauvru_k$ = function () {
-    var tmp$ret$1;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = this.get_isEmptyImpl_9w6w0q_k$();
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  };
-  ArrayChannel.prototype.get_isClosedForReceive_v0r77d_k$ = function () {
-    var tmp$ret$1;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = AbstractChannel.prototype.get_isClosedForReceive_v0r77d_k$.call(this);
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  };
-  ArrayChannel.prototype.offerInternal_tuzlq7_k$ = function (element) {
-    var receive = null;
-    var tmp$ret$3;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$2;
-      $l$block: {
-        var size = this.size_1.value_1;
-        var tmp0_safe_receiver = this.get_closedForSend_4r8ipo_k$();
-        if (tmp0_safe_receiver == null)
-          null;
-        else {
-          var tmp$ret$0;
-          {
-            {
-            }
-            return tmp0_safe_receiver;
-          }
-        }
-        var tmp1_safe_receiver = updateBufferSize(this, size);
-        if (tmp1_safe_receiver == null)
-          null;
-        else {
-          var tmp$ret$1;
-          {
-            {
-            }
-            return tmp1_safe_receiver;
-          }
-        }
-        if (size === 0) {
-          loop: while (true) {
-            var tmp2_elvis_lhs = this.takeFirstReceiveOrPeekClosed_ri9e84_k$();
-            var tmp;
-            if (tmp2_elvis_lhs == null) {
-              break loop;
-            } else {
-              tmp = tmp2_elvis_lhs;
-            }
-            receive = tmp;
-            if (receive instanceof Closed) {
-              this.size_1.value_1 = size;
-              return ensureNotNull(receive);
-            }
-            var token = ensureNotNull(receive).tryResumeReceive_mpjrre_k$(element, null);
-            if (!(token == null)) {
-              {
-              }
-              this.size_1.value_1 = size;
-              tmp$ret$2 = Unit_getInstance();
-              break $l$block;
-            }
-          }
-        }
-        enqueueElement(this, size, element);
-        return get_OFFER_SUCCESS();
-      }
-      tmp$ret$3 = tmp$ret$2;
-    }
-    ensureNotNull(receive).completeResumeReceive_1cyi5u_k$(element);
-    return ensureNotNull(receive).get_offerResult_jdi2i8_k$();
-  };
-  ArrayChannel.prototype.offerSelectInternal_lspj9s_k$ = function (element, select) {
-    var receive = null;
-    var tmp$ret$3;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$2;
-      $l$block: {
-        var size = this.size_1.value_1;
-        var tmp0_safe_receiver = this.get_closedForSend_4r8ipo_k$();
-        if (tmp0_safe_receiver == null)
-          null;
-        else {
-          var tmp$ret$0;
-          {
-            {
-            }
-            return tmp0_safe_receiver;
-          }
-        }
-        var tmp1_safe_receiver = updateBufferSize(this, size);
-        if (tmp1_safe_receiver == null)
-          null;
-        else {
-          var tmp$ret$1;
-          {
-            {
-            }
-            return tmp1_safe_receiver;
-          }
-        }
-        if (size === 0) {
-          loop: while (true) {
-            var offerOp = this.describeTryOffer_6o0iky_k$(element);
-            var failure = select.performAtomicTrySelect_9r1u91_k$(offerOp);
-            if (failure == null) {
-              this.size_1.value_1 = size;
-              receive = offerOp.get_result_iyg5d2_k$();
-              tmp$ret$2 = Unit_getInstance();
-              break $l$block;
-            } else {
-              if (failure === get_OFFER_FAILED())
-                break loop;
-              else {
-                if (failure === get_RETRY_ATOMIC()) {
-                } else {
-                  var tmp;
-                  if (failure === get_ALREADY_SELECTED()) {
-                    tmp = true;
-                  } else {
-                    tmp = failure instanceof Closed;
-                  }
-                  if (tmp) {
-                    this.size_1.value_1 = size;
-                    return failure;
-                  } else {
-                    var tmp0_error = 'performAtomicTrySelect(describeTryOffer) returned ' + toString(failure);
-                    throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-                  }
-                }
-              }
-            }
-          }
-        }
-        if (!select.trySelect_1ivjiv_k$()) {
-          this.size_1.value_1 = size;
-          return get_ALREADY_SELECTED();
-        }
-        enqueueElement(this, size, element);
-        return get_OFFER_SUCCESS();
-      }
-      tmp$ret$3 = tmp$ret$2;
-    }
-    ensureNotNull(receive).completeResumeReceive_1cyi5u_k$(element);
-    return ensureNotNull(receive).get_offerResult_jdi2i8_k$();
-  };
-  ArrayChannel.prototype.enqueueSend_9ksp3t_k$ = function (send) {
-    var tmp$ret$1;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = AbstractChannel.prototype.enqueueSend_9ksp3t_k$.call(this, send);
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  };
-  ArrayChannel.prototype.pollInternal_ml771g_k$ = function () {
-    var send = null;
-    var resumed = false;
-    var result = null;
-    var tmp$ret$0;
-    {
-      var tmp0_withLock = this.lock_1;
-      var size = this.size_1.value_1;
-      if (size === 0) {
-        var tmp0_elvis_lhs = this.get_closedForSend_4r8ipo_k$();
-        return tmp0_elvis_lhs == null ? get_POLL_FAILED() : tmp0_elvis_lhs;
-      }
-      result = this.buffer_1[this.head_1];
-      this.buffer_1[this.head_1] = null;
-      this.size_1.value_1 = size - 1 | 0;
-      var replacement = get_POLL_FAILED();
-      if (size === this.capacity_1) {
-        loop: while (true) {
-          var tmp1_elvis_lhs = this.takeFirstSendOrPeekClosed_h7sgez_k$();
-          var tmp;
-          if (tmp1_elvis_lhs == null) {
-            break loop;
-          } else {
-            tmp = tmp1_elvis_lhs;
-          }
-          send = tmp;
-          var token = ensureNotNull(send).tryResumeSend_93c6it_k$(null);
-          if (!(token == null)) {
-            {
-            }
-            resumed = true;
-            replacement = ensureNotNull(send).get_pollResult_t5mkl7_k$();
-            break loop;
-          }
-          ensureNotNull(send).undeliveredElement_djsee8_k$();
-        }
-      }
-      var tmp_0;
-      if (!(replacement === get_POLL_FAILED())) {
-        tmp_0 = !(replacement instanceof Closed);
-      } else {
-        tmp_0 = false;
-      }
-      if (tmp_0) {
-        this.size_1.value_1 = size;
-        this.buffer_1[(this.head_1 + size | 0) % this.buffer_1.length | 0] = replacement;
-      }
-      this.head_1 = (this.head_1 + 1 | 0) % this.buffer_1.length | 0;
-      tmp$ret$0 = Unit_getInstance();
-    }
-    if (resumed)
-      ensureNotNull(send).completeResumeSend_upvqar_k$();
-    return result;
-  };
-  ArrayChannel.prototype.pollSelectInternal_puj25v_k$ = function (select) {
-    var send = null;
-    var success = false;
-    var result = null;
-    var tmp$ret$0;
-    {
-      var tmp0_withLock = this.lock_1;
-      var size = this.size_1.value_1;
-      if (size === 0) {
-        var tmp0_elvis_lhs = this.get_closedForSend_4r8ipo_k$();
-        return tmp0_elvis_lhs == null ? get_POLL_FAILED() : tmp0_elvis_lhs;
-      }
-      result = this.buffer_1[this.head_1];
-      this.buffer_1[this.head_1] = null;
-      this.size_1.value_1 = size - 1 | 0;
-      var replacement = get_POLL_FAILED();
-      if (size === this.capacity_1) {
-        loop: while (true) {
-          var pollOp = this.describeTryPoll_k2m4a9_k$();
-          var failure = select.performAtomicTrySelect_9r1u91_k$(pollOp);
-          if (failure == null) {
-            send = pollOp.get_result_iyg5d2_k$();
-            success = true;
-            replacement = ensureNotNull(send).get_pollResult_t5mkl7_k$();
-            break loop;
-          } else {
-            if (failure === get_POLL_FAILED())
-              break loop;
-            else {
-              if (failure === get_RETRY_ATOMIC()) {
-              } else {
-                if (failure === get_ALREADY_SELECTED()) {
-                  this.size_1.value_1 = size;
-                  this.buffer_1[this.head_1] = result;
-                  return failure;
-                } else {
-                  if (failure instanceof Closed) {
-                    send = failure;
-                    success = true;
-                    replacement = failure;
-                    break loop;
-                  } else {
-                    var tmp0_error = 'performAtomicTrySelect(describeTryOffer) returned ' + toString(failure);
-                    throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      var tmp;
-      if (!(replacement === get_POLL_FAILED())) {
-        tmp = !(replacement instanceof Closed);
-      } else {
-        tmp = false;
-      }
-      if (tmp) {
-        this.size_1.value_1 = size;
-        this.buffer_1[(this.head_1 + size | 0) % this.buffer_1.length | 0] = replacement;
-      } else {
-        if (!select.trySelect_1ivjiv_k$()) {
-          this.size_1.value_1 = size;
-          this.buffer_1[this.head_1] = result;
-          return get_ALREADY_SELECTED();
-        }
-      }
-      this.head_1 = (this.head_1 + 1 | 0) % this.buffer_1.length | 0;
-      tmp$ret$0 = Unit_getInstance();
-    }
-    if (success)
-      ensureNotNull(send).completeResumeSend_upvqar_k$();
-    return result;
-  };
-  ArrayChannel.prototype.enqueueReceiveInternal_rxtsl7_k$ = function (receive) {
-    var tmp$ret$1;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = AbstractChannel.prototype.enqueueReceiveInternal_rxtsl7_k$.call(this, receive);
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  };
-  ArrayChannel.prototype.onCancelIdempotent_1zp8pj_k$ = function (wasClosed) {
-    var onUndeliveredElement = this.get_onUndeliveredElement_a8l4w7_k$();
-    var undeliveredElementException = null;
-    var tmp$ret$0;
-    {
-      var tmp0_withLock = this.lock_1;
-      {
-        var tmp0_repeat = this.size_1.value_1;
-        {
-        }
-        var inductionVariable = 0;
-        if (inductionVariable < tmp0_repeat)
-          do {
-            var index = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            {
-              var value = this.buffer_1[this.head_1];
-              if (!(onUndeliveredElement == null) ? !(value === get_EMPTY()) : false) {
-                undeliveredElementException = callUndeliveredElementCatchingException(onUndeliveredElement, (value == null ? true : isObject(value)) ? value : THROW_CCE(), undeliveredElementException);
-              }
-              this.buffer_1[this.head_1] = get_EMPTY();
-              this.head_1 = (this.head_1 + 1 | 0) % this.buffer_1.length | 0;
-            }
-          }
-           while (inductionVariable < tmp0_repeat);
-      }
-      this.size_1.value_1 = 0;
-      tmp$ret$0 = Unit_getInstance();
-    }
-    AbstractChannel.prototype.onCancelIdempotent_1zp8pj_k$.call(this, wasClosed);
-    var tmp0_safe_receiver = undeliveredElementException;
-    if (tmp0_safe_receiver == null)
-      null;
-    else {
-      var tmp$ret$1;
-      {
-        {
-        }
-        throw tmp0_safe_receiver;
-      }
-    }
-  };
-  ArrayChannel.prototype.get_bufferDebugString_66mwn9_k$ = function () {
-    return '(buffer:capacity=' + this.capacity_1 + ',size=' + this.size_1.value_1 + ')';
-  };
-  ArrayChannel.$metadata$ = classMeta('ArrayChannel', undefined, undefined, undefined, undefined, AbstractChannel.prototype);
-  var BufferOverflow_SUSPEND_instance;
-  var BufferOverflow_DROP_OLDEST_instance;
-  var BufferOverflow_DROP_LATEST_instance;
-  function values_0() {
-    return [BufferOverflow_SUSPEND_getInstance(), BufferOverflow_DROP_OLDEST_getInstance(), BufferOverflow_DROP_LATEST_getInstance()];
-  }
-  function valueOf_0(value) {
-    switch (value) {
-      case 'SUSPEND':
-        return BufferOverflow_SUSPEND_getInstance();
-      case 'DROP_OLDEST':
-        return BufferOverflow_DROP_OLDEST_getInstance();
-      case 'DROP_LATEST':
-        return BufferOverflow_DROP_LATEST_getInstance();
-      default:
-        BufferOverflow_initEntries();
-        THROW_ISE();
-        break;
-    }
-  }
-  var BufferOverflow_entriesInitialized;
-  function BufferOverflow_initEntries() {
-    if (BufferOverflow_entriesInitialized)
-      return Unit_getInstance();
-    BufferOverflow_entriesInitialized = true;
-    BufferOverflow_SUSPEND_instance = new BufferOverflow('SUSPEND', 0);
-    BufferOverflow_DROP_OLDEST_instance = new BufferOverflow('DROP_OLDEST', 1);
-    BufferOverflow_DROP_LATEST_instance = new BufferOverflow('DROP_LATEST', 2);
-  }
-  function BufferOverflow(name, ordinal) {
-    Enum.call(this, name, ordinal);
-  }
-  BufferOverflow.$metadata$ = classMeta('BufferOverflow', undefined, undefined, undefined, undefined, Enum.prototype);
-  function BufferOverflow_SUSPEND_getInstance() {
-    BufferOverflow_initEntries();
-    return BufferOverflow_SUSPEND_instance;
-  }
-  function BufferOverflow_DROP_OLDEST_getInstance() {
-    BufferOverflow_initEntries();
-    return BufferOverflow_DROP_OLDEST_instance;
-  }
-  function BufferOverflow_DROP_LATEST_getInstance() {
-    BufferOverflow_initEntries();
-    return BufferOverflow_DROP_LATEST_instance;
-  }
-  function Factory() {
-    Factory_instance = this;
-    this.UNLIMITED_1 = 2147483647;
-    this.RENDEZVOUS_1 = 0;
-    this.CONFLATED_1 = -1;
-    this.BUFFERED_1 = -2;
-    this.OPTIONAL_CHANNEL_1 = -3;
-    this.DEFAULT_BUFFER_PROPERTY_NAME_1 = 'kotlinx.coroutines.channels.defaultBuffer';
-    this.CHANNEL_DEFAULT_CAPACITY_1 = systemProp('kotlinx.coroutines.channels.defaultBuffer', 64, 1, 2147483646);
-  }
-  Factory.prototype.get_UNLIMITED_eshsm0_k$ = function () {
-    return this.UNLIMITED_1;
-  };
-  Factory.prototype.get_RENDEZVOUS_7qhqgu_k$ = function () {
-    return this.RENDEZVOUS_1;
-  };
-  Factory.prototype.get_CONFLATED_tox14f_k$ = function () {
-    return this.CONFLATED_1;
-  };
-  Factory.prototype.get_BUFFERED_qzy754_k$ = function () {
-    return this.BUFFERED_1;
-  };
-  Factory.prototype.get_OPTIONAL_CHANNEL_c6wrw3_k$ = function () {
-    return this.OPTIONAL_CHANNEL_1;
-  };
-  Factory.prototype.get_DEFAULT_BUFFER_PROPERTY_NAME_rafy59_k$ = function () {
-    return this.DEFAULT_BUFFER_PROPERTY_NAME_1;
-  };
-  Factory.prototype.get_CHANNEL_DEFAULT_CAPACITY_4xco1p_k$ = function () {
-    return this.CHANNEL_DEFAULT_CAPACITY_1;
-  };
-  Factory.$metadata$ = objectMeta('Factory');
-  var Factory_instance;
-  function Factory_getInstance() {
-    if (Factory_instance == null)
-      new Factory();
-    return Factory_instance;
-  }
-  function Channel() {
-    Factory_getInstance();
-  }
-  Channel.$metadata$ = interfaceMeta('Channel', [SendChannel, ReceiveChannel]);
-  function Channel_0(capacity, onBufferOverflow, onUndeliveredElement) {
-    var tmp0_subject = capacity;
-    var tmp;
-    Factory_getInstance();
-    if (tmp0_subject === 0) {
-      tmp = onBufferOverflow.equals(BufferOverflow_SUSPEND_getInstance()) ? new RendezvousChannel(onUndeliveredElement) : new ArrayChannel(1, onBufferOverflow, onUndeliveredElement);
-    } else {
-      Factory_getInstance();
-      if (tmp0_subject === -1) {
-        {
-          var tmp0_require = onBufferOverflow.equals(BufferOverflow_SUSPEND_getInstance());
-          {
-          }
-          if (!tmp0_require) {
-            var tmp$ret$0;
-            {
-              tmp$ret$0 = 'CONFLATED capacity cannot be used with non-default onBufferOverflow';
-            }
-            var message = tmp$ret$0;
-            throw IllegalArgumentException_init_$Create$(toString_0(message));
-          }
-        }
-        tmp = new ConflatedChannel(onUndeliveredElement);
-      } else {
-        Factory_getInstance();
-        if (tmp0_subject === 2147483647) {
-          tmp = new LinkedListChannel(onUndeliveredElement);
-        } else {
-          Factory_getInstance();
-          if (tmp0_subject === -2) {
-            tmp = new ArrayChannel(onBufferOverflow.equals(BufferOverflow_SUSPEND_getInstance()) ? Factory_getInstance().CHANNEL_DEFAULT_CAPACITY_1 : 1, onBufferOverflow, onUndeliveredElement);
-          } else {
-            tmp = (capacity === 1 ? onBufferOverflow.equals(BufferOverflow_DROP_OLDEST_getInstance()) : false) ? new ConflatedChannel(onUndeliveredElement) : new ArrayChannel(capacity, onBufferOverflow, onUndeliveredElement);
-          }
-        }
-      }
-    }
-    return tmp;
-  }
-  function Channel$default(capacity, onBufferOverflow, onUndeliveredElement, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0)) {
-      Factory_getInstance();
-      capacity = 0;
-    }
-    if (!(($mask0 & 2) === 0))
-      onBufferOverflow = BufferOverflow_SUSPEND_getInstance();
-    if (!(($mask0 & 4) === 0))
-      onUndeliveredElement = null;
-    return Channel_0(capacity, onBufferOverflow, onUndeliveredElement);
-  }
-  function ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt($block, resultContinuation) {
-    this.$block_1 = $block;
-    CoroutineImpl.call(this, resultContinuation);
-  }
-  ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt.prototype.invoke_xgbiie_k$ = function (it, $cont) {
-    var tmp = this.create_vaj3v6_k$(it, $cont);
-    tmp.result_1 = Unit_getInstance();
-    tmp.exception_1 = null;
-    return tmp.doResume_5yljmg_k$();
-  };
-  ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
-    return this.invoke_xgbiie_k$(p1 instanceof ChannelResult ? p1.holder_1 : THROW_CCE(), $cont);
-  };
-  ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt.prototype.doResume_5yljmg_k$ = function () {
-    var suspendResult = this.result_1;
-    $sm: do
-      try {
-        var tmp = this.state_1;
-        switch (tmp) {
-          case 0:
-            this.exceptionState_1 = 2;
-            var tmp0_safe_receiver = ChannelResult__exceptionOrNull_impl_16ei30(this.it_1);
-            if (tmp0_safe_receiver == null)
-              null;
-            else {
-              throw tmp0_safe_receiver;
-            }
-
-            ;
-            this.state_1 = 1;
-            suspendResult = this.$block_1(ChannelResult__getOrNull_impl_f5e07h(this.it_1), this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 1:
-            return suspendResult;
-          case 2:
-            throw this.exception_1;
-        }
-      } catch ($p) {
-        if (this.exceptionState_1 === 2) {
-          throw $p;
-        } else {
-          this.state_1 = this.exceptionState_1;
-          this.exception_1 = $p;
-        }
-      }
-     while (true);
-  };
-  ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt.prototype.create_vaj3v6_k$ = function (it, completion) {
-    var i = new ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt(this.$block_1, completion);
-    i.it_1 = it;
-    return i;
-  };
-  ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt.prototype.create_xubfvz_k$ = function (value, completion) {
-    return this.create_vaj3v6_k$(value instanceof ChannelResult ? value.holder_1 : THROW_CCE(), completion);
-  };
-  ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt.$metadata$ = classMeta('ReceiveChannel$<get-onReceiveOrNull>$o$registerSelectClause1$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
-  function ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt_0($block, resultContinuation) {
-    var i = new ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt($block, resultContinuation);
-    var l = function (it, $cont) {
-      return i.invoke_xgbiie_k$(it.holder_1, $cont);
-    };
-    l.$arity = 1;
-    return l;
-  }
-  function ReceiveChannel$onReceiveOrNull$1(this$0) {
-    this.this$0__1 = this$0;
-  }
-  ReceiveChannel$onReceiveOrNull$1.prototype.registerSelectClause1_6lfp5b_k$ = function (select, block) {
-    var tmp = this.this$0__1.get_onReceiveCatching_ajg9xa_k$();
-    tmp.registerSelectClause1_bb3j78_k$(select, ReceiveChannel$_get_onReceiveOrNull_$o$registerSelectClause1$slambda_mk5gpt_0(block, null));
-  };
-  ReceiveChannel$onReceiveOrNull$1.prototype.registerSelectClause1_bb3j78_k$ = function (select, block) {
-    return this.registerSelectClause1_6lfp5b_k$(select, block);
-  };
-  ReceiveChannel$onReceiveOrNull$1.$metadata$ = classMeta(undefined, [SelectClause1]);
-  function $receiveOrNullCOROUTINE$2(_this__u8e3s4, resultContinuation) {
-    CoroutineImpl.call(this, resultContinuation);
-    this._this__u8e3s4__1 = _this__u8e3s4;
-  }
-  $receiveOrNullCOROUTINE$2.prototype.doResume_5yljmg_k$ = function () {
-    var suspendResult = this.result_1;
-    $sm: do
-      try {
-        var tmp = this.state_1;
-        switch (tmp) {
-          case 0:
-            this.exceptionState_1 = 3;
-            this.state_1 = 1;
-            suspendResult = this._this__u8e3s4__1.receiveCatching_wrys2l_k$(this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            this.state_1 = 2;
-            continue $sm;
-          case 1:
-            var unboxed = suspendResult.holder_1;
-            suspendResult = new ChannelResult(unboxed);
-            this.state_1 = 2;
-            continue $sm;
-          case 2:
-            var ARGUMENT = suspendResult.holder_1;
-            return ChannelResult__getOrNull_impl_f5e07h(ARGUMENT);
-          case 3:
-            throw this.exception_1;
-        }
-      } catch ($p) {
-        if (this.exceptionState_1 === 3) {
-          throw $p;
-        } else {
-          this.state_1 = this.exceptionState_1;
-          this.exception_1 = $p;
-        }
-      }
-     while (true);
-  };
-  $receiveOrNullCOROUTINE$2.$metadata$ = classMeta('$receiveOrNullCOROUTINE$2', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function ReceiveChannel() {
-  }
-  ReceiveChannel.$metadata$ = interfaceMeta('ReceiveChannel');
-  function SendChannel() {
-  }
-  SendChannel.$metadata$ = interfaceMeta('SendChannel');
-  function _get_failed__jtpc32($this) {
-    return $this.failed_1;
-  }
-  function _ChannelResult___init__impl__siwsuf(holder) {
-    return holder;
-  }
-  function _ChannelResult___get_holder__impl__pm9gzw($this) {
-    return $this;
-  }
-  function _ChannelResult___get_isSuccess__impl__odq1z9($this) {
-    var tmp = _ChannelResult___get_holder__impl__pm9gzw($this);
-    return !(tmp instanceof Failed);
-  }
-  function _ChannelResult___get_isFailure__impl__nz6ehu($this) {
-    var tmp = _ChannelResult___get_holder__impl__pm9gzw($this);
-    return tmp instanceof Failed;
-  }
-  function _ChannelResult___get_isClosed__impl__mg7kuu($this) {
-    var tmp = _ChannelResult___get_holder__impl__pm9gzw($this);
-    return tmp instanceof Closed_0;
-  }
-  function ChannelResult__getOrNull_impl_f5e07h($this) {
-    var tmp;
-    var tmp_0 = _ChannelResult___get_holder__impl__pm9gzw($this);
-    if (!(tmp_0 instanceof Failed)) {
-      var tmp_1 = _ChannelResult___get_holder__impl__pm9gzw($this);
-      tmp = (tmp_1 == null ? true : isObject(tmp_1)) ? tmp_1 : THROW_CCE();
-    } else {
-      tmp = null;
-    }
-    return tmp;
-  }
-  function ChannelResult__getOrThrow_impl_od1axs($this) {
-    var tmp = _ChannelResult___get_holder__impl__pm9gzw($this);
-    if (!(tmp instanceof Failed)) {
-      var tmp_0 = _ChannelResult___get_holder__impl__pm9gzw($this);
-      return (tmp_0 == null ? true : isObject(tmp_0)) ? tmp_0 : THROW_CCE();
-    }
-    var tmp_1;
-    var tmp_2 = _ChannelResult___get_holder__impl__pm9gzw($this);
-    if (tmp_2 instanceof Closed_0) {
-      tmp_1 = !(_ChannelResult___get_holder__impl__pm9gzw($this).cause_1 == null);
-    } else {
-      tmp_1 = false;
-    }
-    if (tmp_1)
-      throw _ChannelResult___get_holder__impl__pm9gzw($this).cause_1;
-    {
-      var tmp0_error = "Trying to call 'getOrThrow' on a failed channel result: " + toString(_ChannelResult___get_holder__impl__pm9gzw($this));
-      throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-    }
-  }
-  function ChannelResult__exceptionOrNull_impl_16ei30($this) {
-    var tmp = _ChannelResult___get_holder__impl__pm9gzw($this);
-    var tmp0_safe_receiver = tmp instanceof Closed_0 ? tmp : null;
-    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.cause_1;
-  }
-  function Failed() {
-  }
-  Failed.prototype.toString = function () {
-    return 'Failed';
-  };
-  Failed.$metadata$ = classMeta('Failed');
-  function Closed_0(cause) {
-    Failed.call(this);
-    this.cause_1 = cause;
-  }
-  Closed_0.prototype.get_cause_iplhs0_k$ = function () {
-    return this.cause_1;
-  };
-  Closed_0.prototype.equals = function (other) {
-    var tmp;
-    if (other instanceof Closed_0) {
-      tmp = equals(this.cause_1, other.cause_1);
-    } else {
-      tmp = false;
-    }
-    return tmp;
-  };
-  Closed_0.prototype.hashCode = function () {
-    var tmp$ret$0;
-    {
-      var tmp0_hashCode = this.cause_1;
-      var tmp0_safe_receiver = tmp0_hashCode;
-      var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode(tmp0_safe_receiver);
-      tmp$ret$0 = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
-    }
-    return tmp$ret$0;
-  };
-  Closed_0.prototype.toString = function () {
-    return 'Closed(' + this.cause_1 + ')';
-  };
-  Closed_0.$metadata$ = classMeta('Closed', undefined, undefined, undefined, undefined, Failed.prototype);
-  function Companion() {
-    Companion_instance = this;
-    this.failed_1 = new Failed();
-  }
-  Companion.prototype.success_prl0f3_k$ = function (value) {
-    return _ChannelResult___init__impl__siwsuf(value);
-  };
-  Companion.prototype.failure_qsocya_k$ = function () {
-    return _ChannelResult___init__impl__siwsuf(this.failed_1);
-  };
-  Companion.prototype.closed_o16byb_k$ = function (cause) {
-    return _ChannelResult___init__impl__siwsuf(new Closed_0(cause));
-  };
-  Companion.$metadata$ = objectMeta('Companion');
-  var Companion_instance;
-  function Companion_getInstance_1() {
-    if (Companion_instance == null)
-      new Companion();
-    return Companion_instance;
-  }
-  function ChannelResult__toString_impl_rrcqu7($this) {
-    var tmp0_subject = _ChannelResult___get_holder__impl__pm9gzw($this);
-    var tmp;
-    if (tmp0_subject instanceof Closed_0) {
-      tmp = toString_0(_ChannelResult___get_holder__impl__pm9gzw($this));
-    } else {
-      tmp = 'Value(' + toString(_ChannelResult___get_holder__impl__pm9gzw($this)) + ')';
-    }
-    return tmp;
-  }
-  function ChannelResult__hashCode_impl_lilec2($this) {
-    return $this == null ? 0 : hashCode($this);
-  }
-  function ChannelResult__equals_impl_f471ri($this, other) {
-    if (!(other instanceof ChannelResult))
-      return false;
-    var tmp0_other_with_cast = other instanceof ChannelResult ? other.holder_1 : THROW_CCE();
-    if (!equals($this, tmp0_other_with_cast))
-      return false;
-    return true;
-  }
-  function ChannelResult(holder) {
-    Companion_getInstance_1();
-    this.holder_1 = holder;
-  }
-  ChannelResult.prototype.toString = function () {
-    return ChannelResult__toString_impl_rrcqu7(this.holder_1);
-  };
-  ChannelResult.prototype.hashCode = function () {
-    return ChannelResult__hashCode_impl_lilec2(this.holder_1);
-  };
-  ChannelResult.prototype.equals = function (other) {
-    return ChannelResult__equals_impl_f471ri(this.holder_1, other);
-  };
-  ChannelResult.$metadata$ = classMeta('ChannelResult');
-  function $next0COROUTINE$3(_this__u8e3s4, resultContinuation) {
-    CoroutineImpl.call(this, resultContinuation);
-    this._this__u8e3s4__1 = _this__u8e3s4;
-  }
-  $next0COROUTINE$3.prototype.doResume_5yljmg_k$ = function () {
-    var suspendResult = this.result_1;
-    $sm: do
-      try {
-        var tmp = this.state_1;
-        switch (tmp) {
-          case 0:
-            this.exceptionState_1 = 3;
-            this.state_1 = 1;
-            suspendResult = this._this__u8e3s4__1.hasNext_4tgia2_k$(this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 1:
-            var ARGUMENT = suspendResult;
-            if (!ARGUMENT) {
-              throw new ClosedReceiveChannelException(get_DEFAULT_CLOSE_MESSAGE());
-            } else {
-              this.state_1 = 2;
-              continue $sm;
-            }
-
-            break;
-          case 2:
-            return this._this__u8e3s4__1.next_20eer_k$();
-          case 3:
-            throw this.exception_1;
-        }
-      } catch ($p) {
-        if (this.exceptionState_1 === 3) {
-          throw $p;
-        } else {
-          this.state_1 = this.exceptionState_1;
-          this.exception_1 = $p;
-        }
-      }
-     while (true);
-  };
-  $next0COROUTINE$3.$metadata$ = classMeta('$next0COROUTINE$3', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function ChannelIterator() {
-  }
-  ChannelIterator.$metadata$ = interfaceMeta('ChannelIterator');
-  function ClosedReceiveChannelException(message) {
-    NoSuchElementException_init_$Init$(message, this);
-    captureStack(this, ClosedReceiveChannelException);
-  }
-  ClosedReceiveChannelException.$metadata$ = classMeta('ClosedReceiveChannelException', undefined, undefined, undefined, undefined, NoSuchElementException.prototype);
-  function ClosedSendChannelException(message) {
-    IllegalStateException_init_$Init$(message, this);
-    captureStack(this, ClosedSendChannelException);
-  }
-  ClosedSendChannelException.$metadata$ = classMeta('ClosedSendChannelException', undefined, undefined, undefined, undefined, IllegalStateException.prototype);
-  function consumeEach(_this__u8e3s4, action, $cont) {
-    var tmp = new $consumeEachCOROUTINE$4(_this__u8e3s4, action, $cont);
-    tmp.result_1 = Unit_getInstance();
-    tmp.exception_1 = null;
-    return tmp.doResume_5yljmg_k$();
-  }
-  function get_DEFAULT_CLOSE_MESSAGE() {
-    return DEFAULT_CLOSE_MESSAGE;
-  }
-  var DEFAULT_CLOSE_MESSAGE;
-  function consume(_this__u8e3s4, block) {
-    {
-    }
-    var cause = null;
-    try {
-      return block(_this__u8e3s4);
-    } catch ($p) {
-      if ($p instanceof Error) {
-        cause = $p;
-        throw $p;
-      } else {
-        throw $p;
-      }
-    }
-    finally {
-      cancelConsumed(_this__u8e3s4, cause);
-    }
-  }
-  function cancelConsumed(_this__u8e3s4, cause) {
-    var tmp0_safe_receiver = cause;
-    var tmp;
-    if (tmp0_safe_receiver == null) {
-      tmp = null;
-    } else {
-      var tmp$ret$1;
-      {
-        {
-        }
-        var tmp$ret$0;
-        {
-          var tmp0_elvis_lhs = tmp0_safe_receiver instanceof CancellationException ? tmp0_safe_receiver : null;
-          tmp$ret$0 = tmp0_elvis_lhs == null ? CancellationException_init_$Create$_0('Channel was consumed, consumer had failed', tmp0_safe_receiver) : tmp0_elvis_lhs;
-        }
-        tmp$ret$1 = tmp$ret$0;
-      }
-      tmp = tmp$ret$1;
-    }
-    _this__u8e3s4.cancel_4b7aim_k$(tmp);
-  }
-  function $consumeEachCOROUTINE$4(_this__u8e3s4, action, resultContinuation) {
-    CoroutineImpl.call(this, resultContinuation);
-    this._this__u8e3s4__1 = _this__u8e3s4;
-    this.action_1 = action;
-  }
-  $consumeEachCOROUTINE$4.prototype.doResume_5yljmg_k$ = function () {
-    var suspendResult = this.result_1;
-    $sm: do
-      try {
-        var tmp = this.state_1;
-        switch (tmp) {
-          case 0:
-            this.exceptionState_1 = 10;
-            this.state_1 = 1;
-            continue $sm;
-          case 1:
-            this.cause1__1 = null;
-            this.state_1 = 2;
-            continue $sm;
-          case 2:
-            this.state_1 = 3;
-            continue $sm;
-          case 3:
-            this.exceptionState_1 = 9;
-            this.exceptionState_1 = 8;
-            this.tmp0_iterator4__1 = this._this__u8e3s4__1.iterator_jk1svi_k$();
-            this.state_1 = 4;
-            continue $sm;
-          case 4:
-            this.state_1 = 5;
-            suspendResult = this.tmp0_iterator4__1.hasNext_4tgia2_k$(this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 5:
-            if (!suspendResult) {
-              this.state_1 = 6;
-              continue $sm;
-            }
-
-            var e = this.tmp0_iterator4__1.next_20eer_k$();
-            this.action_1(e);
-            this.state_1 = 4;
-            continue $sm;
-          case 6:
-            this.tmp$ret$03__1 = Unit_getInstance();
-            this.exceptionState_1 = 10;
-            this.state_1 = 7;
-            var tmp_0 = this;
-            continue $sm;
-          case 7:
-            var tmp_1 = this;
-            tmp_1.tmp$ret$40__1 = cancelConsumed(this._this__u8e3s4__1, this.cause1__1);
-            this.state_1 = 12;
-            continue $sm;
-          case 8:
-            this.exceptionState_1 = 9;
-            var tmp_2 = this.exception_1;
-            if (tmp_2 instanceof Error) {
-              var e_0 = this.exception_1;
-              var tmp_3 = this;
-              this.cause1__1 = e_0;
-              throw e_0;
-            } else {
-              throw this.exception_1;
-            }
-
-            break;
-          case 9:
-            this.exceptionState_1 = 10;
-            var t = this.exception_1;
-            cancelConsumed(this._this__u8e3s4__1, this.cause1__1);
-            throw t;
-          case 10:
-            throw this.exception_1;
-          case 11:
-            cancelConsumed(this._this__u8e3s4__1, this.cause1__1);
-            if (false) {
-              this.state_1 = 1;
-              continue $sm;
-            }
-
-            this.state_1 = 12;
-            continue $sm;
-          case 12:
-            return Unit_getInstance();
-        }
-      } catch ($p) {
-        if (this.exceptionState_1 === 10) {
-          throw $p;
-        } else {
-          this.state_1 = this.exceptionState_1;
-          this.exception_1 = $p;
-        }
-      }
-     while (true);
-  };
-  $consumeEachCOROUTINE$4.$metadata$ = classMeta('$consumeEachCOROUTINE$4', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function _get_lock__d9xa4g_0($this) {
-    return $this.lock_1;
-  }
-  function _set_value__lx0xdg($this, _set____db54di) {
-    $this.value_1 = _set____db54di;
-  }
-  function _get_value__a43j40($this) {
-    return $this.value_1;
-  }
-  function updateValueLocked($this, element) {
-    var old = $this.value_1;
-    var tmp;
-    if (old === get_EMPTY()) {
-      tmp = null;
-    } else {
-      var tmp0_safe_receiver = $this.get_onUndeliveredElement_a8l4w7_k$();
-      var tmp_0;
-      if (tmp0_safe_receiver == null) {
-        tmp_0 = null;
-      } else {
-        var tmp_1 = (old == null ? true : isObject(old)) ? old : THROW_CCE();
-        tmp_0 = callUndeliveredElementCatchingException$default(tmp0_safe_receiver, tmp_1, null, 2, null);
-      }
-      tmp = tmp_0;
-    }
-    var undeliveredElementException = tmp;
-    $this.value_1 = element;
-    return undeliveredElementException;
-  }
-  function ConflatedChannel(onUndeliveredElement) {
-    AbstractChannel.call(this, onUndeliveredElement);
-    this.lock_1 = new NoOpLock();
-    this.value_1 = get_EMPTY();
-  }
-  ConflatedChannel.prototype.get_isBufferAlwaysEmpty_ross6j_k$ = function () {
-    return false;
-  };
-  ConflatedChannel.prototype.get_isBufferEmpty_t57jne_k$ = function () {
-    var tmp$ret$1;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = this.value_1 === get_EMPTY();
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  };
-  ConflatedChannel.prototype.get_isBufferAlwaysFull_v6nbtb_k$ = function () {
-    return false;
-  };
-  ConflatedChannel.prototype.get_isBufferFull_xv8jm_k$ = function () {
-    return false;
-  };
-  ConflatedChannel.prototype.get_isEmpty_zauvru_k$ = function () {
-    var tmp$ret$1;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = this.get_isEmptyImpl_9w6w0q_k$();
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  };
-  ConflatedChannel.prototype.offerInternal_tuzlq7_k$ = function (element) {
-    var receive = null;
-    var tmp$ret$3;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$1;
-      $l$block: {
-        var tmp0_safe_receiver = this.get_closedForSend_4r8ipo_k$();
-        if (tmp0_safe_receiver == null)
-          null;
-        else {
-          var tmp$ret$0;
-          {
-            {
-            }
-            return tmp0_safe_receiver;
-          }
-        }
-        if (this.value_1 === get_EMPTY()) {
-          loop: while (true) {
-            var tmp1_elvis_lhs = this.takeFirstReceiveOrPeekClosed_ri9e84_k$();
-            var tmp;
-            if (tmp1_elvis_lhs == null) {
-              break loop;
-            } else {
-              tmp = tmp1_elvis_lhs;
-            }
-            receive = tmp;
-            if (receive instanceof Closed) {
-              return ensureNotNull(receive);
-            }
-            var token = ensureNotNull(receive).tryResumeReceive_mpjrre_k$(element, null);
-            if (!(token == null)) {
-              {
-              }
-              tmp$ret$1 = Unit_getInstance();
-              break $l$block;
-            }
-          }
-        }
-        var tmp2_safe_receiver = updateValueLocked(this, element);
-        if (tmp2_safe_receiver == null)
-          null;
-        else {
-          var tmp$ret$2;
-          {
-            {
-            }
-            throw tmp2_safe_receiver;
-          }
-        }
-        return get_OFFER_SUCCESS();
-      }
-      tmp$ret$3 = tmp$ret$1;
-    }
-    ensureNotNull(receive).completeResumeReceive_1cyi5u_k$(element);
-    return ensureNotNull(receive).get_offerResult_jdi2i8_k$();
-  };
-  ConflatedChannel.prototype.offerSelectInternal_lspj9s_k$ = function (element, select) {
-    var receive = null;
-    var tmp$ret$3;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$1;
-      $l$block: {
-        var tmp0_safe_receiver = this.get_closedForSend_4r8ipo_k$();
-        if (tmp0_safe_receiver == null)
-          null;
-        else {
-          var tmp$ret$0;
-          {
-            {
-            }
-            return tmp0_safe_receiver;
-          }
-        }
-        if (this.value_1 === get_EMPTY()) {
-          loop: while (true) {
-            var offerOp = this.describeTryOffer_6o0iky_k$(element);
-            var failure = select.performAtomicTrySelect_9r1u91_k$(offerOp);
-            if (failure == null) {
-              receive = offerOp.get_result_iyg5d2_k$();
-              tmp$ret$1 = Unit_getInstance();
-              break $l$block;
-            } else {
-              if (failure === get_OFFER_FAILED())
-                break loop;
-              else {
-                if (failure === get_RETRY_ATOMIC()) {
-                } else {
-                  var tmp;
-                  if (failure === get_ALREADY_SELECTED()) {
-                    tmp = true;
-                  } else {
-                    tmp = failure instanceof Closed;
-                  }
-                  if (tmp)
-                    return failure;
-                  else {
-                    var tmp0_error = 'performAtomicTrySelect(describeTryOffer) returned ' + toString(failure);
-                    throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-                  }
-                }
-              }
-            }
-          }
-        }
-        if (!select.trySelect_1ivjiv_k$()) {
-          return get_ALREADY_SELECTED();
-        }
-        var tmp1_safe_receiver = updateValueLocked(this, element);
-        if (tmp1_safe_receiver == null)
-          null;
-        else {
-          var tmp$ret$2;
-          {
-            {
-            }
-            throw tmp1_safe_receiver;
-          }
-        }
-        return get_OFFER_SUCCESS();
-      }
-      tmp$ret$3 = tmp$ret$1;
-    }
-    ensureNotNull(receive).completeResumeReceive_1cyi5u_k$(element);
-    return ensureNotNull(receive).get_offerResult_jdi2i8_k$();
-  };
-  ConflatedChannel.prototype.pollInternal_ml771g_k$ = function () {
-    var result = null;
-    var tmp$ret$0;
-    {
-      var tmp0_withLock = this.lock_1;
-      if (this.value_1 === get_EMPTY()) {
-        var tmp0_elvis_lhs = this.get_closedForSend_4r8ipo_k$();
-        return tmp0_elvis_lhs == null ? get_POLL_FAILED() : tmp0_elvis_lhs;
-      }
-      result = this.value_1;
-      this.value_1 = get_EMPTY();
-      tmp$ret$0 = Unit_getInstance();
-    }
-    return result;
-  };
-  ConflatedChannel.prototype.pollSelectInternal_puj25v_k$ = function (select) {
-    var result = null;
-    var tmp$ret$0;
-    {
-      var tmp0_withLock = this.lock_1;
-      if (this.value_1 === get_EMPTY()) {
-        var tmp0_elvis_lhs = this.get_closedForSend_4r8ipo_k$();
-        return tmp0_elvis_lhs == null ? get_POLL_FAILED() : tmp0_elvis_lhs;
-      }
-      if (!select.trySelect_1ivjiv_k$())
-        return get_ALREADY_SELECTED();
-      result = this.value_1;
-      this.value_1 = get_EMPTY();
-      tmp$ret$0 = Unit_getInstance();
-    }
-    return result;
-  };
-  ConflatedChannel.prototype.onCancelIdempotent_1zp8pj_k$ = function (wasClosed) {
-    var undeliveredElementException = null;
-    var tmp$ret$0;
-    {
-      var tmp0_withLock = this.lock_1;
-      undeliveredElementException = updateValueLocked(this, get_EMPTY());
-      tmp$ret$0 = Unit_getInstance();
-    }
-    AbstractChannel.prototype.onCancelIdempotent_1zp8pj_k$.call(this, wasClosed);
-    var tmp0_safe_receiver = undeliveredElementException;
-    if (tmp0_safe_receiver == null)
-      null;
-    else {
-      var tmp$ret$1;
-      {
-        {
-        }
-        throw tmp0_safe_receiver;
-      }
-    }
-  };
-  ConflatedChannel.prototype.enqueueReceiveInternal_rxtsl7_k$ = function (receive) {
-    var tmp$ret$1;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = AbstractChannel.prototype.enqueueReceiveInternal_rxtsl7_k$.call(this, receive);
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  };
-  ConflatedChannel.prototype.get_bufferDebugString_66mwn9_k$ = function () {
-    var tmp$ret$1;
-    {
-      var tmp0_withLock = this.lock_1;
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = '(value=' + toString(this.value_1) + ')';
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  };
-  ConflatedChannel.$metadata$ = classMeta('ConflatedChannel', undefined, undefined, undefined, undefined, AbstractChannel.prototype);
-  function LinkedListChannel(onUndeliveredElement) {
-    AbstractChannel.call(this, onUndeliveredElement);
-  }
-  LinkedListChannel.prototype.get_isBufferAlwaysEmpty_ross6j_k$ = function () {
-    return true;
-  };
-  LinkedListChannel.prototype.get_isBufferEmpty_t57jne_k$ = function () {
-    return true;
-  };
-  LinkedListChannel.prototype.get_isBufferAlwaysFull_v6nbtb_k$ = function () {
-    return false;
-  };
-  LinkedListChannel.prototype.get_isBufferFull_xv8jm_k$ = function () {
-    return false;
-  };
-  LinkedListChannel.prototype.offerInternal_tuzlq7_k$ = function (element) {
-    while (true) {
-      var result = AbstractChannel.prototype.offerInternal_tuzlq7_k$.call(this, element);
-      if (result === get_OFFER_SUCCESS())
-        return get_OFFER_SUCCESS();
-      else {
-        if (result === get_OFFER_FAILED()) {
-          var sendResult = this.sendBuffered_4b6ooj_k$(element);
-          if (sendResult == null)
-            return get_OFFER_SUCCESS();
-          else {
-            if (sendResult instanceof Closed)
-              return sendResult;
-          }
-        } else {
-          if (result instanceof Closed)
-            return result;
-          else {
-            var tmp0_error = 'Invalid offerInternal result ' + toString_0(result);
-            throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-          }
-        }
-      }
-    }
-  };
-  LinkedListChannel.prototype.offerSelectInternal_lspj9s_k$ = function (element, select) {
-    while (true) {
-      var tmp;
-      if (this.get_hasReceiveOrClosed_wl54xr_k$()) {
-        tmp = AbstractChannel.prototype.offerSelectInternal_lspj9s_k$.call(this, element, select);
-      } else {
-        var tmp0_elvis_lhs = select.performAtomicTrySelect_9r1u91_k$(this.describeSendBuffered_gmw7y0_k$(element));
-        tmp = tmp0_elvis_lhs == null ? get_OFFER_SUCCESS() : tmp0_elvis_lhs;
-      }
-      var result = tmp;
-      if (result === get_ALREADY_SELECTED())
-        return get_ALREADY_SELECTED();
-      else {
-        if (result === get_OFFER_SUCCESS())
-          return get_OFFER_SUCCESS();
-        else {
-          if (result === get_OFFER_FAILED()) {
-          } else {
-            if (result === get_RETRY_ATOMIC()) {
-            } else {
-              if (result instanceof Closed)
-                return result;
-              else {
-                var tmp0_error = 'Invalid result ' + toString_0(result);
-                throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
-              }
-            }
-          }
-        }
-      }
-    }
-  };
-  LinkedListChannel.prototype.onCancelIdempotentList_icdvp_k$ = function (list, closed) {
-    var undeliveredElementException = null;
-    var tmp$ret$0;
-    $l$block: {
-      var tmp0_subject = _get_holder__f6h5pd(list);
-      if (tmp0_subject == null) {
-        tmp$ret$0 = Unit_getInstance();
-        break $l$block;
-      } else {
-        if (!(tmp0_subject instanceof ArrayList)) {
-          var tmp = _get_holder__f6h5pd(list);
-          var tmp0__anonymous__q1qw7t = (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
-          var tmp0_subject_0 = tmp0__anonymous__q1qw7t;
-          if (tmp0_subject_0 instanceof SendBuffered) {
-            var tmp1_safe_receiver = this.get_onUndeliveredElement_a8l4w7_k$();
-            var tmp_0;
-            if (tmp1_safe_receiver == null) {
-              tmp_0 = null;
-            } else {
-              var tmp_1 = tmp0__anonymous__q1qw7t.element_1;
-              tmp_0 = callUndeliveredElementCatchingException(tmp1_safe_receiver, (tmp_1 == null ? true : isObject(tmp_1)) ? tmp_1 : THROW_CCE(), undeliveredElementException);
-            }
-            undeliveredElementException = tmp_0;
-          } else {
-            tmp0__anonymous__q1qw7t.resumeSendClosed_r0hgr7_k$(closed);
-          }
-        } else {
-          var tmp_2 = _get_holder__f6h5pd(list);
-          var list_0 = tmp_2 instanceof ArrayList ? tmp_2 : THROW_CCE();
-          var inductionVariable = list_0.get_size_woubt6_k$() - 1 | 0;
-          if (0 <= inductionVariable)
-            do {
-              var i = inductionVariable;
-              inductionVariable = inductionVariable + -1 | 0;
-              {
-                var tmp1__anonymous__uwfjfc = list_0.get_fkrdnv_k$(i);
-                var tmp0_subject_1 = tmp1__anonymous__uwfjfc;
-                if (tmp0_subject_1 instanceof SendBuffered) {
-                  var tmp1_safe_receiver_0 = this.get_onUndeliveredElement_a8l4w7_k$();
-                  var tmp_3;
-                  if (tmp1_safe_receiver_0 == null) {
-                    tmp_3 = null;
-                  } else {
-                    var tmp_4 = tmp1__anonymous__uwfjfc.element_1;
-                    tmp_3 = callUndeliveredElementCatchingException(tmp1_safe_receiver_0, (tmp_4 == null ? true : isObject(tmp_4)) ? tmp_4 : THROW_CCE(), undeliveredElementException);
-                  }
-                  undeliveredElementException = tmp_3;
-                } else {
-                  tmp1__anonymous__uwfjfc.resumeSendClosed_r0hgr7_k$(closed);
-                }
-              }
-            }
-             while (0 <= inductionVariable);
-        }
-      }
-    }
-    var tmp0_safe_receiver = undeliveredElementException;
-    if (tmp0_safe_receiver == null)
-      null;
-    else {
-      var tmp$ret$1;
-      {
-        {
-        }
-        throw tmp0_safe_receiver;
-      }
-    }
-  };
-  LinkedListChannel.$metadata$ = classMeta('LinkedListChannel', undefined, undefined, undefined, undefined, AbstractChannel.prototype);
-  function RendezvousChannel(onUndeliveredElement) {
-    AbstractChannel.call(this, onUndeliveredElement);
-  }
-  RendezvousChannel.prototype.get_isBufferAlwaysEmpty_ross6j_k$ = function () {
-    return true;
-  };
-  RendezvousChannel.prototype.get_isBufferEmpty_t57jne_k$ = function () {
-    return true;
-  };
-  RendezvousChannel.prototype.get_isBufferAlwaysFull_v6nbtb_k$ = function () {
-    return true;
-  };
-  RendezvousChannel.prototype.get_isBufferFull_xv8jm_k$ = function () {
-    return true;
-  };
-  RendezvousChannel.$metadata$ = classMeta('RendezvousChannel', undefined, undefined, undefined, undefined, AbstractChannel.prototype);
   function get_NO_VALUE() {
     init_properties_SharedFlow_kt_5sqb47();
     return NO_VALUE;
@@ -8363,10 +4469,10 @@
   function _get_elements__k8byyc($this) {
     return $this.elements_1;
   }
-  function _set_head__9nromv_0($this, _set____db54di) {
+  function _set_head__9nromv($this, _set____db54di) {
     $this.head_1 = _set____db54di;
   }
-  function _get_head__d7jo8b_0($this) {
+  function _get_head__d7jo8b($this) {
     return $this.head_1;
   }
   function _set_tail__9uatxj($this, _set____db54di) {
@@ -8375,7 +4481,7 @@
   function _get_tail__de2tiz($this) {
     return $this.tail_1;
   }
-  function ensureCapacity_0($this) {
+  function ensureCapacity($this) {
     var currentSize = $this.elements_1.length;
     var newCapacity = currentSize << 1;
     var tmp$ret$0;
@@ -8420,7 +4526,7 @@
     this.elements_1[this.tail_1] = element;
     this.tail_1 = (this.tail_1 + 1 | 0) & (this.elements_1.length - 1 | 0);
     if (this.tail_1 === this.head_1)
-      ensureCapacity_0(this);
+      ensureCapacity(this);
   };
   ArrayQueue.prototype.removeFirstOrNull_eges3a_k$ = function () {
     if (this.head_1 === this.tail_1)
@@ -8597,7 +4703,7 @@
                 {
                   var tmp$ret$3;
                   $l$block_0: {
-                    var job = tmp1_resumeCancellableWith.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_3());
+                    var job = tmp1_resumeCancellableWith.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
                     if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
                       var cause = job.getCancellationException_8i1q6u_k$();
                       tmp1_resumeCancellableWith.cancelCompletedResult_tweln2_k$(state, cause);
@@ -8908,7 +5014,7 @@
               {
                 var tmp$ret$3;
                 $l$block_0: {
-                  var job = this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_3());
+                  var job = this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
                   if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
                     var cause = job.getCancellationException_8i1q6u_k$();
                     this.cancelCompletedResult_tweln2_k$(state, cause);
@@ -8964,7 +5070,7 @@
     }
   };
   DispatchedContinuation.prototype.resumeCancelled_vc1wm3_k$ = function (state) {
-    var job = this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_3());
+    var job = this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
     if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
       var cause = job.getCancellationException_8i1q6u_k$();
       this.cancelCompletedResult_tweln2_k$(state, cause);
@@ -9082,7 +5188,7 @@
         var context = continuation.get_context_h02k06_k$();
         var state = this.takeState_olvzuy_k$();
         var exception = this.getExceptionalResult_bnge6_k$(state);
-        var job = (exception == null ? get_isCancellableMode(this.resumeMode_1) : false) ? context.get_1pi7hg_k$(Key_getInstance_3()) : null;
+        var job = (exception == null ? get_isCancellableMode(this.resumeMode_1) : false) ? context.get_1pi7hg_k$(Key_getInstance_2()) : null;
         var tmp_0;
         if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
           var cause = job.getCancellationException_8i1q6u_k$();
@@ -9315,89 +5421,6 @@
     } else
       delegate.resumeWith_s3a3yh_k$(result);
   }
-  function _InlineList___init__impl__z8n56(holder) {
-    return holder;
-  }
-  function _InlineList___init__impl__z8n56_0(holder, $mask0, $marker) {
-    if (!(($mask0 & 1) === 0))
-      holder = null;
-    var tmp = _InlineList___init__impl__z8n56(holder);
-    return tmp;
-  }
-  function _get_holder__f6h5pd($this) {
-    return $this;
-  }
-  function InlineList__plus_impl_nuetvo($this, element) {
-    {
-    }
-    var tmp0_subject = _get_holder__f6h5pd($this);
-    var tmp;
-    if (tmp0_subject == null) {
-      tmp = _InlineList___init__impl__z8n56(element);
-    } else {
-      if (tmp0_subject instanceof ArrayList) {
-        var tmp_0 = _get_holder__f6h5pd($this);
-        (tmp_0 instanceof ArrayList ? tmp_0 : THROW_CCE()).add_1j60pz_k$(element);
-        tmp = _InlineList___init__impl__z8n56(_get_holder__f6h5pd($this));
-      } else {
-        var list = ArrayList_init_$Create$(4);
-        var tmp_1 = _get_holder__f6h5pd($this);
-        list.add_1j60pz_k$((tmp_1 == null ? true : isObject(tmp_1)) ? tmp_1 : THROW_CCE());
-        list.add_1j60pz_k$(element);
-        tmp = _InlineList___init__impl__z8n56(list);
-      }
-    }
-    return tmp;
-  }
-  function InlineList__forEachReversed_impl_jituug($this, action) {
-    var tmp0_subject = _get_holder__f6h5pd($this);
-    if (tmp0_subject == null)
-      return Unit_getInstance();
-    else {
-      if (!(tmp0_subject instanceof ArrayList)) {
-        var tmp = _get_holder__f6h5pd($this);
-        action((tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE());
-      } else {
-        var tmp_0 = _get_holder__f6h5pd($this);
-        var list = tmp_0 instanceof ArrayList ? tmp_0 : THROW_CCE();
-        var inductionVariable = list.get_size_woubt6_k$() - 1 | 0;
-        if (0 <= inductionVariable)
-          do {
-            var i = inductionVariable;
-            inductionVariable = inductionVariable + -1 | 0;
-            action(list.get_fkrdnv_k$(i));
-          }
-           while (0 <= inductionVariable);
-      }
-    }
-  }
-  function InlineList__toString_impl_1aej86($this) {
-    return 'InlineList(holder=' + toString($this) + ')';
-  }
-  function InlineList__hashCode_impl_n1kg11($this) {
-    return $this == null ? 0 : hashCode($this);
-  }
-  function InlineList__equals_impl_wwe0i1($this, other) {
-    if (!(other instanceof InlineList))
-      return false;
-    var tmp0_other_with_cast = other instanceof InlineList ? other.holder_1 : THROW_CCE();
-    if (!equals($this, tmp0_other_with_cast))
-      return false;
-    return true;
-  }
-  function InlineList(holder) {
-    this.holder_1 = holder;
-  }
-  InlineList.prototype.toString = function () {
-    return InlineList__toString_impl_1aej86(this.holder_1);
-  };
-  InlineList.prototype.hashCode = function () {
-    return InlineList__hashCode_impl_n1kg11(this.holder_1);
-  };
-  InlineList.prototype.equals = function (other) {
-    return InlineList__equals_impl_wwe0i1(this.holder_1, other);
-  };
-  InlineList.$metadata$ = classMeta('InlineList');
   function checkParallelism(_this__u8e3s4) {
     var tmp0_require = _this__u8e3s4 >= 1;
     {
@@ -9571,7 +5594,7 @@
   }
   function LockFreeTaskQueue(singleConsumer) {
     var tmp = this;
-    Companion_getInstance_2();
+    Companion_getInstance_1();
     tmp._cur_1 = atomic$ref$1(new LockFreeTaskQueueCore(8, singleConsumer));
   }
   LockFreeTaskQueue.prototype.get_isEmpty_zauvru_k$ = function () {
@@ -9600,15 +5623,15 @@
         {
           var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           var tmp0_subject = tmp1__anonymous__uwfjfc.addLast_3l8aar_k$(element);
-          Companion_getInstance_2();
+          Companion_getInstance_1();
           if (tmp0_subject === 0)
             return true;
           else {
-            Companion_getInstance_2();
+            Companion_getInstance_1();
             if (tmp0_subject === 2)
               return false;
             else {
-              Companion_getInstance_2();
+              Companion_getInstance_1();
               if (tmp0_subject === 1) {
                 this._cur_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, tmp1__anonymous__uwfjfc.next_20eer_k$());
               }
@@ -9625,7 +5648,7 @@
         {
           var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           var result = tmp1__anonymous__uwfjfc.removeFirstOrNull_eges3a_k$();
-          if (!(result === Companion_getInstance_2().REMOVE_FROZEN_1)) {
+          if (!(result === Companion_getInstance_1().REMOVE_FROZEN_1)) {
             return (result == null ? true : isObject(result)) ? result : THROW_CCE();
           }
           this._cur_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, tmp1__anonymous__uwfjfc.next_20eer_k$());
@@ -9640,7 +5663,7 @@
     return this._cur_1.value_1.isClosed_baxhhm_k$();
   };
   LockFreeTaskQueue.$metadata$ = classMeta('LockFreeTaskQueue');
-  function _get_capacity__a9k9f3_0($this) {
+  function _get_capacity__a9k9f3($this) {
     return $this.capacity_1;
   }
   function _get_singleConsumer__485sb7($this) {
@@ -9680,17 +5703,17 @@
           var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           var tmp$ret$0;
           {
-            var tmp0_withState = Companion_getInstance_2();
+            var tmp0_withState = Companion_getInstance_1();
             var head = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
             var tail = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
             {
             }
-            Companion_getInstance_2();
+            Companion_getInstance_1();
             if (!tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0))) {
               return $this.next_20eer_k$();
             }
             var tmp;
-            if ($this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, Companion_getInstance_2().updateHead_eajy5c_k$(tmp1__anonymous__uwfjfc, newHead))) {
+            if ($this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, Companion_getInstance_1().updateHead_eajy5c_k$(tmp1__anonymous__uwfjfc, newHead))) {
               $this.array_1.atomicfu$get(head & $this.mask_1).value_1 = null;
               return null;
             }
@@ -9708,10 +5731,10 @@
         var cur = tmp0_updateAndGet.value_1;
         var tmp$ret$0;
         {
-          Companion_getInstance_2();
+          Companion_getInstance_1();
           if (!cur.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0)))
             return cur;
-          Companion_getInstance_2();
+          Companion_getInstance_1();
           tmp$ret$0 = cur.or_s401rn_k$(new Long(0, 268435456));
         }
         var upd = tmp$ret$0;
@@ -9740,7 +5763,7 @@
     var next = new LockFreeTaskQueueCore(imul($this.capacity_1, 2), $this.singleConsumer_1);
     var tmp$ret$0;
     {
-      var tmp0_withState = Companion_getInstance_2();
+      var tmp0_withState = Companion_getInstance_1();
       var head = state.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
       var tail = state.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
       var index = head;
@@ -9752,8 +5775,8 @@
         index = tmp1 + 1 | 0;
       }
       var tmp = next._state_1;
-      var tmp_0 = Companion_getInstance_2();
-      Companion_getInstance_2();
+      var tmp_0 = Companion_getInstance_1();
+      Companion_getInstance_1();
       tmp.value_1 = tmp_0.wo_iscla2_k$(state, new Long(0, 268435456));
       tmp$ret$0 = Unit_getInstance();
     }
@@ -9766,8 +5789,8 @@
     return this.index_1;
   };
   Placeholder.$metadata$ = classMeta('Placeholder');
-  function Companion_0() {
-    Companion_instance_0 = this;
+  function Companion() {
+    Companion_instance = this;
     this.INITIAL_CAPACITY_1 = 8;
     this.CAPACITY_BITS_1 = 30;
     this.MAX_CAPACITY_MASK_1 = 1073741823;
@@ -9785,80 +5808,80 @@
     this.ADD_FROZEN_1 = 1;
     this.ADD_CLOSED_1 = 2;
   }
-  Companion_0.prototype.get_INITIAL_CAPACITY_tvo5ku_k$ = function () {
+  Companion.prototype.get_INITIAL_CAPACITY_tvo5ku_k$ = function () {
     return this.INITIAL_CAPACITY_1;
   };
-  Companion_0.prototype.get_CAPACITY_BITS_m7bade_k$ = function () {
+  Companion.prototype.get_CAPACITY_BITS_m7bade_k$ = function () {
     return this.CAPACITY_BITS_1;
   };
-  Companion_0.prototype.get_MAX_CAPACITY_MASK_bnmlt9_k$ = function () {
+  Companion.prototype.get_MAX_CAPACITY_MASK_bnmlt9_k$ = function () {
     return this.MAX_CAPACITY_MASK_1;
   };
-  Companion_0.prototype.get_HEAD_SHIFT_ww01xo_k$ = function () {
+  Companion.prototype.get_HEAD_SHIFT_ww01xo_k$ = function () {
     return this.HEAD_SHIFT_1;
   };
-  Companion_0.prototype.get_HEAD_MASK_jkay7y_k$ = function () {
+  Companion.prototype.get_HEAD_MASK_jkay7y_k$ = function () {
     return this.HEAD_MASK_1;
   };
-  Companion_0.prototype.get_TAIL_SHIFT_z9ya0s_k$ = function () {
+  Companion.prototype.get_TAIL_SHIFT_z9ya0s_k$ = function () {
     return this.TAIL_SHIFT_1;
   };
-  Companion_0.prototype.get_TAIL_MASK_h71l4e_k$ = function () {
+  Companion.prototype.get_TAIL_MASK_h71l4e_k$ = function () {
     return this.TAIL_MASK_1;
   };
-  Companion_0.prototype.get_FROZEN_SHIFT_9ve6oc_k$ = function () {
+  Companion.prototype.get_FROZEN_SHIFT_9ve6oc_k$ = function () {
     return this.FROZEN_SHIFT_1;
   };
-  Companion_0.prototype.get_FROZEN_MASK_gcrlj6_k$ = function () {
+  Companion.prototype.get_FROZEN_MASK_gcrlj6_k$ = function () {
     return this.FROZEN_MASK_1;
   };
-  Companion_0.prototype.get_CLOSED_SHIFT_v5gopk_k$ = function () {
+  Companion.prototype.get_CLOSED_SHIFT_v5gopk_k$ = function () {
     return this.CLOSED_SHIFT_1;
   };
-  Companion_0.prototype.get_CLOSED_MASK_agddhm_k$ = function () {
+  Companion.prototype.get_CLOSED_MASK_agddhm_k$ = function () {
     return this.CLOSED_MASK_1;
   };
-  Companion_0.prototype.get_MIN_ADD_SPIN_CAPACITY_z2m7z7_k$ = function () {
+  Companion.prototype.get_MIN_ADD_SPIN_CAPACITY_z2m7z7_k$ = function () {
     return this.MIN_ADD_SPIN_CAPACITY_1;
   };
-  Companion_0.prototype.get_REMOVE_FROZEN_w56qum_k$ = function () {
+  Companion.prototype.get_REMOVE_FROZEN_w56qum_k$ = function () {
     return this.REMOVE_FROZEN_1;
   };
-  Companion_0.prototype.get_ADD_SUCCESS_vnro04_k$ = function () {
+  Companion.prototype.get_ADD_SUCCESS_vnro04_k$ = function () {
     return this.ADD_SUCCESS_1;
   };
-  Companion_0.prototype.get_ADD_FROZEN_bsr1ax_k$ = function () {
+  Companion.prototype.get_ADD_FROZEN_bsr1ax_k$ = function () {
     return this.ADD_FROZEN_1;
   };
-  Companion_0.prototype.get_ADD_CLOSED_db6t8t_k$ = function () {
+  Companion.prototype.get_ADD_CLOSED_db6t8t_k$ = function () {
     return this.ADD_CLOSED_1;
   };
-  Companion_0.prototype.wo_iscla2_k$ = function (_this__u8e3s4, other) {
+  Companion.prototype.wo_iscla2_k$ = function (_this__u8e3s4, other) {
     return _this__u8e3s4.and_jhajnj_k$(other.inv_28kx_k$());
   };
-  Companion_0.prototype.updateHead_eajy5c_k$ = function (_this__u8e3s4, newHead) {
+  Companion.prototype.updateHead_eajy5c_k$ = function (_this__u8e3s4, newHead) {
     return this.wo_iscla2_k$(_this__u8e3s4, new Long(1073741823, 0)).or_s401rn_k$(toLong(newHead).shl_po5ip6_k$(0));
   };
-  Companion_0.prototype.updateTail_fwivqo_k$ = function (_this__u8e3s4, newTail) {
+  Companion.prototype.updateTail_fwivqo_k$ = function (_this__u8e3s4, newTail) {
     return this.wo_iscla2_k$(_this__u8e3s4, new Long(-1073741824, 268435455)).or_s401rn_k$(toLong(newTail).shl_po5ip6_k$(30));
   };
-  Companion_0.prototype.withState_s3n57v_k$ = function (_this__u8e3s4, block) {
+  Companion.prototype.withState_s3n57v_k$ = function (_this__u8e3s4, block) {
     var head = _this__u8e3s4.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
     var tail = _this__u8e3s4.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
     return block(head, tail);
   };
-  Companion_0.prototype.addFailReason_gc2gzp_k$ = function (_this__u8e3s4) {
+  Companion.prototype.addFailReason_gc2gzp_k$ = function (_this__u8e3s4) {
     return !_this__u8e3s4.and_jhajnj_k$(new Long(0, 536870912)).equals(new Long(0, 0)) ? 2 : 1;
   };
-  Companion_0.$metadata$ = objectMeta('Companion');
-  var Companion_instance_0;
-  function Companion_getInstance_2() {
-    if (Companion_instance_0 == null)
-      new Companion_0();
-    return Companion_instance_0;
+  Companion.$metadata$ = objectMeta('Companion');
+  var Companion_instance;
+  function Companion_getInstance_1() {
+    if (Companion_instance == null)
+      new Companion();
+    return Companion_instance;
   }
   function LockFreeTaskQueueCore(capacity, singleConsumer) {
-    Companion_getInstance_2();
+    Companion_getInstance_1();
     this.capacity_1 = capacity;
     this.singleConsumer_1 = singleConsumer;
     this.mask_1 = this.capacity_1 - 1 | 0;
@@ -9866,7 +5889,7 @@
     this._state_1 = atomic$long$1(new Long(0, 0));
     this.array_1 = atomicfu$AtomicRefArray$ofNulls(this.capacity_1);
     {
-      Companion_getInstance_2();
+      Companion_getInstance_1();
       var tmp0_check = this.mask_1 <= 1073741823;
       {
       }
@@ -9904,7 +5927,7 @@
   LockFreeTaskQueueCore.prototype.get_isEmpty_zauvru_k$ = function () {
     var tmp$ret$1;
     {
-      var tmp0_withState = Companion_getInstance_2();
+      var tmp0_withState = Companion_getInstance_1();
       var tmp1_withState = this._state_1.value_1;
       var head = tmp1_withState.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
       var tail = tmp1_withState.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
@@ -9919,14 +5942,14 @@
   LockFreeTaskQueueCore.prototype.get_size_woubt6_k$ = function () {
     var tmp$ret$1;
     {
-      var tmp0_withState = Companion_getInstance_2();
+      var tmp0_withState = Companion_getInstance_1();
       var tmp1_withState = this._state_1.value_1;
       var head = tmp1_withState.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
       var tail = tmp1_withState.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
       var tmp$ret$0;
       {
         var tmp = tail - head | 0;
-        Companion_getInstance_2();
+        Companion_getInstance_1();
         tmp$ret$0 = tmp & 1073741823;
       }
       tmp$ret$1 = tmp$ret$0;
@@ -9941,13 +5964,13 @@
         var cur = tmp0_update.value_1;
         var tmp$ret$0;
         {
-          Companion_getInstance_2();
+          Companion_getInstance_1();
           if (!cur.and_jhajnj_k$(new Long(0, 536870912)).equals(new Long(0, 0)))
             return true;
-          Companion_getInstance_2();
+          Companion_getInstance_1();
           if (!cur.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0)))
             return false;
-          Companion_getInstance_2();
+          Companion_getInstance_1();
           tmp$ret$0 = cur.or_s401rn_k$(new Long(0, 536870912));
         }
         var upd = tmp$ret$0;
@@ -9966,48 +5989,48 @@
         var tmp$ret$0;
         $l$block: {
           var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
-          Companion_getInstance_2();
+          Companion_getInstance_1();
           var tmp = new Long(0, 268435456);
-          Companion_getInstance_2();
+          Companion_getInstance_1();
           if (!tmp1__anonymous__uwfjfc.and_jhajnj_k$(tmp.or_s401rn_k$(new Long(0, 536870912))).equals(new Long(0, 0)))
-            return Companion_getInstance_2().addFailReason_gc2gzp_k$(tmp1__anonymous__uwfjfc);
+            return Companion_getInstance_1().addFailReason_gc2gzp_k$(tmp1__anonymous__uwfjfc);
           var tmp$ret$1;
           {
-            var tmp0_withState = Companion_getInstance_2();
+            var tmp0_withState = Companion_getInstance_1();
             var head = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
             var tail = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
             var mask = this.mask_1;
             if (((tail + 2 | 0) & mask) === (head & mask)) {
-              Companion_getInstance_2();
+              Companion_getInstance_1();
               return 1;
             }
             if (!this.singleConsumer_1 ? !(this.array_1.atomicfu$get(tail & mask).value_1 == null) : false) {
               var tmp_0;
-              Companion_getInstance_2();
+              Companion_getInstance_1();
               if (this.capacity_1 < 1024) {
                 tmp_0 = true;
               } else {
                 var tmp_1 = tail - head | 0;
-                Companion_getInstance_2();
+                Companion_getInstance_1();
                 tmp_0 = (tmp_1 & 1073741823) > this.capacity_1 >> 1;
               }
               if (tmp_0) {
-                Companion_getInstance_2();
+                Companion_getInstance_1();
                 return 1;
               }
               tmp$ret$0 = Unit_getInstance();
               break $l$block;
             }
             var tmp_2 = tail + 1 | 0;
-            Companion_getInstance_2();
+            Companion_getInstance_1();
             var newTail = tmp_2 & 1073741823;
             var tmp_3;
-            if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, Companion_getInstance_2().updateTail_fwivqo_k$(tmp1__anonymous__uwfjfc, newTail))) {
+            if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, Companion_getInstance_1().updateTail_fwivqo_k$(tmp1__anonymous__uwfjfc, newTail))) {
               this.array_1.atomicfu$get(tail & mask).value_1 = element;
               var cur = this;
               $l$loop_0: while (true) {
                 var tmp_4 = cur._state_1.value_1;
-                Companion_getInstance_2();
+                Companion_getInstance_1();
                 if (tmp_4.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0)))
                   break $l$loop_0;
                 var tmp0_elvis_lhs = fillPlaceholder(cur.next_20eer_k$(), tail, element);
@@ -10019,7 +6042,7 @@
                 }
                 cur = tmp_5;
               }
-              Companion_getInstance_2();
+              Companion_getInstance_1();
               return 0;
             }
             tmp$ret$1 = tmp_3;
@@ -10035,12 +6058,12 @@
         var tmp$ret$0;
         $l$block_0: {
           var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
-          Companion_getInstance_2();
+          Companion_getInstance_1();
           if (!tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0)))
-            return Companion_getInstance_2().REMOVE_FROZEN_1;
+            return Companion_getInstance_1().REMOVE_FROZEN_1;
           var tmp$ret$1;
           {
-            var tmp0_withState = Companion_getInstance_2();
+            var tmp0_withState = Companion_getInstance_1();
             var head = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
             var tail = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
             if ((tail & this.mask_1) === (head & this.mask_1))
@@ -10055,9 +6078,9 @@
             if (element instanceof Placeholder)
               return null;
             var tmp = head + 1 | 0;
-            Companion_getInstance_2();
+            Companion_getInstance_1();
             var newHead = tmp & 1073741823;
-            if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, Companion_getInstance_2().updateHead_eajy5c_k$(tmp1__anonymous__uwfjfc, newHead))) {
+            if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, Companion_getInstance_1().updateHead_eajy5c_k$(tmp1__anonymous__uwfjfc, newHead))) {
               this.array_1.atomicfu$get(head & this.mask_1).value_1 = null;
               return element;
             }
@@ -10089,7 +6112,7 @@
     var res = ArrayList_init_$Create$(this.capacity_1);
     var tmp$ret$0;
     {
-      var tmp0_withState = Companion_getInstance_2();
+      var tmp0_withState = Companion_getInstance_1();
       var tmp1_withState = this._state_1.value_1;
       var head = tmp1_withState.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
       var tail = tmp1_withState.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
@@ -10114,59 +6137,10 @@
   };
   LockFreeTaskQueueCore.prototype.isClosed_baxhhm_k$ = function () {
     var tmp = this._state_1.value_1;
-    Companion_getInstance_2();
+    Companion_getInstance_1();
     return !tmp.and_jhajnj_k$(new Long(0, 536870912)).equals(new Long(0, 0));
   };
   LockFreeTaskQueueCore.$metadata$ = classMeta('LockFreeTaskQueueCore');
-  function bindCancellationFun(_this__u8e3s4, element, context) {
-    return bindCancellationFun$lambda(_this__u8e3s4, element, context);
-  }
-  function UndeliveredElementException(message, cause) {
-    RuntimeException_init_$Init$(message, cause, this);
-    captureStack(this, UndeliveredElementException);
-  }
-  UndeliveredElementException.$metadata$ = classMeta('UndeliveredElementException', undefined, undefined, undefined, undefined, RuntimeException.prototype);
-  function callUndeliveredElementCatchingException(_this__u8e3s4, element, undeliveredElementException) {
-    try {
-      _this__u8e3s4(element);
-    } catch ($p) {
-      if ($p instanceof Error) {
-        if (!(undeliveredElementException == null) ? !(undeliveredElementException.cause === $p) : false) {
-          {
-          }
-        } else {
-          return new UndeliveredElementException('Exception in undelivered element handler for ' + element, $p);
-        }
-      } else {
-        throw $p;
-      }
-    }
-    return undeliveredElementException;
-  }
-  function callUndeliveredElementCatchingException$default(_this__u8e3s4, element, undeliveredElementException, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      undeliveredElementException = null;
-    return callUndeliveredElementCatchingException(_this__u8e3s4, element, undeliveredElementException);
-  }
-  function callUndeliveredElement(_this__u8e3s4, element, context) {
-    var tmp0_safe_receiver = callUndeliveredElementCatchingException(_this__u8e3s4, element, null);
-    if (tmp0_safe_receiver == null)
-      null;
-    else {
-      var tmp$ret$0;
-      {
-        {
-        }
-        tmp$ret$0 = handleCoroutineException(context, tmp0_safe_receiver);
-      }
-    }
-  }
-  function bindCancellationFun$lambda($this_bindCancellationFun, $element, $context) {
-    return function (_anonymous_parameter_0__qggqh8) {
-      callUndeliveredElement($this_bindCancellationFun, $element, $context);
-      return Unit_getInstance();
-    };
-  }
   function ContextScope(context) {
     this.coroutineContext_1 = context;
   }
@@ -10666,12 +6640,6 @@
     return this.number_1.atomicfu$incrementAndGet$long();
   };
   SeqNumber.$metadata$ = classMeta('SeqNumber');
-  function SelectClause1() {
-  }
-  SelectClause1.$metadata$ = interfaceMeta('SelectClause1');
-  function SelectClause2() {
-  }
-  SelectClause2.$metadata$ = interfaceMeta('SelectClause2');
   var properties_initialized_Select_kt_7rpl36;
   function init_properties_Select_kt_rcehwi() {
     if (properties_initialized_Select_kt_7rpl36) {
@@ -10780,10 +6748,6 @@
       SEGMENT_SIZE = systemProp$default('kotlinx.coroutines.semaphore.segmentSize', 16, 0, 0, 12, null);
     }
   }
-  function CloseableCoroutineDispatcher() {
-    CoroutineDispatcher.call(this);
-  }
-  CloseableCoroutineDispatcher.$metadata$ = classMeta('CloseableCoroutineDispatcher', undefined, undefined, undefined, undefined, CoroutineDispatcher.prototype);
   function CompletionHandlerBase() {
     LinkedListNode.call(this);
   }
@@ -11316,6 +7280,48 @@
     this.window_1.postMessage(this.messageName_1, '*');
   };
   WindowMessageQueue.$metadata$ = classMeta('WindowMessageQueue', undefined, undefined, undefined, undefined, MessageQueue.prototype);
+  function await_0(_this__u8e3s4, $cont) {
+    var tmp$ret$0;
+    {
+      var tmp0__anonymous__q1qw7t = $cont;
+      var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
+      cancellable.initCancellability_sh6jkn_k$();
+      {
+        var tmp = await$lambda(cancellable);
+        _this__u8e3s4.then(tmp, await$lambda_0(cancellable));
+      }
+      tmp$ret$0 = cancellable.getResult_clfhg3_k$();
+    }
+    return tmp$ret$0;
+  }
+  function await$lambda($cancellable) {
+    return function (it) {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          var tmp0_success = Companion_getInstance_0();
+          tmp$ret$0 = _Result___init__impl__xyqfz8(it);
+        }
+        tmp$ret$1 = $cancellable.resumeWith_s3a3yh_k$(tmp$ret$0);
+      }
+      return Unit_getInstance();
+    };
+  }
+  function await$lambda_0($cancellable) {
+    return function (it) {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          var tmp0_failure = Companion_getInstance_0();
+          tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(it));
+        }
+        tmp$ret$1 = $cancellable.resumeWith_s3a3yh_k$(tmp$ret$0);
+      }
+      return Unit_getInstance();
+    };
+  }
   function Runnable() {
   }
   Runnable.$metadata$ = interfaceMeta('Runnable');
@@ -11357,17 +7363,6 @@
   }
   function identitySet(expectedSize) {
     return HashSet_init_$Create$(expectedSize);
-  }
-  function NoOpLock() {
-  }
-  NoOpLock.prototype.tryLock_hapj0a_k$ = function () {
-    return true;
-  };
-  NoOpLock.prototype.unlock_85cgkz_k$ = function () {
-  };
-  NoOpLock.$metadata$ = classMeta('NoOpLock');
-  function withLock(_this__u8e3s4, action) {
-    return action();
   }
   function LinkedListHead() {
     LinkedListNode.call(this);
@@ -11526,59 +7521,6 @@
     return false;
   };
   AbstractAtomicDesc.$metadata$ = classMeta('AbstractAtomicDesc', undefined, undefined, undefined, undefined, AtomicDesc.prototype);
-  function RemoveFirstDesc(queue) {
-    AbstractAtomicDesc.call(this);
-    this.queue_1 = queue;
-    var tmp = this;
-    var tmp$ret$0;
-    {
-      var tmp0__get_nextNode__vg4li4 = this.queue_1;
-      tmp$ret$0 = tmp0__get_nextNode__vg4li4._next_1;
-    }
-    tmp.affectedNode_1 = tmp$ret$0;
-  }
-  RemoveFirstDesc.prototype.get_queue_ixn208_k$ = function () {
-    return this.queue_1;
-  };
-  RemoveFirstDesc.prototype.get_result_iyg5d2_k$ = function () {
-    var tmp = this.get_affectedNode_2377z5_k$();
-    return isObject(tmp) ? tmp : THROW_CCE();
-  };
-  RemoveFirstDesc.prototype.get_affectedNode_2377z5_k$ = function () {
-    return this.affectedNode_1;
-  };
-  RemoveFirstDesc.prototype.finishPrepare_kkga2x_k$ = function (prepareOp) {
-  };
-  RemoveFirstDesc.prototype.onComplete_9ma4gp_k$ = function () {
-    this.queue_1.removeFirstOrNull_eges3a_k$();
-  };
-  RemoveFirstDesc.prototype.finishOnSuccess_jxa2jk_k$ = function (affected, next) {
-    return Unit_getInstance();
-  };
-  RemoveFirstDesc.$metadata$ = classMeta('RemoveFirstDesc', undefined, undefined, undefined, undefined, AbstractAtomicDesc.prototype);
-  function AddLastDesc(queue, node) {
-    AbstractAtomicDesc.call(this);
-    this.queue_1 = queue;
-    this.node_1 = node;
-  }
-  AddLastDesc.prototype.get_queue_ixn208_k$ = function () {
-    return this.queue_1;
-  };
-  AddLastDesc.prototype.get_node_wor8sr_k$ = function () {
-    return this.node_1;
-  };
-  AddLastDesc.prototype.get_affectedNode_2377z5_k$ = function () {
-    return this.queue_1._prev_1;
-  };
-  AddLastDesc.prototype.finishPrepare_kkga2x_k$ = function (prepareOp) {
-  };
-  AddLastDesc.prototype.onComplete_9ma4gp_k$ = function () {
-    return this.queue_1.addLast_uyctnf_k$(this.node_1);
-  };
-  AddLastDesc.prototype.finishOnSuccess_jxa2jk_k$ = function (affected, next) {
-    return Unit_getInstance();
-  };
-  AddLastDesc.$metadata$ = classMeta('AddLastDesc', undefined, undefined, undefined, undefined, AbstractAtomicDesc.prototype);
   function probeCoroutineCreated(completion) {
     return completion;
   }
@@ -11596,9 +7538,6 @@
   function recoverStackTrace(exception, continuation) {
     return exception;
   }
-  function recoverStackTrace_0(exception) {
-    return exception;
-  }
   function synchronized(lock, block) {
     return block();
   }
@@ -11608,10 +7547,10 @@
   function threadContextElements(context) {
     return 0;
   }
-  function _set_value__lx0xdg_0($this, _set____db54di) {
+  function _set_value__lx0xdg($this, _set____db54di) {
     $this.value_1 = _set____db54di;
   }
-  function _get_value__a43j40_0($this) {
+  function _get_value__a43j40($this) {
     return $this.value_1;
   }
   function CommonThreadLocal() {
@@ -11662,47 +7601,12 @@
   LazyStandaloneCoroutine.prototype.get_1pi7hg_k$ = get;
   LazyStandaloneCoroutine.prototype.fold_6dbyow_k$ = fold;
   LazyStandaloneCoroutine.prototype.minusKey_y21q55_k$ = minusKey;
-  DeferredCoroutine.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
-  DeferredCoroutine.prototype.cancel$default_bm1z3z_k$ = cancel$default;
-  DeferredCoroutine.prototype.cancel$default_5qyvia_k$ = cancel$default_0;
-  DeferredCoroutine.prototype.cancel_2kogtl_k$ = cancel;
-  DeferredCoroutine.prototype.plus_ee14jq_k$ = plus_0;
-  DeferredCoroutine.prototype.plus_rgw9wi_k$ = plus;
-  DeferredCoroutine.prototype.get_1pi7hg_k$ = get;
-  DeferredCoroutine.prototype.fold_6dbyow_k$ = fold;
-  DeferredCoroutine.prototype.minusKey_y21q55_k$ = minusKey;
-  LazyDeferredCoroutine.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
-  LazyDeferredCoroutine.prototype.cancel$default_bm1z3z_k$ = cancel$default;
-  LazyDeferredCoroutine.prototype.cancel$default_5qyvia_k$ = cancel$default_0;
-  LazyDeferredCoroutine.prototype.cancel_2kogtl_k$ = cancel;
-  LazyDeferredCoroutine.prototype.plus_ee14jq_k$ = plus_0;
-  LazyDeferredCoroutine.prototype.plus_rgw9wi_k$ = plus;
-  LazyDeferredCoroutine.prototype.get_1pi7hg_k$ = get;
-  LazyDeferredCoroutine.prototype.fold_6dbyow_k$ = fold;
-  LazyDeferredCoroutine.prototype.minusKey_y21q55_k$ = minusKey;
   CancellableContinuationImpl.prototype.cancel$default_5qyvia_k$ = cancel$default_1;
   CancellableContinuationImpl.prototype.tryResume$default_sti3on_k$ = tryResume$default;
-  CompletableDeferredImpl.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
-  CompletableDeferredImpl.prototype.cancel$default_bm1z3z_k$ = cancel$default;
-  CompletableDeferredImpl.prototype.cancel$default_5qyvia_k$ = cancel$default_0;
-  CompletableDeferredImpl.prototype.cancel_2kogtl_k$ = cancel;
-  CompletableDeferredImpl.prototype.plus_ee14jq_k$ = plus_0;
-  CompletableDeferredImpl.prototype.plus_rgw9wi_k$ = plus;
-  CompletableDeferredImpl.prototype.get_1pi7hg_k$ = get;
-  CompletableDeferredImpl.prototype.fold_6dbyow_k$ = fold;
-  CompletableDeferredImpl.prototype.minusKey_y21q55_k$ = minusKey;
   CoroutineDispatcher.prototype.get_1pi7hg_k$ = get_0;
   CoroutineDispatcher.prototype.fold_6dbyow_k$ = fold;
   CoroutineDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
   CoroutineDispatcher.prototype.plus_rgw9wi_k$ = plus;
-  _no_name_provided__qut3iv.prototype.get_1pi7hg_k$ = get;
-  _no_name_provided__qut3iv.prototype.fold_6dbyow_k$ = fold;
-  _no_name_provided__qut3iv.prototype.minusKey_y21q55_k$ = minusKey;
-  _no_name_provided__qut3iv.prototype.plus_rgw9wi_k$ = plus;
-  CoroutineName.prototype.get_1pi7hg_k$ = get;
-  CoroutineName.prototype.fold_6dbyow_k$ = fold;
-  CoroutineName.prototype.minusKey_y21q55_k$ = minusKey;
-  CoroutineName.prototype.plus_rgw9wi_k$ = plus;
   EventLoop.prototype.plus_rgw9wi_k$ = plus;
   EventLoop.prototype.get_1pi7hg_k$ = get_0;
   EventLoop.prototype.fold_6dbyow_k$ = fold;
@@ -11722,15 +7626,6 @@
   MainCoroutineDispatcher.prototype.get_1pi7hg_k$ = get_0;
   MainCoroutineDispatcher.prototype.fold_6dbyow_k$ = fold;
   MainCoroutineDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
-  SupervisorJobImpl.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
-  SupervisorJobImpl.prototype.cancel$default_bm1z3z_k$ = cancel$default;
-  SupervisorJobImpl.prototype.cancel$default_5qyvia_k$ = cancel$default_0;
-  SupervisorJobImpl.prototype.cancel_2kogtl_k$ = cancel;
-  SupervisorJobImpl.prototype.plus_ee14jq_k$ = plus_0;
-  SupervisorJobImpl.prototype.plus_rgw9wi_k$ = plus;
-  SupervisorJobImpl.prototype.get_1pi7hg_k$ = get;
-  SupervisorJobImpl.prototype.fold_6dbyow_k$ = fold;
-  SupervisorJobImpl.prototype.minusKey_y21q55_k$ = minusKey;
   Unconfined.prototype.plus_rgw9wi_k$ = plus;
   Unconfined.prototype.get_1pi7hg_k$ = get_0;
   Unconfined.prototype.fold_6dbyow_k$ = fold;
@@ -11739,51 +7634,10 @@
   YieldContext.prototype.fold_6dbyow_k$ = fold;
   YieldContext.prototype.minusKey_y21q55_k$ = minusKey;
   YieldContext.prototype.plus_rgw9wi_k$ = plus;
-  Itr.prototype.next0_nshvhy_k$ = next0;
-  AbstractSendChannel.prototype.close$default_jao18g_k$ = close$default;
-  AbstractChannel.prototype.cancel$default_5qyvia_k$ = cancel$default_3;
-  AbstractChannel.prototype.cancel$default_bm1z3z_k$ = cancel$default_2;
-  AbstractChannel.prototype.close$default_jao18g_k$ = close$default;
-  AbstractChannel.prototype.cancel_2kogtl_k$ = cancel_0;
-  AbstractChannel.prototype.poll_21vi7_k$ = poll;
-  AbstractChannel.prototype.receiveOrNull_5cvr9l_k$ = receiveOrNull;
-  AbstractChannel.prototype.get_onReceiveOrNull_5u62it_k$ = get_onReceiveOrNull;
-  ArrayChannel.prototype.cancel$default_5qyvia_k$ = cancel$default_3;
-  ArrayChannel.prototype.cancel$default_bm1z3z_k$ = cancel$default_2;
-  ArrayChannel.prototype.cancel_2kogtl_k$ = cancel_0;
-  ArrayChannel.prototype.close$default_jao18g_k$ = close$default;
-  ArrayChannel.prototype.poll_21vi7_k$ = poll;
-  ArrayChannel.prototype.receiveOrNull_5cvr9l_k$ = receiveOrNull;
-  ArrayChannel.prototype.get_onReceiveOrNull_5u62it_k$ = get_onReceiveOrNull;
-  ConflatedChannel.prototype.cancel$default_5qyvia_k$ = cancel$default_3;
-  ConflatedChannel.prototype.cancel$default_bm1z3z_k$ = cancel$default_2;
-  ConflatedChannel.prototype.cancel_2kogtl_k$ = cancel_0;
-  ConflatedChannel.prototype.close$default_jao18g_k$ = close$default;
-  ConflatedChannel.prototype.poll_21vi7_k$ = poll;
-  ConflatedChannel.prototype.receiveOrNull_5cvr9l_k$ = receiveOrNull;
-  ConflatedChannel.prototype.get_onReceiveOrNull_5u62it_k$ = get_onReceiveOrNull;
-  LinkedListChannel.prototype.cancel$default_5qyvia_k$ = cancel$default_3;
-  LinkedListChannel.prototype.cancel$default_bm1z3z_k$ = cancel$default_2;
-  LinkedListChannel.prototype.cancel_2kogtl_k$ = cancel_0;
-  LinkedListChannel.prototype.close$default_jao18g_k$ = close$default;
-  LinkedListChannel.prototype.poll_21vi7_k$ = poll;
-  LinkedListChannel.prototype.receiveOrNull_5cvr9l_k$ = receiveOrNull;
-  LinkedListChannel.prototype.get_onReceiveOrNull_5u62it_k$ = get_onReceiveOrNull;
-  RendezvousChannel.prototype.cancel$default_5qyvia_k$ = cancel$default_3;
-  RendezvousChannel.prototype.cancel$default_bm1z3z_k$ = cancel$default_2;
-  RendezvousChannel.prototype.cancel_2kogtl_k$ = cancel_0;
-  RendezvousChannel.prototype.close$default_jao18g_k$ = close$default;
-  RendezvousChannel.prototype.poll_21vi7_k$ = poll;
-  RendezvousChannel.prototype.receiveOrNull_5cvr9l_k$ = receiveOrNull;
-  RendezvousChannel.prototype.get_onReceiveOrNull_5u62it_k$ = get_onReceiveOrNull;
   LimitedDispatcher.prototype.plus_rgw9wi_k$ = plus;
   LimitedDispatcher.prototype.get_1pi7hg_k$ = get_0;
   LimitedDispatcher.prototype.fold_6dbyow_k$ = fold;
   LimitedDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
-  CloseableCoroutineDispatcher.prototype.plus_rgw9wi_k$ = plus;
-  CloseableCoroutineDispatcher.prototype.get_1pi7hg_k$ = get_0;
-  CloseableCoroutineDispatcher.prototype.fold_6dbyow_k$ = fold;
-  CloseableCoroutineDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
   JsMainDispatcher.prototype.plus_rgw9wi_k$ = plus;
   JsMainDispatcher.prototype.get_1pi7hg_k$ = get_0;
   JsMainDispatcher.prototype.fold_6dbyow_k$ = fold;
@@ -11820,9 +7674,6 @@
   FALSE = 0;
   TRUE = 1;
   RETRY = -1;
-  RECEIVE_THROWS_ON_CLOSE = 0;
-  RECEIVE_RESULT = 1;
-  DEFAULT_CLOSE_MESSAGE = 'Channel was closed';
   DEFAULT_CONCURRENCY_PROPERTY_NAME = 'kotlinx.coroutines.flow.defaultConcurrency';
   MODE_CANCELLABLE = 1;
   MODE_UNINITIALIZED = -1;
@@ -11837,46 +7688,11 @@
   //endregion
   //region block: exports
   _.$_$ = _.$_$ || {};
-  _.$_$.a = delay_0;
-  _.$_$.b = Channel$default;
-  _.$_$.c = CompletableDeferred$default;
-  _.$_$.d = cancel$default_0;
-  _.$_$.e = cancel$default;
-  _.$_$.f = invokeOnCompletion$default;
-  _.$_$.g = Job$default;
-  _.$_$.h = SupervisorJob$default;
-  _.$_$.i = async$default;
-  _.$_$.j = cancel$default_4;
-  _.$_$.k = cancel$default_6;
-  _.$_$.l = launch$default;
-  _.$_$.m = _ChannelResult___get_isSuccess__impl__odq1z9;
-  _.$_$.n = Factory_getInstance;
-  _.$_$.o = Key_getInstance_0;
-  _.$_$.p = Key_getInstance_1;
-  _.$_$.q = Dispatchers_getInstance;
-  _.$_$.r = GlobalScope_getInstance;
-  _.$_$.s = Key_getInstance_3;
-  _.$_$.t = cancelConsumed;
-  _.$_$.u = LinkedListHead;
-  _.$_$.v = LinkedListNode;
-  _.$_$.w = recoverStackTrace;
-  _.$_$.x = CancellableContinuationImpl;
-  _.$_$.y = CloseableCoroutineDispatcher;
-  _.$_$.z = CompletableJob;
-  _.$_$.a1 = CoroutineExceptionHandler;
-  _.$_$.b1 = CoroutineName;
-  _.$_$.c1 = CoroutineScope_0;
-  _.$_$.d1 = CoroutineScope;
-  _.$_$.e1 = DisposableHandle;
-  _.$_$.f1 = Job_0;
-  _.$_$.g1 = Job;
-  _.$_$.h1 = get_MODE_CANCELLABLE;
-  _.$_$.i1 = SupervisorJob;
-  _.$_$.j1 = cancel_1;
-  _.$_$.k1 = cancel_4;
-  _.$_$.l1 = cancel_2;
-  _.$_$.m1 = cancel_3;
-  _.$_$.n1 = get_job;
+  _.$_$.a = await_0;
+  _.$_$.b = launch$default;
+  _.$_$.c = Dispatchers_getInstance;
+  _.$_$.d = CoroutineScope_0;
+  _.$_$.e = CoroutineScope;
   //endregion
   return _;
 }));

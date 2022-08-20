@@ -12,12 +12,12 @@
 }(this, function (_, kotlin_kotlin) {
   'use strict';
   //region block: imports
-  var fillArrayVal = kotlin_kotlin.$_$.v8;
-  var Unit_getInstance = kotlin_kotlin.$_$.g4;
-  var classMeta = kotlin_kotlin.$_$.r8;
-  var objectMeta = kotlin_kotlin.$_$.r9;
-  var toString = kotlin_kotlin.$_$.v9;
-  var toString_0 = kotlin_kotlin.$_$.od;
+  var fillArrayVal = kotlin_kotlin.$_$.j3;
+  var Unit_getInstance = kotlin_kotlin.$_$.m1;
+  var classMeta = kotlin_kotlin.$_$.h3;
+  var objectMeta = kotlin_kotlin.$_$.q3;
+  var toString = kotlin_kotlin.$_$.s3;
+  var toString_0 = kotlin_kotlin.$_$.o4;
   //endregion
   //region block: pre-declaration
   None.prototype = Object.create(atomicfu$TraceBase.prototype);
@@ -84,22 +84,6 @@
     }
   }
   function updateAndGet(_this__u8e3s4, function_0) {
-    while (true) {
-      var cur = _this__u8e3s4.value_1;
-      var upd = function_0(cur);
-      if (_this__u8e3s4.atomicfu$compareAndSet(cur, upd))
-        return upd;
-    }
-  }
-  function update_0(_this__u8e3s4, function_0) {
-    while (true) {
-      var cur = _this__u8e3s4.value_1;
-      var upd = function_0(cur);
-      if (_this__u8e3s4.atomicfu$compareAndSet(cur, upd))
-        return Unit_getInstance();
-    }
-  }
-  function updateAndGet_0(_this__u8e3s4, function_0) {
     while (true) {
       var cur = _this__u8e3s4.value_1;
       var upd = function_0(cur);
@@ -452,10 +436,6 @@
   ReentrantLock.prototype.unlock_85cgkz_k$ = function () {
   };
   ReentrantLock.$metadata$ = classMeta('ReentrantLock');
-  function synchronized(lock, block) {
-    init_properties_Synchronized_kt_vep4ze();
-    return block();
-  }
   var properties_initialized_Synchronized_kt_8bwsba;
   function init_properties_Synchronized_kt_vep4ze() {
     if (properties_initialized_Synchronized_kt_8bwsba) {

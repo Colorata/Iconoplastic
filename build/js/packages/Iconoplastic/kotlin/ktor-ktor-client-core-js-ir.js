@@ -34,129 +34,131 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var cancel$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.i;
-  var Unit_getInstance = kotlin_kotlin.$_$.w2;
-  var CoroutineImpl = kotlin_kotlin.$_$.e5;
-  var THROW_CCE = kotlin_kotlin.$_$.b8;
-  var PipelineContext = kotlin_io_ktor_ktor_utils.$_$.g;
-  var isObject = kotlin_kotlin.$_$.c6;
-  var toString = kotlin_kotlin.$_$.l6;
-  var getKClassFromExpression = kotlin_kotlin.$_$.b;
-  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.p1;
-  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.p4;
-  var classMeta = kotlin_kotlin.$_$.q5;
-  var atomic$boolean$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.a;
-  var Key_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.q;
-  var Job = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c1;
-  var Attributes = kotlin_io_ktor_ktor_utils.$_$.m;
+  var cancel$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.k;
+  var Unit_getInstance = kotlin_kotlin.$_$.g4;
+  var CoroutineImpl = kotlin_kotlin.$_$.c8;
+  var THROW_CCE = kotlin_kotlin.$_$.pc;
+  var PipelineContext = kotlin_io_ktor_ktor_utils.$_$.h;
+  var isObject = kotlin_kotlin.$_$.k9;
+  var toString = kotlin_kotlin.$_$.v9;
+  var getKClassFromExpression = kotlin_kotlin.$_$.c;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.e2;
+  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.m7;
+  var classMeta = kotlin_kotlin.$_$.r8;
+  var atomic$boolean$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.b;
+  var Key_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.t;
+  var Job = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.g1;
+  var Attributes = kotlin_io_ktor_ktor_utils.$_$.n;
   var Events = kotlin_io_ktor_ktor_events.$_$.b;
-  var AttributeKey = kotlin_io_ktor_ktor_utils.$_$.l;
-  var Closeable = kotlin_io_ktor_ktor_io.$_$.x;
-  var isInterface = kotlin_kotlin.$_$.b6;
-  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.a1;
-  var ensureNotNull = kotlin_kotlin.$_$.h8;
-  var SuspendFunction2 = kotlin_kotlin.$_$.g5;
-  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.x;
-  var PlatformUtils_getInstance = kotlin_io_ktor_ktor_utils.$_$.e;
-  var ByteReadChannel = kotlin_io_ktor_ktor_io.$_$.f1;
-  var objectMeta = kotlin_kotlin.$_$.h6;
-  var instanceOf = kotlin_io_ktor_ktor_utils.$_$.j;
+  var AttributeKey = kotlin_io_ktor_ktor_utils.$_$.m;
+  var Closeable = kotlin_io_ktor_ktor_io.$_$.z;
+  var isInterface = kotlin_kotlin.$_$.i9;
+  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e1;
+  var ensureNotNull = kotlin_kotlin.$_$.cd;
+  var SuspendFunction2 = kotlin_kotlin.$_$.e8;
+  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.f1;
+  var PlatformUtils_getInstance = kotlin_io_ktor_ktor_utils.$_$.f;
+  var ByteReadChannel = kotlin_io_ktor_ktor_io.$_$.h1;
+  var objectMeta = kotlin_kotlin.$_$.r9;
+  var instanceOf = kotlin_io_ktor_ktor_utils.$_$.k;
   var NullBody_getInstance = kotlin_io_ktor_ktor_http.$_$.d;
-  var equals = kotlin_kotlin.$_$.s5;
-  var cancel = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.i1;
-  var throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.n8;
-  var IllegalStateException = kotlin_kotlin.$_$.x7;
-  var IllegalStateException_init_$Init$ = kotlin_kotlin.$_$.n1;
-  var captureStack = kotlin_kotlin.$_$.k5;
-  var UnsupportedOperationException = kotlin_kotlin.$_$.d8;
-  var UnsupportedOperationException_init_$Init$ = kotlin_kotlin.$_$.x1;
-  var flattenEntries = kotlin_io_ktor_ktor_utils.$_$.u;
-  var joinToString$default = kotlin_kotlin.$_$.f;
-  var trimMargin$default = kotlin_kotlin.$_$.r;
-  var ByteReadChannel_0 = kotlin_io_ktor_ktor_io.$_$.e1;
-  var Job$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.f;
-  var Long = kotlin_kotlin.$_$.y7;
-  var readBytes$default = kotlin_io_ktor_ktor_io.$_$.g;
-  var IllegalStateException_init_$Init$_0 = kotlin_kotlin.$_$.o1;
-  var WriterScope = kotlin_io_ktor_ktor_io.$_$.g1;
+  var equals = kotlin_kotlin.$_$.t8;
+  var cancel = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.m1;
+  var throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.ld;
+  var IllegalStateException = kotlin_kotlin.$_$.kc;
+  var IllegalStateException_init_$Init$ = kotlin_kotlin.$_$.c2;
+  var captureStack = kotlin_kotlin.$_$.l8;
+  var UnsupportedOperationException = kotlin_kotlin.$_$.xc;
+  var UnsupportedOperationException_init_$Init$ = kotlin_kotlin.$_$.m2;
+  var flattenEntries = kotlin_io_ktor_ktor_utils.$_$.y;
+  var joinToString$default = kotlin_kotlin.$_$.h;
+  var trimMargin$default = kotlin_kotlin.$_$.u;
+  var ByteReadChannel_0 = kotlin_io_ktor_ktor_io.$_$.g1;
+  var Job$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.h;
+  var Long = kotlin_kotlin.$_$.lc;
+  var readBytes$default = kotlin_io_ktor_ktor_io.$_$.h;
+  var IllegalStateException_init_$Init$_0 = kotlin_kotlin.$_$.d2;
+  var WriterScope = kotlin_io_ktor_ktor_io.$_$.i1;
   var ReadChannelContent = kotlin_io_ktor_ktor_http.$_$.o;
-  var noWhenBranchMatchedException = kotlin_kotlin.$_$.l8;
-  var GlobalScope_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.p;
-  var writer = kotlin_io_ktor_ktor_io.$_$.i1;
+  var noWhenBranchMatchedException = kotlin_kotlin.$_$.jd;
+  var GlobalScope_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.s;
+  var writer = kotlin_io_ktor_ktor_io.$_$.k1;
   var WriteChannelContent = kotlin_io_ktor_ktor_http.$_$.p;
-  var Companion_getInstance = kotlin_io_ktor_ktor_io.$_$.p;
+  var Companion_getInstance = kotlin_io_ktor_ktor_io.$_$.r;
   var NoContent = kotlin_io_ktor_ktor_http.$_$.m;
   var ProtocolUpgrade = kotlin_io_ktor_ktor_http.$_$.n;
   var ByteArrayContent = kotlin_io_ktor_ktor_http.$_$.l;
-  var SuspendFunction1 = kotlin_kotlin.$_$.f5;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.m1;
-  var JsType_getInstance = kotlin_io_ktor_ktor_utils.$_$.d;
-  var PrimitiveClasses_getInstance = kotlin_kotlin.$_$.r2;
-  var arrayOf = kotlin_kotlin.$_$.f8;
+  var SuspendFunction1 = kotlin_kotlin.$_$.d8;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.z1;
+  var JsType_getInstance = kotlin_io_ktor_ktor_utils.$_$.e;
+  var PrimitiveClasses_getInstance = kotlin_kotlin.$_$.x3;
+  var arrayOf = kotlin_kotlin.$_$.zc;
   var createKType = kotlin_kotlin.$_$.a;
-  var typeInfoImpl = kotlin_io_ktor_ktor_utils.$_$.k;
+  var typeInfoImpl = kotlin_io_ktor_ktor_utils.$_$.l;
   var OutgoingContent = kotlin_io_ktor_ktor_http.$_$.q;
-  var get_job = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.k1;
-  var async$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.h;
-  var emptySet = kotlin_kotlin.$_$.o3;
-  var interfaceMeta = kotlin_kotlin.$_$.y5;
-  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.t;
+  var get_job = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.o1;
+  var async$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.j;
+  var emptySet = kotlin_kotlin.$_$.u5;
+  var interfaceMeta = kotlin_kotlin.$_$.z8;
+  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.w;
   var HttpHeaders_getInstance = kotlin_io_ktor_ktor_http.$_$.h;
   var UnsafeHeaderException = kotlin_io_ktor_ktor_http.$_$.u;
-  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.b1;
-  var CoroutineName = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.y;
-  var SilentSupervisor$default = kotlin_io_ktor_ktor_utils.$_$.c;
-  var lazy = kotlin_kotlin.$_$.k8;
-  var CompletableJob = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.w;
-  var CloseableCoroutineDispatcher = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.v;
-  var KProperty1 = kotlin_kotlin.$_$.u6;
-  var getPropertyCallableRef = kotlin_kotlin.$_$.v5;
-  var setOf = kotlin_kotlin.$_$.e4;
-  var Key = kotlin_kotlin.$_$.c5;
-  var get = kotlin_kotlin.$_$.z4;
-  var fold = kotlin_kotlin.$_$.y4;
-  var minusKey = kotlin_kotlin.$_$.a5;
-  var plus = kotlin_kotlin.$_$.d5;
-  var Element = kotlin_kotlin.$_$.b5;
-  var PipelinePhase = kotlin_io_ktor_ktor_utils.$_$.h;
+  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.k1;
+  var CoroutineName = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c1;
+  var SilentSupervisor$default = kotlin_io_ktor_ktor_utils.$_$.d;
+  var lazy = kotlin_kotlin.$_$.id;
+  var CompletableJob = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.a1;
+  var CloseableCoroutineDispatcher = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.z;
+  var KProperty1 = kotlin_kotlin.$_$.ja;
+  var getPropertyCallableRef = kotlin_kotlin.$_$.w8;
+  var setOf = kotlin_kotlin.$_$.u6;
+  var Key = kotlin_kotlin.$_$.a8;
+  var get = kotlin_kotlin.$_$.x7;
+  var fold = kotlin_kotlin.$_$.w7;
+  var minusKey = kotlin_kotlin.$_$.y7;
+  var plus = kotlin_kotlin.$_$.b8;
+  var Element = kotlin_kotlin.$_$.z7;
+  var PipelinePhase = kotlin_io_ktor_ktor_utils.$_$.i;
   var contentLength = kotlin_io_ktor_ktor_http.$_$.z;
   var Application_getInstance = kotlin_io_ktor_ktor_http.$_$.e;
-  var toLong = kotlin_kotlin.$_$.j6;
-  var toLong_0 = kotlin_kotlin.$_$.n7;
+  var toLong = kotlin_kotlin.$_$.t9;
+  var toLong_0 = kotlin_kotlin.$_$.qb;
   var contentType = kotlin_io_ktor_ktor_http.$_$.a1;
-  var isByteArray = kotlin_kotlin.$_$.z5;
+  var isByteArray = kotlin_kotlin.$_$.c9;
   var Text_getInstance = kotlin_io_ktor_ktor_http.$_$.f;
   var TextContent_init_$Create$ = kotlin_io_ktor_ktor_http.$_$.a;
-  var Companion_getInstance_0 = kotlin_kotlin.$_$.t2;
+  var Companion_getInstance_0 = kotlin_kotlin.$_$.a4;
   var copyTo = kotlin_io_ktor_ktor_io.$_$.a;
-  var cancel_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.g1;
-  var CancellationException = kotlin_kotlin.$_$.o4;
-  var cancel_1 = kotlin_io_ktor_ktor_io.$_$.h1;
+  var cancel_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.k1;
+  var CancellationException = kotlin_kotlin.$_$.l7;
+  var cancel_1 = kotlin_io_ktor_ktor_io.$_$.j1;
   var HttpStatusCode = kotlin_io_ktor_ktor_http.$_$.t;
-  var getKClass = kotlin_kotlin.$_$.c;
-  var writer$default = kotlin_io_ktor_ktor_io.$_$.k;
+  var getKClass = kotlin_kotlin.$_$.d;
+  var writer$default = kotlin_io_ktor_ktor_io.$_$.m;
   var toByteArray = kotlin_io_ktor_ktor_utils.$_$.a;
-  var Input = kotlin_io_ktor_ktor_io.$_$.y;
-  var ByteReadPacket = kotlin_io_ktor_ktor_io.$_$.w;
-  var Unit = kotlin_kotlin.$_$.c8;
-  var toString_0 = kotlin_kotlin.$_$.o8;
-  var toInt = kotlin_kotlin.$_$.k7;
-  var reversed = kotlin_kotlin.$_$.d4;
-  var LinkedHashSet_init_$Create$ = kotlin_kotlin.$_$.z;
-  var Charsets_getInstance = kotlin_io_ktor_ktor_io.$_$.o;
+  var Input = kotlin_io_ktor_ktor_io.$_$.a1;
+  var ByteReadPacket = kotlin_io_ktor_ktor_io.$_$.y;
+  var Unit = kotlin_kotlin.$_$.wc;
+  var toString_0 = kotlin_kotlin.$_$.od;
+  var toInt = kotlin_kotlin.$_$.nb;
+  var reversed = kotlin_kotlin.$_$.t6;
+  var LinkedHashSet_init_$Create$ = kotlin_kotlin.$_$.h1;
+  var Charsets_getInstance = kotlin_io_ktor_ktor_io.$_$.q;
+  var rangeTo = kotlin_kotlin.$_$.da;
+  var contains = kotlin_kotlin.$_$.ba;
   var charset = kotlin_io_ktor_ktor_http.$_$.y;
   var withCharset = kotlin_io_ktor_ktor_http.$_$.f1;
-  var Comparator = kotlin_kotlin.$_$.s7;
-  var compareValues = kotlin_kotlin.$_$.n4;
-  var get_name = kotlin_io_ktor_ktor_io.$_$.s;
-  var toList = kotlin_kotlin.$_$.h4;
-  var sortedWith = kotlin_kotlin.$_$.g4;
-  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.f1;
-  var charSequenceLength = kotlin_kotlin.$_$.o5;
-  var roundToInt = kotlin_kotlin.$_$.m6;
-  var firstOrNull = kotlin_kotlin.$_$.q3;
+  var Comparator = kotlin_kotlin.$_$.dc;
+  var compareValues = kotlin_kotlin.$_$.k7;
+  var get_name = kotlin_io_ktor_ktor_io.$_$.u;
+  var toList = kotlin_kotlin.$_$.a7;
+  var sortedWith = kotlin_kotlin.$_$.x6;
+  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.p1;
+  var charSequenceLength = kotlin_kotlin.$_$.p8;
+  var roundToInt = kotlin_kotlin.$_$.w9;
+  var firstOrNull = kotlin_kotlin.$_$.x5;
   var charset_0 = kotlin_io_ktor_ktor_http.$_$.x;
-  var readText$default = kotlin_io_ktor_ktor_io.$_$.h;
+  var readText$default = kotlin_io_ktor_ktor_io.$_$.i;
   var get_authority = kotlin_io_ktor_ktor_http.$_$.w;
   var takeFrom = kotlin_io_ktor_ktor_http.$_$.e1;
   var isSecure = kotlin_io_ktor_ktor_http.$_$.b1;
@@ -164,63 +166,74 @@
   var EventDefinition = kotlin_io_ktor_ktor_events.$_$.a;
   var Companion_getInstance_1 = kotlin_io_ktor_ktor_http.$_$.k;
   var Companion_getInstance_2 = kotlin_io_ktor_ktor_http.$_$.i;
-  var setOf_0 = kotlin_kotlin.$_$.f4;
-  var cancel_2 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.j1;
-  var get_lastIndex = kotlin_kotlin.$_$.s3;
-  var downTo = kotlin_kotlin.$_$.r6;
-  var delay = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.a;
+  var setOf_0 = kotlin_kotlin.$_$.v6;
+  var cancel_2 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.n1;
+  var Default_getInstance = kotlin_kotlin.$_$.w3;
+  var delay = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
+  var toLongOrNull = kotlin_kotlin.$_$.pb;
+  var numberToLong = kotlin_kotlin.$_$.q9;
+  var CoroutineScope_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d1;
+  var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.m;
+  var get_lastIndex = kotlin_kotlin.$_$.e6;
+  var downTo = kotlin_kotlin.$_$.ca;
   var isWebsocket = kotlin_io_ktor_ktor_http.$_$.c1;
-  var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.j;
-  var IOException = kotlin_io_ktor_ktor_io.$_$.c1;
-  var IOException_init_$Init$ = kotlin_io_ktor_ktor_io.$_$.m;
+  var IOException = kotlin_io_ktor_ktor_io.$_$.e1;
+  var IOException_init_$Init$ = kotlin_io_ktor_ktor_io.$_$.o;
+  var ByteChannel$default = kotlin_io_ktor_ktor_io.$_$.l;
+  var copyAndClose$default = kotlin_io_ktor_ktor_io.$_$.d;
   var HttpMessage = kotlin_io_ktor_ktor_http.$_$.s;
   var URLBuilder_init_$Create$ = kotlin_io_ktor_ktor_http.$_$.c;
   var HeadersBuilder_init_$Create$ = kotlin_io_ktor_ktor_http.$_$.b;
-  var SupervisorJob$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.g;
+  var SupervisorJob$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.i;
   var takeFrom_0 = kotlin_io_ktor_ktor_http.$_$.d1;
-  var appendAll = kotlin_io_ktor_ktor_utils.$_$.t;
-  var putAll = kotlin_io_ktor_ktor_utils.$_$.w;
+  var appendAll = kotlin_io_ktor_ktor_utils.$_$.w;
+  var putAll = kotlin_io_ktor_ktor_utils.$_$.a1;
   var HttpMessageBuilder = kotlin_io_ktor_ktor_http.$_$.r;
   var GMTDate$default = kotlin_io_ktor_ktor_utils.$_$.b;
-  var Pipeline = kotlin_io_ktor_ktor_utils.$_$.i;
-  var decode$default = kotlin_io_ktor_ktor_io.$_$.d;
-  var hashCode = kotlin_kotlin.$_$.x5;
-  var get_ByteArrayPool = kotlin_io_ktor_ktor_io.$_$.d1;
+  var Pipeline = kotlin_io_ktor_ktor_utils.$_$.j;
+  var encodeToByteArray = kotlin_kotlin.$_$.ta;
+  var encodeToByteArray_0 = kotlin_io_ktor_ktor_io.$_$.s;
+  var decode$default = kotlin_io_ktor_ktor_io.$_$.e;
+  var hashCode = kotlin_kotlin.$_$.y8;
+  var get_ByteArrayPool = kotlin_io_ktor_ktor_io.$_$.f1;
   var readAvailable = kotlin_io_ktor_ktor_io.$_$.b;
   var Companion_getInstance_3 = kotlin_io_ktor_ktor_http.$_$.j;
-  var CoroutineScope_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.z;
-  var CancellationException_init_$Create$_0 = kotlin_kotlin.$_$.d1;
-  var cancel_3 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.h1;
+  var CancellationException_init_$Create$_0 = kotlin_kotlin.$_$.m1;
+  var cancel_3 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.l1;
   var Companion_getInstance_4 = kotlin_io_ktor_ktor_http.$_$.g;
-  var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.o;
-  var intercepted = kotlin_kotlin.$_$.r4;
-  var get_MODE_CANCELLABLE = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e1;
-  var CancellableContinuationImpl = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.u;
-  var extendThrowable = kotlin_kotlin.$_$.t5;
-  var Companion_getInstance_5 = kotlin_kotlin.$_$.u2;
-  var createFailure = kotlin_kotlin.$_$.g8;
-  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.i2;
-  var toTypedArray = kotlin_kotlin.$_$.m4;
+  var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.r;
+  var intercepted = kotlin_kotlin.$_$.p7;
+  var get_MODE_CANCELLABLE = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.i1;
+  var CancellableContinuationImpl = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.y;
+  var extendThrowable = kotlin_kotlin.$_$.u8;
+  var Companion_getInstance_5 = kotlin_kotlin.$_$.b4;
+  var createFailure = kotlin_kotlin.$_$.bd;
+  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.x2;
+  var toTypedArray = kotlin_kotlin.$_$.h7;
   var writeFully = kotlin_io_ktor_ktor_io.$_$.c;
-  var Error_init_$Create$ = kotlin_kotlin.$_$.g1;
-  var Error_init_$Create$_0 = kotlin_kotlin.$_$.i1;
-  var _ChannelResult___get_isSuccess__impl__odq1z9 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.k;
-  var Channel$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
-  var Companion_getInstance_6 = kotlin_io_ktor_ktor_websockets.$_$.f;
+  var Error_init_$Create$ = kotlin_kotlin.$_$.q1;
+  var Error_init_$Create$_0 = kotlin_kotlin.$_$.s1;
+  var _ChannelResult___get_isSuccess__impl__odq1z9 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.n;
+  var Channel$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
+  var Companion_getInstance_6 = kotlin_io_ktor_ktor_websockets.$_$.h;
   var Codes_CLOSED_ABNORMALLY_getInstance = kotlin_io_ktor_ktor_websockets.$_$.a;
-  var Text_init_$Create$ = kotlin_io_ktor_ktor_websockets.$_$.e;
-  var Binary_init_$Create$ = kotlin_io_ktor_ktor_websockets.$_$.c;
-  var CloseReason = kotlin_io_ktor_ktor_websockets.$_$.g;
-  var Close_init_$Create$ = kotlin_io_ktor_ktor_websockets.$_$.d;
-  var String$default = kotlin_io_ktor_ktor_io.$_$.f;
-  var BytePacketBuilder_init_$Create$ = kotlin_io_ktor_ktor_io.$_$.l;
-  var writeFully$default = kotlin_io_ktor_ktor_io.$_$.i;
-  var readShort = kotlin_io_ktor_ktor_io.$_$.a1;
-  var cancelConsumed = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.r;
+  var Text_init_$Create$ = kotlin_io_ktor_ktor_websockets.$_$.g;
+  var Binary_init_$Create$ = kotlin_io_ktor_ktor_websockets.$_$.e;
+  var CloseReason = kotlin_io_ktor_ktor_websockets.$_$.i;
+  var Close_init_$Create$ = kotlin_io_ktor_ktor_websockets.$_$.f;
+  var String$default = kotlin_io_ktor_ktor_io.$_$.g;
+  var BytePacketBuilder_init_$Create$ = kotlin_io_ktor_ktor_io.$_$.n;
+  var writeFully$default = kotlin_io_ktor_ktor_io.$_$.j;
+  var readShort = kotlin_io_ktor_ktor_io.$_$.c1;
+  var cancelConsumed = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.u;
   var Codes_INTERNAL_ERROR_getInstance = kotlin_io_ktor_ktor_websockets.$_$.b;
-  var CompletableDeferred$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
-  var Factory_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.l;
-  var DefaultWebSocketSession = kotlin_io_ktor_ktor_websockets.$_$.h;
+  var CompletableDeferred$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
+  var Factory_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.o;
+  var emptyList = kotlin_kotlin.$_$.s5;
+  var start$default = kotlin_io_ktor_ktor_websockets.$_$.d;
+  var cancel$default_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.l;
+  var send = kotlin_io_ktor_ktor_websockets.$_$.c;
+  var DefaultWebSocketSession = kotlin_io_ktor_ktor_websockets.$_$.j;
   //endregion
   //region block: pre-declaration
   HttpClient$slambda.prototype = Object.create(CoroutineImpl.prototype);
@@ -231,6 +244,8 @@
   $executeCOROUTINE$0.prototype.constructor = $executeCOROUTINE$0;
   $bodyNullableCOROUTINE$1.prototype = Object.create(CoroutineImpl.prototype);
   $bodyNullableCOROUTINE$1.prototype.constructor = $bodyNullableCOROUTINE$1;
+  $bodyCOROUTINE$2.prototype = Object.create(CoroutineImpl.prototype);
+  $bodyCOROUTINE$2.prototype.constructor = $bodyCOROUTINE$2;
   DoubleReceiveException.prototype = Object.create(IllegalStateException.prototype);
   DoubleReceiveException.prototype.constructor = DoubleReceiveException;
   NoTransformationFoundException.prototype = Object.create(UnsupportedOperationException.prototype);
@@ -238,7 +253,7 @@
   SavedHttpCall.prototype = Object.create(HttpClientCall.prototype);
   SavedHttpCall.prototype.constructor = SavedHttpCall;
   function get_coroutineContext() {
-    return this.a27().qk();
+    return this.get_call_wojxrb_k$().get_coroutineContext_115oqo_k$();
   }
   SavedHttpResponse.prototype = Object.create(HttpResponse.prototype);
   SavedHttpResponse.prototype.constructor = SavedHttpResponse;
@@ -260,11 +275,23 @@
     return emptySet();
   }
   function install(client) {
-    var tmp = Phases_getInstance_0().k24_1;
-    client.t21_1.k1n(tmp, HttpClientEngine$install$slambda_0(client, this, null));
+    var tmp = Phases_getInstance_0().Engine_1;
+    client.sendPipeline_1.intercept_hnj3e1_k$(tmp, HttpClientEngine$install$slambda_0(client, this, null));
+  }
+  function create$default(block, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0)) {
+      block = HttpClientEngineFactory$create$lambda();
+    }
+    return $handler == null ? this.create_g3w65u_k$(block) : $handler(block);
   }
   ClientEngineClosedException.prototype = Object.create(IllegalStateException.prototype);
   ClientEngineClosedException.prototype.constructor = ClientEngineClosedException;
+  function prepare$default(block, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0)) {
+      block = HttpClientPlugin$prepare$lambda();
+    }
+    return $handler == null ? this.prepare_aftpuj_k$(block) : $handler(block);
+  }
   BodyProgress$handle$slambda.prototype = Object.create(CoroutineImpl.prototype);
   BodyProgress$handle$slambda.prototype.constructor = BodyProgress$handle$slambda;
   BodyProgress$handle$slambda_1.prototype = Object.create(CoroutineImpl.prototype);
@@ -309,6 +336,12 @@
   $handleCallCOROUTINE$7.prototype.constructor = $handleCallCOROUTINE$7;
   HttpRequestLifecycle$Plugin$install$slambda.prototype = Object.create(CoroutineImpl.prototype);
   HttpRequestLifecycle$Plugin$install$slambda.prototype.constructor = HttpRequestLifecycle$Plugin$install$slambda;
+  HttpRequestRetry$Configuration$delay$slambda.prototype = Object.create(CoroutineImpl.prototype);
+  HttpRequestRetry$Configuration$delay$slambda.prototype.constructor = HttpRequestRetry$Configuration$delay$slambda;
+  HttpRequestRetry$intercept$slambda.prototype = Object.create(CoroutineImpl.prototype);
+  HttpRequestRetry$intercept$slambda.prototype.constructor = HttpRequestRetry$intercept$slambda;
+  HttpRequestRetry$prepareRequest$slambda.prototype = Object.create(CoroutineImpl.prototype);
+  HttpRequestRetry$prepareRequest$slambda.prototype.constructor = HttpRequestRetry$prepareRequest$slambda;
   HttpSend$Plugin$install$slambda.prototype = Object.create(CoroutineImpl.prototype);
   HttpSend$Plugin$install$slambda.prototype.constructor = HttpSend$Plugin$install$slambda;
   $executeCOROUTINE$8.prototype = Object.create(CoroutineImpl.prototype);
@@ -325,12 +358,18 @@
   DelegatedResponse.prototype.constructor = DelegatedResponse;
   WebSocketException.prototype = Object.create(IllegalStateException.prototype);
   WebSocketException.prototype.constructor = WebSocketException;
+  $pipeToCOROUTINE$9.prototype = Object.create(CoroutineImpl.prototype);
+  $pipeToCOROUTINE$9.prototype.constructor = $pipeToCOROUTINE$9;
   ClientUpgradeContent.prototype = Object.create(NoContent.prototype);
   ClientUpgradeContent.prototype.constructor = ClientUpgradeContent;
   HttpRequestPipeline.prototype = Object.create(Pipeline.prototype);
   HttpRequestPipeline.prototype.constructor = HttpRequestPipeline;
   HttpSendPipeline.prototype = Object.create(Pipeline.prototype);
   HttpSendPipeline.prototype.constructor = HttpSendPipeline;
+  $getCOROUTINE$10.prototype = Object.create(CoroutineImpl.prototype);
+  $getCOROUTINE$10.prototype.constructor = $getCOROUTINE$10;
+  $getCOROUTINE$11.prototype = Object.create(CoroutineImpl.prototype);
+  $getCOROUTINE$11.prototype.constructor = $getCOROUTINE$11;
   DefaultHttpResponse.prototype = Object.create(HttpResponse.prototype);
   DefaultHttpResponse.prototype.constructor = DefaultHttpResponse;
   $bodyAsTextCOROUTINE$12.prototype = Object.create(CoroutineImpl.prototype);
@@ -370,63 +409,87 @@
   JsWebSocketSession$slambda.prototype = Object.create(CoroutineImpl.prototype);
   JsWebSocketSession$slambda.prototype.constructor = JsWebSocketSession$slambda;
   //endregion
-  function HttpClient_init_$Init$(engine, userConfig, manageEngine, $this) {
+  function HttpClient_init_$Init$(engine, userConfig, $mask0, $marker, $this) {
+    if (!(($mask0 & 2) === 0))
+      userConfig = new HttpClientConfig();
     HttpClient.call($this, engine, userConfig);
-    $this.n21_1 = manageEngine;
     return $this;
   }
-  function HttpClient_init_$Create$(engine, userConfig, manageEngine) {
-    return HttpClient_init_$Init$(engine, userConfig, manageEngine, Object.create(HttpClient.prototype));
+  function HttpClient_init_$Create$(engine, userConfig, $mask0, $marker) {
+    return HttpClient_init_$Init$(engine, userConfig, $mask0, $marker, Object.create(HttpClient.prototype));
+  }
+  function _get_userConfig__kgib42($this) {
+    return $this.userConfig_1;
+  }
+  function _set_manageEngine__r3e33k($this, _set____db54di) {
+    $this.manageEngine_1 = _set____db54di;
+  }
+  function _get_manageEngine__sdz8bg($this) {
+    return $this.manageEngine_1;
+  }
+  function HttpClient_init_$Init$_0(engine, userConfig, manageEngine, $this) {
+    HttpClient.call($this, engine, userConfig);
+    $this.manageEngine_1 = manageEngine;
+    return $this;
+  }
+  function HttpClient_init_$Create$_0(engine, userConfig, manageEngine) {
+    return HttpClient_init_$Init$_0(engine, userConfig, manageEngine, Object.create(HttpClient.prototype));
+  }
+  function _get_closed__iwkfs1($this) {
+    return $this.closed_1;
+  }
+  function _get_clientJob__3efckh($this) {
+    return $this.clientJob_1;
   }
   function HttpClient$lambda(this$0) {
     return function (it) {
       var tmp;
       if (!(it == null)) {
-        tmp = cancel$default(this$0.l21_1, null, 1, null);
+        tmp = cancel$default(this$0.engine_1, null, 1, null);
       }
       return Unit_getInstance();
     };
   }
   function HttpClient$slambda(this$0, resultContinuation) {
-    this.h22_1 = this$0;
+    this.this$0__1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpClient$slambda.prototype.l22 = function ($this$intercept, call, $cont) {
-    var tmp = this.m22($this$intercept, call, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpClient$slambda.prototype.invoke_63ydys_k$ = function ($this$intercept, call, $cont) {
+    var tmp = this.create_300ycv_k$($this$intercept, call, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpClient$slambda.prototype.xe = function (p1, p2, $cont) {
+  HttpClient$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.l22(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+    return this.invoke_63ydys_k$(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
   };
-  HttpClient$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpClient$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            var tmp_0 = this.j22_1;
+            this.exceptionState_1 = 3;
+            var tmp_0 = this.call_1;
             if (!(tmp_0 instanceof HttpClientCall)) {
-              var message = 'Error: HttpClientCall expected, but found ' + toString(this.j22_1) + '(' + getKClassFromExpression(this.j22_1) + ').';
+              var message = 'Error: HttpClientCall expected, but found ' + toString(this.call_1) + '(' + getKClassFromExpression(this.call_1) + ').';
               throw IllegalStateException_init_$Create$(toString(message));
             }
 
-            this.pd_1 = 1;
-            suspendResult = this.h22_1.u21_1.f1n(Unit_getInstance(), this.j22_1.s22(), this);
+            this.state_1 = 1;
+            suspendResult = this.this$0__1.receivePipeline_1.execute_av1190_k$(Unit_getInstance(), this.call_1.get_response_xlk07e_k$(), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.k22_1 = suspendResult;
-            this.j22_1.t22(this.k22_1);
-            this.pd_1 = 2;
-            suspendResult = this.i22_1.k1m(this.j22_1, this);
+            this.response0__1 = suspendResult;
+            this.call_1.setResponse_mhtqkc_k$(this.response0__1);
+            this.state_1 = 2;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.call_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -436,29 +499,29 @@
             ;
             return Unit_getInstance();
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpClient$slambda.prototype.m22 = function ($this$intercept, call, completion) {
-    var i = new HttpClient$slambda(this.h22_1, completion);
-    i.i22_1 = $this$intercept;
-    i.j22_1 = call;
+  HttpClient$slambda.prototype.create_300ycv_k$ = function ($this$intercept, call, completion) {
+    var i = new HttpClient$slambda(this.this$0__1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.call_1 = call;
     return i;
   };
   HttpClient$slambda.$metadata$ = classMeta('HttpClient$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpClient$slambda_0(this$0, resultContinuation) {
     var i = new HttpClient$slambda(this$0, resultContinuation);
     var l = function ($this$intercept, call, $cont) {
-      return i.l22($this$intercept, call, $cont);
+      return i.invoke_63ydys_k$($this$intercept, call, $cont);
     };
     l.$arity = 2;
     return l;
@@ -470,30 +533,30 @@
     };
   }
   function HttpClient$slambda_1(this$0, resultContinuation) {
-    this.c23_1 = this$0;
+    this.this$0__1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpClient$slambda_1.prototype.f23 = function ($this$intercept, it, $cont) {
-    var tmp = this.g23($this$intercept, it, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpClient$slambda_1.prototype.invoke_sqq52a_k$ = function ($this$intercept, it, $cont) {
+    var tmp = this.create_u7w3m5_k$($this$intercept, it, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpClient$slambda_1.prototype.xe = function (p1, p2, $cont) {
+  HttpClient$slambda_1.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.f23(tmp, p2 instanceof HttpResponseContainer ? p2 : THROW_CCE(), $cont);
+    return this.invoke_sqq52a_k$(tmp, p2 instanceof HttpResponseContainer ? p2 : THROW_CCE(), $cont);
   };
-  HttpClient$slambda_1.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpClient$slambda_1.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            this.qd_1 = 2;
-            this.pd_1 = 1;
-            suspendResult = this.d23_1.l1m(this);
+            this.exceptionState_1 = 3;
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this.$this$intercept_1.proceed_7g1848_k$(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -501,68 +564,68 @@
             continue $sm;
           case 1:
             ;
-            this.qd_1 = 3;
-            this.pd_1 = 4;
+            this.exceptionState_1 = 3;
+            this.state_1 = 4;
             continue $sm;
           case 2:
-            this.qd_1 = 3;
-            var tmp_0 = this.sd_1;
+            this.exceptionState_1 = 3;
+            var tmp_0 = this.exception_1;
             if (tmp_0 instanceof Error) {
-              var cause = this.sd_1;
-              this.c23_1.x21_1.l20(get_HttpResponseReceiveFailed(), new HttpResponseReceiveFail(this.d23_1.g1n_1.s22(), cause));
+              var cause = this.exception_1;
+              this.this$0__1.monitor_1.raise_segvv5_k$(get_HttpResponseReceiveFailed(), new HttpResponseReceiveFail(this.$this$intercept_1.context_1.get_response_xlk07e_k$(), cause));
               throw cause;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
           case 4:
-            this.qd_1 = 3;
+            this.exceptionState_1 = 3;
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpClient$slambda_1.prototype.g23 = function ($this$intercept, it, completion) {
-    var i = new HttpClient$slambda_1(this.c23_1, completion);
-    i.d23_1 = $this$intercept;
-    i.e23_1 = it;
+  HttpClient$slambda_1.prototype.create_u7w3m5_k$ = function ($this$intercept, it, completion) {
+    var i = new HttpClient$slambda_1(this.this$0__1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.it_1 = it;
     return i;
   };
   HttpClient$slambda_1.$metadata$ = classMeta('HttpClient$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpClient$slambda_2(this$0, resultContinuation) {
     var i = new HttpClient$slambda_1(this$0, resultContinuation);
     var l = function ($this$intercept, it, $cont) {
-      return i.f23($this$intercept, it, $cont);
+      return i.invoke_sqq52a_k$($this$intercept, it, $cont);
     };
     l.$arity = 2;
     return l;
   }
   function $executeCOROUTINE$0(_this__u8e3s4, builder, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.p23_1 = _this__u8e3s4;
-    this.q23_1 = builder;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.builder_1 = builder;
   }
-  $executeCOROUTINE$0.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $executeCOROUTINE$0.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            this.p23_1.x21_1.l20(get_HttpRequestCreated(), this.q23_1);
-            this.pd_1 = 1;
-            suspendResult = this.p23_1.r21_1.f1n(this.q23_1, this.q23_1.u23_1, this);
+            this.exceptionState_1 = 2;
+            this._this__u8e3s4__1.monitor_1.raise_segvv5_k$(get_HttpRequestCreated(), this.builder_1);
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.requestPipeline_1.execute_av1190_k$(this.builder_1, this.builder_1.body_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -571,106 +634,150 @@
           case 1:
             return suspendResult instanceof HttpClientCall ? suspendResult : THROW_CCE();
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $executeCOROUTINE$0.$metadata$ = classMeta('$executeCOROUTINE$0', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function HttpClient(engine, userConfig) {
-    this.l21_1 = engine;
-    this.m21_1 = userConfig;
-    this.n21_1 = false;
-    this.o21_1 = atomic$boolean$1(false);
-    this.p21_1 = Job(this.l21_1.qk().b3(Key_getInstance()));
-    this.q21_1 = this.l21_1.qk().i3(this.p21_1);
-    this.r21_1 = new HttpRequestPipeline(this.m21_1.e24_1);
-    this.s21_1 = new HttpResponsePipeline(this.m21_1.e24_1);
-    this.t21_1 = new HttpSendPipeline(this.m21_1.e24_1);
-    this.u21_1 = new HttpReceivePipeline(this.m21_1.e24_1);
-    this.v21_1 = Attributes(true);
-    this.w21_1 = this.l21_1.f24();
-    this.x21_1 = new Events();
-    this.y21_1 = new HttpClientConfig();
-    if (this.n21_1) {
-      this.p21_1.rl(HttpClient$lambda(this));
+    this.engine_1 = engine;
+    this.userConfig_1 = userConfig;
+    this.manageEngine_1 = false;
+    this.closed_1 = atomic$boolean$1(false);
+    this.clientJob_1 = Job(this.engine_1.get_coroutineContext_115oqo_k$().get_1pi7hg_k$(Key_getInstance()));
+    this.coroutineContext_1 = this.engine_1.get_coroutineContext_115oqo_k$().plus_rgw9wi_k$(this.clientJob_1);
+    this.requestPipeline_1 = new HttpRequestPipeline(this.userConfig_1.developmentMode_1);
+    this.responsePipeline_1 = new HttpResponsePipeline(this.userConfig_1.developmentMode_1);
+    this.sendPipeline_1 = new HttpSendPipeline(this.userConfig_1.developmentMode_1);
+    this.receivePipeline_1 = new HttpReceivePipeline(this.userConfig_1.developmentMode_1);
+    this.attributes_1 = Attributes(true);
+    this.engineConfig_1 = this.engine_1.get_config_c0698r_k$();
+    this.monitor_1 = new Events();
+    this.config_1 = new HttpClientConfig();
+    if (this.manageEngine_1) {
+      this.clientJob_1.invokeOnCompletion_t2apld_k$(HttpClient$lambda(this));
     }
-    this.l21_1.g24(this);
-    var tmp = Phases_getInstance_0().l24_1;
-    this.t21_1.k1n(tmp, HttpClient$slambda_0(this, null));
+    this.engine_1.install_vgwzcp_k$(this);
+    var tmp = Phases_getInstance_0().Receive_1;
+    this.sendPipeline_1.intercept_hnj3e1_k$(tmp, HttpClient$slambda_0(this, null));
     var tmp$ret$0;
     {
-      var tmp0_with = this.m21_1;
+      var tmp0_with = this.userConfig_1;
       {
       }
       var tmp_0 = Plugin_getInstance_2();
-      this.y21_1.m24(tmp_0, null, 2, null);
+      this.config_1.install$default_nkrny_k$(tmp_0, null, 2, null);
       var tmp_1 = Plugin_getInstance();
-      this.y21_1.m24(tmp_1, null, 2, null);
-      if (tmp0_with.c24_1) {
-        this.y21_1.n24('DefaultTransformers', HttpClient$lambda_0());
+      this.config_1.install$default_nkrny_k$(tmp_1, null, 2, null);
+      if (tmp0_with.useDefaultTransformers_1) {
+        this.config_1.install_1usqzt_k$('DefaultTransformers', HttpClient$lambda_0());
       }
-      var tmp_2 = Plugin_getInstance_3();
-      this.y21_1.m24(tmp_2, null, 2, null);
+      var tmp_2 = Plugin_getInstance_4();
+      this.config_1.install$default_nkrny_k$(tmp_2, null, 2, null);
       var tmp_3 = Companion_getInstance_9();
-      this.y21_1.m24(tmp_3, null, 2, null);
-      if (tmp0_with.b24_1) {
+      this.config_1.install$default_nkrny_k$(tmp_3, null, 2, null);
+      if (tmp0_with.followRedirects_1) {
         var tmp_4 = Plugin_getInstance_1();
-        this.y21_1.m24(tmp_4, null, 2, null);
+        this.config_1.install$default_nkrny_k$(tmp_4, null, 2, null);
       }
       var tmp0_this = this;
-      tmp0_this.y21_1.o24(tmp0_with);
-      if (tmp0_with.c24_1) {
+      tmp0_this.config_1.plusAssign_husw69_k$(tmp0_with);
+      if (tmp0_with.useDefaultTransformers_1) {
         var tmp_5 = Plugin_getInstance_0();
-        this.y21_1.m24(tmp_5, null, 2, null);
+        this.config_1.install$default_nkrny_k$(tmp_5, null, 2, null);
       }
-      addDefaultResponseValidation(this.y21_1);
-      tmp$ret$0 = this.y21_1.g24(this);
+      addDefaultResponseValidation(this.config_1);
+      tmp$ret$0 = this.config_1.install_vgwzcp_k$(this);
     }
-    var tmp_6 = Phases_getInstance_1().p24_1;
-    this.s21_1.k1n(tmp_6, HttpClient$slambda_2(this, null));
+    var tmp_6 = Phases_getInstance_1().Receive_1;
+    this.responsePipeline_1.intercept_hnj3e1_k$(tmp_6, HttpClient$slambda_2(this, null));
   }
-  HttpClient.prototype.qk = function () {
-    return this.q21_1;
+  HttpClient.prototype.get_engine_cxlavf_k$ = function () {
+    return this.engine_1;
   };
-  HttpClient.prototype.u24 = function (builder, $cont) {
+  HttpClient.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.coroutineContext_1;
+  };
+  HttpClient.prototype.get_requestPipeline_5d9z6w_k$ = function () {
+    return this.requestPipeline_1;
+  };
+  HttpClient.prototype.get_responsePipeline_xbi790_k$ = function () {
+    return this.responsePipeline_1;
+  };
+  HttpClient.prototype.get_sendPipeline_5dhg2b_k$ = function () {
+    return this.sendPipeline_1;
+  };
+  HttpClient.prototype.get_receivePipeline_3qwhq4_k$ = function () {
+    return this.receivePipeline_1;
+  };
+  HttpClient.prototype.get_attributes_dgqof4_k$ = function () {
+    return this.attributes_1;
+  };
+  HttpClient.prototype.get_engineConfig_azc9kd_k$ = function () {
+    return this.engineConfig_1;
+  };
+  HttpClient.prototype.get_monitor_lpmkc1_k$ = function () {
+    return this.monitor_1;
+  };
+  HttpClient.prototype.get_config_c0698r_k$ = function () {
+    return this.config_1;
+  };
+  HttpClient.prototype.execute_z0ufkc_k$ = function (builder, $cont) {
     var tmp = new $executeCOROUTINE$0(this, builder, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpClient.prototype.i10 = function () {
-    var success = this.o21_1.atomicfu$compareAndSet(false, true);
+  HttpClient.prototype.isSupported_8gq8th_k$ = function (capability) {
+    return this.engine_1.get_supportedCapabilities_gwz15x_k$().contains_2ehdt1_k$(capability);
+  };
+  HttpClient.prototype.config_pxdses_k$ = function (block) {
+    var tmp$ret$0;
+    {
+      var tmp0_apply = new HttpClientConfig();
+      {
+      }
+      {
+        tmp0_apply.plusAssign_husw69_k$(this.userConfig_1);
+        block(tmp0_apply);
+      }
+      tmp$ret$0 = tmp0_apply;
+    }
+    return HttpClient_init_$Create$_0(this.engine_1, tmp$ret$0, this.manageEngine_1);
+  };
+  HttpClient.prototype.close_ymq55z_k$ = function () {
+    var success = this.closed_1.atomicfu$compareAndSet(false, true);
     if (!success)
       return Unit_getInstance();
-    var installedFeatures = this.v21_1.y1i(get_PLUGIN_INSTALLED_LIST());
+    var installedFeatures = this.attributes_1.get_g4gx7m_k$(get_PLUGIN_INSTALLED_LIST());
     {
-      var tmp0_forEach = installedFeatures.e1j();
-      var tmp0_iterator = tmp0_forEach.d();
-      while (tmp0_iterator.e()) {
-        var element = tmp0_iterator.f();
+      var tmp0_forEach = installedFeatures.get_allKeys_dton90_k$();
+      var tmp0_iterator = tmp0_forEach.iterator_jk1svi_k$();
+      while (tmp0_iterator.hasNext_bitz1p_k$()) {
+        var element = tmp0_iterator.next_20eer_k$();
         {
-          var plugin = installedFeatures.y1i(element instanceof AttributeKey ? element : THROW_CCE());
+          var plugin = installedFeatures.get_g4gx7m_k$(element instanceof AttributeKey ? element : THROW_CCE());
           if (isInterface(plugin, Closeable)) {
-            plugin.i10();
+            plugin.close_ymq55z_k$();
           }
         }
       }
     }
-    this.p21_1.kq();
-    if (this.n21_1) {
-      this.l21_1.i10();
+    this.clientJob_1.complete_9ww6vb_k$();
+    if (this.manageEngine_1) {
+      this.engine_1.close_ymq55z_k$();
     }
   };
   HttpClient.prototype.toString = function () {
-    return 'HttpClient[' + this.l21_1 + ']';
+    return 'HttpClient[' + this.engine_1 + ']';
   };
   HttpClient.$metadata$ = classMeta('HttpClient', [CoroutineScope, Closeable]);
   function HttpClient_0(engineFactory, block) {
@@ -683,20 +790,47 @@
       tmp$ret$0 = tmp0_apply;
     }
     var config = tmp$ret$0;
-    var engine = engineFactory.v24(config.a24_1);
-    var client = HttpClient_init_$Create$(engine, config, true);
-    var tmp = ensureNotNull(client.q21_1.b3(Key_getInstance()));
-    tmp.rl(HttpClient$lambda_1(engine));
+    var engine = engineFactory.create_g3w65u_k$(config.engineConfig_1);
+    var client = HttpClient_init_$Create$_0(engine, config, true);
+    var tmp = ensureNotNull(client.coroutineContext_1.get_1pi7hg_k$(Key_getInstance()));
+    tmp.invokeOnCompletion_t2apld_k$(HttpClient$lambda_2(engine));
     return client;
   }
-  function HttpClient$lambda_1($engine) {
-    return function (it) {
-      $engine.i10();
+  function HttpClient$default(engineFactory, block, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0)) {
+      block = HttpClient$lambda_1();
+    }
+    return HttpClient_0(engineFactory, block);
+  }
+  function HttpClient$lambda_1() {
+    return function ($this$null) {
       return Unit_getInstance();
     };
   }
+  function HttpClient$lambda_2($engine) {
+    return function (it) {
+      $engine.close_ymq55z_k$();
+      return Unit_getInstance();
+    };
+  }
+  function _get_plugins__4elqi9($this) {
+    return $this.plugins_1;
+  }
+  function _get_pluginConfigurations__abgoat($this) {
+    return $this.pluginConfigurations_1;
+  }
+  function _get_customInterceptors__qan0x8($this) {
+    return $this.customInterceptors_1;
+  }
   function HttpClientConfig$engineConfig$lambda() {
     return function ($this$null) {
+      return Unit_getInstance();
+    };
+  }
+  function HttpClientConfig$engine$lambda($oldConfig, $block) {
+    return function ($this$null) {
+      $oldConfig($this$null);
+      $block($this$null);
       return Unit_getInstance();
     };
   }
@@ -724,11 +858,11 @@
   function HttpClientConfig$install$lambda_1($plugin) {
     return function (scope) {
       var tmp = get_PLUGIN_INSTALLED_LIST();
-      var attributes = scope.v21_1.d1j(tmp, HttpClientConfig$install$lambda$lambda());
-      var config = ensureNotNull(scope.y21_1.y23_1.b2($plugin.r()));
-      var pluginData = $plugin.w24(config);
-      $plugin.x24(pluginData, scope);
-      attributes.b1j($plugin.r(), pluginData);
+      var attributes = scope.attributes_1.computeIfAbsent_ia69ed_k$(tmp, HttpClientConfig$install$lambda$lambda());
+      var config = ensureNotNull(scope.config_1.pluginConfigurations_1.get_1mhr4y_k$($plugin.get_key_18j28a_k$()));
+      var pluginData = $plugin.prepare_aftpuj_k$(config);
+      $plugin.install_cj05u9_k$(pluginData, scope);
+      attributes.put_ii1a3j_k$($plugin.get_key_18j28a_k$(), pluginData);
       return Unit_getInstance();
     };
   }
@@ -738,59 +872,94 @@
     {
       tmp$ret$0 = LinkedHashMap_init_$Create$();
     }
-    tmp.x23_1 = tmp$ret$0;
+    tmp.plugins_1 = tmp$ret$0;
     var tmp_0 = this;
     var tmp$ret$1;
     {
       tmp$ret$1 = LinkedHashMap_init_$Create$();
     }
-    tmp_0.y23_1 = tmp$ret$1;
+    tmp_0.pluginConfigurations_1 = tmp$ret$1;
     var tmp_1 = this;
     var tmp$ret$2;
     {
       tmp$ret$2 = LinkedHashMap_init_$Create$();
     }
-    tmp_1.z23_1 = tmp$ret$2;
+    tmp_1.customInterceptors_1 = tmp$ret$2;
     var tmp_2 = this;
-    tmp_2.a24_1 = HttpClientConfig$engineConfig$lambda();
-    this.b24_1 = true;
-    this.c24_1 = true;
-    this.d24_1 = false;
-    this.e24_1 = PlatformUtils_getInstance().g1o_1;
+    tmp_2.engineConfig_1 = HttpClientConfig$engineConfig$lambda();
+    this.followRedirects_1 = true;
+    this.useDefaultTransformers_1 = true;
+    this.expectSuccess_1 = false;
+    this.developmentMode_1 = PlatformUtils_getInstance().IS_DEVELOPMENT_MODE_1;
   }
-  HttpClientConfig.prototype.y24 = function (plugin, configure) {
-    var previousConfigBlock = this.y23_1.b2(plugin.r());
+  HttpClientConfig.prototype.set_engineConfig_l9reii_k$ = function (_set____db54di) {
+    this.engineConfig_1 = _set____db54di;
+  };
+  HttpClientConfig.prototype.get_engineConfig_azc9kd_k$ = function () {
+    return this.engineConfig_1;
+  };
+  HttpClientConfig.prototype.engine_avsg87_k$ = function (block) {
+    var oldConfig = this.engineConfig_1;
+    var tmp = this;
+    tmp.engineConfig_1 = HttpClientConfig$engine$lambda(oldConfig, block);
+  };
+  HttpClientConfig.prototype.set_followRedirects_l10dz4_k$ = function (_set____db54di) {
+    this.followRedirects_1 = _set____db54di;
+  };
+  HttpClientConfig.prototype.get_followRedirects_a62ikd_k$ = function () {
+    return this.followRedirects_1;
+  };
+  HttpClientConfig.prototype.set_useDefaultTransformers_gtwv0o_k$ = function (_set____db54di) {
+    this.useDefaultTransformers_1 = _set____db54di;
+  };
+  HttpClientConfig.prototype.get_useDefaultTransformers_1tuc9v_k$ = function () {
+    return this.useDefaultTransformers_1;
+  };
+  HttpClientConfig.prototype.set_expectSuccess_k3nqik_k$ = function (_set____db54di) {
+    this.expectSuccess_1 = _set____db54di;
+  };
+  HttpClientConfig.prototype.get_expectSuccess_uic3pb_k$ = function () {
+    return this.expectSuccess_1;
+  };
+  HttpClientConfig.prototype.set_developmentMode_aswiso_k$ = function (_set____db54di) {
+    this.developmentMode_1 = _set____db54di;
+  };
+  HttpClientConfig.prototype.get_developmentMode_eqiro5_k$ = function () {
+    return this.developmentMode_1;
+  };
+  HttpClientConfig.prototype.install_bd33qw_k$ = function (plugin, configure) {
+    var previousConfigBlock = this.pluginConfigurations_1.get_1mhr4y_k$(plugin.get_key_18j28a_k$());
     {
-      var tmp0_set = this.y23_1;
-      var tmp1_set = plugin.r();
-      tmp0_set.a(tmp1_set, HttpClientConfig$install$lambda_0(previousConfigBlock, configure));
+      var tmp0_set = this.pluginConfigurations_1;
+      var tmp1_set = plugin.get_key_18j28a_k$();
+      tmp0_set.put_3mhbri_k$(tmp1_set, HttpClientConfig$install$lambda_0(previousConfigBlock, configure));
     }
-    if (this.x23_1.x1(plugin.r()))
+    if (this.plugins_1.containsKey_wgk31w_k$(plugin.get_key_18j28a_k$()))
       return Unit_getInstance();
     {
-      var tmp2_set = this.x23_1;
-      var tmp3_set = plugin.r();
-      tmp2_set.a(tmp3_set, HttpClientConfig$install$lambda_1(plugin));
+      var tmp2_set = this.plugins_1;
+      var tmp3_set = plugin.get_key_18j28a_k$();
+      tmp2_set.put_3mhbri_k$(tmp3_set, HttpClientConfig$install$lambda_1(plugin));
     }
   };
-  HttpClientConfig.prototype.m24 = function (plugin, configure, $mask0, $handler) {
+  HttpClientConfig.prototype.install$default_nkrny_k$ = function (plugin, configure, $mask0, $handler) {
     if (!(($mask0 & 2) === 0)) {
       configure = HttpClientConfig$install$lambda();
     }
-    return this.y24(plugin, configure);
+    return this.install_bd33qw_k$(plugin, configure);
   };
-  HttpClientConfig.prototype.n24 = function (key, block) {
+  HttpClientConfig.prototype.install_1usqzt_k$ = function (key, block) {
     {
-      var tmp0_set = this.z23_1;
-      tmp0_set.a(key, block);
+      var tmp0_set = this.customInterceptors_1;
+      tmp0_set.put_3mhbri_k$(key, block);
     }
   };
-  HttpClientConfig.prototype.g24 = function (client) {
+  HttpClientConfig.prototype.install_vgwzcp_k$ = function (client) {
     {
-      var tmp0_forEach = this.x23_1.a8();
-      var tmp0_iterator = tmp0_forEach.d();
-      while (tmp0_iterator.e()) {
-        var element = tmp0_iterator.f();
+      var tmp0_forEach = this.plugins_1.get_values_ksazhn_k$();
+      var tmp0_iterator = tmp0_forEach.iterator_jk1svi_k$();
+      while (tmp0_iterator.hasNext_bitz1p_k$()) {
+        var element = tmp0_iterator.next_20eer_k$();
         {
           var tmp$ret$0;
           {
@@ -803,10 +972,10 @@
       }
     }
     {
-      var tmp1_forEach = this.z23_1.a8();
-      var tmp0_iterator_0 = tmp1_forEach.d();
-      while (tmp0_iterator_0.e()) {
-        var element_0 = tmp0_iterator_0.f();
+      var tmp1_forEach = this.customInterceptors_1.get_values_ksazhn_k$();
+      var tmp0_iterator_0 = tmp1_forEach.iterator_jk1svi_k$();
+      while (tmp0_iterator_0.hasNext_bitz1p_k$()) {
+        var element_0 = tmp0_iterator_0.next_20eer_k$();
         {
           var tmp$ret$1;
           {
@@ -819,37 +988,45 @@
       }
     }
   };
-  HttpClientConfig.prototype.o24 = function (other) {
-    this.b24_1 = other.b24_1;
-    this.c24_1 = other.c24_1;
-    this.d24_1 = other.d24_1;
+  HttpClientConfig.prototype.clone_1keycd_k$ = function () {
+    var result = new HttpClientConfig();
+    result.plusAssign_husw69_k$(this);
+    return result;
+  };
+  HttpClientConfig.prototype.plusAssign_husw69_k$ = function (other) {
+    this.followRedirects_1 = other.followRedirects_1;
+    this.useDefaultTransformers_1 = other.useDefaultTransformers_1;
+    this.expectSuccess_1 = other.expectSuccess_1;
     var tmp0_this = this;
     {
-      var tmp0_plusAssign = tmp0_this.x23_1;
-      var tmp1_plusAssign = other.x23_1;
-      tmp0_plusAssign.m2(tmp1_plusAssign);
+      var tmp0_plusAssign = tmp0_this.plugins_1;
+      var tmp1_plusAssign = other.plugins_1;
+      tmp0_plusAssign.putAll_mee1c3_k$(tmp1_plusAssign);
     }
     var tmp1_this = this;
     {
-      var tmp2_plusAssign = tmp1_this.y23_1;
-      var tmp3_plusAssign = other.y23_1;
-      tmp2_plusAssign.m2(tmp3_plusAssign);
+      var tmp2_plusAssign = tmp1_this.pluginConfigurations_1;
+      var tmp3_plusAssign = other.pluginConfigurations_1;
+      tmp2_plusAssign.putAll_mee1c3_k$(tmp3_plusAssign);
     }
     var tmp2_this = this;
     {
-      var tmp4_plusAssign = tmp2_this.z23_1;
-      var tmp5_plusAssign = other.z23_1;
-      tmp4_plusAssign.m2(tmp5_plusAssign);
+      var tmp4_plusAssign = tmp2_this.customInterceptors_1;
+      var tmp5_plusAssign = other.customInterceptors_1;
+      tmp4_plusAssign.putAll_mee1c3_k$(tmp5_plusAssign);
     }
   };
   HttpClientConfig.$metadata$ = classMeta('HttpClientConfig');
+  function _get_received__yyerqu($this) {
+    return $this.received_1;
+  }
   function HttpClientCall_init_$Init$(client, requestData, responseData, $this) {
     HttpClientCall.call($this, client);
-    $this.p22_1 = new DefaultHttpRequest($this, requestData);
-    $this.q22_1 = new DefaultHttpResponse($this, responseData);
-    var tmp = responseData.d25_1;
+    $this.request_1 = new DefaultHttpRequest($this, requestData);
+    $this.response_1 = new DefaultHttpResponse($this, responseData);
+    var tmp = responseData.body_1;
     if (!isInterface(tmp, ByteReadChannel)) {
-      $this.cf().b1j(Companion_getInstance_7().g25_1, responseData.d25_1);
+      $this.get_attributes_dgqof4_k$().put_ii1a3j_k$(Companion_getInstance_7().CustomResponse_1, responseData.body_1);
     }
     return $this;
   }
@@ -858,8 +1035,11 @@
   }
   function Companion() {
     Companion_instance = this;
-    this.g25_1 = new AttributeKey('CustomResponse');
+    this.CustomResponse_1 = new AttributeKey('CustomResponse');
   }
+  Companion.prototype.get_CustomResponse_zh4zd1_k$ = function () {
+    return this.CustomResponse_1;
+  };
   Companion.$metadata$ = objectMeta('Companion');
   var Companion_instance;
   function Companion_getInstance_7() {
@@ -869,65 +1049,65 @@
   }
   function $bodyNullableCOROUTINE$1(_this__u8e3s4, info, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.p25_1 = _this__u8e3s4;
-    this.q25_1 = info;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.info_1 = info;
   }
-  $bodyNullableCOROUTINE$1.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $bodyNullableCOROUTINE$1.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 10;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 10;
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            this.pd_1 = 2;
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            this.qd_1 = 9;
-            this.qd_1 = 8;
-            if (instanceOf(this.p25_1.s22(), this.q25_1.y1n_1)) {
-              this.r25_1 = this.p25_1.s22();
-              this.qd_1 = 10;
-              this.pd_1 = 7;
+            this.exceptionState_1 = 9;
+            this.exceptionState_1 = 8;
+            if (instanceOf(this._this__u8e3s4__1.get_response_xlk07e_k$(), this.info_1.type_1)) {
+              this.tmp$ret$01__1 = this._this__u8e3s4__1.get_response_xlk07e_k$();
+              this.exceptionState_1 = 10;
+              this.state_1 = 7;
               continue $sm;
             } else {
-              this.pd_1 = 3;
+              this.state_1 = 3;
               continue $sm;
             }
 
             break;
           case 3:
-            if (!this.p25_1.w25() ? !this.p25_1.o22_1.atomicfu$compareAndSet(false, true) : false) {
-              throw new DoubleReceiveException(this.p25_1);
+            if (!this._this__u8e3s4__1.get_allowDoubleReceive_um1gnm_k$() ? !this._this__u8e3s4__1.received_1.atomicfu$compareAndSet(false, true) : false) {
+              throw new DoubleReceiveException(this._this__u8e3s4__1);
             }
 
-            this.s25_1 = this.p25_1.cf().z1i(Companion_getInstance_7().g25_1);
-            if (this.s25_1 == null) {
-              this.pd_1 = 4;
-              suspendResult = this.p25_1.x25(this);
+            this.tmp0_elvis_lhs2__1 = this._this__u8e3s4__1.get_attributes_dgqof4_k$().getOrNull_dkmqfg_k$(Companion_getInstance_7().CustomResponse_1);
+            if (this.tmp0_elvis_lhs2__1 == null) {
+              this.state_1 = 4;
+              suspendResult = this._this__u8e3s4__1.getResponseContent_i44bm0_k$(this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              this.t25_1 = this.s25_1;
-              this.pd_1 = 5;
+              this.WHEN_RESULT3__1 = this.tmp0_elvis_lhs2__1;
+              this.state_1 = 5;
               continue $sm;
             }
 
             break;
           case 4:
-            this.t25_1 = suspendResult;
-            this.pd_1 = 5;
+            this.WHEN_RESULT3__1 = suspendResult;
+            this.state_1 = 5;
             continue $sm;
           case 5:
-            this.u25_1 = this.t25_1;
-            this.v25_1 = new HttpResponseContainer(this.q25_1, this.u25_1);
-            this.pd_1 = 6;
-            suspendResult = this.p25_1.n22_1.s21_1.f1n(this.p25_1, this.v25_1, this);
+            this.responseData4__1 = this.WHEN_RESULT3__1;
+            this.subject5__1 = new HttpResponseContainer(this.info_1, this.responseData4__1);
+            this.state_1 = 6;
+            suspendResult = this._this__u8e3s4__1.client_1.responsePipeline_1.execute_av1190_k$(this._this__u8e3s4__1, this.subject5__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -935,7 +1115,7 @@
             continue $sm;
           case 6:
             var ARGUMENT = suspendResult;
-            var tmp0_takeIf = ARGUMENT.z25_1;
+            var tmp0_takeIf = ARGUMENT.response_1;
             var tmp_0;
             if (!equals(tmp0_takeIf, NullBody_getInstance())) {
               tmp_0 = tmp0_takeIf;
@@ -944,247 +1124,305 @@
             }
 
             var result = tmp_0;
-            if (!(result == null) ? !instanceOf(result, this.q25_1.y1n_1) : false) {
+            if (!(result == null) ? !instanceOf(result, this.info_1.type_1) : false) {
               var from = getKClassFromExpression(result);
-              var to = this.q25_1.y1n_1;
-              throw new NoTransformationFoundException(this.p25_1.s22(), from, to);
+              var to = this.info_1.type_1;
+              throw new NoTransformationFoundException(this._this__u8e3s4__1.get_response_xlk07e_k$(), from, to);
             }
 
-            this.r25_1 = result;
-            this.qd_1 = 10;
-            this.pd_1 = 7;
+            this.tmp$ret$01__1 = result;
+            this.exceptionState_1 = 10;
+            this.state_1 = 7;
             var tmp_1 = this;
             continue $sm;
           case 7:
-            var tmp_2 = this.r25_1;
-            complete(this.p25_1.s22());
+            var tmp_2 = this.tmp$ret$01__1;
+            complete(this._this__u8e3s4__1.get_response_xlk07e_k$());
             return tmp_2;
           case 8:
-            this.qd_1 = 9;
-            var tmp_3 = this.sd_1;
+            this.exceptionState_1 = 9;
+            var tmp_3 = this.exception_1;
             if (tmp_3 instanceof Error) {
-              var cause = this.sd_1;
+              var cause = this.exception_1;
               var tmp_4 = this;
-              cancel(this.p25_1.s22(), 'Receive failed', cause);
+              cancel(this._this__u8e3s4__1.get_response_xlk07e_k$(), 'Receive failed', cause);
               throw cause;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 9:
-            this.qd_1 = 10;
-            var t = this.sd_1;
-            complete(this.p25_1.s22());
+            this.exceptionState_1 = 10;
+            var t = this.exception_1;
+            complete(this._this__u8e3s4__1.get_response_xlk07e_k$());
             throw t;
           case 10:
-            throw this.sd_1;
+            throw this.exception_1;
           case 11:
-            complete(this.p25_1.s22());
+            complete(this._this__u8e3s4__1.get_response_xlk07e_k$());
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 10) {
+        if (this.exceptionState_1 === 10) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $bodyNullableCOROUTINE$1.$metadata$ = classMeta('$bodyNullableCOROUTINE$1', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $bodyCOROUTINE$2(_this__u8e3s4, info, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.info_1 = info;
+  }
+  $bodyCOROUTINE$2.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.bodyNullable_ld5qr1_k$(this.info_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            var ARGUMENT = suspendResult;
+            return ensureNotNull(ARGUMENT);
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $bodyCOROUTINE$2.$metadata$ = classMeta('$bodyCOROUTINE$2', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function HttpClientCall(client) {
     Companion_getInstance_7();
-    this.n22_1 = client;
-    this.o22_1 = atomic$boolean$1(false);
-    this.r22_1 = false;
+    this.client_1 = client;
+    this.received_1 = atomic$boolean$1(false);
+    this.allowDoubleReceive_1 = false;
   }
-  HttpClientCall.prototype.qk = function () {
-    return this.s22().qk();
+  HttpClientCall.prototype.get_client_byfnx0_k$ = function () {
+    return this.client_1;
   };
-  HttpClientCall.prototype.cf = function () {
-    return this.a26().cf();
+  HttpClientCall.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.get_response_xlk07e_k$().get_coroutineContext_115oqo_k$();
   };
-  HttpClientCall.prototype.b26 = function (_set____db54di) {
-    this.p22_1 = _set____db54di;
+  HttpClientCall.prototype.get_attributes_dgqof4_k$ = function () {
+    return this.get_request_jdwg4m_k$().get_attributes_dgqof4_k$();
   };
-  HttpClientCall.prototype.a26 = function () {
-    var tmp = this.p22_1;
+  HttpClientCall.prototype.set_request_e79eyj_k$ = function (_set____db54di) {
+    this.request_1 = _set____db54di;
+  };
+  HttpClientCall.prototype.get_request_jdwg4m_k$ = function () {
+    var tmp = this.request_1;
     if (!(tmp == null))
       return tmp;
     else {
       throwUninitializedPropertyAccessException('request');
     }
   };
-  HttpClientCall.prototype.c26 = function (_set____db54di) {
-    this.q22_1 = _set____db54di;
+  HttpClientCall.prototype.set_response_68z8hr_k$ = function (_set____db54di) {
+    this.response_1 = _set____db54di;
   };
-  HttpClientCall.prototype.s22 = function () {
-    var tmp = this.q22_1;
+  HttpClientCall.prototype.get_response_xlk07e_k$ = function () {
+    var tmp = this.response_1;
     if (!(tmp == null))
       return tmp;
     else {
       throwUninitializedPropertyAccessException('response');
     }
   };
-  HttpClientCall.prototype.w25 = function () {
-    return this.r22_1;
+  HttpClientCall.prototype.get_allowDoubleReceive_um1gnm_k$ = function () {
+    return this.allowDoubleReceive_1;
   };
-  HttpClientCall.prototype.x25 = function ($cont) {
-    return this.s22().f1q();
+  HttpClientCall.prototype.getResponseContent_i44bm0_k$ = function ($cont) {
+    return this.get_response_xlk07e_k$().get_content_h02jrk_k$();
   };
-  HttpClientCall.prototype.d26 = function (info, $cont) {
+  HttpClientCall.prototype.bodyNullable_ld5qr1_k$ = function (info, $cont) {
     var tmp = new $bodyNullableCOROUTINE$1(this, info, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  HttpClientCall.prototype.body_6b19f3_k$ = function (info, $cont) {
+    var tmp = new $bodyCOROUTINE$2(this, info, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
   HttpClientCall.prototype.toString = function () {
-    return 'HttpClientCall[' + this.a26().e26() + ', ' + this.s22().f26() + ']';
+    return 'HttpClientCall[' + this.get_request_jdwg4m_k$().get_url_18iuii_k$() + ', ' + this.get_response_xlk07e_k$().get_status_jnf6d7_k$() + ']';
   };
-  HttpClientCall.prototype.t22 = function (response) {
-    this.q22_1 = response;
+  HttpClientCall.prototype.setResponse_mhtqkc_k$ = function (response) {
+    this.response_1 = response;
+  };
+  HttpClientCall.prototype.setRequest_eln7k0_k$ = function (request) {
+    this.request_1 = request;
   };
   HttpClientCall.$metadata$ = classMeta('HttpClientCall', [CoroutineScope]);
   function DoubleReceiveException(call) {
     IllegalStateException_init_$Init$(this);
-    this.g26_1 = 'Response already received: ' + call;
+    this.message_1 = 'Response already received: ' + call;
     captureStack(this, DoubleReceiveException);
   }
-  DoubleReceiveException.prototype.f1 = function () {
-    return this.g26_1;
+  DoubleReceiveException.prototype.get_message_h23axq_k$ = function () {
+    return this.message_1;
   };
   DoubleReceiveException.$metadata$ = classMeta('DoubleReceiveException', undefined, undefined, undefined, undefined, IllegalStateException.prototype);
   Object.defineProperty(DoubleReceiveException.prototype, 'message', {
     configurable: true,
     get: function () {
-      return this.f1();
+      return this.get_message_h23axq_k$();
     }
   });
   function NoTransformationFoundException$message$lambda() {
     return function (_name_for_destructuring_parameter_0__wldtmu) {
-      var key = _name_for_destructuring_parameter_0__wldtmu.s4();
-      var value = _name_for_destructuring_parameter_0__wldtmu.t4();
+      var key = _name_for_destructuring_parameter_0__wldtmu.component1_7eebsc_k$();
+      var value = _name_for_destructuring_parameter_0__wldtmu.component2_7eebsb_k$();
       return key + ': ' + value + '\n';
     };
   }
   function NoTransformationFoundException(response, from, to) {
     UnsupportedOperationException_init_$Init$(this);
     var tmp = this;
-    var tmp_0 = get_request(response).e26();
-    var tmp_1 = response.f26();
-    var tmp_2 = flattenEntries(response.p1u());
+    var tmp_0 = get_request(response).get_url_18iuii_k$();
+    var tmp_1 = response.get_status_jnf6d7_k$();
+    var tmp_2 = flattenEntries(response.get_headers_ef25jx_k$());
     var tmp_3 = 'No transformation found: ' + from + ' -> ' + to + '\n        |with response from ' + tmp_0 + ':\n        |status: ' + tmp_1 + '\n        |response headers: \n        |' + joinToString$default(tmp_2, null, null, null, 0, null, NoTransformationFoundException$message$lambda(), 31, null) + '\n    ';
-    tmp.h26_1 = trimMargin$default(tmp_3, null, 1, null);
+    tmp.message_1 = trimMargin$default(tmp_3, null, 1, null);
     captureStack(this, NoTransformationFoundException);
   }
-  NoTransformationFoundException.prototype.f1 = function () {
-    return this.h26_1;
+  NoTransformationFoundException.prototype.get_message_h23axq_k$ = function () {
+    return this.message_1;
   };
   NoTransformationFoundException.$metadata$ = classMeta('NoTransformationFoundException', undefined, undefined, undefined, undefined, UnsupportedOperationException.prototype);
   Object.defineProperty(NoTransformationFoundException.prototype, 'message', {
     configurable: true,
     get: function () {
-      return this.f1();
+      return this.get_message_h23axq_k$();
     }
   });
   function save(_this__u8e3s4, $cont) {
     var tmp = new $saveCOROUTINE$3(_this__u8e3s4, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function _get_responseBody__mzdrmw($this) {
+    return $this.responseBody_1;
   }
   function SavedHttpCall(client, request, response, responseBody) {
     HttpClientCall.call(this, client);
-    this.w26_1 = responseBody;
-    this.b26(new SavedHttpRequest(this, request));
-    this.c26(new SavedHttpResponse(this, this.w26_1, response));
-    this.x26_1 = true;
+    this.responseBody_1 = responseBody;
+    this.set_request_e79eyj_k$(new SavedHttpRequest(this, request));
+    this.set_response_68z8hr_k$(new SavedHttpResponse(this, this.responseBody_1, response));
+    this.allowDoubleReceive_2 = true;
   }
-  SavedHttpCall.prototype.x25 = function ($cont) {
-    return ByteReadChannel_0(this.w26_1);
+  SavedHttpCall.prototype.getResponseContent_i44bm0_k$ = function ($cont) {
+    return ByteReadChannel_0(this.responseBody_1);
   };
-  SavedHttpCall.prototype.w25 = function () {
-    return this.x26_1;
+  SavedHttpCall.prototype.get_allowDoubleReceive_um1gnm_k$ = function () {
+    return this.allowDoubleReceive_2;
   };
   SavedHttpCall.$metadata$ = classMeta('SavedHttpCall', undefined, undefined, undefined, undefined, HttpClientCall.prototype);
   function SavedHttpRequest(call, origin) {
-    this.y26_1 = call;
-    this.z26_1 = origin;
+    this.call_1 = call;
+    this.$$delegate_0__1 = origin;
   }
-  SavedHttpRequest.prototype.a27 = function () {
-    return this.y26_1;
+  SavedHttpRequest.prototype.get_call_wojxrb_k$ = function () {
+    return this.call_1;
   };
-  SavedHttpRequest.prototype.cf = function () {
-    return this.z26_1.cf();
+  SavedHttpRequest.prototype.get_attributes_dgqof4_k$ = function () {
+    return this.$$delegate_0__1.get_attributes_dgqof4_k$();
   };
-  SavedHttpRequest.prototype.qk = function () {
-    return this.z26_1.qk();
+  SavedHttpRequest.prototype.get_content_h02jrk_k$ = function () {
+    return this.$$delegate_0__1.get_content_h02jrk_k$();
   };
-  SavedHttpRequest.prototype.p1u = function () {
-    return this.z26_1.p1u();
+  SavedHttpRequest.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.$$delegate_0__1.get_coroutineContext_115oqo_k$();
   };
-  SavedHttpRequest.prototype.b27 = function () {
-    return this.z26_1.b27();
+  SavedHttpRequest.prototype.get_headers_ef25jx_k$ = function () {
+    return this.$$delegate_0__1.get_headers_ef25jx_k$();
   };
-  SavedHttpRequest.prototype.e26 = function () {
-    return this.z26_1.e26();
+  SavedHttpRequest.prototype.get_method_gl8esq_k$ = function () {
+    return this.$$delegate_0__1.get_method_gl8esq_k$();
+  };
+  SavedHttpRequest.prototype.get_url_18iuii_k$ = function () {
+    return this.$$delegate_0__1.get_url_18iuii_k$();
   };
   SavedHttpRequest.$metadata$ = classMeta('SavedHttpRequest', [HttpRequest_0]);
+  function _get_context__ps0bpe($this) {
+    return $this.context_1;
+  }
   function SavedHttpResponse(call, body, origin) {
     HttpResponse.call(this);
-    this.c27_1 = call;
+    this.call_1 = call;
     var tmp = this;
-    tmp.d27_1 = Job$default(null, 1, null);
-    this.e27_1 = origin.f26();
-    this.f27_1 = origin.l27();
-    this.g27_1 = origin.m27();
-    this.h27_1 = origin.n27();
-    this.i27_1 = origin.p1u();
-    this.j27_1 = origin.qk().i3(this.d27_1);
-    this.k27_1 = ByteReadChannel_0(body);
+    tmp.context_1 = Job$default(null, 1, null);
+    this.status_1 = origin.get_status_jnf6d7_k$();
+    this.version_1 = origin.get_version_72w4j3_k$();
+    this.requestTime_1 = origin.get_requestTime_wwxhg3_k$();
+    this.responseTime_1 = origin.get_responseTime_scfvg7_k$();
+    this.headers_1 = origin.get_headers_ef25jx_k$();
+    this.coroutineContext_1 = origin.get_coroutineContext_115oqo_k$().plus_rgw9wi_k$(this.context_1);
+    this.content_1 = ByteReadChannel_0(body);
   }
-  SavedHttpResponse.prototype.a27 = function () {
-    return this.c27_1;
+  SavedHttpResponse.prototype.get_call_wojxrb_k$ = function () {
+    return this.call_1;
   };
-  SavedHttpResponse.prototype.f26 = function () {
-    return this.e27_1;
+  SavedHttpResponse.prototype.get_status_jnf6d7_k$ = function () {
+    return this.status_1;
   };
-  SavedHttpResponse.prototype.l27 = function () {
-    return this.f27_1;
+  SavedHttpResponse.prototype.get_version_72w4j3_k$ = function () {
+    return this.version_1;
   };
-  SavedHttpResponse.prototype.m27 = function () {
-    return this.g27_1;
+  SavedHttpResponse.prototype.get_requestTime_wwxhg3_k$ = function () {
+    return this.requestTime_1;
   };
-  SavedHttpResponse.prototype.n27 = function () {
-    return this.h27_1;
+  SavedHttpResponse.prototype.get_responseTime_scfvg7_k$ = function () {
+    return this.responseTime_1;
   };
-  SavedHttpResponse.prototype.p1u = function () {
-    return this.i27_1;
+  SavedHttpResponse.prototype.get_headers_ef25jx_k$ = function () {
+    return this.headers_1;
   };
-  SavedHttpResponse.prototype.qk = function () {
-    return this.j27_1;
+  SavedHttpResponse.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.coroutineContext_1;
   };
-  SavedHttpResponse.prototype.f1q = function () {
-    return this.k27_1;
+  SavedHttpResponse.prototype.get_content_h02jrk_k$ = function () {
+    return this.content_1;
   };
   SavedHttpResponse.$metadata$ = classMeta('SavedHttpResponse', undefined, undefined, undefined, undefined, HttpResponse.prototype);
   function $saveCOROUTINE$3(_this__u8e3s4, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.q26_1 = _this__u8e3s4;
+    this._this__u8e3s4__1 = _this__u8e3s4;
   }
-  $saveCOROUTINE$3.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $saveCOROUTINE$3.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            this.pd_1 = 1;
-            var tmp_0 = this.q26_1.s22().f1q();
-            suspendResult = tmp_0.q19(new Long(0, 0), this, 1, null);
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            var tmp_0 = this._this__u8e3s4__1.get_response_xlk07e_k$().get_content_h02jrk_k$();
+            suspendResult = tmp_0.readRemaining$default_u0hcq7_k$(new Long(0, 0), this, 1, null);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -1193,16 +1431,16 @@
           case 1:
             var ARGUMENT = suspendResult;
             var responseBody = readBytes$default(ARGUMENT, 0, 1, null);
-            return new SavedHttpCall(this.q26_1.n22_1, this.q26_1.a26(), this.q26_1.s22(), responseBody);
+            return new SavedHttpCall(this._this__u8e3s4__1.client_1, this._this__u8e3s4__1.get_request_jdwg4m_k$(), this._this__u8e3s4__1.get_response_xlk07e_k$(), responseBody);
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -1213,29 +1451,41 @@
     captureStack(this, UnsupportedContentTypeException);
   }
   UnsupportedContentTypeException.$metadata$ = classMeta('UnsupportedContentTypeException', undefined, undefined, undefined, undefined, IllegalStateException.prototype);
+  function _get_callContext__j3nl8g($this) {
+    return $this.callContext_1;
+  }
+  function _get_listener__4cngyf($this) {
+    return $this.listener_1;
+  }
+  function _get_content__ps04ag($this) {
+    return $this.content_1;
+  }
+  function _get_delegate__idh0py($this) {
+    return $this.delegate_1;
+  }
   function ObservableContent$content$slambda($delegate, resultContinuation) {
-    this.w27_1 = $delegate;
+    this.$delegate_1 = $delegate;
     CoroutineImpl.call(this, resultContinuation);
   }
-  ObservableContent$content$slambda.prototype.y27 = function ($this$writer, $cont) {
-    var tmp = this.z27($this$writer, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  ObservableContent$content$slambda.prototype.invoke_65o7wc_k$ = function ($this$writer, $cont) {
+    var tmp = this.create_4ctjxj_k$($this$writer, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  ObservableContent$content$slambda.prototype.ae = function (p1, $cont) {
-    return this.y27((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
+  ObservableContent$content$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_65o7wc_k$((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  ObservableContent$content$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  ObservableContent$content$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            this.pd_1 = 1;
-            suspendResult = this.w27_1.x1z(this.x27_1.rw(), this);
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this.$delegate_1.writeTo_wvkb45_k$(this.$this$writer_1.get_channel_dhi7tm_k$(), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -1244,54 +1494,57 @@
           case 1:
             return Unit_getInstance();
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  ObservableContent$content$slambda.prototype.z27 = function ($this$writer, completion) {
-    var i = new ObservableContent$content$slambda(this.w27_1, completion);
-    i.x27_1 = $this$writer;
+  ObservableContent$content$slambda.prototype.create_4ctjxj_k$ = function ($this$writer, completion) {
+    var i = new ObservableContent$content$slambda(this.$delegate_1, completion);
+    i.$this$writer_1 = $this$writer;
     return i;
+  };
+  ObservableContent$content$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_4ctjxj_k$((!(value == null) ? isInterface(value, WriterScope) : false) ? value : THROW_CCE(), completion);
   };
   ObservableContent$content$slambda.$metadata$ = classMeta('ObservableContent$content$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function ObservableContent$content$slambda_0($delegate, resultContinuation) {
     var i = new ObservableContent$content$slambda($delegate, resultContinuation);
     var l = function ($this$writer, $cont) {
-      return i.y27($this$writer, $cont);
+      return i.invoke_65o7wc_k$($this$writer, $cont);
     };
     l.$arity = 1;
     return l;
   }
   function ObservableContent(delegate, callContext, listener) {
     ReadChannelContent.call(this);
-    this.b28_1 = callContext;
-    this.c28_1 = listener;
+    this.callContext_1 = callContext;
+    this.listener_1 = listener;
     var tmp = this;
     var tmp0_subject = delegate;
     var tmp_0;
     if (tmp0_subject instanceof ByteArrayContent) {
-      tmp_0 = ByteReadChannel_0(delegate.z1z());
+      tmp_0 = ByteReadChannel_0(delegate.bytes_1k3k2z_k$());
     } else {
       if (tmp0_subject instanceof ProtocolUpgrade) {
         throw new UnsupportedContentTypeException(delegate);
       } else {
         if (tmp0_subject instanceof NoContent) {
-          tmp_0 = Companion_getInstance().n1b();
+          tmp_0 = Companion_getInstance().get_Empty_i9b85g_k$();
         } else {
           if (tmp0_subject instanceof ReadChannelContent) {
-            tmp_0 = delegate.v1z();
+            tmp_0 = delegate.readFrom_ecr4ww_k$();
           } else {
             if (tmp0_subject instanceof WriteChannelContent) {
               var tmp_1 = GlobalScope_getInstance();
-              tmp_0 = writer(tmp_1, this.b28_1, true, ObservableContent$content$slambda_0(delegate, null)).rw();
+              tmp_0 = writer(tmp_1, this.callContext_1, true, ObservableContent$content$slambda_0(delegate, null)).get_channel_dhi7tm_k$();
             } else {
               noWhenBranchMatchedException();
             }
@@ -1299,20 +1552,29 @@
         }
       }
     }
-    tmp.d28_1 = tmp_0;
-    this.e28_1 = delegate;
+    tmp.content_1 = tmp_0;
+    this.delegate_1 = delegate;
   }
-  ObservableContent.prototype.s1z = function () {
-    return this.e28_1.s1z();
+  ObservableContent.prototype.get_contentType_7git4a_k$ = function () {
+    return this.delegate_1.get_contentType_7git4a_k$();
   };
-  ObservableContent.prototype.t1z = function () {
-    return this.e28_1.t1z();
+  ObservableContent.prototype.get_contentLength_a5o8yy_k$ = function () {
+    return this.delegate_1.get_contentLength_a5o8yy_k$();
   };
-  ObservableContent.prototype.p1u = function () {
-    return this.e28_1.p1u();
+  ObservableContent.prototype.get_status_jnf6d7_k$ = function () {
+    return this.delegate_1.get_status_jnf6d7_k$();
   };
-  ObservableContent.prototype.v1z = function () {
-    return observable(this.d28_1, this.b28_1, this.t1z(), this.c28_1);
+  ObservableContent.prototype.get_headers_ef25jx_k$ = function () {
+    return this.delegate_1.get_headers_ef25jx_k$();
+  };
+  ObservableContent.prototype.getProperty_4roco9_k$ = function (key) {
+    return this.delegate_1.getProperty_4roco9_k$(key);
+  };
+  ObservableContent.prototype.setProperty_d7s4qe_k$ = function (key, value) {
+    return this.delegate_1.setProperty_d7s4qe_k$(key, value);
+  };
+  ObservableContent.prototype.readFrom_ecr4ww_k$ = function () {
+    return observable(this.content_1, this.callContext_1, this.get_contentLength_a5o8yy_k$(), this.listener_1);
   };
   ObservableContent.$metadata$ = classMeta('ObservableContent', undefined, undefined, undefined, undefined, ReadChannelContent.prototype);
   function get_CALL_COROUTINE() {
@@ -1329,28 +1591,28 @@
     return function (it) {
       var tmp;
       if (!(it == null)) {
-        tmp = $client.x21_1.l20(get_HttpResponseCancelled(), $response);
+        tmp = $client.monitor_1.raise_segvv5_k$(get_HttpResponseCancelled(), $response);
       }
       return Unit_getInstance();
     };
   }
-  function _get_closed__iwkfs1($this) {
-    var tmp0_safe_receiver = $this.qk().b3(Key_getInstance());
-    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.rk();
+  function _get_closed__iwkfs1_0($this) {
+    var tmp0_safe_receiver = $this.get_coroutineContext_115oqo_k$().get_1pi7hg_k$(Key_getInstance());
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_isActive_quafmh_k$();
     return !(tmp1_elvis_lhs == null ? false : tmp1_elvis_lhs);
   }
   function executeWithinCallContext($this, requestData, $cont) {
     var tmp = new $executeWithinCallContextCOROUTINE$4($this, requestData, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function checkExtensions($this, requestData) {
-    var tmp0_iterator = requestData.x28_1.d();
-    while (tmp0_iterator.e()) {
-      var requestedExtension = tmp0_iterator.f();
+    var tmp0_iterator = requestData.requiredCapabilities_1.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var requestedExtension = tmp0_iterator.next_20eer_k$();
       {
-        var tmp0_require = $this.y28().h1(requestedExtension);
+        var tmp0_require = $this.get_supportedCapabilities_gwz15x_k$().contains_2ehdt1_k$(requestedExtension);
         {
         }
         if (!tmp0_require) {
@@ -1365,41 +1627,41 @@
     }
   }
   function HttpClientEngine$install$slambda($client, this$0, resultContinuation) {
-    this.h29_1 = $client;
-    this.i29_1 = this$0;
+    this.$client_1 = $client;
+    this.this$0__1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpClientEngine$install$slambda.prototype.l22 = function ($this$intercept, content, $cont) {
-    var tmp = this.m22($this$intercept, content, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpClientEngine$install$slambda.prototype.invoke_63ydys_k$ = function ($this$intercept, content, $cont) {
+    var tmp = this.create_300ycv_k$($this$intercept, content, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpClientEngine$install$slambda.prototype.xe = function (p1, p2, $cont) {
+  HttpClientEngine$install$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.l22(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+    return this.invoke_63ydys_k$(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
   };
-  HttpClientEngine$install$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpClientEngine$install$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
+            this.exceptionState_1 = 3;
             var tmp_0 = this;
             var tmp_1 = this;
-            tmp_1.l29_1 = new HttpRequestBuilder();
-            this.l29_1.s29(this.j29_1.g1n_1);
+            tmp_1.tmp0_apply0__1 = new HttpRequestBuilder();
+            this.tmp0_apply0__1.takeFromWithExecutionContext_d233rf_k$(this.$this$intercept_1.context_1);
             ;
-            var tmp0_subject = this.k29_1;
+            var tmp0_subject = this.content_1;
             if (tmp0_subject == null) {
-              this.l29_1.u23_1 = NullBody_getInstance();
+              this.tmp0_apply0__1.body_1 = NullBody_getInstance();
               var tmp_2 = JsType_getInstance();
-              var tmp_3 = PrimitiveClasses_getInstance().hb();
+              var tmp_3 = PrimitiveClasses_getInstance().get_anyClass_x0jl4l_k$();
               var tmp_4;
               try {
-                tmp_4 = createKType(PrimitiveClasses_getInstance().hb(), arrayOf([]), false);
+                tmp_4 = createKType(PrimitiveClasses_getInstance().get_anyClass_x0jl4l_k$(), arrayOf([]), false);
               } catch ($p) {
                 var tmp_5;
                 if ($p instanceof Error) {
@@ -1409,18 +1671,18 @@
                 }
                 tmp_4 = tmp_5;
               }
-              this.l29_1.t29(typeInfoImpl(tmp_2, tmp_3, tmp_4));
+              this.tmp0_apply0__1.set_bodyType_oab65z_k$(typeInfoImpl(tmp_2, tmp_3, tmp_4));
             } else {
               if (tmp0_subject instanceof OutgoingContent) {
-                this.l29_1.u23_1 = this.k29_1;
-                this.l29_1.t29(null);
+                this.tmp0_apply0__1.body_1 = this.content_1;
+                this.tmp0_apply0__1.set_bodyType_oab65z_k$(null);
               } else {
-                this.l29_1.u23_1 = this.k29_1;
+                this.tmp0_apply0__1.body_1 = this.content_1;
                 var tmp_6 = JsType_getInstance();
-                var tmp_7 = PrimitiveClasses_getInstance().hb();
+                var tmp_7 = PrimitiveClasses_getInstance().get_anyClass_x0jl4l_k$();
                 var tmp_8;
                 try {
-                  tmp_8 = createKType(PrimitiveClasses_getInstance().hb(), arrayOf([]), false);
+                  tmp_8 = createKType(PrimitiveClasses_getInstance().get_anyClass_x0jl4l_k$(), arrayOf([]), false);
                 } catch ($p) {
                   var tmp_9;
                   if ($p instanceof Error) {
@@ -1430,36 +1692,36 @@
                   }
                   tmp_8 = tmp_9;
                 }
-                this.l29_1.t29(typeInfoImpl(tmp_6, tmp_7, tmp_8));
+                this.tmp0_apply0__1.set_bodyType_oab65z_k$(typeInfoImpl(tmp_6, tmp_7, tmp_8));
               }
             }
 
-            tmp_0.m29_1 = this.l29_1;
-            this.h29_1.x21_1.l20(get_HttpRequestIsReadyForSending(), this.m29_1);
+            tmp_0.builder1__1 = this.tmp0_apply0__1;
+            this.$client_1.monitor_1.raise_segvv5_k$(get_HttpRequestIsReadyForSending(), this.builder1__1);
             var tmp_10 = this;
             var tmp_11 = this;
-            tmp_11.n29_1 = this.m29_1.l17();
-            this.n29_1.w28_1.b1j(get_CLIENT_CONFIG(), this.h29_1.y21_1);
-            tmp_10.o29_1 = this.n29_1;
-            validateHeaders(this.o29_1);
-            checkExtensions(this.i29_1, this.o29_1);
-            this.pd_1 = 1;
-            suspendResult = executeWithinCallContext(this.i29_1, this.o29_1, this);
+            tmp_11.tmp1_apply2__1 = this.builder1__1.build_1k0s4u_k$();
+            this.tmp1_apply2__1.attributes_1.put_ii1a3j_k$(get_CLIENT_CONFIG(), this.$client_1.config_1);
+            tmp_10.requestData3__1 = this.tmp1_apply2__1;
+            validateHeaders(this.requestData3__1);
+            checkExtensions(this.this$0__1, this.requestData3__1);
+            this.state_1 = 1;
+            suspendResult = executeWithinCallContext(this.this$0__1, this.requestData3__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.p29_1 = suspendResult;
-            this.q29_1 = HttpClientCall_init_$Create$(this.h29_1, this.o29_1, this.p29_1);
-            this.r29_1 = this.q29_1.s22();
-            this.h29_1.x21_1.l20(get_HttpResponseReceived(), this.r29_1);
-            var tmp_12 = get_job(this.r29_1.qk());
-            tmp_12.rl(HttpClientEngine$install$slambda$lambda(this.h29_1, this.r29_1));
+            this.responseData4__1 = suspendResult;
+            this.call5__1 = HttpClientCall_init_$Create$(this.$client_1, this.requestData3__1, this.responseData4__1);
+            this.response6__1 = this.call5__1.get_response_xlk07e_k$();
+            this.$client_1.monitor_1.raise_segvv5_k$(get_HttpResponseReceived(), this.response6__1);
+            var tmp_12 = get_job(this.response6__1.get_coroutineContext_115oqo_k$());
+            tmp_12.invokeOnCompletion_t2apld_k$(HttpClientEngine$install$slambda$lambda(this.$client_1, this.response6__1));
             ;
-            this.pd_1 = 2;
-            suspendResult = this.j29_1.k1m(this.q29_1, this);
+            this.state_1 = 2;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.call5__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -1469,61 +1731,61 @@
             ;
             return Unit_getInstance();
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpClientEngine$install$slambda.prototype.m22 = function ($this$intercept, content, completion) {
-    var i = new HttpClientEngine$install$slambda(this.h29_1, this.i29_1, completion);
-    i.j29_1 = $this$intercept;
-    i.k29_1 = content;
+  HttpClientEngine$install$slambda.prototype.create_300ycv_k$ = function ($this$intercept, content, completion) {
+    var i = new HttpClientEngine$install$slambda(this.$client_1, this.this$0__1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.content_1 = content;
     return i;
   };
   HttpClientEngine$install$slambda.$metadata$ = classMeta('HttpClientEngine$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpClientEngine$install$slambda_0($client, this$0, resultContinuation) {
     var i = new HttpClientEngine$install$slambda($client, this$0, resultContinuation);
     var l = function ($this$intercept, content, $cont) {
-      return i.l22($this$intercept, content, $cont);
+      return i.invoke_63ydys_k$($this$intercept, content, $cont);
     };
     l.$arity = 2;
     return l;
   }
   function HttpClientEngine$executeWithinCallContext$slambda(this$0, $requestData, resultContinuation) {
-    this.c2a_1 = this$0;
-    this.d2a_1 = $requestData;
+    this.this$0__1 = this$0;
+    this.$requestData_1 = $requestData;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpClientEngine$executeWithinCallContext$slambda.prototype.f2a = function ($this$async, $cont) {
-    var tmp = this.r1a($this$async, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpClientEngine$executeWithinCallContext$slambda.prototype.invoke_1yhb3o_k$ = function ($this$async, $cont) {
+    var tmp = this.create_b6qu53_k$($this$async, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpClientEngine$executeWithinCallContext$slambda.prototype.ae = function (p1, $cont) {
-    return this.f2a((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
+  HttpClientEngine$executeWithinCallContext$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_1yhb3o_k$((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  HttpClientEngine$executeWithinCallContext$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpClientEngine$executeWithinCallContext$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            if (_get_closed__iwkfs1(this.c2a_1)) {
+            this.exceptionState_1 = 2;
+            if (_get_closed__iwkfs1_0(this.this$0__1)) {
               throw ClientEngineClosedException_init_$Create$(null, 1, null);
             }
 
-            this.pd_1 = 1;
-            suspendResult = this.c2a_1.g2a(this.d2a_1, this);
+            this.state_1 = 1;
+            suspendResult = this.this$0__1.execute_95skru_k$(this.$requestData_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -1532,57 +1794,60 @@
           case 1:
             return suspendResult;
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpClientEngine$executeWithinCallContext$slambda.prototype.r1a = function ($this$async, completion) {
-    var i = new HttpClientEngine$executeWithinCallContext$slambda(this.c2a_1, this.d2a_1, completion);
-    i.e2a_1 = $this$async;
+  HttpClientEngine$executeWithinCallContext$slambda.prototype.create_b6qu53_k$ = function ($this$async, completion) {
+    var i = new HttpClientEngine$executeWithinCallContext$slambda(this.this$0__1, this.$requestData_1, completion);
+    i.$this$async_1 = $this$async;
     return i;
+  };
+  HttpClientEngine$executeWithinCallContext$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_b6qu53_k$((!(value == null) ? isInterface(value, CoroutineScope) : false) ? value : THROW_CCE(), completion);
   };
   HttpClientEngine$executeWithinCallContext$slambda.$metadata$ = classMeta('HttpClientEngine$executeWithinCallContext$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function HttpClientEngine$executeWithinCallContext$slambda_0(this$0, $requestData, resultContinuation) {
     var i = new HttpClientEngine$executeWithinCallContext$slambda(this$0, $requestData, resultContinuation);
     var l = function ($this$async, $cont) {
-      return i.f2a($this$async, $cont);
+      return i.invoke_1yhb3o_k$($this$async, $cont);
     };
     l.$arity = 1;
     return l;
   }
   function $executeWithinCallContextCOROUTINE$4(_this__u8e3s4, requestData, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.n28_1 = _this__u8e3s4;
-    this.o28_1 = requestData;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.requestData_1 = requestData;
   }
-  $executeWithinCallContextCOROUTINE$4.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $executeWithinCallContextCOROUTINE$4.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            this.pd_1 = 1;
-            suspendResult = createCallContext(this.n28_1, this.o28_1.v28_1, this);
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = createCallContext(this._this__u8e3s4__1, this.requestData_1.executionContext_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.p28_1 = suspendResult;
-            this.q28_1 = this.p28_1.i3(new KtorCallContextElement(this.p28_1));
-            this.pd_1 = 2;
-            suspendResult = async$default(this.n28_1, this.q28_1, null, HttpClientEngine$executeWithinCallContext$slambda_0(this.n28_1, this.o28_1, null), 2, null).fn(this);
+            this.callContext0__1 = suspendResult;
+            this.context1__1 = this.callContext0__1.plus_rgw9wi_k$(new KtorCallContextElement(this.callContext0__1));
+            this.state_1 = 2;
+            suspendResult = async$default(this._this__u8e3s4__1, this.context1__1, null, HttpClientEngine$executeWithinCallContext$slambda_0(this._this__u8e3s4__1, this.requestData_1, null), 2, null).await_xhs9og_k$(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -1591,14 +1856,14 @@
           case 2:
             return suspendResult;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -1609,22 +1874,22 @@
   HttpClientEngine.$metadata$ = interfaceMeta('HttpClientEngine', [CoroutineScope, Closeable]);
   function validateHeaders(request) {
     init_properties_HttpClientEngine_kt_umcrvf();
-    var requestHeaders = request.t28_1;
+    var requestHeaders = request.headers_1;
     var tmp$ret$2;
     {
-      var tmp0_filter = requestHeaders.l1k();
+      var tmp0_filter = requestHeaders.names_1q9mbs_k$();
       var tmp$ret$1;
       {
         var tmp0_filterTo = ArrayList_init_$Create$();
-        var tmp0_iterator = tmp0_filter.d();
-        while (tmp0_iterator.e()) {
-          var element = tmp0_iterator.f();
+        var tmp0_iterator = tmp0_filter.iterator_jk1svi_k$();
+        while (tmp0_iterator.hasNext_bitz1p_k$()) {
+          var element = tmp0_iterator.next_20eer_k$();
           var tmp$ret$0;
           {
-            tmp$ret$0 = HttpHeaders_getInstance().g1u_1.h1(element);
+            tmp$ret$0 = HttpHeaders_getInstance().UnsafeHeadersList_1.contains_2ehdt1_k$(element);
           }
           if (tmp$ret$0) {
-            tmp0_filterTo.b(element);
+            tmp0_filterTo.add_1j60pz_k$(element);
           }
         }
         tmp$ret$1 = tmp0_filterTo;
@@ -1634,7 +1899,7 @@
     var unsafeRequestHeaders = tmp$ret$2;
     var tmp$ret$3;
     {
-      tmp$ret$3 = !unsafeRequestHeaders.m();
+      tmp$ret$3 = !unsafeRequestHeaders.isEmpty_y1axqb_k$();
     }
     if (tmp$ret$3) {
       throw new UnsafeHeaderException(toString(unsafeRequestHeaders));
@@ -1642,14 +1907,14 @@
   }
   function createCallContext(_this__u8e3s4, parentJob, $cont) {
     var callJob = Job(parentJob);
-    var callContext = _this__u8e3s4.qk().i3(callJob).i3(get_CALL_COROUTINE());
+    var callContext = _this__u8e3s4.get_coroutineContext_115oqo_k$().plus_rgw9wi_k$(callJob).plus_rgw9wi_k$(get_CALL_COROUTINE());
     var tmp$ret$1;
     $l$block: {
       var tmp$ret$0;
       {
-        tmp$ret$0 = $cont.x2();
+        tmp$ret$0 = $cont.get_context_h02k06_k$();
       }
-      var tmp0_elvis_lhs = tmp$ret$0.b3(Key_getInstance());
+      var tmp0_elvis_lhs = tmp$ret$0.get_1pi7hg_k$(Key_getInstance());
       var tmp;
       if (tmp0_elvis_lhs == null) {
         tmp$ret$1 = Unit_getInstance();
@@ -1658,10 +1923,15 @@
         tmp = tmp0_elvis_lhs;
       }
       var userJob = tmp;
-      var cleanupHandler = userJob.tl(true, false, createCallContext$lambda(callJob), 2, null);
-      callJob.rl(createCallContext$lambda_0(cleanupHandler));
+      var cleanupHandler = userJob.invokeOnCompletion$default_7q548c_k$(true, false, createCallContext$lambda(callJob), 2, null);
+      callJob.invokeOnCompletion_t2apld_k$(createCallContext$lambda_0(cleanupHandler));
     }
     return callContext;
+  }
+  function HttpClientEngineFactory$create$lambda() {
+    return function ($this$null) {
+      return Unit_getInstance();
+    };
   }
   function HttpClientEngineFactory() {
   }
@@ -1673,13 +1943,13 @@
         return Unit_getInstance();
       else
         tmp0_elvis_lhs;
-      $callJob.wl(CancellationException_init_$Create$(cause.message));
+      $callJob.cancel_4b7aim_k$(CancellationException_init_$Create$(cause.message));
       return Unit_getInstance();
     };
   }
   function createCallContext$lambda_0($cleanupHandler) {
     return function (it) {
-      $cleanupHandler.vn();
+      $cleanupHandler.dispose_3n44we_k$();
       return Unit_getInstance();
     };
   }
@@ -1705,48 +1975,54 @@
   }
   function ClientEngineClosedException(cause) {
     IllegalStateException_init_$Init$_0('Client already closed', this);
-    this.h2a_1 = cause;
+    this.cause_1 = cause;
     captureStack(this, ClientEngineClosedException);
   }
-  ClientEngineClosedException.prototype.g1 = function () {
-    return this.h2a_1;
+  ClientEngineClosedException.prototype.get_cause_iplhs0_k$ = function () {
+    return this.cause_1;
   };
   ClientEngineClosedException.$metadata$ = classMeta('ClientEngineClosedException', undefined, undefined, undefined, undefined, IllegalStateException.prototype);
   Object.defineProperty(ClientEngineClosedException.prototype, 'cause', {
     configurable: true,
     get: function () {
-      return this.g1();
+      return this.get_cause_iplhs0_k$();
     }
   });
+  function _get_engineName__3bxgoy($this) {
+    return $this.engineName_1;
+  }
+  function _get_closed__iwkfs1_1($this) {
+    return $this.closed_1;
+  }
   function HttpClientEngineBase$coroutineContext$delegate$lambda(this$0) {
     return function () {
-      return SilentSupervisor$default(null, 1, null).i3(this$0.i2a()).i3(new CoroutineName(this$0.j2a_1 + '-context'));
+      return SilentSupervisor$default(null, 1, null).plus_rgw9wi_k$(this$0.get_dispatcher_usy1bk_k$()).plus_rgw9wi_k$(new CoroutineName(this$0.engineName_1 + '-context'));
     };
   }
   function HttpClientEngineBase$close$lambda(this$0) {
     return function (it) {
-      close(this$0.i2a());
+      close(this$0.get_dispatcher_usy1bk_k$());
       return Unit_getInstance();
     };
   }
   function HttpClientEngineBase(engineName) {
-    this.j2a_1 = engineName;
-    this.k2a_1 = atomic$boolean$1(false);
+    this.engineName_1 = engineName;
+    this.closed_1 = atomic$boolean$1(false);
     var tmp = this;
-    tmp.l2a_1 = lazy(HttpClientEngineBase$coroutineContext$delegate$lambda(this));
+    tmp.coroutineContext$delegate_1 = lazy(HttpClientEngineBase$coroutineContext$delegate$lambda(this));
   }
-  HttpClientEngineBase.prototype.qk = function () {
+  HttpClientEngineBase.prototype.get_coroutineContext_115oqo_k$ = function () {
     var tmp$ret$0;
     {
       var tmp0_getValue = coroutineContext$factory();
-      tmp$ret$0 = this.l2a_1.s();
+      tmp$ret$0 = this.coroutineContext$delegate_1.get_value_j01efc_k$();
     }
     return tmp$ret$0;
   };
-  HttpClientEngineBase.prototype.i10 = function () {
-    if (!this.k2a_1.atomicfu$compareAndSet(false, true))
+  HttpClientEngineBase.prototype.close_ymq55z_k$ = function () {
+    if (!this.closed_1.atomicfu$compareAndSet(false, true))
       return Unit_getInstance();
-    var tmp = this.qk().b3(Key_getInstance());
+    var tmp = this.get_coroutineContext_115oqo_k$().get_1pi7hg_k$(Key_getInstance());
     var tmp0_elvis_lhs = (!(tmp == null) ? isInterface(tmp, CompletableJob) : false) ? tmp : null;
     var tmp_0;
     if (tmp0_elvis_lhs == null) {
@@ -1755,18 +2031,18 @@
       tmp_0 = tmp0_elvis_lhs;
     }
     var requestJob = tmp_0;
-    requestJob.kq();
-    requestJob.rl(HttpClientEngineBase$close$lambda(this));
+    requestJob.complete_9ww6vb_k$();
+    requestJob.invokeOnCompletion_t2apld_k$(HttpClientEngineBase$close$lambda(this));
   };
   HttpClientEngineBase.$metadata$ = classMeta('HttpClientEngineBase', [HttpClientEngine]);
   function close(_this__u8e3s4) {
     try {
       var tmp0_subject = _this__u8e3s4;
       if (tmp0_subject instanceof CloseableCoroutineDispatcher)
-        _this__u8e3s4.i10();
+        _this__u8e3s4.close_ymq55z_k$();
       else {
         if (isInterface(tmp0_subject, Closeable))
-          _this__u8e3s4.i10();
+          _this__u8e3s4.close_ymq55z_k$();
       }
     } catch ($p) {
       if ($p instanceof Error) {
@@ -1777,7 +2053,7 @@
   }
   function coroutineContext$factory() {
     return getPropertyCallableRef('coroutineContext', 1, KProperty1, function (receiver) {
-      return receiver.qk();
+      return receiver.get_coroutineContext_115oqo_k$();
     }, null);
   }
   function get_ENGINE_CAPABILITIES_KEY() {
@@ -1785,6 +2061,10 @@
     return ENGINE_CAPABILITIES_KEY;
   }
   var ENGINE_CAPABILITIES_KEY;
+  function get_DEFAULT_CAPABILITIES() {
+    init_properties_HttpClientEngineCapability_kt_68uqzx();
+    return DEFAULT_CAPABILITIES;
+  }
   var DEFAULT_CAPABILITIES;
   function HttpClientEngineCapability() {
   }
@@ -1795,15 +2075,36 @@
     } else {
       properties_initialized_HttpClientEngineCapability_kt_qarzcf = true;
       ENGINE_CAPABILITIES_KEY = new AttributeKey('EngineCapabilities');
-      DEFAULT_CAPABILITIES = setOf(Plugin_getInstance_4());
+      DEFAULT_CAPABILITIES = setOf(Plugin_getInstance_5());
     }
   }
   function HttpClientEngineConfig() {
-    this.m2a_1 = 4;
-    this.n2a_1 = false;
-    this.o2a_1 = null;
+    this.threadsCount_1 = 4;
+    this.pipelining_1 = false;
+    this.proxy_1 = null;
   }
+  HttpClientEngineConfig.prototype.set_threadsCount_gnbglv_k$ = function (_set____db54di) {
+    this.threadsCount_1 = _set____db54di;
+  };
+  HttpClientEngineConfig.prototype.get_threadsCount_8ubz8v_k$ = function () {
+    return this.threadsCount_1;
+  };
+  HttpClientEngineConfig.prototype.set_pipelining_kutk0d_k$ = function (_set____db54di) {
+    this.pipelining_1 = _set____db54di;
+  };
+  HttpClientEngineConfig.prototype.get_pipelining_x1t9pk_k$ = function () {
+    return this.pipelining_1;
+  };
+  HttpClientEngineConfig.prototype.set_proxy_ryday9_k$ = function (_set____db54di) {
+    this.proxy_1 = _set____db54di;
+  };
+  HttpClientEngineConfig.prototype.get_proxy_ix1jyd_k$ = function () {
+    return this.proxy_1;
+  };
   HttpClientEngineConfig.$metadata$ = classMeta('HttpClientEngineConfig');
+  function get_KTOR_DEFAULT_USER_AGENT() {
+    return KTOR_DEFAULT_USER_AGENT;
+  }
   var KTOR_DEFAULT_USER_AGENT;
   function Companion_0() {
     Companion_instance_0 = this;
@@ -1817,32 +2118,52 @@
   }
   function KtorCallContextElement(callContext) {
     Companion_getInstance_8();
-    this.p2a_1 = callContext;
+    this.callContext_1 = callContext;
   }
-  KtorCallContextElement.prototype.r = function () {
+  KtorCallContextElement.prototype.get_callContext_mskb9k_k$ = function () {
+    return this.callContext_1;
+  };
+  KtorCallContextElement.prototype.get_key_18j28a_k$ = function () {
     return Companion_getInstance_8();
   };
   KtorCallContextElement.$metadata$ = classMeta('KtorCallContextElement', [Element]);
+  function attachToUserJob(callJob, $cont) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = $cont.get_context_h02k06_k$();
+    }
+    var tmp0_elvis_lhs = tmp$ret$0.get_1pi7hg_k$(Key_getInstance());
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      return Unit_getInstance();
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    var userJob = tmp;
+    var cleanupHandler = userJob.invokeOnCompletion$default_7q548c_k$(true, false, attachToUserJob$lambda(callJob), 2, null);
+    callJob.invokeOnCompletion_t2apld_k$(attachToUserJob$lambda_0(cleanupHandler));
+    return Unit_getInstance();
+  }
   function callContext($cont) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = $cont.x2();
+      tmp$ret$0 = $cont.get_context_h02k06_k$();
     }
-    return ensureNotNull(tmp$ret$0.b3(Companion_getInstance_8())).p2a_1;
+    return ensureNotNull(tmp$ret$0.get_1pi7hg_k$(Companion_getInstance_8())).callContext_1;
   }
   function mergeHeaders(requestHeaders, content, block) {
     var tmp = buildHeaders(mergeHeaders$lambda(requestHeaders, content));
-    tmp.n1k(mergeHeaders$lambda_0(block));
-    var missingAgent = requestHeaders.qf(HttpHeaders_getInstance().j1t_1) == null ? content.p1u().qf(HttpHeaders_getInstance().j1t_1) == null : false;
+    tmp.forEach_arwel4_k$(mergeHeaders$lambda_0(block));
+    var missingAgent = requestHeaders.get_4u8u51_k$(HttpHeaders_getInstance().UserAgent_1) == null ? content.get_headers_ef25jx_k$().get_4u8u51_k$(HttpHeaders_getInstance().UserAgent_1) == null : false;
     if (missingAgent ? needUserAgent() : false) {
-      block(HttpHeaders_getInstance().j1t_1, KTOR_DEFAULT_USER_AGENT);
+      block(HttpHeaders_getInstance().UserAgent_1, KTOR_DEFAULT_USER_AGENT);
     }
-    var tmp0_safe_receiver = content.s1z();
+    var tmp0_safe_receiver = content.get_contentType_7git4a_k$();
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.toString();
-    var type = tmp1_elvis_lhs == null ? content.p1u().qf(HttpHeaders_getInstance().d1r_1) : tmp1_elvis_lhs;
-    var tmp2_safe_receiver = content.t1z();
+    var type = tmp1_elvis_lhs == null ? content.get_headers_ef25jx_k$().get_4u8u51_k$(HttpHeaders_getInstance().ContentType_1) : tmp1_elvis_lhs;
+    var tmp2_safe_receiver = content.get_contentLength_a5o8yy_k$();
     var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.toString();
-    var length = tmp3_elvis_lhs == null ? content.p1u().qf(HttpHeaders_getInstance().a1r_1) : tmp3_elvis_lhs;
+    var length = tmp3_elvis_lhs == null ? content.get_headers_ef25jx_k$().get_4u8u51_k$(HttpHeaders_getInstance().ContentLength_1) : tmp3_elvis_lhs;
     var tmp4_safe_receiver = type;
     if (tmp4_safe_receiver == null)
       null;
@@ -1851,7 +2172,7 @@
       {
         {
         }
-        tmp$ret$0 = block(HttpHeaders_getInstance().d1r_1, tmp4_safe_receiver);
+        tmp$ret$0 = block(HttpHeaders_getInstance().ContentType_1, tmp4_safe_receiver);
       }
     }
     var tmp5_safe_receiver = length;
@@ -1862,12 +2183,12 @@
       {
         {
         }
-        tmp$ret$1 = block(HttpHeaders_getInstance().a1r_1, tmp5_safe_receiver);
+        tmp$ret$1 = block(HttpHeaders_getInstance().ContentLength_1, tmp5_safe_receiver);
       }
     }
   }
   function needUserAgent() {
-    return !PlatformUtils_getInstance().c1o_1;
+    return !PlatformUtils_getInstance().IS_BROWSER_1;
   }
   function attachToUserJob$lambda($callJob) {
     return function (cause) {
@@ -1876,31 +2197,31 @@
         return Unit_getInstance();
       else
         tmp0_elvis_lhs;
-      $callJob.wl(CancellationException_init_$Create$(cause.message));
+      $callJob.cancel_4b7aim_k$(CancellationException_init_$Create$(cause.message));
       return Unit_getInstance();
     };
   }
   function attachToUserJob$lambda_0($cleanupHandler) {
     return function (it) {
-      $cleanupHandler.vn();
+      $cleanupHandler.dispose_3n44we_k$();
       return Unit_getInstance();
     };
   }
   function mergeHeaders$lambda($requestHeaders, $content) {
     return function ($this$buildHeaders) {
-      $this$buildHeaders.v1k($requestHeaders);
-      $this$buildHeaders.v1k($content.p1u());
+      $this$buildHeaders.appendAll_4ib0tg_k$($requestHeaders);
+      $this$buildHeaders.appendAll_4ib0tg_k$($content.get_headers_ef25jx_k$());
       return Unit_getInstance();
     };
   }
   function mergeHeaders$lambda_0($block) {
     return function (key, values) {
       var tmp;
-      if (HttpHeaders_getInstance().a1r_1 === key) {
+      if (HttpHeaders_getInstance().ContentLength_1 === key) {
         return Unit_getInstance();
       }
       var tmp_0;
-      if (HttpHeaders_getInstance().d1r_1 === key) {
+      if (HttpHeaders_getInstance().ContentType_1 === key) {
         return Unit_getInstance();
       }
       $block(key, joinToString$default(values, ',', null, null, 0, null, null, 62, null));
@@ -1919,29 +2240,29 @@
   var DownloadProgressListenerAttributeKey;
   function handle($this, scope) {
     var observableContentPhase = new PipelinePhase('ObservableContent');
-    scope.r21_1.h1n(Phases_getInstance().t2a_1, observableContentPhase);
-    scope.r21_1.k1n(observableContentPhase, BodyProgress$handle$slambda_0(null));
-    var tmp = Phases_getInstance_2().x2a_1;
-    scope.u21_1.k1n(tmp, BodyProgress$handle$slambda_2(null));
+    scope.requestPipeline_1.insertPhaseAfter_v4shih_k$(Phases_getInstance().Render_1, observableContentPhase);
+    scope.requestPipeline_1.intercept_hnj3e1_k$(observableContentPhase, BodyProgress$handle$slambda_0(null));
+    var tmp = Phases_getInstance_2().After_1;
+    scope.receivePipeline_1.intercept_hnj3e1_k$(tmp, BodyProgress$handle$slambda_2(null));
   }
   function Plugin() {
     Plugin_instance = this;
-    this.y2a_1 = new AttributeKey('BodyProgress');
+    this.key_1 = new AttributeKey('BodyProgress');
   }
-  Plugin.prototype.r = function () {
-    return this.y2a_1;
+  Plugin.prototype.get_key_18j28a_k$ = function () {
+    return this.key_1;
   };
-  Plugin.prototype.z2a = function (block) {
+  Plugin.prototype.prepare_lhztj4_k$ = function (block) {
     return new BodyProgress();
   };
-  Plugin.prototype.w24 = function (block) {
-    return this.z2a(block);
+  Plugin.prototype.prepare_aftpuj_k$ = function (block) {
+    return this.prepare_lhztj4_k$(block);
   };
-  Plugin.prototype.a2b = function (plugin, scope) {
+  Plugin.prototype.install_p5quq_k$ = function (plugin, scope) {
     handle(plugin, scope);
   };
-  Plugin.prototype.x24 = function (plugin, scope) {
-    return this.a2b(plugin instanceof BodyProgress ? plugin : THROW_CCE(), scope);
+  Plugin.prototype.install_cj05u9_k$ = function (plugin, scope) {
+    return this.install_p5quq_k$(plugin instanceof BodyProgress ? plugin : THROW_CCE(), scope);
   };
   Plugin.$metadata$ = objectMeta('Plugin', [HttpClientPlugin]);
   var Plugin_instance;
@@ -1953,26 +2274,26 @@
   function BodyProgress$handle$slambda(resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
   }
-  BodyProgress$handle$slambda.prototype.l22 = function ($this$intercept, content, $cont) {
-    var tmp = this.m22($this$intercept, content, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  BodyProgress$handle$slambda.prototype.invoke_63ydys_k$ = function ($this$intercept, content, $cont) {
+    var tmp = this.create_300ycv_k$($this$intercept, content, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  BodyProgress$handle$slambda.prototype.xe = function (p1, p2, $cont) {
+  BodyProgress$handle$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.l22(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+    return this.invoke_63ydys_k$(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
   };
-  BodyProgress$handle$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  BodyProgress$handle$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
+            this.exceptionState_1 = 2;
             var tmp_0 = this;
-            var tmp0_elvis_lhs = this.j2b_1.g1n_1.w23_1.z1i(get_UploadProgressListenerAttributeKey());
+            var tmp0_elvis_lhs = this.$this$intercept_1.context_1.attributes_1.getOrNull_dkmqfg_k$(get_UploadProgressListenerAttributeKey());
             var tmp_1;
             if (tmp0_elvis_lhs == null) {
               return Unit_getInstance();
@@ -1980,12 +2301,12 @@
               tmp_1 = tmp0_elvis_lhs;
             }
 
-            tmp_0.l2b_1 = tmp_1;
+            tmp_0.listener0__1 = tmp_1;
             var tmp_2 = this;
-            var tmp_3 = this.k2b_1;
-            tmp_2.m2b_1 = new ObservableContent(tmp_3 instanceof OutgoingContent ? tmp_3 : THROW_CCE(), this.j2b_1.g1n_1.v23_1, this.l2b_1);
-            this.pd_1 = 1;
-            suspendResult = this.j2b_1.k1m(this.m2b_1, this);
+            var tmp_3 = this.content_1;
+            tmp_2.observableContent1__1 = new ObservableContent(tmp_3 instanceof OutgoingContent ? tmp_3 : THROW_CCE(), this.$this$intercept_1.context_1.executionContext_1, this.listener0__1);
+            this.state_1 = 1;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.observableContent1__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -1995,29 +2316,29 @@
             ;
             return Unit_getInstance();
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  BodyProgress$handle$slambda.prototype.m22 = function ($this$intercept, content, completion) {
+  BodyProgress$handle$slambda.prototype.create_300ycv_k$ = function ($this$intercept, content, completion) {
     var i = new BodyProgress$handle$slambda(completion);
-    i.j2b_1 = $this$intercept;
-    i.k2b_1 = content;
+    i.$this$intercept_1 = $this$intercept;
+    i.content_1 = content;
     return i;
   };
   BodyProgress$handle$slambda.$metadata$ = classMeta('BodyProgress$handle$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function BodyProgress$handle$slambda_0(resultContinuation) {
     var i = new BodyProgress$handle$slambda(resultContinuation);
     var l = function ($this$intercept, content, $cont) {
-      return i.l22($this$intercept, content, $cont);
+      return i.invoke_63ydys_k$($this$intercept, content, $cont);
     };
     l.$arity = 2;
     return l;
@@ -2025,26 +2346,26 @@
   function BodyProgress$handle$slambda_1(resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
   }
-  BodyProgress$handle$slambda_1.prototype.z2b = function ($this$intercept, response, $cont) {
-    var tmp = this.a2c($this$intercept, response, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  BodyProgress$handle$slambda_1.prototype.invoke_5zvy3t_k$ = function ($this$intercept, response, $cont) {
+    var tmp = this.create_poxoxm_k$($this$intercept, response, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  BodyProgress$handle$slambda_1.prototype.xe = function (p1, p2, $cont) {
+  BodyProgress$handle$slambda_1.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.z2b(tmp, p2 instanceof HttpResponse ? p2 : THROW_CCE(), $cont);
+    return this.invoke_5zvy3t_k$(tmp, p2 instanceof HttpResponse ? p2 : THROW_CCE(), $cont);
   };
-  BodyProgress$handle$slambda_1.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  BodyProgress$handle$slambda_1.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
+            this.exceptionState_1 = 2;
             var tmp_0 = this;
-            var tmp0_elvis_lhs = this.w2b_1.a27().a26().cf().z1i(get_DownloadProgressListenerAttributeKey());
+            var tmp0_elvis_lhs = this.response_1.get_call_wojxrb_k$().get_request_jdwg4m_k$().get_attributes_dgqof4_k$().getOrNull_dkmqfg_k$(get_DownloadProgressListenerAttributeKey());
             var tmp_1;
             if (tmp0_elvis_lhs == null) {
               return Unit_getInstance();
@@ -2052,10 +2373,10 @@
               tmp_1 = tmp0_elvis_lhs;
             }
 
-            tmp_0.x2b_1 = tmp_1;
-            this.y2b_1 = withObservableDownload(this.w2b_1, this.x2b_1);
-            this.pd_1 = 1;
-            suspendResult = this.v2b_1.k1m(this.y2b_1, this);
+            tmp_0.listener0__1 = tmp_1;
+            this.observableResponse1__1 = withObservableDownload(this.response_1, this.listener0__1);
+            this.state_1 = 1;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.observableResponse1__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -2065,29 +2386,29 @@
             ;
             return Unit_getInstance();
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  BodyProgress$handle$slambda_1.prototype.a2c = function ($this$intercept, response, completion) {
+  BodyProgress$handle$slambda_1.prototype.create_poxoxm_k$ = function ($this$intercept, response, completion) {
     var i = new BodyProgress$handle$slambda_1(completion);
-    i.v2b_1 = $this$intercept;
-    i.w2b_1 = response;
+    i.$this$intercept_1 = $this$intercept;
+    i.response_1 = response;
     return i;
   };
   BodyProgress$handle$slambda_1.$metadata$ = classMeta('BodyProgress$handle$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function BodyProgress$handle$slambda_2(resultContinuation) {
     var i = new BodyProgress$handle$slambda_1(resultContinuation);
     var l = function ($this$intercept, response, $cont) {
-      return i.z2b($this$intercept, response, $cont);
+      return i.invoke_5zvy3t_k$($this$intercept, response, $cont);
     };
     l.$arity = 2;
     return l;
@@ -2098,7 +2419,7 @@
   BodyProgress.$metadata$ = classMeta('BodyProgress');
   function withObservableDownload(_this__u8e3s4, listener) {
     init_properties_BodyProgress_kt_2jnetn();
-    var observableByteChannel = observable(_this__u8e3s4.f1q(), _this__u8e3s4.qk(), contentLength(_this__u8e3s4), listener);
+    var observableByteChannel = observable(_this__u8e3s4.get_content_h02jrk_k$(), _this__u8e3s4.get_coroutineContext_115oqo_k$(), contentLength(_this__u8e3s4), listener);
     return wrapWithContent(_this__u8e3s4, observableByteChannel);
   }
   var properties_initialized_BodyProgress_kt_pmfrhr;
@@ -2119,102 +2440,145 @@
     init_properties_DefaultResponseValidation_kt_dx65ax();
     HttpResponseValidator(_this__u8e3s4, addDefaultResponseValidation$lambda(_this__u8e3s4));
   }
+  function RedirectResponseException_init_$Init$(response, $this) {
+    RedirectResponseException.call($this, response, '<no response text provided>');
+    return $this;
+  }
+  function RedirectResponseException_init_$Create$(response) {
+    var tmp = RedirectResponseException_init_$Init$(response, Object.create(RedirectResponseException.prototype));
+    captureStack(tmp, RedirectResponseException_init_$Create$);
+    return tmp;
+  }
   function RedirectResponseException(response, cachedResponseText) {
     ResponseException.call(this, response, cachedResponseText);
-    this.c2c_1 = 'Unhandled redirect: ' + response.a27().a26().b27().y1u_1 + ' ' + response.a27().a26().e26() + '. ' + ('Status: ' + response.f26() + '. Text: "' + cachedResponseText + '"');
+    this.message_1 = 'Unhandled redirect: ' + response.get_call_wojxrb_k$().get_request_jdwg4m_k$().get_method_gl8esq_k$().value_1 + ' ' + response.get_call_wojxrb_k$().get_request_jdwg4m_k$().get_url_18iuii_k$() + '. ' + ('Status: ' + response.get_status_jnf6d7_k$() + '. Text: "' + cachedResponseText + '"');
     captureStack(this, RedirectResponseException);
   }
-  RedirectResponseException.prototype.f1 = function () {
-    return this.c2c_1;
+  RedirectResponseException.prototype.get_message_h23axq_k$ = function () {
+    return this.message_1;
   };
   RedirectResponseException.$metadata$ = classMeta('RedirectResponseException', undefined, undefined, undefined, undefined, ResponseException.prototype);
   Object.defineProperty(RedirectResponseException.prototype, 'message', {
     configurable: true,
     get: function () {
-      return this.f1();
+      return this.get_message_h23axq_k$();
     }
   });
+  function ClientRequestException_init_$Init$(response, $this) {
+    ClientRequestException.call($this, response, '<no response text provided>');
+    return $this;
+  }
+  function ClientRequestException_init_$Create$(response) {
+    var tmp = ClientRequestException_init_$Init$(response, Object.create(ClientRequestException.prototype));
+    captureStack(tmp, ClientRequestException_init_$Create$);
+    return tmp;
+  }
   function ClientRequestException(response, cachedResponseText) {
     ResponseException.call(this, response, cachedResponseText);
-    this.e2c_1 = 'Client request(' + response.a27().a26().b27().y1u_1 + ' ' + response.a27().a26().e26() + ') ' + ('invalid: ' + response.f26() + '. Text: "' + cachedResponseText + '"');
+    this.message_1 = 'Client request(' + response.get_call_wojxrb_k$().get_request_jdwg4m_k$().get_method_gl8esq_k$().value_1 + ' ' + response.get_call_wojxrb_k$().get_request_jdwg4m_k$().get_url_18iuii_k$() + ') ' + ('invalid: ' + response.get_status_jnf6d7_k$() + '. Text: "' + cachedResponseText + '"');
     captureStack(this, ClientRequestException);
   }
-  ClientRequestException.prototype.f1 = function () {
-    return this.e2c_1;
+  ClientRequestException.prototype.get_message_h23axq_k$ = function () {
+    return this.message_1;
   };
   ClientRequestException.$metadata$ = classMeta('ClientRequestException', undefined, undefined, undefined, undefined, ResponseException.prototype);
   Object.defineProperty(ClientRequestException.prototype, 'message', {
     configurable: true,
     get: function () {
-      return this.f1();
+      return this.get_message_h23axq_k$();
     }
   });
+  function ServerResponseException_init_$Init$(response, $this) {
+    ServerResponseException.call($this, response, '<no response text provided>');
+    return $this;
+  }
+  function ServerResponseException_init_$Create$(response) {
+    var tmp = ServerResponseException_init_$Init$(response, Object.create(ServerResponseException.prototype));
+    captureStack(tmp, ServerResponseException_init_$Create$);
+    return tmp;
+  }
   function ServerResponseException(response, cachedResponseText) {
     ResponseException.call(this, response, cachedResponseText);
-    this.g2c_1 = 'Server error(' + response.a27().a26().b27().y1u_1 + ' ' + response.a27().a26().e26() + ': ' + ('' + response.f26() + '. Text: "' + cachedResponseText + '"');
+    this.message_1 = 'Server error(' + response.get_call_wojxrb_k$().get_request_jdwg4m_k$().get_method_gl8esq_k$().value_1 + ' ' + response.get_call_wojxrb_k$().get_request_jdwg4m_k$().get_url_18iuii_k$() + ': ' + ('' + response.get_status_jnf6d7_k$() + '. Text: "' + cachedResponseText + '"');
     captureStack(this, ServerResponseException);
   }
-  ServerResponseException.prototype.f1 = function () {
-    return this.g2c_1;
+  ServerResponseException.prototype.get_message_h23axq_k$ = function () {
+    return this.message_1;
   };
   ServerResponseException.$metadata$ = classMeta('ServerResponseException', undefined, undefined, undefined, undefined, ResponseException.prototype);
   Object.defineProperty(ServerResponseException.prototype, 'message', {
     configurable: true,
     get: function () {
-      return this.f1();
+      return this.get_message_h23axq_k$();
     }
   });
+  function ResponseException_init_$Init$(response, $this) {
+    ResponseException.call($this, response, '<no response text provided>');
+    return $this;
+  }
+  function ResponseException_init_$Create$(response) {
+    var tmp = ResponseException_init_$Init$(response, Object.create(ResponseException.prototype));
+    captureStack(tmp, ResponseException_init_$Create$);
+    return tmp;
+  }
   function ResponseException(response, cachedResponseText) {
     IllegalStateException_init_$Init$_0('Bad response: ' + response + '. Text: "' + cachedResponseText + '"', this);
-    this.h2c_1 = response;
+    this.response_1 = response;
     captureStack(this, ResponseException);
   }
+  ResponseException.prototype.get_response_xlk07e_k$ = function () {
+    return this.response_1;
+  };
   ResponseException.$metadata$ = classMeta('ResponseException', undefined, undefined, undefined, undefined, IllegalStateException.prototype);
+  function get_NO_RESPONSE_TEXT() {
+    return NO_RESPONSE_TEXT;
+  }
+  var NO_RESPONSE_TEXT;
   function addDefaultResponseValidation$lambda$slambda(resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
   }
-  addDefaultResponseValidation$lambda$slambda.prototype.x2c = function (response, $cont) {
-    var tmp = this.y2c(response, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  addDefaultResponseValidation$lambda$slambda.prototype.invoke_t8ni9j_k$ = function (response, $cont) {
+    var tmp = this.create_yw8py6_k$(response, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  addDefaultResponseValidation$lambda$slambda.prototype.ae = function (p1, $cont) {
-    return this.x2c(p1 instanceof HttpResponse ? p1 : THROW_CCE(), $cont);
+  addDefaultResponseValidation$lambda$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_t8ni9j_k$(p1 instanceof HttpResponse ? p1 : THROW_CCE(), $cont);
   };
-  addDefaultResponseValidation$lambda$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  addDefaultResponseValidation$lambda$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            this.r2c_1 = this.q2c_1.a27().cf().y1i(get_ExpectSuccessAttributeKey());
-            if (!this.r2c_1) {
+            this.exceptionState_1 = 3;
+            this.expectSuccess0__1 = this.response_1.get_call_wojxrb_k$().get_attributes_dgqof4_k$().get_g4gx7m_k$(get_ExpectSuccessAttributeKey());
+            if (!this.expectSuccess0__1) {
               return Unit_getInstance();
             }
 
-            this.s2c_1 = this.q2c_1.f26().j1x_1;
-            this.t2c_1 = this.q2c_1.a27();
-            if (this.s2c_1 < 300 ? true : this.t2c_1.cf().a1j(get_ValidateMark())) {
+            this.statusCode1__1 = this.response_1.get_status_jnf6d7_k$().value_1;
+            this.originCall2__1 = this.response_1.get_call_wojxrb_k$();
+            if (this.statusCode1__1 < 300 ? true : this.originCall2__1.get_attributes_dgqof4_k$().contains_z4wlmt_k$(get_ValidateMark())) {
               return Unit_getInstance();
             }
 
-            this.pd_1 = 1;
-            suspendResult = save(this.t2c_1, this);
+            this.state_1 = 1;
+            suspendResult = save(this.originCall2__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.u2c_1 = suspendResult;
-            this.u2c_1.cf().b1j(get_ValidateMark(), Unit_getInstance());
-            this.v2c_1 = this.u2c_1;
-            this.w2c_1 = this.v2c_1.s22();
-            this.pd_1 = 2;
-            suspendResult = bodyAsText$default(this.w2c_1, null, this, 1, null);
+            this.tmp0_apply3__1 = suspendResult;
+            this.tmp0_apply3__1.get_attributes_dgqof4_k$().put_ii1a3j_k$(get_ValidateMark(), Unit_getInstance());
+            this.exceptionCall4__1 = this.tmp0_apply3__1;
+            this.exceptionResponse5__1 = this.exceptionCall4__1.get_response_xlk07e_k$();
+            this.state_1 = 2;
+            suspendResult = bodyAsText$default(this.exceptionResponse5__1, null, this, 1, null);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -2222,47 +2586,50 @@
             continue $sm;
           case 2:
             var exceptionResponseText = suspendResult;
-            var tmp0_subject = this.s2c_1;
+            var tmp0_subject = this.statusCode1__1;
             if (300 <= tmp0_subject ? tmp0_subject <= 399 : false)
-              throw new RedirectResponseException(this.w2c_1, exceptionResponseText);
+              throw new RedirectResponseException(this.exceptionResponse5__1, exceptionResponseText);
             else if (400 <= tmp0_subject ? tmp0_subject <= 499 : false)
-              throw new ClientRequestException(this.w2c_1, exceptionResponseText);
+              throw new ClientRequestException(this.exceptionResponse5__1, exceptionResponseText);
             else if (500 <= tmp0_subject ? tmp0_subject <= 599 : false)
-              throw new ServerResponseException(this.w2c_1, exceptionResponseText);
+              throw new ServerResponseException(this.exceptionResponse5__1, exceptionResponseText);
             else
-              throw new ResponseException(this.w2c_1, exceptionResponseText);
+              throw new ResponseException(this.exceptionResponse5__1, exceptionResponseText);
             return Unit_getInstance();
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  addDefaultResponseValidation$lambda$slambda.prototype.y2c = function (response, completion) {
+  addDefaultResponseValidation$lambda$slambda.prototype.create_yw8py6_k$ = function (response, completion) {
     var i = new addDefaultResponseValidation$lambda$slambda(completion);
-    i.q2c_1 = response;
+    i.response_1 = response;
     return i;
+  };
+  addDefaultResponseValidation$lambda$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_yw8py6_k$(value instanceof HttpResponse ? value : THROW_CCE(), completion);
   };
   addDefaultResponseValidation$lambda$slambda.$metadata$ = classMeta('addDefaultResponseValidation$lambda$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function addDefaultResponseValidation$lambda$slambda_0(resultContinuation) {
     var i = new addDefaultResponseValidation$lambda$slambda(resultContinuation);
     var l = function (response, $cont) {
-      return i.x2c(response, $cont);
+      return i.invoke_t8ni9j_k$(response, $cont);
     };
     l.$arity = 1;
     return l;
   }
   function addDefaultResponseValidation$lambda($this_addDefaultResponseValidation) {
     return function ($this$HttpResponseValidator) {
-      $this$HttpResponseValidator.b2d_1 = $this_addDefaultResponseValidation.d24_1;
-      $this$HttpResponseValidator.c2d(addDefaultResponseValidation$lambda$slambda_0(null));
+      $this$HttpResponseValidator.expectSuccess_1 = $this_addDefaultResponseValidation.expectSuccess_1;
+      $this$HttpResponseValidator.validateResponse_nmkabc_k$(addDefaultResponseValidation$lambda$slambda_0(null));
       return Unit_getInstance();
     };
   }
@@ -2275,179 +2642,179 @@
     }
   }
   function defaultTransformers(_this__u8e3s4) {
-    var tmp = Phases_getInstance().t2a_1;
-    _this__u8e3s4.r21_1.k1n(tmp, defaultTransformers$slambda_0(null));
-    var tmp_0 = Phases_getInstance_1().q24_1;
-    _this__u8e3s4.s21_1.k1n(tmp_0, defaultTransformers$slambda_2(null));
+    var tmp = Phases_getInstance().Render_1;
+    _this__u8e3s4.requestPipeline_1.intercept_hnj3e1_k$(tmp, defaultTransformers$slambda_0(null));
+    var tmp_0 = Phases_getInstance_1().Parse_1;
+    _this__u8e3s4.responsePipeline_1.intercept_hnj3e1_k$(tmp_0, defaultTransformers$slambda_2(null));
     platformResponseDefaultTransformers(_this__u8e3s4);
   }
   function defaultTransformers$1$content$1($contentType, $body) {
-    this.g2d_1 = $body;
+    this.$body_1 = $body;
     ByteArrayContent.call(this);
     var tmp = this;
     var tmp0_elvis_lhs = $contentType;
-    tmp.e2d_1 = tmp0_elvis_lhs == null ? Application_getInstance().b1p_1 : tmp0_elvis_lhs;
-    this.f2d_1 = toLong($body.length);
+    tmp.contentType_1 = tmp0_elvis_lhs == null ? Application_getInstance().OctetStream_1 : tmp0_elvis_lhs;
+    this.contentLength_1 = toLong($body.length);
   }
-  defaultTransformers$1$content$1.prototype.s1z = function () {
-    return this.e2d_1;
+  defaultTransformers$1$content$1.prototype.get_contentType_7git4a_k$ = function () {
+    return this.contentType_1;
   };
-  defaultTransformers$1$content$1.prototype.t1z = function () {
-    return this.f2d_1;
+  defaultTransformers$1$content$1.prototype.get_contentLength_a5o8yy_k$ = function () {
+    return this.contentLength_1;
   };
-  defaultTransformers$1$content$1.prototype.z1z = function () {
-    return this.g2d_1;
+  defaultTransformers$1$content$1.prototype.bytes_1k3k2z_k$ = function () {
+    return this.$body_1;
   };
   defaultTransformers$1$content$1.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, ByteArrayContent.prototype);
   function defaultTransformers$1$content$2($this_intercept, $contentType, $body) {
-    this.k2d_1 = $body;
+    this.$body_1 = $body;
     ReadChannelContent.call(this);
     var tmp = this;
-    var tmp0_safe_receiver = $this_intercept.g1n_1.t23_1.qf(HttpHeaders_getInstance().a1r_1);
-    tmp.i2d_1 = tmp0_safe_receiver == null ? null : toLong_0(tmp0_safe_receiver);
+    var tmp0_safe_receiver = $this_intercept.context_1.headers_1.get_4u8u51_k$(HttpHeaders_getInstance().ContentLength_1);
+    tmp.contentLength_1 = tmp0_safe_receiver == null ? null : toLong_0(tmp0_safe_receiver);
     var tmp_0 = this;
     var tmp0_elvis_lhs = $contentType;
-    tmp_0.j2d_1 = tmp0_elvis_lhs == null ? Application_getInstance().b1p_1 : tmp0_elvis_lhs;
+    tmp_0.contentType_1 = tmp0_elvis_lhs == null ? Application_getInstance().OctetStream_1 : tmp0_elvis_lhs;
   }
-  defaultTransformers$1$content$2.prototype.t1z = function () {
-    return this.i2d_1;
+  defaultTransformers$1$content$2.prototype.get_contentLength_a5o8yy_k$ = function () {
+    return this.contentLength_1;
   };
-  defaultTransformers$1$content$2.prototype.s1z = function () {
-    return this.j2d_1;
+  defaultTransformers$1$content$2.prototype.get_contentType_7git4a_k$ = function () {
+    return this.contentType_1;
   };
-  defaultTransformers$1$content$2.prototype.v1z = function () {
-    return this.k2d_1;
+  defaultTransformers$1$content$2.prototype.readFrom_ecr4ww_k$ = function () {
+    return this.$body_1;
   };
   defaultTransformers$1$content$2.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, ReadChannelContent.prototype);
   function defaultTransformers$slambda(resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
   }
-  defaultTransformers$slambda.prototype.l22 = function ($this$intercept, body, $cont) {
-    var tmp = this.m22($this$intercept, body, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  defaultTransformers$slambda.prototype.invoke_63ydys_k$ = function ($this$intercept, body, $cont) {
+    var tmp = this.create_300ycv_k$($this$intercept, body, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  defaultTransformers$slambda.prototype.xe = function (p1, p2, $cont) {
+  defaultTransformers$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.l22(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+    return this.invoke_63ydys_k$(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
   };
-  defaultTransformers$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  defaultTransformers$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            if (this.t2d_1.g1n_1.t23_1.qf(HttpHeaders_getInstance().l1q_1) == null) {
-              this.t2d_1.g1n_1.t23_1.u1k(HttpHeaders_getInstance().l1q_1, '*/*');
+            this.exceptionState_1 = 3;
+            if (this.$this$intercept_1.context_1.headers_1.get_4u8u51_k$(HttpHeaders_getInstance().Accept_1) == null) {
+              this.$this$intercept_1.context_1.headers_1.append_ptbgmx_k$(HttpHeaders_getInstance().Accept_1, '*/*');
             }
 
-            this.v2d_1 = contentType(this.t2d_1.g1n_1);
+            this.contentType0__1 = contentType(this.$this$intercept_1.context_1);
             var tmp_0 = this;
-            var tmp0_subject = this.u2d_1;
+            var tmp0_subject = this.body_1;
             var tmp_1;
             if (typeof tmp0_subject === 'string') {
-              var tmp1_elvis_lhs = this.v2d_1;
-              var tmp_2 = tmp1_elvis_lhs == null ? Text_getInstance().s1p_1 : tmp1_elvis_lhs;
-              tmp_1 = TextContent_init_$Create$(this.u2d_1, tmp_2, null, 4, null);
+              var tmp1_elvis_lhs = this.contentType0__1;
+              var tmp_2 = tmp1_elvis_lhs == null ? Text_getInstance().Plain_1 : tmp1_elvis_lhs;
+              tmp_1 = TextContent_init_$Create$(this.body_1, tmp_2, null, 4, null);
             } else {
               if (isByteArray(tmp0_subject)) {
-                tmp_1 = new defaultTransformers$1$content$1(this.v2d_1, this.u2d_1);
+                tmp_1 = new defaultTransformers$1$content$1(this.contentType0__1, this.body_1);
               } else {
                 if (isInterface(tmp0_subject, ByteReadChannel)) {
-                  tmp_1 = new defaultTransformers$1$content$2(this.t2d_1, this.v2d_1, this.u2d_1);
+                  tmp_1 = new defaultTransformers$1$content$2(this.$this$intercept_1, this.contentType0__1, this.body_1);
                 } else {
                   if (tmp0_subject instanceof OutgoingContent) {
-                    tmp_1 = this.u2d_1;
+                    tmp_1 = this.body_1;
                   } else {
-                    tmp_1 = platformRequestDefaultTransform(this.v2d_1, this.t2d_1.g1n_1, this.u2d_1);
+                    tmp_1 = platformRequestDefaultTransform(this.contentType0__1, this.$this$intercept_1.context_1, this.body_1);
                   }
                 }
               }
             }
 
-            tmp_0.w2d_1 = tmp_1;
-            if (!(this.w2d_1 == null)) {
-              this.t2d_1.g1n_1.t23_1.w1k(HttpHeaders_getInstance().d1r_1);
-              this.pd_1 = 1;
-              suspendResult = this.t2d_1.k1m(this.w2d_1, this);
+            tmp_0.content1__1 = tmp_1;
+            if (!(this.content1__1 == null)) {
+              this.$this$intercept_1.context_1.headers_1.remove_d85afi_k$(HttpHeaders_getInstance().ContentType_1);
+              this.state_1 = 1;
+              suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.content1__1, this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              this.pd_1 = 2;
+              this.state_1 = 2;
               continue $sm;
             }
 
             break;
           case 1:
             ;
-            this.pd_1 = 2;
+            this.state_1 = 2;
             continue $sm;
           case 2:
             return Unit_getInstance();
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  defaultTransformers$slambda.prototype.m22 = function ($this$intercept, body, completion) {
+  defaultTransformers$slambda.prototype.create_300ycv_k$ = function ($this$intercept, body, completion) {
     var i = new defaultTransformers$slambda(completion);
-    i.t2d_1 = $this$intercept;
-    i.u2d_1 = body;
+    i.$this$intercept_1 = $this$intercept;
+    i.body_1 = body;
     return i;
   };
   defaultTransformers$slambda.$metadata$ = classMeta('defaultTransformers$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function defaultTransformers$slambda_0(resultContinuation) {
     var i = new defaultTransformers$slambda(resultContinuation);
     var l = function ($this$intercept, body, $cont) {
-      return i.l22($this$intercept, body, $cont);
+      return i.invoke_63ydys_k$($this$intercept, body, $cont);
     };
     l.$arity = 2;
     return l;
   }
   function defaultTransformers$slambda$slambda($body, $response, resultContinuation) {
-    this.f2e_1 = $body;
-    this.g2e_1 = $response;
+    this.$body_1 = $body;
+    this.$response_1 = $response;
     CoroutineImpl.call(this, resultContinuation);
   }
-  defaultTransformers$slambda$slambda.prototype.y27 = function ($this$writer, $cont) {
-    var tmp = this.z27($this$writer, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  defaultTransformers$slambda$slambda.prototype.invoke_65o7wc_k$ = function ($this$writer, $cont) {
+    var tmp = this.create_4ctjxj_k$($this$writer, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  defaultTransformers$slambda$slambda.prototype.ae = function (p1, $cont) {
-    return this.y27((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
+  defaultTransformers$slambda$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_65o7wc_k$((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  defaultTransformers$slambda$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  defaultTransformers$slambda$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 5;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 5;
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            this.qd_1 = 4;
-            this.qd_1 = 3;
-            this.pd_1 = 2;
-            var tmp_0 = this.h2e_1.rw();
+            this.exceptionState_1 = 4;
+            this.exceptionState_1 = 3;
+            this.state_1 = 2;
+            var tmp_0 = this.$this$writer_1.get_channel_dhi7tm_k$();
             Companion_getInstance_0();
-            suspendResult = copyTo(this.f2e_1, tmp_0, new Long(-1, 2147483647), this);
+            suspendResult = copyTo(this.$body_1, tmp_0, new Long(-1, 2147483647), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -2455,158 +2822,161 @@
             continue $sm;
           case 2:
             var tmp_1 = this;
-            tmp_1.i2e_1 = Unit_getInstance();
-            this.qd_1 = 5;
-            this.pd_1 = 6;
+            tmp_1.tmp$ret$00__1 = Unit_getInstance();
+            this.exceptionState_1 = 5;
+            this.state_1 = 6;
             continue $sm;
           case 3:
-            this.qd_1 = 4;
-            var tmp_2 = this.sd_1;
+            this.exceptionState_1 = 4;
+            var tmp_2 = this.exception_1;
             if (tmp_2 instanceof CancellationException) {
-              var cause = this.sd_1;
+              var cause = this.exception_1;
               var tmp_3 = this;
-              cancel_0(this.g2e_1, cause);
+              cancel_0(this.$response_1, cause);
               throw cause;
             } else {
-              var tmp_4 = this.sd_1;
+              var tmp_4 = this.exception_1;
               if (tmp_4 instanceof Error) {
-                var cause_0 = this.sd_1;
+                var cause_0 = this.exception_1;
                 var tmp_5 = this;
-                cancel(this.g2e_1, 'Receive failed', cause_0);
+                cancel(this.$response_1, 'Receive failed', cause_0);
                 throw cause_0;
               } else {
-                throw this.sd_1;
+                throw this.exception_1;
               }
             }
 
             break;
           case 4:
-            this.qd_1 = 5;
-            var t = this.sd_1;
-            complete(this.g2e_1);
+            this.exceptionState_1 = 5;
+            var t = this.exception_1;
+            complete(this.$response_1);
             throw t;
           case 5:
-            throw this.sd_1;
+            throw this.exception_1;
           case 6:
-            complete(this.g2e_1);
+            complete(this.$response_1);
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 5) {
+        if (this.exceptionState_1 === 5) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  defaultTransformers$slambda$slambda.prototype.z27 = function ($this$writer, completion) {
-    var i = new defaultTransformers$slambda$slambda(this.f2e_1, this.g2e_1, completion);
-    i.h2e_1 = $this$writer;
+  defaultTransformers$slambda$slambda.prototype.create_4ctjxj_k$ = function ($this$writer, completion) {
+    var i = new defaultTransformers$slambda$slambda(this.$body_1, this.$response_1, completion);
+    i.$this$writer_1 = $this$writer;
     return i;
+  };
+  defaultTransformers$slambda$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_4ctjxj_k$((!(value == null) ? isInterface(value, WriterScope) : false) ? value : THROW_CCE(), completion);
   };
   defaultTransformers$slambda$slambda.$metadata$ = classMeta('defaultTransformers$slambda$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function defaultTransformers$slambda$slambda_0($body, $response, resultContinuation) {
     var i = new defaultTransformers$slambda$slambda($body, $response, resultContinuation);
     var l = function ($this$writer, $cont) {
-      return i.y27($this$writer, $cont);
+      return i.invoke_65o7wc_k$($this$writer, $cont);
     };
     l.$arity = 1;
     return l;
   }
   function defaultTransformers$slambda$lambda($responseJobHolder) {
     return function (it) {
-      $responseJobHolder.kq();
+      $responseJobHolder.complete_9ww6vb_k$();
       return Unit_getInstance();
     };
   }
   function defaultTransformers$slambda_1(resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
   }
-  defaultTransformers$slambda_1.prototype.f23 = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont) {
-    var tmp = this.g23($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  defaultTransformers$slambda_1.prototype.invoke_sqq52a_k$ = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont) {
+    var tmp = this.create_u7w3m5_k$($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  defaultTransformers$slambda_1.prototype.xe = function (p1, p2, $cont) {
+  defaultTransformers$slambda_1.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.f23(tmp, p2 instanceof HttpResponseContainer ? p2 : THROW_CCE(), $cont);
+    return this.invoke_sqq52a_k$(tmp, p2 instanceof HttpResponseContainer ? p2 : THROW_CCE(), $cont);
   };
-  defaultTransformers$slambda_1.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  defaultTransformers$slambda_1.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 11;
-            this.t2e_1 = this.s2e_1.s4();
-            this.u2e_1 = this.s2e_1.t4();
-            var tmp_0 = this.u2e_1;
+            this.exceptionState_1 = 11;
+            this.info0__1 = this._name_for_destructuring_parameter_0__wldtmu_1.component1_7eebsc_k$();
+            this.body1__1 = this._name_for_destructuring_parameter_0__wldtmu_1.component2_7eebsb_k$();
+            var tmp_0 = this.body1__1;
             if (!isInterface(tmp_0, ByteReadChannel))
               return Unit_getInstance();
-            this.v2e_1 = this.r2e_1.g1n_1.s22();
-            this.w2e_1 = this.t2e_1.y1n_1;
-            if (this.w2e_1.equals(getKClass(Unit))) {
-              cancel_1(this.u2e_1);
-              this.pd_1 = 9;
-              suspendResult = this.r2e_1.k1m(new HttpResponseContainer(this.t2e_1, Unit_getInstance()), this);
+            this.response2__1 = this.$this$intercept_1.context_1.get_response_xlk07e_k$();
+            this.tmp0_subject3__1 = this.info0__1.type_1;
+            if (this.tmp0_subject3__1.equals(getKClass(Unit))) {
+              cancel_1(this.body1__1);
+              this.state_1 = 9;
+              suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(new HttpResponseContainer(this.info0__1, Unit_getInstance()), this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              if (this.w2e_1.equals(PrimitiveClasses_getInstance().nb())) {
-                this.pd_1 = 7;
-                suspendResult = this.u2e_1.q19(new Long(0, 0), this, 1, null);
+              if (this.tmp0_subject3__1.equals(PrimitiveClasses_getInstance().get_intClass_mw4y9a_k$())) {
+                this.state_1 = 7;
+                suspendResult = this.body1__1.readRemaining$default_u0hcq7_k$(new Long(0, 0), this, 1, null);
                 if (suspendResult === get_COROUTINE_SUSPENDED()) {
                   return suspendResult;
                 }
                 continue $sm;
               } else {
-                if (this.w2e_1.equals(getKClass(ByteReadPacket)) ? true : this.w2e_1.equals(getKClass(Input))) {
-                  this.pd_1 = 5;
-                  suspendResult = this.u2e_1.q19(new Long(0, 0), this, 1, null);
+                if (this.tmp0_subject3__1.equals(getKClass(ByteReadPacket)) ? true : this.tmp0_subject3__1.equals(getKClass(Input))) {
+                  this.state_1 = 5;
+                  suspendResult = this.body1__1.readRemaining$default_u0hcq7_k$(new Long(0, 0), this, 1, null);
                   if (suspendResult === get_COROUTINE_SUSPENDED()) {
                     return suspendResult;
                   }
                   continue $sm;
                 } else {
-                  if (this.w2e_1.equals(PrimitiveClasses_getInstance().vb())) {
-                    this.pd_1 = 3;
-                    suspendResult = toByteArray(this.u2e_1, this);
+                  if (this.tmp0_subject3__1.equals(PrimitiveClasses_getInstance().get_byteArrayClass_57my8g_k$())) {
+                    this.state_1 = 3;
+                    suspendResult = toByteArray(this.body1__1, this);
                     if (suspendResult === get_COROUTINE_SUSPENDED()) {
                       return suspendResult;
                     }
                     continue $sm;
                   } else {
-                    if (this.w2e_1.equals(getKClass(ByteReadChannel))) {
-                      this.x2e_1 = Job(this.v2e_1.qk().b3(Key_getInstance()));
+                    if (this.tmp0_subject3__1.equals(getKClass(ByteReadChannel))) {
+                      this.responseJobHolder4__1 = Job(this.response2__1.get_coroutineContext_115oqo_k$().get_1pi7hg_k$(Key_getInstance()));
                       var tmp_1 = this;
                       var tmp_2 = this;
-                      var tmp_3 = this.v2e_1.qk();
-                      tmp_2.y2e_1 = writer$default(this.r2e_1, tmp_3, false, defaultTransformers$slambda$slambda_0(this.u2e_1, this.v2e_1, null), 2, null);
-                      this.y2e_1.rl(defaultTransformers$slambda$lambda(this.x2e_1));
-                      tmp_1.z2e_1 = this.y2e_1.rw();
-                      this.pd_1 = 2;
-                      suspendResult = this.r2e_1.k1m(new HttpResponseContainer(this.t2e_1, this.z2e_1), this);
+                      var tmp_3 = this.response2__1.get_coroutineContext_115oqo_k$();
+                      tmp_2.tmp1_also5__1 = writer$default(this.$this$intercept_1, tmp_3, false, defaultTransformers$slambda$slambda_0(this.body1__1, this.response2__1, null), 2, null);
+                      this.tmp1_also5__1.invokeOnCompletion_t2apld_k$(defaultTransformers$slambda$lambda(this.responseJobHolder4__1));
+                      tmp_1.channel6__1 = this.tmp1_also5__1.get_channel_dhi7tm_k$();
+                      this.state_1 = 2;
+                      suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(new HttpResponseContainer(this.info0__1, this.channel6__1), this);
                       if (suspendResult === get_COROUTINE_SUSPENDED()) {
                         return suspendResult;
                       }
                       continue $sm;
                     } else {
-                      if (this.w2e_1.equals(getKClass(HttpStatusCode))) {
-                        cancel_1(this.u2e_1);
-                        this.pd_1 = 1;
-                        suspendResult = this.r2e_1.k1m(new HttpResponseContainer(this.t2e_1, this.v2e_1.f26()), this);
+                      if (this.tmp0_subject3__1.equals(getKClass(HttpStatusCode))) {
+                        cancel_1(this.body1__1);
+                        this.state_1 = 1;
+                        suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(new HttpResponseContainer(this.info0__1, this.response2__1.get_status_jnf6d7_k$()), this);
                         if (suspendResult === get_COROUTINE_SUSPENDED()) {
                           return suspendResult;
                         }
                         continue $sm;
                       } else {
-                        this.pd_1 = 10;
+                        this.state_1 = 10;
                         continue $sm;
                       }
                     }
@@ -2618,26 +2988,26 @@
             break;
           case 1:
             ;
-            this.pd_1 = 10;
+            this.state_1 = 10;
             continue $sm;
           case 2:
             ;
-            this.pd_1 = 10;
+            this.state_1 = 10;
             continue $sm;
           case 3:
-            this.a2f_1 = suspendResult;
-            this.b2f_1 = contentLength(this.v2e_1);
-            this.c2f_1 = this.v2e_1.p1u().qf(HttpHeaders_getInstance().y1q_1);
-            if ((this.c2f_1 == null ? !(this.b2f_1 == null) : false) ? this.b2f_1.a1(new Long(0, 0)) > 0 : false) {
-              var tmp0_check = this.a2f_1.length === this.b2f_1.md();
+            this.bytes7__1 = suspendResult;
+            this.contentLength8__1 = contentLength(this.response2__1);
+            this.contentEncoding9__1 = this.response2__1.get_headers_ef25jx_k$().get_4u8u51_k$(HttpHeaders_getInstance().ContentEncoding_1);
+            if ((this.contentEncoding9__1 == null ? !(this.contentLength8__1 == null) : false) ? this.contentLength8__1.compareTo_n4fqi2_k$(new Long(0, 0)) > 0 : false) {
+              var tmp0_check = this.bytes7__1.length === this.contentLength8__1.toInt_1tsl84_k$();
               if (!tmp0_check) {
-                var message = 'Expected ' + toString_0(this.b2f_1) + ', actual ' + this.a2f_1.length;
+                var message = 'Expected ' + toString_0(this.contentLength8__1) + ', actual ' + this.bytes7__1.length;
                 throw IllegalStateException_init_$Create$(toString(message));
               }
             }
 
-            this.pd_1 = 4;
-            suspendResult = this.r2e_1.k1m(new HttpResponseContainer(this.t2e_1, this.a2f_1), this);
+            this.state_1 = 4;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(new HttpResponseContainer(this.info0__1, this.bytes7__1), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -2645,13 +3015,13 @@
             continue $sm;
           case 4:
             ;
-            this.pd_1 = 10;
+            this.state_1 = 10;
             continue $sm;
           case 5:
-            this.d2f_1 = suspendResult;
-            this.e2f_1 = new HttpResponseContainer(this.t2e_1, this.d2f_1);
-            this.pd_1 = 6;
-            suspendResult = this.r2e_1.k1m(this.e2f_1, this);
+            this.ARGUMENT10__1 = suspendResult;
+            this.ARGUMENT11__1 = new HttpResponseContainer(this.info0__1, this.ARGUMENT10__1);
+            this.state_1 = 6;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.ARGUMENT11__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -2659,16 +3029,16 @@
             continue $sm;
           case 6:
             ;
-            this.pd_1 = 10;
+            this.state_1 = 10;
             continue $sm;
           case 7:
-            this.f2f_1 = suspendResult;
+            this.ARGUMENT12__1 = suspendResult;
             var tmp_4 = this;
-            tmp_4.g2f_1 = this.f2f_1.n1e(0, 0, 3, null);
-            this.h2f_1 = toInt(this.g2f_1);
-            this.i2f_1 = new HttpResponseContainer(this.t2e_1, this.h2f_1);
-            this.pd_1 = 8;
-            suspendResult = this.r2e_1.k1m(this.i2f_1, this);
+            tmp_4.ARGUMENT13__1 = this.ARGUMENT12__1.readText$default_mjq276_k$(0, 0, 3, null);
+            this.ARGUMENT14__1 = toInt(this.ARGUMENT13__1);
+            this.ARGUMENT15__1 = new HttpResponseContainer(this.info0__1, this.ARGUMENT14__1);
+            this.state_1 = 8;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.ARGUMENT15__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -2676,38 +3046,38 @@
             continue $sm;
           case 8:
             ;
-            this.pd_1 = 10;
+            this.state_1 = 10;
             continue $sm;
           case 9:
             ;
-            this.pd_1 = 10;
+            this.state_1 = 10;
             continue $sm;
           case 10:
             return Unit_getInstance();
           case 11:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 11) {
+        if (this.exceptionState_1 === 11) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  defaultTransformers$slambda_1.prototype.g23 = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, completion) {
+  defaultTransformers$slambda_1.prototype.create_u7w3m5_k$ = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, completion) {
     var i = new defaultTransformers$slambda_1(completion);
-    i.r2e_1 = $this$intercept;
-    i.s2e_1 = _name_for_destructuring_parameter_0__wldtmu;
+    i.$this$intercept_1 = $this$intercept;
+    i._name_for_destructuring_parameter_0__wldtmu_1 = _name_for_destructuring_parameter_0__wldtmu;
     return i;
   };
   defaultTransformers$slambda_1.$metadata$ = classMeta('defaultTransformers$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function defaultTransformers$slambda_2(resultContinuation) {
     var i = new defaultTransformers$slambda_1(resultContinuation);
     var l = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont) {
-      return i.f23($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont);
+      return i.invoke_sqq52a_k$($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont);
     };
     l.$arity = 2;
     return l;
@@ -2719,37 +3089,37 @@
   var ExpectSuccessAttributeKey;
   function HttpCallValidator$Companion$install$slambda$lambda($plugin) {
     return function () {
-      return $plugin.l2f_1;
+      return $plugin.expectSuccess_1;
     };
   }
   function HttpCallValidator$Companion$install$slambda($plugin, resultContinuation) {
-    this.u2f_1 = $plugin;
+    this.$plugin_1 = $plugin;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpCallValidator$Companion$install$slambda.prototype.l22 = function ($this$intercept, it, $cont) {
-    var tmp = this.m22($this$intercept, it, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpCallValidator$Companion$install$slambda.prototype.invoke_63ydys_k$ = function ($this$intercept, it, $cont) {
+    var tmp = this.create_300ycv_k$($this$intercept, it, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpCallValidator$Companion$install$slambda.prototype.xe = function (p1, p2, $cont) {
+  HttpCallValidator$Companion$install$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.l22(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+    return this.invoke_63ydys_k$(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
   };
-  HttpCallValidator$Companion$install$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpCallValidator$Companion$install$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 5;
-            this.qd_1 = 3;
+            this.exceptionState_1 = 5;
+            this.exceptionState_1 = 3;
             var tmp_0 = get_ExpectSuccessAttributeKey();
-            this.v2f_1.g1n_1.w23_1.d1j(tmp_0, HttpCallValidator$Companion$install$slambda$lambda(this.u2f_1));
+            this.$this$intercept_1.context_1.attributes_1.computeIfAbsent_ia69ed_k$(tmp_0, HttpCallValidator$Companion$install$slambda$lambda(this.$plugin_1));
             ;
-            this.pd_1 = 1;
-            suspendResult = this.v2f_1.k1m(this.w2f_1, this);
+            this.state_1 = 1;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.it_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -2757,84 +3127,84 @@
             continue $sm;
           case 1:
             ;
-            this.qd_1 = 5;
-            this.pd_1 = 2;
+            this.exceptionState_1 = 5;
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            this.qd_1 = 5;
+            this.exceptionState_1 = 5;
             return Unit_getInstance();
           case 3:
-            this.qd_1 = 5;
-            var tmp_1 = this.sd_1;
+            this.exceptionState_1 = 5;
+            var tmp_1 = this.exception_1;
             if (tmp_1 instanceof Error) {
-              this.x2f_1 = this.sd_1;
-              this.y2f_1 = unwrapCancellationException(this.x2f_1);
-              this.pd_1 = 4;
-              suspendResult = processException(this.u2f_1, this.y2f_1, HttpRequest(this.v2f_1.g1n_1), this);
+              this.cause0__1 = this.exception_1;
+              this.unwrappedCause1__1 = unwrapCancellationException(this.cause0__1);
+              this.state_1 = 4;
+              suspendResult = processException(this.$plugin_1, this.unwrappedCause1__1, HttpRequest(this.$this$intercept_1.context_1), this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 4:
-            throw this.y2f_1;
+            throw this.unwrappedCause1__1;
           case 5:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 5) {
+        if (this.exceptionState_1 === 5) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpCallValidator$Companion$install$slambda.prototype.m22 = function ($this$intercept, it, completion) {
-    var i = new HttpCallValidator$Companion$install$slambda(this.u2f_1, completion);
-    i.v2f_1 = $this$intercept;
-    i.w2f_1 = it;
+  HttpCallValidator$Companion$install$slambda.prototype.create_300ycv_k$ = function ($this$intercept, it, completion) {
+    var i = new HttpCallValidator$Companion$install$slambda(this.$plugin_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.it_1 = it;
     return i;
   };
   HttpCallValidator$Companion$install$slambda.$metadata$ = classMeta('HttpCallValidator$Companion$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpCallValidator$Companion$install$slambda_0($plugin, resultContinuation) {
     var i = new HttpCallValidator$Companion$install$slambda($plugin, resultContinuation);
     var l = function ($this$intercept, it, $cont) {
-      return i.l22($this$intercept, it, $cont);
+      return i.invoke_63ydys_k$($this$intercept, it, $cont);
     };
     l.$arity = 2;
     return l;
   }
   function HttpCallValidator$Companion$install$slambda_1($plugin, resultContinuation) {
-    this.h2g_1 = $plugin;
+    this.$plugin_1 = $plugin;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpCallValidator$Companion$install$slambda_1.prototype.f23 = function ($this$intercept, container, $cont) {
-    var tmp = this.g23($this$intercept, container, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpCallValidator$Companion$install$slambda_1.prototype.invoke_sqq52a_k$ = function ($this$intercept, container, $cont) {
+    var tmp = this.create_u7w3m5_k$($this$intercept, container, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpCallValidator$Companion$install$slambda_1.prototype.xe = function (p1, p2, $cont) {
+  HttpCallValidator$Companion$install$slambda_1.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.f23(tmp, p2 instanceof HttpResponseContainer ? p2 : THROW_CCE(), $cont);
+    return this.invoke_sqq52a_k$(tmp, p2 instanceof HttpResponseContainer ? p2 : THROW_CCE(), $cont);
   };
-  HttpCallValidator$Companion$install$slambda_1.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpCallValidator$Companion$install$slambda_1.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 5;
-            this.qd_1 = 3;
-            this.pd_1 = 1;
-            suspendResult = this.i2g_1.k1m(this.j2g_1, this);
+            this.exceptionState_1 = 5;
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.container_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -2842,138 +3212,147 @@
             continue $sm;
           case 1:
             ;
-            this.qd_1 = 5;
-            this.pd_1 = 2;
+            this.exceptionState_1 = 5;
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            this.qd_1 = 5;
+            this.exceptionState_1 = 5;
             return Unit_getInstance();
           case 3:
-            this.qd_1 = 5;
-            var tmp_0 = this.sd_1;
+            this.exceptionState_1 = 5;
+            var tmp_0 = this.exception_1;
             if (tmp_0 instanceof Error) {
-              this.k2g_1 = this.sd_1;
-              this.l2g_1 = unwrapCancellationException(this.k2g_1);
-              this.pd_1 = 4;
-              suspendResult = processException(this.h2g_1, this.l2g_1, this.i2g_1.g1n_1.a26(), this);
+              this.cause0__1 = this.exception_1;
+              this.unwrappedCause1__1 = unwrapCancellationException(this.cause0__1);
+              this.state_1 = 4;
+              suspendResult = processException(this.$plugin_1, this.unwrappedCause1__1, this.$this$intercept_1.context_1.get_request_jdwg4m_k$(), this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 4:
-            throw this.l2g_1;
+            throw this.unwrappedCause1__1;
           case 5:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 5) {
+        if (this.exceptionState_1 === 5) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpCallValidator$Companion$install$slambda_1.prototype.g23 = function ($this$intercept, container, completion) {
-    var i = new HttpCallValidator$Companion$install$slambda_1(this.h2g_1, completion);
-    i.i2g_1 = $this$intercept;
-    i.j2g_1 = container;
+  HttpCallValidator$Companion$install$slambda_1.prototype.create_u7w3m5_k$ = function ($this$intercept, container, completion) {
+    var i = new HttpCallValidator$Companion$install$slambda_1(this.$plugin_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.container_1 = container;
     return i;
   };
   HttpCallValidator$Companion$install$slambda_1.$metadata$ = classMeta('HttpCallValidator$Companion$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpCallValidator$Companion$install$slambda_2($plugin, resultContinuation) {
     var i = new HttpCallValidator$Companion$install$slambda_1($plugin, resultContinuation);
     var l = function ($this$intercept, container, $cont) {
-      return i.f23($this$intercept, container, $cont);
+      return i.invoke_sqq52a_k$($this$intercept, container, $cont);
     };
     l.$arity = 2;
     return l;
   }
   function HttpCallValidator$Companion$install$slambda_3($plugin, resultContinuation) {
-    this.u2g_1 = $plugin;
+    this.$plugin_1 = $plugin;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpCallValidator$Companion$install$slambda_3.prototype.y2g = function ($this$intercept, request, $cont) {
-    var tmp = this.z2g($this$intercept, request, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpCallValidator$Companion$install$slambda_3.prototype.invoke_dqudng_k$ = function ($this$intercept, request, $cont) {
+    var tmp = this.create_q4qdwm_k$($this$intercept, request, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpCallValidator$Companion$install$slambda_3.prototype.xe = function (p1, p2, $cont) {
+  HttpCallValidator$Companion$install$slambda_3.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = (!(p1 == null) ? isInterface(p1, Sender) : false) ? p1 : THROW_CCE();
-    return this.y2g(tmp, p2 instanceof HttpRequestBuilder ? p2 : THROW_CCE(), $cont);
+    return this.invoke_dqudng_k$(tmp, p2 instanceof HttpRequestBuilder ? p2 : THROW_CCE(), $cont);
   };
-  HttpCallValidator$Companion$install$slambda_3.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpCallValidator$Companion$install$slambda_3.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            this.pd_1 = 1;
-            suspendResult = this.v2g_1.u24(this.w2g_1, this);
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = this.$this$intercept_1.execute_z0ufkc_k$(this.request_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.x2g_1 = suspendResult;
-            this.pd_1 = 2;
-            suspendResult = validateResponse(this.u2g_1, this.x2g_1.s22(), this);
+            this.call0__1 = suspendResult;
+            this.state_1 = 2;
+            suspendResult = validateResponse(this.$plugin_1, this.call0__1.get_response_xlk07e_k$(), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 2:
-            return this.x2g_1;
+            return this.call0__1;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpCallValidator$Companion$install$slambda_3.prototype.z2g = function ($this$intercept, request, completion) {
-    var i = new HttpCallValidator$Companion$install$slambda_3(this.u2g_1, completion);
-    i.v2g_1 = $this$intercept;
-    i.w2g_1 = request;
+  HttpCallValidator$Companion$install$slambda_3.prototype.create_q4qdwm_k$ = function ($this$intercept, request, completion) {
+    var i = new HttpCallValidator$Companion$install$slambda_3(this.$plugin_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.request_1 = request;
     return i;
   };
   HttpCallValidator$Companion$install$slambda_3.$metadata$ = classMeta('HttpCallValidator$Companion$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpCallValidator$Companion$install$slambda_4($plugin, resultContinuation) {
     var i = new HttpCallValidator$Companion$install$slambda_3($plugin, resultContinuation);
     var l = function ($this$intercept, request, $cont) {
-      return i.y2g($this$intercept, request, $cont);
+      return i.invoke_dqudng_k$($this$intercept, request, $cont);
     };
     l.$arity = 2;
     return l;
   }
+  function _get_responseValidators__ie7id3($this) {
+    return $this.responseValidators_1;
+  }
+  function _get_callExceptionHandlers__qm4wl3($this) {
+    return $this.callExceptionHandlers_1;
+  }
+  function _get_expectSuccess__nyy17r($this) {
+    return $this.expectSuccess_1;
+  }
   function validateResponse($this, response, $cont) {
     var tmp = new $validateResponseCOROUTINE$5($this, response, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function processException($this, cause, request, $cont) {
     var tmp = new $processExceptionCOROUTINE$6($this, cause, request, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function Config() {
     var tmp = this;
@@ -2981,31 +3360,59 @@
     {
       tmp$ret$0 = ArrayList_init_$Create$();
     }
-    tmp.z2c_1 = tmp$ret$0;
+    tmp.responseValidators_1 = tmp$ret$0;
     var tmp_0 = this;
     var tmp$ret$1;
     {
       tmp$ret$1 = ArrayList_init_$Create$();
     }
-    tmp_0.a2d_1 = tmp$ret$1;
-    this.b2d_1 = true;
+    tmp_0.responseExceptionHandlers_1 = tmp$ret$1;
+    this.expectSuccess_1 = true;
   }
-  Config.prototype.c2d = function (block) {
+  Config.prototype.get_responseValidators_vw1i4r_k$ = function () {
+    return this.responseValidators_1;
+  };
+  Config.prototype.get_responseExceptionHandlers_tmlc0i_k$ = function () {
+    return this.responseExceptionHandlers_1;
+  };
+  Config.prototype.set_expectSuccess_k3nqik_k$ = function (_set____db54di) {
+    this.expectSuccess_1 = _set____db54di;
+  };
+  Config.prototype.get_expectSuccess_uic3pb_k$ = function () {
+    return this.expectSuccess_1;
+  };
+  Config.prototype.handleResponseException_wrq5vv_k$ = function (block) {
     var tmp0_this = this;
     {
-      var tmp0_plusAssign = tmp0_this.z2c_1;
-      tmp0_plusAssign.b(block);
+      var tmp0_plusAssign = tmp0_this.responseExceptionHandlers_1;
+      var tmp1_plusAssign = new ExceptionHandlerWrapper(block);
+      tmp0_plusAssign.add_1j60pz_k$(tmp1_plusAssign);
+    }
+  };
+  Config.prototype.handleResponseExceptionWithRequest_ihgzkk_k$ = function (block) {
+    var tmp0_this = this;
+    {
+      var tmp0_plusAssign = tmp0_this.responseExceptionHandlers_1;
+      var tmp1_plusAssign = new RequestExceptionHandlerWrapper(block);
+      tmp0_plusAssign.add_1j60pz_k$(tmp1_plusAssign);
+    }
+  };
+  Config.prototype.validateResponse_nmkabc_k$ = function (block) {
+    var tmp0_this = this;
+    {
+      var tmp0_plusAssign = tmp0_this.responseValidators_1;
+      tmp0_plusAssign.add_1j60pz_k$(block);
     }
   };
   Config.$metadata$ = classMeta('Config');
   function Companion_1() {
     Companion_instance_1 = this;
-    this.c2i_1 = new AttributeKey('HttpResponseValidator');
+    this.key_1 = new AttributeKey('HttpResponseValidator');
   }
-  Companion_1.prototype.r = function () {
-    return this.c2i_1;
+  Companion_1.prototype.get_key_18j28a_k$ = function () {
+    return this.key_1;
   };
-  Companion_1.prototype.d2i = function (block) {
+  Companion_1.prototype.prepare_bbu65k_k$ = function (block) {
     var tmp$ret$0;
     {
       var tmp0_apply = new Config();
@@ -3015,22 +3422,22 @@
       tmp$ret$0 = tmp0_apply;
     }
     var config = tmp$ret$0;
-    return new HttpCallValidator(reversed(config.z2c_1), reversed(config.a2d_1), config.b2d_1);
+    return new HttpCallValidator(reversed(config.responseValidators_1), reversed(config.responseExceptionHandlers_1), config.expectSuccess_1);
   };
-  Companion_1.prototype.w24 = function (block) {
-    return this.d2i(block);
+  Companion_1.prototype.prepare_aftpuj_k$ = function (block) {
+    return this.prepare_bbu65k_k$(block);
   };
-  Companion_1.prototype.e2i = function (plugin_0, scope) {
-    var tmp = Phases_getInstance().q2a_1;
-    scope.r21_1.k1n(tmp, HttpCallValidator$Companion$install$slambda_0(plugin_0, null));
+  Companion_1.prototype.install_ucwhol_k$ = function (plugin_0, scope) {
+    var tmp = Phases_getInstance().Before_1;
+    scope.requestPipeline_1.intercept_hnj3e1_k$(tmp, HttpCallValidator$Companion$install$slambda_0(plugin_0, null));
     var BeforeReceive = new PipelinePhase('BeforeReceive');
-    scope.s21_1.j1n(Phases_getInstance_1().p24_1, BeforeReceive);
-    scope.s21_1.k1n(BeforeReceive, HttpCallValidator$Companion$install$slambda_2(plugin_0, null));
-    var tmp_0 = plugin(scope, Plugin_getInstance_3());
-    tmp_0.h2i(HttpCallValidator$Companion$install$slambda_4(plugin_0, null));
+    scope.responsePipeline_1.insertPhaseBefore_mtrcmo_k$(Phases_getInstance_1().Receive_1, BeforeReceive);
+    scope.responsePipeline_1.intercept_hnj3e1_k$(BeforeReceive, HttpCallValidator$Companion$install$slambda_2(plugin_0, null));
+    var tmp_0 = plugin(scope, Plugin_getInstance_4());
+    tmp_0.intercept_ss9ax6_k$(HttpCallValidator$Companion$install$slambda_4(plugin_0, null));
   };
-  Companion_1.prototype.x24 = function (plugin, scope) {
-    return this.e2i(plugin instanceof HttpCallValidator ? plugin : THROW_CCE(), scope);
+  Companion_1.prototype.install_cj05u9_k$ = function (plugin, scope) {
+    return this.install_ucwhol_k$(plugin instanceof HttpCallValidator ? plugin : THROW_CCE(), scope);
   };
   Companion_1.$metadata$ = objectMeta('Companion', [HttpClientPlugin]);
   var Companion_instance_1;
@@ -3041,50 +3448,50 @@
   }
   function $validateResponseCOROUTINE$5(_this__u8e3s4, response, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.i2h_1 = _this__u8e3s4;
-    this.j2h_1 = response;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.response_1 = response;
   }
-  $validateResponseCOROUTINE$5.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $validateResponseCOROUTINE$5.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 4;
+            this.exceptionState_1 = 4;
             var tmp_0 = this;
-            tmp_0.k2h_1 = this.i2h_1.j2f_1;
-            this.l2h_1 = this.k2h_1.d();
-            this.pd_1 = 1;
+            tmp_0.tmp0_forEach0__1 = this._this__u8e3s4__1.responseValidators_1;
+            this.tmp0_iterator1__1 = this.tmp0_forEach0__1.iterator_jk1svi_k$();
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            if (!this.l2h_1.e()) {
-              this.pd_1 = 3;
+            if (!this.tmp0_iterator1__1.hasNext_bitz1p_k$()) {
+              this.state_1 = 3;
               continue $sm;
             }
 
-            this.m2h_1 = this.l2h_1.f();
-            this.pd_1 = 2;
-            suspendResult = this.m2h_1(this.j2h_1, this);
+            this.element2__1 = this.tmp0_iterator1__1.next_20eer_k$();
+            this.state_1 = 2;
+            suspendResult = this.element2__1(this.response_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 2:
-            this.pd_1 = 1;
+            this.state_1 = 1;
             continue $sm;
           case 3:
             return Unit_getInstance();
           case 4:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 4) {
+        if (this.exceptionState_1 === 4) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -3092,75 +3499,75 @@
   $validateResponseCOROUTINE$5.$metadata$ = classMeta('$validateResponseCOROUTINE$5', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $processExceptionCOROUTINE$6(_this__u8e3s4, cause, request, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.v2h_1 = _this__u8e3s4;
-    this.w2h_1 = cause;
-    this.x2h_1 = request;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.cause_1 = cause;
+    this.request_1 = request;
   }
-  $processExceptionCOROUTINE$6.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $processExceptionCOROUTINE$6.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 6;
+            this.exceptionState_1 = 6;
             var tmp_0 = this;
-            tmp_0.y2h_1 = this.v2h_1.k2f_1;
-            this.z2h_1 = this.y2h_1.d();
-            this.pd_1 = 1;
+            tmp_0.tmp0_forEach0__1 = this._this__u8e3s4__1.callExceptionHandlers_1;
+            this.tmp0_iterator1__1 = this.tmp0_forEach0__1.iterator_jk1svi_k$();
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            if (!this.z2h_1.e()) {
-              this.pd_1 = 5;
+            if (!this.tmp0_iterator1__1.hasNext_bitz1p_k$()) {
+              this.state_1 = 5;
               continue $sm;
             }
 
-            this.a2i_1 = this.z2h_1.f();
-            this.b2i_1 = this.a2i_1;
-            var tmp_1 = this.b2i_1;
+            this.element2__1 = this.tmp0_iterator1__1.next_20eer_k$();
+            this.tmp0_subject3__1 = this.element2__1;
+            var tmp_1 = this.tmp0_subject3__1;
             if (tmp_1 instanceof ExceptionHandlerWrapper) {
-              this.pd_1 = 3;
-              suspendResult = this.a2i_1.j2i_1(this.w2h_1, this);
+              this.state_1 = 3;
+              suspendResult = this.element2__1.handler_1(this.cause_1, this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              var tmp_2 = this.b2i_1;
+              var tmp_2 = this.tmp0_subject3__1;
               if (tmp_2 instanceof RequestExceptionHandlerWrapper) {
-                this.pd_1 = 2;
-                suspendResult = this.a2i_1.i2i_1(this.w2h_1, this.x2h_1, this);
+                this.state_1 = 2;
+                suspendResult = this.element2__1.handler_1(this.cause_1, this.request_1, this);
                 if (suspendResult === get_COROUTINE_SUSPENDED()) {
                   return suspendResult;
                 }
                 continue $sm;
               } else {
-                this.pd_1 = 4;
+                this.state_1 = 4;
                 continue $sm;
               }
             }
 
             break;
           case 2:
-            this.pd_1 = 4;
+            this.state_1 = 4;
             continue $sm;
           case 3:
-            this.pd_1 = 4;
+            this.state_1 = 4;
             continue $sm;
           case 4:
-            this.pd_1 = 1;
+            this.state_1 = 1;
             continue $sm;
           case 5:
             return Unit_getInstance();
           case 6:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 6) {
+        if (this.exceptionState_1 === 6) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -3168,19 +3575,27 @@
   $processExceptionCOROUTINE$6.$metadata$ = classMeta('$processExceptionCOROUTINE$6', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function HttpCallValidator(responseValidators, callExceptionHandlers, expectSuccess) {
     Companion_getInstance_9();
-    this.j2f_1 = responseValidators;
-    this.k2f_1 = callExceptionHandlers;
-    this.l2f_1 = expectSuccess;
+    this.responseValidators_1 = responseValidators;
+    this.callExceptionHandlers_1 = callExceptionHandlers;
+    this.expectSuccess_1 = expectSuccess;
   }
   HttpCallValidator.$metadata$ = classMeta('HttpCallValidator');
   function HandlerWrapper() {
   }
   HandlerWrapper.$metadata$ = interfaceMeta('HandlerWrapper');
-  function ExceptionHandlerWrapper() {
+  function ExceptionHandlerWrapper(handler) {
+    this.handler_1 = handler;
   }
+  ExceptionHandlerWrapper.prototype.get_handler_cq14kh_k$ = function () {
+    return this.handler_1;
+  };
   ExceptionHandlerWrapper.$metadata$ = classMeta('ExceptionHandlerWrapper', [HandlerWrapper]);
-  function RequestExceptionHandlerWrapper() {
+  function RequestExceptionHandlerWrapper(handler) {
+    this.handler_1 = handler;
   }
+  RequestExceptionHandlerWrapper.prototype.get_handler_cq14kh_k$ = function () {
+    return this.handler_1;
+  };
   RequestExceptionHandlerWrapper.$metadata$ = classMeta('RequestExceptionHandlerWrapper', [HandlerWrapper]);
   function HttpRequest(builder) {
     init_properties_HttpCallValidator_kt_nw40ag();
@@ -3188,29 +3603,41 @@
   }
   function HttpResponseValidator(_this__u8e3s4, block) {
     init_properties_HttpCallValidator_kt_nw40ag();
-    _this__u8e3s4.y24(Companion_getInstance_9(), block);
+    _this__u8e3s4.install_bd33qw_k$(Companion_getInstance_9(), block);
   }
   function HttpRequest$1($builder) {
-    this.o2i_1 = $builder;
-    this.k2i_1 = $builder.s23_1;
-    this.l2i_1 = $builder.r23_1.l17();
-    this.m2i_1 = $builder.w23_1;
-    this.n2i_1 = $builder.t23_1.l17();
+    this.$builder_1 = $builder;
+    this.method_1 = $builder.method_1;
+    this.url_1 = $builder.url_1.build_1k0s4u_k$();
+    this.attributes_1 = $builder.attributes_1;
+    this.headers_1 = $builder.headers_1.build_1k0s4u_k$();
   }
-  HttpRequest$1.prototype.a27 = function () {
+  HttpRequest$1.prototype.get_call_wojxrb_k$ = function () {
     throw IllegalStateException_init_$Create$('Call is not initialized');
   };
-  HttpRequest$1.prototype.b27 = function () {
-    return this.k2i_1;
+  HttpRequest$1.prototype.get_method_gl8esq_k$ = function () {
+    return this.method_1;
   };
-  HttpRequest$1.prototype.e26 = function () {
-    return this.l2i_1;
+  HttpRequest$1.prototype.get_url_18iuii_k$ = function () {
+    return this.url_1;
   };
-  HttpRequest$1.prototype.cf = function () {
-    return this.m2i_1;
+  HttpRequest$1.prototype.get_attributes_dgqof4_k$ = function () {
+    return this.attributes_1;
   };
-  HttpRequest$1.prototype.p1u = function () {
-    return this.n2i_1;
+  HttpRequest$1.prototype.get_headers_ef25jx_k$ = function () {
+    return this.headers_1;
+  };
+  HttpRequest$1.prototype.get_content_h02jrk_k$ = function () {
+    var tmp = this.$builder_1.body_1;
+    var tmp0_elvis_lhs = tmp instanceof OutgoingContent ? tmp : null;
+    var tmp_0;
+    if (tmp0_elvis_lhs == null) {
+      var tmp0_error = 'Content was not transformed to OutgoingContent yet. Current body is ' + toString(this.$builder_1.body_1);
+      throw IllegalStateException_init_$Create$(toString(tmp0_error));
+    } else {
+      tmp_0 = tmp0_elvis_lhs;
+    }
+    return tmp_0;
   };
   HttpRequest$1.$metadata$ = classMeta(undefined, [HttpRequest_0]);
   var properties_initialized_HttpCallValidator_kt_xrx49w;
@@ -3231,19 +3658,24 @@
     var tmp0_elvis_lhs = pluginOrNull(_this__u8e3s4, plugin);
     var tmp;
     if (tmp0_elvis_lhs == null) {
-      throw IllegalStateException_init_$Create$('Plugin ' + plugin + ' is not installed. Consider using `install(' + plugin.r() + ')` in client config first.');
+      throw IllegalStateException_init_$Create$('Plugin ' + plugin + ' is not installed. Consider using `install(' + plugin.get_key_18j28a_k$() + ')` in client config first.');
     } else {
       tmp = tmp0_elvis_lhs;
     }
     return tmp;
+  }
+  function HttpClientPlugin$prepare$lambda() {
+    return function ($this$null) {
+      return Unit_getInstance();
+    };
   }
   function HttpClientPlugin() {
   }
   HttpClientPlugin.$metadata$ = interfaceMeta('HttpClientPlugin');
   function pluginOrNull(_this__u8e3s4, plugin) {
     init_properties_HttpClientPlugin_kt_hdphw();
-    var tmp0_safe_receiver = _this__u8e3s4.v21_1.z1i(get_PLUGIN_INSTALLED_LIST());
-    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.z1i(plugin.r());
+    var tmp0_safe_receiver = _this__u8e3s4.attributes_1.getOrNull_dkmqfg_k$(get_PLUGIN_INSTALLED_LIST());
+    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.getOrNull_dkmqfg_k$(plugin.get_key_18j28a_k$());
   }
   var properties_initialized_HttpClientPlugin_kt_p98320;
   function init_properties_HttpClientPlugin_kt_hdphw() {
@@ -3254,38 +3686,38 @@
     }
   }
   function HttpPlainText$Plugin$install$slambda($plugin, resultContinuation) {
-    this.x2i_1 = $plugin;
+    this.$plugin_1 = $plugin;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpPlainText$Plugin$install$slambda.prototype.l22 = function ($this$intercept, content, $cont) {
-    var tmp = this.m22($this$intercept, content, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpPlainText$Plugin$install$slambda.prototype.invoke_63ydys_k$ = function ($this$intercept, content, $cont) {
+    var tmp = this.create_300ycv_k$($this$intercept, content, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpPlainText$Plugin$install$slambda.prototype.xe = function (p1, p2, $cont) {
+  HttpPlainText$Plugin$install$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.l22(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+    return this.invoke_63ydys_k$(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
   };
-  HttpPlainText$Plugin$install$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpPlainText$Plugin$install$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            this.x2i_1.e2j(this.y2i_1.g1n_1);
-            var tmp_0 = this.z2i_1;
+            this.exceptionState_1 = 2;
+            this.$plugin_1.addCharsetHeaders_3b8npj_k$(this.$this$intercept_1.context_1);
+            var tmp_0 = this.content_1;
             if (!(typeof tmp_0 === 'string'))
               return Unit_getInstance();
-            this.a2j_1 = contentType(this.y2i_1.g1n_1);
-            if (!(this.a2j_1 == null) ? !(this.a2j_1.c1q_1 === Text_getInstance().s1p_1.c1q_1) : false) {
+            this.contentType0__1 = contentType(this.$this$intercept_1.context_1);
+            if (!(this.contentType0__1 == null) ? !(this.contentType0__1.contentType_1 === Text_getInstance().Plain_1.contentType_1) : false) {
               return Unit_getInstance();
             }
 
-            this.pd_1 = 1;
-            suspendResult = this.y2i_1.k1m(wrapContent(this.x2i_1, this.z2i_1, this.a2j_1), this);
+            this.state_1 = 1;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(wrapContent(this.$plugin_1, this.content_1, this.contentType0__1), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -3295,79 +3727,79 @@
             ;
             return Unit_getInstance();
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpPlainText$Plugin$install$slambda.prototype.m22 = function ($this$intercept, content, completion) {
-    var i = new HttpPlainText$Plugin$install$slambda(this.x2i_1, completion);
-    i.y2i_1 = $this$intercept;
-    i.z2i_1 = content;
+  HttpPlainText$Plugin$install$slambda.prototype.create_300ycv_k$ = function ($this$intercept, content, completion) {
+    var i = new HttpPlainText$Plugin$install$slambda(this.$plugin_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.content_1 = content;
     return i;
   };
   HttpPlainText$Plugin$install$slambda.$metadata$ = classMeta('HttpPlainText$Plugin$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpPlainText$Plugin$install$slambda_0($plugin, resultContinuation) {
     var i = new HttpPlainText$Plugin$install$slambda($plugin, resultContinuation);
     var l = function ($this$intercept, content, $cont) {
-      return i.l22($this$intercept, content, $cont);
+      return i.invoke_63ydys_k$($this$intercept, content, $cont);
     };
     l.$arity = 2;
     return l;
   }
   function HttpPlainText$Plugin$install$slambda_1($plugin, resultContinuation) {
-    this.n2j_1 = $plugin;
+    this.$plugin_1 = $plugin;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpPlainText$Plugin$install$slambda_1.prototype.f23 = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont) {
-    var tmp = this.g23($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpPlainText$Plugin$install$slambda_1.prototype.invoke_sqq52a_k$ = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont) {
+    var tmp = this.create_u7w3m5_k$($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpPlainText$Plugin$install$slambda_1.prototype.xe = function (p1, p2, $cont) {
+  HttpPlainText$Plugin$install$slambda_1.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.f23(tmp, p2 instanceof HttpResponseContainer ? p2 : THROW_CCE(), $cont);
+    return this.invoke_sqq52a_k$(tmp, p2 instanceof HttpResponseContainer ? p2 : THROW_CCE(), $cont);
   };
-  HttpPlainText$Plugin$install$slambda_1.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpPlainText$Plugin$install$slambda_1.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            this.q2j_1 = this.p2j_1.s4();
-            this.r2j_1 = this.p2j_1.t4();
+            this.exceptionState_1 = 3;
+            this.info0__1 = this._name_for_destructuring_parameter_0__wldtmu_1.component1_7eebsc_k$();
+            this.body1__1 = this._name_for_destructuring_parameter_0__wldtmu_1.component2_7eebsb_k$();
             var tmp_0;
-            if (!this.q2j_1.y1n_1.equals(PrimitiveClasses_getInstance().rb())) {
+            if (!this.info0__1.type_1.equals(PrimitiveClasses_getInstance().get_stringClass_bik2gy_k$())) {
               tmp_0 = true;
             } else {
-              var tmp_1 = this.r2j_1;
+              var tmp_1 = this.body1__1;
               tmp_0 = !isInterface(tmp_1, ByteReadChannel);
             }
 
             if (tmp_0)
               return Unit_getInstance();
-            this.pd_1 = 1;
-            suspendResult = this.r2j_1.q19(new Long(0, 0), this, 1, null);
+            this.state_1 = 1;
+            suspendResult = this.body1__1.readRemaining$default_u0hcq7_k$(new Long(0, 0), this, 1, null);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.s2j_1 = suspendResult;
-            this.t2j_1 = this.n2j_1.u2j(this.o2j_1.g1n_1, this.s2j_1);
-            this.pd_1 = 2;
-            suspendResult = this.o2j_1.k1m(new HttpResponseContainer(this.q2j_1, this.t2j_1), this);
+            this.bodyBytes2__1 = suspendResult;
+            this.content3__1 = this.$plugin_1.read_uycxpq_k$(this.$this$intercept_1.context_1, this.bodyBytes2__1);
+            this.state_1 = 2;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(new HttpResponseContainer(this.info0__1, this.content3__1), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -3377,32 +3809,41 @@
             ;
             return Unit_getInstance();
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpPlainText$Plugin$install$slambda_1.prototype.g23 = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, completion) {
-    var i = new HttpPlainText$Plugin$install$slambda_1(this.n2j_1, completion);
-    i.o2j_1 = $this$intercept;
-    i.p2j_1 = _name_for_destructuring_parameter_0__wldtmu;
+  HttpPlainText$Plugin$install$slambda_1.prototype.create_u7w3m5_k$ = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, completion) {
+    var i = new HttpPlainText$Plugin$install$slambda_1(this.$plugin_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i._name_for_destructuring_parameter_0__wldtmu_1 = _name_for_destructuring_parameter_0__wldtmu;
     return i;
   };
   HttpPlainText$Plugin$install$slambda_1.$metadata$ = classMeta('HttpPlainText$Plugin$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpPlainText$Plugin$install$slambda_2($plugin, resultContinuation) {
     var i = new HttpPlainText$Plugin$install$slambda_1($plugin, resultContinuation);
     var l = function ($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont) {
-      return i.f23($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont);
+      return i.invoke_sqq52a_k$($this$intercept, _name_for_destructuring_parameter_0__wldtmu, $cont);
     };
     l.$arity = 2;
     return l;
+  }
+  function _get_responseCharsetFallback__d1hbto($this) {
+    return $this.responseCharsetFallback_1;
+  }
+  function _get_requestCharset__j9c5xu($this) {
+    return $this.requestCharset_1;
+  }
+  function _get_acceptCharsetHeader__xa8pnk($this) {
+    return $this.acceptCharsetHeader_1;
   }
   function Config_0() {
     var tmp = this;
@@ -3410,25 +3851,84 @@
     {
       tmp$ret$0 = LinkedHashSet_init_$Create$();
     }
-    tmp.v2j_1 = tmp$ret$0;
+    tmp.charsets_1 = tmp$ret$0;
     var tmp_0 = this;
     var tmp$ret$1;
     {
       tmp$ret$1 = LinkedHashMap_init_$Create$();
     }
-    tmp_0.w2j_1 = tmp$ret$1;
-    this.x2j_1 = null;
-    this.y2j_1 = Charsets_getInstance().w1e_1;
+    tmp_0.charsetQuality_1 = tmp$ret$1;
+    this.sendCharset_1 = null;
+    this.responseCharsetFallback_1 = Charsets_getInstance().UTF_8__1;
   }
+  Config_0.prototype.get_charsets_81p7rk_k$ = function () {
+    return this.charsets_1;
+  };
+  Config_0.prototype.get_charsetQuality_fywquc_k$ = function () {
+    return this.charsetQuality_1;
+  };
+  Config_0.prototype.register_o2z5za_k$ = function (charset, quality) {
+    var tmp0_safe_receiver = quality;
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      var tmp$ret$1;
+      {
+        {
+        }
+        var tmp0_check = contains(rangeTo(0.0, 1.0), tmp0_safe_receiver);
+        {
+        }
+        {
+        }
+        var tmp;
+        if (!tmp0_check) {
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = 'Check failed.';
+          }
+          var message = tmp$ret$0;
+          throw IllegalStateException_init_$Create$(toString(message));
+        }
+        tmp$ret$1 = tmp;
+      }
+    }
+    this.charsets_1.add_1j60pz_k$(charset);
+    if (quality == null) {
+      this.charsetQuality_1.remove_8hbkc0_k$(charset);
+    } else {
+      {
+        var tmp0_set = this.charsetQuality_1;
+        tmp0_set.put_3mhbri_k$(charset, quality);
+      }
+    }
+  };
+  Config_0.prototype.register$default_nrdmlz_k$ = function (charset, quality, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      quality = null;
+    return this.register_o2z5za_k$(charset, quality);
+  };
+  Config_0.prototype.set_sendCharset_40uxf4_k$ = function (_set____db54di) {
+    this.sendCharset_1 = _set____db54di;
+  };
+  Config_0.prototype.get_sendCharset_lrd2kb_k$ = function () {
+    return this.sendCharset_1;
+  };
+  Config_0.prototype.set_responseCharsetFallback_rfvngq_k$ = function (_set____db54di) {
+    this.responseCharsetFallback_1 = _set____db54di;
+  };
+  Config_0.prototype.get_responseCharsetFallback_6zf8kc_k$ = function () {
+    return this.responseCharsetFallback_1;
+  };
   Config_0.$metadata$ = classMeta('Config');
   function Plugin_0() {
     Plugin_instance_0 = this;
-    this.z2j_1 = new AttributeKey('HttpPlainText');
+    this.key_1 = new AttributeKey('HttpPlainText');
   }
-  Plugin_0.prototype.r = function () {
-    return this.z2j_1;
+  Plugin_0.prototype.get_key_18j28a_k$ = function () {
+    return this.key_1;
   };
-  Plugin_0.prototype.d2i = function (block) {
+  Plugin_0.prototype.prepare_bbu65k_k$ = function (block) {
     var tmp$ret$0;
     {
       var tmp0_apply = new Config_0();
@@ -3442,20 +3942,20 @@
     {
       {
       }
-      return new HttpPlainText(config.v2j_1, config.w2j_1, config.x2j_1, config.y2j_1);
+      return new HttpPlainText(config.charsets_1, config.charsetQuality_1, config.sendCharset_1, config.responseCharsetFallback_1);
     }
   };
-  Plugin_0.prototype.w24 = function (block) {
-    return this.d2i(block);
+  Plugin_0.prototype.prepare_aftpuj_k$ = function (block) {
+    return this.prepare_bbu65k_k$(block);
   };
-  Plugin_0.prototype.a2k = function (plugin, scope) {
-    var tmp = Phases_getInstance().t2a_1;
-    scope.r21_1.k1n(tmp, HttpPlainText$Plugin$install$slambda_0(plugin, null));
-    var tmp_0 = Phases_getInstance_1().r24_1;
-    scope.s21_1.k1n(tmp_0, HttpPlainText$Plugin$install$slambda_2(plugin, null));
+  Plugin_0.prototype.install_urw79k_k$ = function (plugin, scope) {
+    var tmp = Phases_getInstance().Render_1;
+    scope.requestPipeline_1.intercept_hnj3e1_k$(tmp, HttpPlainText$Plugin$install$slambda_0(plugin, null));
+    var tmp_0 = Phases_getInstance_1().Transform_1;
+    scope.responsePipeline_1.intercept_hnj3e1_k$(tmp_0, HttpPlainText$Plugin$install$slambda_2(plugin, null));
   };
-  Plugin_0.prototype.x24 = function (plugin, scope) {
-    return this.a2k(plugin instanceof HttpPlainText ? plugin : THROW_CCE(), scope);
+  Plugin_0.prototype.install_cj05u9_k$ = function (plugin, scope) {
+    return this.install_urw79k_k$(plugin instanceof HttpPlainText ? plugin : THROW_CCE(), scope);
   };
   Plugin_0.$metadata$ = objectMeta('Plugin', [HttpClientPlugin]);
   var Plugin_instance_0;
@@ -3466,21 +3966,21 @@
   }
   function wrapContent($this, content, requestContentType) {
     var tmp0_elvis_lhs = requestContentType;
-    var contentType = tmp0_elvis_lhs == null ? Text_getInstance().s1p_1 : tmp0_elvis_lhs;
+    var contentType = tmp0_elvis_lhs == null ? Text_getInstance().Plain_1 : tmp0_elvis_lhs;
     var tmp1_safe_receiver = requestContentType;
     var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : charset(tmp1_safe_receiver);
-    var charset_0 = tmp2_elvis_lhs == null ? $this.c2j_1 : tmp2_elvis_lhs;
+    var charset_0 = tmp2_elvis_lhs == null ? $this.requestCharset_1 : tmp2_elvis_lhs;
     var tmp = withCharset(contentType, charset_0);
     return TextContent_init_$Create$(content, tmp, null, 4, null);
   }
   function sam$kotlin_Comparator$0(function_0) {
-    this.b2k_1 = function_0;
+    this.function_1 = function_0;
   }
-  sam$kotlin_Comparator$0.prototype.o = function (a, b) {
-    return this.b2k_1(a, b);
+  sam$kotlin_Comparator$0.prototype.compare_6tbigh_k$ = function (a, b) {
+    return this.function_1(a, b);
   };
   sam$kotlin_Comparator$0.prototype.compare = function (a, b) {
-    return this.o(a, b);
+    return this.compare_6tbigh_k$(a, b);
   };
   sam$kotlin_Comparator$0.$metadata$ = classMeta('sam$kotlin_Comparator$0', [Comparator]);
   function HttpPlainText$lambda() {
@@ -3489,12 +3989,12 @@
       {
         var tmp$ret$0;
         {
-          tmp$ret$0 = b.r4_1;
+          tmp$ret$0 = b.second_1;
         }
         var tmp = tmp$ret$0;
         var tmp$ret$1;
         {
-          tmp$ret$1 = a.r4_1;
+          tmp$ret$1 = a.second_1;
         }
         tmp$ret$2 = compareValues(tmp, tmp$ret$1);
       }
@@ -3521,7 +4021,7 @@
   }
   function HttpPlainText(charsets, charsetQuality, sendCharset, responseCharsetFallback) {
     Plugin_getInstance_0();
-    this.b2j_1 = responseCharsetFallback;
+    this.responseCharsetFallback_1 = responseCharsetFallback;
     var tmp$ret$1;
     {
       var tmp0_sortedByDescending = toList(charsetQuality);
@@ -3540,15 +4040,15 @@
         var tmp$ret$3;
         {
           var tmp0_filterTo = ArrayList_init_$Create$();
-          var tmp0_iterator = charsets.d();
-          while (tmp0_iterator.e()) {
-            var element = tmp0_iterator.f();
+          var tmp0_iterator = charsets.iterator_jk1svi_k$();
+          while (tmp0_iterator.hasNext_bitz1p_k$()) {
+            var element = tmp0_iterator.next_20eer_k$();
             var tmp$ret$2;
             {
-              tmp$ret$2 = !charsetQuality.x1(element);
+              tmp$ret$2 = !charsetQuality.containsKey_wgk31w_k$(element);
             }
             if (tmp$ret$2) {
-              tmp0_filterTo.b(element);
+              tmp0_filterTo.add_1j60pz_k$(element);
             }
           }
           tmp$ret$3 = tmp0_filterTo;
@@ -3576,34 +4076,34 @@
         }
         {
           {
-            var tmp0_iterator_0 = withoutQuality.d();
-            while (tmp0_iterator_0.e()) {
-              var element_0 = tmp0_iterator_0.f();
+            var tmp0_iterator_0 = withoutQuality.iterator_jk1svi_k$();
+            while (tmp0_iterator_0.hasNext_bitz1p_k$()) {
+              var element_0 = tmp0_iterator_0.next_20eer_k$();
               {
                 var tmp$ret$7;
                 {
                   tmp$ret$7 = charSequenceLength(tmp0_apply) > 0;
                 }
                 if (tmp$ret$7) {
-                  tmp0_apply.fc(',');
+                  tmp0_apply.append_ssq29y_k$(',');
                 }
-                tmp0_apply.fc(get_name(element_0));
+                tmp0_apply.append_ssq29y_k$(get_name(element_0));
               }
             }
           }
           {
-            var tmp0_iterator_1 = withQuality.d();
-            while (tmp0_iterator_1.e()) {
-              var element_1 = tmp0_iterator_1.f();
+            var tmp0_iterator_1 = withQuality.iterator_jk1svi_k$();
+            while (tmp0_iterator_1.hasNext_bitz1p_k$()) {
+              var element_1 = tmp0_iterator_1.next_20eer_k$();
               {
-                var charset = element_1.s4();
-                var quality = element_1.t4();
+                var charset = element_1.component1_7eebsc_k$();
+                var quality = element_1.component2_7eebsb_k$();
                 var tmp$ret$8;
                 {
                   tmp$ret$8 = charSequenceLength(tmp0_apply) > 0;
                 }
                 if (tmp$ret$8) {
-                  tmp0_apply.fc(',');
+                  tmp0_apply.append_ssq29y_k$(',');
                 }
                 {
                   var containsArg = quality;
@@ -3629,7 +4129,7 @@
                   tmp$ret$10 = roundToInt(tmp1_roundToInt);
                 }
                 var truncatedQuality = tmp$ret$10 / 100.0;
-                tmp0_apply.fc(get_name(charset) + ';q=' + truncatedQuality);
+                tmp0_apply.append_ssq29y_k$(get_name(charset) + ';q=' + truncatedQuality);
               }
             }
           }
@@ -3638,36 +4138,36 @@
             tmp$ret$11 = charSequenceLength(tmp0_apply) === 0;
           }
           if (tmp$ret$11) {
-            tmp0_apply.fc(get_name(this.b2j_1));
+            tmp0_apply.append_ssq29y_k$(get_name(this.responseCharsetFallback_1));
           }
         }
         tmp$ret$12 = tmp0_apply;
       }
       tmp$ret$13 = tmp$ret$12.toString();
     }
-    tmp_1.d2j_1 = tmp$ret$13;
+    tmp_1.acceptCharsetHeader_1 = tmp$ret$13;
     var tmp_2 = this;
     var tmp0_elvis_lhs = sendCharset;
     var tmp2_elvis_lhs = tmp0_elvis_lhs == null ? firstOrNull(withoutQuality) : tmp0_elvis_lhs;
     var tmp_3;
     if (tmp2_elvis_lhs == null) {
       var tmp1_safe_receiver = firstOrNull(withQuality);
-      tmp_3 = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.q4_1;
+      tmp_3 = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.first_1;
     } else {
       tmp_3 = tmp2_elvis_lhs;
     }
     var tmp3_elvis_lhs = tmp_3;
-    tmp_2.c2j_1 = tmp3_elvis_lhs == null ? Charsets_getInstance().w1e_1 : tmp3_elvis_lhs;
+    tmp_2.requestCharset_1 = tmp3_elvis_lhs == null ? Charsets_getInstance().UTF_8__1 : tmp3_elvis_lhs;
   }
-  HttpPlainText.prototype.u2j = function (call, body) {
-    var tmp0_elvis_lhs = charset_0(call.s22());
-    var actualCharset = tmp0_elvis_lhs == null ? this.b2j_1 : tmp0_elvis_lhs;
+  HttpPlainText.prototype.read_uycxpq_k$ = function (call, body) {
+    var tmp0_elvis_lhs = charset_0(call.get_response_xlk07e_k$());
+    var actualCharset = tmp0_elvis_lhs == null ? this.responseCharsetFallback_1 : tmp0_elvis_lhs;
     return readText$default(body, actualCharset, 0, 2, null);
   };
-  HttpPlainText.prototype.e2j = function (context) {
-    if (!(context.t23_1.qf(HttpHeaders_getInstance().m1q_1) == null))
+  HttpPlainText.prototype.addCharsetHeaders_3b8npj_k$ = function (context) {
+    if (!(context.headers_1.get_4u8u51_k$(HttpHeaders_getInstance().AcceptCharset_1) == null))
       return Unit_getInstance();
-    context.t23_1.s1k(HttpHeaders_getInstance().m1q_1, this.d2j_1);
+    context.headers_1.set_vj6ab5_k$(HttpHeaders_getInstance().AcceptCharset_1, this.acceptCharsetHeader_1);
   };
   HttpPlainText.$metadata$ = classMeta('HttpPlainText');
   function get_ALLOWED_FOR_REDIRECT() {
@@ -3677,48 +4177,48 @@
   var ALLOWED_FOR_REDIRECT;
   function handleCall(_this__u8e3s4, $this, context, origin, allowHttpsDowngrade, client, $cont) {
     var tmp = new $handleCallCOROUTINE$7($this, _this__u8e3s4, context, origin, allowHttpsDowngrade, client, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function HttpRedirect$Plugin$install$slambda($plugin, $scope, resultContinuation) {
-    this.e2l_1 = $plugin;
-    this.f2l_1 = $scope;
+    this.$plugin_1 = $plugin;
+    this.$scope_1 = $scope;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpRedirect$Plugin$install$slambda.prototype.y2g = function ($this$intercept, context, $cont) {
-    var tmp = this.z2g($this$intercept, context, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpRedirect$Plugin$install$slambda.prototype.invoke_dqudng_k$ = function ($this$intercept, context, $cont) {
+    var tmp = this.create_q4qdwm_k$($this$intercept, context, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpRedirect$Plugin$install$slambda.prototype.xe = function (p1, p2, $cont) {
+  HttpRedirect$Plugin$install$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = (!(p1 == null) ? isInterface(p1, Sender) : false) ? p1 : THROW_CCE();
-    return this.y2g(tmp, p2 instanceof HttpRequestBuilder ? p2 : THROW_CCE(), $cont);
+    return this.invoke_dqudng_k$(tmp, p2 instanceof HttpRequestBuilder ? p2 : THROW_CCE(), $cont);
   };
-  HttpRedirect$Plugin$install$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpRedirect$Plugin$install$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            this.pd_1 = 1;
-            suspendResult = this.g2l_1.u24(this.h2l_1, this);
+            this.exceptionState_1 = 3;
+            this.state_1 = 1;
+            suspendResult = this.$this$intercept_1.execute_z0ufkc_k$(this.context_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.i2l_1 = suspendResult;
-            if (this.e2l_1.j2l_1 ? !get_ALLOWED_FOR_REDIRECT().h1(this.i2l_1.a26().b27()) : false) {
-              return this.i2l_1;
+            this.origin0__1 = suspendResult;
+            if (this.$plugin_1.checkHttpMethod_1 ? !get_ALLOWED_FOR_REDIRECT().contains_2ehdt1_k$(this.origin0__1.get_request_jdwg4m_k$().get_method_gl8esq_k$()) : false) {
+              return this.origin0__1;
             }
 
-            this.pd_1 = 2;
-            suspendResult = handleCall(this.g2l_1, Plugin_getInstance_1(), this.h2l_1, this.i2l_1, this.e2l_1.k2l_1, this.f2l_1, this);
+            this.state_1 = 2;
+            suspendResult = handleCall(this.$this$intercept_1, Plugin_getInstance_1(), this.context_1, this.origin0__1, this.$plugin_1.allowHttpsDowngrade_1, this.$scope_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -3727,132 +4227,153 @@
           case 2:
             return suspendResult;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpRedirect$Plugin$install$slambda.prototype.z2g = function ($this$intercept, context, completion) {
-    var i = new HttpRedirect$Plugin$install$slambda(this.e2l_1, this.f2l_1, completion);
-    i.g2l_1 = $this$intercept;
-    i.h2l_1 = context;
+  HttpRedirect$Plugin$install$slambda.prototype.create_q4qdwm_k$ = function ($this$intercept, context, completion) {
+    var i = new HttpRedirect$Plugin$install$slambda(this.$plugin_1, this.$scope_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.context_1 = context;
     return i;
   };
   HttpRedirect$Plugin$install$slambda.$metadata$ = classMeta('HttpRedirect$Plugin$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpRedirect$Plugin$install$slambda_0($plugin, $scope, resultContinuation) {
     var i = new HttpRedirect$Plugin$install$slambda($plugin, $scope, resultContinuation);
     var l = function ($this$intercept, context, $cont) {
-      return i.y2g($this$intercept, context, $cont);
+      return i.invoke_dqudng_k$($this$intercept, context, $cont);
     };
     l.$arity = 2;
     return l;
   }
   function $handleCallCOROUTINE$7(_this__u8e3s4, _this__u8e3s4_0, context, origin, allowHttpsDowngrade, client, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.k2k_1 = _this__u8e3s4;
-    this.l2k_1 = _this__u8e3s4_0;
-    this.m2k_1 = context;
-    this.n2k_1 = origin;
-    this.o2k_1 = allowHttpsDowngrade;
-    this.p2k_1 = client;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this._this__u8e3s4__2 = _this__u8e3s4_0;
+    this.context_1 = context;
+    this.origin_1 = origin;
+    this.allowHttpsDowngrade_1 = allowHttpsDowngrade;
+    this.client_1 = client;
   }
-  $handleCallCOROUTINE$7.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $handleCallCOROUTINE$7.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            if (!isRedirect(this.n2k_1.s22().f26()))
-              return this.n2k_1;
-            this.q2k_1 = this.n2k_1;
-            this.r2k_1 = this.m2k_1;
-            this.s2k_1 = this.n2k_1.a26().e26().h1y_1;
-            this.t2k_1 = get_authority(this.n2k_1.a26().e26());
-            this.pd_1 = 1;
+            this.exceptionState_1 = 3;
+            if (!isRedirect(this.origin_1.get_response_xlk07e_k$().get_status_jnf6d7_k$()))
+              return this.origin_1;
+            this.call0__1 = this.origin_1;
+            this.requestBuilder1__1 = this.context_1;
+            this.originProtocol2__1 = this.origin_1.get_request_jdwg4m_k$().get_url_18iuii_k$().protocol_1;
+            this.originAuthority3__1 = get_authority(this.origin_1.get_request_jdwg4m_k$().get_url_18iuii_k$());
+            this.state_1 = 1;
             continue $sm;
           case 1:
             if (false) {
-              this.pd_1 = 4;
+              this.state_1 = 4;
               continue $sm;
             }
 
-            this.p2k_1.x21_1.l20(this.k2k_1.m2l_1, this.q2k_1.s22());
-            this.u2k_1 = this.q2k_1.s22().p1u().qf(HttpHeaders_getInstance().z1r_1);
+            this.client_1.monitor_1.raise_segvv5_k$(this._this__u8e3s4__1.HttpResponseRedirect_1, this.call0__1.get_response_xlk07e_k$());
+            this.location4__1 = this.call0__1.get_response_xlk07e_k$().get_headers_ef25jx_k$().get_4u8u51_k$(HttpHeaders_getInstance().Location_1);
             var tmp_0 = this;
             var tmp_1 = this;
-            tmp_1.v2k_1 = new HttpRequestBuilder();
-            this.v2k_1.s29(this.r2k_1);
+            tmp_1.tmp0_apply5__1 = new HttpRequestBuilder();
+            this.tmp0_apply5__1.takeFromWithExecutionContext_d233rf_k$(this.requestBuilder1__1);
             ;
-            this.v2k_1.r23_1.e1y_1.u6();
-            var tmp0_safe_receiver = this.u2k_1;
+            this.tmp0_apply5__1.url_1.parameters_1.clear_j9y8zo_k$();
+            var tmp0_safe_receiver = this.location4__1;
             if (tmp0_safe_receiver == null)
               null;
             else {
-              takeFrom(this.v2k_1.r23_1, tmp0_safe_receiver);
+              takeFrom(this.tmp0_apply5__1.url_1, tmp0_safe_receiver);
             }
 
             ;
-            if ((!this.o2k_1 ? isSecure(this.s2k_1) : false) ? !isSecure(this.v2k_1.r23_1.v1x_1) : false) {
-              return this.q2k_1;
+            if ((!this.allowHttpsDowngrade_1 ? isSecure(this.originProtocol2__1) : false) ? !isSecure(this.tmp0_apply5__1.url_1.protocol_1) : false) {
+              return this.call0__1;
             }
 
-            if (!(this.t2k_1 === get_authority_0(this.v2k_1.r23_1))) {
-              this.v2k_1.t23_1.w1k(HttpHeaders_getInstance().u1q_1);
+            if (!(this.originAuthority3__1 === get_authority_0(this.tmp0_apply5__1.url_1))) {
+              this.tmp0_apply5__1.headers_1.remove_d85afi_k$(HttpHeaders_getInstance().Authorization_1);
             }
 
-            tmp_0.r2k_1 = this.v2k_1;
-            this.pd_1 = 2;
-            suspendResult = this.l2k_1.u24(this.r2k_1, this);
+            tmp_0.requestBuilder1__1 = this.tmp0_apply5__1;
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__2.execute_z0ufkc_k$(this.requestBuilder1__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 2:
-            this.q2k_1 = suspendResult;
-            if (!isRedirect(this.q2k_1.s22().f26()))
-              return this.q2k_1;
-            this.pd_1 = 1;
+            this.call0__1 = suspendResult;
+            if (!isRedirect(this.call0__1.get_response_xlk07e_k$().get_status_jnf6d7_k$()))
+              return this.call0__1;
+            this.state_1 = 1;
             continue $sm;
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
           case 4:
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $handleCallCOROUTINE$7.$metadata$ = classMeta('$handleCallCOROUTINE$7', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function Config_1() {
-    this.n2l_1 = true;
-    this.o2l_1 = false;
+  function _get_checkHttpMethod__ouu2yo($this) {
+    return $this.checkHttpMethod_1;
   }
+  function _get_allowHttpsDowngrade__2zjwjm($this) {
+    return $this.allowHttpsDowngrade_1;
+  }
+  function Config_1() {
+    this.checkHttpMethod_1 = true;
+    this.allowHttpsDowngrade_1 = false;
+  }
+  Config_1.prototype.set_checkHttpMethod_r426az_k$ = function (_set____db54di) {
+    this.checkHttpMethod_1 = _set____db54di;
+  };
+  Config_1.prototype.get_checkHttpMethod_11ale0_k$ = function () {
+    return this.checkHttpMethod_1;
+  };
+  Config_1.prototype.set_allowHttpsDowngrade_zh7x0t_k$ = function (_set____db54di) {
+    this.allowHttpsDowngrade_1 = _set____db54di;
+  };
+  Config_1.prototype.get_allowHttpsDowngrade_f1e586_k$ = function () {
+    return this.allowHttpsDowngrade_1;
+  };
   Config_1.$metadata$ = classMeta('Config');
   function Plugin_1() {
     Plugin_instance_1 = this;
-    this.l2l_1 = new AttributeKey('HttpRedirect');
-    this.m2l_1 = new EventDefinition();
+    this.key_1 = new AttributeKey('HttpRedirect');
+    this.HttpResponseRedirect_1 = new EventDefinition();
   }
-  Plugin_1.prototype.r = function () {
-    return this.l2l_1;
+  Plugin_1.prototype.get_key_18j28a_k$ = function () {
+    return this.key_1;
   };
-  Plugin_1.prototype.d2i = function (block) {
+  Plugin_1.prototype.get_HttpResponseRedirect_7jjicy_k$ = function () {
+    return this.HttpResponseRedirect_1;
+  };
+  Plugin_1.prototype.prepare_bbu65k_k$ = function (block) {
     var tmp$ret$0;
     {
       var tmp0_apply = new Config_1();
@@ -3862,17 +4383,17 @@
       tmp$ret$0 = tmp0_apply;
     }
     var config = tmp$ret$0;
-    return new HttpRedirect(config.n2l_1, config.o2l_1);
+    return new HttpRedirect(config.checkHttpMethod_1, config.allowHttpsDowngrade_1);
   };
-  Plugin_1.prototype.w24 = function (block) {
-    return this.d2i(block);
+  Plugin_1.prototype.prepare_aftpuj_k$ = function (block) {
+    return this.prepare_bbu65k_k$(block);
   };
-  Plugin_1.prototype.p2l = function (plugin_0, scope) {
-    var tmp = plugin(scope, Plugin_getInstance_3());
-    tmp.h2i(HttpRedirect$Plugin$install$slambda_0(plugin_0, scope, null));
+  Plugin_1.prototype.install_6dwfkt_k$ = function (plugin_0, scope) {
+    var tmp = plugin(scope, Plugin_getInstance_4());
+    tmp.intercept_ss9ax6_k$(HttpRedirect$Plugin$install$slambda_0(plugin_0, scope, null));
   };
-  Plugin_1.prototype.x24 = function (plugin, scope) {
-    return this.p2l(plugin instanceof HttpRedirect ? plugin : THROW_CCE(), scope);
+  Plugin_1.prototype.install_cj05u9_k$ = function (plugin, scope) {
+    return this.install_6dwfkt_k$(plugin instanceof HttpRedirect ? plugin : THROW_CCE(), scope);
   };
   Plugin_1.$metadata$ = objectMeta('Plugin', [HttpClientPlugin]);
   var Plugin_instance_1;
@@ -3883,55 +4404,55 @@
   }
   function HttpRedirect(checkHttpMethod, allowHttpsDowngrade) {
     Plugin_getInstance_1();
-    this.j2l_1 = checkHttpMethod;
-    this.k2l_1 = allowHttpsDowngrade;
+    this.checkHttpMethod_1 = checkHttpMethod;
+    this.allowHttpsDowngrade_1 = allowHttpsDowngrade;
   }
   HttpRedirect.$metadata$ = classMeta('HttpRedirect');
   function isRedirect(_this__u8e3s4) {
     init_properties_HttpRedirect_kt_rcsi6u();
-    var tmp0_subject = _this__u8e3s4.j1x_1;
-    return ((((tmp0_subject === Companion_getInstance_1().t1v_1.j1x_1 ? true : tmp0_subject === Companion_getInstance_1().u1v_1.j1x_1) ? true : tmp0_subject === Companion_getInstance_1().z1v_1.j1x_1) ? true : tmp0_subject === Companion_getInstance_1().a1w_1.j1x_1) ? true : tmp0_subject === Companion_getInstance_1().v1v_1.j1x_1) ? true : false;
+    var tmp0_subject = _this__u8e3s4.value_1;
+    return ((((tmp0_subject === Companion_getInstance_1().MovedPermanently_1.value_1 ? true : tmp0_subject === Companion_getInstance_1().Found_1.value_1) ? true : tmp0_subject === Companion_getInstance_1().TemporaryRedirect_1.value_1) ? true : tmp0_subject === Companion_getInstance_1().PermanentRedirect_1.value_1) ? true : tmp0_subject === Companion_getInstance_1().SeeOther_1.value_1) ? true : false;
   }
   var properties_initialized_HttpRedirect_kt_klj746;
   function init_properties_HttpRedirect_kt_rcsi6u() {
     if (properties_initialized_HttpRedirect_kt_klj746) {
     } else {
       properties_initialized_HttpRedirect_kt_klj746 = true;
-      ALLOWED_FOR_REDIRECT = setOf_0([Companion_getInstance_2().q1u_1, Companion_getInstance_2().v1u_1]);
+      ALLOWED_FOR_REDIRECT = setOf_0([Companion_getInstance_2().Get_1, Companion_getInstance_2().Head_1]);
     }
   }
   function HttpRequestLifecycle$Plugin$install$slambda($scope, resultContinuation) {
-    this.y2l_1 = $scope;
+    this.$scope_1 = $scope;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpRequestLifecycle$Plugin$install$slambda.prototype.l22 = function ($this$intercept, it, $cont) {
-    var tmp = this.m22($this$intercept, it, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpRequestLifecycle$Plugin$install$slambda.prototype.invoke_63ydys_k$ = function ($this$intercept, it, $cont) {
+    var tmp = this.create_300ycv_k$($this$intercept, it, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpRequestLifecycle$Plugin$install$slambda.prototype.xe = function (p1, p2, $cont) {
+  HttpRequestLifecycle$Plugin$install$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.l22(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+    return this.invoke_63ydys_k$(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
   };
-  HttpRequestLifecycle$Plugin$install$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpRequestLifecycle$Plugin$install$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 6;
-            this.b2m_1 = Job(this.z2l_1.g1n_1.v23_1);
-            attachToClientEngineJob(this.b2m_1, ensureNotNull(this.y2l_1.q21_1.b3(Key_getInstance())));
-            this.pd_1 = 1;
+            this.exceptionState_1 = 6;
+            this.executionContext0__1 = Job(this.$this$intercept_1.context_1.executionContext_1);
+            attachToClientEngineJob(this.executionContext0__1, ensureNotNull(this.$scope_1.coroutineContext_1.get_1pi7hg_k$(Key_getInstance())));
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            this.qd_1 = 4;
-            this.qd_1 = 3;
-            this.z2l_1.g1n_1.v23_1 = this.b2m_1;
-            this.pd_1 = 2;
-            suspendResult = this.z2l_1.l1m(this);
+            this.exceptionState_1 = 4;
+            this.exceptionState_1 = 3;
+            this.$this$intercept_1.context_1.executionContext_1 = this.executionContext0__1;
+            this.state_1 = 2;
+            suspendResult = this.$this$intercept_1.proceed_7g1848_k$(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -3939,80 +4460,80 @@
             continue $sm;
           case 2:
             var tmp_0 = this;
-            tmp_0.c2m_1 = Unit_getInstance();
-            this.qd_1 = 6;
-            this.pd_1 = 5;
+            tmp_0.tmp$ret$01__1 = Unit_getInstance();
+            this.exceptionState_1 = 6;
+            this.state_1 = 5;
             continue $sm;
           case 3:
-            this.qd_1 = 4;
-            var tmp_1 = this.sd_1;
+            this.exceptionState_1 = 4;
+            var tmp_1 = this.exception_1;
             if (tmp_1 instanceof Error) {
-              var cause = this.sd_1;
+              var cause = this.exception_1;
               var tmp_2 = this;
-              this.b2m_1.xp(cause);
+              this.executionContext0__1.completeExceptionally_7s0ccc_k$(cause);
               throw cause;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 4:
-            this.qd_1 = 6;
-            var t = this.sd_1;
-            this.b2m_1.kq();
+            this.exceptionState_1 = 6;
+            var t = this.exception_1;
+            this.executionContext0__1.complete_9ww6vb_k$();
             ;
             throw t;
           case 5:
-            this.b2m_1.kq();
+            this.executionContext0__1.complete_9ww6vb_k$();
             ;
             return Unit_getInstance();
           case 6:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 6) {
+        if (this.exceptionState_1 === 6) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpRequestLifecycle$Plugin$install$slambda.prototype.m22 = function ($this$intercept, it, completion) {
-    var i = new HttpRequestLifecycle$Plugin$install$slambda(this.y2l_1, completion);
-    i.z2l_1 = $this$intercept;
-    i.a2m_1 = it;
+  HttpRequestLifecycle$Plugin$install$slambda.prototype.create_300ycv_k$ = function ($this$intercept, it, completion) {
+    var i = new HttpRequestLifecycle$Plugin$install$slambda(this.$scope_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.it_1 = it;
     return i;
   };
   HttpRequestLifecycle$Plugin$install$slambda.$metadata$ = classMeta('HttpRequestLifecycle$Plugin$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpRequestLifecycle$Plugin$install$slambda_0($scope, resultContinuation) {
     var i = new HttpRequestLifecycle$Plugin$install$slambda($scope, resultContinuation);
     var l = function ($this$intercept, it, $cont) {
-      return i.l22($this$intercept, it, $cont);
+      return i.invoke_63ydys_k$($this$intercept, it, $cont);
     };
     l.$arity = 2;
     return l;
   }
   function Plugin_2() {
     Plugin_instance_2 = this;
-    this.d2m_1 = new AttributeKey('RequestLifecycle');
+    this.key_1 = new AttributeKey('RequestLifecycle');
   }
-  Plugin_2.prototype.r = function () {
-    return this.d2m_1;
+  Plugin_2.prototype.get_key_18j28a_k$ = function () {
+    return this.key_1;
   };
-  Plugin_2.prototype.z2a = function (block) {
+  Plugin_2.prototype.prepare_lhztj4_k$ = function (block) {
     return new HttpRequestLifecycle();
   };
-  Plugin_2.prototype.w24 = function (block) {
-    return this.z2a(block);
+  Plugin_2.prototype.prepare_aftpuj_k$ = function (block) {
+    return this.prepare_lhztj4_k$(block);
   };
-  Plugin_2.prototype.e2m = function (plugin, scope) {
-    var tmp = Phases_getInstance().q2a_1;
-    scope.r21_1.k1n(tmp, HttpRequestLifecycle$Plugin$install$slambda_0(scope, null));
+  Plugin_2.prototype.install_kabr32_k$ = function (plugin, scope) {
+    var tmp = Phases_getInstance().Before_1;
+    scope.requestPipeline_1.intercept_hnj3e1_k$(tmp, HttpRequestLifecycle$Plugin$install$slambda_0(scope, null));
   };
-  Plugin_2.prototype.x24 = function (plugin, scope) {
-    return this.e2m(plugin instanceof HttpRequestLifecycle ? plugin : THROW_CCE(), scope);
+  Plugin_2.prototype.install_cj05u9_k$ = function (plugin, scope) {
+    return this.install_kabr32_k$(plugin instanceof HttpRequestLifecycle ? plugin : THROW_CCE(), scope);
   };
   Plugin_2.$metadata$ = objectMeta('Plugin', [HttpClientPlugin]);
   var Plugin_instance_2;
@@ -4026,8 +4547,8 @@
   }
   HttpRequestLifecycle.$metadata$ = classMeta('HttpRequestLifecycle');
   function attachToClientEngineJob(requestJob, clientEngineJob) {
-    var handler = clientEngineJob.rl(attachToClientEngineJob$lambda(requestJob));
-    requestJob.rl(attachToClientEngineJob$lambda_0(handler));
+    var handler = clientEngineJob.invokeOnCompletion_t2apld_k$(attachToClientEngineJob$lambda(requestJob));
+    requestJob.invokeOnCompletion_t2apld_k$(attachToClientEngineJob$lambda_0(handler));
   }
   function attachToClientEngineJob$lambda($requestJob) {
     return function (cause) {
@@ -4035,7 +4556,7 @@
       if (!(cause == null)) {
         tmp = cancel_2($requestJob, 'Engine failed', cause);
       } else {
-        $requestJob.kq();
+        $requestJob.complete_9ww6vb_k$();
         tmp = Unit_getInstance();
       }
       return Unit_getInstance();
@@ -4043,47 +4564,842 @@
   }
   function attachToClientEngineJob$lambda_0($handler) {
     return function (it) {
-      $handler.vn();
+      $handler.dispose_3n44we_k$();
       return Unit_getInstance();
     };
   }
-  function HttpSend$Plugin$install$slambda($plugin, $scope, resultContinuation) {
-    this.n2m_1 = $plugin;
-    this.o2m_1 = $scope;
+  function get_MaxRetriesPerRequestAttributeKey() {
+    init_properties_HttpRequestRetry_kt_5f4idj();
+    return MaxRetriesPerRequestAttributeKey;
+  }
+  var MaxRetriesPerRequestAttributeKey;
+  function get_ShouldRetryPerRequestAttributeKey() {
+    init_properties_HttpRequestRetry_kt_5f4idj();
+    return ShouldRetryPerRequestAttributeKey;
+  }
+  var ShouldRetryPerRequestAttributeKey;
+  function get_ShouldRetryOnExceptionPerRequestAttributeKey() {
+    init_properties_HttpRequestRetry_kt_5f4idj();
+    return ShouldRetryOnExceptionPerRequestAttributeKey;
+  }
+  var ShouldRetryOnExceptionPerRequestAttributeKey;
+  function get_ModifyRequestPerRequestAttributeKey() {
+    init_properties_HttpRequestRetry_kt_5f4idj();
+    return ModifyRequestPerRequestAttributeKey;
+  }
+  var ModifyRequestPerRequestAttributeKey;
+  function get_RetryDelayPerRequestAttributeKey() {
+    init_properties_HttpRequestRetry_kt_5f4idj();
+    return RetryDelayPerRequestAttributeKey;
+  }
+  var RetryDelayPerRequestAttributeKey;
+  function randomMs($this, randomizationMs) {
+    return randomizationMs.equals(new Long(0, 0)) ? new Long(0, 0) : Default_getInstance().nextLong_gpvfev_k$(randomizationMs);
+  }
+  function HttpRequestRetry$Configuration$modifyRequest$lambda() {
+    return function ($this$null, it) {
+      return Unit_getInstance();
+    };
+  }
+  function HttpRequestRetry$Configuration$delay$slambda(resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpSend$Plugin$install$slambda.prototype.l22 = function ($this$intercept, content, $cont) {
-    var tmp = this.m22($this$intercept, content, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpRequestRetry$Configuration$delay$slambda.prototype.invoke_b21fsh_k$ = function (it, $cont) {
+    var tmp = this.create_a5pzuu_k$(it, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpSend$Plugin$install$slambda.prototype.xe = function (p1, p2, $cont) {
-    var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.l22(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+  HttpRequestRetry$Configuration$delay$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_b21fsh_k$(p1 instanceof Long ? p1 : THROW_CCE(), $cont);
   };
-  HttpSend$Plugin$install$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpRequestRetry$Configuration$delay$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 3;
-            var tmp_0 = this.q2m_1;
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = delay(this.it_1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  HttpRequestRetry$Configuration$delay$slambda.prototype.create_a5pzuu_k$ = function (it, completion) {
+    var i = new HttpRequestRetry$Configuration$delay$slambda(completion);
+    i.it_1 = it;
+    return i;
+  };
+  HttpRequestRetry$Configuration$delay$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_a5pzuu_k$(value instanceof Long ? value : THROW_CCE(), completion);
+  };
+  HttpRequestRetry$Configuration$delay$slambda.$metadata$ = classMeta('HttpRequestRetry$Configuration$delay$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
+  function HttpRequestRetry$Configuration$delay$slambda_0(resultContinuation) {
+    var i = new HttpRequestRetry$Configuration$delay$slambda(resultContinuation);
+    var l = function (it, $cont) {
+      return i.invoke_b21fsh_k$(it, $cont);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function HttpRequestRetry$Configuration$noRetry$lambda() {
+    return function ($this$null, _anonymous_parameter_0__qggqh8, _anonymous_parameter_1__qggqgd) {
+      return false;
+    };
+  }
+  function HttpRequestRetry$Configuration$noRetry$lambda_0() {
+    return function ($this$null, _anonymous_parameter_0__qggqh8, _anonymous_parameter_1__qggqgd) {
+      return false;
+    };
+  }
+  function HttpRequestRetry$Configuration$retryOnException$lambda() {
+    return function ($this$retryOnExceptionIf, _anonymous_parameter_0__qggqh8, cause) {
+      return !(cause instanceof CancellationException);
+    };
+  }
+  function HttpRequestRetry$Configuration$retryOnServerErrors$lambda() {
+    return function ($this$retryIf, _anonymous_parameter_0__qggqh8, response) {
+      var tmp$ret$1;
+      {
+        var tmp0_let = response.get_status_jnf6d7_k$().value_1;
+        {
+        }
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 500 <= tmp0_let ? tmp0_let <= 599 : false;
+        }
+        tmp$ret$1 = tmp$ret$0;
+      }
+      return tmp$ret$1;
+    };
+  }
+  function HttpRequestRetry$Configuration$delayMillis$lambda($respectRetryAfterHeader, $block) {
+    return function ($this$null, it) {
+      var tmp;
+      if ($respectRetryAfterHeader) {
+        var tmp0_safe_receiver = $this$null.response_1;
+        var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_headers_ef25jx_k$();
+        var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.get_4u8u51_k$(HttpHeaders_getInstance().RetryAfter_1);
+        var tmp3_safe_receiver = tmp2_safe_receiver == null ? null : toLongOrNull(tmp2_safe_receiver);
+        var tmp_0;
+        if (tmp3_safe_receiver == null) {
+          tmp_0 = null;
+        } else {
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = tmp3_safe_receiver.times_2zfqpc_k$(new Long(1000, 0));
+          }
+          tmp_0 = tmp$ret$0;
+        }
+        var retryAfter = tmp_0;
+        var tmp$ret$1;
+        {
+          var tmp0_maxOf = $block($this$null, it);
+          var tmp4_elvis_lhs = retryAfter;
+          var tmp1_maxOf = tmp4_elvis_lhs == null ? new Long(0, 0) : tmp4_elvis_lhs;
+          tmp$ret$1 = tmp0_maxOf.compareTo_n4fqi2_k$(tmp1_maxOf) >= 0 ? tmp0_maxOf : tmp1_maxOf;
+        }
+        tmp = tmp$ret$1;
+      } else {
+        tmp = $block($this$null, it);
+      }
+      return tmp;
+    };
+  }
+  function HttpRequestRetry$Configuration$constantDelay$lambda($millis, this$0, $randomizationMs) {
+    return function ($this$delayMillis, it) {
+      return $millis.plus_u6jwas_k$(randomMs(this$0, $randomizationMs));
+    };
+  }
+  function HttpRequestRetry$Configuration$exponentialDelay$lambda($base, $maxDelayMs, this$0, $randomizationMs) {
+    return function ($this$delayMillis, retry) {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = Math.pow($base, retry);
+        }
+        var tmp0_minOf = numberToLong(tmp$ret$0).times_2zfqpc_k$(new Long(1000, 0));
+        tmp$ret$1 = tmp0_minOf.compareTo_n4fqi2_k$($maxDelayMs) <= 0 ? tmp0_minOf : $maxDelayMs;
+      }
+      var delay = tmp$ret$1;
+      return delay.plus_u6jwas_k$(randomMs(this$0, $randomizationMs));
+    };
+  }
+  function ShouldRetryContext(retryCount) {
+    this.retryCount_1 = retryCount;
+  }
+  ShouldRetryContext.prototype.get_retryCount_vlyh1s_k$ = function () {
+    return this.retryCount_1;
+  };
+  ShouldRetryContext.$metadata$ = classMeta('ShouldRetryContext');
+  function DelayContext(request, response, cause) {
+    this.request_1 = request;
+    this.response_1 = response;
+    this.cause_1 = cause;
+  }
+  DelayContext.prototype.get_request_jdwg4m_k$ = function () {
+    return this.request_1;
+  };
+  DelayContext.prototype.get_response_xlk07e_k$ = function () {
+    return this.response_1;
+  };
+  DelayContext.prototype.get_cause_iplhs0_k$ = function () {
+    return this.cause_1;
+  };
+  DelayContext.$metadata$ = classMeta('DelayContext');
+  function ModifyRequestContext(request, response, cause, retryCount) {
+    this.request_1 = request;
+    this.response_1 = response;
+    this.cause_1 = cause;
+    this.retryCount_1 = retryCount;
+  }
+  ModifyRequestContext.prototype.get_request_jdwg4m_k$ = function () {
+    return this.request_1;
+  };
+  ModifyRequestContext.prototype.get_response_xlk07e_k$ = function () {
+    return this.response_1;
+  };
+  ModifyRequestContext.prototype.get_cause_iplhs0_k$ = function () {
+    return this.cause_1;
+  };
+  ModifyRequestContext.prototype.get_retryCount_vlyh1s_k$ = function () {
+    return this.retryCount_1;
+  };
+  ModifyRequestContext.$metadata$ = classMeta('ModifyRequestContext');
+  function RetryEventData(request, retryCount, response, cause) {
+    this.request_1 = request;
+    this.retryCount_1 = retryCount;
+    this.response_1 = response;
+    this.cause_1 = cause;
+  }
+  RetryEventData.prototype.get_request_jdwg4m_k$ = function () {
+    return this.request_1;
+  };
+  RetryEventData.prototype.get_retryCount_vlyh1s_k$ = function () {
+    return this.retryCount_1;
+  };
+  RetryEventData.prototype.get_response_xlk07e_k$ = function () {
+    return this.response_1;
+  };
+  RetryEventData.prototype.get_cause_iplhs0_k$ = function () {
+    return this.cause_1;
+  };
+  RetryEventData.$metadata$ = classMeta('RetryEventData');
+  function _get_shouldRetry__50d7jw($this) {
+    return $this.shouldRetry_1;
+  }
+  function _get_shouldRetryOnException__oft2hc($this) {
+    return $this.shouldRetryOnException_1;
+  }
+  function _get_delayMillis__7izjt4($this) {
+    return $this.delayMillis_1;
+  }
+  function _get_delay__ikpy6q($this) {
+    return $this.delay_1;
+  }
+  function _get_maxRetries__2pnxiv($this) {
+    return $this.maxRetries_1;
+  }
+  function _get_modifyRequest__8jdce4($this) {
+    return $this.modifyRequest_1;
+  }
+  function Configuration() {
+    var tmp = this;
+    tmp.modifyRequest_1 = HttpRequestRetry$Configuration$modifyRequest$lambda();
+    var tmp_0 = this;
+    tmp_0.delay_1 = HttpRequestRetry$Configuration$delay$slambda_0(null);
+    this.maxRetries_1 = 0;
+    this.retryOnExceptionOrServerErrors_eya1e1_k$(3);
+    var tmp_1 = new Long(0, 0);
+    var tmp_2 = new Long(0, 0);
+    this.exponentialDelay$default_65xwo5_k$(0.0, tmp_1, tmp_2, false, 15, null);
+  }
+  Configuration.prototype.set_shouldRetry_x12p8s_k$ = function (_set____db54di) {
+    this.shouldRetry_1 = _set____db54di;
+  };
+  Configuration.prototype.get_shouldRetry_6ascp8_k$ = function () {
+    var tmp = this.shouldRetry_1;
+    if (!(tmp == null))
+      return tmp;
+    else {
+      throwUninitializedPropertyAccessException('shouldRetry');
+    }
+  };
+  Configuration.prototype.set_shouldRetryOnException_3orvqt_k$ = function (_set____db54di) {
+    this.shouldRetryOnException_1 = _set____db54di;
+  };
+  Configuration.prototype.get_shouldRetryOnException_o7irp8_k$ = function () {
+    var tmp = this.shouldRetryOnException_1;
+    if (!(tmp == null))
+      return tmp;
+    else {
+      throwUninitializedPropertyAccessException('shouldRetryOnException');
+    }
+  };
+  Configuration.prototype.set_delayMillis_ql25nb_k$ = function (_set____db54di) {
+    this.delayMillis_1 = _set____db54di;
+  };
+  Configuration.prototype.get_delayMillis_d968n4_k$ = function () {
+    var tmp = this.delayMillis_1;
+    if (!(tmp == null))
+      return tmp;
+    else {
+      throwUninitializedPropertyAccessException('delayMillis');
+    }
+  };
+  Configuration.prototype.set_modifyRequest_of6p7z_k$ = function (_set____db54di) {
+    this.modifyRequest_1 = _set____db54di;
+  };
+  Configuration.prototype.get_modifyRequest_3d1yrw_k$ = function () {
+    return this.modifyRequest_1;
+  };
+  Configuration.prototype.set_delay_16yuqn_k$ = function (_set____db54di) {
+    this.delay_1 = _set____db54di;
+  };
+  Configuration.prototype.get_delay_iq7n8a_k$ = function () {
+    return this.delay_1;
+  };
+  Configuration.prototype.set_maxRetries_modsdr_k$ = function (_set____db54di) {
+    this.maxRetries_1 = _set____db54di;
+  };
+  Configuration.prototype.get_maxRetries_hemi8b_k$ = function () {
+    return this.maxRetries_1;
+  };
+  Configuration.prototype.noRetry_5fc17a_k$ = function () {
+    this.maxRetries_1 = 0;
+    var tmp = this;
+    tmp.shouldRetry_1 = HttpRequestRetry$Configuration$noRetry$lambda();
+    var tmp_0 = this;
+    tmp_0.shouldRetryOnException_1 = HttpRequestRetry$Configuration$noRetry$lambda_0();
+  };
+  Configuration.prototype.modifyRequest_b05z5g_k$ = function (block) {
+    this.modifyRequest_1 = block;
+  };
+  Configuration.prototype.retryIf_ke5mvk_k$ = function (maxRetries, block) {
+    if (!(maxRetries === -1))
+      this.maxRetries_1 = maxRetries;
+    this.shouldRetry_1 = block;
+  };
+  Configuration.prototype.retryIf$default_fz5phv_k$ = function (maxRetries, block, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      maxRetries = -1;
+    return this.retryIf_ke5mvk_k$(maxRetries, block);
+  };
+  Configuration.prototype.retryOnExceptionIf_lqqf3l_k$ = function (maxRetries, block) {
+    if (!(maxRetries === -1))
+      this.maxRetries_1 = maxRetries;
+    this.shouldRetryOnException_1 = block;
+  };
+  Configuration.prototype.retryOnExceptionIf$default_kkt18y_k$ = function (maxRetries, block, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      maxRetries = -1;
+    return this.retryOnExceptionIf_lqqf3l_k$(maxRetries, block);
+  };
+  Configuration.prototype.retryOnException_92pltk_k$ = function (maxRetries) {
+    this.retryOnExceptionIf_lqqf3l_k$(maxRetries, HttpRequestRetry$Configuration$retryOnException$lambda());
+  };
+  Configuration.prototype.retryOnException$default_37puqd_k$ = function (maxRetries, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      maxRetries = -1;
+    return this.retryOnException_92pltk_k$(maxRetries);
+  };
+  Configuration.prototype.retryOnServerErrors_6ij8hn_k$ = function (maxRetries) {
+    this.retryIf_ke5mvk_k$(maxRetries, HttpRequestRetry$Configuration$retryOnServerErrors$lambda());
+  };
+  Configuration.prototype.retryOnServerErrors$default_ibu0aq_k$ = function (maxRetries, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      maxRetries = -1;
+    return this.retryOnServerErrors_6ij8hn_k$(maxRetries);
+  };
+  Configuration.prototype.retryOnExceptionOrServerErrors_eya1e1_k$ = function (maxRetries) {
+    this.retryOnServerErrors_6ij8hn_k$(maxRetries);
+    this.retryOnException_92pltk_k$(maxRetries);
+  };
+  Configuration.prototype.retryOnExceptionOrServerErrors$default_srdkg6_k$ = function (maxRetries, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      maxRetries = -1;
+    return this.retryOnExceptionOrServerErrors_eya1e1_k$(maxRetries);
+  };
+  Configuration.prototype.delayMillis_cyw2qs_k$ = function (respectRetryAfterHeader, block) {
+    var tmp = this;
+    tmp.delayMillis_1 = HttpRequestRetry$Configuration$delayMillis$lambda(respectRetryAfterHeader, block);
+  };
+  Configuration.prototype.delayMillis$default_hgj927_k$ = function (respectRetryAfterHeader, block, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      respectRetryAfterHeader = true;
+    return this.delayMillis_cyw2qs_k$(respectRetryAfterHeader, block);
+  };
+  Configuration.prototype.constantDelay_59gpoq_k$ = function (millis, randomizationMs, respectRetryAfterHeader) {
+    {
+      var tmp0_check = millis.compareTo_n4fqi2_k$(new Long(0, 0)) > 0;
+      {
+      }
+      {
+        {
+        }
+        if (!tmp0_check) {
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = 'Check failed.';
+          }
+          var message = tmp$ret$0;
+          throw IllegalStateException_init_$Create$(toString(message));
+        }
+      }
+    }
+    {
+      var tmp1_check = randomizationMs.compareTo_n4fqi2_k$(new Long(0, 0)) >= 0;
+      {
+      }
+      {
+        {
+        }
+        if (!tmp1_check) {
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = 'Check failed.';
+          }
+          var message_0 = tmp$ret$1;
+          throw IllegalStateException_init_$Create$(toString(message_0));
+        }
+      }
+    }
+    this.delayMillis_cyw2qs_k$(respectRetryAfterHeader, HttpRequestRetry$Configuration$constantDelay$lambda(millis, this, randomizationMs));
+  };
+  Configuration.prototype.constantDelay$default_clhalj_k$ = function (millis, randomizationMs, respectRetryAfterHeader, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      millis = new Long(1000, 0);
+    if (!(($mask0 & 2) === 0))
+      randomizationMs = new Long(1000, 0);
+    if (!(($mask0 & 4) === 0))
+      respectRetryAfterHeader = true;
+    return this.constantDelay_59gpoq_k$(millis, randomizationMs, respectRetryAfterHeader);
+  };
+  Configuration.prototype.exponentialDelay_qblebs_k$ = function (base, maxDelayMs, randomizationMs, respectRetryAfterHeader) {
+    {
+      var tmp0_check = base > 0.0;
+      {
+      }
+      {
+        {
+        }
+        if (!tmp0_check) {
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = 'Check failed.';
+          }
+          var message = tmp$ret$0;
+          throw IllegalStateException_init_$Create$(toString(message));
+        }
+      }
+    }
+    {
+      var tmp1_check = maxDelayMs.compareTo_n4fqi2_k$(new Long(0, 0)) > 0;
+      {
+      }
+      {
+        {
+        }
+        if (!tmp1_check) {
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = 'Check failed.';
+          }
+          var message_0 = tmp$ret$1;
+          throw IllegalStateException_init_$Create$(toString(message_0));
+        }
+      }
+    }
+    {
+      var tmp2_check = randomizationMs.compareTo_n4fqi2_k$(new Long(0, 0)) >= 0;
+      {
+      }
+      {
+        {
+        }
+        if (!tmp2_check) {
+          var tmp$ret$2;
+          {
+            tmp$ret$2 = 'Check failed.';
+          }
+          var message_1 = tmp$ret$2;
+          throw IllegalStateException_init_$Create$(toString(message_1));
+        }
+      }
+    }
+    this.delayMillis_cyw2qs_k$(respectRetryAfterHeader, HttpRequestRetry$Configuration$exponentialDelay$lambda(base, maxDelayMs, this, randomizationMs));
+  };
+  Configuration.prototype.exponentialDelay$default_65xwo5_k$ = function (base, maxDelayMs, randomizationMs, respectRetryAfterHeader, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      base = 2.0;
+    if (!(($mask0 & 2) === 0))
+      maxDelayMs = new Long(60000, 0);
+    if (!(($mask0 & 4) === 0))
+      randomizationMs = new Long(1000, 0);
+    if (!(($mask0 & 8) === 0))
+      respectRetryAfterHeader = true;
+    return this.exponentialDelay_qblebs_k$(base, maxDelayMs, randomizationMs, respectRetryAfterHeader);
+  };
+  Configuration.prototype.delay_g9hbus_k$ = function (block) {
+    this.delay_1 = block;
+  };
+  Configuration.$metadata$ = classMeta('Configuration');
+  function shouldRetry($this, retryCount, maxRetries, shouldRetry, call) {
+    return retryCount < maxRetries ? shouldRetry(new ShouldRetryContext(retryCount + 1 | 0), call.get_request_jdwg4m_k$(), call.get_response_xlk07e_k$()) : false;
+  }
+  function shouldRetryOnException($this, retryCount, maxRetries, shouldRetry, subRequest, cause) {
+    return retryCount < maxRetries ? shouldRetry(new ShouldRetryContext(retryCount + 1 | 0), subRequest, cause) : false;
+  }
+  function prepareRequest($this, request) {
+    var subRequest = (new HttpRequestBuilder()).takeFrom_ixwwlq_k$(request);
+    var subRequestJob = Job$default(null, 1, null);
+    subRequest.executionContext_1 = subRequestJob;
+    var tmp = CoroutineScope_0(request.executionContext_1);
+    launch$default(tmp, null, null, HttpRequestRetry$prepareRequest$slambda_0(subRequestJob, null), 3, null);
+    var tmp_0 = request.executionContext_1;
+    tmp_0.invokeOnCompletion_t2apld_k$(HttpRequestRetry$prepareRequest$lambda(subRequestJob));
+    return subRequest;
+  }
+  function Plugin_3() {
+    Plugin_instance_3 = this;
+    this.key_1 = new AttributeKey('RetryFeature');
+    this.HttpRequestRetryEvent_1 = new EventDefinition();
+  }
+  Plugin_3.prototype.get_key_18j28a_k$ = function () {
+    return this.key_1;
+  };
+  Plugin_3.prototype.get_HttpRequestRetryEvent_ffd2y8_k$ = function () {
+    return this.HttpRequestRetryEvent_1;
+  };
+  Plugin_3.prototype.prepare_uptjsu_k$ = function (block) {
+    var tmp$ret$0;
+    {
+      var tmp0_apply = new Configuration();
+      {
+      }
+      block(tmp0_apply);
+      tmp$ret$0 = tmp0_apply;
+    }
+    var configuration = tmp$ret$0;
+    return new HttpRequestRetry(configuration);
+  };
+  Plugin_3.prototype.prepare_aftpuj_k$ = function (block) {
+    return this.prepare_uptjsu_k$(block);
+  };
+  Plugin_3.prototype.install_uc94ps_k$ = function (plugin, scope) {
+    plugin.intercept_7649si_k$(scope);
+  };
+  Plugin_3.prototype.install_cj05u9_k$ = function (plugin, scope) {
+    return this.install_uc94ps_k$(plugin instanceof HttpRequestRetry ? plugin : THROW_CCE(), scope);
+  };
+  Plugin_3.$metadata$ = objectMeta('Plugin', [HttpClientPlugin]);
+  var Plugin_instance_3;
+  function Plugin_getInstance_3() {
+    if (Plugin_instance_3 == null)
+      new Plugin_3();
+    return Plugin_instance_3;
+  }
+  function HttpRequestRetry$intercept$slambda(this$0, $client, resultContinuation) {
+    this.this$0__1 = this$0;
+    this.$client_1 = $client;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  HttpRequestRetry$intercept$slambda.prototype.invoke_dqudng_k$ = function ($this$intercept, request, $cont) {
+    var tmp = this.create_q4qdwm_k$($this$intercept, request, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  HttpRequestRetry$intercept$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
+    var tmp = (!(p1 == null) ? isInterface(p1, Sender) : false) ? p1 : THROW_CCE();
+    return this.invoke_dqudng_k$(tmp, p2 instanceof HttpRequestBuilder ? p2 : THROW_CCE(), $cont);
+  };
+  HttpRequestRetry$intercept$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 7;
+            this.retryCount0__1 = 0;
+            var tmp_0 = this;
+            var tmp0_elvis_lhs = this.request_1.attributes_1.getOrNull_dkmqfg_k$(get_ShouldRetryPerRequestAttributeKey());
+            tmp_0.shouldRetry1__1 = tmp0_elvis_lhs == null ? this.this$0__1.shouldRetry_1 : tmp0_elvis_lhs;
+            var tmp_1 = this;
+            var tmp1_elvis_lhs = this.request_1.attributes_1.getOrNull_dkmqfg_k$(get_ShouldRetryOnExceptionPerRequestAttributeKey());
+            tmp_1.shouldRetryOnException2__1 = tmp1_elvis_lhs == null ? this.this$0__1.shouldRetryOnException_1 : tmp1_elvis_lhs;
+            var tmp_2 = this;
+            var tmp2_elvis_lhs = this.request_1.attributes_1.getOrNull_dkmqfg_k$(get_MaxRetriesPerRequestAttributeKey());
+            tmp_2.maxRetries3__1 = tmp2_elvis_lhs == null ? this.this$0__1.maxRetries_1 : tmp2_elvis_lhs;
+            var tmp_3 = this;
+            var tmp3_elvis_lhs = this.request_1.attributes_1.getOrNull_dkmqfg_k$(get_RetryDelayPerRequestAttributeKey());
+            tmp_3.delayMillis4__1 = tmp3_elvis_lhs == null ? this.this$0__1.delayMillis_1 : tmp3_elvis_lhs;
+            var tmp_4 = this;
+            var tmp4_elvis_lhs = this.request_1.attributes_1.getOrNull_dkmqfg_k$(get_ModifyRequestPerRequestAttributeKey());
+            tmp_4.modifyRequest5__1 = tmp4_elvis_lhs == null ? this.this$0__1.modifyRequest_1 : tmp4_elvis_lhs;
+            this.lastRetryData7__1 = null;
+            this.state_1 = 1;
+            continue $sm;
+          case 1:
+            if (false) {
+              this.state_1 = 8;
+              continue $sm;
+            }
+
+            this.subRequest8__1 = prepareRequest(this.this$0__1, this.request_1);
+            this.exceptionState_1 = 4;
+            if (!(this.lastRetryData7__1 == null)) {
+              var modifyRequestContext = new ModifyRequestContext(this.request_1, this.lastRetryData7__1.response_1, this.lastRetryData7__1.cause_1, this.lastRetryData7__1.retryCount_1);
+              this.modifyRequest5__1(modifyRequestContext, this.subRequest8__1);
+            }
+
+            this.state_1 = 2;
+            suspendResult = this.$this$intercept_1.execute_z0ufkc_k$(this.subRequest8__1, this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 2:
+            this.call6__1 = suspendResult;
+            if (!shouldRetry(this.this$0__1, this.retryCount0__1, this.maxRetries3__1, this.shouldRetry1__1, this.call6__1)) {
+              this.exceptionState_1 = 7;
+              this.state_1 = 8;
+              continue $sm;
+            } else {
+              this.state_1 = 3;
+              continue $sm;
+            }
+
+            break;
+          case 3:
+            var tmp_5 = this;
+            this.retryCount0__1 = this.retryCount0__1 + 1 | 0;
+            tmp_5.TRY_RESULT9__1 = new RetryEventData(this.subRequest8__1, this.retryCount0__1, this.call6__1.get_response_xlk07e_k$(), null);
+            this.exceptionState_1 = 7;
+            this.state_1 = 5;
+            continue $sm;
+          case 4:
+            this.exceptionState_1 = 7;
+            var tmp_6 = this.exception_1;
+            if (tmp_6 instanceof Error) {
+              this.cause10__1 = this.exception_1;
+              var tmp_7 = this;
+              if (!shouldRetryOnException(this.this$0__1, this.retryCount0__1, this.maxRetries3__1, this.shouldRetryOnException2__1, this.subRequest8__1, this.cause10__1)) {
+                throw this.cause10__1;
+              }
+              this.retryCount0__1 = this.retryCount0__1 + 1 | 0;
+              tmp_7.TRY_RESULT9__1 = new RetryEventData(this.subRequest8__1, this.retryCount0__1, null, this.cause10__1);
+              this.state_1 = 5;
+              continue $sm;
+            } else {
+              throw this.exception_1;
+            }
+
+            break;
+          case 5:
+            this.exceptionState_1 = 7;
+            this.retryData11__1 = this.TRY_RESULT9__1;
+            this.lastRetryData7__1 = this.retryData11__1;
+            this.$client_1.monitor_1.raise_segvv5_k$(Plugin_getInstance_3().HttpRequestRetryEvent_1, this.lastRetryData7__1);
+            this.delayContext12__1 = new DelayContext(this.lastRetryData7__1.request_1, this.lastRetryData7__1.response_1, this.lastRetryData7__1.cause_1);
+            this.state_1 = 6;
+            suspendResult = this.this$0__1.delay_1(this.delayMillis4__1(this.delayContext12__1, this.retryCount0__1), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 6:
+            this.state_1 = 1;
+            continue $sm;
+          case 7:
+            throw this.exception_1;
+          case 8:
+            return this.call6__1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 7) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  HttpRequestRetry$intercept$slambda.prototype.create_q4qdwm_k$ = function ($this$intercept, request, completion) {
+    var i = new HttpRequestRetry$intercept$slambda(this.this$0__1, this.$client_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.request_1 = request;
+    return i;
+  };
+  HttpRequestRetry$intercept$slambda.$metadata$ = classMeta('HttpRequestRetry$intercept$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
+  function HttpRequestRetry$intercept$slambda_0(this$0, $client, resultContinuation) {
+    var i = new HttpRequestRetry$intercept$slambda(this$0, $client, resultContinuation);
+    var l = function ($this$intercept, request, $cont) {
+      return i.invoke_dqudng_k$($this$intercept, request, $cont);
+    };
+    l.$arity = 2;
+    return l;
+  }
+  function HttpRequestRetry$prepareRequest$slambda($subRequestJob, resultContinuation) {
+    this.$subRequestJob_1 = $subRequestJob;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  HttpRequestRetry$prepareRequest$slambda.prototype.invoke_d6gbsu_k$ = function ($this$launch, $cont) {
+    var tmp = this.create_b6qu53_k$($this$launch, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  HttpRequestRetry$prepareRequest$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_d6gbsu_k$((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
+  };
+  HttpRequestRetry$prepareRequest$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this.$subRequestJob_1.join_kbq7u1_k$(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  HttpRequestRetry$prepareRequest$slambda.prototype.create_b6qu53_k$ = function ($this$launch, completion) {
+    var i = new HttpRequestRetry$prepareRequest$slambda(this.$subRequestJob_1, completion);
+    i.$this$launch_1 = $this$launch;
+    return i;
+  };
+  HttpRequestRetry$prepareRequest$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_b6qu53_k$((!(value == null) ? isInterface(value, CoroutineScope) : false) ? value : THROW_CCE(), completion);
+  };
+  HttpRequestRetry$prepareRequest$slambda.$metadata$ = classMeta('HttpRequestRetry$prepareRequest$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
+  function HttpRequestRetry$prepareRequest$slambda_0($subRequestJob, resultContinuation) {
+    var i = new HttpRequestRetry$prepareRequest$slambda($subRequestJob, resultContinuation);
+    var l = function ($this$launch, $cont) {
+      return i.invoke_d6gbsu_k$($this$launch, $cont);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function HttpRequestRetry$prepareRequest$lambda($subRequestJob) {
+    return function (it) {
+      var tmp0_subject = it;
+      var tmp;
+      if (tmp0_subject == null) {
+        $subRequestJob.complete_9ww6vb_k$();
+        tmp = Unit_getInstance();
+      } else {
+        $subRequestJob.completeExceptionally_7s0ccc_k$(it);
+        tmp = Unit_getInstance();
+      }
+      return Unit_getInstance();
+    };
+  }
+  function HttpRequestRetry(configuration) {
+    Plugin_getInstance_3();
+    this.shouldRetry_1 = configuration.get_shouldRetry_6ascp8_k$();
+    this.shouldRetryOnException_1 = configuration.get_shouldRetryOnException_o7irp8_k$();
+    this.delayMillis_1 = configuration.get_delayMillis_d968n4_k$();
+    this.delay_1 = configuration.delay_1;
+    this.maxRetries_1 = configuration.maxRetries_1;
+    this.modifyRequest_1 = configuration.modifyRequest_1;
+  }
+  HttpRequestRetry.prototype.intercept_7649si_k$ = function (client) {
+    var tmp = plugin(client, Plugin_getInstance_4());
+    tmp.intercept_ss9ax6_k$(HttpRequestRetry$intercept$slambda_0(this, client, null));
+  };
+  HttpRequestRetry.$metadata$ = classMeta('HttpRequestRetry');
+  var properties_initialized_HttpRequestRetry_kt_jcpv6l;
+  function init_properties_HttpRequestRetry_kt_5f4idj() {
+    if (properties_initialized_HttpRequestRetry_kt_jcpv6l) {
+    } else {
+      properties_initialized_HttpRequestRetry_kt_jcpv6l = true;
+      MaxRetriesPerRequestAttributeKey = new AttributeKey('MaxRetriesPerRequestAttributeKey');
+      ShouldRetryPerRequestAttributeKey = new AttributeKey('ShouldRetryPerRequestAttributeKey');
+      ShouldRetryOnExceptionPerRequestAttributeKey = new AttributeKey('ShouldRetryOnExceptionPerRequestAttributeKey');
+      ModifyRequestPerRequestAttributeKey = new AttributeKey('ModifyRequestPerRequestAttributeKey');
+      RetryDelayPerRequestAttributeKey = new AttributeKey('RetryDelayPerRequestAttributeKey');
+    }
+  }
+  function HttpSend$Plugin$install$slambda($plugin, $scope, resultContinuation) {
+    this.$plugin_1 = $plugin;
+    this.$scope_1 = $scope;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  HttpSend$Plugin$install$slambda.prototype.invoke_63ydys_k$ = function ($this$intercept, content, $cont) {
+    var tmp = this.create_300ycv_k$($this$intercept, content, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  HttpSend$Plugin$install$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
+    var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
+    return this.invoke_63ydys_k$(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+  };
+  HttpSend$Plugin$install$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 3;
+            var tmp_0 = this.content_1;
             if (!(tmp_0 instanceof OutgoingContent)) {
-              var tmp_1 = '\n|Fail to prepare request body for sending. \n|The body type is: ' + getKClassFromExpression(this.q2m_1) + ', with Content-Type: ' + contentType(this.p2m_1.g1n_1) + '.\n|\n|If you expect serialized body, please check that you have installed the corresponding plugin(like `ContentNegotiation`) and set `Content-Type` header.';
+              var tmp_1 = '\n|Fail to prepare request body for sending. \n|The body type is: ' + getKClassFromExpression(this.content_1) + ', with Content-Type: ' + contentType(this.$this$intercept_1.context_1) + '.\n|\n|If you expect serialized body, please check that you have installed the corresponding plugin(like `ContentNegotiation`) and set `Content-Type` header.';
               var message = trimMargin$default(tmp_1, null, 1, null);
               throw IllegalStateException_init_$Create$(toString(message));
             }
 
             var tmp_2 = this;
-            tmp_2.r2m_1 = this.p2m_1.g1n_1;
+            tmp_2.tmp0_setBody0__1 = this.$this$intercept_1.context_1;
             var tmp_3 = this;
-            tmp_3.s2m_1 = this.q2m_1;
-            var tmp0_subject = this.s2m_1;
+            tmp_3.tmp1_setBody1__1 = this.content_1;
+            var tmp0_subject = this.tmp1_setBody1__1;
             if (tmp0_subject == null) {
-              this.r2m_1.u23_1 = NullBody_getInstance();
+              this.tmp0_setBody0__1.body_1 = NullBody_getInstance();
               var tmp_4 = JsType_getInstance();
               var tmp_5 = getKClass(OutgoingContent);
               var tmp_6;
@@ -4098,13 +5414,13 @@
                 }
                 tmp_6 = tmp_7;
               }
-              this.r2m_1.t29(typeInfoImpl(tmp_4, tmp_5, tmp_6));
+              this.tmp0_setBody0__1.set_bodyType_oab65z_k$(typeInfoImpl(tmp_4, tmp_5, tmp_6));
             } else {
               if (tmp0_subject instanceof OutgoingContent) {
-                this.r2m_1.u23_1 = this.s2m_1;
-                this.r2m_1.t29(null);
+                this.tmp0_setBody0__1.body_1 = this.tmp1_setBody1__1;
+                this.tmp0_setBody0__1.set_bodyType_oab65z_k$(null);
               } else {
-                this.r2m_1.u23_1 = this.s2m_1;
+                this.tmp0_setBody0__1.body_1 = this.tmp1_setBody1__1;
                 var tmp_8 = JsType_getInstance();
                 var tmp_9 = getKClass(OutgoingContent);
                 var tmp_10;
@@ -4119,37 +5435,37 @@
                   }
                   tmp_10 = tmp_11;
                 }
-                this.r2m_1.t29(typeInfoImpl(tmp_8, tmp_9, tmp_10));
+                this.tmp0_setBody0__1.set_bodyType_oab65z_k$(typeInfoImpl(tmp_8, tmp_9, tmp_10));
               }
             }
 
-            this.t2m_1 = new DefaultSender(this.n2m_1.f2i_1, this.o2m_1);
-            this.u2m_1 = this.t2m_1;
+            this.realSender2__1 = new DefaultSender(this.$plugin_1.maxSendCount_1, this.$scope_1);
+            this.interceptedSender3__1 = this.realSender2__1;
             var tmp_12 = this;
-            tmp_12.v2m_1 = downTo(get_lastIndex(this.n2m_1.g2i_1), 0);
-            var progression = this.v2m_1;
-            var inductionVariable = progression.u4_1;
-            var last = progression.v4_1;
-            var step = progression.w4_1;
+            tmp_12.tmp2_forEach4__1 = downTo(get_lastIndex(this.$plugin_1.interceptors_1), 0);
+            var progression = this.tmp2_forEach4__1;
+            var inductionVariable = progression.first_1;
+            var last = progression.last_1;
+            var step = progression.step_1;
             if ((step > 0 ? inductionVariable <= last : false) ? true : step < 0 ? last <= inductionVariable : false)
               do {
                 var element = inductionVariable;
                 inductionVariable = inductionVariable + step | 0;
-                var interceptor = this.n2m_1.g2i_1.h(element);
-                this.u2m_1 = new InterceptedSender(interceptor, this.u2m_1);
+                var interceptor = this.$plugin_1.interceptors_1.get_fkrdnv_k$(element);
+                this.interceptedSender3__1 = new InterceptedSender(interceptor, this.interceptedSender3__1);
               }
                while (!(element === last));
-            this.pd_1 = 1;
-            suspendResult = this.u2m_1.u24(this.p2m_1.g1n_1, this);
+            this.state_1 = 1;
+            suspendResult = this.interceptedSender3__1.execute_z0ufkc_k$(this.$this$intercept_1.context_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.w2m_1 = suspendResult;
-            this.pd_1 = 2;
-            suspendResult = this.p2m_1.k1m(this.w2m_1, this);
+            this.call5__1 = suspendResult;
+            this.state_1 = 2;
+            suspendResult = this.$this$intercept_1.proceedWith_slnzfn_k$(this.call5__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -4159,47 +5475,71 @@
             ;
             return Unit_getInstance();
           case 3:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 3) {
+        if (this.exceptionState_1 === 3) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpSend$Plugin$install$slambda.prototype.m22 = function ($this$intercept, content, completion) {
-    var i = new HttpSend$Plugin$install$slambda(this.n2m_1, this.o2m_1, completion);
-    i.p2m_1 = $this$intercept;
-    i.q2m_1 = content;
+  HttpSend$Plugin$install$slambda.prototype.create_300ycv_k$ = function ($this$intercept, content, completion) {
+    var i = new HttpSend$Plugin$install$slambda(this.$plugin_1, this.$scope_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.content_1 = content;
     return i;
   };
   HttpSend$Plugin$install$slambda.$metadata$ = classMeta('HttpSend$Plugin$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpSend$Plugin$install$slambda_0($plugin, $scope, resultContinuation) {
     var i = new HttpSend$Plugin$install$slambda($plugin, $scope, resultContinuation);
     var l = function ($this$intercept, content, $cont) {
-      return i.l22($this$intercept, content, $cont);
+      return i.invoke_63ydys_k$($this$intercept, content, $cont);
     };
     l.$arity = 2;
     return l;
   }
+  function _get_interceptor__8m2498($this) {
+    return $this.interceptor_1;
+  }
+  function _get_nextSender__nwl3sz($this) {
+    return $this.nextSender_1;
+  }
+  function _get_maxSendCount__nbjqgo($this) {
+    return $this.maxSendCount_1;
+  }
+  function _get_client__j03y3k($this) {
+    return $this.client_1;
+  }
+  function _set_sentCount__st452q($this, _set____db54di) {
+    $this.sentCount_1 = _set____db54di;
+  }
+  function _get_sentCount__hqbbu($this) {
+    return $this.sentCount_1;
+  }
+  function _set_currentCall__kxa4q6($this, _set____db54di) {
+    $this.currentCall_1 = _set____db54di;
+  }
+  function _get_currentCall__jtfqx2($this) {
+    return $this.currentCall_1;
+  }
   function $executeCOROUTINE$8(_this__u8e3s4, requestBuilder, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.f2n_1 = _this__u8e3s4;
-    this.g2n_1 = requestBuilder;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.requestBuilder_1 = requestBuilder;
   }
-  $executeCOROUTINE$8.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $executeCOROUTINE$8.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            var tmp0_safe_receiver = this.f2n_1.k2n_1;
+            this.exceptionState_1 = 2;
+            var tmp0_safe_receiver = this._this__u8e3s4__1.currentCall_1;
             if (tmp0_safe_receiver == null)
               null;
             else {
@@ -4207,16 +5547,16 @@
             }
 
             ;
-            if (this.f2n_1.j2n_1 >= this.f2n_1.h2n_1) {
-              throw new SendCountExceedException('Max send count ' + this.f2n_1.h2n_1 + ' exceeded. Consider increasing the property ' + 'maxSendCount if more is required.');
+            if (this._this__u8e3s4__1.sentCount_1 >= this._this__u8e3s4__1.maxSendCount_1) {
+              throw new SendCountExceedException('Max send count ' + this._this__u8e3s4__1.maxSendCount_1 + ' exceeded. Consider increasing the property ' + 'maxSendCount if more is required.');
             }
 
-            var tmp1_this = this.f2n_1;
-            var tmp2 = tmp1_this.j2n_1;
-            tmp1_this.j2n_1 = tmp2 + 1 | 0;
+            var tmp1_this = this._this__u8e3s4__1;
+            var tmp2 = tmp1_this.sentCount_1;
+            tmp1_this.sentCount_1 = tmp2 + 1 | 0;
             ;
-            this.pd_1 = 1;
-            suspendResult = this.f2n_1.i2n_1.t21_1.f1n(this.g2n_1, this.g2n_1.u23_1, this);
+            this.state_1 = 1;
+            suspendResult = this._this__u8e3s4__1.client_1.sendPipeline_1.execute_av1190_k$(this.requestBuilder_1, this.requestBuilder_1.body_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -4234,34 +5574,55 @@
             }
 
             var call = tmp_0;
-            this.f2n_1.k2n_1 = call;
+            this._this__u8e3s4__1.currentCall_1 = call;
             return call;
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $executeCOROUTINE$8.$metadata$ = classMeta('$executeCOROUTINE$8', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function HttpSend_init_$Init$(maxSendCount, $mask0, $marker, $this) {
+    if (!(($mask0 & 1) === 0))
+      maxSendCount = 20;
+    HttpSend.call($this, maxSendCount);
+    return $this;
+  }
+  function HttpSend_init_$Create$(maxSendCount, $mask0, $marker) {
+    return HttpSend_init_$Init$(maxSendCount, $mask0, $marker, Object.create(HttpSend.prototype));
+  }
+  function _get_maxSendCount__nbjqgo_0($this) {
+    return $this.maxSendCount_1;
+  }
   function Config_2() {
-    this.l2n_1 = 20;
+    this.maxSendCount_1 = 20;
   }
-  Config_2.$metadata$ = classMeta('Config');
-  function Plugin_3() {
-    Plugin_instance_3 = this;
-    this.m2n_1 = new AttributeKey('HttpSend');
-  }
-  Plugin_3.prototype.r = function () {
-    return this.m2n_1;
+  Config_2.prototype.set_maxSendCount_ycp7xs_k$ = function (_set____db54di) {
+    this.maxSendCount_1 = _set____db54di;
   };
-  Plugin_3.prototype.d2i = function (block) {
+  Config_2.prototype.get_maxSendCount_izeams_k$ = function () {
+    return this.maxSendCount_1;
+  };
+  Config_2.$metadata$ = classMeta('Config');
+  function _get_interceptors__h4min7($this) {
+    return $this.interceptors_1;
+  }
+  function Plugin_4() {
+    Plugin_instance_4 = this;
+    this.key_1 = new AttributeKey('HttpSend');
+  }
+  Plugin_4.prototype.get_key_18j28a_k$ = function () {
+    return this.key_1;
+  };
+  Plugin_4.prototype.prepare_bbu65k_k$ = function (block) {
     var tmp$ret$0;
     {
       var tmp0_apply = new Config_2();
@@ -4271,61 +5632,67 @@
       tmp$ret$0 = tmp0_apply;
     }
     var config = tmp$ret$0;
-    return new HttpSend(config.l2n_1);
+    return new HttpSend(config.maxSendCount_1);
   };
-  Plugin_3.prototype.w24 = function (block) {
-    return this.d2i(block);
+  Plugin_4.prototype.prepare_aftpuj_k$ = function (block) {
+    return this.prepare_bbu65k_k$(block);
   };
-  Plugin_3.prototype.n2n = function (plugin, scope) {
-    var tmp = Phases_getInstance().u2a_1;
-    scope.r21_1.k1n(tmp, HttpSend$Plugin$install$slambda_0(plugin, scope, null));
+  Plugin_4.prototype.install_t0crin_k$ = function (plugin, scope) {
+    var tmp = Phases_getInstance().Send_1;
+    scope.requestPipeline_1.intercept_hnj3e1_k$(tmp, HttpSend$Plugin$install$slambda_0(plugin, scope, null));
   };
-  Plugin_3.prototype.x24 = function (plugin, scope) {
-    return this.n2n(plugin instanceof HttpSend ? plugin : THROW_CCE(), scope);
+  Plugin_4.prototype.install_cj05u9_k$ = function (plugin, scope) {
+    return this.install_t0crin_k$(plugin instanceof HttpSend ? plugin : THROW_CCE(), scope);
   };
-  Plugin_3.$metadata$ = objectMeta('Plugin', [HttpClientPlugin]);
-  var Plugin_instance_3;
-  function Plugin_getInstance_3() {
-    if (Plugin_instance_3 == null)
-      new Plugin_3();
-    return Plugin_instance_3;
+  Plugin_4.$metadata$ = objectMeta('Plugin', [HttpClientPlugin]);
+  var Plugin_instance_4;
+  function Plugin_getInstance_4() {
+    if (Plugin_instance_4 == null)
+      new Plugin_4();
+    return Plugin_instance_4;
   }
   function InterceptedSender(interceptor, nextSender) {
-    this.o2n_1 = interceptor;
-    this.p2n_1 = nextSender;
+    this.interceptor_1 = interceptor;
+    this.nextSender_1 = nextSender;
   }
-  InterceptedSender.prototype.u24 = function (requestBuilder, $cont) {
-    return this.o2n_1(this.p2n_1, requestBuilder, $cont);
+  InterceptedSender.prototype.execute_z0ufkc_k$ = function (requestBuilder, $cont) {
+    return this.interceptor_1(this.nextSender_1, requestBuilder, $cont);
   };
   InterceptedSender.$metadata$ = classMeta('InterceptedSender', [Sender]);
   function DefaultSender(maxSendCount, client) {
-    this.h2n_1 = maxSendCount;
-    this.i2n_1 = client;
-    this.j2n_1 = 0;
-    this.k2n_1 = null;
+    this.maxSendCount_1 = maxSendCount;
+    this.client_1 = client;
+    this.sentCount_1 = 0;
+    this.currentCall_1 = null;
   }
-  DefaultSender.prototype.u24 = function (requestBuilder, $cont) {
+  DefaultSender.prototype.execute_z0ufkc_k$ = function (requestBuilder, $cont) {
     var tmp = new $executeCOROUTINE$8(this, requestBuilder, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
   DefaultSender.$metadata$ = classMeta('DefaultSender', [Sender]);
   function HttpSend(maxSendCount) {
-    Plugin_getInstance_3();
-    this.f2i_1 = maxSendCount;
+    Plugin_getInstance_4();
+    this.maxSendCount_1 = maxSendCount;
     var tmp = this;
     var tmp$ret$0;
     {
       tmp$ret$0 = ArrayList_init_$Create$();
     }
-    tmp.g2i_1 = tmp$ret$0;
+    tmp.interceptors_1 = tmp$ret$0;
   }
-  HttpSend.prototype.h2i = function (block) {
+  HttpSend.prototype.intercept_gk34yd_k$ = function (block) {
+    {
+      var tmp0_error = 'This interceptors do not allow to intercept original call. Please use another overload and call `this.execute(request)` manually';
+      throw IllegalStateException_init_$Create$(toString(tmp0_error));
+    }
+  };
+  HttpSend.prototype.intercept_ss9ax6_k$ = function (block) {
     var tmp0_this = this;
     {
-      var tmp0_plusAssign = tmp0_this.g2i_1;
-      tmp0_plusAssign.b(block);
+      var tmp0_plusAssign = tmp0_this.interceptors_1;
+      tmp0_plusAssign.add_1j60pz_k$(block);
     }
   };
   HttpSend.$metadata$ = classMeta('HttpSend');
@@ -4337,12 +5704,33 @@
     captureStack(this, SendCountExceedException);
   }
   SendCountExceedException.$metadata$ = classMeta('SendCountExceedException', undefined, undefined, undefined, undefined, IllegalStateException.prototype);
+  function _set__requestTimeoutMillis__sraopa($this, _set____db54di) {
+    $this._requestTimeoutMillis_1 = _set____db54di;
+  }
+  function _get__requestTimeoutMillis__mloc9m($this) {
+    return $this._requestTimeoutMillis_1;
+  }
+  function _set__connectTimeoutMillis__byh7iv($this, _set____db54di) {
+    $this._connectTimeoutMillis_1 = _set____db54di;
+  }
+  function _get__connectTimeoutMillis__i43jyj($this) {
+    return $this._connectTimeoutMillis_1;
+  }
+  function _set__socketTimeoutMillis__e5zq02($this, _set____db54di) {
+    $this._socketTimeoutMillis_1 = _set____db54di;
+  }
+  function _get__socketTimeoutMillis__7x1zq($this) {
+    return $this._socketTimeoutMillis_1;
+  }
   function HttpTimeoutCapabilityConfiguration_init_$Init$(requestTimeoutMillis, connectTimeoutMillis, socketTimeoutMillis, $this) {
     HttpTimeoutCapabilityConfiguration.call($this);
-    $this.t2n(requestTimeoutMillis);
-    $this.u2n(connectTimeoutMillis);
-    $this.v2n(socketTimeoutMillis);
+    $this.set_requestTimeoutMillis_e4x1kf_k$(requestTimeoutMillis);
+    $this.set_connectTimeoutMillis_agbf3q_k$(connectTimeoutMillis);
+    $this.set_socketTimeoutMillis_nggir1_k$(socketTimeoutMillis);
     return $this;
+  }
+  function HttpTimeoutCapabilityConfiguration_init_$Create$(requestTimeoutMillis, connectTimeoutMillis, socketTimeoutMillis) {
+    return HttpTimeoutCapabilityConfiguration_init_$Init$(requestTimeoutMillis, connectTimeoutMillis, socketTimeoutMillis, Object.create(HttpTimeoutCapabilityConfiguration.prototype));
   }
   function HttpTimeoutCapabilityConfiguration_init_$Init$_0(requestTimeoutMillis, connectTimeoutMillis, socketTimeoutMillis, $mask0, $marker, $this) {
     if (!(($mask0 & 1) === 0))
@@ -4354,12 +5742,12 @@
     HttpTimeoutCapabilityConfiguration_init_$Init$(requestTimeoutMillis, connectTimeoutMillis, socketTimeoutMillis, $this);
     return $this;
   }
-  function HttpTimeoutCapabilityConfiguration_init_$Create$(requestTimeoutMillis, connectTimeoutMillis, socketTimeoutMillis, $mask0, $marker) {
+  function HttpTimeoutCapabilityConfiguration_init_$Create$_0(requestTimeoutMillis, connectTimeoutMillis, socketTimeoutMillis, $mask0, $marker) {
     return HttpTimeoutCapabilityConfiguration_init_$Init$_0(requestTimeoutMillis, connectTimeoutMillis, socketTimeoutMillis, $mask0, $marker, Object.create(HttpTimeoutCapabilityConfiguration.prototype));
   }
   function checkTimeoutValue($this, value) {
     {
-      var tmp0_require = value == null ? true : value.a1(new Long(0, 0)) > 0;
+      var tmp0_require = value == null ? true : value.compareTo_n4fqi2_k$(new Long(0, 0)) > 0;
       {
       }
       if (!tmp0_require) {
@@ -4375,8 +5763,11 @@
   }
   function Companion_2() {
     Companion_instance_2 = this;
-    this.w2n_1 = new AttributeKey('TimeoutConfiguration');
+    this.key_1 = new AttributeKey('TimeoutConfiguration');
   }
+  Companion_2.prototype.get_key_18j28a_k$ = function () {
+    return this.key_1;
+  };
   Companion_2.$metadata$ = objectMeta('Companion');
   var Companion_instance_2;
   function Companion_getInstance_10() {
@@ -4385,108 +5776,111 @@
     return Companion_instance_2;
   }
   function HttpTimeout$Plugin$install$slambda$slambda($requestTimeout, $context, $executionContext, resultContinuation) {
-    this.f2o_1 = $requestTimeout;
-    this.g2o_1 = $context;
-    this.h2o_1 = $executionContext;
+    this.$requestTimeout_1 = $requestTimeout;
+    this.$context_1 = $context;
+    this.$executionContext_1 = $executionContext;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpTimeout$Plugin$install$slambda$slambda.prototype.q1a = function ($this$launch, $cont) {
-    var tmp = this.r1a($this$launch, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpTimeout$Plugin$install$slambda$slambda.prototype.invoke_d6gbsu_k$ = function ($this$launch, $cont) {
+    var tmp = this.create_b6qu53_k$($this$launch, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpTimeout$Plugin$install$slambda$slambda.prototype.ae = function (p1, $cont) {
-    return this.q1a((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
+  HttpTimeout$Plugin$install$slambda$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_d6gbsu_k$((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  HttpTimeout$Plugin$install$slambda$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpTimeout$Plugin$install$slambda$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            this.pd_1 = 1;
-            suspendResult = delay(this.f2o_1, this);
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = delay(this.$requestTimeout_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            var cause = HttpRequestTimeoutException_init_$Create$(this.g2o_1);
-            cancel_2(this.h2o_1, ensureNotNull(cause.message), cause);
+            var cause = HttpRequestTimeoutException_init_$Create$(this.$context_1);
+            cancel_2(this.$executionContext_1, ensureNotNull(cause.message), cause);
             return Unit_getInstance();
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpTimeout$Plugin$install$slambda$slambda.prototype.r1a = function ($this$launch, completion) {
-    var i = new HttpTimeout$Plugin$install$slambda$slambda(this.f2o_1, this.g2o_1, this.h2o_1, completion);
-    i.i2o_1 = $this$launch;
+  HttpTimeout$Plugin$install$slambda$slambda.prototype.create_b6qu53_k$ = function ($this$launch, completion) {
+    var i = new HttpTimeout$Plugin$install$slambda$slambda(this.$requestTimeout_1, this.$context_1, this.$executionContext_1, completion);
+    i.$this$launch_1 = $this$launch;
     return i;
+  };
+  HttpTimeout$Plugin$install$slambda$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_b6qu53_k$((!(value == null) ? isInterface(value, CoroutineScope) : false) ? value : THROW_CCE(), completion);
   };
   HttpTimeout$Plugin$install$slambda$slambda.$metadata$ = classMeta('HttpTimeout$Plugin$install$slambda$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function HttpTimeout$Plugin$install$slambda$slambda_0($requestTimeout, $context, $executionContext, resultContinuation) {
     var i = new HttpTimeout$Plugin$install$slambda$slambda($requestTimeout, $context, $executionContext, resultContinuation);
     var l = function ($this$launch, $cont) {
-      return i.q1a($this$launch, $cont);
+      return i.invoke_d6gbsu_k$($this$launch, $cont);
     };
     l.$arity = 1;
     return l;
   }
   function HttpTimeout$Plugin$install$slambda$lambda($killer) {
     return function (it) {
-      $killer.xl(null, 1, null);
+      $killer.cancel$default_bm1z3z_k$(null, 1, null);
       return Unit_getInstance();
     };
   }
   function HttpTimeout$Plugin$install$slambda($plugin, $scope, resultContinuation) {
-    this.r2o_1 = $plugin;
-    this.s2o_1 = $scope;
+    this.$plugin_1 = $plugin;
+    this.$scope_1 = $scope;
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpTimeout$Plugin$install$slambda.prototype.l22 = function ($this$intercept, it, $cont) {
-    var tmp = this.m22($this$intercept, it, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpTimeout$Plugin$install$slambda.prototype.invoke_63ydys_k$ = function ($this$intercept, it, $cont) {
+    var tmp = this.create_300ycv_k$($this$intercept, it, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpTimeout$Plugin$install$slambda.prototype.xe = function (p1, p2, $cont) {
+  HttpTimeout$Plugin$install$slambda.prototype.invoke_f2mof9_k$ = function (p1, p2, $cont) {
     var tmp = p1 instanceof PipelineContext ? p1 : THROW_CCE();
-    return this.l22(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
+    return this.invoke_63ydys_k$(tmp, isObject(p2) ? p2 : THROW_CCE(), $cont);
   };
-  HttpTimeout$Plugin$install$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpTimeout$Plugin$install$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         if (tmp === 0) {
-          this.qd_1 = 1;
-          var isWebSocket = isWebsocket(this.t2o_1.g1n_1.r23_1.v1x_1);
+          this.exceptionState_1 = 1;
+          var isWebSocket = isWebsocket(this.$this$intercept_1.context_1.url_1.protocol_1);
           var tmp_0;
           if (isWebSocket) {
             tmp_0 = true;
           } else {
-            var tmp_1 = this.t2o_1.g1n_1.u23_1;
+            var tmp_1 = this.$this$intercept_1.context_1.body_1;
             tmp_0 = tmp_1 instanceof ClientUpgradeContent;
           }
           if (tmp_0)
             return Unit_getInstance();
-          var configuration = this.t2o_1.g1n_1.v2o(Plugin_getInstance_4());
-          if (configuration == null ? hasNotNullTimeouts(this.r2o_1) : false) {
-            configuration = HttpTimeoutCapabilityConfiguration_init_$Create$(null, null, null, 7, null);
-            this.t2o_1.g1n_1.w2o(Plugin_getInstance_4(), configuration);
+          var configuration = this.$this$intercept_1.context_1.getCapabilityOrNull_nf6jdp_k$(Plugin_getInstance_5());
+          if (configuration == null ? hasNotNullTimeouts(this.$plugin_1) : false) {
+            configuration = HttpTimeoutCapabilityConfiguration_init_$Create$_0(null, null, null, 7, null);
+            this.$this$intercept_1.context_1.setCapability_j67a85_k$(Plugin_getInstance_5(), configuration);
           }
           var tmp0_safe_receiver = configuration;
           if (tmp0_safe_receiver == null)
@@ -4494,77 +5888,86 @@
           else {
             var tmp$ret$0;
             l$ret$1: do {
-              var context = this.t2o_1.g1n_1;
-              var tmp0_elvis_lhs = tmp0_safe_receiver.x2o();
-              tmp0_safe_receiver.u2n(tmp0_elvis_lhs == null ? this.r2o_1.z2o_1 : tmp0_elvis_lhs);
-              var tmp1_elvis_lhs = tmp0_safe_receiver.b2p();
-              tmp0_safe_receiver.v2n(tmp1_elvis_lhs == null ? this.r2o_1.a2p_1 : tmp1_elvis_lhs);
-              var tmp2_elvis_lhs = tmp0_safe_receiver.c2p();
-              tmp0_safe_receiver.t2n(tmp2_elvis_lhs == null ? this.r2o_1.y2o_1 : tmp2_elvis_lhs);
-              var tmp3_elvis_lhs = tmp0_safe_receiver.c2p();
-              var requestTimeout = tmp3_elvis_lhs == null ? this.r2o_1.y2o_1 : tmp3_elvis_lhs;
+              var context = this.$this$intercept_1.context_1;
+              var tmp0_elvis_lhs = tmp0_safe_receiver.get_connectTimeoutMillis_jog9kq_k$();
+              tmp0_safe_receiver.set_connectTimeoutMillis_agbf3q_k$(tmp0_elvis_lhs == null ? this.$plugin_1.connectTimeoutMillis_1 : tmp0_elvis_lhs);
+              var tmp1_elvis_lhs = tmp0_safe_receiver.get_socketTimeoutMillis_3uzxud_k$();
+              tmp0_safe_receiver.set_socketTimeoutMillis_nggir1_k$(tmp1_elvis_lhs == null ? this.$plugin_1.socketTimeoutMillis_1 : tmp1_elvis_lhs);
+              var tmp2_elvis_lhs = tmp0_safe_receiver.get_requestTimeoutMillis_rgkxdt_k$();
+              tmp0_safe_receiver.set_requestTimeoutMillis_e4x1kf_k$(tmp2_elvis_lhs == null ? this.$plugin_1.requestTimeoutMillis_1 : tmp2_elvis_lhs);
+              var tmp3_elvis_lhs = tmp0_safe_receiver.get_requestTimeoutMillis_rgkxdt_k$();
+              var requestTimeout = tmp3_elvis_lhs == null ? this.$plugin_1.requestTimeoutMillis_1 : tmp3_elvis_lhs;
               var tmp_2;
               if (requestTimeout == null) {
                 tmp_2 = true;
               } else {
-                Plugin_getInstance_4();
+                Plugin_getInstance_5();
                 tmp_2 = equals(requestTimeout, new Long(-1, 2147483647));
               }
               if (tmp_2) {
                 tmp$ret$0 = Unit_getInstance();
                 break l$ret$1;
               }
-              var executionContext = context.v23_1;
-              var killer = launch$default(this.s2o_1, null, null, HttpTimeout$Plugin$install$slambda$slambda_0(requestTimeout, context, executionContext, null), 3, null);
-              var tmp_3 = context.v23_1;
-              tmp_3.rl(HttpTimeout$Plugin$install$slambda$lambda(killer));
+              var executionContext = context.executionContext_1;
+              var killer = launch$default(this.$scope_1, null, null, HttpTimeout$Plugin$install$slambda$slambda_0(requestTimeout, context, executionContext, null), 3, null);
+              var tmp_3 = context.executionContext_1;
+              tmp_3.invokeOnCompletion_t2apld_k$(HttpTimeout$Plugin$install$slambda$lambda(killer));
             }
              while (false);
           }
           return Unit_getInstance();
         } else if (tmp === 1) {
-          throw this.sd_1;
+          throw this.exception_1;
         }
       } catch ($p) {
         throw $p;
       }
      while (true);
   };
-  HttpTimeout$Plugin$install$slambda.prototype.m22 = function ($this$intercept, it, completion) {
-    var i = new HttpTimeout$Plugin$install$slambda(this.r2o_1, this.s2o_1, completion);
-    i.t2o_1 = $this$intercept;
-    i.u2o_1 = it;
+  HttpTimeout$Plugin$install$slambda.prototype.create_300ycv_k$ = function ($this$intercept, it, completion) {
+    var i = new HttpTimeout$Plugin$install$slambda(this.$plugin_1, this.$scope_1, completion);
+    i.$this$intercept_1 = $this$intercept;
+    i.it_1 = it;
     return i;
   };
   HttpTimeout$Plugin$install$slambda.$metadata$ = classMeta('HttpTimeout$Plugin$install$slambda', undefined, undefined, undefined, [2], CoroutineImpl.prototype);
   function HttpTimeout$Plugin$install$slambda_0($plugin, $scope, resultContinuation) {
     var i = new HttpTimeout$Plugin$install$slambda($plugin, $scope, resultContinuation);
     var l = function ($this$intercept, it, $cont) {
-      return i.l22($this$intercept, it, $cont);
+      return i.invoke_63ydys_k$($this$intercept, it, $cont);
     };
     l.$arity = 2;
     return l;
   }
-  HttpTimeoutCapabilityConfiguration.prototype.t2n = function (value) {
-    this.q2n_1 = checkTimeoutValue(this, value);
+  function _get_requestTimeoutMillis__a8dgur($this) {
+    return $this.requestTimeoutMillis_1;
+  }
+  function _get_connectTimeoutMillis__uhefde($this) {
+    return $this.connectTimeoutMillis_1;
+  }
+  function _get_socketTimeoutMillis__bmvtj7($this) {
+    return $this.socketTimeoutMillis_1;
+  }
+  HttpTimeoutCapabilityConfiguration.prototype.set_requestTimeoutMillis_e4x1kf_k$ = function (value) {
+    this._requestTimeoutMillis_1 = checkTimeoutValue(this, value);
   };
-  HttpTimeoutCapabilityConfiguration.prototype.c2p = function () {
-    return this.q2n_1;
+  HttpTimeoutCapabilityConfiguration.prototype.get_requestTimeoutMillis_rgkxdt_k$ = function () {
+    return this._requestTimeoutMillis_1;
   };
-  HttpTimeoutCapabilityConfiguration.prototype.u2n = function (value) {
-    this.r2n_1 = checkTimeoutValue(this, value);
+  HttpTimeoutCapabilityConfiguration.prototype.set_connectTimeoutMillis_agbf3q_k$ = function (value) {
+    this._connectTimeoutMillis_1 = checkTimeoutValue(this, value);
   };
-  HttpTimeoutCapabilityConfiguration.prototype.x2o = function () {
-    return this.r2n_1;
+  HttpTimeoutCapabilityConfiguration.prototype.get_connectTimeoutMillis_jog9kq_k$ = function () {
+    return this._connectTimeoutMillis_1;
   };
-  HttpTimeoutCapabilityConfiguration.prototype.v2n = function (value) {
-    this.s2n_1 = checkTimeoutValue(this, value);
+  HttpTimeoutCapabilityConfiguration.prototype.set_socketTimeoutMillis_nggir1_k$ = function (value) {
+    this._socketTimeoutMillis_1 = checkTimeoutValue(this, value);
   };
-  HttpTimeoutCapabilityConfiguration.prototype.b2p = function () {
-    return this.s2n_1;
+  HttpTimeoutCapabilityConfiguration.prototype.get_socketTimeoutMillis_3uzxud_k$ = function () {
+    return this._socketTimeoutMillis_1;
   };
-  HttpTimeoutCapabilityConfiguration.prototype.l17 = function () {
-    return new HttpTimeout(this.c2p(), this.x2o(), this.b2p());
+  HttpTimeoutCapabilityConfiguration.prototype.build_1k0s4u_k$ = function () {
+    return new HttpTimeout(this.get_requestTimeoutMillis_rgkxdt_k$(), this.get_connectTimeoutMillis_jog9kq_k$(), this.get_socketTimeoutMillis_3uzxud_k$());
   };
   HttpTimeoutCapabilityConfiguration.prototype.equals = function (other) {
     if (this === other)
@@ -4575,90 +5978,104 @@
       other;
     else
       THROW_CCE();
-    if (!equals(this.q2n_1, other.q2n_1))
+    if (!equals(this._requestTimeoutMillis_1, other._requestTimeoutMillis_1))
       return false;
-    if (!equals(this.r2n_1, other.r2n_1))
+    if (!equals(this._connectTimeoutMillis_1, other._connectTimeoutMillis_1))
       return false;
-    if (!equals(this.s2n_1, other.s2n_1))
+    if (!equals(this._socketTimeoutMillis_1, other._socketTimeoutMillis_1))
       return false;
     return true;
   };
   HttpTimeoutCapabilityConfiguration.prototype.hashCode = function () {
-    var tmp0_safe_receiver = this.q2n_1;
+    var tmp0_safe_receiver = this._requestTimeoutMillis_1;
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.hashCode();
     var result = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
     var tmp = imul(31, result);
-    var tmp2_safe_receiver = this.r2n_1;
+    var tmp2_safe_receiver = this._connectTimeoutMillis_1;
     var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.hashCode();
     result = tmp + (tmp3_elvis_lhs == null ? 0 : tmp3_elvis_lhs) | 0;
     var tmp_0 = imul(31, result);
-    var tmp4_safe_receiver = this.s2n_1;
+    var tmp4_safe_receiver = this._socketTimeoutMillis_1;
     var tmp5_elvis_lhs = tmp4_safe_receiver == null ? null : tmp4_safe_receiver.hashCode();
     result = tmp_0 + (tmp5_elvis_lhs == null ? 0 : tmp5_elvis_lhs) | 0;
     return result;
   };
   function HttpTimeoutCapabilityConfiguration() {
     Companion_getInstance_10();
-    this.q2n_1 = new Long(0, 0);
-    this.r2n_1 = new Long(0, 0);
-    this.s2n_1 = new Long(0, 0);
+    this._requestTimeoutMillis_1 = new Long(0, 0);
+    this._connectTimeoutMillis_1 = new Long(0, 0);
+    this._socketTimeoutMillis_1 = new Long(0, 0);
   }
   HttpTimeoutCapabilityConfiguration.$metadata$ = classMeta('HttpTimeoutCapabilityConfiguration');
   function hasNotNullTimeouts($this) {
-    return (!($this.y2o_1 == null) ? true : !($this.z2o_1 == null)) ? true : !($this.a2p_1 == null);
+    return (!($this.requestTimeoutMillis_1 == null) ? true : !($this.connectTimeoutMillis_1 == null)) ? true : !($this.socketTimeoutMillis_1 == null);
   }
-  function Plugin_4() {
-    Plugin_instance_4 = this;
-    this.d2p_1 = new AttributeKey('TimeoutPlugin');
-    this.e2p_1 = new Long(-1, 2147483647);
+  function Plugin_5() {
+    Plugin_instance_5 = this;
+    this.key_1 = new AttributeKey('TimeoutPlugin');
+    this.INFINITE_TIMEOUT_MS_1 = new Long(-1, 2147483647);
   }
-  Plugin_4.prototype.r = function () {
-    return this.d2p_1;
+  Plugin_5.prototype.get_key_18j28a_k$ = function () {
+    return this.key_1;
   };
-  Plugin_4.prototype.f2p = function (block) {
+  Plugin_5.prototype.get_INFINITE_TIMEOUT_MS_q3atc6_k$ = function () {
+    return this.INFINITE_TIMEOUT_MS_1;
+  };
+  Plugin_5.prototype.prepare_dvfkcr_k$ = function (block) {
     var tmp$ret$0;
     {
-      var tmp0_apply = HttpTimeoutCapabilityConfiguration_init_$Create$(null, null, null, 7, null);
+      var tmp0_apply = HttpTimeoutCapabilityConfiguration_init_$Create$_0(null, null, null, 7, null);
       {
       }
       block(tmp0_apply);
       tmp$ret$0 = tmp0_apply;
     }
-    return tmp$ret$0.l17();
+    return tmp$ret$0.build_1k0s4u_k$();
   };
-  Plugin_4.prototype.w24 = function (block) {
-    return this.f2p(block);
+  Plugin_5.prototype.prepare_aftpuj_k$ = function (block) {
+    return this.prepare_dvfkcr_k$(block);
   };
-  Plugin_4.prototype.g2p = function (plugin, scope) {
-    var tmp = Phases_getInstance().q2a_1;
-    scope.r21_1.k1n(tmp, HttpTimeout$Plugin$install$slambda_0(plugin, scope, null));
+  Plugin_5.prototype.install_q3gyxe_k$ = function (plugin, scope) {
+    var tmp = Phases_getInstance().Before_1;
+    scope.requestPipeline_1.intercept_hnj3e1_k$(tmp, HttpTimeout$Plugin$install$slambda_0(plugin, scope, null));
   };
-  Plugin_4.prototype.x24 = function (plugin, scope) {
-    return this.g2p(plugin instanceof HttpTimeout ? plugin : THROW_CCE(), scope);
+  Plugin_5.prototype.install_cj05u9_k$ = function (plugin, scope) {
+    return this.install_q3gyxe_k$(plugin instanceof HttpTimeout ? plugin : THROW_CCE(), scope);
   };
-  Plugin_4.$metadata$ = objectMeta('Plugin', [HttpClientPlugin, HttpClientEngineCapability]);
-  var Plugin_instance_4;
-  function Plugin_getInstance_4() {
-    if (Plugin_instance_4 == null)
-      new Plugin_4();
-    return Plugin_instance_4;
+  Plugin_5.$metadata$ = objectMeta('Plugin', [HttpClientPlugin, HttpClientEngineCapability]);
+  var Plugin_instance_5;
+  function Plugin_getInstance_5() {
+    if (Plugin_instance_5 == null)
+      new Plugin_5();
+    return Plugin_instance_5;
   }
   function HttpTimeout(requestTimeoutMillis, connectTimeoutMillis, socketTimeoutMillis) {
-    Plugin_getInstance_4();
-    this.y2o_1 = requestTimeoutMillis;
-    this.z2o_1 = connectTimeoutMillis;
-    this.a2p_1 = socketTimeoutMillis;
+    Plugin_getInstance_5();
+    this.requestTimeoutMillis_1 = requestTimeoutMillis;
+    this.connectTimeoutMillis_1 = connectTimeoutMillis;
+    this.socketTimeoutMillis_1 = socketTimeoutMillis;
   }
   HttpTimeout.$metadata$ = classMeta('HttpTimeout');
   function HttpRequestTimeoutException_init_$Init$(request, $this) {
-    var tmp = request.r23_1.k1z();
-    var tmp0_safe_receiver = request.v2o(Plugin_getInstance_4());
-    HttpRequestTimeoutException.call($this, tmp, tmp0_safe_receiver == null ? null : tmp0_safe_receiver.c2p());
+    var tmp = request.url_1.buildString_xr87oh_k$();
+    var tmp0_safe_receiver = request.getCapabilityOrNull_nf6jdp_k$(Plugin_getInstance_5());
+    HttpRequestTimeoutException.call($this, tmp, tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_requestTimeoutMillis_rgkxdt_k$());
     return $this;
   }
   function HttpRequestTimeoutException_init_$Create$(request) {
     var tmp = HttpRequestTimeoutException_init_$Init$(request, Object.create(HttpRequestTimeoutException.prototype));
     captureStack(tmp, HttpRequestTimeoutException_init_$Create$);
+    return tmp;
+  }
+  function HttpRequestTimeoutException_init_$Init$_0(request, $this) {
+    var tmp = request.url_1.toString();
+    var tmp0_safe_receiver = request.getCapabilityOrNull_nf6jdp_k$(Plugin_getInstance_5());
+    HttpRequestTimeoutException.call($this, tmp, tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_requestTimeoutMillis_rgkxdt_k$());
+    return $this;
+  }
+  function HttpRequestTimeoutException_init_$Create$_0(request) {
+    var tmp = HttpRequestTimeoutException_init_$Init$_0(request, Object.create(HttpRequestTimeoutException.prototype));
+    captureStack(tmp, HttpRequestTimeoutException_init_$Create$_0);
     return tmp;
   }
   function HttpRequestTimeoutException(url, timeoutMillis) {
@@ -4667,41 +6084,60 @@
     captureStack(this, HttpRequestTimeoutException);
   }
   HttpRequestTimeoutException.$metadata$ = classMeta('HttpRequestTimeoutException', undefined, undefined, undefined, undefined, IOException.prototype);
+  function unwrapRequestTimeoutException(block) {
+    try {
+      return block();
+    } catch ($p) {
+      if ($p instanceof CancellationException) {
+        throw unwrapCancellationException($p);
+      } else {
+        throw $p;
+      }
+    }
+  }
   function wrapWithContent(_this__u8e3s4, content) {
-    return new DelegatedResponse(_this__u8e3s4.a27(), content, _this__u8e3s4);
+    return new DelegatedResponse(_this__u8e3s4.get_call_wojxrb_k$(), content, _this__u8e3s4);
+  }
+  function _get_origin__hwq945($this) {
+    return $this.origin_1;
   }
   function DelegatedResponse(call, content, origin) {
     HttpResponse.call(this);
-    this.h2p_1 = call;
-    this.i2p_1 = content;
-    this.j2p_1 = origin;
-    this.k2p_1 = this.j2p_1.qk();
+    this.call_1 = call;
+    this.content_1 = content;
+    this.origin_1 = origin;
+    this.coroutineContext_1 = this.origin_1.get_coroutineContext_115oqo_k$();
   }
-  DelegatedResponse.prototype.a27 = function () {
-    return this.h2p_1;
+  DelegatedResponse.prototype.get_call_wojxrb_k$ = function () {
+    return this.call_1;
   };
-  DelegatedResponse.prototype.f1q = function () {
-    return this.i2p_1;
+  DelegatedResponse.prototype.get_content_h02jrk_k$ = function () {
+    return this.content_1;
   };
-  DelegatedResponse.prototype.qk = function () {
-    return this.k2p_1;
+  DelegatedResponse.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.coroutineContext_1;
   };
-  DelegatedResponse.prototype.f26 = function () {
-    return this.j2p_1.f26();
+  DelegatedResponse.prototype.get_status_jnf6d7_k$ = function () {
+    return this.origin_1.get_status_jnf6d7_k$();
   };
-  DelegatedResponse.prototype.l27 = function () {
-    return this.j2p_1.l27();
+  DelegatedResponse.prototype.get_version_72w4j3_k$ = function () {
+    return this.origin_1.get_version_72w4j3_k$();
   };
-  DelegatedResponse.prototype.m27 = function () {
-    return this.j2p_1.m27();
+  DelegatedResponse.prototype.get_requestTime_wwxhg3_k$ = function () {
+    return this.origin_1.get_requestTime_wwxhg3_k$();
   };
-  DelegatedResponse.prototype.n27 = function () {
-    return this.j2p_1.n27();
+  DelegatedResponse.prototype.get_responseTime_scfvg7_k$ = function () {
+    return this.origin_1.get_responseTime_scfvg7_k$();
   };
-  DelegatedResponse.prototype.p1u = function () {
-    return this.j2p_1.p1u();
+  DelegatedResponse.prototype.get_headers_ef25jx_k$ = function () {
+    return this.origin_1.get_headers_ef25jx_k$();
   };
   DelegatedResponse.$metadata$ = classMeta('DelegatedResponse', undefined, undefined, undefined, undefined, HttpResponse.prototype);
+  function get_REQUEST_EXTENSIONS_KEY() {
+    init_properties_WebSockets_kt_l0lmoi();
+    return REQUEST_EXTENSIONS_KEY;
+  }
+  var REQUEST_EXTENSIONS_KEY;
   function WebSocketCapability() {
     WebSocketCapability_instance = this;
   }
@@ -4720,34 +6156,113 @@
     captureStack(this, WebSocketException);
   }
   WebSocketException.$metadata$ = classMeta('WebSocketException', undefined, undefined, undefined, undefined, IllegalStateException.prototype);
+  var properties_initialized_WebSockets_kt_2t2hw2;
+  function init_properties_WebSockets_kt_l0lmoi() {
+    if (properties_initialized_WebSockets_kt_2t2hw2) {
+    } else {
+      properties_initialized_WebSockets_kt_2t2hw2 = true;
+      REQUEST_EXTENSIONS_KEY = new AttributeKey('Websocket extensions');
+    }
+  }
+  function _get_content__ps04ag_0($this) {
+    var tmp$ret$0;
+    {
+      var tmp0_getValue = content$factory();
+      tmp$ret$0 = $this.content$delegate_1.get_value_j01efc_k$();
+    }
+    return tmp$ret$0;
+  }
+  function ClientUpgradeContent$content$delegate$lambda() {
+    return function () {
+      return ByteChannel$default(false, 1, null);
+    };
+  }
+  function $pipeToCOROUTINE$9(_this__u8e3s4, output, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.output_1 = output;
+  }
+  $pipeToCOROUTINE$9.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            var tmp_0 = _get_content__ps04ag_0(this._this__u8e3s4__1);
+            suspendResult = copyAndClose$default(tmp_0, this.output_1, new Long(0, 0), this, 2, null);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            ;
+            return Unit_getInstance();
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $pipeToCOROUTINE$9.$metadata$ = classMeta('$pipeToCOROUTINE$9', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function ClientUpgradeContent() {
+    NoContent.call(this);
+    var tmp = this;
+    tmp.content$delegate_1 = lazy(ClientUpgradeContent$content$delegate$lambda());
   }
+  ClientUpgradeContent.prototype.get_output_hs4j62_k$ = function () {
+    return _get_content__ps04ag_0(this);
+  };
+  ClientUpgradeContent.prototype.pipeTo_n2uoz0_k$ = function (output, $cont) {
+    var tmp = new $pipeToCOROUTINE$9(this, output, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
   ClientUpgradeContent.$metadata$ = classMeta('ClientUpgradeContent', undefined, undefined, undefined, undefined, NoContent.prototype);
-  function DefaultHttpRequest(call, data) {
-    this.l2p_1 = call;
-    this.m2p_1 = data.s28_1;
-    this.n2p_1 = data.r28_1;
-    this.o2p_1 = data.u28_1;
-    this.p2p_1 = data.t28_1;
-    this.q2p_1 = data.w28_1;
+  function content$factory() {
+    return getPropertyCallableRef('content', 1, KProperty1, function (receiver) {
+      return _get_content__ps04ag_0(receiver);
+    }, null);
   }
-  DefaultHttpRequest.prototype.a27 = function () {
-    return this.l2p_1;
+  function DefaultHttpRequest(call, data) {
+    this.call_1 = call;
+    this.method_1 = data.method_1;
+    this.url_1 = data.url_1;
+    this.content_1 = data.body_1;
+    this.headers_1 = data.headers_1;
+    this.attributes_1 = data.attributes_1;
+  }
+  DefaultHttpRequest.prototype.get_call_wojxrb_k$ = function () {
+    return this.call_1;
   };
-  DefaultHttpRequest.prototype.qk = function () {
-    return this.a27().qk();
+  DefaultHttpRequest.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.get_call_wojxrb_k$().get_coroutineContext_115oqo_k$();
   };
-  DefaultHttpRequest.prototype.b27 = function () {
-    return this.m2p_1;
+  DefaultHttpRequest.prototype.get_method_gl8esq_k$ = function () {
+    return this.method_1;
   };
-  DefaultHttpRequest.prototype.e26 = function () {
-    return this.n2p_1;
+  DefaultHttpRequest.prototype.get_url_18iuii_k$ = function () {
+    return this.url_1;
   };
-  DefaultHttpRequest.prototype.p1u = function () {
-    return this.p2p_1;
+  DefaultHttpRequest.prototype.get_content_h02jrk_k$ = function () {
+    return this.content_1;
   };
-  DefaultHttpRequest.prototype.cf = function () {
-    return this.q2p_1;
+  DefaultHttpRequest.prototype.get_headers_ef25jx_k$ = function () {
+    return this.headers_1;
+  };
+  DefaultHttpRequest.prototype.get_attributes_dgqof4_k$ = function () {
+    return this.attributes_1;
   };
   DefaultHttpRequest.$metadata$ = classMeta('DefaultHttpRequest', [HttpRequest_0]);
   function HttpRequest_0() {
@@ -4775,115 +6290,223 @@
   function HttpRequestBuilder() {
     Companion_getInstance_11();
     var tmp = this;
-    tmp.r23_1 = URLBuilder_init_$Create$(null, null, 0, null, null, null, null, null, false, 511, null);
-    this.s23_1 = Companion_getInstance_2().q1u_1;
+    tmp.url_1 = URLBuilder_init_$Create$(null, null, 0, null, null, null, null, null, false, 511, null);
+    this.method_1 = Companion_getInstance_2().Get_1;
     var tmp_0 = this;
-    tmp_0.t23_1 = HeadersBuilder_init_$Create$(0, 1, null);
-    this.u23_1 = EmptyContent_getInstance();
+    tmp_0.headers_1 = HeadersBuilder_init_$Create$(0, 1, null);
+    this.body_1 = EmptyContent_getInstance();
     var tmp_1 = this;
-    tmp_1.v23_1 = SupervisorJob$default(null, 1, null);
-    this.w23_1 = Attributes(true);
+    tmp_1.executionContext_1 = SupervisorJob$default(null, 1, null);
+    this.attributes_1 = Attributes(true);
   }
-  HttpRequestBuilder.prototype.p1u = function () {
-    return this.t23_1;
+  HttpRequestBuilder.prototype.get_url_18iuii_k$ = function () {
+    return this.url_1;
   };
-  HttpRequestBuilder.prototype.t29 = function (value) {
+  HttpRequestBuilder.prototype.set_method_32z5od_k$ = function (_set____db54di) {
+    this.method_1 = _set____db54di;
+  };
+  HttpRequestBuilder.prototype.get_method_gl8esq_k$ = function () {
+    return this.method_1;
+  };
+  HttpRequestBuilder.prototype.get_headers_ef25jx_k$ = function () {
+    return this.headers_1;
+  };
+  HttpRequestBuilder.prototype.set_body_slzaj6_k$ = function (_set____db54di) {
+    this.body_1 = _set____db54di;
+  };
+  HttpRequestBuilder.prototype.get_body_wojkyz_k$ = function () {
+    return this.body_1;
+  };
+  HttpRequestBuilder.prototype.set_bodyType_oab65z_k$ = function (value) {
     if (!(value == null)) {
-      this.w23_1.b1j(get_BodyTypeAttributeKey(), value);
+      this.attributes_1.put_ii1a3j_k$(get_BodyTypeAttributeKey(), value);
     } else {
-      this.w23_1.c1j(get_BodyTypeAttributeKey());
+      this.attributes_1.remove_kvks5b_k$(get_BodyTypeAttributeKey());
     }
   };
-  HttpRequestBuilder.prototype.r2p = function () {
-    return this.w23_1.z1i(get_BodyTypeAttributeKey());
+  HttpRequestBuilder.prototype.get_bodyType_3n7prv_k$ = function () {
+    return this.attributes_1.getOrNull_dkmqfg_k$(get_BodyTypeAttributeKey());
   };
-  HttpRequestBuilder.prototype.l17 = function () {
-    var tmp = this.r23_1.l17();
-    var tmp_0 = this.s23_1;
-    var tmp_1 = this.t23_1.l17();
-    var tmp_2 = this.u23_1;
+  HttpRequestBuilder.prototype.set_executionContext_cut4m3_k$ = function (_set____db54di) {
+    this.executionContext_1 = _set____db54di;
+  };
+  HttpRequestBuilder.prototype.get_executionContext_yb2vgg_k$ = function () {
+    return this.executionContext_1;
+  };
+  HttpRequestBuilder.prototype.get_attributes_dgqof4_k$ = function () {
+    return this.attributes_1;
+  };
+  HttpRequestBuilder.prototype.url_bmurb1_k$ = function (block) {
+    return block(this.url_1, this.url_1);
+  };
+  HttpRequestBuilder.prototype.build_1k0s4u_k$ = function () {
+    var tmp = this.url_1.build_1k0s4u_k$();
+    var tmp_0 = this.method_1;
+    var tmp_1 = this.headers_1.build_1k0s4u_k$();
+    var tmp_2 = this.body_1;
     var tmp0_elvis_lhs = tmp_2 instanceof OutgoingContent ? tmp_2 : null;
     var tmp_3;
     if (tmp0_elvis_lhs == null) {
-      var tmp0_error = 'No request transformation found: ' + toString(this.u23_1);
+      var tmp0_error = 'No request transformation found: ' + toString(this.body_1);
       throw IllegalStateException_init_$Create$(toString(tmp0_error));
     } else {
       tmp_3 = tmp0_elvis_lhs;
     }
-    return new HttpRequestData(tmp, tmp_0, tmp_1, tmp_3, this.v23_1, this.w23_1);
+    return new HttpRequestData(tmp, tmp_0, tmp_1, tmp_3, this.executionContext_1, this.attributes_1);
   };
-  HttpRequestBuilder.prototype.s29 = function (builder) {
-    this.v23_1 = builder.v23_1;
-    return this.s2p(builder);
-  };
-  HttpRequestBuilder.prototype.s2p = function (builder) {
-    this.s23_1 = builder.s23_1;
-    this.u23_1 = builder.u23_1;
-    this.t29(builder.r2p());
-    takeFrom_0(this.r23_1, builder.r23_1);
-    this.r23_1.c1y_1 = this.r23_1.c1y_1;
-    appendAll(this.t23_1, builder.t23_1);
-    putAll(this.w23_1, builder.w23_1);
-    return this;
-  };
-  HttpRequestBuilder.prototype.w2o = function (key, capability) {
-    var tmp = get_ENGINE_CAPABILITIES_KEY();
-    var capabilities = this.w23_1.d1j(tmp, HttpRequestBuilder$setCapability$lambda());
+  HttpRequestBuilder.prototype.setAttributes_jgzh5j_k$ = function (block) {
+    var tmp$ret$0;
     {
-      capabilities.a(key, capability);
+      var tmp0_apply = this.attributes_1;
+      {
+      }
+      block(tmp0_apply);
+      tmp$ret$0 = tmp0_apply;
     }
   };
-  HttpRequestBuilder.prototype.v2o = function (key) {
-    var tmp0_safe_receiver = this.w23_1.z1i(get_ENGINE_CAPABILITIES_KEY());
-    var tmp = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.b2(key);
+  HttpRequestBuilder.prototype.takeFromWithExecutionContext_d233rf_k$ = function (builder) {
+    this.executionContext_1 = builder.executionContext_1;
+    return this.takeFrom_ixwwlq_k$(builder);
+  };
+  HttpRequestBuilder.prototype.takeFrom_ixwwlq_k$ = function (builder) {
+    this.method_1 = builder.method_1;
+    this.body_1 = builder.body_1;
+    this.set_bodyType_oab65z_k$(builder.get_bodyType_3n7prv_k$());
+    takeFrom_0(this.url_1, builder.url_1);
+    this.url_1.encodedPathSegments_1 = this.url_1.encodedPathSegments_1;
+    appendAll(this.headers_1, builder.headers_1);
+    putAll(this.attributes_1, builder.attributes_1);
+    return this;
+  };
+  HttpRequestBuilder.prototype.setCapability_j67a85_k$ = function (key, capability) {
+    var tmp = get_ENGINE_CAPABILITIES_KEY();
+    var capabilities = this.attributes_1.computeIfAbsent_ia69ed_k$(tmp, HttpRequestBuilder$setCapability$lambda());
+    {
+      capabilities.put_3mhbri_k$(key, capability);
+    }
+  };
+  HttpRequestBuilder.prototype.getCapabilityOrNull_nf6jdp_k$ = function (key) {
+    var tmp0_safe_receiver = this.attributes_1.getOrNull_dkmqfg_k$(get_ENGINE_CAPABILITIES_KEY());
+    var tmp = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_1mhr4y_k$(key);
     return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
   };
   HttpRequestBuilder.$metadata$ = classMeta('HttpRequestBuilder', [HttpMessageBuilder]);
   function HttpRequestData(url, method, headers, body, executionContext, attributes) {
-    this.r28_1 = url;
-    this.s28_1 = method;
-    this.t28_1 = headers;
-    this.u28_1 = body;
-    this.v28_1 = executionContext;
-    this.w28_1 = attributes;
+    this.url_1 = url;
+    this.method_1 = method;
+    this.headers_1 = headers;
+    this.body_1 = body;
+    this.executionContext_1 = executionContext;
+    this.attributes_1 = attributes;
     var tmp = this;
-    var tmp0_safe_receiver = this.w28_1.z1i(get_ENGINE_CAPABILITIES_KEY());
-    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.c2();
-    tmp.x28_1 = tmp1_elvis_lhs == null ? emptySet() : tmp1_elvis_lhs;
+    var tmp0_safe_receiver = this.attributes_1.getOrNull_dkmqfg_k$(get_ENGINE_CAPABILITIES_KEY());
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_keys_wop4xp_k$();
+    tmp.requiredCapabilities_1 = tmp1_elvis_lhs == null ? emptySet() : tmp1_elvis_lhs;
   }
+  HttpRequestData.prototype.get_url_18iuii_k$ = function () {
+    return this.url_1;
+  };
+  HttpRequestData.prototype.get_method_gl8esq_k$ = function () {
+    return this.method_1;
+  };
+  HttpRequestData.prototype.get_headers_ef25jx_k$ = function () {
+    return this.headers_1;
+  };
+  HttpRequestData.prototype.get_body_wojkyz_k$ = function () {
+    return this.body_1;
+  };
+  HttpRequestData.prototype.get_executionContext_yb2vgg_k$ = function () {
+    return this.executionContext_1;
+  };
+  HttpRequestData.prototype.get_attributes_dgqof4_k$ = function () {
+    return this.attributes_1;
+  };
+  HttpRequestData.prototype.getCapabilityOrNull_nf6jdp_k$ = function (key) {
+    var tmp0_safe_receiver = this.attributes_1.getOrNull_dkmqfg_k$(get_ENGINE_CAPABILITIES_KEY());
+    var tmp = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_1mhr4y_k$(key);
+    return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
+  };
+  HttpRequestData.prototype.get_requiredCapabilities_jn0wxu_k$ = function () {
+    return this.requiredCapabilities_1;
+  };
   HttpRequestData.prototype.toString = function () {
-    return 'HttpRequestData(url=' + this.r28_1 + ', method=' + this.s28_1 + ')';
+    return 'HttpRequestData(url=' + this.url_1 + ', method=' + this.method_1 + ')';
   };
   HttpRequestData.$metadata$ = classMeta('HttpRequestData');
   function HttpResponseData(statusCode, requestTime, headers, version, body, callContext) {
-    this.z24_1 = statusCode;
-    this.a25_1 = requestTime;
-    this.b25_1 = headers;
-    this.c25_1 = version;
-    this.d25_1 = body;
-    this.e25_1 = callContext;
+    this.statusCode_1 = statusCode;
+    this.requestTime_1 = requestTime;
+    this.headers_1 = headers;
+    this.version_1 = version;
+    this.body_1 = body;
+    this.callContext_1 = callContext;
     var tmp = this;
-    tmp.f25_1 = GMTDate$default(null, 1, null);
+    tmp.responseTime_1 = GMTDate$default(null, 1, null);
   }
+  HttpResponseData.prototype.get_statusCode_g2w4u0_k$ = function () {
+    return this.statusCode_1;
+  };
+  HttpResponseData.prototype.get_requestTime_wwxhg3_k$ = function () {
+    return this.requestTime_1;
+  };
+  HttpResponseData.prototype.get_headers_ef25jx_k$ = function () {
+    return this.headers_1;
+  };
+  HttpResponseData.prototype.get_version_72w4j3_k$ = function () {
+    return this.version_1;
+  };
+  HttpResponseData.prototype.get_body_wojkyz_k$ = function () {
+    return this.body_1;
+  };
+  HttpResponseData.prototype.get_callContext_mskb9k_k$ = function () {
+    return this.callContext_1;
+  };
+  HttpResponseData.prototype.get_responseTime_scfvg7_k$ = function () {
+    return this.responseTime_1;
+  };
   HttpResponseData.prototype.toString = function () {
-    return 'HttpResponseData=(statusCode=' + this.z24_1 + ')';
+    return 'HttpResponseData=(statusCode=' + this.statusCode_1 + ')';
   };
   HttpResponseData.$metadata$ = classMeta('HttpResponseData');
   function url(_this__u8e3s4, urlString) {
-    takeFrom(_this__u8e3s4.r23_1, urlString);
+    takeFrom(_this__u8e3s4.url_1, urlString);
   }
   function isUpgradeRequest(_this__u8e3s4) {
-    var tmp = _this__u8e3s4.u28_1;
+    var tmp = _this__u8e3s4.body_1;
     return tmp instanceof ClientUpgradeContent;
+  }
+  function HttpRequestPipeline_init_$Init$(developmentMode, $mask0, $marker, $this) {
+    if (!(($mask0 & 1) === 0))
+      developmentMode = false;
+    HttpRequestPipeline.call($this, developmentMode);
+    return $this;
+  }
+  function HttpRequestPipeline_init_$Create$(developmentMode, $mask0, $marker) {
+    return HttpRequestPipeline_init_$Init$(developmentMode, $mask0, $marker, Object.create(HttpRequestPipeline.prototype));
   }
   function Phases() {
     Phases_instance = this;
-    this.q2a_1 = new PipelinePhase('Before');
-    this.r2a_1 = new PipelinePhase('State');
-    this.s2a_1 = new PipelinePhase('Transform');
-    this.t2a_1 = new PipelinePhase('Render');
-    this.u2a_1 = new PipelinePhase('Send');
+    this.Before_1 = new PipelinePhase('Before');
+    this.State_1 = new PipelinePhase('State');
+    this.Transform_1 = new PipelinePhase('Transform');
+    this.Render_1 = new PipelinePhase('Render');
+    this.Send_1 = new PipelinePhase('Send');
   }
+  Phases.prototype.get_Before_3ry4pk_k$ = function () {
+    return this.Before_1;
+  };
+  Phases.prototype.get_State_ih4i88_k$ = function () {
+    return this.State_1;
+  };
+  Phases.prototype.get_Transform_byqycd_k$ = function () {
+    return this.Transform_1;
+  };
+  Phases.prototype.get_Render_3swp1b_k$ = function () {
+    return this.Render_1;
+  };
+  Phases.prototype.get_Send_wo9sz5_k$ = function () {
+    return this.Send_1;
+  };
   Phases.$metadata$ = objectMeta('Phases');
   var Phases_instance;
   function Phases_getInstance() {
@@ -4893,21 +6516,45 @@
   }
   function HttpRequestPipeline(developmentMode) {
     Phases_getInstance();
-    Pipeline.call(this, [Phases_getInstance().q2a_1, Phases_getInstance().r2a_1, Phases_getInstance().s2a_1, Phases_getInstance().t2a_1, Phases_getInstance().u2a_1]);
-    this.a2q_1 = developmentMode;
+    Pipeline.call(this, [Phases_getInstance().Before_1, Phases_getInstance().State_1, Phases_getInstance().Transform_1, Phases_getInstance().Render_1, Phases_getInstance().Send_1]);
+    this.developmentMode_2 = developmentMode;
   }
-  HttpRequestPipeline.prototype.e1n = function () {
-    return this.a2q_1;
+  HttpRequestPipeline.prototype.get_developmentMode_eqiro5_k$ = function () {
+    return this.developmentMode_2;
   };
   HttpRequestPipeline.$metadata$ = classMeta('HttpRequestPipeline', undefined, undefined, undefined, undefined, Pipeline.prototype);
+  function HttpSendPipeline_init_$Init$(developmentMode, $mask0, $marker, $this) {
+    if (!(($mask0 & 1) === 0))
+      developmentMode = false;
+    HttpSendPipeline.call($this, developmentMode);
+    return $this;
+  }
+  function HttpSendPipeline_init_$Create$(developmentMode, $mask0, $marker) {
+    return HttpSendPipeline_init_$Init$(developmentMode, $mask0, $marker, Object.create(HttpSendPipeline.prototype));
+  }
   function Phases_0() {
     Phases_instance_0 = this;
-    this.h24_1 = new PipelinePhase('Before');
-    this.i24_1 = new PipelinePhase('State');
-    this.j24_1 = new PipelinePhase('Monitoring');
-    this.k24_1 = new PipelinePhase('Engine');
-    this.l24_1 = new PipelinePhase('Receive');
+    this.Before_1 = new PipelinePhase('Before');
+    this.State_1 = new PipelinePhase('State');
+    this.Monitoring_1 = new PipelinePhase('Monitoring');
+    this.Engine_1 = new PipelinePhase('Engine');
+    this.Receive_1 = new PipelinePhase('Receive');
   }
+  Phases_0.prototype.get_Before_3ry4pk_k$ = function () {
+    return this.Before_1;
+  };
+  Phases_0.prototype.get_State_ih4i88_k$ = function () {
+    return this.State_1;
+  };
+  Phases_0.prototype.get_Monitoring_rltjwv_k$ = function () {
+    return this.Monitoring_1;
+  };
+  Phases_0.prototype.get_Engine_27ulqt_k$ = function () {
+    return this.Engine_1;
+  };
+  Phases_0.prototype.get_Receive_oc3k86_k$ = function () {
+    return this.Receive_1;
+  };
   Phases_0.$metadata$ = objectMeta('Phases');
   var Phases_instance_0;
   function Phases_getInstance_0() {
@@ -4917,11 +6564,11 @@
   }
   function HttpSendPipeline(developmentMode) {
     Phases_getInstance_0();
-    Pipeline.call(this, [Phases_getInstance_0().h24_1, Phases_getInstance_0().i24_1, Phases_getInstance_0().j24_1, Phases_getInstance_0().k24_1, Phases_getInstance_0().l24_1]);
-    this.i2q_1 = developmentMode;
+    Pipeline.call(this, [Phases_getInstance_0().Before_1, Phases_getInstance_0().State_1, Phases_getInstance_0().Monitoring_1, Phases_getInstance_0().Engine_1, Phases_getInstance_0().Receive_1]);
+    this.developmentMode_2 = developmentMode;
   }
-  HttpSendPipeline.prototype.e1n = function () {
-    return this.i2q_1;
+  HttpSendPipeline.prototype.get_developmentMode_eqiro5_k$ = function () {
+    return this.developmentMode_2;
   };
   HttpSendPipeline.$metadata$ = classMeta('HttpSendPipeline', undefined, undefined, undefined, undefined, Pipeline.prototype);
   function get_BodyTypeAttributeKey() {
@@ -4937,89 +6584,219 @@
       BodyTypeAttributeKey = new AttributeKey('BodyTypeAttributeKey');
     }
   }
+  function get_0(_this__u8e3s4, urlString, block, $cont) {
+    var tmp = new $getCOROUTINE$10(_this__u8e3s4, urlString, block, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function get_1(_this__u8e3s4, block, $cont) {
+    var tmp = new $getCOROUTINE$11(_this__u8e3s4, block, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  }
+  function get_2(_this__u8e3s4, builder, $cont) {
+    builder.method_1 = Companion_getInstance_2().Get_1;
+    return (new HttpStatement(builder, _this__u8e3s4)).execute_t7l9ha_k$($cont);
+  }
+  function request(_this__u8e3s4, builder, $cont) {
+    return (new HttpStatement(builder, _this__u8e3s4)).execute_t7l9ha_k$($cont);
+  }
+  function get$lambda() {
+    return function ($this$null) {
+      return Unit_getInstance();
+    };
+  }
+  function $getCOROUTINE$10(_this__u8e3s4, urlString, block, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.urlString_1 = urlString;
+    this.block_1 = block;
+  }
+  $getCOROUTINE$10.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            var tmp_0 = this;
+            var tmp0_apply = new HttpRequestBuilder();
+            url(tmp0_apply, this.urlString_1);
+            this.block_1(tmp0_apply);
+            tmp_0.tmp1_get0__1 = tmp0_apply;
+            this.tmp1_get0__1.method_1 = Companion_getInstance_2().Get_1;
+            this.state_1 = 1;
+            suspendResult = (new HttpStatement(this.tmp1_get0__1, this._this__u8e3s4__1)).execute_t7l9ha_k$(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return suspendResult;
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $getCOROUTINE$10.$metadata$ = classMeta('$getCOROUTINE$10', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function $getCOROUTINE$11(_this__u8e3s4, block, resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.block_1 = block;
+  }
+  $getCOROUTINE$11.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 2;
+            var tmp_0 = this;
+            var tmp0_apply = new HttpRequestBuilder();
+            this.block_1(tmp0_apply);
+            tmp_0.tmp1_get0__1 = tmp0_apply;
+            this.tmp1_get0__1.method_1 = Companion_getInstance_2().Get_1;
+            this.state_1 = 1;
+            suspendResult = (new HttpStatement(this.tmp1_get0__1, this._this__u8e3s4__1)).execute_t7l9ha_k$(this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue $sm;
+          case 1:
+            return suspendResult;
+          case 2:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 2) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  $getCOROUTINE$11.$metadata$ = classMeta('$getCOROUTINE$11', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function get_RN_BYTES() {
+    init_properties_FormDataContent_kt_nq7id3();
+    return RN_BYTES;
+  }
+  var RN_BYTES;
+  var properties_initialized_FormDataContent_kt_w3e0rf;
+  function init_properties_FormDataContent_kt_nq7id3() {
+    if (properties_initialized_FormDataContent_kt_w3e0rf) {
+    } else {
+      properties_initialized_FormDataContent_kt_w3e0rf = true;
+      var tmp$ret$0;
+      $l$block: {
+        var tmp0_toByteArray = Charsets_getInstance().UTF_8__1;
+        if (tmp0_toByteArray.equals(Charsets_getInstance().UTF_8__1)) {
+          tmp$ret$0 = encodeToByteArray('\r\n');
+          break $l$block;
+        }
+        tmp$ret$0 = encodeToByteArray_0(tmp0_toByteArray.newEncoder_gqwcdg_k$(), '\r\n', 0, '\r\n'.length);
+      }
+      RN_BYTES = tmp$ret$0;
+    }
+  }
   function DefaultHttpResponse(call, responseData) {
     HttpResponse.call(this);
-    this.j2q_1 = call;
-    this.k2q_1 = responseData.e25_1;
-    this.l2q_1 = responseData.z24_1;
-    this.m2q_1 = responseData.c25_1;
-    this.n2q_1 = responseData.a25_1;
-    this.o2q_1 = responseData.f25_1;
+    this.call_1 = call;
+    this.coroutineContext_1 = responseData.callContext_1;
+    this.status_1 = responseData.statusCode_1;
+    this.version_1 = responseData.version_1;
+    this.requestTime_1 = responseData.requestTime_1;
+    this.responseTime_1 = responseData.responseTime_1;
     var tmp = this;
-    var tmp_0 = responseData.d25_1;
+    var tmp_0 = responseData.body_1;
     var tmp0_elvis_lhs = isInterface(tmp_0, ByteReadChannel) ? tmp_0 : null;
-    tmp.p2q_1 = tmp0_elvis_lhs == null ? Companion_getInstance().n1b() : tmp0_elvis_lhs;
-    this.q2q_1 = responseData.b25_1;
+    tmp.content_1 = tmp0_elvis_lhs == null ? Companion_getInstance().get_Empty_i9b85g_k$() : tmp0_elvis_lhs;
+    this.headers_1 = responseData.headers_1;
   }
-  DefaultHttpResponse.prototype.a27 = function () {
-    return this.j2q_1;
+  DefaultHttpResponse.prototype.get_call_wojxrb_k$ = function () {
+    return this.call_1;
   };
-  DefaultHttpResponse.prototype.qk = function () {
-    return this.k2q_1;
+  DefaultHttpResponse.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.coroutineContext_1;
   };
-  DefaultHttpResponse.prototype.f26 = function () {
-    return this.l2q_1;
+  DefaultHttpResponse.prototype.get_status_jnf6d7_k$ = function () {
+    return this.status_1;
   };
-  DefaultHttpResponse.prototype.l27 = function () {
-    return this.m2q_1;
+  DefaultHttpResponse.prototype.get_version_72w4j3_k$ = function () {
+    return this.version_1;
   };
-  DefaultHttpResponse.prototype.m27 = function () {
-    return this.n2q_1;
+  DefaultHttpResponse.prototype.get_requestTime_wwxhg3_k$ = function () {
+    return this.requestTime_1;
   };
-  DefaultHttpResponse.prototype.n27 = function () {
-    return this.o2q_1;
+  DefaultHttpResponse.prototype.get_responseTime_scfvg7_k$ = function () {
+    return this.responseTime_1;
   };
-  DefaultHttpResponse.prototype.f1q = function () {
-    return this.p2q_1;
+  DefaultHttpResponse.prototype.get_content_h02jrk_k$ = function () {
+    return this.content_1;
   };
-  DefaultHttpResponse.prototype.p1u = function () {
-    return this.q2q_1;
+  DefaultHttpResponse.prototype.get_headers_ef25jx_k$ = function () {
+    return this.headers_1;
   };
   DefaultHttpResponse.$metadata$ = classMeta('DefaultHttpResponse', undefined, undefined, undefined, undefined, HttpResponse.prototype);
   function HttpResponse() {
   }
   HttpResponse.prototype.toString = function () {
-    return 'HttpResponse[' + get_request(this).e26() + ', ' + this.f26() + ']';
+    return 'HttpResponse[' + get_request(this).get_url_18iuii_k$() + ', ' + this.get_status_jnf6d7_k$() + ']';
   };
   HttpResponse.$metadata$ = classMeta('HttpResponse', [HttpMessage, CoroutineScope]);
   function get_request(_this__u8e3s4) {
-    return _this__u8e3s4.a27().a26();
+    return _this__u8e3s4.get_call_wojxrb_k$().get_request_jdwg4m_k$();
   }
   function complete(_this__u8e3s4) {
-    var tmp = ensureNotNull(_this__u8e3s4.qk().b3(Key_getInstance()));
+    var tmp = ensureNotNull(_this__u8e3s4.get_coroutineContext_115oqo_k$().get_1pi7hg_k$(Key_getInstance()));
     var job = isInterface(tmp, CompletableJob) ? tmp : THROW_CCE();
-    job.kq();
+    job.complete_9ww6vb_k$();
   }
   function bodyAsText(_this__u8e3s4, fallbackCharset, $cont) {
     var tmp = new $bodyAsTextCOROUTINE$12(_this__u8e3s4, fallbackCharset, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function bodyAsText$default(_this__u8e3s4, fallbackCharset, $cont, $mask0, $handler) {
     if (!(($mask0 & 1) === 0))
-      fallbackCharset = Charsets_getInstance().w1e_1;
+      fallbackCharset = Charsets_getInstance().UTF_8__1;
     return bodyAsText(_this__u8e3s4, fallbackCharset, $cont);
   }
   function $bodyAsTextCOROUTINE$12(_this__u8e3s4, fallbackCharset, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.z2q_1 = _this__u8e3s4;
-    this.a2r_1 = fallbackCharset;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.fallbackCharset_1 = fallbackCharset;
   }
-  $bodyAsTextCOROUTINE$12.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $bodyAsTextCOROUTINE$12.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
+            this.exceptionState_1 = 2;
             var tmp_0 = this;
-            var tmp0_elvis_lhs = charset_0(this.z2q_1);
-            tmp_0.b2r_1 = tmp0_elvis_lhs == null ? this.a2r_1 : tmp0_elvis_lhs;
-            this.c2r_1 = this.b2r_1.a1f();
-            this.pd_1 = 1;
-            var tmp_1 = this.z2q_1.a27();
+            var tmp0_elvis_lhs = charset_0(this._this__u8e3s4__1);
+            tmp_0.originCharset0__1 = tmp0_elvis_lhs == null ? this.fallbackCharset_1 : tmp0_elvis_lhs;
+            this.decoder1__1 = this.originCharset0__1.newDecoder_zcettw_k$();
+            this.state_1 = 1;
+            var tmp_1 = this._this__u8e3s4__1.get_call_wojxrb_k$();
             var tmp_2 = JsType_getInstance();
             var tmp_3 = getKClass(Input);
             var tmp_4;
@@ -5035,7 +6812,7 @@
               tmp_4 = tmp_5;
             }
 
-            suspendResult = tmp_1.d26(typeInfoImpl(tmp_2, tmp_3, tmp_4), this);
+            suspendResult = tmp_1.bodyNullable_ld5qr1_k$(typeInfoImpl(tmp_2, tmp_3, tmp_4), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -5043,29 +6820,53 @@
             continue $sm;
           case 1:
             var input = suspendResult instanceof Input ? suspendResult : THROW_CCE();
-            return decode$default(this.c2r_1, input, 0, 2, null);
+            return decode$default(this.decoder1__1, input, 0, 2, null);
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $bodyAsTextCOROUTINE$12.$metadata$ = classMeta('$bodyAsTextCOROUTINE$12', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function HttpResponsePipeline_init_$Init$(developmentMode, $mask0, $marker, $this) {
+    if (!(($mask0 & 1) === 0))
+      developmentMode = false;
+    HttpResponsePipeline.call($this, developmentMode);
+    return $this;
+  }
+  function HttpResponsePipeline_init_$Create$(developmentMode, $mask0, $marker) {
+    return HttpResponsePipeline_init_$Init$(developmentMode, $mask0, $marker, Object.create(HttpResponsePipeline.prototype));
+  }
   function Phases_1() {
     Phases_instance_1 = this;
-    this.p24_1 = new PipelinePhase('Receive');
-    this.q24_1 = new PipelinePhase('Parse');
-    this.r24_1 = new PipelinePhase('Transform');
-    this.s24_1 = new PipelinePhase('State');
-    this.t24_1 = new PipelinePhase('After');
+    this.Receive_1 = new PipelinePhase('Receive');
+    this.Parse_1 = new PipelinePhase('Parse');
+    this.Transform_1 = new PipelinePhase('Transform');
+    this.State_1 = new PipelinePhase('State');
+    this.After_1 = new PipelinePhase('After');
   }
+  Phases_1.prototype.get_Receive_oc3k86_k$ = function () {
+    return this.Receive_1;
+  };
+  Phases_1.prototype.get_Parse_if5ca2_k$ = function () {
+    return this.Parse_1;
+  };
+  Phases_1.prototype.get_Transform_byqycd_k$ = function () {
+    return this.Transform_1;
+  };
+  Phases_1.prototype.get_State_ih4i88_k$ = function () {
+    return this.State_1;
+  };
+  Phases_1.prototype.get_After_i6zngz_k$ = function () {
+    return this.After_1;
+  };
   Phases_1.$metadata$ = objectMeta('Phases');
   var Phases_instance_1;
   function Phases_getInstance_1() {
@@ -5075,19 +6876,37 @@
   }
   function HttpResponsePipeline(developmentMode) {
     Phases_getInstance_1();
-    Pipeline.call(this, [Phases_getInstance_1().p24_1, Phases_getInstance_1().q24_1, Phases_getInstance_1().r24_1, Phases_getInstance_1().s24_1, Phases_getInstance_1().t24_1]);
-    this.k2r_1 = developmentMode;
+    Pipeline.call(this, [Phases_getInstance_1().Receive_1, Phases_getInstance_1().Parse_1, Phases_getInstance_1().Transform_1, Phases_getInstance_1().State_1, Phases_getInstance_1().After_1]);
+    this.developmentMode_2 = developmentMode;
   }
-  HttpResponsePipeline.prototype.e1n = function () {
-    return this.k2r_1;
+  HttpResponsePipeline.prototype.get_developmentMode_eqiro5_k$ = function () {
+    return this.developmentMode_2;
   };
   HttpResponsePipeline.$metadata$ = classMeta('HttpResponsePipeline', undefined, undefined, undefined, undefined, Pipeline.prototype);
+  function HttpReceivePipeline_init_$Init$(developmentMode, $mask0, $marker, $this) {
+    if (!(($mask0 & 1) === 0))
+      developmentMode = false;
+    HttpReceivePipeline.call($this, developmentMode);
+    return $this;
+  }
+  function HttpReceivePipeline_init_$Create$(developmentMode, $mask0, $marker) {
+    return HttpReceivePipeline_init_$Init$(developmentMode, $mask0, $marker, Object.create(HttpReceivePipeline.prototype));
+  }
   function Phases_2() {
     Phases_instance_2 = this;
-    this.v2a_1 = new PipelinePhase('Before');
-    this.w2a_1 = new PipelinePhase('State');
-    this.x2a_1 = new PipelinePhase('After');
+    this.Before_1 = new PipelinePhase('Before');
+    this.State_1 = new PipelinePhase('State');
+    this.After_1 = new PipelinePhase('After');
   }
+  Phases_2.prototype.get_Before_3ry4pk_k$ = function () {
+    return this.Before_1;
+  };
+  Phases_2.prototype.get_State_ih4i88_k$ = function () {
+    return this.State_1;
+  };
+  Phases_2.prototype.get_After_i6zngz_k$ = function () {
+    return this.After_1;
+  };
   Phases_2.$metadata$ = objectMeta('Phases');
   var Phases_instance_2;
   function Phases_getInstance_2() {
@@ -5097,29 +6916,45 @@
   }
   function HttpReceivePipeline(developmentMode) {
     Phases_getInstance_2();
-    Pipeline.call(this, [Phases_getInstance_2().v2a_1, Phases_getInstance_2().w2a_1, Phases_getInstance_2().x2a_1]);
-    this.s2r_1 = developmentMode;
+    Pipeline.call(this, [Phases_getInstance_2().Before_1, Phases_getInstance_2().State_1, Phases_getInstance_2().After_1]);
+    this.developmentMode_2 = developmentMode;
   }
-  HttpReceivePipeline.prototype.e1n = function () {
-    return this.s2r_1;
+  HttpReceivePipeline.prototype.get_developmentMode_eqiro5_k$ = function () {
+    return this.developmentMode_2;
   };
   HttpReceivePipeline.$metadata$ = classMeta('HttpReceivePipeline', undefined, undefined, undefined, undefined, Pipeline.prototype);
   function HttpResponseContainer(expectedType, response) {
-    this.y25_1 = expectedType;
-    this.z25_1 = response;
+    this.expectedType_1 = expectedType;
+    this.response_1 = response;
   }
-  HttpResponseContainer.prototype.s4 = function () {
-    return this.y25_1;
+  HttpResponseContainer.prototype.get_expectedType_79s38b_k$ = function () {
+    return this.expectedType_1;
   };
-  HttpResponseContainer.prototype.t4 = function () {
-    return this.z25_1;
+  HttpResponseContainer.prototype.get_response_xlk07e_k$ = function () {
+    return this.response_1;
+  };
+  HttpResponseContainer.prototype.component1_7eebsc_k$ = function () {
+    return this.expectedType_1;
+  };
+  HttpResponseContainer.prototype.component2_7eebsb_k$ = function () {
+    return this.response_1;
+  };
+  HttpResponseContainer.prototype.copy_17pj19_k$ = function (expectedType, response) {
+    return new HttpResponseContainer(expectedType, response);
+  };
+  HttpResponseContainer.prototype.copy$default_dtbv4w_k$ = function (expectedType, response, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      expectedType = this.expectedType_1;
+    if (!(($mask0 & 2) === 0))
+      response = this.response_1;
+    return this.copy_17pj19_k$(expectedType, response);
   };
   HttpResponseContainer.prototype.toString = function () {
-    return 'HttpResponseContainer(expectedType=' + this.y25_1 + ', response=' + toString(this.z25_1) + ')';
+    return 'HttpResponseContainer(expectedType=' + this.expectedType_1 + ', response=' + toString(this.response_1) + ')';
   };
   HttpResponseContainer.prototype.hashCode = function () {
-    var result = this.y25_1.hashCode();
-    result = imul(result, 31) + hashCode(this.z25_1) | 0;
+    var result = this.expectedType_1.hashCode();
+    result = imul(result, 31) + hashCode(this.response_1) | 0;
     return result;
   };
   HttpResponseContainer.prototype.equals = function (other) {
@@ -5128,16 +6963,19 @@
     if (!(other instanceof HttpResponseContainer))
       return false;
     var tmp0_other_with_cast = other instanceof HttpResponseContainer ? other : THROW_CCE();
-    if (!this.y25_1.equals(tmp0_other_with_cast.y25_1))
+    if (!this.expectedType_1.equals(tmp0_other_with_cast.expectedType_1))
       return false;
-    if (!equals(this.z25_1, tmp0_other_with_cast.z25_1))
+    if (!equals(this.response_1, tmp0_other_with_cast.response_1))
       return false;
     return true;
   };
   HttpResponseContainer.$metadata$ = classMeta('HttpResponseContainer');
+  function _get_builder__bi005y($this) {
+    return $this.builder_1;
+  }
   function checkCapabilities($this) {
-    var tmp0_safe_receiver = $this.t2r_1.w23_1.z1i(get_ENGINE_CAPABILITIES_KEY());
-    var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.c2();
+    var tmp0_safe_receiver = $this.builder_1.attributes_1.getOrNull_dkmqfg_k$(get_ENGINE_CAPABILITIES_KEY());
+    var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_keys_wop4xp_k$();
     var tmp;
     if (tmp1_safe_receiver == null) {
       tmp = null;
@@ -5147,11 +6985,11 @@
         var tmp$ret$0;
         {
           var tmp0_filterIsInstanceTo = ArrayList_init_$Create$();
-          var tmp0_iterator = tmp1_safe_receiver.d();
-          while (tmp0_iterator.e()) {
-            var element = tmp0_iterator.f();
+          var tmp0_iterator = tmp1_safe_receiver.iterator_jk1svi_k$();
+          while (tmp0_iterator.hasNext_bitz1p_k$()) {
+            var element = tmp0_iterator.next_20eer_k$();
             if (!(element == null) ? isInterface(element, HttpClientPlugin) : false) {
-              tmp0_filterIsInstanceTo.b(element);
+              tmp0_filterIsInstanceTo.add_1j60pz_k$(element);
             }
           }
           tmp$ret$0 = tmp0_filterIsInstanceTo;
@@ -5165,13 +7003,13 @@
       null;
     else {
       {
-        var tmp0_iterator_0 = tmp2_safe_receiver.d();
-        while (tmp0_iterator_0.e()) {
-          var element_0 = tmp0_iterator_0.f();
+        var tmp0_iterator_0 = tmp2_safe_receiver.iterator_jk1svi_k$();
+        while (tmp0_iterator_0.hasNext_bitz1p_k$()) {
+          var element_0 = tmp0_iterator_0.next_20eer_k$();
           {
             var tmp$ret$3;
             $l$block: {
-              var tmp0_requireNotNull = pluginOrNull($this.u2r_1, element_0);
+              var tmp0_requireNotNull = pluginOrNull($this.client_1, element_0);
               {
               }
               if (tmp0_requireNotNull == null) {
@@ -5194,25 +7032,25 @@
   function HttpStatement$execute$slambda(resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
   }
-  HttpStatement$execute$slambda.prototype.e2s = function (it, $cont) {
-    var tmp = this.y2c(it, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  HttpStatement$execute$slambda.prototype.invoke_vs1ecp_k$ = function (it, $cont) {
+    var tmp = this.create_yw8py6_k$(it, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpStatement$execute$slambda.prototype.ae = function (p1, $cont) {
-    return this.e2s(p1 instanceof HttpResponse ? p1 : THROW_CCE(), $cont);
+  HttpStatement$execute$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_vs1ecp_k$(p1 instanceof HttpResponse ? p1 : THROW_CCE(), $cont);
   };
-  HttpStatement$execute$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  HttpStatement$execute$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            this.pd_1 = 1;
-            suspendResult = save(this.d2s_1.a27(), this);
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = save(this.it_1.get_call_wojxrb_k$(), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -5220,93 +7058,96 @@
             continue $sm;
           case 1:
             var savedCall = suspendResult;
-            return savedCall.s22();
+            return savedCall.get_response_xlk07e_k$();
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  HttpStatement$execute$slambda.prototype.y2c = function (it, completion) {
+  HttpStatement$execute$slambda.prototype.create_yw8py6_k$ = function (it, completion) {
     var i = new HttpStatement$execute$slambda(completion);
-    i.d2s_1 = it;
+    i.it_1 = it;
     return i;
+  };
+  HttpStatement$execute$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_yw8py6_k$(value instanceof HttpResponse ? value : THROW_CCE(), completion);
   };
   HttpStatement$execute$slambda.$metadata$ = classMeta('HttpStatement$execute$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function HttpStatement$execute$slambda_0(resultContinuation) {
     var i = new HttpStatement$execute$slambda(resultContinuation);
     var l = function (it, $cont) {
-      return i.e2s(it, $cont);
+      return i.invoke_vs1ecp_k$(it, $cont);
     };
     l.$arity = 1;
     return l;
   }
   function $executeCOROUTINE$13(_this__u8e3s4, block, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.n2s_1 = _this__u8e3s4;
-    this.o2s_1 = block;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.block_1 = block;
   }
-  $executeCOROUTINE$13.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $executeCOROUTINE$13.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 13;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 13;
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            this.qd_1 = 12;
-            this.pd_1 = 2;
-            suspendResult = this.n2s_1.u2s(this);
+            this.exceptionState_1 = 12;
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.executeUnsafe_lxe0js_k$(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 2:
-            this.q2s_1 = suspendResult;
-            this.pd_1 = 3;
+            this.response1__1 = suspendResult;
+            this.state_1 = 3;
             continue $sm;
           case 3:
-            this.pd_1 = 4;
+            this.state_1 = 4;
             continue $sm;
           case 4:
-            this.qd_1 = 10;
-            this.pd_1 = 5;
-            suspendResult = this.o2s_1(this.q2s_1, this);
+            this.exceptionState_1 = 10;
+            this.state_1 = 5;
+            suspendResult = this.block_1(this.response1__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 5:
-            this.r2s_1 = suspendResult;
-            this.pd_1 = 6;
+            this.tmp$ret$03__1 = suspendResult;
+            this.state_1 = 6;
             var tmp_0 = this;
             continue $sm;
           case 6:
-            this.s2s_1 = this.r2s_1;
-            this.pd_1 = 7;
-            suspendResult = this.n2s_1.v2s(this.q2s_1, this);
+            this.tmp4__1 = this.tmp$ret$03__1;
+            this.state_1 = 7;
+            suspendResult = this._this__u8e3s4__1.cleanup_n4xe9d_k$(this.response1__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 7:
-            return this.s2s_1;
+            return this.tmp4__1;
           case 8:
-            this.pd_1 = 9;
-            suspendResult = this.n2s_1.v2s(this.q2s_1, this);
+            this.state_1 = 9;
+            suspendResult = this._this__u8e3s4__1.cleanup_n4xe9d_k$(this.response1__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -5314,53 +7155,53 @@
             continue $sm;
           case 9:
             var tmp_1 = this;
-            tmp_1.p2s_1 = Unit_getInstance();
-            this.qd_1 = 13;
-            this.pd_1 = 15;
+            tmp_1.tmp$ret$40__1 = Unit_getInstance();
+            this.exceptionState_1 = 13;
+            this.state_1 = 15;
             continue $sm;
           case 10:
-            this.qd_1 = 12;
-            this.t2s_1 = this.sd_1;
-            this.pd_1 = 11;
-            suspendResult = this.n2s_1.v2s(this.q2s_1, this);
+            this.exceptionState_1 = 12;
+            this.t5__1 = this.exception_1;
+            this.state_1 = 11;
+            suspendResult = this._this__u8e3s4__1.cleanup_n4xe9d_k$(this.response1__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 11:
-            throw this.t2s_1;
+            throw this.t5__1;
           case 12:
-            this.qd_1 = 13;
-            var tmp_2 = this.sd_1;
+            this.exceptionState_1 = 13;
+            var tmp_2 = this.exception_1;
             if (tmp_2 instanceof CancellationException) {
-              var cause = this.sd_1;
+              var cause = this.exception_1;
               throw unwrapCancellationException(cause);
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 13:
-            throw this.sd_1;
+            throw this.exception_1;
           case 14:
-            this.qd_1 = 13;
+            this.exceptionState_1 = 13;
             if (false) {
-              this.pd_1 = 1;
+              this.state_1 = 1;
               continue $sm;
             }
 
-            this.pd_1 = 15;
+            this.state_1 = 15;
             continue $sm;
           case 15:
-            return this.p2s_1;
+            return this.tmp$ret$40__1;
         }
       } catch ($p) {
-        if (this.qd_1 === 13) {
+        if (this.exceptionState_1 === 13) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -5368,23 +7209,23 @@
   $executeCOROUTINE$13.$metadata$ = classMeta('$executeCOROUTINE$13', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $executeUnsafeCOROUTINE$14(_this__u8e3s4, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.e2t_1 = _this__u8e3s4;
+    this._this__u8e3s4__1 = _this__u8e3s4;
   }
-  $executeUnsafeCOROUTINE$14.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $executeUnsafeCOROUTINE$14.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 4;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 4;
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            this.qd_1 = 3;
-            this.g2t_1 = (new HttpRequestBuilder()).s29(this.e2t_1.t2r_1);
-            this.pd_1 = 2;
-            suspendResult = this.e2t_1.u2r_1.u24(this.g2t_1, this);
+            this.exceptionState_1 = 3;
+            this.builder1__1 = (new HttpRequestBuilder()).takeFromWithExecutionContext_d233rf_k$(this._this__u8e3s4__1.builder_1);
+            this.state_1 = 2;
+            suspendResult = this._this__u8e3s4__1.client_1.execute_z0ufkc_k$(this.builder1__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -5393,38 +7234,38 @@
           case 2:
             var call = suspendResult;
             var tmp_0 = this;
-            return call.s22();
+            return call.get_response_xlk07e_k$();
           case 3:
-            this.qd_1 = 4;
-            var tmp_1 = this.sd_1;
+            this.exceptionState_1 = 4;
+            var tmp_1 = this.exception_1;
             if (tmp_1 instanceof CancellationException) {
-              var cause = this.sd_1;
+              var cause = this.exception_1;
               throw unwrapCancellationException(cause);
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 4:
-            throw this.sd_1;
+            throw this.exception_1;
           case 5:
-            this.qd_1 = 4;
+            this.exceptionState_1 = 4;
             if (false) {
-              this.pd_1 = 1;
+              this.state_1 = 1;
               continue $sm;
             }
 
-            this.pd_1 = 6;
+            this.state_1 = 6;
             continue $sm;
           case 6:
-            return this.f2t_1;
+            return this.tmp$ret$00__1;
         }
       } catch ($p) {
-        if (this.qd_1 === 4) {
+        if (this.exceptionState_1 === 4) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -5432,44 +7273,44 @@
   $executeUnsafeCOROUTINE$14.$metadata$ = classMeta('$executeUnsafeCOROUTINE$14', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $cleanupCOROUTINE$15(_this__u8e3s4, _this__u8e3s4_0, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.p2t_1 = _this__u8e3s4;
-    this.q2t_1 = _this__u8e3s4_0;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this._this__u8e3s4__2 = _this__u8e3s4_0;
   }
-  $cleanupCOROUTINE$15.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $cleanupCOROUTINE$15.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 4;
+            this.exceptionState_1 = 4;
             var tmp_0 = this;
-            var tmp_1 = ensureNotNull(this.q2t_1.qk().b3(Key_getInstance()));
-            tmp_0.r2t_1 = isInterface(tmp_1, CompletableJob) ? tmp_1 : THROW_CCE();
-            this.r2t_1.kq();
+            var tmp_1 = ensureNotNull(this._this__u8e3s4__2.get_coroutineContext_115oqo_k$().get_1pi7hg_k$(Key_getInstance()));
+            tmp_0.job0__1 = isInterface(tmp_1, CompletableJob) ? tmp_1 : THROW_CCE();
+            this.job0__1.complete_9ww6vb_k$();
             ;
-            this.qd_1 = 1;
-            cancel_1(this.q2t_1.f1q());
+            this.exceptionState_1 = 1;
+            cancel_1(this._this__u8e3s4__2.get_content_h02jrk_k$());
             ;
-            this.qd_1 = 4;
-            this.pd_1 = 2;
+            this.exceptionState_1 = 4;
+            this.state_1 = 2;
             continue $sm;
           case 1:
-            this.qd_1 = 4;
-            var tmp_2 = this.sd_1;
+            this.exceptionState_1 = 4;
+            var tmp_2 = this.exception_1;
             if (tmp_2 instanceof Error) {
-              this.s2t_1 = this.sd_1;
-              this.pd_1 = 2;
+              this._1__1 = this.exception_1;
+              this.state_1 = 2;
               continue $sm;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 2:
-            this.qd_1 = 4;
-            this.pd_1 = 3;
-            suspendResult = this.r2t_1.lq(this);
+            this.exceptionState_1 = 4;
+            this.state_1 = 3;
+            suspendResult = this.job0__1.join_kbq7u1_k$(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -5479,115 +7320,115 @@
             ;
             return Unit_getInstance();
           case 4:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 4) {
+        if (this.exceptionState_1 === 4) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
   $cleanupCOROUTINE$15.$metadata$ = classMeta('$cleanupCOROUTINE$15', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function HttpStatement(builder, client) {
-    this.t2r_1 = builder;
-    this.u2r_1 = client;
+    this.builder_1 = builder;
+    this.client_1 = client;
     checkCapabilities(this);
   }
-  HttpStatement.prototype.t2t = function () {
-    return this.u2r_1;
+  HttpStatement.prototype.get_client_byfnx0_k$ = function () {
+    return this.client_1;
   };
-  HttpStatement.prototype.u2t = function (block, $cont) {
+  HttpStatement.prototype.execute_du23ns_k$ = function (block, $cont) {
     var tmp = new $executeCOROUTINE$13(this, block, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpStatement.prototype.v2t = function ($cont) {
-    return this.u2t(HttpStatement$execute$slambda_0(null), $cont);
+  HttpStatement.prototype.execute_t7l9ha_k$ = function ($cont) {
+    return this.execute_du23ns_k$(HttpStatement$execute$slambda_0(null), $cont);
   };
-  HttpStatement.prototype.u2s = function ($cont) {
+  HttpStatement.prototype.executeUnsafe_lxe0js_k$ = function ($cont) {
     var tmp = new $executeUnsafeCOROUTINE$14(this, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  HttpStatement.prototype.v2s = function (_this__u8e3s4, $cont) {
+  HttpStatement.prototype.cleanup_n4xe9d_k$ = function (_this__u8e3s4, $cont) {
     var tmp = new $cleanupCOROUTINE$15(this, _this__u8e3s4, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
   HttpStatement.prototype.toString = function () {
-    return 'HttpStatement[' + this.t2r_1.r23_1.k1z() + ']';
+    return 'HttpStatement[' + this.builder_1.url_1.buildString_xr87oh_k$() + ']';
   };
   HttpStatement.$metadata$ = classMeta('HttpStatement');
   function observable(_this__u8e3s4, context, contentLength, listener) {
     var tmp = GlobalScope_getInstance();
-    return writer(tmp, context, true, observable$slambda_0(contentLength, _this__u8e3s4, listener, null)).rw();
+    return writer(tmp, context, true, observable$slambda_0(contentLength, _this__u8e3s4, listener, null)).get_channel_dhi7tm_k$();
   }
   function observable$slambda($contentLength, $this_observable, $listener, resultContinuation) {
-    this.e2u_1 = $contentLength;
-    this.f2u_1 = $this_observable;
-    this.g2u_1 = $listener;
+    this.$contentLength_1 = $contentLength;
+    this.$this_observable_1 = $this_observable;
+    this.$listener_1 = $listener;
     CoroutineImpl.call(this, resultContinuation);
   }
-  observable$slambda.prototype.y27 = function ($this$writer, $cont) {
-    var tmp = this.z27($this$writer, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  observable$slambda.prototype.invoke_65o7wc_k$ = function ($this$writer, $cont) {
+    var tmp = this.create_4ctjxj_k$($this$writer, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  observable$slambda.prototype.ae = function (p1, $cont) {
-    return this.y27((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
+  observable$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_65o7wc_k$((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  observable$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  observable$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 15;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 15;
+            this.state_1 = 1;
             continue $sm;
           case 1:
             var tmp_0 = this;
-            tmp_0.j2u_1 = get_ByteArrayPool();
-            this.k2u_1 = this.j2u_1.w1a();
-            this.pd_1 = 2;
+            tmp_0.tmp0_useInstance1__1 = get_ByteArrayPool();
+            this.instance2__1 = this.tmp0_useInstance1__1.borrow_mvkpor_k$();
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            this.pd_1 = 3;
+            this.state_1 = 3;
             continue $sm;
           case 3:
-            this.qd_1 = 14;
+            this.exceptionState_1 = 14;
             var tmp_1 = this;
-            var tmp0_elvis_lhs = this.e2u_1;
-            tmp_1.m2u_1 = tmp0_elvis_lhs == null ? new Long(-1, -1) : tmp0_elvis_lhs;
-            this.n2u_1 = new Long(0, 0);
-            this.pd_1 = 4;
+            var tmp0_elvis_lhs = this.$contentLength_1;
+            tmp_1.total5__1 = tmp0_elvis_lhs == null ? new Long(-1, -1) : tmp0_elvis_lhs;
+            this.bytesSend6__1 = new Long(0, 0);
+            this.state_1 = 4;
             continue $sm;
           case 4:
-            if (!!this.f2u_1.j14()) {
-              this.pd_1 = 8;
+            if (!!this.$this_observable_1.get_isClosedForRead_ajcc1s_k$()) {
+              this.state_1 = 8;
               continue $sm;
             }
 
-            this.pd_1 = 5;
-            suspendResult = readAvailable(this.f2u_1, this.k2u_1, this);
+            this.state_1 = 5;
+            suspendResult = readAvailable(this.$this_observable_1, this.instance2__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 5:
-            this.o2u_1 = suspendResult;
-            this.pd_1 = 6;
-            suspendResult = this.h2u_1.rw().o19(this.k2u_1, 0, this.o2u_1, this);
+            this.read7__1 = suspendResult;
+            this.state_1 = 6;
+            suspendResult = this.$this$writer_1.get_channel_dhi7tm_k$().writeFully_ol1csb_k$(this.instance2__1, 0, this.read7__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -5596,88 +7437,91 @@
           case 6:
             var tmp_2 = this;
             var tmp_3 = this;
-            tmp_3.p2u_1 = this.n2u_1;
-            tmp_2.n2u_1 = this.p2u_1.b4(toLong(this.o2u_1));
-            this.pd_1 = 7;
-            suspendResult = this.g2u_1(this.n2u_1, this.m2u_1, this);
+            tmp_3.tmp0_plus8__1 = this.bytesSend6__1;
+            tmp_2.bytesSend6__1 = this.tmp0_plus8__1.plus_u6jwas_k$(toLong(this.read7__1));
+            this.state_1 = 7;
+            suspendResult = this.$listener_1(this.bytesSend6__1, this.total5__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 7:
-            this.pd_1 = 4;
+            this.state_1 = 4;
             continue $sm;
           case 8:
-            this.q2u_1 = this.f2u_1.r13();
-            this.h2u_1.rw().zx(this.q2u_1);
+            this.closedCause9__1 = this.$this_observable_1.get_closedCause_o1qcj8_k$();
+            this.$this$writer_1.get_channel_dhi7tm_k$().close_9zy44b_k$(this.closedCause9__1);
             ;
-            if (this.q2u_1 == null ? this.n2u_1.equals(new Long(0, 0)) : false) {
-              this.pd_1 = 9;
-              suspendResult = this.g2u_1(this.n2u_1, this.m2u_1, this);
+            if (this.closedCause9__1 == null ? this.bytesSend6__1.equals(new Long(0, 0)) : false) {
+              this.state_1 = 9;
+              suspendResult = this.$listener_1(this.bytesSend6__1, this.total5__1, this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              this.pd_1 = 10;
+              this.state_1 = 10;
               continue $sm;
             }
 
             break;
           case 9:
-            this.pd_1 = 10;
+            this.state_1 = 10;
             continue $sm;
           case 10:
-            this.l2u_1 = Unit_getInstance();
-            this.qd_1 = 15;
-            this.pd_1 = 11;
+            this.tmp$ret$04__1 = Unit_getInstance();
+            this.exceptionState_1 = 15;
+            this.state_1 = 11;
             var tmp_4 = this;
             continue $sm;
           case 11:
             var tmp_5 = this;
-            tmp_5.i2u_1 = this.j2u_1.h1d(this.k2u_1);
-            this.pd_1 = 13;
+            tmp_5.tmp$ret$40__1 = this.tmp0_useInstance1__1.recycle_ln1phz_k$(this.instance2__1);
+            this.state_1 = 13;
             continue $sm;
           case 12:
-            this.j2u_1.h1d(this.k2u_1);
+            this.tmp0_useInstance1__1.recycle_ln1phz_k$(this.instance2__1);
             if (false) {
-              this.pd_1 = 1;
+              this.state_1 = 1;
               continue $sm;
             }
 
-            this.pd_1 = 13;
+            this.state_1 = 13;
             continue $sm;
           case 13:
             return Unit_getInstance();
           case 14:
-            this.qd_1 = 15;
-            var t = this.sd_1;
-            this.j2u_1.h1d(this.k2u_1);
+            this.exceptionState_1 = 15;
+            var t = this.exception_1;
+            this.tmp0_useInstance1__1.recycle_ln1phz_k$(this.instance2__1);
             throw t;
           case 15:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 15) {
+        if (this.exceptionState_1 === 15) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  observable$slambda.prototype.z27 = function ($this$writer, completion) {
-    var i = new observable$slambda(this.e2u_1, this.f2u_1, this.g2u_1, completion);
-    i.h2u_1 = $this$writer;
+  observable$slambda.prototype.create_4ctjxj_k$ = function ($this$writer, completion) {
+    var i = new observable$slambda(this.$contentLength_1, this.$this_observable_1, this.$listener_1, completion);
+    i.$this$writer_1 = $this$writer;
     return i;
+  };
+  observable$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_4ctjxj_k$((!(value == null) ? isInterface(value, WriterScope) : false) ? value : THROW_CCE(), completion);
   };
   observable$slambda.$metadata$ = classMeta('observable$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function observable$slambda_0($contentLength, $this_observable, $listener, resultContinuation) {
     var i = new observable$slambda($contentLength, $this_observable, $listener, resultContinuation);
     var l = function ($this$writer, $cont) {
-      return i.y27($this$writer, $cont);
+      return i.invoke_65o7wc_k$($this$writer, $cont);
     };
     l.$arity = 1;
     return l;
@@ -5708,9 +7552,15 @@
   }
   var HttpResponseCancelled;
   function HttpResponseReceiveFail(response, cause) {
-    this.r2u_1 = response;
-    this.s2u_1 = cause;
+    this.response_1 = response;
+    this.cause_1 = cause;
   }
+  HttpResponseReceiveFail.prototype.get_response_xlk07e_k$ = function () {
+    return this.response_1;
+  };
+  HttpResponseReceiveFail.prototype.get_cause_iplhs0_k$ = function () {
+    return this.cause_1;
+  };
   HttpResponseReceiveFail.$metadata$ = classMeta('HttpResponseReceiveFail');
   var properties_initialized_ClientEvents_kt_rdee4m;
   function init_properties_ClientEvents_kt_kkxb6e() {
@@ -5727,10 +7577,10 @@
   function EmptyContent() {
     EmptyContent_instance = this;
     NoContent.call(this);
-    this.u2u_1 = new Long(0, 0);
+    this.contentLength_1 = new Long(0, 0);
   }
-  EmptyContent.prototype.t1z = function () {
-    return this.u2u_1;
+  EmptyContent.prototype.get_contentLength_a5o8yy_k$ = function () {
+    return this.contentLength_1;
   };
   EmptyContent.prototype.toString = function () {
     return 'EmptyContent';
@@ -5751,29 +7601,43 @@
       block(tmp0_apply);
       tmp$ret$0 = tmp0_apply;
     }
-    return tmp$ret$0.l17();
+    return tmp$ret$0.build_1k0s4u_k$();
   }
-  function HttpClient_1(block) {
-    return HttpClient_0(JsClient(), block);
-  }
-  function HttpClient$default(block, $mask0, $handler) {
+  function buildHeaders$default(block, $mask0, $handler) {
     if (!(($mask0 & 1) === 0)) {
-      block = HttpClient$lambda_2();
+      block = buildHeaders$lambda();
     }
-    return HttpClient_1(block);
+    return buildHeaders(block);
   }
-  function HttpClient$lambda_2() {
+  function buildHeaders$lambda() {
     return function ($this$null) {
       return Unit_getInstance();
     };
   }
+  function HttpClient_1(block) {
+    return HttpClient_0(JsClient(), block);
+  }
+  function HttpClient$default_0(block, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0)) {
+      block = HttpClient$lambda_3();
+    }
+    return HttpClient_1(block);
+  }
+  function HttpClient$lambda_3() {
+    return function ($this$null) {
+      return Unit_getInstance();
+    };
+  }
+  function ProxyConfig() {
+  }
+  ProxyConfig.$metadata$ = classMeta('ProxyConfig');
   function JsClient() {
     return Js_getInstance();
   }
   function Js() {
     Js_instance = this;
   }
-  Js.prototype.v2u = function (block) {
+  Js.prototype.create_ipi7rm_k$ = function (block) {
     var tmp$ret$0;
     {
       var tmp0_apply = new HttpClientEngineConfig();
@@ -5784,8 +7648,8 @@
     }
     return new JsClientEngine(tmp$ret$0);
   };
-  Js.prototype.v24 = function (block) {
-    return this.v2u(block);
+  Js.prototype.create_g3w65u_k$ = function (block) {
+    return this.create_ipi7rm_k$(block);
   };
   Js.$metadata$ = objectMeta('Js', [HttpClientEngineFactory]);
   var Js_instance;
@@ -5796,10 +7660,10 @@
   }
   function createWebSocket($this, urlString_capturingHack, headers) {
     var tmp;
-    if (PlatformUtils_getInstance().d1o_1) {
+    if (PlatformUtils_getInstance().IS_NODE_1) {
       var ws_capturingHack = eval('require')('ws');
       var headers_capturingHack = new JsClientEngine$createWebSocket$headers_capturingHack$1();
-      headers.n1k(JsClientEngine$createWebSocket$lambda(headers_capturingHack));
+      headers.forEach_arwel4_k$(JsClientEngine$createWebSocket$lambda(headers_capturingHack));
       tmp = new ws_capturingHack(urlString_capturingHack, {headers: headers_capturingHack});
     } else {
       tmp = new WebSocket(urlString_capturingHack);
@@ -5808,9 +7672,9 @@
   }
   function executeWebSocketRequest($this, request, callContext, $cont) {
     var tmp = new $executeWebSocketRequestCOROUTINE$17($this, request, callContext, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function JsClientEngine$createWebSocket$headers_capturingHack$1() {
   }
@@ -5823,18 +7687,18 @@
   }
   function $executeCOROUTINE$16(_this__u8e3s4, data, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.s2v_1 = _this__u8e3s4;
-    this.t2v_1 = data;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.data_1 = data;
   }
-  $executeCOROUTINE$16.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $executeCOROUTINE$16.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 6;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 6;
+            this.state_1 = 1;
             suspendResult = callContext(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
@@ -5842,35 +7706,35 @@
 
             continue $sm;
           case 1:
-            this.u2v_1 = suspendResult;
-            this.v2v_1 = this.t2v_1.w28_1.y1i(get_CLIENT_CONFIG());
-            if (isUpgradeRequest(this.t2v_1)) {
-              this.pd_1 = 5;
-              suspendResult = executeWebSocketRequest(this.s2v_1, this.t2v_1, this.u2v_1, this);
+            this.callContext0__1 = suspendResult;
+            this.clientConfig1__1 = this.data_1.attributes_1.get_g4gx7m_k$(get_CLIENT_CONFIG());
+            if (isUpgradeRequest(this.data_1)) {
+              this.state_1 = 5;
+              suspendResult = executeWebSocketRequest(this._this__u8e3s4__1, this.data_1, this.callContext0__1, this);
               if (suspendResult === get_COROUTINE_SUSPENDED()) {
                 return suspendResult;
               }
               continue $sm;
             } else {
-              this.pd_1 = 2;
+              this.state_1 = 2;
               continue $sm;
             }
 
             break;
           case 2:
             var tmp_0 = this;
-            tmp_0.w2v_1 = GMTDate$default(null, 1, null);
-            this.pd_1 = 3;
-            suspendResult = toRaw(this.t2v_1, this.v2v_1, this.u2v_1, this);
+            tmp_0.requestTime2__1 = GMTDate$default(null, 1, null);
+            this.state_1 = 3;
+            suspendResult = toRaw(this.data_1, this.clientConfig1__1, this.callContext0__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 3:
-            this.x2v_1 = suspendResult;
-            this.pd_1 = 4;
-            suspendResult = commonFetch(this.t2v_1.r28_1.toString(), this.x2v_1, this);
+            this.rawRequest3__1 = suspendResult;
+            this.state_1 = 4;
+            suspendResult = commonFetch(this.data_1.url_1.toString(), this.rawRequest3__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -5880,20 +7744,20 @@
             var rawResponse = suspendResult;
             var status = new HttpStatusCode(rawResponse.status, rawResponse.statusText);
             var headers = mapToKtor(rawResponse.headers);
-            var version = Companion_getInstance_3().a1v_1;
-            var body = readBody(CoroutineScope_0(this.u2v_1), rawResponse);
-            return new HttpResponseData(status, this.w2v_1, headers, version, body, this.u2v_1);
+            var version = Companion_getInstance_3().HTTP_1_1__1;
+            var body = readBody(CoroutineScope_0(this.callContext0__1), rawResponse);
+            return new HttpResponseData(status, this.requestTime2__1, headers, version, body, this.callContext0__1);
           case 5:
             return suspendResult;
           case 6:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 6) {
+        if (this.exceptionState_1 === 6) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -5901,25 +7765,25 @@
   $executeCOROUTINE$16.$metadata$ = classMeta('$executeCOROUTINE$16', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function $executeWebSocketRequestCOROUTINE$17(_this__u8e3s4, request, callContext, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.e2v_1 = _this__u8e3s4;
-    this.f2v_1 = request;
-    this.g2v_1 = callContext;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.request_1 = request;
+    this.callContext_1 = callContext;
   }
-  $executeWebSocketRequestCOROUTINE$17.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $executeWebSocketRequestCOROUTINE$17.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 4;
+            this.exceptionState_1 = 4;
             var tmp_0 = this;
-            tmp_0.h2v_1 = GMTDate$default(null, 1, null);
-            this.i2v_1 = this.f2v_1.r28_1.toString();
-            this.j2v_1 = createWebSocket(this.e2v_1, this.i2v_1, this.f2v_1.t28_1);
-            this.qd_1 = 2;
-            this.pd_1 = 1;
-            suspendResult = awaitConnection(this.j2v_1, this);
+            tmp_0.requestTime0__1 = GMTDate$default(null, 1, null);
+            this.urlString1__1 = this.request_1.url_1.toString();
+            this.socket2__1 = createWebSocket(this._this__u8e3s4__1, this.urlString1__1, this.request_1.headers_1);
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = awaitConnection(this.socket2__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -5927,34 +7791,34 @@
             continue $sm;
           case 1:
             ;
-            this.qd_1 = 4;
-            this.pd_1 = 3;
+            this.exceptionState_1 = 4;
+            this.state_1 = 3;
             continue $sm;
           case 2:
-            this.qd_1 = 4;
-            var tmp_1 = this.sd_1;
+            this.exceptionState_1 = 4;
+            var tmp_1 = this.exception_1;
             if (tmp_1 instanceof Error) {
-              var cause = this.sd_1;
-              cancel_3(this.g2v_1, CancellationException_init_$Create$_0('Failed to connect to ' + this.i2v_1, cause));
+              var cause = this.exception_1;
+              cancel_3(this.callContext_1, CancellationException_init_$Create$_0('Failed to connect to ' + this.urlString1__1, cause));
               throw cause;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 3:
-            this.qd_1 = 4;
-            var session = new JsWebSocketSession(this.g2v_1, this.j2v_1);
-            return new HttpResponseData(Companion_getInstance_1().k1v_1, this.h2v_1, Companion_getInstance_4().i1q_1, Companion_getInstance_3().a1v_1, session, this.g2v_1);
+            this.exceptionState_1 = 4;
+            var session = new JsWebSocketSession(this.callContext_1, this.socket2__1);
+            return new HttpResponseData(Companion_getInstance_1().OK_1, this.requestTime0__1, Companion_getInstance_4().Empty_1, Companion_getInstance_3().HTTP_1_1__1, session, this.callContext_1);
           case 4:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 4) {
+        if (this.exceptionState_1 === 4) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -5962,11 +7826,11 @@
   $executeWebSocketRequestCOROUTINE$17.$metadata$ = classMeta('$executeWebSocketRequestCOROUTINE$17', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function JsClientEngine(config) {
     HttpClientEngineBase.call(this, 'ktor-js');
-    this.b2w_1 = config;
-    this.c2w_1 = Dispatchers_getInstance().mv_1;
-    this.d2w_1 = setOf_0([Plugin_getInstance_4(), WebSocketCapability_getInstance()]);
+    this.config_1 = config;
+    this.dispatcher_1 = Dispatchers_getInstance().Default_1;
+    this.supportedCapabilities_1 = setOf_0([Plugin_getInstance_5(), WebSocketCapability_getInstance()]);
     {
-      var tmp0_check = this.b2w_1.o2a_1 == null;
+      var tmp0_check = this.config_1.proxy_1 == null;
       {
       }
       if (!tmp0_check) {
@@ -5979,20 +7843,20 @@
       }
     }
   }
-  JsClientEngine.prototype.f24 = function () {
-    return this.b2w_1;
+  JsClientEngine.prototype.get_config_c0698r_k$ = function () {
+    return this.config_1;
   };
-  JsClientEngine.prototype.i2a = function () {
-    return this.c2w_1;
+  JsClientEngine.prototype.get_dispatcher_usy1bk_k$ = function () {
+    return this.dispatcher_1;
   };
-  JsClientEngine.prototype.y28 = function () {
-    return this.d2w_1;
+  JsClientEngine.prototype.get_supportedCapabilities_gwz15x_k$ = function () {
+    return this.supportedCapabilities_1;
   };
-  JsClientEngine.prototype.g2a = function (data, $cont) {
+  JsClientEngine.prototype.execute_95skru_k$ = function (data, $cont) {
     var tmp = new $executeCOROUTINE$16(this, data, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
   JsClientEngine.$metadata$ = classMeta('JsClientEngine', undefined, undefined, undefined, undefined, HttpClientEngineBase.prototype);
   function mapToKtor(_this__u8e3s4) {
@@ -6003,19 +7867,19 @@
     {
       var tmp0__anonymous__q1qw7t = $cont;
       var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
-      cancellable.cp();
+      cancellable.initCancellability_sh6jkn_k$();
       var tmp$ret$0;
       $l$block: {
-        if (cancellable.kn()) {
+        if (cancellable.get_isCancelled_trk8pu_k$()) {
           tmp$ret$0 = Unit_getInstance();
           break $l$block;
         }
         var eventListener = awaitConnection$lambda(cancellable, _this__u8e3s4);
         _this__u8e3s4.addEventListener('open', eventListener);
         _this__u8e3s4.addEventListener('error', eventListener);
-        cancellable.qn(awaitConnection$lambda_0(_this__u8e3s4, eventListener));
+        cancellable.invokeOnCancellation_yygv6h_k$(awaitConnection$lambda_0(_this__u8e3s4, eventListener));
       }
-      tmp$ret$1 = cancellable.lp();
+      tmp$ret$1 = cancellable.getResult_clfhg3_k$();
     }
     return tmp$ret$1;
   }
@@ -6043,7 +7907,7 @@
             }
             tmp$ret$2 = tmp$ret$1;
           }
-          tmp0_apply.fc(tmp.stringify(_this__u8e3s4, tmp$ret$2));
+          tmp0_apply.append_ssq29y_k$(tmp.stringify(_this__u8e3s4, tmp$ret$2));
         }
         tmp$ret$3 = tmp0_apply;
       }
@@ -6053,13 +7917,16 @@
   }
   function JsError(origin) {
     extendThrowable(this, 'Error from javascript[' + origin + '].', void 1);
-    this.e2w_1 = origin;
+    this.origin_1 = origin;
     captureStack(this, JsError);
   }
+  JsError.prototype.get_origin_hq9xkf_k$ = function () {
+    return this.origin_1;
+  };
   JsError.$metadata$ = classMeta('JsError', undefined, undefined, undefined, undefined, Error.prototype);
   function mapToKtor$lambda$lambda($this_buildHeaders) {
     return function (value, key) {
-      $this_buildHeaders.u1k(key, value);
+      $this_buildHeaders.append_ptbgmx_k$(key, value);
       return Unit_getInstance();
     };
   }
@@ -6085,7 +7952,7 @@
             var tmp0_success = Companion_getInstance_5();
             tmp$ret$0 = _Result___init__impl__xyqfz8($this_awaitConnection);
           }
-          tmp$ret$1 = $cancellable.y2(tmp$ret$0);
+          tmp$ret$1 = $cancellable.resumeWith_s3a3yh_k$(tmp$ret$0);
         }
         tmp = tmp$ret$1;
       } else if (tmp0_subject === 'error') {
@@ -6097,7 +7964,7 @@
             var tmp0_failure = Companion_getInstance_5();
             tmp$ret$2 = _Result___init__impl__xyqfz8(createFailure(tmp0_resumeWithException));
           }
-          tmp$ret$3 = $cancellable.y2(tmp$ret$2);
+          tmp$ret$3 = $cancellable.resumeWith_s3a3yh_k$(tmp$ret$2);
         }
         tmp = tmp$ret$3;
       }
@@ -6117,9 +7984,9 @@
   }
   function toRaw(_this__u8e3s4, clientConfig, callContext, $cont) {
     var tmp = new $toRawCOROUTINE$18(_this__u8e3s4, clientConfig, callContext, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   }
   function buildObject(block) {
     var tmp$ret$0;
@@ -6140,28 +8007,28 @@
     };
   }
   function toRaw$slambda($content, resultContinuation) {
-    this.b2x_1 = $content;
+    this.$content_1 = $content;
     CoroutineImpl.call(this, resultContinuation);
   }
-  toRaw$slambda.prototype.y27 = function ($this$writer, $cont) {
-    var tmp = this.z27($this$writer, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  toRaw$slambda.prototype.invoke_65o7wc_k$ = function ($this$writer, $cont) {
+    var tmp = this.create_4ctjxj_k$($this$writer, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  toRaw$slambda.prototype.ae = function (p1, $cont) {
-    return this.y27((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
+  toRaw$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_65o7wc_k$((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  toRaw$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  toRaw$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 2;
-            this.pd_1 = 1;
-            suspendResult = this.b2x_1.x1z(this.c2x_1.rw(), this);
+            this.exceptionState_1 = 2;
+            this.state_1 = 1;
+            suspendResult = this.$content_1.writeTo_wvkb45_k$(this.$this$writer_1.get_channel_dhi7tm_k$(), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -6170,38 +8037,41 @@
           case 1:
             return Unit_getInstance();
           case 2:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 2) {
+        if (this.exceptionState_1 === 2) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  toRaw$slambda.prototype.z27 = function ($this$writer, completion) {
-    var i = new toRaw$slambda(this.b2x_1, completion);
-    i.c2x_1 = $this$writer;
+  toRaw$slambda.prototype.create_4ctjxj_k$ = function ($this$writer, completion) {
+    var i = new toRaw$slambda(this.$content_1, completion);
+    i.$this$writer_1 = $this$writer;
     return i;
+  };
+  toRaw$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_4ctjxj_k$((!(value == null) ? isInterface(value, WriterScope) : false) ? value : THROW_CCE(), completion);
   };
   toRaw$slambda.$metadata$ = classMeta('toRaw$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function toRaw$slambda_0($content, resultContinuation) {
     var i = new toRaw$slambda($content, resultContinuation);
     var l = function ($this$writer, $cont) {
-      return i.y27($this$writer, $cont);
+      return i.invoke_65o7wc_k$($this$writer, $cont);
     };
     l.$arity = 1;
     return l;
   }
   function toRaw$lambda_0($this_toRaw, $jsHeaders, $clientConfig, $bodyBytes) {
     return function ($this$buildObject) {
-      $this$buildObject.method = $this_toRaw.s28_1.y1u_1;
+      $this$buildObject.method = $this_toRaw.method_1.value_1;
       $this$buildObject.headers = $jsHeaders;
       var tmp;
-      if ($clientConfig.b24_1) {
+      if ($clientConfig.followRedirects_1) {
         var tmp$ret$2;
         {
           var tmp0__get_FOLLOW__lsxog0 = null;
@@ -6251,50 +8121,50 @@
   }
   function $toRawCOROUTINE$18(_this__u8e3s4, clientConfig, callContext, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.n2w_1 = _this__u8e3s4;
-    this.o2w_1 = clientConfig;
-    this.p2w_1 = callContext;
+    this._this__u8e3s4__1 = _this__u8e3s4;
+    this.clientConfig_1 = clientConfig;
+    this.callContext_1 = callContext;
   }
-  $toRawCOROUTINE$18.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  $toRawCOROUTINE$18.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 4;
-            this.q2w_1 = {};
-            mergeHeaders(this.n2w_1.t28_1, this.n2w_1.u28_1, toRaw$lambda(this.q2w_1));
-            this.r2w_1 = this.n2w_1.u28_1;
-            var tmp_0 = this.r2w_1;
+            this.exceptionState_1 = 4;
+            this.jsHeaders0__1 = {};
+            mergeHeaders(this._this__u8e3s4__1.headers_1, this._this__u8e3s4__1.body_1, toRaw$lambda(this.jsHeaders0__1));
+            this.content1__1 = this._this__u8e3s4__1.body_1;
+            var tmp_0 = this.content1__1;
             if (tmp_0 instanceof ByteArrayContent) {
-              this.s2w_1 = this.r2w_1.z1z();
-              this.pd_1 = 3;
+              this.WHEN_RESULT2__1 = this.content1__1.bytes_1k3k2z_k$();
+              this.state_1 = 3;
               continue $sm;
             } else {
-              var tmp_1 = this.r2w_1;
+              var tmp_1 = this.content1__1;
               if (tmp_1 instanceof ReadChannelContent) {
-                this.pd_1 = 2;
-                var tmp_2 = this.r2w_1.v1z();
-                suspendResult = tmp_2.q19(new Long(0, 0), this, 1, null);
+                this.state_1 = 2;
+                var tmp_2 = this.content1__1.readFrom_ecr4ww_k$();
+                suspendResult = tmp_2.readRemaining$default_u0hcq7_k$(new Long(0, 0), this, 1, null);
                 if (suspendResult === get_COROUTINE_SUSPENDED()) {
                   return suspendResult;
                 }
                 continue $sm;
               } else {
-                var tmp_3 = this.r2w_1;
+                var tmp_3 = this.content1__1;
                 if (tmp_3 instanceof WriteChannelContent) {
-                  this.pd_1 = 1;
+                  this.state_1 = 1;
                   var tmp_4 = GlobalScope_getInstance();
-                  var tmp_5 = writer$default(tmp_4, this.p2w_1, false, toRaw$slambda_0(this.r2w_1, null), 2, null).rw();
-                  suspendResult = tmp_5.q19(new Long(0, 0), this, 1, null);
+                  var tmp_5 = writer$default(tmp_4, this.callContext_1, false, toRaw$slambda_0(this.content1__1, null), 2, null).get_channel_dhi7tm_k$();
+                  suspendResult = tmp_5.readRemaining$default_u0hcq7_k$(new Long(0, 0), this, 1, null);
                   if (suspendResult === get_COROUTINE_SUSPENDED()) {
                     return suspendResult;
                   }
                   continue $sm;
                 } else {
-                  this.s2w_1 = null;
-                  this.pd_1 = 3;
+                  this.WHEN_RESULT2__1 = null;
+                  this.state_1 = 3;
                   continue $sm;
                 }
               }
@@ -6304,27 +8174,27 @@
           case 1:
             var ARGUMENT = suspendResult;
             var tmp_6 = this;
-            tmp_6.s2w_1 = readBytes$default(ARGUMENT, 0, 1, null);
-            this.pd_1 = 3;
+            tmp_6.WHEN_RESULT2__1 = readBytes$default(ARGUMENT, 0, 1, null);
+            this.state_1 = 3;
             continue $sm;
           case 2:
             var ARGUMENT_0 = suspendResult;
             var tmp_7 = this;
-            tmp_7.s2w_1 = readBytes$default(ARGUMENT_0, 0, 1, null);
-            this.pd_1 = 3;
+            tmp_7.WHEN_RESULT2__1 = readBytes$default(ARGUMENT_0, 0, 1, null);
+            this.state_1 = 3;
             continue $sm;
           case 3:
-            var bodyBytes = this.s2w_1;
-            return buildObject(toRaw$lambda_0(this.n2w_1, this.q2w_1, this.o2w_1, bodyBytes));
+            var bodyBytes = this.WHEN_RESULT2__1;
+            return buildObject(toRaw$lambda_0(this._this__u8e3s4__1, this.jsHeaders0__1, this.clientConfig_1, bodyBytes));
           case 4:
-            throw this.sd_1;
+            throw this.exception_1;
         }
       } catch ($p) {
-        if (this.qd_1 === 4) {
+        if (this.exceptionState_1 === 4) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
@@ -6342,7 +8212,7 @@
     var tmp0_elvis_lhs = response.body;
     var tmp;
     if (tmp0_elvis_lhs == null) {
-      return Companion_getInstance().n1b();
+      return Companion_getInstance().get_Empty_i9b85g_k$();
     } else {
       tmp = tmp0_elvis_lhs;
     }
@@ -6350,129 +8220,132 @@
     return channelFromStream(_this__u8e3s4, stream);
   }
   function channelFromStream(_this__u8e3s4, stream) {
-    return writer$default(_this__u8e3s4, null, false, channelFromStream$slambda_0(stream, null), 3, null).rw();
+    return writer$default(_this__u8e3s4, null, false, channelFromStream$slambda_0(stream, null), 3, null).get_channel_dhi7tm_k$();
   }
   function readChunk(_this__u8e3s4, $cont) {
     var tmp$ret$0;
     {
       var tmp0__anonymous__q1qw7t = $cont;
       var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
-      cancellable.cp();
+      cancellable.initCancellability_sh6jkn_k$();
       {
         var tmp = _this__u8e3s4.read();
         var tmp_0 = tmp.then(readChunk$lambda(cancellable));
         tmp_0.catch(readChunk$lambda_0(cancellable));
       }
-      tmp$ret$0 = cancellable.lp();
+      tmp$ret$0 = cancellable.getResult_clfhg3_k$();
     }
     return tmp$ret$0;
   }
   function channelFromStream$slambda($stream, resultContinuation) {
-    this.l2x_1 = $stream;
+    this.$stream_1 = $stream;
     CoroutineImpl.call(this, resultContinuation);
   }
-  channelFromStream$slambda.prototype.y27 = function ($this$writer, $cont) {
-    var tmp = this.z27($this$writer, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  channelFromStream$slambda.prototype.invoke_65o7wc_k$ = function ($this$writer, $cont) {
+    var tmp = this.create_4ctjxj_k$($this$writer, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  channelFromStream$slambda.prototype.ae = function (p1, $cont) {
-    return this.y27((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
+  channelFromStream$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_65o7wc_k$((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  channelFromStream$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  channelFromStream$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 6;
-            this.n2x_1 = this.l2x_1.getReader();
-            this.pd_1 = 1;
+            this.exceptionState_1 = 6;
+            this.reader0__1 = this.$stream_1.getReader();
+            this.state_1 = 1;
             continue $sm;
           case 1:
             if (false) {
-              this.pd_1 = 8;
+              this.state_1 = 8;
               continue $sm;
             }
 
-            this.qd_1 = 5;
-            this.pd_1 = 2;
-            suspendResult = readChunk(this.n2x_1, this);
+            this.exceptionState_1 = 5;
+            this.state_1 = 2;
+            suspendResult = readChunk(this.reader0__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 2:
-            this.o2x_1 = suspendResult;
-            if (this.o2x_1 == null) {
-              this.qd_1 = 6;
-              this.pd_1 = 8;
+            this.tmp0_elvis_lhs1__1 = suspendResult;
+            if (this.tmp0_elvis_lhs1__1 == null) {
+              this.exceptionState_1 = 6;
+              this.state_1 = 8;
               var tmp_0 = this;
               continue $sm;
             } else {
-              this.p2x_1 = this.o2x_1;
-              this.pd_1 = 3;
+              this.WHEN_RESULT2__1 = this.tmp0_elvis_lhs1__1;
+              this.state_1 = 3;
               continue $sm;
             }
 
             break;
           case 3:
-            this.q2x_1 = this.p2x_1;
-            this.pd_1 = 4;
-            suspendResult = writeFully(this.m2x_1.rw(), asByteArray(this.q2x_1), this);
+            this.chunk3__1 = this.WHEN_RESULT2__1;
+            this.state_1 = 4;
+            suspendResult = writeFully(this.$this$writer_1.get_channel_dhi7tm_k$(), asByteArray(this.chunk3__1), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 4:
-            this.qd_1 = 6;
-            this.pd_1 = 7;
+            this.exceptionState_1 = 6;
+            this.state_1 = 7;
             continue $sm;
           case 5:
-            this.qd_1 = 6;
-            var tmp_1 = this.sd_1;
+            this.exceptionState_1 = 6;
+            var tmp_1 = this.exception_1;
             if (tmp_1 instanceof Error) {
-              var cause = this.sd_1;
-              this.n2x_1.cancel(cause);
+              var cause = this.exception_1;
+              this.reader0__1.cancel(cause);
               throw cause;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 6:
-            throw this.sd_1;
+            throw this.exception_1;
           case 7:
-            this.qd_1 = 6;
-            this.pd_1 = 1;
+            this.exceptionState_1 = 6;
+            this.state_1 = 1;
             continue $sm;
           case 8:
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 6) {
+        if (this.exceptionState_1 === 6) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  channelFromStream$slambda.prototype.z27 = function ($this$writer, completion) {
-    var i = new channelFromStream$slambda(this.l2x_1, completion);
-    i.m2x_1 = $this$writer;
+  channelFromStream$slambda.prototype.create_4ctjxj_k$ = function ($this$writer, completion) {
+    var i = new channelFromStream$slambda(this.$stream_1, completion);
+    i.$this$writer_1 = $this$writer;
     return i;
+  };
+  channelFromStream$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_4ctjxj_k$((!(value == null) ? isInterface(value, WriterScope) : false) ? value : THROW_CCE(), completion);
   };
   channelFromStream$slambda.$metadata$ = classMeta('channelFromStream$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function channelFromStream$slambda_0($stream, resultContinuation) {
     var i = new channelFromStream$slambda($stream, resultContinuation);
     var l = function ($this$writer, $cont) {
-      return i.y27($this$writer, $cont);
+      return i.invoke_65o7wc_k$($this$writer, $cont);
     };
     l.$arity = 1;
     return l;
@@ -6486,7 +8359,7 @@
         var tmp0_success = Companion_getInstance_5();
         tmp$ret$0 = _Result___init__impl__xyqfz8(result);
       }
-      $cancellable.y2(tmp$ret$0);
+      $cancellable.resumeWith_s3a3yh_k$(tmp$ret$0);
       return Unit_getInstance();
     };
   }
@@ -6499,7 +8372,7 @@
           var tmp0_failure = Companion_getInstance_5();
           tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(cause));
         }
-        tmp$ret$1 = $cancellable.y2(tmp$ret$0);
+        tmp$ret$1 = $cancellable.resumeWith_s3a3yh_k$(tmp$ret$0);
       }
       return Unit_getInstance();
     };
@@ -6509,13 +8382,13 @@
     {
       var tmp0__anonymous__q1qw7t = $cont;
       var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
-      cancellable.cp();
+      cancellable.initCancellability_sh6jkn_k$();
       {
         var controller = AbortController_0();
         init.signal = controller.signal;
-        cancellable.qn(commonFetch$lambda(controller));
+        cancellable.invokeOnCancellation_yygv6h_k$(commonFetch$lambda(controller));
         var tmp;
-        if (PlatformUtils_getInstance().c1o_1) {
+        if (PlatformUtils_getInstance().IS_BROWSER_1) {
           tmp = fetch(input, init);
         } else {
           tmp = jsRequireNodeFetch()(input, init);
@@ -6524,13 +8397,13 @@
         var tmp_0 = commonFetch$lambda_0(cancellable);
         promise.then(tmp_0, commonFetch$lambda_1(cancellable));
       }
-      tmp$ret$0 = cancellable.lp();
+      tmp$ret$0 = cancellable.getResult_clfhg3_k$();
     }
     return tmp$ret$0;
   }
   function readBody(_this__u8e3s4, response) {
     var tmp;
-    if (PlatformUtils_getInstance().c1o_1) {
+    if (PlatformUtils_getInstance().IS_BROWSER_1) {
       tmp = readBodyBrowser(_this__u8e3s4, response);
     } else {
       tmp = readBodyNode(_this__u8e3s4, response);
@@ -6539,7 +8412,7 @@
   }
   function AbortController_0() {
     var tmp;
-    if (PlatformUtils_getInstance().c1o_1) {
+    if (PlatformUtils_getInstance().IS_BROWSER_1) {
       tmp = new AbortController();
     } else {
       var controller = eval('require')('abort-controller');
@@ -6573,7 +8446,7 @@
         var tmp0_success = Companion_getInstance_5();
         tmp$ret$0 = _Result___init__impl__xyqfz8(it);
       }
-      $cancellable.y2(tmp$ret$0);
+      $cancellable.resumeWith_s3a3yh_k$(tmp$ret$0);
       return Unit_getInstance();
     };
   }
@@ -6585,54 +8458,54 @@
         var tmp1_failure = Error_init_$Create$_0('Fail to fetch', it);
         tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(tmp1_failure));
       }
-      $cancellable.y2(tmp$ret$0);
+      $cancellable.resumeWith_s3a3yh_k$(tmp$ret$0);
       return Unit_getInstance();
     };
   }
   function readBodyNode(_this__u8e3s4, response) {
-    return writer$default(_this__u8e3s4, null, false, readBodyNode$slambda_0(response, null), 3, null).rw();
+    return writer$default(_this__u8e3s4, null, false, readBodyNode$slambda_0(response, null), 3, null).get_channel_dhi7tm_k$();
   }
   function readBodyNode$slambda$lambda($responseData, $body) {
     return function (chunk) {
-      _ChannelResult___get_isSuccess__impl__odq1z9($responseData.gy(asByteArray(new Uint8Array(chunk))));
+      _ChannelResult___get_isSuccess__impl__odq1z9($responseData.trySend_3hclq4_k$(asByteArray(new Uint8Array(chunk))));
       return $body.pause();
     };
   }
   function readBodyNode$slambda$lambda_0($responseData, $this_writer) {
     return function (error) {
       var cause = new JsError(error);
-      $responseData.zx(cause);
-      return $this_writer.rw().zx(cause);
+      $responseData.close_9zy44b_k$(cause);
+      return $this_writer.get_channel_dhi7tm_k$().close_9zy44b_k$(cause);
     };
   }
   function readBodyNode$slambda$lambda_1($responseData) {
     return function () {
-      return $responseData.hy(null, 1, null);
+      return $responseData.close$default_jao18g_k$(null, 1, null);
     };
   }
   function readBodyNode$slambda($response, resultContinuation) {
-    this.z2x_1 = $response;
+    this.$response_1 = $response;
     CoroutineImpl.call(this, resultContinuation);
   }
-  readBodyNode$slambda.prototype.y27 = function ($this$writer, $cont) {
-    var tmp = this.z27($this$writer, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  readBodyNode$slambda.prototype.invoke_65o7wc_k$ = function ($this$writer, $cont) {
+    var tmp = this.create_4ctjxj_k$($this$writer, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  readBodyNode$slambda.prototype.ae = function (p1, $cont) {
-    return this.y27((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
+  readBodyNode$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_65o7wc_k$((!(p1 == null) ? isInterface(p1, WriterScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  readBodyNode$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  readBodyNode$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 6;
+            this.exceptionState_1 = 6;
             var tmp_0 = this;
-            var tmp0_elvis_lhs = this.z2x_1.body;
+            var tmp0_elvis_lhs = this.$response_1.body;
             var tmp_1;
             if (tmp0_elvis_lhs == null) {
               throw IllegalStateException_init_$Create$('Fail to get body');
@@ -6640,19 +8513,19 @@
               tmp_1 = tmp0_elvis_lhs;
             }
 
-            tmp_0.b2y_1 = tmp_1;
+            tmp_0.body0__1 = tmp_1;
             var tmp_2 = this;
-            tmp_2.c2y_1 = Channel$default(1, null, null, 6, null);
-            this.b2y_1.on('data', readBodyNode$slambda$lambda(this.c2y_1, this.b2y_1));
-            this.b2y_1.on('error', readBodyNode$slambda$lambda_0(this.c2y_1, this.a2y_1));
-            this.b2y_1.on('end', readBodyNode$slambda$lambda_1(this.c2y_1));
-            this.qd_1 = 5;
-            this.d2y_1 = this.c2y_1.d();
-            this.pd_1 = 1;
+            tmp_2.responseData1__1 = Channel$default(1, null, null, 6, null);
+            this.body0__1.on('data', readBodyNode$slambda$lambda(this.responseData1__1, this.body0__1));
+            this.body0__1.on('error', readBodyNode$slambda$lambda_0(this.responseData1__1, this.$this$writer_1));
+            this.body0__1.on('end', readBodyNode$slambda$lambda_1(this.responseData1__1));
+            this.exceptionState_1 = 5;
+            this.tmp1_iterator2__1 = this.responseData1__1.iterator_jk1svi_k$();
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            this.pd_1 = 2;
-            suspendResult = this.d2y_1.tw(this);
+            this.state_1 = 2;
+            suspendResult = this.tmp1_iterator2__1.hasNext_4tgia2_k$(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -6660,65 +8533,68 @@
             continue $sm;
           case 2:
             if (!suspendResult) {
-              this.pd_1 = 4;
+              this.state_1 = 4;
               continue $sm;
             }
 
-            this.e2y_1 = this.d2y_1.f();
-            this.pd_1 = 3;
-            suspendResult = writeFully(this.a2y_1.rw(), this.e2y_1, this);
+            this.chunk3__1 = this.tmp1_iterator2__1.next_20eer_k$();
+            this.state_1 = 3;
+            suspendResult = writeFully(this.$this$writer_1.get_channel_dhi7tm_k$(), this.chunk3__1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 3:
-            this.b2y_1.resume();
-            this.pd_1 = 1;
+            this.body0__1.resume();
+            this.state_1 = 1;
             continue $sm;
           case 4:
-            this.qd_1 = 6;
-            this.pd_1 = 7;
+            this.exceptionState_1 = 6;
+            this.state_1 = 7;
             continue $sm;
           case 5:
-            this.qd_1 = 6;
-            var tmp_3 = this.sd_1;
+            this.exceptionState_1 = 6;
+            var tmp_3 = this.exception_1;
             if (tmp_3 instanceof Error) {
-              var cause = this.sd_1;
-              this.b2y_1.destroy(cause);
+              var cause = this.exception_1;
+              this.body0__1.destroy(cause);
               throw cause;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 6:
-            throw this.sd_1;
+            throw this.exception_1;
           case 7:
-            this.qd_1 = 6;
+            this.exceptionState_1 = 6;
             ;
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 6) {
+        if (this.exceptionState_1 === 6) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  readBodyNode$slambda.prototype.z27 = function ($this$writer, completion) {
-    var i = new readBodyNode$slambda(this.z2x_1, completion);
-    i.a2y_1 = $this$writer;
+  readBodyNode$slambda.prototype.create_4ctjxj_k$ = function ($this$writer, completion) {
+    var i = new readBodyNode$slambda(this.$response_1, completion);
+    i.$this$writer_1 = $this$writer;
     return i;
+  };
+  readBodyNode$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_4ctjxj_k$((!(value == null) ? isInterface(value, WriterScope) : false) ? value : THROW_CCE(), completion);
   };
   readBodyNode$slambda.$metadata$ = classMeta('readBodyNode$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function readBodyNode$slambda_0($response, resultContinuation) {
     var i = new readBodyNode$slambda($response, resultContinuation);
     var l = function ($this$writer, $cont) {
-      return i.y27($this$writer, $cont);
+      return i.invoke_65o7wc_k$($this$writer, $cont);
     };
     l.$arity = 1;
     return l;
@@ -6728,10 +8604,22 @@
   }
   function platformResponseDefaultTransformers(_this__u8e3s4) {
   }
+  function _get_websocket__2qm0ru($this) {
+    return $this.websocket_1;
+  }
+  function _get__closeReason__rkk1fy($this) {
+    return $this._closeReason_1;
+  }
+  function _get__incoming__1bn23w($this) {
+    return $this._incoming_1;
+  }
+  function _get__outgoing__emmja2($this) {
+    return $this._outgoing_1;
+  }
   function isReservedStatusCode(_this__u8e3s4, $this) {
     var tmp$ret$1;
     {
-      var tmp0_let = Companion_getInstance_6().r20(_this__u8e3s4);
+      var tmp0_let = Companion_getInstance_6().byCode_2tpqvq_k$(_this__u8e3s4);
       {
       }
       var tmp$ret$0;
@@ -6771,21 +8659,21 @@
           tmp = Text_init_$Create$(data);
         } else {
           var error = IllegalStateException_init_$Create$('Unknown frame type: ' + event.type);
-          this$0.h2y_1.xp(error);
+          this$0._closeReason_1.completeExceptionally_7s0ccc_k$(error);
           throw error;
         }
       }
       var frame = tmp;
-      this$0.i2y_1.gy(frame);
+      this$0._incoming_1.trySend_3hclq4_k$(frame);
       return Unit_getInstance();
     };
   }
   function JsWebSocketSession$lambda_0(this$0) {
     return function (it) {
       var cause = new WebSocketException('' + it);
-      this$0.h2y_1.xp(cause);
-      this$0.i2y_1.zx(cause);
-      this$0.j2y_1.xl(null, 1, null);
+      this$0._closeReason_1.completeExceptionally_7s0ccc_k$(cause);
+      this$0._incoming_1.close_9zy44b_k$(cause);
+      this$0._outgoing_1.cancel$default_bm1z3z_k$(null, 1, null);
       return Unit_getInstance();
     };
   }
@@ -6795,54 +8683,54 @@
       var tmp_0 = (!(tmp == null) ? typeof tmp === 'number' : false) ? tmp : THROW_CCE();
       var tmp_1 = event.reason;
       var reason = new CloseReason(tmp_0, (!(tmp_1 == null) ? typeof tmp_1 === 'string' : false) ? tmp_1 : THROW_CCE());
-      this$0.h2y_1.wp(reason);
-      this$0.i2y_1.gy(Close_init_$Create$(reason));
-      this$0.i2y_1.hy(null, 1, null);
-      this$0.j2y_1.xl(null, 1, null);
+      this$0._closeReason_1.complete_8y7ynm_k$(reason);
+      this$0._incoming_1.trySend_3hclq4_k$(Close_init_$Create$(reason));
+      this$0._incoming_1.close$default_jao18g_k$(null, 1, null);
+      this$0._outgoing_1.cancel$default_bm1z3z_k$(null, 1, null);
       return Unit_getInstance();
     };
   }
   function JsWebSocketSession$slambda(this$0, resultContinuation) {
-    this.v2y_1 = this$0;
+    this.this$0__1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  JsWebSocketSession$slambda.prototype.q1a = function ($this$launch, $cont) {
-    var tmp = this.r1a($this$launch, $cont);
-    tmp.rd_1 = Unit_getInstance();
-    tmp.sd_1 = null;
-    return tmp.zd();
+  JsWebSocketSession$slambda.prototype.invoke_d6gbsu_k$ = function ($this$launch, $cont) {
+    var tmp = this.create_b6qu53_k$($this$launch, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
   };
-  JsWebSocketSession$slambda.prototype.ae = function (p1, $cont) {
-    return this.q1a((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
+  JsWebSocketSession$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_d6gbsu_k$((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  JsWebSocketSession$slambda.prototype.zd = function () {
-    var suspendResult = this.rd_1;
+  JsWebSocketSession$slambda.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
     $sm: do
       try {
-        var tmp = this.pd_1;
+        var tmp = this.state_1;
         switch (tmp) {
           case 0:
-            this.qd_1 = 10;
+            this.exceptionState_1 = 10;
             var tmp_0 = this;
-            tmp_0.x2y_1 = this.v2y_1.j2y_1;
-            this.pd_1 = 1;
+            tmp_0.tmp0_consumeEach0__1 = this.this$0__1._outgoing_1;
+            this.state_1 = 1;
             continue $sm;
           case 1:
-            this.z2y_1 = null;
-            this.pd_1 = 2;
+            this.cause2__1 = null;
+            this.state_1 = 2;
             continue $sm;
           case 2:
-            this.pd_1 = 3;
+            this.state_1 = 3;
             continue $sm;
           case 3:
-            this.qd_1 = 9;
-            this.qd_1 = 8;
-            this.b2z_1 = this.x2y_1.d();
-            this.pd_1 = 4;
+            this.exceptionState_1 = 9;
+            this.exceptionState_1 = 8;
+            this.tmp0_iterator5__1 = this.tmp0_consumeEach0__1.iterator_jk1svi_k$();
+            this.state_1 = 4;
             continue $sm;
           case 4:
-            this.pd_1 = 5;
-            suspendResult = this.b2z_1.tw(this);
+            this.state_1 = 5;
+            suspendResult = this.tmp0_iterator5__1.hasNext_4tgia2_k$(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -6850,35 +8738,35 @@
             continue $sm;
           case 5:
             if (!suspendResult) {
-              this.pd_1 = 6;
+              this.state_1 = 6;
               continue $sm;
             }
 
-            var e = this.b2z_1.f();
-            var tmp0_subject = e.f21_1;
-            var tmp0 = tmp0_subject.xc();
+            var e = this.tmp0_iterator5__1.next_20eer_k$();
+            var tmp0_subject = e.frameType_1;
+            var tmp0 = tmp0_subject.get_ordinal_ip24qg_k$();
             switch (tmp0) {
               case 0:
-                var text = e.g21_1;
-                this.v2y_1.g2y_1.send(String$default(text, 0, 0, null, 14, null));
+                var text = e.data_1;
+                this.this$0__1.websocket_1.send(String$default(text, 0, 0, null, 14, null));
                 break;
               case 1:
-                var tmp_1 = e.g21_1;
+                var tmp_1 = e.data_1;
                 var source = tmp_1 instanceof Int8Array ? tmp_1 : THROW_CCE();
                 var frameData = source.buffer.slice(source.byteOffset, source.byteOffset + source.byteLength | 0);
-                this.v2y_1.g2y_1.send(frameData);
+                this.this$0__1.websocket_1.send(frameData);
                 break;
               case 2:
                 var tmp$ret$0;
                 l$ret$1: do {
                   var builder = BytePacketBuilder_init_$Create$(null, 1, null);
                   try {
-                    writeFully$default(builder, e.g21_1, 0, 0, 6, null);
-                    tmp$ret$0 = builder.l17();
+                    writeFully$default(builder, e.data_1, 0, 0, 6, null);
+                    tmp$ret$0 = builder.build_1k0s4u_k$();
                     break l$ret$1;
                   } catch ($p) {
                     if ($p instanceof Error) {
-                      builder.rq();
+                      builder.release_wtm6d2_k$();
                       throw $p;
                     } else {
                       throw $p;
@@ -6888,13 +8776,13 @@
                  while (false);
                 var data = tmp$ret$0;
                 var code = readShort(data);
-                var reason = data.n1e(0, 0, 3, null);
-                this.v2y_1.h2y_1.wp(new CloseReason(code, reason));
+                var reason = data.readText$default_mjq276_k$(0, 0, 3, null);
+                this.this$0__1._closeReason_1.complete_8y7ynm_k$(new CloseReason(code, reason));
                 ;
-                if (isReservedStatusCode(code, this.v2y_1)) {
-                  this.v2y_1.g2y_1.close();
+                if (isReservedStatusCode(code, this.this$0__1)) {
+                  this.this$0__1.websocket_1.close();
                 } else {
-                  this.v2y_1.g2y_1.close(code, reason);
+                  this.this$0__1.websocket_1.close(code, reason);
                 }
 
                 break;
@@ -6903,71 +8791,74 @@
                 break;
             }
 
-            this.pd_1 = 4;
+            this.state_1 = 4;
             continue $sm;
           case 6:
-            this.a2z_1 = Unit_getInstance();
-            this.qd_1 = 10;
-            this.pd_1 = 7;
+            this.tmp$ret$24__1 = Unit_getInstance();
+            this.exceptionState_1 = 10;
+            this.state_1 = 7;
             var tmp_2 = this;
             continue $sm;
           case 7:
             var tmp_3 = this;
-            tmp_3.y2y_1 = cancelConsumed(this.x2y_1, this.z2y_1);
-            this.pd_1 = 12;
+            tmp_3.tmp$ret$61__1 = cancelConsumed(this.tmp0_consumeEach0__1, this.cause2__1);
+            this.state_1 = 12;
             continue $sm;
           case 8:
-            this.qd_1 = 9;
-            var tmp_4 = this.sd_1;
+            this.exceptionState_1 = 9;
+            var tmp_4 = this.exception_1;
             if (tmp_4 instanceof Error) {
-              var e_0 = this.sd_1;
+              var e_0 = this.exception_1;
               var tmp_5 = this;
-              this.z2y_1 = e_0;
+              this.cause2__1 = e_0;
               throw e_0;
             } else {
-              throw this.sd_1;
+              throw this.exception_1;
             }
 
             break;
           case 9:
-            this.qd_1 = 10;
-            var t = this.sd_1;
-            cancelConsumed(this.x2y_1, this.z2y_1);
+            this.exceptionState_1 = 10;
+            var t = this.exception_1;
+            cancelConsumed(this.tmp0_consumeEach0__1, this.cause2__1);
             throw t;
           case 10:
-            throw this.sd_1;
+            throw this.exception_1;
           case 11:
-            cancelConsumed(this.x2y_1, this.z2y_1);
+            cancelConsumed(this.tmp0_consumeEach0__1, this.cause2__1);
             if (false) {
-              this.pd_1 = 1;
+              this.state_1 = 1;
               continue $sm;
             }
 
-            this.pd_1 = 12;
+            this.state_1 = 12;
             continue $sm;
           case 12:
             return Unit_getInstance();
         }
       } catch ($p) {
-        if (this.qd_1 === 10) {
+        if (this.exceptionState_1 === 10) {
           throw $p;
         } else {
-          this.pd_1 = this.qd_1;
-          this.sd_1 = $p;
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
         }
       }
      while (true);
   };
-  JsWebSocketSession$slambda.prototype.r1a = function ($this$launch, completion) {
-    var i = new JsWebSocketSession$slambda(this.v2y_1, completion);
-    i.w2y_1 = $this$launch;
+  JsWebSocketSession$slambda.prototype.create_b6qu53_k$ = function ($this$launch, completion) {
+    var i = new JsWebSocketSession$slambda(this.this$0__1, completion);
+    i.$this$launch_1 = $this$launch;
     return i;
+  };
+  JsWebSocketSession$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_b6qu53_k$((!(value == null) ? isInterface(value, CoroutineScope) : false) ? value : THROW_CCE(), completion);
   };
   JsWebSocketSession$slambda.$metadata$ = classMeta('JsWebSocketSession$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function JsWebSocketSession$slambda_0(this$0, resultContinuation) {
     var i = new JsWebSocketSession$slambda(this$0, resultContinuation);
     var l = function ($this$launch, $cont) {
-      return i.q1a($this$launch, $cont);
+      return i.invoke_d6gbsu_k$($this$launch, $cont);
     };
     l.$arity = 1;
     return l;
@@ -6976,27 +8867,27 @@
     return function (cause) {
       var tmp;
       if (cause == null) {
-        tmp = this$0.g2y_1.close();
+        tmp = this$0.websocket_1.close();
       } else {
-        tmp = this$0.g2y_1.close(Codes_INTERNAL_ERROR_getInstance().o20_1, 'Client failed');
+        tmp = this$0.websocket_1.close(Codes_INTERNAL_ERROR_getInstance().code_1, 'Client failed');
       }
       return Unit_getInstance();
     };
   }
   function JsWebSocketSession(coroutineContext, websocket) {
-    this.f2y_1 = coroutineContext;
-    this.g2y_1 = websocket;
+    this.coroutineContext_1 = coroutineContext;
+    this.websocket_1 = websocket;
     var tmp = this;
-    tmp.h2y_1 = CompletableDeferred$default(null, 1, null);
+    tmp._closeReason_1 = CompletableDeferred$default(null, 1, null);
     var tmp_0 = this;
     Factory_getInstance();
-    tmp_0.i2y_1 = Channel$default(2147483647, null, null, 6, null);
+    tmp_0._incoming_1 = Channel$default(2147483647, null, null, 6, null);
     var tmp_1 = this;
     Factory_getInstance();
-    tmp_1.j2y_1 = Channel$default(2147483647, null, null, 6, null);
-    this.k2y_1 = this.i2y_1;
-    this.l2y_1 = this.j2y_1;
-    this.m2y_1 = this.h2y_1;
+    tmp_1._outgoing_1 = Channel$default(2147483647, null, null, 6, null);
+    this.incoming_1 = this._incoming_1;
+    this.outgoing_1 = this._outgoing_1;
+    this.closeReason_1 = this._closeReason_1;
     var tmp$ret$2;
     {
       var tmp0__get_ARRAYBUFFER__ua4cvm = null;
@@ -7011,41 +8902,114 @@
       }
       tmp$ret$2 = tmp$ret$1;
     }
-    this.g2y_1.binaryType = tmp$ret$2;
-    this.g2y_1.addEventListener('message', JsWebSocketSession$lambda(this));
-    this.g2y_1.addEventListener('error', JsWebSocketSession$lambda_0(this));
-    this.g2y_1.addEventListener('close', JsWebSocketSession$lambda_1(this));
+    this.websocket_1.binaryType = tmp$ret$2;
+    this.websocket_1.addEventListener('message', JsWebSocketSession$lambda(this));
+    this.websocket_1.addEventListener('error', JsWebSocketSession$lambda_0(this));
+    this.websocket_1.addEventListener('close', JsWebSocketSession$lambda_1(this));
     launch$default(this, null, null, JsWebSocketSession$slambda_0(this, null), 3, null);
-    var tmp0_safe_receiver = this.f2y_1.b3(Key_getInstance());
+    var tmp0_safe_receiver = this.coroutineContext_1.get_1pi7hg_k$(Key_getInstance());
     if (tmp0_safe_receiver == null)
       null;
     else {
-      tmp0_safe_receiver.rl(JsWebSocketSession$lambda_2(this));
+      tmp0_safe_receiver.invokeOnCompletion_t2apld_k$(JsWebSocketSession$lambda_2(this));
     }
   }
-  JsWebSocketSession.prototype.qk = function () {
-    return this.f2y_1;
+  JsWebSocketSession.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.coroutineContext_1;
+  };
+  JsWebSocketSession.prototype.get_incoming_u9os29_k$ = function () {
+    return this.incoming_1;
+  };
+  JsWebSocketSession.prototype.get_outgoing_us7o3v_k$ = function () {
+    return this.outgoing_1;
+  };
+  JsWebSocketSession.prototype.get_extensions_kxksyl_k$ = function () {
+    return emptyList();
+  };
+  JsWebSocketSession.prototype.get_closeReason_g1m41f_k$ = function () {
+    return this.closeReason_1;
+  };
+  JsWebSocketSession.prototype.set_pingIntervalMillis_ii9r6b_k$ = function (_anonymous_parameter_0__qggqh8) {
+    throw new WebSocketException('Websocket ping-pong is not supported in JS engine.');
+  };
+  JsWebSocketSession.prototype.get_pingIntervalMillis_4y22i_k$ = function () {
+    throw new WebSocketException('Websocket ping-pong is not supported in JS engine.');
+  };
+  JsWebSocketSession.prototype.set_timeoutMillis_5bgqir_k$ = function (_anonymous_parameter_0__qggqh8) {
+    throw new WebSocketException('Websocket timeout is not supported in JS engine.');
+  };
+  JsWebSocketSession.prototype.get_timeoutMillis_ig3vfi_k$ = function () {
+    throw new WebSocketException('Websocket timeout is not supported in JS engine.');
+  };
+  JsWebSocketSession.prototype.set_masking_ystj9s_k$ = function (_anonymous_parameter_0__qggqh8) {
+    throw new WebSocketException('Masking switch is not supported in JS engine.');
+  };
+  JsWebSocketSession.prototype.get_masking_f5rvkd_k$ = function () {
+    return true;
+  };
+  JsWebSocketSession.prototype.set_maxFrameSize_b0eezk_k$ = function (_anonymous_parameter_0__qggqh8) {
+    throw new WebSocketException('Max frame size switch is not supported in Js engine.');
+  };
+  JsWebSocketSession.prototype.get_maxFrameSize_9zaht9_k$ = function () {
+    Companion_getInstance_0();
+    return new Long(-1, 2147483647);
+  };
+  JsWebSocketSession.prototype.start_x95223_k$ = function (negotiatedExtensions) {
+    {
+      var tmp0_require = negotiatedExtensions.isEmpty_y1axqb_k$();
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Extensions are not supported.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$(toString(message));
+      }
+    }
+  };
+  JsWebSocketSession.prototype.flush_p85oz5_k$ = function ($cont) {
+    return Unit_getInstance();
+  };
+  JsWebSocketSession.prototype.terminate_hmv27k_k$ = function () {
+    this._incoming_1.cancel$default_bm1z3z_k$(null, 1, null);
+    this._outgoing_1.cancel$default_bm1z3z_k$(null, 1, null);
+    cancel$default_0(this._closeReason_1, 'WebSocket terminated', null, 2, null);
+    this.websocket_1.close();
   };
   JsWebSocketSession.$metadata$ = classMeta('JsWebSocketSession', [DefaultWebSocketSession]);
   function unwrapCancellationException(_this__u8e3s4) {
     return _this__u8e3s4;
   }
   //region block: post-declaration
-  HttpClientEngineBase.prototype.y28 = get_supportedCapabilities;
-  HttpClientEngineBase.prototype.g24 = install;
-  KtorCallContextElement.prototype.b3 = get;
-  KtorCallContextElement.prototype.h3 = fold;
-  KtorCallContextElement.prototype.g3 = minusKey;
-  KtorCallContextElement.prototype.i3 = plus;
-  HttpRequest$1.prototype.qk = get_coroutineContext;
-  JsClientEngine.prototype.g24 = install;
+  HttpClientEngineBase.prototype.get_supportedCapabilities_gwz15x_k$ = get_supportedCapabilities;
+  HttpClientEngineBase.prototype.install_vgwzcp_k$ = install;
+  KtorCallContextElement.prototype.get_1pi7hg_k$ = get;
+  KtorCallContextElement.prototype.fold_6dbyow_k$ = fold;
+  KtorCallContextElement.prototype.minusKey_y21q55_k$ = minusKey;
+  KtorCallContextElement.prototype.plus_rgw9wi_k$ = plus;
+  Plugin.prototype.prepare$default_khluaj_k$ = prepare$default;
+  Companion_1.prototype.prepare$default_khluaj_k$ = prepare$default;
+  HttpRequest$1.prototype.get_coroutineContext_115oqo_k$ = get_coroutineContext;
+  Plugin_0.prototype.prepare$default_khluaj_k$ = prepare$default;
+  Plugin_1.prototype.prepare$default_khluaj_k$ = prepare$default;
+  Plugin_2.prototype.prepare$default_khluaj_k$ = prepare$default;
+  Plugin_3.prototype.prepare$default_khluaj_k$ = prepare$default;
+  Plugin_4.prototype.prepare$default_khluaj_k$ = prepare$default;
+  Plugin_5.prototype.prepare$default_khluaj_k$ = prepare$default;
+  Js.prototype.create$default_rxs1a_k$ = create$default;
+  JsClientEngine.prototype.install_vgwzcp_k$ = install;
+  JsWebSocketSession.prototype.start$default_thc4qx_k$ = start$default;
+  JsWebSocketSession.prototype.send_xu75tq_k$ = send;
   //endregion
   //region block: init
   KTOR_DEFAULT_USER_AGENT = 'Ktor client';
+  NO_RESPONSE_TEXT = '<no response text provided>';
   //endregion
   //region block: exports
   _.$_$ = _.$_$ || {};
-  _.$_$.a = HttpClient$default;
+  _.$_$.a = HttpClient$default_0;
   _.$_$.b = HttpRequestBuilder;
   _.$_$.c = url;
   _.$_$.d = HttpStatement;

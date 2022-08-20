@@ -1,7 +1,7 @@
 builtins_platform=JS
 unique_name=com.colorata\:Iconoplastic
 compiler_version=1.7.10
-depends=org.jetbrains.kotlinx\:kotlinx-html io.ktor\:ktor-client-serialization io.ktor\:ktor-client-json io.ktor\:ktor-client-core io.ktor\:ktor-events io.ktor\:ktor-websocket-serialization io.ktor\:ktor-serialization io.ktor\:ktor-websockets io.ktor\:ktor-http io.ktor\:ktor-utils io.ktor\:ktor-io org.jetbrains.kotlinx\:kotlinx-coroutines-core org.jetbrains.kotlinx\:kotlinx-serialization-json org.jetbrains.kotlinx\:atomicfu org.jetbrains.kotlinx\:kotlinx-serialization-core kotlin org.jetbrains.kotlin\:kotlinx-atomicfu-runtime
+depends=org.jetbrains.kotlinx\:kotlinx-html org.jetbrains.kotlinx\:kotlinx-coroutines-core org.jetbrains.kotlinx\:atomicfu kotlin org.jetbrains.kotlin\:kotlinx-atomicfu-runtime
 jsOutputName=Iconoplastic
 abi_version=1.7.0
 metadata_version=1.4.1

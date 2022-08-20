@@ -6,17 +6,6 @@
     ]
   },
   plugins: [
-    ProgressPlugin {
-      profile: false,
-      handler: [Function: handler],
-      modulesCount: 5000,
-      dependenciesCount: 10000,
-      showEntries: true,
-      showModules: true,
-      showDependencies: true,
-      showActiveModules: false,
-      percentBy: undefined
-    },
     TeamCityErrorPlugin {}
   ],
   module: {
@@ -59,6 +48,12 @@
   ignoreWarnings: [
     /Failed to parse source map/
   ],
+  devServer: {
+    open: true,
+    static: [
+      '/home/renattele/StudioProjects/NoBackup/Iconoplastic/build/processedResources/js/main'
+    ]
+  },
   stats: {
     warnings: false,
     errors: false

@@ -18,41 +18,79 @@
 }(this, function (_, kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core, kotlin_kotlin, kotlin_io_ktor_ktor_utils) {
   'use strict';
   //region block: imports
-  var LinkedListNode = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.s;
-  var DisposableHandle = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b1;
-  var classMeta = kotlin_kotlin.$_$.q5;
-  var CopyOnWriteHashMap = kotlin_io_ktor_ktor_utils.$_$.f;
-  var equals = kotlin_kotlin.$_$.s5;
-  var THROW_CCE = kotlin_kotlin.$_$.b8;
-  var addSuppressed = kotlin_kotlin.$_$.e8;
-  var Unit_getInstance = kotlin_kotlin.$_$.w2;
+  var LinkedListNode = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.w;
+  var DisposableHandle = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.f1;
+  var classMeta = kotlin_kotlin.$_$.r8;
+  var LinkedListHead = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.v;
+  var CopyOnWriteHashMap = kotlin_io_ktor_ktor_utils.$_$.g;
+  var equals = kotlin_kotlin.$_$.t8;
+  var THROW_CCE = kotlin_kotlin.$_$.pc;
+  var addSuppressed = kotlin_kotlin.$_$.yc;
+  var Unit_getInstance = kotlin_kotlin.$_$.g4;
   //endregion
   //region block: pre-declaration
   HandlerRegistration.prototype = Object.create(LinkedListNode.prototype);
   HandlerRegistration.prototype.constructor = HandlerRegistration;
   //endregion
-  function HandlerRegistration() {
+  function _get_handlers__pkfn2a($this) {
+    return $this.handlers_1;
   }
-  HandlerRegistration.prototype.j20 = function () {
-    return this.i20_1;
+  function HandlerRegistration(handler) {
+    LinkedListNode.call(this);
+    this.handler_1 = handler;
+  }
+  HandlerRegistration.prototype.get_handler_cq14kh_k$ = function () {
+    return this.handler_1;
+  };
+  HandlerRegistration.prototype.dispose_3n44we_k$ = function () {
+    this.remove_fgfybg_k$();
   };
   HandlerRegistration.$metadata$ = classMeta('HandlerRegistration', [DisposableHandle], undefined, undefined, undefined, LinkedListNode.prototype);
-  function Events() {
-    this.k20_1 = new CopyOnWriteHashMap();
+  function Events$subscribe$lambda() {
+    return function (it) {
+      return new LinkedListHead();
+    };
   }
-  Events.prototype.l20 = function (definition, value) {
-    var exception = null;
-    var tmp0_safe_receiver = this.k20_1.b2(definition);
+  function Events() {
+    this.handlers_1 = new CopyOnWriteHashMap();
+  }
+  Events.prototype.subscribe_uqtskb_k$ = function (definition, handler) {
+    var registration = new HandlerRegistration(handler);
+    this.handlers_1.computeIfAbsent_uwu79p_k$(definition, Events$subscribe$lambda()).addLast_uyctnf_k$(registration);
+    return registration;
+  };
+  Events.prototype.unsubscribe_fzjot_k$ = function (definition, handler) {
+    var tmp0_safe_receiver = this.handlers_1.get_1mhr4y_k$(definition);
     if (tmp0_safe_receiver == null)
       null;
     else {
       {
-        var cur = tmp0_safe_receiver.ds();
+        var cur = tmp0_safe_receiver.get__next_inmai1_k$();
+        while (!equals(cur, tmp0_safe_receiver)) {
+          if (cur instanceof HandlerRegistration) {
+            var tmp0__anonymous__q1qw7t = cur;
+            if (equals(tmp0__anonymous__q1qw7t.handler_1, handler)) {
+              tmp0__anonymous__q1qw7t.remove_fgfybg_k$();
+            }
+          }
+          cur = cur._next_1;
+        }
+      }
+    }
+  };
+  Events.prototype.raise_segvv5_k$ = function (definition, value) {
+    var exception = null;
+    var tmp0_safe_receiver = this.handlers_1.get_1mhr4y_k$(definition);
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      {
+        var cur = tmp0_safe_receiver.get__next_inmai1_k$();
         while (!equals(cur, tmp0_safe_receiver)) {
           if (cur instanceof HandlerRegistration) {
             var tmp0__anonymous__q1qw7t = cur;
             try {
-              var tmp = tmp0__anonymous__q1qw7t.i20_1;
+              var tmp = tmp0__anonymous__q1qw7t.handler_1;
               (typeof tmp === 'function' ? tmp : THROW_CCE())(value);
             } catch ($p) {
               if ($p instanceof Error) {
@@ -80,7 +118,7 @@
               }
             }
           }
-          cur = cur.as_1;
+          cur = cur._next_1;
         }
       }
     }

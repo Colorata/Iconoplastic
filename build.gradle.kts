@@ -13,9 +13,8 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("org.jetbrains.kotlinx:kotlinx-html:0.7.5")
-    implementation("io.ktor:ktor-client-core:${project.property("ktor.version")}")
-    implementation("io.ktor:ktor-client-serialization:${project.property("ktor.version")}")
-    implementation("io.ktor:ktor-client-json:${project.property("ktor.version")}")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+
 }
 
 kotlin {
@@ -32,7 +31,7 @@ kotlin {
 afterEvaluate {
     rootProject.extensions.configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
         versions.webpackDevServer.version = "4.0.0"
-        versions.webpackCli.version = "4.9.0"
+        versions.webpackCli.version = "4.10.0"
         nodeVersion = "16.0.0"
     }
 }
