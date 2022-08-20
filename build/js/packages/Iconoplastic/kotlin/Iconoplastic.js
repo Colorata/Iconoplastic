@@ -40,31 +40,32 @@
   var toMap = kotlin_kotlin.$_$.t1;
   var classMeta = kotlin_kotlin.$_$.t2;
   var Unit_getInstance = kotlin_kotlin.$_$.g1;
-  var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.h;
-  var DIV = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.c;
+  var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.i;
+  var DIV = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
   var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.p;
   var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.j;
   var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
   var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
   var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
-  var set_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.i;
+  var enumEncode = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.a;
+  var attributesMapOf_0 = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.h;
+  var INPUT = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.e;
+  var set_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.j;
   var toInt = kotlin_kotlin.$_$.f3;
   var Companion_getInstance_0 = kotlin_kotlin.$_$.e1;
   var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.w;
   var numberToChar = kotlin_kotlin.$_$.b3;
   var toString = kotlin_kotlin.$_$.x;
-  var STYLE = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.f;
-  var attributesMapOf_0 = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.g;
-  var LINK = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
-  var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.a;
+  var STYLE = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.g;
+  var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
   var charSequenceLength = kotlin_kotlin.$_$.s2;
   var charSequenceGet = kotlin_kotlin.$_$.r2;
   var uppercaseChar = kotlin_kotlin.$_$.g3;
-  var SPAN = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.e;
+  var SPAN = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.f;
   var replace$default = kotlin_kotlin.$_$.c;
   var joinToString$default = kotlin_kotlin.$_$.b;
   var plus = kotlin_kotlin.$_$.q3;
-  var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
+  var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.c;
   var CoroutineScope_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e;
   var isInterface = kotlin_kotlin.$_$.z2;
   var SuspendFunction1 = kotlin_kotlin.$_$.l2;
@@ -176,12 +177,12 @@
     tmp.onload = main$lambda();
   }
   function sayHello(_this__u8e3s4) {
-    var tmp$ret$7;
+    var tmp$ret$10;
     {
-      var tmp$ret$6;
+      var tmp$ret$9;
       {
         var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row'), _this__u8e3s4);
-        var tmp$ret$5;
+        var tmp$ret$8;
         {
           if (!(tmp0_visitAndFinalize.zb() === _this__u8e3s4)) {
             throw IllegalArgumentException_init_$Create$('Wrong exception');
@@ -191,63 +192,96 @@
             try {
               {
                 {
-                  var tmp$ret$4;
+                  var tmp$ret$0;
                   {
-                    var tmp$ret$3;
+                    tmp$ret$0 = LinkedHashMap_init_$Create$_0();
+                  }
+                  var selectedList = tmp$ret$0;
+                  var tmp = CoroutineScope(Dispatchers_getInstance().cp_1);
+                  launch$default(tmp, null, null, sayHello$slambda_0(selectedList, null), 3, null);
+                  var tmp$ret$7;
+                  {
+                    var tmp$ret$6;
                     {
                       var tmp0_visit = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize.zb());
                       tmp0_visit.zb().gc(tmp0_visit);
-                      var tmp;
+                      var tmp_0;
                       try {
-                        var count = {_v: 0};
-                        var tmp$ret$0;
+                        var tmp$ret$3;
                         {
-                          tmp$ret$0 = LinkedHashMap_init_$Create$_0();
-                        }
-                        var selectedList = tmp$ret$0;
-                        var tmp_0 = CoroutineScope(Dispatchers_getInstance().cp_1);
-                        launch$default(tmp_0, null, null, sayHello$slambda_0(count, selectedList, null), 3, null);
-                        var tmp$ret$2;
-                        {
-                          var tmp$ret$1;
+                          var tmp$ret$2;
                           {
-                            var tmp0_visit_0 = new DIV(attributesMapOf('class', 'grid'), tmp0_visit.zb());
+                            var tmp0_safe_receiver = null;
+                            var tmp_1 = tmp0_safe_receiver == null ? null : enumEncode(tmp0_safe_receiver);
+                            var tmp1_safe_receiver = null;
+                            var tmp_2 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
+                            var tmp2_safe_receiver = null;
+                            var tmp0_visit_0 = new INPUT(attributesMapOf_0(['type', tmp_1, 'formenctype', tmp_2, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', null, 'class', null]), tmp0_visit.zb());
                             tmp0_visit_0.zb().gc(tmp0_visit_0);
-                            var tmp_1;
+                            var tmp_3;
                             try {
-                              tmp_1 = set_id(tmp0_visit_0, 'grid-icons');
+                              var tmp$ret$1;
+                              {
+                                tmp$ret$1 = Unit_getInstance();
+                              }
+                              tmp_3 = tmp$ret$1;
                             } catch ($p) {
-                              var tmp_2;
+                              var tmp_4;
                               if ($p instanceof Error) {
-                                tmp_2 = tmp0_visit_0.zb().kc(tmp0_visit_0, $p);
+                                tmp_4 = tmp0_visit_0.zb().kc(tmp0_visit_0, $p);
                               } else {
                                 throw $p;
                               }
-                              tmp_1 = tmp_2;
+                              tmp_3 = tmp_4;
                             }
                             finally {
                               tmp0_visit_0.zb().jc(tmp0_visit_0);
                             }
-                            tmp$ret$1 = tmp_1;
+                            tmp$ret$2 = tmp_3;
                           }
-                          tmp$ret$2 = tmp$ret$1;
+                          tmp$ret$3 = tmp$ret$2;
                         }
-                        tmp = tmp$ret$2;
+                        var tmp$ret$5;
+                        {
+                          var tmp$ret$4;
+                          {
+                            var tmp0_visit_1 = new DIV(attributesMapOf('class', 'grid'), tmp0_visit.zb());
+                            tmp0_visit_1.zb().gc(tmp0_visit_1);
+                            var tmp_5;
+                            try {
+                              tmp_5 = set_id(tmp0_visit_1, 'grid-icons');
+                            } catch ($p) {
+                              var tmp_6;
+                              if ($p instanceof Error) {
+                                tmp_6 = tmp0_visit_1.zb().kc(tmp0_visit_1, $p);
+                              } else {
+                                throw $p;
+                              }
+                              tmp_5 = tmp_6;
+                            }
+                            finally {
+                              tmp0_visit_1.zb().jc(tmp0_visit_1);
+                            }
+                            tmp$ret$4 = tmp_5;
+                          }
+                          tmp$ret$5 = tmp$ret$4;
+                        }
+                        tmp_0 = tmp$ret$5;
                       } catch ($p) {
-                        var tmp_3;
+                        var tmp_7;
                         if ($p instanceof Error) {
-                          tmp_3 = tmp0_visit.zb().kc(tmp0_visit, $p);
+                          tmp_7 = tmp0_visit.zb().kc(tmp0_visit, $p);
                         } else {
                           throw $p;
                         }
-                        tmp = tmp_3;
+                        tmp_0 = tmp_7;
                       }
                       finally {
                         tmp0_visit.zb().jc(tmp0_visit);
                       }
-                      tmp$ret$3 = tmp;
+                      tmp$ret$6 = tmp_0;
                     }
-                    tmp$ret$4 = tmp$ret$3;
+                    tmp$ret$7 = tmp$ret$6;
                   }
                 }
               }
@@ -262,11 +296,11 @@
               tmp0_visitAndFinalize.zb().jc(tmp0_visitAndFinalize);
             }
           }
-          tmp$ret$5 = _this__u8e3s4.lc();
+          tmp$ret$8 = _this__u8e3s4.lc();
         }
-        tmp$ret$6 = tmp$ret$5;
+        tmp$ret$9 = tmp$ret$8;
       }
-      tmp$ret$7 = tmp$ret$6;
+      tmp$ret$10 = tmp$ret$9;
     }
   }
   function toSymbol(_this__u8e3s4) {
@@ -342,42 +376,6 @@
   }
   function main$lambda$lambda_0() {
     return function ($this$append) {
-      var tmp$ret$3;
-      {
-        var tmp$ret$2;
-        {
-          var tmp0_visitAndFinalize = new LINK(attributesMapOf_0(['href', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200', 'rel', 'stylesheet', 'type', null]), $this$append);
-          var tmp$ret$1;
-          {
-            if (!(tmp0_visitAndFinalize.zb() === $this$append)) {
-              throw IllegalArgumentException_init_$Create$('Wrong exception');
-            }
-            {
-              tmp0_visitAndFinalize.zb().gc(tmp0_visitAndFinalize);
-              try {
-                {
-                  var tmp$ret$0;
-                  {
-                    tmp$ret$0 = Unit_getInstance();
-                  }
-                }
-              } catch ($p) {
-                if ($p instanceof Error) {
-                  tmp0_visitAndFinalize.zb().kc(tmp0_visitAndFinalize, $p);
-                } else {
-                  throw $p;
-                }
-              }
-              finally {
-                tmp0_visitAndFinalize.zb().jc(tmp0_visitAndFinalize);
-              }
-            }
-            tmp$ret$1 = $this$append.lc();
-          }
-          tmp$ret$2 = tmp$ret$1;
-        }
-        tmp$ret$3 = tmp$ret$2;
-      }
       return Unit_getInstance();
     };
   }
@@ -532,8 +530,7 @@
     };
   }
   function sayHello$slambda$lambda$lambda($selectedList, $index, $element) {
-    return function (event) {
-      event.preventDefault();
+    return function (_anonymous_parameter_0__qggqh8) {
       var tmp;
       if ($selectedList.h1($index)) {
         $selectedList.k5($index);
@@ -742,19 +739,18 @@
       return Unit_getInstance();
     };
   }
-  function sayHello$slambda($count, $selectedList, resultContinuation) {
-    this.fs_1 = $count;
-    this.gs_1 = $selectedList;
+  function sayHello$slambda($selectedList, resultContinuation) {
+    this.fs_1 = $selectedList;
     CoroutineImpl.call(this, resultContinuation);
   }
-  sayHello$slambda.prototype.is = function ($this$launch, $cont) {
-    var tmp = this.js($this$launch, $cont);
+  sayHello$slambda.prototype.hs = function ($this$launch, $cont) {
+    var tmp = this.is($this$launch, $cont);
     tmp.ta_1 = Unit_getInstance();
     tmp.ua_1 = null;
     return tmp.bb();
   };
   sayHello$slambda.prototype.cb = function (p1, $cont) {
-    return this.is((!(p1 == null) ? isInterface(p1, CoroutineScope_0) : false) ? p1 : THROW_CCE(), $cont);
+    return this.hs((!(p1 == null) ? isInterface(p1, CoroutineScope_0) : false) ? p1 : THROW_CCE(), $cont);
   };
   sayHello$slambda.prototype.bb = function () {
     var suspendResult = this.ta_1;
@@ -773,7 +769,6 @@
             continue $sm;
           case 1:
             var response = suspendResult;
-            this.fs_1._v = response.h();
             var globalIndex = {_v: 0};
             var grid = document.getElementById('grid-icons');
             var tmp0_iterator = response.j().d();
@@ -783,7 +778,7 @@
               if (tmp0_safe_receiver == null)
                 null;
               else {
-                append(tmp0_safe_receiver, sayHello$slambda$lambda(globalIndex, element, this.gs_1));
+                append(tmp0_safe_receiver, sayHello$slambda$lambda(globalIndex, element, this.fs_1));
               }
               globalIndex._v = globalIndex._v + 1 | 0;
             }
@@ -802,16 +797,16 @@
       }
      while (true);
   };
-  sayHello$slambda.prototype.js = function ($this$launch, completion) {
-    var i = new sayHello$slambda(this.fs_1, this.gs_1, completion);
-    i.hs_1 = $this$launch;
+  sayHello$slambda.prototype.is = function ($this$launch, completion) {
+    var i = new sayHello$slambda(this.fs_1, completion);
+    i.gs_1 = $this$launch;
     return i;
   };
   sayHello$slambda.$metadata$ = classMeta('sayHello$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
-  function sayHello$slambda_0($count, $selectedList, resultContinuation) {
-    var i = new sayHello$slambda($count, $selectedList, resultContinuation);
+  function sayHello$slambda_0($selectedList, resultContinuation) {
+    var i = new sayHello$slambda($selectedList, resultContinuation);
     var l = function ($this$launch, $cont) {
-      return i.is($this$launch, $cont);
+      return i.hs($this$launch, $cont);
     };
     l.$arity = 1;
     return l;

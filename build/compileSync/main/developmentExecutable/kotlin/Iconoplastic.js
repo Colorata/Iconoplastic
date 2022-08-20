@@ -40,31 +40,32 @@
   var toMap = kotlin_kotlin.$_$.e2;
   var classMeta = kotlin_kotlin.$_$.h3;
   var Unit_getInstance = kotlin_kotlin.$_$.m1;
-  var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.h;
-  var DIV = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.c;
+  var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.i;
+  var DIV = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
   var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.r;
   var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.j;
   var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
   var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
   var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
-  var set_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.i;
+  var enumEncode = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.a;
+  var attributesMapOf_0 = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.h;
+  var INPUT = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.e;
+  var set_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.j;
   var toInt = kotlin_kotlin.$_$.x3;
   var Companion_getInstance_0 = kotlin_kotlin.$_$.j1;
   var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.a1;
   var numberToChar = kotlin_kotlin.$_$.p3;
   var toString = kotlin_kotlin.$_$.b1;
-  var STYLE = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.f;
-  var attributesMapOf_0 = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.g;
-  var LINK = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
-  var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.a;
+  var STYLE = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.g;
+  var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
   var charSequenceLength = kotlin_kotlin.$_$.g3;
   var charSequenceGet = kotlin_kotlin.$_$.f3;
   var uppercaseChar = kotlin_kotlin.$_$.z3;
-  var SPAN = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.e;
+  var SPAN = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.f;
   var replace$default = kotlin_kotlin.$_$.c;
   var joinToString$default = kotlin_kotlin.$_$.b;
   var plus = kotlin_kotlin.$_$.m4;
-  var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
+  var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.c;
   var CoroutineScope_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e;
   var isInterface = kotlin_kotlin.$_$.n3;
   var SuspendFunction1 = kotlin_kotlin.$_$.y2;
@@ -179,12 +180,12 @@
     tmp.onload = main$lambda();
   }
   function sayHello(_this__u8e3s4) {
-    var tmp$ret$7;
+    var tmp$ret$10;
     {
-      var tmp$ret$6;
+      var tmp$ret$9;
       {
         var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row'), _this__u8e3s4);
-        var tmp$ret$5;
+        var tmp$ret$8;
         {
           if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === _this__u8e3s4)) {
             throw IllegalArgumentException_init_$Create$('Wrong exception');
@@ -194,63 +195,96 @@
             try {
               {
                 {
-                  var tmp$ret$4;
+                  var tmp$ret$0;
                   {
-                    var tmp$ret$3;
+                    tmp$ret$0 = LinkedHashMap_init_$Create$_0();
+                  }
+                  var selectedList = tmp$ret$0;
+                  var tmp = CoroutineScope(Dispatchers_getInstance().Default_1);
+                  launch$default(tmp, null, null, sayHello$slambda_0(selectedList, null), 3, null);
+                  var tmp$ret$7;
+                  {
+                    var tmp$ret$6;
                     {
                       var tmp0_visit = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
                       tmp0_visit.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit);
-                      var tmp;
+                      var tmp_0;
                       try {
-                        var count = {_v: 0};
-                        var tmp$ret$0;
+                        var tmp$ret$3;
                         {
-                          tmp$ret$0 = LinkedHashMap_init_$Create$_0();
-                        }
-                        var selectedList = tmp$ret$0;
-                        var tmp_0 = CoroutineScope(Dispatchers_getInstance().Default_1);
-                        launch$default(tmp_0, null, null, sayHello$slambda_0(count, selectedList, null), 3, null);
-                        var tmp$ret$2;
-                        {
-                          var tmp$ret$1;
+                          var tmp$ret$2;
                           {
-                            var tmp0_visit_0 = new DIV(attributesMapOf('class', 'grid'), tmp0_visit.get_consumer_tu5133_k$());
+                            var tmp0_safe_receiver = null;
+                            var tmp_1 = tmp0_safe_receiver == null ? null : enumEncode(tmp0_safe_receiver);
+                            var tmp1_safe_receiver = null;
+                            var tmp_2 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
+                            var tmp2_safe_receiver = null;
+                            var tmp0_visit_0 = new INPUT(attributesMapOf_0(['type', tmp_1, 'formenctype', tmp_2, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', null, 'class', null]), tmp0_visit.get_consumer_tu5133_k$());
                             tmp0_visit_0.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_0);
-                            var tmp_1;
+                            var tmp_3;
                             try {
-                              tmp_1 = set_id(tmp0_visit_0, 'grid-icons');
+                              var tmp$ret$1;
+                              {
+                                tmp$ret$1 = Unit_getInstance();
+                              }
+                              tmp_3 = tmp$ret$1;
                             } catch ($p) {
-                              var tmp_2;
+                              var tmp_4;
                               if ($p instanceof Error) {
-                                tmp_2 = tmp0_visit_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_0, $p);
+                                tmp_4 = tmp0_visit_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_0, $p);
                               } else {
                                 throw $p;
                               }
-                              tmp_1 = tmp_2;
+                              tmp_3 = tmp_4;
                             }
                             finally {
                               tmp0_visit_0.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_0);
                             }
-                            tmp$ret$1 = tmp_1;
+                            tmp$ret$2 = tmp_3;
                           }
-                          tmp$ret$2 = tmp$ret$1;
+                          tmp$ret$3 = tmp$ret$2;
                         }
-                        tmp = tmp$ret$2;
+                        var tmp$ret$5;
+                        {
+                          var tmp$ret$4;
+                          {
+                            var tmp0_visit_1 = new DIV(attributesMapOf('class', 'grid'), tmp0_visit.get_consumer_tu5133_k$());
+                            tmp0_visit_1.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_1);
+                            var tmp_5;
+                            try {
+                              tmp_5 = set_id(tmp0_visit_1, 'grid-icons');
+                            } catch ($p) {
+                              var tmp_6;
+                              if ($p instanceof Error) {
+                                tmp_6 = tmp0_visit_1.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_1, $p);
+                              } else {
+                                throw $p;
+                              }
+                              tmp_5 = tmp_6;
+                            }
+                            finally {
+                              tmp0_visit_1.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_1);
+                            }
+                            tmp$ret$4 = tmp_5;
+                          }
+                          tmp$ret$5 = tmp$ret$4;
+                        }
+                        tmp_0 = tmp$ret$5;
                       } catch ($p) {
-                        var tmp_3;
+                        var tmp_7;
                         if ($p instanceof Error) {
-                          tmp_3 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
+                          tmp_7 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
                         } else {
                           throw $p;
                         }
-                        tmp = tmp_3;
+                        tmp_0 = tmp_7;
                       }
                       finally {
                         tmp0_visit.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit);
                       }
-                      tmp$ret$3 = tmp;
+                      tmp$ret$6 = tmp_0;
                     }
-                    tmp$ret$4 = tmp$ret$3;
+                    tmp$ret$7 = tmp$ret$6;
                   }
                 }
               }
@@ -265,11 +299,11 @@
               tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
             }
           }
-          tmp$ret$5 = _this__u8e3s4.finalize_b9lof6_k$();
+          tmp$ret$8 = _this__u8e3s4.finalize_b9lof6_k$();
         }
-        tmp$ret$6 = tmp$ret$5;
+        tmp$ret$9 = tmp$ret$8;
       }
-      tmp$ret$7 = tmp$ret$6;
+      tmp$ret$10 = tmp$ret$9;
     }
   }
   function toSymbol(_this__u8e3s4) {
@@ -345,42 +379,6 @@
   }
   function main$lambda$lambda_0() {
     return function ($this$append) {
-      var tmp$ret$3;
-      {
-        var tmp$ret$2;
-        {
-          var tmp0_visitAndFinalize = new LINK(attributesMapOf_0(['href', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200', 'rel', 'stylesheet', 'type', null]), $this$append);
-          var tmp$ret$1;
-          {
-            if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === $this$append)) {
-              throw IllegalArgumentException_init_$Create$('Wrong exception');
-            }
-            {
-              tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize);
-              try {
-                {
-                  var tmp$ret$0;
-                  {
-                    tmp$ret$0 = Unit_getInstance();
-                  }
-                }
-              } catch ($p) {
-                if ($p instanceof Error) {
-                  tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize, $p);
-                } else {
-                  throw $p;
-                }
-              }
-              finally {
-                tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
-              }
-            }
-            tmp$ret$1 = $this$append.finalize_b9lof6_k$();
-          }
-          tmp$ret$2 = tmp$ret$1;
-        }
-        tmp$ret$3 = tmp$ret$2;
-      }
       return Unit_getInstance();
     };
   }
@@ -535,8 +533,7 @@
     };
   }
   function sayHello$slambda$lambda$lambda($selectedList, $index, $element) {
-    return function (event) {
-      event.preventDefault();
+    return function (_anonymous_parameter_0__qggqh8) {
       var tmp;
       if ($selectedList.containsKey_wgk31w_k$($index)) {
         $selectedList.remove_8hbkc0_k$($index);
@@ -745,8 +742,7 @@
       return Unit_getInstance();
     };
   }
-  function sayHello$slambda($count, $selectedList, resultContinuation) {
-    this.$count_1 = $count;
+  function sayHello$slambda($selectedList, resultContinuation) {
     this.$selectedList_1 = $selectedList;
     CoroutineImpl.call(this, resultContinuation);
   }
@@ -776,7 +772,6 @@
             continue $sm;
           case 1:
             var response = suspendResult;
-            this.$count_1._v = response.get_size_woubt6_k$();
             var globalIndex = {_v: 0};
             var grid = document.getElementById('grid-icons');
             var tmp0_iterator = response.get_entries_p20ztl_k$().iterator_jk1svi_k$();
@@ -806,7 +801,7 @@
      while (true);
   };
   sayHello$slambda.prototype.create_b6qu53_k$ = function ($this$launch, completion) {
-    var i = new sayHello$slambda(this.$count_1, this.$selectedList_1, completion);
+    var i = new sayHello$slambda(this.$selectedList_1, completion);
     i.$this$launch_1 = $this$launch;
     return i;
   };
@@ -814,8 +809,8 @@
     return this.create_b6qu53_k$((!(value == null) ? isInterface(value, CoroutineScope_0) : false) ? value : THROW_CCE(), completion);
   };
   sayHello$slambda.$metadata$ = classMeta('sayHello$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
-  function sayHello$slambda_0($count, $selectedList, resultContinuation) {
-    var i = new sayHello$slambda($count, $selectedList, resultContinuation);
+  function sayHello$slambda_0($selectedList, resultContinuation) {
+    var i = new sayHello$slambda($selectedList, resultContinuation);
     var l = function ($this$launch, $cont) {
       return i.invoke_d6gbsu_k$($this$launch, $cont);
     };
@@ -824,6 +819,371 @@
   }
   function isSystemInDarkTheme() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function applyToDocument(_this__u8e3s4, selectedList) {
+    var globalIndex = {_v: 0};
+    var grid = document.getElementById('grid-icons');
+    {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = _this__u8e3s4.get_entries_p20ztl_k$().iterator_jk1svi_k$();
+      }
+      var tmp0_iterator = tmp$ret$0;
+      while (tmp0_iterator.hasNext_bitz1p_k$()) {
+        var element = tmp0_iterator.next_20eer_k$();
+        {
+          var tmp0_safe_receiver = grid;
+          if (tmp0_safe_receiver == null)
+            null;
+          else {
+            append(tmp0_safe_receiver, applyToDocument$lambda(globalIndex, element, selectedList));
+          }
+          globalIndex._v = globalIndex._v + 1 | 0;
+        }
+      }
+    }
+  }
+  function applyToDocument$lambda$lambda$lambda$lambda() {
+    return function (value) {
+      var tmp$ret$5;
+      {
+        var tmp;
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = charSequenceLength(value) > 0;
+        }
+        if (tmp$ret$0) {
+          var tmp$ret$4;
+          {
+            var tmp$ret$1;
+            {
+              var tmp0__anonymous__q1qw7t = charSequenceGet(value, 0);
+              tmp$ret$1 = uppercaseChar(tmp0__anonymous__q1qw7t);
+            }
+            var tmp0_plus = tmp$ret$1;
+            var tmp$ret$3;
+            {
+              var tmp$ret$2;
+              {
+                tmp$ret$2 = value;
+              }
+              tmp$ret$3 = tmp$ret$2.substring(1);
+            }
+            var tmp1_plus = tmp$ret$3;
+            tmp$ret$4 = toString(tmp0_plus) + tmp1_plus;
+          }
+          tmp = tmp$ret$4;
+        } else {
+          tmp = value;
+        }
+        tmp$ret$5 = tmp;
+      }
+      return tmp$ret$5;
+    };
+  }
+  function applyToDocument$lambda$lambda$lambda($index, $element) {
+    return function ($this$append) {
+      var tmp$ret$6;
+      {
+        var tmp$ret$5;
+        {
+          var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row'), $this$append);
+          var tmp$ret$4;
+          {
+            if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === $this$append)) {
+              throw IllegalArgumentException_init_$Create$('Wrong exception');
+            }
+            {
+              tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize);
+              try {
+                {
+                  {
+                    set_id(tmp0_visitAndFinalize, 'selected-item-' + $index);
+                    var tmp$ret$1;
+                    {
+                      var tmp$ret$0;
+                      {
+                        var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
+                        tmp0_visit.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit);
+                        var tmp;
+                        try {
+                          tmp = tmp0_visit.unaryPlus_g7ydph_k$(toSymbol($element.get_value_j01efc_k$()));
+                        } catch ($p) {
+                          var tmp_0;
+                          if ($p instanceof Error) {
+                            tmp_0 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
+                          } else {
+                            throw $p;
+                          }
+                          tmp = tmp_0;
+                        }
+                        finally {
+                          tmp0_visit.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit);
+                        }
+                        tmp$ret$0 = tmp;
+                      }
+                      tmp$ret$1 = tmp$ret$0;
+                    }
+                    var tmp$ret$3;
+                    {
+                      var tmp$ret$2;
+                      {
+                        var tmp0_visit_0 = new SPAN(attributesMapOf('class', null), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
+                        tmp0_visit_0.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_0);
+                        var tmp_1;
+                        try {
+                          var tmp_2 = $element.get_key_18j28a_k$();
+                          var tmp_3 = replace$default(tmp_2, '_', ' ', false, 4, null);
+                          var tmp_4 = split$default(tmp_3, [' '], false, 0, 6, null);
+                          var tmp_5 = joinToString$default(tmp_4, null, null, null, 0, null, applyToDocument$lambda$lambda$lambda$lambda(), 31, null);
+                          tmp_1 = tmp0_visit_0.unaryPlus_g7ydph_k$(replace$default(tmp_5, ',', '', false, 4, null));
+                        } catch ($p) {
+                          var tmp_6;
+                          if ($p instanceof Error) {
+                            tmp_6 = tmp0_visit_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_0, $p);
+                          } else {
+                            throw $p;
+                          }
+                          tmp_1 = tmp_6;
+                        }
+                        finally {
+                          tmp0_visit_0.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_0);
+                        }
+                        tmp$ret$2 = tmp_1;
+                      }
+                      tmp$ret$3 = tmp$ret$2;
+                    }
+                  }
+                }
+              } catch ($p) {
+                if ($p instanceof Error) {
+                  tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize, $p);
+                } else {
+                  throw $p;
+                }
+              }
+              finally {
+                tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
+              }
+            }
+            tmp$ret$4 = $this$append.finalize_b9lof6_k$();
+          }
+          tmp$ret$5 = tmp$ret$4;
+        }
+        tmp$ret$6 = tmp$ret$5;
+      }
+      return Unit_getInstance();
+    };
+  }
+  function applyToDocument$lambda$lambda($selectedList, $index, $element) {
+    return function (_anonymous_parameter_0__qggqh8) {
+      var tmp;
+      if ($selectedList.containsKey_wgk31w_k$($index)) {
+        $selectedList.remove_8hbkc0_k$($index);
+        {
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = $selectedList.get_entries_p20ztl_k$().iterator_jk1svi_k$();
+          }
+          var tmp0_iterator = tmp$ret$0;
+          while (tmp0_iterator.hasNext_bitz1p_k$()) {
+            var element = tmp0_iterator.next_20eer_k$();
+            {
+              console.log(element.get_key_18j28a_k$(), ', ', element.get_value_j01efc_k$());
+            }
+          }
+        }
+        var tmp0_safe_receiver = document.getElementById('selected-item-' + $index);
+        if (tmp0_safe_receiver == null)
+          null;
+        else {
+          tmp0_safe_receiver.remove();
+        }
+        var tmp4_safe_receiver = document.getElementById('grid-item-' + $index);
+        var tmp_0;
+        if (tmp4_safe_receiver == null) {
+          tmp_0 = Unit_getInstance();
+        } else {
+          var tmp1_safe_receiver = document.getElementById('grid-item-' + $index);
+          var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.className;
+          var tmp_1;
+          if (tmp2_safe_receiver == null) {
+            tmp_1 = null;
+          } else {
+            tmp_1 = replace$default(tmp2_safe_receiver, ' active', '', false, 4, null);
+          }
+          var tmp3_elvis_lhs = tmp_1;
+          tmp_0 = tmp4_safe_receiver.className = tmp3_elvis_lhs == null ? '' : tmp3_elvis_lhs;
+        }
+        tmp = tmp_0;
+      } else {
+        {
+          var tmp0_set = $element.get_value_j01efc_k$();
+          $selectedList.put_3mhbri_k$($index, tmp0_set);
+        }
+        {
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = $selectedList.get_entries_p20ztl_k$().iterator_jk1svi_k$();
+          }
+          var tmp0_iterator_0 = tmp$ret$1;
+          while (tmp0_iterator_0.hasNext_bitz1p_k$()) {
+            var element_0 = tmp0_iterator_0.next_20eer_k$();
+            {
+              console.log(element_0.get_key_18j28a_k$(), ', ', element_0.get_value_j01efc_k$());
+            }
+          }
+        }
+        var tmp5_safe_receiver = document.getElementById('grid-item-' + $index);
+        if (tmp5_safe_receiver == null) {
+        } else {
+          var tmp6_this = tmp5_safe_receiver;
+          tmp6_this.className = plus(tmp6_this.className, ' active');
+        }
+        var tmp7_safe_receiver = document.getElementById('selected-icons');
+        if (tmp7_safe_receiver == null)
+          null;
+        else {
+          append(tmp7_safe_receiver, applyToDocument$lambda$lambda$lambda($index, $element));
+        }
+        tmp = Unit_getInstance();
+      }
+      return Unit_getInstance();
+    };
+  }
+  function applyToDocument$lambda$lambda_0() {
+    return function (value) {
+      var tmp$ret$5;
+      {
+        var tmp;
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = charSequenceLength(value) > 0;
+        }
+        if (tmp$ret$0) {
+          var tmp$ret$4;
+          {
+            var tmp$ret$1;
+            {
+              var tmp0__anonymous__q1qw7t = charSequenceGet(value, 0);
+              tmp$ret$1 = uppercaseChar(tmp0__anonymous__q1qw7t);
+            }
+            var tmp0_plus = tmp$ret$1;
+            var tmp$ret$3;
+            {
+              var tmp$ret$2;
+              {
+                tmp$ret$2 = value;
+              }
+              tmp$ret$3 = tmp$ret$2.substring(1);
+            }
+            var tmp1_plus = tmp$ret$3;
+            tmp$ret$4 = toString(tmp0_plus) + tmp1_plus;
+          }
+          tmp = tmp$ret$4;
+        } else {
+          tmp = value;
+        }
+        tmp$ret$5 = tmp;
+      }
+      return tmp$ret$5;
+    };
+  }
+  function applyToDocument$lambda($globalIndex, $element, $selectedList) {
+    return function ($this$append) {
+      var index = $globalIndex._v;
+      var tmp$ret$6;
+      {
+        var tmp$ret$5;
+        {
+          var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'grid-item column'), $this$append);
+          var tmp$ret$4;
+          {
+            if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === $this$append)) {
+              throw IllegalArgumentException_init_$Create$('Wrong exception');
+            }
+            {
+              tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize);
+              try {
+                {
+                  {
+                    set_id(tmp0_visitAndFinalize, 'grid-item-' + index);
+                    set_onClickFunction(tmp0_visitAndFinalize, applyToDocument$lambda$lambda($selectedList, index, $element));
+                    var tmp$ret$1;
+                    {
+                      var tmp$ret$0;
+                      {
+                        var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
+                        tmp0_visit.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit);
+                        var tmp;
+                        try {
+                          tmp = tmp0_visit.unaryPlus_g7ydph_k$(toSymbol($element.get_value_j01efc_k$()));
+                        } catch ($p) {
+                          var tmp_0;
+                          if ($p instanceof Error) {
+                            tmp_0 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
+                          } else {
+                            throw $p;
+                          }
+                          tmp = tmp_0;
+                        }
+                        finally {
+                          tmp0_visit.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit);
+                        }
+                        tmp$ret$0 = tmp;
+                      }
+                      tmp$ret$1 = tmp$ret$0;
+                    }
+                    var tmp$ret$3;
+                    {
+                      var tmp$ret$2;
+                      {
+                        var tmp0_visit_0 = new SPAN(attributesMapOf('class', null), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
+                        tmp0_visit_0.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_0);
+                        var tmp_1;
+                        try {
+                          var tmp_2 = $element.get_key_18j28a_k$();
+                          var tmp_3 = replace$default(tmp_2, '_', ' ', false, 4, null);
+                          var tmp_4 = split$default(tmp_3, [' '], false, 0, 6, null);
+                          var tmp_5 = joinToString$default(tmp_4, null, null, null, 0, null, applyToDocument$lambda$lambda_0(), 31, null);
+                          tmp_1 = tmp0_visit_0.unaryPlus_g7ydph_k$(replace$default(tmp_5, ',', '', false, 4, null));
+                        } catch ($p) {
+                          var tmp_6;
+                          if ($p instanceof Error) {
+                            tmp_6 = tmp0_visit_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_0, $p);
+                          } else {
+                            throw $p;
+                          }
+                          tmp_1 = tmp_6;
+                        }
+                        finally {
+                          tmp0_visit_0.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_0);
+                        }
+                        tmp$ret$2 = tmp_1;
+                      }
+                      tmp$ret$3 = tmp$ret$2;
+                    }
+                  }
+                }
+              } catch ($p) {
+                if ($p instanceof Error) {
+                  tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize, $p);
+                } else {
+                  throw $p;
+                }
+              }
+              finally {
+                tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
+              }
+            }
+            tmp$ret$4 = $this$append.finalize_b9lof6_k$();
+          }
+          tmp$ret$5 = tmp$ret$4;
+        }
+        tmp$ret$6 = tmp$ret$5;
+      }
+      return Unit_getInstance();
+    };
   }
   main();
   return _;

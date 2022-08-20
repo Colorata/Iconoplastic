@@ -98,8 +98,8 @@
   AreaShape.prototype.constructor = AreaShape;
   DIV.prototype = Object.create(HTMLTag.prototype);
   DIV.prototype.constructor = DIV;
-  LINK.prototype = Object.create(HTMLTag.prototype);
-  LINK.prototype.constructor = LINK;
+  INPUT.prototype = Object.create(HTMLTag.prototype);
+  INPUT.prototype.constructor = INPUT;
   STYLE.prototype = Object.create(HTMLTag.prototype);
   STYLE.prototype.constructor = STYLE;
   SPAN.prototype = Object.create(HTMLTag.prototype);
@@ -152,6 +152,26 @@
     var tmp0_subject = value;
     return tmp0_subject == null ? get_emptyMap() : singletonMapOf(key, value);
   }
+  function visit(_this__u8e3s4, block) {
+    init_properties_api_kt_ywlw3q();
+    _this__u8e3s4.zb().gc(_this__u8e3s4);
+    var tmp;
+    try {
+      tmp = block(_this__u8e3s4);
+    } catch ($p) {
+      var tmp_0;
+      if ($p instanceof Error) {
+        tmp_0 = _this__u8e3s4.zb().kc(_this__u8e3s4, $p);
+      } else {
+        throw $p;
+      }
+      tmp = tmp_0;
+    }
+    finally {
+      _this__u8e3s4.zb().jc(_this__u8e3s4);
+    }
+    return tmp;
+  }
   function attributesMapOf_0(pairs) {
     init_properties_api_kt_ywlw3q();
     var result = null;
@@ -178,26 +198,6 @@
        while (!(i === last));
     var tmp1_elvis_lhs = result;
     return tmp1_elvis_lhs == null ? get_emptyMap() : tmp1_elvis_lhs;
-  }
-  function visit(_this__u8e3s4, block) {
-    init_properties_api_kt_ywlw3q();
-    _this__u8e3s4.zb().gc(_this__u8e3s4);
-    var tmp;
-    try {
-      tmp = block(_this__u8e3s4);
-    } catch ($p) {
-      var tmp_0;
-      if ($p instanceof Error) {
-        tmp_0 = _this__u8e3s4.zb().kc(_this__u8e3s4, $p);
-      } else {
-        throw $p;
-      }
-      tmp = tmp_0;
-    }
-    finally {
-      _this__u8e3s4.zb().jc(_this__u8e3s4);
-    }
-    return tmp;
   }
   function singletonMapOf(key, value) {
     init_properties_api_kt_ywlw3q();
@@ -387,6 +387,9 @@
   EnumEncoder.$metadata$ = classMeta('EnumEncoder', [AttributeEncoder]);
   function tickerEncode(_this__u8e3s4, attributeName) {
     return _this__u8e3s4 ? attributeName : '';
+  }
+  function enumEncode(_this__u8e3s4) {
+    return _this__u8e3s4.xb();
   }
   function switchToMutable($this) {
     var tmp;
@@ -579,38 +582,6 @@
     var tmp$ret$1;
     {
       var tmp0_visitAndFinalize = new STYLE(attributesMapOf('type', type), _this__u8e3s4);
-      var tmp$ret$0;
-      {
-        if (!(tmp0_visitAndFinalize.zb() === _this__u8e3s4)) {
-          throw IllegalArgumentException_init_$Create$('Wrong exception');
-        }
-        {
-          tmp0_visitAndFinalize.zb().gc(tmp0_visitAndFinalize);
-          try {
-            {
-              block(tmp0_visitAndFinalize);
-            }
-          } catch ($p) {
-            if ($p instanceof Error) {
-              tmp0_visitAndFinalize.zb().kc(tmp0_visitAndFinalize, $p);
-            } else {
-              throw $p;
-            }
-          }
-          finally {
-            tmp0_visitAndFinalize.zb().jc(tmp0_visitAndFinalize);
-          }
-        }
-        tmp$ret$0 = _this__u8e3s4.lc();
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  }
-  function link(_this__u8e3s4, href, rel, type, block) {
-    var tmp$ret$1;
-    {
-      var tmp0_visitAndFinalize = new LINK(attributesMapOf_0(['href', href, 'rel', rel, 'type', type]), _this__u8e3s4);
       var tmp$ret$0;
       {
         if (!(tmp0_visitAndFinalize.zb() === _this__u8e3s4)) {
@@ -1903,9 +1874,9 @@
   function HtmlBlockTag() {
   }
   HtmlBlockTag.$metadata$ = interfaceMeta('HtmlBlockTag', [CommonAttributeGroupFacade, FlowContent]);
-  function CommonAttributeGroupFacadeFlowMetaDataPhrasingContent() {
+  function CommonAttributeGroupFacadeFlowInteractivePhrasingContent() {
   }
-  CommonAttributeGroupFacadeFlowMetaDataPhrasingContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowMetaDataPhrasingContent', [CommonAttributeGroupFacade, CommonAttributeGroupFacadeFlowMetaDataContent, FlowMetaDataContent, FlowMetaDataPhrasingContent, FlowPhrasingContent, HtmlBlockInlineTag, HtmlBlockTag, HtmlHeadTag, HtmlInlineTag]);
+  CommonAttributeGroupFacadeFlowInteractivePhrasingContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowInteractivePhrasingContent', [CommonAttributeGroupFacade, CommonAttributeGroupFacadeFlowInteractiveContent, FlowInteractiveContent, FlowInteractivePhrasingContent, FlowPhrasingContent, HtmlBlockInlineTag, HtmlBlockTag, HtmlInlineTag]);
   function FlowMetaDataContent() {
   }
   FlowMetaDataContent.$metadata$ = interfaceMeta('FlowMetaDataContent', [FlowContent, MetaDataContent]);
@@ -1918,9 +1889,15 @@
   function HtmlInlineTag() {
   }
   HtmlInlineTag.$metadata$ = interfaceMeta('HtmlInlineTag', [CommonAttributeGroupFacade, PhrasingContent]);
-  function FlowMetaDataPhrasingContent() {
+  function CommonAttributeGroupFacadeFlowInteractiveContent() {
   }
-  FlowMetaDataPhrasingContent.$metadata$ = interfaceMeta('FlowMetaDataPhrasingContent', [FlowMetaDataContent, FlowPhrasingContent]);
+  CommonAttributeGroupFacadeFlowInteractiveContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowInteractiveContent', [CommonAttributeGroupFacade, FlowInteractiveContent, HtmlBlockTag]);
+  function FlowInteractiveContent() {
+  }
+  FlowInteractiveContent.$metadata$ = interfaceMeta('FlowInteractiveContent', [FlowContent, InteractiveContent]);
+  function FlowInteractivePhrasingContent() {
+  }
+  FlowInteractivePhrasingContent.$metadata$ = interfaceMeta('FlowInteractivePhrasingContent', [FlowInteractiveContent, FlowPhrasingContent]);
   function div_0(_this__u8e3s4, classes, block) {
     var tmp$ret$0;
     {
@@ -1954,6 +1931,9 @@
   function PhrasingContent() {
   }
   PhrasingContent.$metadata$ = interfaceMeta('PhrasingContent', [FlowOrMetaDataOrPhrasingContent, FlowOrPhrasingContent, FlowOrInteractiveOrPhrasingContent, Tag]);
+  function InteractiveContent() {
+  }
+  InteractiveContent.$metadata$ = interfaceMeta('InteractiveContent', [FlowOrInteractiveContent, FlowOrInteractiveOrPhrasingContent, Tag]);
   function span(_this__u8e3s4, classes, block) {
     var tmp$ret$0;
     {
@@ -1978,6 +1958,41 @@
     }
     return tmp$ret$0;
   }
+  function input(_this__u8e3s4, type, formEncType, formMethod, name, classes, block) {
+    var tmp$ret$0;
+    {
+      var tmp0_safe_receiver = type;
+      var tmp = tmp0_safe_receiver == null ? null : enumEncode(tmp0_safe_receiver);
+      var tmp1_safe_receiver = formEncType;
+      var tmp_0 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
+      var tmp2_safe_receiver = formMethod;
+      var tmp0_visit = new INPUT(attributesMapOf_0(['type', tmp, 'formenctype', tmp_0, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', name, 'class', classes]), _this__u8e3s4.zb());
+      tmp0_visit.zb().gc(tmp0_visit);
+      var tmp_1;
+      try {
+        tmp_1 = block(tmp0_visit);
+      } catch ($p) {
+        var tmp_2;
+        if ($p instanceof Error) {
+          tmp_2 = tmp0_visit.zb().kc(tmp0_visit, $p);
+        } else {
+          throw $p;
+        }
+        tmp_1 = tmp_2;
+      }
+      finally {
+        tmp0_visit.zb().jc(tmp0_visit);
+      }
+      tmp$ret$0 = tmp_1;
+    }
+    return tmp$ret$0;
+  }
+  function FlowOrPhrasingContent() {
+  }
+  FlowOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrPhrasingContent', [FlowOrInteractiveOrPhrasingContent, FlowOrMetaDataOrPhrasingContent, Tag]);
+  function FlowOrInteractiveOrPhrasingContent() {
+  }
+  FlowOrInteractiveOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrInteractiveOrPhrasingContent', [Tag]);
   function FlowOrMetaDataOrPhrasingContent() {
   }
   FlowOrMetaDataOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrMetaDataOrPhrasingContent', [Tag]);
@@ -1990,15 +2005,9 @@
   function FlowOrInteractiveContent() {
   }
   FlowOrInteractiveContent.$metadata$ = interfaceMeta('FlowOrInteractiveContent', [FlowOrInteractiveOrPhrasingContent, Tag]);
-  function FlowOrPhrasingContent() {
-  }
-  FlowOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrPhrasingContent', [FlowOrInteractiveOrPhrasingContent, FlowOrMetaDataOrPhrasingContent, Tag]);
   function SectioningOrFlowContent() {
   }
   SectioningOrFlowContent.$metadata$ = interfaceMeta('SectioningOrFlowContent', [Tag]);
-  function FlowOrInteractiveOrPhrasingContent() {
-  }
-  FlowOrInteractiveOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrInteractiveOrPhrasingContent', [Tag]);
   function DIV(initialAttributes, consumer) {
     HTMLTag.call(this, 'div', consumer, initialAttributes, null, false, false);
     this.sf_1 = consumer;
@@ -2007,14 +2016,14 @@
     return this.sf_1;
   };
   DIV.$metadata$ = classMeta('DIV', [HtmlBlockTag], undefined, undefined, undefined, HTMLTag.prototype);
-  function LINK(initialAttributes, consumer) {
-    HTMLTag.call(this, 'link', consumer, initialAttributes, null, false, true);
+  function INPUT(initialAttributes, consumer) {
+    HTMLTag.call(this, 'input', consumer, initialAttributes, null, true, true);
     this.fg_1 = consumer;
   }
-  LINK.prototype.zb = function () {
+  INPUT.prototype.zb = function () {
     return this.fg_1;
   };
-  LINK.$metadata$ = classMeta('LINK', [CommonAttributeGroupFacadeFlowMetaDataPhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
+  INPUT.$metadata$ = classMeta('INPUT', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
   function STYLE(initialAttributes, consumer) {
     HTMLTag.call(this, 'style', consumer, initialAttributes, null, false, false);
     this.mg_1 = consumer;
@@ -2329,22 +2338,23 @@
   //region block: post-declaration
   HTMLTag.prototype.ec = text;
   DIV.prototype.ec = text;
-  LINK.prototype.ec = text;
+  INPUT.prototype.ec = text;
   SPAN.prototype.dc = unaryPlus;
   SPAN.prototype.ec = text;
   JSDOMBuilder.prototype.kc = onTagError;
   //endregion
   //region block: exports
   _.$_$ = _.$_$ || {};
-  _.$_$.a = append;
-  _.$_$.b = set_onClickFunction;
-  _.$_$.c = DIV;
-  _.$_$.d = LINK;
-  _.$_$.e = SPAN;
-  _.$_$.f = STYLE;
-  _.$_$.g = attributesMapOf_0;
-  _.$_$.h = attributesMapOf;
-  _.$_$.i = set_id;
+  _.$_$.a = enumEncode;
+  _.$_$.b = append;
+  _.$_$.c = set_onClickFunction;
+  _.$_$.d = DIV;
+  _.$_$.e = INPUT;
+  _.$_$.f = SPAN;
+  _.$_$.g = STYLE;
+  _.$_$.h = attributesMapOf_0;
+  _.$_$.i = attributesMapOf;
+  _.$_$.j = set_id;
   //endregion
   return _;
 }));

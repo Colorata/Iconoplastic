@@ -149,8 +149,8 @@
   AreaShape.prototype.constructor = AreaShape;
   DIV.prototype = Object.create(HTMLTag.prototype);
   DIV.prototype.constructor = DIV;
-  LINK.prototype = Object.create(HTMLTag.prototype);
-  LINK.prototype.constructor = LINK;
+  INPUT.prototype = Object.create(HTMLTag.prototype);
+  INPUT.prototype.constructor = INPUT;
   STYLE.prototype = Object.create(HTMLTag.prototype);
   STYLE.prototype.constructor = STYLE;
   SPAN.prototype = Object.create(HTMLTag.prototype);
@@ -234,6 +234,26 @@
     var tmp0_subject = value;
     return tmp0_subject == null ? get_emptyMap() : singletonMapOf(key, value);
   }
+  function visit(_this__u8e3s4, block) {
+    init_properties_api_kt_ywlw3q();
+    _this__u8e3s4.get_consumer_tu5133_k$().onTagStart_jhb705_k$(_this__u8e3s4);
+    var tmp;
+    try {
+      tmp = block(_this__u8e3s4);
+    } catch ($p) {
+      var tmp_0;
+      if ($p instanceof Error) {
+        tmp_0 = _this__u8e3s4.get_consumer_tu5133_k$().onTagError_d07vof_k$(_this__u8e3s4, $p);
+      } else {
+        throw $p;
+      }
+      tmp = tmp_0;
+    }
+    finally {
+      _this__u8e3s4.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(_this__u8e3s4);
+    }
+    return tmp;
+  }
   function attributesMapOf_0(pairs) {
     init_properties_api_kt_ywlw3q();
     var result = null;
@@ -260,26 +280,6 @@
        while (!(i === last));
     var tmp1_elvis_lhs = result;
     return tmp1_elvis_lhs == null ? get_emptyMap() : tmp1_elvis_lhs;
-  }
-  function visit(_this__u8e3s4, block) {
-    init_properties_api_kt_ywlw3q();
-    _this__u8e3s4.get_consumer_tu5133_k$().onTagStart_jhb705_k$(_this__u8e3s4);
-    var tmp;
-    try {
-      tmp = block(_this__u8e3s4);
-    } catch ($p) {
-      var tmp_0;
-      if ($p instanceof Error) {
-        tmp_0 = _this__u8e3s4.get_consumer_tu5133_k$().onTagError_d07vof_k$(_this__u8e3s4, $p);
-      } else {
-        throw $p;
-      }
-      tmp = tmp_0;
-    }
-    finally {
-      _this__u8e3s4.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(_this__u8e3s4);
-    }
-    return tmp;
   }
   function singletonMapOf(key, value) {
     init_properties_api_kt_ywlw3q();
@@ -631,6 +631,9 @@
   }
   function tickerEncode(_this__u8e3s4, attributeName) {
     return _this__u8e3s4 ? attributeName : '';
+  }
+  function enumEncode(_this__u8e3s4) {
+    return _this__u8e3s4.get_realValue_69bbcm_k$();
   }
   function _get_tag__e6h4qf($this) {
     return $this.tag_1;
@@ -1026,38 +1029,6 @@
     }
     return tmp$ret$1;
   }
-  function link(_this__u8e3s4, href, rel, type, block) {
-    var tmp$ret$1;
-    {
-      var tmp0_visitAndFinalize = new LINK(attributesMapOf_0(['href', href, 'rel', rel, 'type', type]), _this__u8e3s4);
-      var tmp$ret$0;
-      {
-        if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === _this__u8e3s4)) {
-          throw IllegalArgumentException_init_$Create$('Wrong exception');
-        }
-        {
-          tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize);
-          try {
-            {
-              block(tmp0_visitAndFinalize);
-            }
-          } catch ($p) {
-            if ($p instanceof Error) {
-              tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize, $p);
-            } else {
-              throw $p;
-            }
-          }
-          finally {
-            tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
-          }
-        }
-        tmp$ret$0 = _this__u8e3s4.finalize_b9lof6_k$();
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  }
   function div(_this__u8e3s4, classes, block) {
     var tmp$ret$1;
     {
@@ -1091,11 +1062,6 @@
     return tmp$ret$1;
   }
   function style$lambda() {
-    return function ($this$null) {
-      return Unit_getInstance();
-    };
-  }
-  function link$lambda() {
     return function ($this$null) {
       return Unit_getInstance();
     };
@@ -3451,9 +3417,9 @@
   function HtmlBlockTag() {
   }
   HtmlBlockTag.$metadata$ = interfaceMeta('HtmlBlockTag', [CommonAttributeGroupFacade, FlowContent]);
-  function CommonAttributeGroupFacadeFlowMetaDataPhrasingContent() {
+  function CommonAttributeGroupFacadeFlowInteractivePhrasingContent() {
   }
-  CommonAttributeGroupFacadeFlowMetaDataPhrasingContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowMetaDataPhrasingContent', [CommonAttributeGroupFacade, CommonAttributeGroupFacadeFlowMetaDataContent, FlowMetaDataContent, FlowMetaDataPhrasingContent, FlowPhrasingContent, HtmlBlockInlineTag, HtmlBlockTag, HtmlHeadTag, HtmlInlineTag]);
+  CommonAttributeGroupFacadeFlowInteractivePhrasingContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowInteractivePhrasingContent', [CommonAttributeGroupFacade, CommonAttributeGroupFacadeFlowInteractiveContent, FlowInteractiveContent, FlowInteractivePhrasingContent, FlowPhrasingContent, HtmlBlockInlineTag, HtmlBlockTag, HtmlInlineTag]);
   function FlowMetaDataContent() {
   }
   FlowMetaDataContent.$metadata$ = interfaceMeta('FlowMetaDataContent', [FlowContent, MetaDataContent]);
@@ -3466,9 +3432,15 @@
   function HtmlInlineTag() {
   }
   HtmlInlineTag.$metadata$ = interfaceMeta('HtmlInlineTag', [CommonAttributeGroupFacade, PhrasingContent]);
-  function FlowMetaDataPhrasingContent() {
+  function CommonAttributeGroupFacadeFlowInteractiveContent() {
   }
-  FlowMetaDataPhrasingContent.$metadata$ = interfaceMeta('FlowMetaDataPhrasingContent', [FlowMetaDataContent, FlowPhrasingContent]);
+  CommonAttributeGroupFacadeFlowInteractiveContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowInteractiveContent', [CommonAttributeGroupFacade, FlowInteractiveContent, HtmlBlockTag]);
+  function FlowInteractiveContent() {
+  }
+  FlowInteractiveContent.$metadata$ = interfaceMeta('FlowInteractiveContent', [FlowContent, InteractiveContent]);
+  function FlowInteractivePhrasingContent() {
+  }
+  FlowInteractivePhrasingContent.$metadata$ = interfaceMeta('FlowInteractivePhrasingContent', [FlowInteractiveContent, FlowPhrasingContent]);
   function div_0(_this__u8e3s4, classes, block) {
     var tmp$ret$0;
     {
@@ -3502,6 +3474,9 @@
   function PhrasingContent() {
   }
   PhrasingContent.$metadata$ = interfaceMeta('PhrasingContent', [FlowOrMetaDataOrPhrasingContent, FlowOrPhrasingContent, FlowOrInteractiveOrPhrasingContent, Tag]);
+  function InteractiveContent() {
+  }
+  InteractiveContent.$metadata$ = interfaceMeta('InteractiveContent', [FlowOrInteractiveContent, FlowOrInteractiveOrPhrasingContent, Tag]);
   function div$lambda_0() {
     return function ($this$null) {
       return Unit_getInstance();
@@ -3531,6 +3506,41 @@
     }
     return tmp$ret$0;
   }
+  function input(_this__u8e3s4, type, formEncType, formMethod, name, classes, block) {
+    var tmp$ret$0;
+    {
+      var tmp0_safe_receiver = type;
+      var tmp = tmp0_safe_receiver == null ? null : enumEncode(tmp0_safe_receiver);
+      var tmp1_safe_receiver = formEncType;
+      var tmp_0 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
+      var tmp2_safe_receiver = formMethod;
+      var tmp0_visit = new INPUT(attributesMapOf_0(['type', tmp, 'formenctype', tmp_0, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', name, 'class', classes]), _this__u8e3s4.get_consumer_tu5133_k$());
+      tmp0_visit.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit);
+      var tmp_1;
+      try {
+        tmp_1 = block(tmp0_visit);
+      } catch ($p) {
+        var tmp_2;
+        if ($p instanceof Error) {
+          tmp_2 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
+        } else {
+          throw $p;
+        }
+        tmp_1 = tmp_2;
+      }
+      finally {
+        tmp0_visit.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit);
+      }
+      tmp$ret$0 = tmp_1;
+    }
+    return tmp$ret$0;
+  }
+  function FlowOrPhrasingContent() {
+  }
+  FlowOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrPhrasingContent', [FlowOrInteractiveOrPhrasingContent, FlowOrMetaDataOrPhrasingContent, Tag]);
+  function FlowOrInteractiveOrPhrasingContent() {
+  }
+  FlowOrInteractiveOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrInteractiveOrPhrasingContent', [Tag]);
   function FlowOrMetaDataOrPhrasingContent() {
   }
   FlowOrMetaDataOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrMetaDataOrPhrasingContent', [Tag]);
@@ -3543,16 +3553,15 @@
   function FlowOrInteractiveContent() {
   }
   FlowOrInteractiveContent.$metadata$ = interfaceMeta('FlowOrInteractiveContent', [FlowOrInteractiveOrPhrasingContent, Tag]);
-  function FlowOrPhrasingContent() {
-  }
-  FlowOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrPhrasingContent', [FlowOrInteractiveOrPhrasingContent, FlowOrMetaDataOrPhrasingContent, Tag]);
   function SectioningOrFlowContent() {
   }
   SectioningOrFlowContent.$metadata$ = interfaceMeta('SectioningOrFlowContent', [Tag]);
-  function FlowOrInteractiveOrPhrasingContent() {
-  }
-  FlowOrInteractiveOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrInteractiveOrPhrasingContent', [Tag]);
   function span$lambda() {
+    return function ($this$null) {
+      return Unit_getInstance();
+    };
+  }
+  function input$lambda() {
     return function ($this$null) {
       return Unit_getInstance();
     };
@@ -3565,56 +3574,200 @@
     return this.consumer_2;
   };
   DIV.$metadata$ = classMeta('DIV', [HtmlBlockTag], undefined, undefined, undefined, HTMLTag.prototype);
-  function LINK(initialAttributes, consumer) {
-    HTMLTag.call(this, 'link', consumer, initialAttributes, null, false, true);
+  function INPUT(initialAttributes, consumer) {
+    HTMLTag.call(this, 'input', consumer, initialAttributes, null, true, true);
     this.consumer_2 = consumer;
   }
-  LINK.prototype.get_consumer_tu5133_k$ = function () {
+  INPUT.prototype.get_consumer_tu5133_k$ = function () {
     return this.consumer_2;
   };
-  LINK.prototype.set_href_7eilw6_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'href', newValue);
+  INPUT.prototype.set_type_ytiqmp_k$ = function (newValue) {
+    get_attributeInputTypeEnumInputTypeValues().set_r65rse_k$(this, 'type', newValue);
   };
-  LINK.prototype.get_href_wonh4k_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'href');
+  INPUT.prototype.get_type_wovaf7_k$ = function () {
+    return get_attributeInputTypeEnumInputTypeValues().get_kdqgs6_k$(this, 'type');
   };
-  LINK.prototype.set_hrefLang_r49nvg_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'hreflang', newValue);
+  INPUT.prototype.set_accept_albob1_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'accept', newValue);
   };
-  LINK.prototype.get_hrefLang_etqpu_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'hreflang');
+  INPUT.prototype.get_accept_avafwx_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'accept');
   };
-  LINK.prototype.set_rel_uaep4a_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'rel', newValue);
+  INPUT.prototype.set_alt_vr0wxm_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'alt', newValue);
   };
-  LINK.prototype.get_rel_18ix1s_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'rel');
+  INPUT.prototype.get_alt_18j9hc_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'alt');
   };
-  LINK.prototype.set_media_v43eut_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'media', newValue);
+  INPUT.prototype.set_autoFocus_pv5tp9_k$ = function (newValue) {
+    get_attributeBooleanTicker().set_r65rse_k$(this, 'autofocus', newValue);
   };
-  LINK.prototype.get_media_iv5mt7_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'media');
+  INPUT.prototype.get_autoFocus_zfc1fk_k$ = function () {
+    return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'autofocus');
   };
-  LINK.prototype.set_type_cttd7p_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'type', newValue);
+  INPUT.prototype.set_autoComplete_119bb0_k$ = function (newValue) {
+    get_attributeBooleanBooleanOnOff().set_r65rse_k$(this, 'autocomplete', newValue);
   };
-  LINK.prototype.get_type_wovaf7_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'type');
+  INPUT.prototype.get_autoComplete_88u9wv_k$ = function () {
+    return get_attributeBooleanBooleanOnOff().get_kdqgs6_k$(this, 'autocomplete');
   };
-  LINK.prototype.set_sizes_2t8999_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'sizes', newValue);
+  INPUT.prototype.set_checked_9dog67_k$ = function (newValue) {
+    get_attributeBooleanTicker().set_r65rse_k$(this, 'checked', newValue);
   };
-  LINK.prototype.get_sizes_iyjejt_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'sizes');
+  INPUT.prototype.get_checked_djib3y_k$ = function () {
+    return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'checked');
   };
-  LINK.prototype.set_integrity_oxlzvm_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'integrity', newValue);
+  INPUT.prototype.set_disabled_8l5lo0_k$ = function (newValue) {
+    get_attributeBooleanTicker().set_r65rse_k$(this, 'disabled', newValue);
   };
-  LINK.prototype.get_integrity_gnxvok_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'integrity');
+  INPUT.prototype.get_disabled_rbmjej_k$ = function () {
+    return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'disabled');
   };
-  LINK.$metadata$ = classMeta('LINK', [CommonAttributeGroupFacadeFlowMetaDataPhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
+  INPUT.prototype.set_form_plr1sh_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'form', newValue);
+  };
+  INPUT.prototype.get_form_wom58t_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'form');
+  };
+  INPUT.prototype.set_formAction_rfofjv_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'formaction', newValue);
+  };
+  INPUT.prototype.get_formAction_u7opr1_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'formaction');
+  };
+  INPUT.prototype.set_formEncType_mfbbsl_k$ = function (newValue) {
+    get_attributeInputFormEncTypeEnumInputFormEncTypeValues().set_r65rse_k$(this, 'formenctype', newValue);
+  };
+  INPUT.prototype.get_formEncType_klk8m1_k$ = function () {
+    return get_attributeInputFormEncTypeEnumInputFormEncTypeValues().get_kdqgs6_k$(this, 'formenctype');
+  };
+  INPUT.prototype.set_formMethod_2hdtf5_k$ = function (newValue) {
+    get_attributeInputFormMethodEnumInputFormMethodValues().set_r65rse_k$(this, 'formmethod', newValue);
+  };
+  INPUT.prototype.get_formMethod_oi1oky_k$ = function () {
+    return get_attributeInputFormMethodEnumInputFormMethodValues().get_kdqgs6_k$(this, 'formmethod');
+  };
+  INPUT.prototype.set_formNovalidate_bwd3kf_k$ = function (newValue) {
+    get_attributeBooleanTicker().set_r65rse_k$(this, 'formnovalidate', newValue);
+  };
+  INPUT.prototype.get_formNovalidate_6g1pz8_k$ = function () {
+    return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'formnovalidate');
+  };
+  INPUT.prototype.set_formTarget_ah555s_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'formtarget', newValue);
+  };
+  INPUT.prototype.get_formTarget_l8yt4y_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'formtarget');
+  };
+  INPUT.prototype.set_height_iaj1q_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'height', newValue);
+  };
+  INPUT.prototype.get_height_e7t92o_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'height');
+  };
+  INPUT.prototype.set_list_g2z0jt_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'list', newValue);
+  };
+  INPUT.prototype.get_list_wopuqv_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'list');
+  };
+  INPUT.prototype.set_max_cqefgr_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'max', newValue);
+  };
+  INPUT.prototype.get_max_18j0ud_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'max');
+  };
+  INPUT.prototype.set_maxLength_nabs05_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'maxlength', newValue);
+  };
+  INPUT.prototype.get_maxLength_4knn0f_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'maxlength');
+  };
+  INPUT.prototype.set_minLength_3uuvtj_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'minlength', newValue);
+  };
+  INPUT.prototype.get_minLength_87999r_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'minlength');
+  };
+  INPUT.prototype.set_min_igh8df_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'min', newValue);
+  };
+  INPUT.prototype.get_min_18j0nr_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'min');
+  };
+  INPUT.prototype.set_multiple_o0pwcc_k$ = function (newValue) {
+    get_attributeBooleanTicker().set_r65rse_k$(this, 'multiple', newValue);
+  };
+  INPUT.prototype.get_multiple_kznwh3_k$ = function () {
+    return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'multiple');
+  };
+  INPUT.prototype.set_pattern_crma73_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'pattern', newValue);
+  };
+  INPUT.prototype.get_pattern_btfv4p_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'pattern');
+  };
+  INPUT.prototype.set_placeholder_y9dqmc_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'placeholder', newValue);
+  };
+  INPUT.prototype.get_placeholder_nsdr0q_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'placeholder');
+  };
+  INPUT.prototype.set_readonly_pabxx2_k$ = function (newValue) {
+    get_attributeBooleanTicker().set_r65rse_k$(this, 'readonly', newValue);
+  };
+  INPUT.prototype.get_readonly_ow59u3_k$ = function () {
+    return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'readonly');
+  };
+  INPUT.prototype.set_required_xtinar_k$ = function (newValue) {
+    get_attributeBooleanTicker().set_r65rse_k$(this, 'required', newValue);
+  };
+  INPUT.prototype.get_required_wq3z3c_k$ = function () {
+    return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'required');
+  };
+  INPUT.prototype.set_size_s5yqi4_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'size', newValue);
+  };
+  INPUT.prototype.get_size_woubt6_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'size');
+  };
+  INPUT.prototype.set_src_70g1px_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'src', newValue);
+  };
+  INPUT.prototype.get_src_18iw05_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'src');
+  };
+  INPUT.prototype.set_step_xce4ll_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'step', newValue);
+  };
+  INPUT.prototype.get_step_woujh1_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'step');
+  };
+  INPUT.prototype.set_width_bs5acp_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'width', newValue);
+  };
+  INPUT.prototype.get_width_j0q4yl_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'width');
+  };
+  INPUT.prototype.set_files_a8z35k_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'files', newValue);
+  };
+  INPUT.prototype.get_files_irdsge_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'files');
+  };
+  INPUT.prototype.set_value_ic91ry_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'value', newValue);
+  };
+  INPUT.prototype.get_value_j01efc_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'value');
+  };
+  INPUT.prototype.set_name_p5yp4m_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'name', newValue);
+  };
+  INPUT.prototype.get_name_woqyms_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'name');
+  };
+  INPUT.$metadata$ = classMeta('INPUT', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
   function STYLE(initialAttributes, consumer) {
     HTMLTag.call(this, 'style', consumer, initialAttributes, null, false, false);
     this.consumer_2 = consumer;
@@ -4153,12 +4306,12 @@
   DIV.prototype.text_ojl72r_k$ = text_0;
   DIV.prototype.entity_uznif4_k$ = entity;
   DIV.prototype.comment_mqs0p9_k$ = comment;
-  LINK.prototype.unaryPlus_31ug2c_k$ = unaryPlus;
-  LINK.prototype.unaryPlus_g7ydph_k$ = unaryPlus_0;
-  LINK.prototype.text_yddl45_k$ = text;
-  LINK.prototype.text_ojl72r_k$ = text_0;
-  LINK.prototype.entity_uznif4_k$ = entity;
-  LINK.prototype.comment_mqs0p9_k$ = comment;
+  INPUT.prototype.unaryPlus_31ug2c_k$ = unaryPlus;
+  INPUT.prototype.unaryPlus_g7ydph_k$ = unaryPlus_0;
+  INPUT.prototype.text_yddl45_k$ = text;
+  INPUT.prototype.text_ojl72r_k$ = text_0;
+  INPUT.prototype.entity_uznif4_k$ = entity;
+  INPUT.prototype.comment_mqs0p9_k$ = comment;
   STYLE.prototype.comment_mqs0p9_k$ = comment;
   SPAN.prototype.unaryPlus_31ug2c_k$ = unaryPlus;
   SPAN.prototype.unaryPlus_g7ydph_k$ = unaryPlus_0;
@@ -4170,15 +4323,16 @@
   //endregion
   //region block: exports
   _.$_$ = _.$_$ || {};
-  _.$_$.a = append;
-  _.$_$.b = set_onClickFunction;
-  _.$_$.c = DIV;
-  _.$_$.d = LINK;
-  _.$_$.e = SPAN;
-  _.$_$.f = STYLE;
-  _.$_$.g = attributesMapOf_0;
-  _.$_$.h = attributesMapOf;
-  _.$_$.i = set_id;
+  _.$_$.a = enumEncode;
+  _.$_$.b = append;
+  _.$_$.c = set_onClickFunction;
+  _.$_$.d = DIV;
+  _.$_$.e = INPUT;
+  _.$_$.f = SPAN;
+  _.$_$.g = STYLE;
+  _.$_$.h = attributesMapOf_0;
+  _.$_$.i = attributesMapOf;
+  _.$_$.j = set_id;
   //endregion
   return _;
 }));
