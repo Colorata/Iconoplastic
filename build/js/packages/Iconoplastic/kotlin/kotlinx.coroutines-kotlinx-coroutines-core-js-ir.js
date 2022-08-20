@@ -16,79 +16,112 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var THROW_CCE = kotlin_kotlin.$_$.l3;
-  var isObject = kotlin_kotlin.$_$.a3;
-  var Unit_getInstance = kotlin_kotlin.$_$.g1;
-  var plus = kotlin_kotlin.$_$.j2;
-  var get = kotlin_kotlin.$_$.f2;
-  var fold = kotlin_kotlin.$_$.e2;
-  var minusKey = kotlin_kotlin.$_$.g2;
-  var Continuation = kotlin_kotlin.$_$.d2;
-  var classMeta = kotlin_kotlin.$_$.t2;
-  var EmptyCoroutineContext_getInstance = kotlin_kotlin.$_$.d1;
-  var createCoroutineUnintercepted = kotlin_kotlin.$_$.w1;
-  var interfaceMeta = kotlin_kotlin.$_$.y2;
-  var isInterface = kotlin_kotlin.$_$.z2;
-  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.q;
-  var toString = kotlin_kotlin.$_$.s3;
-  var toString_0 = kotlin_kotlin.$_$.d3;
-  var atomic$int$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.c;
-  var atomic$ref$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.b;
-  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.v1;
-  var objectMeta = kotlin_kotlin.$_$.c3;
-  var hashCode = kotlin_kotlin.$_$.x2;
-  var equals = kotlin_kotlin.$_$.u2;
-  var atomic$boolean$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.a;
-  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.l;
-  var Result__exceptionOrNull_impl_p6xea9 = kotlin_kotlin.$_$.z;
-  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.b1;
-  var AbstractCoroutineContextKey = kotlin_kotlin.$_$.z1;
-  var Key_getInstance = kotlin_kotlin.$_$.c1;
-  var AbstractCoroutineContextElement = kotlin_kotlin.$_$.y1;
-  var get_0 = kotlin_kotlin.$_$.a2;
-  var minusKey_0 = kotlin_kotlin.$_$.b2;
-  var ContinuationInterceptor = kotlin_kotlin.$_$.c2;
-  var Key = kotlin_kotlin.$_$.i2;
-  var RuntimeException_init_$Create$ = kotlin_kotlin.$_$.t;
-  var Enum = kotlin_kotlin.$_$.h3;
-  var startCoroutine = kotlin_kotlin.$_$.m2;
-  var noWhenBranchMatchedException = kotlin_kotlin.$_$.p3;
-  var Long = kotlin_kotlin.$_$.j3;
-  var RuntimeException = kotlin_kotlin.$_$.k3;
-  var RuntimeException_init_$Init$ = kotlin_kotlin.$_$.s;
-  var captureStack = kotlin_kotlin.$_$.p2;
-  var Error_0 = kotlin_kotlin.$_$.i3;
-  var Error_init_$Init$ = kotlin_kotlin.$_$.o;
-  var Element = kotlin_kotlin.$_$.h2;
-  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.n;
-  var anyToString = kotlin_kotlin.$_$.o2;
-  var throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.r3;
+  var THROW_CCE = kotlin_kotlin.$_$.g4;
+  var isObject = kotlin_kotlin.$_$.o3;
+  var Unit_getInstance = kotlin_kotlin.$_$.m1;
+  var plus = kotlin_kotlin.$_$.w2;
+  var get = kotlin_kotlin.$_$.s2;
+  var fold = kotlin_kotlin.$_$.r2;
+  var minusKey = kotlin_kotlin.$_$.t2;
+  var Continuation = kotlin_kotlin.$_$.q2;
+  var classMeta = kotlin_kotlin.$_$.h3;
+  var Annotation = kotlin_kotlin.$_$.a4;
+  var EmptyCoroutineContext_getInstance = kotlin_kotlin.$_$.h1;
+  var createCoroutineUnintercepted = kotlin_kotlin.$_$.j2;
+  var intercepted = kotlin_kotlin.$_$.k2;
+  var interfaceMeta = kotlin_kotlin.$_$.m3;
+  var isInterface = kotlin_kotlin.$_$.n3;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.s;
+  var toString = kotlin_kotlin.$_$.o4;
+  var toString_0 = kotlin_kotlin.$_$.s3;
+  var atomic$int$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.e;
+  var atomic$ref$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.d;
+  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.h2;
+  var objectMeta = kotlin_kotlin.$_$.q3;
+  var hashCode = kotlin_kotlin.$_$.l3;
+  var equals = kotlin_kotlin.$_$.i3;
+  var atomic$boolean$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.b;
+  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.m;
+  var Result__exceptionOrNull_impl_p6xea9 = kotlin_kotlin.$_$.d1;
+  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.f1;
+  var AbstractCoroutineContextKey = kotlin_kotlin.$_$.m2;
+  var Key_getInstance = kotlin_kotlin.$_$.g1;
+  var AbstractCoroutineContextElement = kotlin_kotlin.$_$.l2;
+  var get_0 = kotlin_kotlin.$_$.n2;
+  var minusKey_0 = kotlin_kotlin.$_$.o2;
+  var ContinuationInterceptor = kotlin_kotlin.$_$.p2;
+  var Key = kotlin_kotlin.$_$.v2;
+  var Element = kotlin_kotlin.$_$.u2;
+  var RuntimeException_init_$Create$ = kotlin_kotlin.$_$.v;
+  var THROW_ISE = kotlin_kotlin.$_$.h4;
+  var Enum = kotlin_kotlin.$_$.c4;
+  var startCoroutine = kotlin_kotlin.$_$.z2;
+  var noWhenBranchMatchedException = kotlin_kotlin.$_$.l4;
+  var startCoroutine_0 = kotlin_kotlin.$_$.a3;
+  var Long = kotlin_kotlin.$_$.e4;
+  var Companion_getInstance = kotlin_kotlin.$_$.k1;
+  var RuntimeException = kotlin_kotlin.$_$.f4;
+  var RuntimeException_init_$Init$ = kotlin_kotlin.$_$.u;
+  var captureStack = kotlin_kotlin.$_$.d3;
+  var Error_0 = kotlin_kotlin.$_$.d4;
+  var Error_init_$Init$ = kotlin_kotlin.$_$.q;
+  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.p;
+  var anyToString = kotlin_kotlin.$_$.c3;
+  var throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.n4;
   var ArrayList_init_$Create$ = kotlin_kotlin.$_$.f;
-  var CancellationException = kotlin_kotlin.$_$.u1;
-  var ArrayList = kotlin_kotlin.$_$.h1;
-  var IllegalStateException_init_$Create$_0 = kotlin_kotlin.$_$.r;
-  var UnsupportedOperationException = kotlin_kotlin.$_$.m3;
-  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.u;
-  var fillArrayVal = kotlin_kotlin.$_$.v2;
-  var arrayCopy = kotlin_kotlin.$_$.m1;
-  var Companion_getInstance = kotlin_kotlin.$_$.f1;
-  var createFailure = kotlin_kotlin.$_$.n3;
-  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.y;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.p;
-  var ensureNotNull = kotlin_kotlin.$_$.o3;
-  var intercepted = kotlin_kotlin.$_$.x1;
+  var CancellationException = kotlin_kotlin.$_$.g2;
+  var ArrayList = kotlin_kotlin.$_$.n1;
+  var CoroutineImpl = kotlin_kotlin.$_$.x2;
+  var SequenceScope = kotlin_kotlin.$_$.v3;
+  var IllegalStateException_init_$Create$_0 = kotlin_kotlin.$_$.t;
+  var sequence = kotlin_kotlin.$_$.w3;
+  var Companion_getInstance_0 = kotlin_kotlin.$_$.l1;
+  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.c1;
+  var createFailure = kotlin_kotlin.$_$.j4;
+  var SuspendFunction1 = kotlin_kotlin.$_$.y2;
+  var UnsupportedOperationException = kotlin_kotlin.$_$.i4;
+  var CancellationException_init_$Init$ = kotlin_kotlin.$_$.l;
+  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.x;
+  var fillArrayVal = kotlin_kotlin.$_$.j3;
+  var IntCompanionObject_getInstance = kotlin_kotlin.$_$.i1;
+  var arrayCopy = kotlin_kotlin.$_$.s1;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.r;
+  var ensureNotNull = kotlin_kotlin.$_$.k4;
+  var toLong = kotlin_kotlin.$_$.r3;
+  var atomic$long$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.c;
+  var atomicfu$AtomicRefArray$ofNulls = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.a;
+  var toLongOrNull = kotlin_kotlin.$_$.y3;
+  var createCoroutineUnintercepted_0 = kotlin_kotlin.$_$.i2;
   var getKClassFromExpression = kotlin_kotlin.$_$.a;
-  var CancellationException_init_$Init$ = kotlin_kotlin.$_$.m;
-  var getStringHashCode = kotlin_kotlin.$_$.w2;
+  var CancellationException_init_$Init$_0 = kotlin_kotlin.$_$.n;
+  var getStringHashCode = kotlin_kotlin.$_$.k3;
+  var coerceIn = kotlin_kotlin.$_$.u3;
   var HashSet_init_$Create$ = kotlin_kotlin.$_$.h;
+  var UnsupportedOperationException_init_$Create$_0 = kotlin_kotlin.$_$.w;
   //endregion
   //region block: pre-declaration
+  function cancel$default(cause, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      cause = null;
+    return $handler == null ? this.cancel_4b7aim_k$(cause) : $handler(cause);
+  }
+  function cancel() {
+    return this.cancel_4b7aim_k$(null);
+  }
+  function cancel$default_0(cause, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      cause = null;
+    return $handler == null ? this.cancel_as6ug7_k$(cause) : $handler(cause);
+  }
   function invokeOnCompletion$default(onCancelling, invokeImmediately, handler, $mask0, $handler) {
     if (!(($mask0 & 1) === 0))
       onCancelling = false;
     if (!(($mask0 & 2) === 0))
       invokeImmediately = true;
-    return $handler == null ? this.li(onCancelling, invokeImmediately, handler) : $handler(onCancelling, invokeImmediately, handler);
+    return $handler == null ? this.invokeOnCompletion_npwpyn_k$(onCancelling, invokeImmediately, handler) : $handler(onCancelling, invokeImmediately, handler);
+  }
+  function plus_0(other) {
+    return other;
   }
   AbstractCoroutine.prototype = Object.create(JobSupport.prototype);
   AbstractCoroutine.prototype.constructor = AbstractCoroutine;
@@ -96,14 +129,28 @@
   StandaloneCoroutine.prototype.constructor = StandaloneCoroutine;
   LazyStandaloneCoroutine.prototype = Object.create(StandaloneCoroutine.prototype);
   LazyStandaloneCoroutine.prototype.constructor = LazyStandaloneCoroutine;
+  function tryResume$default(value, idempotent, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      idempotent = null;
+    return $handler == null ? this.tryResume_10oxem_k$(value, idempotent) : $handler(value, idempotent);
+  }
+  function cancel$default_1(cause, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      cause = null;
+    return $handler == null ? this.cancel_as6ug7_k$(cause) : $handler(cause);
+  }
+  CancelHandler.prototype = Object.create(CancelHandlerBase.prototype);
+  CancelHandler.prototype.constructor = CancelHandler;
+  DisposeOnCancel.prototype = Object.create(CancelHandler.prototype);
+  DisposeOnCancel.prototype.constructor = DisposeOnCancel;
   DispatchedTask.prototype = Object.create(SchedulerTask.prototype);
   DispatchedTask.prototype.constructor = DispatchedTask;
   CancellableContinuationImpl.prototype = Object.create(DispatchedTask.prototype);
   CancellableContinuationImpl.prototype.constructor = CancellableContinuationImpl;
-  CancelHandler.prototype = Object.create(CancelHandlerBase.prototype);
-  CancelHandler.prototype.constructor = CancelHandler;
   BeforeResumeCancelHandler.prototype = Object.create(CancelHandler.prototype);
   BeforeResumeCancelHandler.prototype.constructor = BeforeResumeCancelHandler;
+  InvokeOnCancel.prototype = Object.create(CancelHandler.prototype);
+  InvokeOnCancel.prototype.constructor = InvokeOnCancel;
   CancelledContinuation.prototype = Object.create(CompletedExceptionally.prototype);
   CancelledContinuation.prototype.constructor = CancelledContinuation;
   Key_0.prototype = Object.create(AbstractCoroutineContextKey.prototype);
@@ -112,6 +159,24 @@
   CoroutineDispatcher.prototype.constructor = CoroutineDispatcher;
   CoroutineStart.prototype = Object.create(Enum.prototype);
   CoroutineStart.prototype.constructor = CoroutineStart;
+  function delay(time, $cont) {
+    if (time.compareTo_n4fqi2_k$(new Long(0, 0)) <= 0)
+      return Unit_getInstance();
+    var tmp$ret$0;
+    {
+      var tmp0__anonymous__q1qw7t = $cont;
+      var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
+      cancellable.initCancellability_sh6jkn_k$();
+      {
+        this.scheduleResumeAfterDelay_5x4w1l_k$(time, cancellable);
+      }
+      tmp$ret$0 = cancellable.getResult_clfhg3_k$();
+    }
+    return tmp$ret$0;
+  }
+  function invokeOnTimeout(timeMillis, block, context) {
+    return get_DefaultDelay().invokeOnTimeout_sx2bqq_k$(timeMillis, block, context);
+  }
   EventLoop.prototype = Object.create(CoroutineDispatcher.prototype);
   EventLoop.prototype.constructor = EventLoop;
   CompletionHandlerException.prototype = Object.create(RuntimeException.prototype);
@@ -128,6 +193,10 @@
   JobNode.prototype.constructor = JobNode;
   ChildCompletion.prototype = Object.create(JobNode.prototype);
   ChildCompletion.prototype.constructor = ChildCompletion;
+  AwaitContinuation.prototype = Object.create(CancellableContinuationImpl.prototype);
+  AwaitContinuation.prototype.constructor = AwaitContinuation;
+  JobSupport$_get_children_$slambda_k839f8.prototype = Object.create(CoroutineImpl.prototype);
+  JobSupport$_get_children_$slambda_k839f8.prototype.constructor = JobSupport$_get_children_$slambda_k839f8;
   JobCancellingNode.prototype = Object.create(JobNode.prototype);
   JobCancellingNode.prototype.constructor = JobCancellingNode;
   ChildHandleNode.prototype = Object.create(JobCancellingNode.prototype);
@@ -136,6 +205,14 @@
   InvokeOnCancelling.prototype.constructor = InvokeOnCancelling;
   InvokeOnCompletion.prototype = Object.create(JobNode.prototype);
   InvokeOnCompletion.prototype.constructor = InvokeOnCompletion;
+  ResumeOnCompletion.prototype = Object.create(JobNode.prototype);
+  ResumeOnCompletion.prototype.constructor = ResumeOnCompletion;
+  SelectJoinOnCompletion.prototype = Object.create(JobNode.prototype);
+  SelectJoinOnCompletion.prototype.constructor = SelectJoinOnCompletion;
+  ResumeAwaitOnCompletion.prototype = Object.create(JobNode.prototype);
+  ResumeAwaitOnCompletion.prototype.constructor = ResumeAwaitOnCompletion;
+  SelectAwaitOnCompletion.prototype = Object.create(JobNode.prototype);
+  SelectAwaitOnCompletion.prototype.constructor = SelectAwaitOnCompletion;
   ChildContinuation.prototype = Object.create(JobCancellingNode.prototype);
   ChildContinuation.prototype.constructor = ChildContinuation;
   JobImpl.prototype = Object.create(JobSupport.prototype);
@@ -146,8 +223,14 @@
   TimeoutCancellationException.prototype.constructor = TimeoutCancellationException;
   Unconfined.prototype = Object.create(CoroutineDispatcher.prototype);
   Unconfined.prototype.constructor = Unconfined;
+  YieldContext.prototype = Object.create(AbstractCoroutineContextElement.prototype);
+  YieldContext.prototype.constructor = YieldContext;
+  AtomicOp.prototype = Object.create(OpDescriptor.prototype);
+  AtomicOp.prototype.constructor = AtomicOp;
   DispatchedContinuation.prototype = Object.create(DispatchedTask.prototype);
   DispatchedContinuation.prototype.constructor = DispatchedContinuation;
+  LimitedDispatcher.prototype = Object.create(CoroutineDispatcher.prototype);
+  LimitedDispatcher.prototype.constructor = LimitedDispatcher;
   JsMainDispatcher.prototype = Object.create(MainCoroutineDispatcher.prototype);
   JsMainDispatcher.prototype.constructor = JsMainDispatcher;
   UnconfinedEventLoop.prototype = Object.create(EventLoop.prototype);
@@ -164,71 +247,122 @@
   MessageQueue.prototype.constructor = MessageQueue;
   ScheduledMessageQueue.prototype = Object.create(MessageQueue.prototype);
   ScheduledMessageQueue.prototype.constructor = ScheduledMessageQueue;
+  ClearTimeout.prototype = Object.create(CancelHandler.prototype);
+  ClearTimeout.prototype.constructor = ClearTimeout;
   WindowDispatcher.prototype = Object.create(CoroutineDispatcher.prototype);
   WindowDispatcher.prototype.constructor = WindowDispatcher;
   WindowMessageQueue.prototype = Object.create(MessageQueue.prototype);
   WindowMessageQueue.prototype.constructor = WindowMessageQueue;
+  PrepareOp.prototype = Object.create(OpDescriptor.prototype);
+  PrepareOp.prototype.constructor = PrepareOp;
+  AbstractAtomicDesc.prototype = Object.create(AtomicDesc.prototype);
+  AbstractAtomicDesc.prototype.constructor = AbstractAtomicDesc;
   //endregion
   function AbstractCoroutine(parentContext, initParentJob, active) {
     JobSupport.call(this, active);
     if (initParentJob)
-      this.gh(parentContext.a2(Key_getInstance_2()));
-    this.jh_1 = parentContext.h2(this);
+      this.initParentJob_4c2lht_k$(parentContext.get_1pi7hg_k$(Key_getInstance_2()));
+    this.context_1 = parentContext.plus_rgw9wi_k$(this);
   }
-  AbstractCoroutine.prototype.w1 = function () {
-    return this.jh_1;
+  AbstractCoroutine.prototype.get_context_h02k06_k$ = function () {
+    return this.context_1;
   };
-  AbstractCoroutine.prototype.kh = function () {
-    return this.jh_1;
+  AbstractCoroutine.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.context_1;
   };
-  AbstractCoroutine.prototype.lh = function () {
-    return JobSupport.prototype.lh.call(this);
+  AbstractCoroutine.prototype.get_isActive_quafmh_k$ = function () {
+    return JobSupport.prototype.get_isActive_quafmh_k$.call(this);
   };
-  AbstractCoroutine.prototype.mh = function (value) {
+  AbstractCoroutine.prototype.onCompleted_wmtzyo_k$ = function (value) {
   };
-  AbstractCoroutine.prototype.nh = function (cause, handled) {
+  AbstractCoroutine.prototype.onCancelled_oqqex5_k$ = function (cause, handled) {
   };
-  AbstractCoroutine.prototype.oh = function () {
+  AbstractCoroutine.prototype.cancellationExceptionMessage_a64063_k$ = function () {
     return get_classSimpleName(this) + ' was cancelled';
   };
-  AbstractCoroutine.prototype.ph = function (state) {
+  AbstractCoroutine.prototype.onCompletionInternal_39c1g8_k$ = function (state) {
     if (state instanceof CompletedExceptionally)
-      this.nh(state.qh_1, state.sh());
+      this.onCancelled_oqqex5_k$(state.cause_1, state.get_handled_cq14k3_k$());
     else {
-      this.mh((state == null ? true : isObject(state)) ? state : THROW_CCE());
+      this.onCompleted_wmtzyo_k$((state == null ? true : isObject(state)) ? state : THROW_CCE());
     }
   };
-  AbstractCoroutine.prototype.x1 = function (result) {
-    var state = this.th(toState$default(result, null, 1, null));
+  AbstractCoroutine.prototype.resumeWith_s3a3yh_k$ = function (result) {
+    var state = this.makeCompletingOnce_b13xy2_k$(toState$default(result, null, 1, null));
     if (state === get_COMPLETING_WAITING_CHILDREN())
       return Unit_getInstance();
-    this.uh(state);
+    this.afterResume_ufx9w9_k$(state);
   };
-  AbstractCoroutine.prototype.uh = function (state) {
-    return this.vh(state);
+  AbstractCoroutine.prototype.afterResume_ufx9w9_k$ = function (state) {
+    return this.afterCompletion_2ogq6g_k$(state);
   };
-  AbstractCoroutine.prototype.wh = function (exception) {
-    handleCoroutineException(this.jh_1, exception);
+  AbstractCoroutine.prototype.handleOnCompletionException_o179kb_k$ = function (exception) {
+    handleCoroutineException(this.context_1, exception);
   };
-  AbstractCoroutine.prototype.xh = function () {
-    var tmp0_elvis_lhs = get_coroutineName(this.jh_1);
+  AbstractCoroutine.prototype.nameString_cd9e9w_k$ = function () {
+    var tmp0_elvis_lhs = get_coroutineName(this.context_1);
     var tmp;
     if (tmp0_elvis_lhs == null) {
-      return JobSupport.prototype.xh.call(this);
+      return JobSupport.prototype.nameString_cd9e9w_k$.call(this);
     } else {
       tmp = tmp0_elvis_lhs;
     }
     var coroutineName = tmp;
-    return '"' + coroutineName + '":' + JobSupport.prototype.xh.call(this);
+    return '"' + coroutineName + '":' + JobSupport.prototype.nameString_cd9e9w_k$.call(this);
   };
-  AbstractCoroutine.prototype.yh = function (start, receiver, block) {
-    start.bi(block, receiver, this);
+  AbstractCoroutine.prototype.start_1ln6k9_k$ = function (start, receiver, block) {
+    start.invoke_wxhu2x_k$(block, receiver, this);
   };
   AbstractCoroutine.$metadata$ = classMeta('AbstractCoroutine', [Job, Continuation, CoroutineScope], undefined, undefined, undefined, JobSupport.prototype);
+  function InternalCoroutinesApi() {
+  }
+  InternalCoroutinesApi.prototype.equals = function (other) {
+    if (!(other instanceof InternalCoroutinesApi))
+      return false;
+    var tmp0_other_with_cast = other instanceof InternalCoroutinesApi ? other : THROW_CCE();
+    return true;
+  };
+  InternalCoroutinesApi.prototype.hashCode = function () {
+    return 0;
+  };
+  InternalCoroutinesApi.prototype.toString = function () {
+    return '@kotlinx.coroutines.InternalCoroutinesApi()';
+  };
+  InternalCoroutinesApi.$metadata$ = classMeta('InternalCoroutinesApi', [Annotation]);
+  function FlowPreview() {
+  }
+  FlowPreview.prototype.equals = function (other) {
+    if (!(other instanceof FlowPreview))
+      return false;
+    var tmp0_other_with_cast = other instanceof FlowPreview ? other : THROW_CCE();
+    return true;
+  };
+  FlowPreview.prototype.hashCode = function () {
+    return 0;
+  };
+  FlowPreview.prototype.toString = function () {
+    return '@kotlinx.coroutines.FlowPreview()';
+  };
+  FlowPreview.$metadata$ = classMeta('FlowPreview', [Annotation]);
+  function ExperimentalCoroutinesApi() {
+  }
+  ExperimentalCoroutinesApi.prototype.equals = function (other) {
+    if (!(other instanceof ExperimentalCoroutinesApi))
+      return false;
+    var tmp0_other_with_cast = other instanceof ExperimentalCoroutinesApi ? other : THROW_CCE();
+    return true;
+  };
+  ExperimentalCoroutinesApi.prototype.hashCode = function () {
+    return 0;
+  };
+  ExperimentalCoroutinesApi.prototype.toString = function () {
+    return '@kotlinx.coroutines.ExperimentalCoroutinesApi()';
+  };
+  ExperimentalCoroutinesApi.$metadata$ = classMeta('ExperimentalCoroutinesApi', [Annotation]);
   function launch(_this__u8e3s4, context, start, block) {
     var newContext = newCoroutineContext(_this__u8e3s4, context);
-    var coroutine = start.aj() ? new LazyStandaloneCoroutine(newContext, block) : new StandaloneCoroutine(newContext, true);
-    coroutine.yh(start, coroutine, block);
+    var coroutine = start.get_isLazy_ew1d53_k$() ? new LazyStandaloneCoroutine(newContext, block) : new StandaloneCoroutine(newContext, true);
+    coroutine.start_1ln6k9_k$(start, coroutine, block);
     return coroutine;
   }
   function launch$default(_this__u8e3s4, context, start, block, $mask0, $handler) {
@@ -241,24 +375,84 @@
   function StandaloneCoroutine(parentContext, active) {
     AbstractCoroutine.call(this, parentContext, true, active);
   }
-  StandaloneCoroutine.prototype.yi = function (exception) {
-    handleCoroutineException(this.w1(), exception);
+  StandaloneCoroutine.prototype.handleJobException_oc4gxk_k$ = function (exception) {
+    handleCoroutineException(this.get_context_h02k06_k$(), exception);
     return true;
   };
   StandaloneCoroutine.$metadata$ = classMeta('StandaloneCoroutine', undefined, undefined, undefined, undefined, AbstractCoroutine.prototype);
+  function _get_continuation__y3gzck($this) {
+    return $this.continuation_1;
+  }
   function LazyStandaloneCoroutine(parentContext, block) {
     StandaloneCoroutine.call(this, parentContext, false);
-    this.hj_1 = createCoroutineUnintercepted(block, this, this);
+    this.continuation_1 = createCoroutineUnintercepted(block, this, this);
   }
-  LazyStandaloneCoroutine.prototype.hi = function () {
-    startCoroutineCancellable_0(this.hj_1, this);
+  LazyStandaloneCoroutine.prototype.onStart_qth026_k$ = function () {
+    startCoroutineCancellable_1(this.continuation_1, this);
   };
   LazyStandaloneCoroutine.$metadata$ = classMeta('LazyStandaloneCoroutine', undefined, undefined, undefined, undefined, StandaloneCoroutine.prototype);
+  function suspendCancellableCoroutine(block, $cont) {
+    var tmp$ret$0;
+    {
+      var tmp0__anonymous__q1qw7t = $cont;
+      var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
+      cancellable.initCancellability_sh6jkn_k$();
+      block(cancellable);
+      tmp$ret$0 = cancellable.getResult_clfhg3_k$();
+    }
+    return tmp$ret$0;
+  }
   function CancellableContinuation() {
   }
   CancellableContinuation.$metadata$ = interfaceMeta('CancellableContinuation', [Continuation]);
+  function disposeOnCancellation(_this__u8e3s4, handle) {
+    var tmp$ret$1;
+    {
+      var tmp0__get_asHandler__gq3rkj = new DisposeOnCancel(handle);
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = tmp0__get_asHandler__gq3rkj;
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return _this__u8e3s4.invokeOnCancellation_yygv6h_k$(tmp$ret$1);
+  }
+  function _get_handle__ls055p($this) {
+    return $this.handle_1;
+  }
+  function DisposeOnCancel(handle) {
+    CancelHandler.call(this);
+    this.handle_1 = handle;
+  }
+  DisposeOnCancel.prototype.invoke_7fb7sc_k$ = function (cause) {
+    return this.handle_1.dispose_3n44we_k$();
+  };
+  DisposeOnCancel.prototype.invoke = function (cause) {
+    return this.invoke_7fb7sc_k$(cause);
+  };
+  DisposeOnCancel.prototype.toString = function () {
+    return 'DisposeOnCancel[' + this.handle_1 + ']';
+  };
+  DisposeOnCancel.$metadata$ = classMeta('DisposeOnCancel', undefined, undefined, undefined, undefined, CancelHandler.prototype);
+  function get_RESUME_TOKEN() {
+    init_properties_CancellableContinuationImpl_kt_jcze1b();
+    return RESUME_TOKEN;
+  }
+  var RESUME_TOKEN;
+  function _get__decision__uou2k6($this) {
+    return $this._decision_1;
+  }
+  function _get__state__37adl3($this) {
+    return $this._state_1;
+  }
+  function _set_parentHandle__bde57($this, _set____db54di) {
+    $this.parentHandle_1 = _set____db54di;
+  }
+  function _get_parentHandle__f8dcex($this) {
+    return $this.parentHandle_1;
+  }
   function _get_stateDebugRepresentation__bf18u4($this) {
-    var tmp0_subject = $this.ei();
+    var tmp0_subject = $this.get_state_iypx7s_k$();
     var tmp;
     if (!(tmp0_subject == null) ? isInterface(tmp0_subject, NotCompleted) : false) {
       tmp = 'Active';
@@ -273,9 +467,9 @@
   }
   function isReusable($this) {
     var tmp;
-    if (get_isReusableMode($this.wj())) {
-      var tmp_0 = $this.jj_1;
-      tmp = (tmp_0 instanceof DispatchedContinuation ? tmp_0 : THROW_CCE()).uj();
+    if (get_isReusableMode($this.get_resumeMode_te1i4n_k$())) {
+      var tmp_0 = $this.delegate_1;
+      tmp = (tmp_0 instanceof DispatchedContinuation ? tmp_0 : THROW_CCE()).isReusable_hrfetn_k$();
     } else {
       tmp = false;
     }
@@ -284,20 +478,46 @@
   function cancelLater($this, cause) {
     if (!isReusable($this))
       return false;
-    var tmp = $this.jj_1;
+    var tmp = $this.delegate_1;
     var dispatched = tmp instanceof DispatchedContinuation ? tmp : THROW_CCE();
-    return dispatched.xj(cause);
+    return dispatched.postponeCancellation_723ard_k$(cause);
+  }
+  function callCancelHandlerSafely($this, block) {
+    try {
+      block();
+    } catch ($p) {
+      if ($p instanceof Error) {
+        handleCoroutineException($this.get_context_h02k06_k$(), new CompletionHandlerException('Exception in invokeOnCancellation handler for ' + $this, $p));
+      } else {
+        throw $p;
+      }
+    }
+  }
+  function callCancelHandler($this, handler, cause) {
+    var tmp;
+    try {
+      tmp = invokeIt(handler, cause);
+    } catch ($p) {
+      var tmp_0;
+      if ($p instanceof Error) {
+        tmp_0 = handleCoroutineException($this.get_context_h02k06_k$(), new CompletionHandlerException('Exception in invokeOnCancellation handler for ' + $this, $p));
+      } else {
+        throw $p;
+      }
+      tmp = tmp_0;
+    }
+    return tmp;
   }
   function trySuspend($this) {
     {
-      var tmp0_loop = $this.lj_1;
+      var tmp0_loop = $this._decision_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.yg_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           var tmp0_subject = tmp1__anonymous__uwfjfc;
           switch (tmp0_subject) {
             case 0:
-              if ($this.lj_1.atomicfu$compareAndSet(0, 1))
+              if ($this._decision_1.atomicfu$compareAndSet(0, 1))
                 return true;
               break;
             case 2:
@@ -311,14 +531,14 @@
   }
   function tryResume($this) {
     {
-      var tmp0_loop = $this.lj_1;
+      var tmp0_loop = $this._decision_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.yg_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           var tmp0_subject = tmp1__anonymous__uwfjfc;
           switch (tmp0_subject) {
             case 0:
-              if ($this.lj_1.atomicfu$compareAndSet(0, 2))
+              if ($this._decision_1.atomicfu$compareAndSet(0, 2))
                 return true;
               break;
             case 1:
@@ -331,7 +551,7 @@
     }
   }
   function installParentHandle($this) {
-    var tmp0_elvis_lhs = $this.w1().a2(Key_getInstance_2());
+    var tmp0_elvis_lhs = $this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return null;
@@ -348,14 +568,14 @@
       }
       tmp$ret$1 = tmp$ret$0;
     }
-    var handle = parent.mi(true, false, tmp$ret$1, 2, null);
-    $this.nj_1 = handle;
+    var handle = parent.invokeOnCompletion$default_7q548c_k$(true, false, tmp$ret$1, 2, null);
+    $this.parentHandle_1 = handle;
     return handle;
   }
   function releaseClaimedReusableContinuation($this) {
-    var tmp = $this.jj_1;
+    var tmp = $this.delegate_1;
     var tmp0_safe_receiver = tmp instanceof DispatchedContinuation ? tmp : null;
-    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.yj($this);
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.tryReleaseClaimedContinuation_5s4a1c_k$($this);
     var tmp_0;
     if (tmp1_elvis_lhs == null) {
       return Unit_getInstance();
@@ -363,8 +583,23 @@
       tmp_0 = tmp1_elvis_lhs;
     }
     var cancellationCause = tmp_0;
-    $this.zj();
-    $this.ak(cancellationCause);
+    $this.detachChild_qdtbew_k$();
+    $this.cancel_as6ug7_k$(cancellationCause);
+  }
+  function multipleHandlersError($this, handler, state) {
+    {
+      var tmp0_error = "It's prohibited to register multiple handlers, tried to register " + handler + ', already has ' + toString(state);
+      throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
+    }
+  }
+  function makeCancelHandler($this, handler) {
+    var tmp;
+    if (handler instanceof CancelHandler) {
+      tmp = handler;
+    } else {
+      tmp = new InvokeOnCancel(handler);
+    }
+    return tmp;
   }
   function dispatchResume($this, mode) {
     if (tryResume($this))
@@ -413,15 +648,15 @@
   }
   function resumeImpl($this, proposedUpdate, resumeMode, onCancellation) {
     {
-      var tmp0_loop = $this.mj_1;
+      var tmp0_loop = $this._state_1;
       while (true) {
         var tmp$ret$0;
         $l$block: {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.xg_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           var tmp0_subject = tmp1__anonymous__uwfjfc;
           if (!(tmp0_subject == null) ? isInterface(tmp0_subject, NotCompleted) : false) {
             var update = resumedState($this, tmp1__anonymous__uwfjfc, proposedUpdate, resumeMode, onCancellation, null);
-            if (!$this.mj_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
+            if (!$this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
               tmp$ret$0 = Unit_getInstance();
               break $l$block;
             }
@@ -430,7 +665,7 @@
             return Unit_getInstance();
           } else {
             if (tmp0_subject instanceof CancelledContinuation) {
-              if (tmp1__anonymous__uwfjfc.fk()) {
+              if (tmp1__anonymous__uwfjfc.makeResumed_vjvawn_k$()) {
                 var tmp1_safe_receiver = onCancellation;
                 if (tmp1_safe_receiver == null)
                   null;
@@ -439,7 +674,7 @@
                   {
                     {
                     }
-                    tmp$ret$1 = $this.bk(tmp1_safe_receiver, tmp1__anonymous__uwfjfc.u3());
+                    tmp$ret$1 = $this.callOnCancellation_adp92k_k$(tmp1_safe_receiver, tmp1__anonymous__uwfjfc.get_cause_iplhs0_k$());
                   }
                 }
                 return Unit_getInstance();
@@ -456,6 +691,41 @@
       onCancellation = null;
     return resumeImpl($this, proposedUpdate, resumeMode, onCancellation);
   }
+  function tryResumeImpl($this, proposedUpdate, idempotent, onCancellation) {
+    {
+      var tmp0_loop = $this._state_1;
+      while (true) {
+        var tmp$ret$0;
+        $l$block: {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          var tmp0_subject = tmp1__anonymous__uwfjfc;
+          if (!(tmp0_subject == null) ? isInterface(tmp0_subject, NotCompleted) : false) {
+            var update = resumedState($this, tmp1__anonymous__uwfjfc, proposedUpdate, $this.get_resumeMode_te1i4n_k$(), onCancellation, idempotent);
+            if (!$this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
+              tmp$ret$0 = Unit_getInstance();
+              break $l$block;
+            }
+            detachChildIfNonResuable($this);
+            return get_RESUME_TOKEN();
+          } else {
+            if (tmp0_subject instanceof CompletedContinuation) {
+              var tmp;
+              if (!(idempotent == null) ? tmp1__anonymous__uwfjfc.idempotentResume_1 === idempotent : false) {
+                {
+                }
+                tmp = get_RESUME_TOKEN();
+              } else {
+                tmp = null;
+              }
+              return tmp;
+            } else {
+              return null;
+            }
+          }
+        }
+      }
+    }
+  }
   function alreadyResumedError($this, proposedUpdate) {
     {
       var tmp0_error = 'Already resumed, but proposed with update ' + toString(proposedUpdate);
@@ -464,32 +734,40 @@
   }
   function detachChildIfNonResuable($this) {
     if (!isReusable($this))
-      $this.zj();
+      $this.detachChild_qdtbew_k$();
   }
   function CancellableContinuationImpl(delegate, resumeMode) {
     DispatchedTask.call(this, resumeMode);
-    this.jj_1 = delegate;
+    this.delegate_1 = delegate;
     {
     }
-    this.kj_1 = this.jj_1.w1();
-    this.lj_1 = atomic$int$1(0);
-    this.mj_1 = atomic$ref$1(Active_getInstance());
-    this.nj_1 = null;
+    this.context_1 = this.delegate_1.get_context_h02k06_k$();
+    this._decision_1 = atomic$int$1(0);
+    this._state_1 = atomic$ref$1(Active_getInstance());
+    this.parentHandle_1 = null;
   }
-  CancellableContinuationImpl.prototype.gk = function () {
-    return this.jj_1;
+  CancellableContinuationImpl.prototype.get_delegate_i94tki_k$ = function () {
+    return this.delegate_1;
   };
-  CancellableContinuationImpl.prototype.w1 = function () {
-    return this.kj_1;
+  CancellableContinuationImpl.prototype.get_context_h02k06_k$ = function () {
+    return this.context_1;
   };
-  CancellableContinuationImpl.prototype.ei = function () {
-    return this.mj_1.xg_1;
+  CancellableContinuationImpl.prototype.get_state_iypx7s_k$ = function () {
+    return this._state_1.value_1;
   };
-  CancellableContinuationImpl.prototype.fi = function () {
-    var tmp = this.ei();
+  CancellableContinuationImpl.prototype.get_isActive_quafmh_k$ = function () {
+    var tmp = this.get_state_iypx7s_k$();
+    return !(tmp == null) ? isInterface(tmp, NotCompleted) : false;
+  };
+  CancellableContinuationImpl.prototype.get_isCompleted_a6j6c8_k$ = function () {
+    var tmp = this.get_state_iypx7s_k$();
     return !(!(tmp == null) ? isInterface(tmp, NotCompleted) : false);
   };
-  CancellableContinuationImpl.prototype.hk = function () {
+  CancellableContinuationImpl.prototype.get_isCancelled_trk8pu_k$ = function () {
+    var tmp = this.get_state_iypx7s_k$();
+    return tmp instanceof CancelledContinuation;
+  };
+  CancellableContinuationImpl.prototype.initCancellability_sh6jkn_k$ = function () {
     var tmp0_elvis_lhs = installParentHandle(this);
     var tmp;
     if (tmp0_elvis_lhs == null) {
@@ -498,19 +776,48 @@
       tmp = tmp0_elvis_lhs;
     }
     var handle = tmp;
-    if (this.fi()) {
-      handle.ik();
-      this.nj_1 = NonDisposableHandle_getInstance();
+    if (this.get_isCompleted_a6j6c8_k$()) {
+      handle.dispose_3n44we_k$();
+      this.parentHandle_1 = NonDisposableHandle_getInstance();
     }
   };
-  CancellableContinuationImpl.prototype.jk = function () {
-    return this.ei();
+  CancellableContinuationImpl.prototype.resetStateReusable_a3kq5v_k$ = function () {
+    {
+    }
+    {
+    }
+    var state = this._state_1.value_1;
+    {
+    }
+    var tmp;
+    if (state instanceof CompletedContinuation) {
+      tmp = !(state.idempotentResume_1 == null);
+    } else {
+      tmp = false;
+    }
+    if (tmp) {
+      this.detachChild_qdtbew_k$();
+      return false;
+    }
+    this._decision_1.value_1 = 0;
+    this._state_1.value_1 = Active_getInstance();
+    return true;
   };
-  CancellableContinuationImpl.prototype.kk = function (takenState, cause) {
-    var tmp0_loop = this.mj_1;
+  CancellableContinuationImpl.prototype.get_callerFrame_pfdb95_k$ = function () {
+    var tmp = this.delegate_1;
+    return isInterface(tmp, CoroutineStackFrame) ? tmp : null;
+  };
+  CancellableContinuationImpl.prototype.getStackTraceElement_um8m53_k$ = function () {
+    return null;
+  };
+  CancellableContinuationImpl.prototype.takeState_olvzuy_k$ = function () {
+    return this.get_state_iypx7s_k$();
+  };
+  CancellableContinuationImpl.prototype.cancelCompletedResult_tweln2_k$ = function (takenState, cause) {
+    var tmp0_loop = this._state_1;
     while (true) {
       {
-        var tmp1__anonymous__uwfjfc = tmp0_loop.xg_1;
+        var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
         var tmp0_subject = tmp1__anonymous__uwfjfc;
         if (!(tmp0_subject == null) ? isInterface(tmp0_subject, NotCompleted) : false) {
           throw IllegalStateException_init_$Create$('Not completed');
@@ -520,7 +827,7 @@
           else {
             if (tmp0_subject instanceof CompletedContinuation) {
               {
-                var tmp0_check = !tmp1__anonymous__uwfjfc.qk();
+                var tmp0_check = !tmp1__anonymous__uwfjfc.get_cancelled_ge9r54_k$();
                 {
                 }
                 if (!tmp0_check) {
@@ -532,13 +839,13 @@
                   throw IllegalStateException_init_$Create$(toString_0(message));
                 }
               }
-              var update = tmp1__anonymous__uwfjfc.rk(null, null, null, null, cause, 15, null);
-              if (this.mj_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
-                tmp1__anonymous__uwfjfc.sk(this, cause);
+              var update = tmp1__anonymous__uwfjfc.copy$default_x1yew9_k$(null, null, null, null, cause, 15, null);
+              if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
+                tmp1__anonymous__uwfjfc.invokeHandlers_2wd6qe_k$(this, cause);
                 return Unit_getInstance();
               }
             } else {
-              if (this.mj_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, CompletedContinuation_init_$Create$(tmp1__anonymous__uwfjfc, null, null, null, cause, 14, null))) {
+              if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, CompletedContinuation_init_$Create$(tmp1__anonymous__uwfjfc, null, null, null, cause, 14, null))) {
                 return Unit_getInstance();
               }
             }
@@ -548,17 +855,17 @@
     }
     return Unit_getInstance();
   };
-  CancellableContinuationImpl.prototype.ak = function (cause) {
+  CancellableContinuationImpl.prototype.cancel_as6ug7_k$ = function (cause) {
     {
-      var tmp0_loop = this.mj_1;
+      var tmp0_loop = this._state_1;
       while (true) {
         var tmp$ret$0;
         $l$block: {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.xg_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           if (!(!(tmp1__anonymous__uwfjfc == null) ? isInterface(tmp1__anonymous__uwfjfc, NotCompleted) : false))
             return false;
           var update = new CancelledContinuation(this, cause, tmp1__anonymous__uwfjfc instanceof CancelHandler);
-          if (!this.mj_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
+          if (!this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
             tmp$ret$0 = Unit_getInstance();
             break $l$block;
           }
@@ -570,30 +877,30 @@
             {
               {
               }
-              tmp$ret$1 = this.tk(tmp0_safe_receiver, cause);
+              tmp$ret$1 = this.callCancelHandler_qcjvzx_k$(tmp0_safe_receiver, cause);
             }
           }
           detachChildIfNonResuable(this);
-          dispatchResume(this, this.wj());
+          dispatchResume(this, this.get_resumeMode_te1i4n_k$());
           return true;
         }
       }
     }
   };
-  CancellableContinuationImpl.prototype.uk = function (cause) {
+  CancellableContinuationImpl.prototype.parentCancelled_uc06zq_k$ = function (cause) {
     if (cancelLater(this, cause))
       return Unit_getInstance();
-    this.ak(cause);
+    this.cancel_as6ug7_k$(cause);
     detachChildIfNonResuable(this);
   };
-  CancellableContinuationImpl.prototype.tk = function (handler, cause) {
+  CancellableContinuationImpl.prototype.callCancelHandler_qcjvzx_k$ = function (handler, cause) {
     var tmp;
     try {
       tmp = handler.invoke(cause);
     } catch ($p) {
       var tmp_0;
       if ($p instanceof Error) {
-        tmp_0 = handleCoroutineException(this.w1(), new CompletionHandlerException('Exception in invokeOnCancellation handler for ' + this, $p));
+        tmp_0 = handleCoroutineException(this.get_context_h02k06_k$(), new CompletionHandlerException('Exception in invokeOnCancellation handler for ' + this, $p));
       } else {
         throw $p;
       }
@@ -601,24 +908,24 @@
     }
     return tmp;
   };
-  CancellableContinuationImpl.prototype.bk = function (onCancellation, cause) {
+  CancellableContinuationImpl.prototype.callOnCancellation_adp92k_k$ = function (onCancellation, cause) {
     try {
       onCancellation(cause);
     } catch ($p) {
       if ($p instanceof Error) {
-        handleCoroutineException(this.w1(), new CompletionHandlerException('Exception in resume onCancellation handler for ' + this, $p));
+        handleCoroutineException(this.get_context_h02k06_k$(), new CompletionHandlerException('Exception in resume onCancellation handler for ' + this, $p));
       } else {
         throw $p;
       }
     }
   };
-  CancellableContinuationImpl.prototype.vk = function (parent) {
-    return parent.ii();
+  CancellableContinuationImpl.prototype.getContinuationCancellationCause_62o4c9_k$ = function (parent) {
+    return parent.getCancellationException_8i1q6u_k$();
   };
-  CancellableContinuationImpl.prototype.wk = function () {
+  CancellableContinuationImpl.prototype.getResult_clfhg3_k$ = function () {
     var isReusable_0 = isReusable(this);
     if (trySuspend(this)) {
-      if (this.nj_1 == null) {
+      if (this.parentHandle_1 == null) {
         installParentHandle(this);
       }
       if (isReusable_0) {
@@ -629,26 +936,79 @@
     if (isReusable_0) {
       releaseClaimedReusableContinuation(this);
     }
-    var state = this.ei();
+    var state = this.get_state_iypx7s_k$();
     if (state instanceof CompletedExceptionally)
-      throw recoverStackTrace(state.qh_1, this);
-    if (get_isCancellableMode(this.wj())) {
-      var job = this.w1().a2(Key_getInstance_2());
-      if (!(job == null) ? !job.lh() : false) {
-        var cause = job.ii();
-        this.kk(state, cause);
+      throw recoverStackTrace(state.cause_1, this);
+    if (get_isCancellableMode(this.get_resumeMode_te1i4n_k$())) {
+      var job = this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
+      if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
+        var cause = job.getCancellationException_8i1q6u_k$();
+        this.cancelCompletedResult_tweln2_k$(state, cause);
         throw recoverStackTrace(cause, this);
       }
     }
-    return this.xk(state);
+    return this.getSuccessfulResult_gdkv2w_k$(state);
   };
-  CancellableContinuationImpl.prototype.x1 = function (result) {
+  CancellableContinuationImpl.prototype.resumeWith_s3a3yh_k$ = function (result) {
     var tmp = toState(result, this);
-    var tmp_0 = this.wj();
+    var tmp_0 = this.get_resumeMode_te1i4n_k$();
     return resumeImpl$default(this, tmp, tmp_0, null, 8, null);
   };
-  CancellableContinuationImpl.prototype.zj = function () {
-    var tmp0_elvis_lhs = this.nj_1;
+  CancellableContinuationImpl.prototype.resume_l1w5in_k$ = function (value, onCancellation) {
+    return resumeImpl(this, value, this.get_resumeMode_te1i4n_k$(), onCancellation);
+  };
+  CancellableContinuationImpl.prototype.invokeOnCancellation_yygv6h_k$ = function (handler) {
+    var cancelHandler = makeCancelHandler(this, handler);
+    {
+      var tmp0_loop = this._state_1;
+      while (true) {
+        {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          var tmp0_subject = tmp1__anonymous__uwfjfc;
+          if (tmp0_subject instanceof Active) {
+            if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, cancelHandler))
+              return Unit_getInstance();
+          } else {
+            if (tmp0_subject instanceof CancelHandler)
+              multipleHandlersError(this, handler, tmp1__anonymous__uwfjfc);
+            else {
+              if (tmp0_subject instanceof CompletedExceptionally) {
+                if (!tmp1__anonymous__uwfjfc.makeHandled_ws9oq6_k$())
+                  multipleHandlersError(this, handler, tmp1__anonymous__uwfjfc);
+                if (tmp1__anonymous__uwfjfc instanceof CancelledContinuation) {
+                  var tmp1_safe_receiver = tmp1__anonymous__uwfjfc instanceof CompletedExceptionally ? tmp1__anonymous__uwfjfc : null;
+                  callCancelHandler(this, handler, tmp1_safe_receiver == null ? null : tmp1_safe_receiver.cause_1);
+                }
+                return Unit_getInstance();
+              } else {
+                if (tmp0_subject instanceof CompletedContinuation) {
+                  if (!(tmp1__anonymous__uwfjfc.cancelHandler_1 == null))
+                    multipleHandlersError(this, handler, tmp1__anonymous__uwfjfc);
+                  if (cancelHandler instanceof BeforeResumeCancelHandler)
+                    return Unit_getInstance();
+                  if (tmp1__anonymous__uwfjfc.get_cancelled_ge9r54_k$()) {
+                    callCancelHandler(this, handler, tmp1__anonymous__uwfjfc.cancelCause_1);
+                    return Unit_getInstance();
+                  }
+                  var update = tmp1__anonymous__uwfjfc.copy$default_x1yew9_k$(null, cancelHandler, null, null, null, 29, null);
+                  if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update))
+                    return Unit_getInstance();
+                } else {
+                  if (cancelHandler instanceof BeforeResumeCancelHandler)
+                    return Unit_getInstance();
+                  var update_0 = CompletedContinuation_init_$Create$(tmp1__anonymous__uwfjfc, cancelHandler, null, null, null, 28, null);
+                  if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update_0))
+                    return Unit_getInstance();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+  CancellableContinuationImpl.prototype.detachChild_qdtbew_k$ = function () {
+    var tmp0_elvis_lhs = this.parentHandle_1;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return Unit_getInstance();
@@ -656,22 +1016,63 @@
       tmp = tmp0_elvis_lhs;
     }
     var handle = tmp;
-    handle.ik();
-    this.nj_1 = NonDisposableHandle_getInstance();
+    handle.dispose_3n44we_k$();
+    this.parentHandle_1 = NonDisposableHandle_getInstance();
   };
-  CancellableContinuationImpl.prototype.xk = function (state) {
+  CancellableContinuationImpl.prototype.tryResume_10oxem_k$ = function (value, idempotent) {
+    return tryResumeImpl(this, value, idempotent, null);
+  };
+  CancellableContinuationImpl.prototype.tryResume_93jc0s_k$ = function (value, idempotent, onCancellation) {
+    return tryResumeImpl(this, value, idempotent, onCancellation);
+  };
+  CancellableContinuationImpl.prototype.tryResumeWithException_3icka9_k$ = function (exception) {
+    return tryResumeImpl(this, CompletedExceptionally_init_$Create$(exception, false, 2, null), null, null);
+  };
+  CancellableContinuationImpl.prototype.completeResume_fu4ex_k$ = function (token) {
+    {
+    }
+    dispatchResume(this, this.get_resumeMode_te1i4n_k$());
+  };
+  CancellableContinuationImpl.prototype.resumeUndispatched_re4yxz_k$ = function (_this__u8e3s4, value) {
+    var tmp = this.delegate_1;
+    var dc = tmp instanceof DispatchedContinuation ? tmp : null;
+    var tmp_0;
+    var tmp0_safe_receiver = dc;
+    if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.dispatcher_1) === _this__u8e3s4) {
+      tmp_0 = get_MODE_UNDISPATCHED();
+    } else {
+      tmp_0 = this.get_resumeMode_te1i4n_k$();
+    }
+    var tmp_1 = tmp_0;
+    resumeImpl$default(this, value, tmp_1, null, 8, null);
+  };
+  CancellableContinuationImpl.prototype.resumeUndispatchedWithException_xuy3rd_k$ = function (_this__u8e3s4, exception) {
+    var tmp = this.delegate_1;
+    var dc = tmp instanceof DispatchedContinuation ? tmp : null;
+    var tmp_0 = CompletedExceptionally_init_$Create$(exception, false, 2, null);
+    var tmp_1;
+    var tmp0_safe_receiver = dc;
+    if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.dispatcher_1) === _this__u8e3s4) {
+      tmp_1 = get_MODE_UNDISPATCHED();
+    } else {
+      tmp_1 = this.get_resumeMode_te1i4n_k$();
+    }
+    var tmp_2 = tmp_1;
+    resumeImpl$default(this, tmp_0, tmp_2, null, 8, null);
+  };
+  CancellableContinuationImpl.prototype.getSuccessfulResult_gdkv2w_k$ = function (state) {
     var tmp0_subject = state;
     var tmp;
     if (tmp0_subject instanceof CompletedContinuation) {
-      var tmp_0 = state.lk_1;
+      var tmp_0 = state.result_1;
       tmp = (tmp_0 == null ? true : isObject(tmp_0)) ? tmp_0 : THROW_CCE();
     } else {
       tmp = (state == null ? true : isObject(state)) ? state : THROW_CCE();
     }
     return tmp;
   };
-  CancellableContinuationImpl.prototype.yk = function (state) {
-    var tmp0_safe_receiver = DispatchedTask.prototype.yk.call(this, state);
+  CancellableContinuationImpl.prototype.getExceptionalResult_bnge6_k$ = function (state) {
+    var tmp0_safe_receiver = DispatchedTask.prototype.getExceptionalResult_bnge6_k$.call(this, state);
     var tmp;
     if (tmp0_safe_receiver == null) {
       tmp = null;
@@ -682,7 +1083,7 @@
         }
         var tmp$ret$0;
         {
-          tmp$ret$0 = recoverStackTrace(tmp0_safe_receiver, this.jj_1);
+          tmp$ret$0 = recoverStackTrace(tmp0_safe_receiver, this.delegate_1);
         }
         tmp$ret$1 = tmp$ret$0;
       }
@@ -691,13 +1092,14 @@
     return tmp;
   };
   CancellableContinuationImpl.prototype.toString = function () {
-    return this.xh() + '(' + toDebugString(this.jj_1) + '){' + _get_stateDebugRepresentation__bf18u4(this) + '}@' + get_hexAddress(this);
+    return this.nameString_cd9e9w_k$() + '(' + toDebugString(this.delegate_1) + '){' + _get_stateDebugRepresentation__bf18u4(this) + '}@' + get_hexAddress(this);
   };
-  CancellableContinuationImpl.prototype.xh = function () {
+  CancellableContinuationImpl.prototype.nameString_cd9e9w_k$ = function () {
     return 'CancellableContinuation';
   };
   CancellableContinuationImpl.$metadata$ = classMeta('CancellableContinuationImpl', [CancellableContinuation, CoroutineStackFrame], undefined, undefined, undefined, DispatchedTask.prototype);
   function CancelHandler() {
+    CancelHandlerBase.call(this);
   }
   CancelHandler.$metadata$ = classMeta('CancelHandler', [NotCompleted], undefined, undefined, undefined, CancelHandlerBase.prototype);
   function get_UNDECIDED() {
@@ -736,17 +1138,32 @@
     return CompletedContinuation_init_$Init$(result, cancelHandler, onCancellation, idempotentResume, cancelCause, $mask0, $marker, Object.create(CompletedContinuation.prototype));
   }
   function CompletedContinuation(result, cancelHandler, onCancellation, idempotentResume, cancelCause) {
-    this.lk_1 = result;
-    this.mk_1 = cancelHandler;
-    this.nk_1 = onCancellation;
-    this.ok_1 = idempotentResume;
-    this.pk_1 = cancelCause;
+    this.result_1 = result;
+    this.cancelHandler_1 = cancelHandler;
+    this.onCancellation_1 = onCancellation;
+    this.idempotentResume_1 = idempotentResume;
+    this.cancelCause_1 = cancelCause;
   }
-  CompletedContinuation.prototype.qk = function () {
-    return !(this.pk_1 == null);
+  CompletedContinuation.prototype.get_result_iyg5d2_k$ = function () {
+    return this.result_1;
   };
-  CompletedContinuation.prototype.sk = function (cont, cause) {
-    var tmp0_safe_receiver = this.mk_1;
+  CompletedContinuation.prototype.get_cancelHandler_w4ijbb_k$ = function () {
+    return this.cancelHandler_1;
+  };
+  CompletedContinuation.prototype.get_onCancellation_no7t6d_k$ = function () {
+    return this.onCancellation_1;
+  };
+  CompletedContinuation.prototype.get_idempotentResume_61d27l_k$ = function () {
+    return this.idempotentResume_1;
+  };
+  CompletedContinuation.prototype.get_cancelCause_cj8bx6_k$ = function () {
+    return this.cancelCause_1;
+  };
+  CompletedContinuation.prototype.get_cancelled_ge9r54_k$ = function () {
+    return !(this.cancelCause_1 == null);
+  };
+  CompletedContinuation.prototype.invokeHandlers_2wd6qe_k$ = function (cont, cause) {
+    var tmp0_safe_receiver = this.cancelHandler_1;
     if (tmp0_safe_receiver == null)
       null;
     else {
@@ -754,10 +1171,10 @@
       {
         {
         }
-        tmp$ret$0 = cont.tk(tmp0_safe_receiver, cause);
+        tmp$ret$0 = cont.callCancelHandler_qcjvzx_k$(tmp0_safe_receiver, cause);
       }
     }
-    var tmp1_safe_receiver = this.nk_1;
+    var tmp1_safe_receiver = this.onCancellation_1;
     if (tmp1_safe_receiver == null)
       null;
     else {
@@ -765,35 +1182,50 @@
       {
         {
         }
-        tmp$ret$1 = cont.bk(tmp1_safe_receiver, cause);
+        tmp$ret$1 = cont.callOnCancellation_adp92k_k$(tmp1_safe_receiver, cause);
       }
     }
   };
-  CompletedContinuation.prototype.bl = function (result, cancelHandler, onCancellation, idempotentResume, cancelCause) {
+  CompletedContinuation.prototype.component1_7eebsc_k$ = function () {
+    return this.result_1;
+  };
+  CompletedContinuation.prototype.component2_7eebsb_k$ = function () {
+    return this.cancelHandler_1;
+  };
+  CompletedContinuation.prototype.component3_7eebsa_k$ = function () {
+    return this.onCancellation_1;
+  };
+  CompletedContinuation.prototype.component4_7eebs9_k$ = function () {
+    return this.idempotentResume_1;
+  };
+  CompletedContinuation.prototype.component5_7eebs8_k$ = function () {
+    return this.cancelCause_1;
+  };
+  CompletedContinuation.prototype.copy_q5vocy_k$ = function (result, cancelHandler, onCancellation, idempotentResume, cancelCause) {
     return new CompletedContinuation(result, cancelHandler, onCancellation, idempotentResume, cancelCause);
   };
-  CompletedContinuation.prototype.rk = function (result, cancelHandler, onCancellation, idempotentResume, cancelCause, $mask0, $handler) {
+  CompletedContinuation.prototype.copy$default_x1yew9_k$ = function (result, cancelHandler, onCancellation, idempotentResume, cancelCause, $mask0, $handler) {
     if (!(($mask0 & 1) === 0))
-      result = this.lk_1;
+      result = this.result_1;
     if (!(($mask0 & 2) === 0))
-      cancelHandler = this.mk_1;
+      cancelHandler = this.cancelHandler_1;
     if (!(($mask0 & 4) === 0))
-      onCancellation = this.nk_1;
+      onCancellation = this.onCancellation_1;
     if (!(($mask0 & 8) === 0))
-      idempotentResume = this.ok_1;
+      idempotentResume = this.idempotentResume_1;
     if (!(($mask0 & 16) === 0))
-      cancelCause = this.pk_1;
-    return this.bl(result, cancelHandler, onCancellation, idempotentResume, cancelCause);
+      cancelCause = this.cancelCause_1;
+    return this.copy_q5vocy_k$(result, cancelHandler, onCancellation, idempotentResume, cancelCause);
   };
   CompletedContinuation.prototype.toString = function () {
-    return 'CompletedContinuation(result=' + toString(this.lk_1) + ', cancelHandler=' + this.mk_1 + ', onCancellation=' + this.nk_1 + ', idempotentResume=' + toString(this.ok_1) + ', cancelCause=' + this.pk_1 + ')';
+    return 'CompletedContinuation(result=' + toString(this.result_1) + ', cancelHandler=' + this.cancelHandler_1 + ', onCancellation=' + this.onCancellation_1 + ', idempotentResume=' + toString(this.idempotentResume_1) + ', cancelCause=' + this.cancelCause_1 + ')';
   };
   CompletedContinuation.prototype.hashCode = function () {
-    var result = this.lk_1 == null ? 0 : hashCode(this.lk_1);
-    result = imul(result, 31) + (this.mk_1 == null ? 0 : hashCode(this.mk_1)) | 0;
-    result = imul(result, 31) + (this.nk_1 == null ? 0 : hashCode(this.nk_1)) | 0;
-    result = imul(result, 31) + (this.ok_1 == null ? 0 : hashCode(this.ok_1)) | 0;
-    result = imul(result, 31) + (this.pk_1 == null ? 0 : hashCode(this.pk_1)) | 0;
+    var result = this.result_1 == null ? 0 : hashCode(this.result_1);
+    result = imul(result, 31) + (this.cancelHandler_1 == null ? 0 : hashCode(this.cancelHandler_1)) | 0;
+    result = imul(result, 31) + (this.onCancellation_1 == null ? 0 : hashCode(this.onCancellation_1)) | 0;
+    result = imul(result, 31) + (this.idempotentResume_1 == null ? 0 : hashCode(this.idempotentResume_1)) | 0;
+    result = imul(result, 31) + (this.cancelCause_1 == null ? 0 : hashCode(this.cancelCause_1)) | 0;
     return result;
   };
   CompletedContinuation.prototype.equals = function (other) {
@@ -802,15 +1234,15 @@
     if (!(other instanceof CompletedContinuation))
       return false;
     var tmp0_other_with_cast = other instanceof CompletedContinuation ? other : THROW_CCE();
-    if (!equals(this.lk_1, tmp0_other_with_cast.lk_1))
+    if (!equals(this.result_1, tmp0_other_with_cast.result_1))
       return false;
-    if (!equals(this.mk_1, tmp0_other_with_cast.mk_1))
+    if (!equals(this.cancelHandler_1, tmp0_other_with_cast.cancelHandler_1))
       return false;
-    if (!equals(this.nk_1, tmp0_other_with_cast.nk_1))
+    if (!equals(this.onCancellation_1, tmp0_other_with_cast.onCancellation_1))
       return false;
-    if (!equals(this.ok_1, tmp0_other_with_cast.ok_1))
+    if (!equals(this.idempotentResume_1, tmp0_other_with_cast.idempotentResume_1))
       return false;
-    if (!equals(this.pk_1, tmp0_other_with_cast.pk_1))
+    if (!equals(this.cancelCause_1, tmp0_other_with_cast.cancelCause_1))
       return false;
     return true;
   };
@@ -824,8 +1256,34 @@
   }
   var RESUMED;
   function BeforeResumeCancelHandler() {
+    CancelHandler.call(this);
   }
   BeforeResumeCancelHandler.$metadata$ = classMeta('BeforeResumeCancelHandler', undefined, undefined, undefined, undefined, CancelHandler.prototype);
+  function _get_handler__z70553($this) {
+    return $this.handler_1;
+  }
+  function InvokeOnCancel(handler) {
+    CancelHandler.call(this);
+    this.handler_1 = handler;
+  }
+  InvokeOnCancel.prototype.invoke_7fb7sc_k$ = function (cause) {
+    this.handler_1(cause);
+  };
+  InvokeOnCancel.prototype.invoke = function (cause) {
+    return this.invoke_7fb7sc_k$(cause);
+  };
+  InvokeOnCancel.prototype.toString = function () {
+    return 'InvokeOnCancel[' + get_classSimpleName(this.handler_1) + '@' + get_hexAddress(this) + ']';
+  };
+  InvokeOnCancel.$metadata$ = classMeta('InvokeOnCancel', undefined, undefined, undefined, undefined, CancelHandler.prototype);
+  var properties_initialized_CancellableContinuationImpl_kt_xtzb03;
+  function init_properties_CancellableContinuationImpl_kt_jcze1b() {
+    if (properties_initialized_CancellableContinuationImpl_kt_xtzb03) {
+    } else {
+      properties_initialized_CancellableContinuationImpl_kt_xtzb03 = true;
+      RESUME_TOKEN = new Symbol('RESUME_TOKEN');
+    }
+  }
   function CompletableJob() {
   }
   CompletableJob.$metadata$ = interfaceMeta('CompletableJob', [Job]);
@@ -838,30 +1296,36 @@
   function CompletedExceptionally_init_$Create$(cause, handled, $mask0, $marker) {
     return CompletedExceptionally_init_$Init$(cause, handled, $mask0, $marker, Object.create(CompletedExceptionally.prototype));
   }
-  function CompletedExceptionally(cause, handled) {
-    this.qh_1 = cause;
-    this.rh_1 = atomic$boolean$1(handled);
+  function _get__handled__q1dawe($this) {
+    return $this._handled_1;
   }
-  CompletedExceptionally.prototype.u3 = function () {
-    return this.qh_1;
+  function CompletedExceptionally(cause, handled) {
+    this.cause_1 = cause;
+    this._handled_1 = atomic$boolean$1(handled);
+  }
+  CompletedExceptionally.prototype.get_cause_iplhs0_k$ = function () {
+    return this.cause_1;
   };
-  CompletedExceptionally.prototype.sh = function () {
-    return this.rh_1.bh_1;
+  CompletedExceptionally.prototype.get_handled_cq14k3_k$ = function () {
+    return this._handled_1.value_1;
   };
-  CompletedExceptionally.prototype.cl = function () {
-    return this.rh_1.atomicfu$compareAndSet(false, true);
+  CompletedExceptionally.prototype.makeHandled_ws9oq6_k$ = function () {
+    return this._handled_1.atomicfu$compareAndSet(false, true);
   };
   CompletedExceptionally.prototype.toString = function () {
-    return get_classSimpleName(this) + '[' + this.qh_1 + ']';
+    return get_classSimpleName(this) + '[' + this.cause_1 + ']';
   };
   CompletedExceptionally.$metadata$ = classMeta('CompletedExceptionally');
+  function _get__resumed__kg85kj($this) {
+    return $this._resumed_1;
+  }
   function CancelledContinuation(continuation, cause, handled) {
     var tmp0_elvis_lhs = cause;
     CompletedExceptionally.call(this, tmp0_elvis_lhs == null ? CancellationException_init_$Create$('Continuation ' + continuation + ' was cancelled normally') : tmp0_elvis_lhs, handled);
-    this.ek_1 = atomic$boolean$1(false);
+    this._resumed_1 = atomic$boolean$1(false);
   }
-  CancelledContinuation.prototype.fk = function () {
-    return this.ek_1.atomicfu$compareAndSet(false, true);
+  CancelledContinuation.prototype.makeResumed_vjvawn_k$ = function () {
+    return this._resumed_1.atomicfu$compareAndSet(false, true);
   };
   CancelledContinuation.$metadata$ = classMeta('CancelledContinuation', undefined, undefined, undefined, undefined, CompletedExceptionally.prototype);
   function toState(_this__u8e3s4, caller) {
@@ -923,15 +1387,37 @@
     return toState_0(_this__u8e3s4, onCancellation);
   }
   function CompletedWithCancellation(result, onCancellation) {
-    this.dl_1 = result;
-    this.el_1 = onCancellation;
+    this.result_1 = result;
+    this.onCancellation_1 = onCancellation;
   }
+  CompletedWithCancellation.prototype.get_result_iyg5d2_k$ = function () {
+    return this.result_1;
+  };
+  CompletedWithCancellation.prototype.get_onCancellation_no7t6d_k$ = function () {
+    return this.onCancellation_1;
+  };
+  CompletedWithCancellation.prototype.component1_7eebsc_k$ = function () {
+    return this.result_1;
+  };
+  CompletedWithCancellation.prototype.component2_7eebsb_k$ = function () {
+    return this.onCancellation_1;
+  };
+  CompletedWithCancellation.prototype.copy_eadg01_k$ = function (result, onCancellation) {
+    return new CompletedWithCancellation(result, onCancellation);
+  };
+  CompletedWithCancellation.prototype.copy$default_lzs7jj_k$ = function (result, onCancellation, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      result = this.result_1;
+    if (!(($mask0 & 2) === 0))
+      onCancellation = this.onCancellation_1;
+    return this.copy_eadg01_k$(result, onCancellation);
+  };
   CompletedWithCancellation.prototype.toString = function () {
-    return 'CompletedWithCancellation(result=' + toString(this.dl_1) + ', onCancellation=' + this.el_1 + ')';
+    return 'CompletedWithCancellation(result=' + toString(this.result_1) + ', onCancellation=' + this.onCancellation_1 + ')';
   };
   CompletedWithCancellation.prototype.hashCode = function () {
-    var result = this.dl_1 == null ? 0 : hashCode(this.dl_1);
-    result = imul(result, 31) + hashCode(this.el_1) | 0;
+    var result = this.result_1 == null ? 0 : hashCode(this.result_1);
+    result = imul(result, 31) + hashCode(this.onCancellation_1) | 0;
     return result;
   };
   CompletedWithCancellation.prototype.equals = function (other) {
@@ -940,9 +1426,9 @@
     if (!(other instanceof CompletedWithCancellation))
       return false;
     var tmp0_other_with_cast = other instanceof CompletedWithCancellation ? other : THROW_CCE();
-    if (!equals(this.dl_1, tmp0_other_with_cast.dl_1))
+    if (!equals(this.result_1, tmp0_other_with_cast.result_1))
       return false;
-    if (!equals(this.el_1, tmp0_other_with_cast.el_1))
+    if (!equals(this.onCancellation_1, tmp0_other_with_cast.onCancellation_1))
       return false;
     return true;
   };
@@ -968,15 +1454,25 @@
     Key_getInstance_0();
     AbstractCoroutineContextElement.call(this, Key_getInstance());
   }
-  CoroutineDispatcher.prototype.gl = function (context) {
+  CoroutineDispatcher.prototype.isDispatchNeeded_fmz9vn_k$ = function (context) {
     return true;
   };
-  CoroutineDispatcher.prototype.y1 = function (continuation) {
+  CoroutineDispatcher.prototype.limitedParallelism_glrman_k$ = function (parallelism) {
+    checkParallelism(parallelism);
+    return new LimitedDispatcher(this, parallelism);
+  };
+  CoroutineDispatcher.prototype.dispatchYield_ww21f6_k$ = function (context, block) {
+    return this.dispatch_o98ux7_k$(context, block);
+  };
+  CoroutineDispatcher.prototype.interceptContinuation_pbrjat_k$ = function (continuation) {
     return new DispatchedContinuation(this, continuation);
   };
-  CoroutineDispatcher.prototype.z1 = function (continuation) {
+  CoroutineDispatcher.prototype.releaseInterceptedContinuation_4i98ok_k$ = function (continuation) {
     var dispatched = continuation instanceof DispatchedContinuation ? continuation : THROW_CCE();
-    dispatched.il();
+    dispatched.release_wtm6d2_k$();
+  };
+  CoroutineDispatcher.prototype.plus_jld99k_k$ = function (other) {
+    return other;
   };
   CoroutineDispatcher.prototype.toString = function () {
     return get_classSimpleName(this) + '@' + get_hexAddress(this);
@@ -984,7 +1480,7 @@
   CoroutineDispatcher.$metadata$ = classMeta('CoroutineDispatcher', [ContinuationInterceptor], undefined, undefined, undefined, AbstractCoroutineContextElement.prototype);
   function handleCoroutineException(context, exception) {
     try {
-      var tmp0_safe_receiver = context.a2(Key_getInstance_1());
+      var tmp0_safe_receiver = context.get_1pi7hg_k$(Key_getInstance_1());
       if (tmp0_safe_receiver == null)
         null;
       else {
@@ -992,7 +1488,7 @@
         {
           {
           }
-          tmp0_safe_receiver.jl(context, exception);
+          tmp0_safe_receiver.handleException_w1h9is_k$(context, exception);
           return Unit_getInstance();
         }
       }
@@ -1016,6 +1512,10 @@
       new Key_1();
     return Key_instance_0;
   }
+  function CoroutineExceptionHandler() {
+    Key_getInstance_1();
+  }
+  CoroutineExceptionHandler.$metadata$ = interfaceMeta('CoroutineExceptionHandler', [Element]);
   function handlerException(originalException, thrownException) {
     if (originalException === thrownException)
       return originalException;
@@ -1037,10 +1537,10 @@
   CoroutineScope.$metadata$ = interfaceMeta('CoroutineScope');
   function CoroutineScope_0(context) {
     var tmp;
-    if (!(context.a2(Key_getInstance_2()) == null)) {
+    if (!(context.get_1pi7hg_k$(Key_getInstance_2()) == null)) {
       tmp = context;
     } else {
-      tmp = context.h2(Job$default(null, 1, null));
+      tmp = context.plus_rgw9wi_k$(Job$default(null, 1, null));
     }
     return new ContextScope(tmp);
   }
@@ -1048,6 +1548,25 @@
   var CoroutineStart_LAZY_instance;
   var CoroutineStart_ATOMIC_instance;
   var CoroutineStart_UNDISPATCHED_instance;
+  function values() {
+    return [CoroutineStart_DEFAULT_getInstance(), CoroutineStart_LAZY_getInstance(), CoroutineStart_ATOMIC_getInstance(), CoroutineStart_UNDISPATCHED_getInstance()];
+  }
+  function valueOf(value) {
+    switch (value) {
+      case 'DEFAULT':
+        return CoroutineStart_DEFAULT_getInstance();
+      case 'LAZY':
+        return CoroutineStart_LAZY_getInstance();
+      case 'ATOMIC':
+        return CoroutineStart_ATOMIC_getInstance();
+      case 'UNDISPATCHED':
+        return CoroutineStart_UNDISPATCHED_getInstance();
+      default:
+        CoroutineStart_initEntries();
+        THROW_ISE();
+        break;
+    }
+  }
   var CoroutineStart_entriesInitialized;
   function CoroutineStart_initEntries() {
     if (CoroutineStart_entriesInitialized)
@@ -1061,19 +1580,19 @@
   function CoroutineStart(name, ordinal) {
     Enum.call(this, name, ordinal);
   }
-  CoroutineStart.prototype.bi = function (block, receiver, completion) {
+  CoroutineStart.prototype.invoke_1otqlm_k$ = function (block, completion) {
     var tmp0_subject = this;
-    var tmp0 = tmp0_subject.y9();
+    var tmp0 = tmp0_subject.get_ordinal_ip24qg_k$();
     var tmp;
     switch (tmp0) {
       case 0:
-        tmp = startCoroutineCancellable$default(block, receiver, completion, null, 4, null);
+        tmp = startCoroutineCancellable_0(block, completion);
         break;
       case 2:
-        tmp = startCoroutine(block, receiver, completion);
+        tmp = startCoroutine(block, completion);
         break;
       case 3:
-        tmp = startCoroutineUndispatched(block, receiver, completion);
+        tmp = startCoroutineUndispatched(block, completion);
         break;
       case 1:
         tmp = Unit_getInstance();
@@ -1084,7 +1603,30 @@
     }
     return tmp;
   };
-  CoroutineStart.prototype.aj = function () {
+  CoroutineStart.prototype.invoke_wxhu2x_k$ = function (block, receiver, completion) {
+    var tmp0_subject = this;
+    var tmp0 = tmp0_subject.get_ordinal_ip24qg_k$();
+    var tmp;
+    switch (tmp0) {
+      case 0:
+        tmp = startCoroutineCancellable$default(block, receiver, completion, null, 4, null);
+        break;
+      case 2:
+        tmp = startCoroutine_0(block, receiver, completion);
+        break;
+      case 3:
+        tmp = startCoroutineUndispatched_0(block, receiver, completion);
+        break;
+      case 1:
+        tmp = Unit_getInstance();
+        break;
+      default:
+        noWhenBranchMatchedException();
+        break;
+    }
+    return tmp;
+  };
+  CoroutineStart.prototype.get_isLazy_ew1d53_k$ = function () {
     return this === CoroutineStart_LAZY_getInstance();
   };
   CoroutineStart.$metadata$ = classMeta('CoroutineStart', undefined, undefined, undefined, undefined, Enum.prototype);
@@ -1096,23 +1638,88 @@
     CoroutineStart_initEntries();
     return CoroutineStart_LAZY_instance;
   }
+  function CoroutineStart_ATOMIC_getInstance() {
+    CoroutineStart_initEntries();
+    return CoroutineStart_ATOMIC_instance;
+  }
+  function CoroutineStart_UNDISPATCHED_getInstance() {
+    CoroutineStart_initEntries();
+    return CoroutineStart_UNDISPATCHED_instance;
+  }
   function CopyableThrowable() {
   }
   CopyableThrowable.$metadata$ = interfaceMeta('CopyableThrowable');
   function Delay() {
   }
   Delay.$metadata$ = interfaceMeta('Delay');
+  function get_DISPOSED_TASK() {
+    init_properties_EventLoop_common_kt_xtc85b();
+    return DISPOSED_TASK;
+  }
+  var DISPOSED_TASK;
+  function get_CLOSED_EMPTY() {
+    init_properties_EventLoop_common_kt_xtc85b();
+    return CLOSED_EMPTY;
+  }
+  var CLOSED_EMPTY;
+  function _set_useCount__kwzmz3($this, _set____db54di) {
+    $this.useCount_1 = _set____db54di;
+  }
+  function _get_useCount__843bib($this) {
+    return $this.useCount_1;
+  }
+  function _set_shared__q6vn2($this, _set____db54di) {
+    $this.shared_1 = _set____db54di;
+  }
+  function _get_shared__qjozq($this) {
+    return $this.shared_1;
+  }
+  function _set_unconfinedQueue__ri92ob($this, _set____db54di) {
+    $this.unconfinedQueue_1 = _set____db54di;
+  }
+  function _get_unconfinedQueue__heiv5r($this) {
+    return $this.unconfinedQueue_1;
+  }
   function delta($this, unconfined) {
     return unconfined ? new Long(0, 1) : new Long(1, 0);
   }
   function EventLoop() {
     CoroutineDispatcher.call(this);
-    this.ll_1 = new Long(0, 0);
-    this.ml_1 = false;
-    this.nl_1 = null;
+    this.useCount_1 = new Long(0, 0);
+    this.shared_1 = false;
+    this.unconfinedQueue_1 = null;
   }
-  EventLoop.prototype.ol = function () {
-    var tmp0_elvis_lhs = this.nl_1;
+  EventLoop.prototype.processNextEvent_jmndfc_k$ = function () {
+    if (!this.processUnconfinedEvent_mypjl6_k$()) {
+      Companion_getInstance();
+      return new Long(-1, 2147483647);
+    }
+    return new Long(0, 0);
+  };
+  EventLoop.prototype.get_isEmpty_zauvru_k$ = function () {
+    return this.get_isUnconfinedQueueEmpty_mi405s_k$();
+  };
+  EventLoop.prototype.get_nextTime_88vw7r_k$ = function () {
+    var tmp0_elvis_lhs = this.unconfinedQueue_1;
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      Companion_getInstance();
+      return new Long(-1, 2147483647);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    var queue = tmp;
+    var tmp_0;
+    if (queue.get_isEmpty_zauvru_k$()) {
+      Companion_getInstance();
+      tmp_0 = new Long(-1, 2147483647);
+    } else {
+      tmp_0 = new Long(0, 0);
+    }
+    return tmp_0;
+  };
+  EventLoop.prototype.processUnconfinedEvent_mypjl6_k$ = function () {
+    var tmp0_elvis_lhs = this.unconfinedQueue_1;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return false;
@@ -1120,7 +1727,7 @@
       tmp = tmp0_elvis_lhs;
     }
     var queue = tmp;
-    var tmp1_elvis_lhs = queue.sl();
+    var tmp1_elvis_lhs = queue.removeFirstOrNull_eges3a_k$();
     var tmp_0;
     if (tmp1_elvis_lhs == null) {
       return false;
@@ -1128,11 +1735,14 @@
       tmp_0 = tmp1_elvis_lhs;
     }
     var task = tmp_0;
-    task.zk();
+    task.run_mw4iiu_k$();
     return true;
   };
-  EventLoop.prototype.tl = function (task) {
-    var tmp0_elvis_lhs = this.nl_1;
+  EventLoop.prototype.shouldBeProcessedFromContext_tzcyz7_k$ = function () {
+    return false;
+  };
+  EventLoop.prototype.dispatchUnconfined_do6j6f_k$ = function (task) {
+    var tmp0_elvis_lhs = this.unconfinedQueue_1;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       var tmp$ret$0;
@@ -1141,7 +1751,7 @@
         {
         }
         {
-          this.nl_1 = tmp0_also;
+          this.unconfinedQueue_1 = tmp0_also;
         }
         tmp$ret$0 = tmp0_also;
       }
@@ -1150,42 +1760,62 @@
       tmp = tmp0_elvis_lhs;
     }
     var queue = tmp;
-    queue.ul(task);
+    queue.addLast_xhfl3v_k$(task);
   };
-  EventLoop.prototype.vl = function () {
-    return this.ll_1.ia(delta(this, true)) >= 0;
+  EventLoop.prototype.get_isActive_quafmh_k$ = function () {
+    return this.useCount_1.compareTo_n4fqi2_k$(new Long(0, 0)) > 0;
   };
-  EventLoop.prototype.wl = function () {
-    var tmp0_safe_receiver = this.nl_1;
-    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.xl();
+  EventLoop.prototype.get_isUnconfinedLoopActive_g78ri6_k$ = function () {
+    return this.useCount_1.compareTo_n4fqi2_k$(delta(this, true)) >= 0;
+  };
+  EventLoop.prototype.get_isUnconfinedQueueEmpty_mi405s_k$ = function () {
+    var tmp0_safe_receiver = this.unconfinedQueue_1;
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_isEmpty_zauvru_k$();
     return tmp1_elvis_lhs == null ? true : tmp1_elvis_lhs;
   };
-  EventLoop.prototype.yl = function (unconfined) {
+  EventLoop.prototype.incrementUseCount_ocukpa_k$ = function (unconfined) {
     var tmp0_this = this;
-    tmp0_this.ll_1 = tmp0_this.ll_1.ja(delta(this, unconfined));
+    tmp0_this.useCount_1 = tmp0_this.useCount_1.plus_u6jwas_k$(delta(this, unconfined));
     if (!unconfined)
-      this.ml_1 = true;
+      this.shared_1 = true;
   };
-  EventLoop.prototype.zl = function (unconfined) {
+  EventLoop.prototype.incrementUseCount$default_ig8muj_k$ = function (unconfined, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      unconfined = false;
+    return this.incrementUseCount_ocukpa_k$(unconfined);
+  };
+  EventLoop.prototype.decrementUseCount_saho26_k$ = function (unconfined) {
     var tmp0_this = this;
-    tmp0_this.ll_1 = tmp0_this.ll_1.ka(delta(this, unconfined));
-    if (this.ll_1.ia(new Long(0, 0)) > 0)
+    tmp0_this.useCount_1 = tmp0_this.useCount_1.minus_llf5ei_k$(delta(this, unconfined));
+    if (this.useCount_1.compareTo_n4fqi2_k$(new Long(0, 0)) > 0)
       return Unit_getInstance();
     {
     }
-    if (this.ml_1) {
-      this.am();
+    if (this.shared_1) {
+      this.shutdown_cq5p8b_k$();
     }
   };
-  EventLoop.prototype.am = function () {
+  EventLoop.prototype.decrementUseCount$default_h3ug27_k$ = function (unconfined, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      unconfined = false;
+    return this.decrementUseCount_saho26_k$(unconfined);
+  };
+  EventLoop.prototype.limitedParallelism_glrman_k$ = function (parallelism) {
+    checkParallelism(parallelism);
+    return this;
+  };
+  EventLoop.prototype.shutdown_cq5p8b_k$ = function () {
   };
   EventLoop.$metadata$ = classMeta('EventLoop', undefined, undefined, undefined, undefined, CoroutineDispatcher.prototype);
+  function _get_ref__e6fxpa($this) {
+    return $this.ref_1;
+  }
   function ThreadLocalEventLoop() {
     ThreadLocalEventLoop_instance = this;
-    this.bm_1 = new CommonThreadLocal();
+    this.ref_1 = new CommonThreadLocal();
   }
-  ThreadLocalEventLoop.prototype.cm = function () {
-    var tmp0_elvis_lhs = this.bm_1.em();
+  ThreadLocalEventLoop.prototype.get_eventLoop_913645_k$ = function () {
+    var tmp0_elvis_lhs = this.ref_1.get_26vq_k$();
     var tmp;
     if (tmp0_elvis_lhs == null) {
       var tmp$ret$0;
@@ -1194,7 +1824,7 @@
         {
         }
         {
-          ThreadLocalEventLoop_getInstance().bm_1.fm(tmp0_also);
+          ThreadLocalEventLoop_getInstance().ref_1.set_hda1d2_k$(tmp0_also);
         }
         tmp$ret$0 = tmp0_also;
       }
@@ -1204,12 +1834,30 @@
     }
     return tmp;
   };
+  ThreadLocalEventLoop.prototype.currentOrNull_z5p8mb_k$ = function () {
+    return this.ref_1.get_26vq_k$();
+  };
+  ThreadLocalEventLoop.prototype.resetEventLoop_a6lzlu_k$ = function () {
+    this.ref_1.set_hda1d2_k$(null);
+  };
+  ThreadLocalEventLoop.prototype.setEventLoop_d3g3n0_k$ = function (eventLoop) {
+    this.ref_1.set_hda1d2_k$(eventLoop);
+  };
   ThreadLocalEventLoop.$metadata$ = objectMeta('ThreadLocalEventLoop');
   var ThreadLocalEventLoop_instance;
   function ThreadLocalEventLoop_getInstance() {
     if (ThreadLocalEventLoop_instance == null)
       new ThreadLocalEventLoop();
     return ThreadLocalEventLoop_instance;
+  }
+  var properties_initialized_EventLoop_common_kt_cfxg9p;
+  function init_properties_EventLoop_common_kt_xtc85b() {
+    if (properties_initialized_EventLoop_common_kt_cfxg9p) {
+    } else {
+      properties_initialized_EventLoop_common_kt_cfxg9p = true;
+      DISPOSED_TASK = new Symbol('REMOVED_TASK');
+      CLOSED_EMPTY = new Symbol('CLOSED_EMPTY');
+    }
   }
   function CompletionHandlerException(message, cause) {
     RuntimeException_init_$Init$(message, cause, this);
@@ -1235,6 +1883,7 @@
     return Key_instance_1;
   }
   function Job() {
+    Key_getInstance_2();
   }
   Job.$metadata$ = interfaceMeta('Job', [Element]);
   function ChildJob() {
@@ -1249,9 +1898,12 @@
   function NonDisposableHandle() {
     NonDisposableHandle_instance = this;
   }
-  NonDisposableHandle.prototype.ik = function () {
+  NonDisposableHandle.prototype.get_parent_hy4reb_k$ = function () {
+    return null;
   };
-  NonDisposableHandle.prototype.qi = function (cause) {
+  NonDisposableHandle.prototype.dispose_3n44we_k$ = function () {
+  };
+  NonDisposableHandle.prototype.childCancelled_fdoq8t_k$ = function (cause) {
     return false;
   };
   NonDisposableHandle.prototype.toString = function () {
@@ -1263,6 +1915,18 @@
     if (NonDisposableHandle_instance == null)
       new NonDisposableHandle();
     return NonDisposableHandle_instance;
+  }
+  function ensureActive(_this__u8e3s4) {
+    var tmp0_safe_receiver = _this__u8e3s4.get_1pi7hg_k$(Key_getInstance_2());
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      ensureActive_0(tmp0_safe_receiver);
+    }
+  }
+  function ensureActive_0(_this__u8e3s4) {
+    if (!_this__u8e3s4.get_isActive_quafmh_k$())
+      throw _this__u8e3s4.getCancellationException_8i1q6u_k$();
   }
   function Job_0(parent) {
     return new JobImpl(parent);
@@ -1308,16 +1972,16 @@
   }
   var EMPTY_ACTIVE;
   function Empty(isActive) {
-    this.gm_1 = isActive;
+    this.isActive_1 = isActive;
   }
-  Empty.prototype.lh = function () {
-    return this.gm_1;
+  Empty.prototype.get_isActive_quafmh_k$ = function () {
+    return this.isActive_1;
   };
-  Empty.prototype.hm = function () {
+  Empty.prototype.get_list_wopuqv_k$ = function () {
     return null;
   };
   Empty.prototype.toString = function () {
-    return 'Empty{' + (this.gm_1 ? 'Active' : 'New') + '}';
+    return 'Empty{' + (this.isActive_1 ? 'Active' : 'New') + '}';
   };
   Empty.$metadata$ = classMeta('Empty', [Incomplete]);
   function Incomplete() {
@@ -1326,13 +1990,13 @@
   function NodeList() {
     LinkedListHead.call(this);
   }
-  NodeList.prototype.lh = function () {
+  NodeList.prototype.get_isActive_quafmh_k$ = function () {
     return true;
   };
-  NodeList.prototype.hm = function () {
+  NodeList.prototype.get_list_wopuqv_k$ = function () {
     return this;
   };
-  NodeList.prototype.lm = function (state) {
+  NodeList.prototype.getString_xqex6i_k$ = function (state) {
     var tmp$ret$1;
     {
       {
@@ -1343,26 +2007,26 @@
         {
         }
         {
-          tmp0_apply.f9('List{');
-          tmp0_apply.f9(state);
-          tmp0_apply.f9('}[');
+          tmp0_apply.append_ssq29y_k$('List{');
+          tmp0_apply.append_ssq29y_k$(state);
+          tmp0_apply.append_ssq29y_k$('}[');
           var first = true;
           {
-            var cur = this.pm();
+            var cur = this.get__next_inmai1_k$();
             while (!equals(cur, this)) {
               if (cur instanceof JobNode) {
                 var tmp0__anonymous__q1qw7t = cur;
                 if (first)
                   first = false;
                 else {
-                  tmp0_apply.f9(', ');
+                  tmp0_apply.append_ssq29y_k$(', ');
                 }
-                tmp0_apply.e9(tmp0__anonymous__q1qw7t);
+                tmp0_apply.append_t8pm91_k$(tmp0__anonymous__q1qw7t);
               }
-              cur = cur.mm_1;
+              cur = cur._next_1;
             }
           }
-          tmp0_apply.f9(']');
+          tmp0_apply.append_ssq29y_k$(']');
         }
         tmp$ret$0 = tmp0_apply;
       }
@@ -1371,41 +2035,79 @@
     return tmp$ret$1;
   };
   NodeList.prototype.toString = function () {
-    return get_DEBUG() ? this.lm('Active') : anyToString(this);
+    return get_DEBUG() ? this.getString_xqex6i_k$('Active') : anyToString(this);
   };
   NodeList.$metadata$ = classMeta('NodeList', [Incomplete], undefined, undefined, undefined, LinkedListHead.prototype);
   function JobNode() {
     CompletionHandlerBase.call(this);
   }
-  JobNode.prototype.an = function () {
-    var tmp = this.zm_1;
+  JobNode.prototype.set_job_d610gu_k$ = function (_set____db54di) {
+    this.job_1 = _set____db54di;
+  };
+  JobNode.prototype.get_job_18j2r0_k$ = function () {
+    var tmp = this.job_1;
     if (!(tmp == null))
       return tmp;
     else {
       throwUninitializedPropertyAccessException('job');
     }
   };
-  JobNode.prototype.lh = function () {
+  JobNode.prototype.get_isActive_quafmh_k$ = function () {
     return true;
   };
-  JobNode.prototype.hm = function () {
+  JobNode.prototype.get_list_wopuqv_k$ = function () {
     return null;
   };
-  JobNode.prototype.ik = function () {
-    return this.an().ni(this);
+  JobNode.prototype.dispose_3n44we_k$ = function () {
+    return this.get_job_18j2r0_k$().removeNode_o3o6t1_k$(this);
   };
   JobNode.prototype.toString = function () {
-    return get_classSimpleName(this) + '@' + get_hexAddress(this) + '[job@' + get_hexAddress(this.an()) + ']';
+    return get_classSimpleName(this) + '@' + get_hexAddress(this) + '[job@' + get_hexAddress(this.get_job_18j2r0_k$()) + ']';
   };
   JobNode.$metadata$ = classMeta('JobNode', [DisposableHandle, Incomplete], undefined, undefined, undefined, CompletionHandlerBase.prototype);
+  function _get__isCompleting__kxhw32($this) {
+    return $this._isCompleting_1;
+  }
+  function _get__rootCause__pzi6w3($this) {
+    return $this._rootCause_1;
+  }
+  function _get__exceptionsHolder__e2tfjy($this) {
+    return $this._exceptionsHolder_1;
+  }
   function _set_exceptionsHolder__tqm22h($this, value) {
-    $this.gn_1.xg_1 = value;
+    $this._exceptionsHolder_1.value_1 = value;
   }
   function _get_exceptionsHolder__nhszp($this) {
-    return $this.gn_1.xg_1;
+    return $this._exceptionsHolder_1.value_1;
   }
   function allocateList($this) {
     return ArrayList_init_$Create$(4);
+  }
+  function _get_parent__oo9xup($this) {
+    return $this.parent_1;
+  }
+  function _get_state__b8zcm8($this) {
+    return $this.state_1;
+  }
+  function _get_child__j05w3v($this) {
+    return $this.child_1;
+  }
+  function _get_proposedUpdate__cai7fg($this) {
+    return $this.proposedUpdate_1;
+  }
+  function _get_job__e6b14k($this) {
+    return $this.job_1;
+  }
+  function _get__state__37adl3_0($this) {
+    return $this._state_1;
+  }
+  function _get__parentHandle__f9kzhc($this) {
+    return $this._parentHandle_1;
+  }
+  function loopOnState($this, block) {
+    while (true) {
+      block($this.get_state_iypx7s_k$());
+    }
   }
   function finalizeFinishingState($this, state, proposedUpdate) {
     {
@@ -1415,14 +2117,14 @@
     {
     }
     var tmp0_safe_receiver = proposedUpdate instanceof CompletedExceptionally ? proposedUpdate : null;
-    var proposedException = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.qh_1;
+    var proposedException = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.cause_1;
     var wasCancelling = false;
     var tmp$ret$1;
     {
       var tmp$ret$0;
       {
-        wasCancelling = state.hn();
-        var exceptions = state.in(proposedException);
+        wasCancelling = state.get_isCancelling_o1apv_k$();
+        var exceptions = state.sealLocked_11gdw4_k$(proposedException);
         var finalCause = getFinalRootCause($this, state, exceptions);
         if (!(finalCause == null))
           addSuppressedExceptions($this, finalCause, exceptions);
@@ -1441,27 +2143,27 @@
     }
     var finalState = tmp;
     if (!(finalException == null)) {
-      var handled = cancelParent($this, finalException) ? true : $this.yi(finalException);
+      var handled = cancelParent($this, finalException) ? true : $this.handleJobException_oc4gxk_k$(finalException);
       if (handled) {
-        (finalState instanceof CompletedExceptionally ? finalState : THROW_CCE()).cl();
+        (finalState instanceof CompletedExceptionally ? finalState : THROW_CCE()).makeHandled_ws9oq6_k$();
       }
     }
     if (!wasCancelling)
-      $this.vi(finalException);
-    $this.ph(finalState);
-    var casSuccess = $this.eh_1.atomicfu$compareAndSet(state, boxIncomplete(finalState));
+      $this.onCancelling_bxyn9n_k$(finalException);
+    $this.onCompletionInternal_39c1g8_k$(finalState);
+    var casSuccess = $this._state_1.atomicfu$compareAndSet(state, boxIncomplete(finalState));
     {
     }
     completeStateFinalization($this, state, finalState);
     return finalState;
   }
   function getFinalRootCause($this, state, exceptions) {
-    if (exceptions.g()) {
-      if (state.hn()) {
+    if (exceptions.isEmpty_y1axqb_k$()) {
+      if (state.get_isCancelling_o1apv_k$()) {
         var tmp$ret$0;
         {
           var tmp0_elvis_lhs = null;
-          tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs == null ? $this.oh() : tmp0_elvis_lhs, null, $this);
+          tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs == null ? $this.cancellationExceptionMessage_a64063_k$() : tmp0_elvis_lhs, null, $this);
         }
         return tmp$ret$0;
       }
@@ -1469,9 +2171,9 @@
     }
     var tmp$ret$2;
     $l$block: {
-      var tmp0_iterator = exceptions.d();
-      while (tmp0_iterator.e()) {
-        var element = tmp0_iterator.f();
+      var tmp0_iterator = exceptions.iterator_jk1svi_k$();
+      while (tmp0_iterator.hasNext_bitz1p_k$()) {
+        var element = tmp0_iterator.next_20eer_k$();
         var tmp$ret$1;
         {
           tmp$ret$1 = !(element instanceof CancellationException);
@@ -1486,13 +2188,13 @@
     var firstNonCancellation = tmp$ret$2;
     if (!(firstNonCancellation == null))
       return firstNonCancellation;
-    var first = exceptions.i(0);
+    var first = exceptions.get_fkrdnv_k$(0);
     if (first instanceof TimeoutCancellationException) {
       var tmp$ret$4;
       $l$block_0: {
-        var tmp0_iterator_0 = exceptions.d();
-        while (tmp0_iterator_0.e()) {
-          var element_0 = tmp0_iterator_0.f();
+        var tmp0_iterator_0 = exceptions.iterator_jk1svi_k$();
+        while (tmp0_iterator_0.hasNext_bitz1p_k$()) {
+          var element_0 = tmp0_iterator_0.next_20eer_k$();
           var tmp$ret$3;
           {
             var tmp;
@@ -1517,13 +2219,13 @@
     return first;
   }
   function addSuppressedExceptions($this, rootCause, exceptions) {
-    if (exceptions.h() <= 1)
+    if (exceptions.get_size_woubt6_k$() <= 1)
       return Unit_getInstance();
-    var seenExceptions = identitySet(exceptions.h());
+    var seenExceptions = identitySet(exceptions.get_size_woubt6_k$());
     var unwrappedCause = unwrap(rootCause);
-    var tmp0_iterator = exceptions.d();
-    while (tmp0_iterator.e()) {
-      var exception = tmp0_iterator.f();
+    var tmp0_iterator = exceptions.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var exception = tmp0_iterator.next_20eer_k$();
       var unwrapped = unwrap(exception);
       var tmp;
       var tmp_0;
@@ -1533,7 +2235,7 @@
         tmp_0 = false;
       }
       if (tmp_0) {
-        tmp = seenExceptions.b(unwrapped);
+        tmp = seenExceptions.add_1j60pz_k$(unwrapped);
       } else {
         tmp = false;
       }
@@ -1548,15 +2250,15 @@
     }
     {
     }
-    if (!$this.eh_1.atomicfu$compareAndSet(state, boxIncomplete(update)))
+    if (!$this._state_1.atomicfu$compareAndSet(state, boxIncomplete(update)))
       return false;
-    $this.vi(null);
-    $this.ph(update);
+    $this.onCancelling_bxyn9n_k$(null);
+    $this.onCompletionInternal_39c1g8_k$(update);
     completeStateFinalization($this, state, update);
     return true;
   }
   function completeStateFinalization($this, state, update) {
-    var tmp0_safe_receiver = $this.di();
+    var tmp0_safe_receiver = $this.get_parentHandle_gmoqez_k$();
     if (tmp0_safe_receiver == null)
       null;
     else {
@@ -1564,24 +2266,24 @@
       {
         {
         }
-        tmp0_safe_receiver.ik();
-        tmp$ret$0 = $this.ci(NonDisposableHandle_getInstance());
+        tmp0_safe_receiver.dispose_3n44we_k$();
+        tmp$ret$0 = $this.set_parentHandle_voxu0m_k$(NonDisposableHandle_getInstance());
       }
     }
     var tmp1_safe_receiver = update instanceof CompletedExceptionally ? update : null;
-    var cause = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.qh_1;
+    var cause = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.cause_1;
     if (state instanceof JobNode) {
       try {
         state.invoke(cause);
       } catch ($p) {
         if ($p instanceof Error) {
-          $this.wh(new CompletionHandlerException('Exception in completion handler ' + state + ' for ' + $this, $p));
+          $this.handleOnCompletionException_o179kb_k$(new CompletionHandlerException('Exception in completion handler ' + state + ' for ' + $this, $p));
         } else {
           throw $p;
         }
       }
     } else {
-      var tmp2_safe_receiver = state.hm();
+      var tmp2_safe_receiver = state.get_list_wopuqv_k$();
       if (tmp2_safe_receiver == null)
         null;
       else {
@@ -1590,11 +2292,11 @@
     }
   }
   function notifyCancelling($this, list, cause) {
-    $this.vi(cause);
+    $this.onCancelling_bxyn9n_k$(cause);
     {
       var exception = null;
       {
-        var cur = list.pm();
+        var cur = list.get__next_inmai1_k$();
         while (!equals(cur, list)) {
           if (cur instanceof JobCancellingNode) {
             var tmp0__anonymous__q1qw7t = cur;
@@ -1635,7 +2337,7 @@
               }
             }
           }
-          cur = cur.mm_1;
+          cur = cur._next_1;
         }
       }
       var tmp0_safe_receiver_0 = exception;
@@ -1646,26 +2348,26 @@
         {
           {
           }
-          tmp$ret$2 = $this.wh(tmp0_safe_receiver_0);
+          tmp$ret$2 = $this.handleOnCompletionException_o179kb_k$(tmp0_safe_receiver_0);
         }
       }
     }
     cancelParent($this, cause);
   }
   function cancelParent($this, cause) {
-    if ($this.wi())
+    if ($this.get_isScopedCoroutine_rwmmff_k$())
       return true;
     var isCancellation = cause instanceof CancellationException;
-    var parent = $this.di();
+    var parent = $this.get_parentHandle_gmoqez_k$();
     if (parent === null ? true : parent === NonDisposableHandle_getInstance()) {
       return isCancellation;
     }
-    return parent.qi(cause) ? true : isCancellation;
+    return parent.childCancelled_fdoq8t_k$(cause) ? true : isCancellation;
   }
   function notifyCompletion(_this__u8e3s4, $this, cause) {
     var exception = null;
     {
-      var cur = _this__u8e3s4.pm();
+      var cur = _this__u8e3s4.get__next_inmai1_k$();
       while (!equals(cur, _this__u8e3s4)) {
         if (cur instanceof JobNode) {
           var tmp0__anonymous__q1qw7t = cur;
@@ -1706,7 +2408,7 @@
             }
           }
         }
-        cur = cur.mm_1;
+        cur = cur._next_1;
       }
     }
     var tmp0_safe_receiver_0 = exception;
@@ -1717,7 +2419,7 @@
       {
         {
         }
-        tmp$ret$2 = $this.wh(tmp0_safe_receiver_0);
+        tmp$ret$2 = $this.handleOnCompletionException_o179kb_k$(tmp0_safe_receiver_0);
       }
     }
     return Unit_getInstance();
@@ -1725,17 +2427,17 @@
   function startInternal($this, state) {
     var tmp0_subject = state;
     if (tmp0_subject instanceof Empty) {
-      if (state.gm_1)
+      if (state.isActive_1)
         return 0;
-      if (!$this.eh_1.atomicfu$compareAndSet(state, get_EMPTY_ACTIVE()))
+      if (!$this._state_1.atomicfu$compareAndSet(state, get_EMPTY_ACTIVE()))
         return -1;
-      $this.hi();
+      $this.onStart_qth026_k$();
       return 1;
     } else {
       if (tmp0_subject instanceof InactiveNodeList) {
-        if (!$this.eh_1.atomicfu$compareAndSet(state, state.jn_1))
+        if (!$this._state_1.atomicfu$compareAndSet(state, state.list_1))
           return -1;
-        $this.hi();
+        $this.onStart_qth026_k$();
         return 1;
       } else {
         return 0;
@@ -1769,7 +2471,7 @@
       tmp = tmp2_elvis_lhs == null ? new InvokeOnCompletion(handler) : tmp2_elvis_lhs;
     }
     var node = tmp;
-    node.zm_1 = $this;
+    node.job_1 = $this;
     return node;
   }
   function addLastAtomic($this, expect, list, node) {
@@ -1777,43 +2479,78 @@
     $l$block: {
       var tmp$ret$0;
       {
-        tmp$ret$0 = $this.ei() === expect;
+        tmp$ret$0 = $this.get_state_iypx7s_k$() === expect;
       }
       if (!tmp$ret$0) {
         tmp$ret$1 = false;
         break $l$block;
       }
-      list.tm(node);
+      list.addLast_uyctnf_k$(node);
       tmp$ret$1 = true;
     }
     return tmp$ret$1;
   }
   function promoteEmptyToNodeList($this, state) {
     var list = new NodeList();
-    var update = state.gm_1 ? list : new InactiveNodeList(list);
-    $this.eh_1.atomicfu$compareAndSet(state, update);
+    var update = state.isActive_1 ? list : new InactiveNodeList(list);
+    $this._state_1.atomicfu$compareAndSet(state, update);
   }
   function promoteSingleToNodeList($this, state) {
-    state.cn(new NodeList());
+    state.addOneIfEmpty_cbgboi_k$(new NodeList());
     var tmp$ret$0;
     {
-      tmp$ret$0 = state.mm_1;
+      tmp$ret$0 = state._next_1;
     }
     var list = tmp$ret$0;
-    $this.eh_1.atomicfu$compareAndSet(state, list);
+    $this._state_1.atomicfu$compareAndSet(state, list);
+  }
+  function joinInternal($this) {
+    {
+      while (true) {
+        {
+          var tmp0__anonymous__q1qw7t = $this.get_state_iypx7s_k$();
+          if (!(!(tmp0__anonymous__q1qw7t == null) ? isInterface(tmp0__anonymous__q1qw7t, Incomplete) : false))
+            return false;
+          if (startInternal($this, tmp0__anonymous__q1qw7t) >= 0)
+            return true;
+        }
+      }
+    }
+  }
+  function joinSuspend($this, $cont) {
+    var tmp$ret$2;
+    {
+      var tmp0__anonymous__q1qw7t = $cont;
+      var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
+      cancellable.initCancellability_sh6jkn_k$();
+      {
+        var tmp$ret$1;
+        {
+          var tmp0__get_asHandler__gq3rkj = new ResumeOnCompletion(cancellable);
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = tmp0__get_asHandler__gq3rkj;
+          }
+          tmp$ret$1 = tmp$ret$0;
+        }
+        disposeOnCancellation(cancellable, $this.invokeOnCompletion_t2apld_k$(tmp$ret$1));
+      }
+      tmp$ret$2 = cancellable.getResult_clfhg3_k$();
+    }
+    return tmp$ret$2;
   }
   function cancelMakeCompleting($this, cause) {
     {
       while (true) {
         {
-          var tmp0__anonymous__q1qw7t = $this.ei();
+          var tmp0__anonymous__q1qw7t = $this.get_state_iypx7s_k$();
           var tmp;
           if (!(!(tmp0__anonymous__q1qw7t == null) ? isInterface(tmp0__anonymous__q1qw7t, Incomplete) : false)) {
             tmp = true;
           } else {
             var tmp_0;
             if (tmp0__anonymous__q1qw7t instanceof Finishing) {
-              tmp_0 = tmp0__anonymous__q1qw7t.kn();
+              tmp_0 = tmp0__anonymous__q1qw7t.get_isCompleting_vi2bwp_k$();
             } else {
               tmp_0 = false;
             }
@@ -1841,7 +2578,7 @@
         var tmp$ret$0;
         {
           var tmp0_elvis_lhs = null;
-          tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs == null ? $this.oh() : tmp0_elvis_lhs, null, $this);
+          tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs == null ? $this.cancellationExceptionMessage_a64063_k$() : tmp0_elvis_lhs, null, $this);
         }
         tmp_0 = tmp$ret$0;
       } else {
@@ -1849,7 +2586,7 @@
       }
       tmp = tmp_0;
     } else {
-      tmp = ((!(cause == null) ? isInterface(cause, ParentJob) : false) ? cause : THROW_CCE()).ti();
+      tmp = ((!(cause == null) ? isInterface(cause, ParentJob) : false) ? cause : THROW_CCE()).getChildJobCancellationCause_wx9uoh_k$();
     }
     return tmp;
   }
@@ -1859,16 +2596,16 @@
       while (true) {
         var tmp$ret$7;
         $l$block: {
-          var tmp0__anonymous__q1qw7t = $this.ei();
+          var tmp0__anonymous__q1qw7t = $this.get_state_iypx7s_k$();
           var tmp0_subject = tmp0__anonymous__q1qw7t;
           if (tmp0_subject instanceof Finishing) {
             var tmp$ret$4;
             {
               var tmp$ret$3;
               {
-                if (tmp0__anonymous__q1qw7t.ln())
+                if (tmp0__anonymous__q1qw7t.get_isSealed_zdv4z3_k$())
                   return get_TOO_LATE_TO_CANCEL();
-                var wasCancelling = tmp0__anonymous__q1qw7t.hn();
+                var wasCancelling = tmp0__anonymous__q1qw7t.get_isCancelling_o1apv_k$();
                 if (!(cause == null) ? true : !wasCancelling) {
                   var tmp0_elvis_lhs = causeExceptionCache;
                   var tmp;
@@ -1888,11 +2625,11 @@
                     tmp = tmp0_elvis_lhs;
                   }
                   var causeException = tmp;
-                  tmp0__anonymous__q1qw7t.mn(causeException);
+                  tmp0__anonymous__q1qw7t.addExceptionLocked_jeuhbd_k$(causeException);
                 }
                 var tmp$ret$2;
                 {
-                  var tmp1_takeIf = tmp0__anonymous__q1qw7t.nn();
+                  var tmp1_takeIf = tmp0__anonymous__q1qw7t.get_rootCause_69dwxu_k$();
                   {
                   }
                   var tmp_0;
@@ -1920,7 +2657,7 @@
               {
                 {
                 }
-                tmp$ret$5 = notifyCancelling($this, tmp0__anonymous__q1qw7t.dn_1, tmp1_safe_receiver);
+                tmp$ret$5 = notifyCancelling($this, tmp0__anonymous__q1qw7t.list_1, tmp1_safe_receiver);
               }
             }
             return get_COMPLETING_ALREADY();
@@ -1944,7 +2681,7 @@
                 tmp_1 = tmp2_elvis_lhs;
               }
               var causeException_0 = tmp_1;
-              if (tmp0__anonymous__q1qw7t.lh()) {
+              if (tmp0__anonymous__q1qw7t.get_isActive_quafmh_k$()) {
                 if (tryMakeCancelling($this, tmp0__anonymous__q1qw7t, causeException_0))
                   return get_COMPLETING_ALREADY();
               } else {
@@ -1967,7 +2704,7 @@
     }
   }
   function getOrPromoteCancellingList($this, state) {
-    var tmp1_elvis_lhs = state.hm();
+    var tmp1_elvis_lhs = state.get_list_wopuqv_k$();
     var tmp;
     if (tmp1_elvis_lhs == null) {
       var tmp0_subject = state;
@@ -2003,7 +2740,7 @@
     }
     var list = tmp;
     var cancelling = new Finishing(list, false, rootCause);
-    if (!$this.eh_1.atomicfu$compareAndSet(state, cancelling))
+    if (!$this._state_1.atomicfu$compareAndSet(state, cancelling))
       return false;
     notifyCancelling($this, list, rootCause);
     return true;
@@ -2051,16 +2788,16 @@
     var notifyRootCause = null;
     var tmp$ret$3;
     {
-      if (finishing.kn())
+      if (finishing.get_isCompleting_vi2bwp_k$())
         return get_COMPLETING_ALREADY();
-      finishing.on(true);
+      finishing.set_isCompleting_i5ljas_k$(true);
       if (!(finishing === state)) {
-        if (!$this.eh_1.atomicfu$compareAndSet(state, finishing))
+        if (!$this._state_1.atomicfu$compareAndSet(state, finishing))
           return get_COMPLETING_RETRY();
       }
       {
       }
-      var wasCancelling = finishing.hn();
+      var wasCancelling = finishing.get_isCancelling_o1apv_k$();
       var tmp0_safe_receiver = proposedUpdate instanceof CompletedExceptionally ? proposedUpdate : null;
       if (tmp0_safe_receiver == null)
         null;
@@ -2069,12 +2806,12 @@
         {
           {
           }
-          tmp$ret$0 = finishing.mn(tmp0_safe_receiver.qh_1);
+          tmp$ret$0 = finishing.addExceptionLocked_jeuhbd_k$(tmp0_safe_receiver.cause_1);
         }
       }
       var tmp$ret$2;
       {
-        var tmp0_takeIf = finishing.nn();
+        var tmp0_takeIf = finishing.get_rootCause_69dwxu_k$();
         {
         }
         var tmp_0;
@@ -2110,13 +2847,13 @@
   }
   function _get_exceptionOrNull__b3j7js(_this__u8e3s4, $this) {
     var tmp0_safe_receiver = _this__u8e3s4 instanceof CompletedExceptionally ? _this__u8e3s4 : null;
-    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.qh_1;
+    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.cause_1;
   }
   function firstChild($this, state) {
     var tmp1_elvis_lhs = state instanceof ChildHandleNode ? state : null;
     var tmp;
     if (tmp1_elvis_lhs == null) {
-      var tmp0_safe_receiver = state.hm();
+      var tmp0_safe_receiver = state.get_list_wopuqv_k$();
       tmp = tmp0_safe_receiver == null ? null : nextChild(tmp0_safe_receiver, $this);
     } else {
       tmp = tmp1_elvis_lhs;
@@ -2142,7 +2879,7 @@
         }
         tmp$ret$1 = tmp$ret$0;
       }
-      var handle = child_1.tn_1.mi(false, false, tmp$ret$1, 1, null);
+      var handle = child_1.childJob_1.invokeOnCompletion$default_7q548c_k$(false, false, tmp$ret$1, 1, null);
       if (!(handle === NonDisposableHandle_getInstance()))
         return true;
       var tmp0_elvis_lhs = nextChild(child_1, $this_1);
@@ -2171,7 +2908,7 @@
     if (!(waitChild == null) ? tryWaitForChild($this, state, waitChild, proposedUpdate) : false)
       return Unit_getInstance();
     var finalState = finalizeFinishingState($this, state, proposedUpdate);
-    $this.vh(finalState);
+    $this.afterCompletion_2ogq6g_k$(finalState);
   }
   function nextChild(_this__u8e3s4, $this) {
     var cur = _this__u8e3s4;
@@ -2179,7 +2916,7 @@
       var tmp$ret$0;
       {
         var tmp0__get_isRemoved__hsfvgr = cur;
-        tmp$ret$0 = tmp0__get_isRemoved__hsfvgr.om_1;
+        tmp$ret$0 = tmp0__get_isRemoved__hsfvgr._removed_1;
       }
       if (!tmp$ret$0) {
         break $l$loop;
@@ -2187,7 +2924,7 @@
       var tmp$ret$1;
       {
         var tmp1__get_prevNode__b1i0ed = cur;
-        tmp$ret$1 = tmp1__get_prevNode__b1i0ed.nm_1;
+        tmp$ret$1 = tmp1__get_prevNode__b1i0ed._prev_1;
       }
       cur = tmp$ret$1;
     }
@@ -2195,13 +2932,13 @@
       var tmp$ret$2;
       {
         var tmp2__get_nextNode__ek7k4a = cur;
-        tmp$ret$2 = tmp2__get_nextNode__ek7k4a.mm_1;
+        tmp$ret$2 = tmp2__get_nextNode__ek7k4a._next_1;
       }
       cur = tmp$ret$2;
       var tmp$ret$3;
       {
         var tmp3__get_isRemoved__lodk3s = cur;
-        tmp$ret$3 = tmp3__get_isRemoved__lodk3s.om_1;
+        tmp$ret$3 = tmp3__get_isRemoved__lodk3s._removed_1;
       }
       if (tmp$ret$3)
         continue $l$loop_0;
@@ -2215,10 +2952,10 @@
     var tmp0_subject = state;
     var tmp;
     if (tmp0_subject instanceof Finishing) {
-      tmp = state.hn() ? 'Cancelling' : state.kn() ? 'Completing' : 'Active';
+      tmp = state.get_isCancelling_o1apv_k$() ? 'Cancelling' : state.get_isCompleting_vi2bwp_k$() ? 'Completing' : 'Active';
     } else {
       if (!(tmp0_subject == null) ? isInterface(tmp0_subject, Incomplete) : false) {
-        tmp = state.lh() ? 'Active' : 'New';
+        tmp = state.get_isActive_quafmh_k$() ? 'Active' : 'New';
       } else {
         if (tmp0_subject instanceof CompletedExceptionally) {
           tmp = 'Cancelled';
@@ -2230,36 +2967,36 @@
     return tmp;
   }
   function Finishing(list, isCompleting, rootCause) {
-    this.dn_1 = list;
-    this.en_1 = atomic$boolean$1(isCompleting);
-    this.fn_1 = atomic$ref$1(rootCause);
-    this.gn_1 = atomic$ref$1(null);
+    this.list_1 = list;
+    this._isCompleting_1 = atomic$boolean$1(isCompleting);
+    this._rootCause_1 = atomic$ref$1(rootCause);
+    this._exceptionsHolder_1 = atomic$ref$1(null);
   }
-  Finishing.prototype.hm = function () {
-    return this.dn_1;
+  Finishing.prototype.get_list_wopuqv_k$ = function () {
+    return this.list_1;
   };
-  Finishing.prototype.on = function (value) {
-    this.en_1.bh_1 = value;
+  Finishing.prototype.set_isCompleting_i5ljas_k$ = function (value) {
+    this._isCompleting_1.value_1 = value;
   };
-  Finishing.prototype.kn = function () {
-    return this.en_1.bh_1;
+  Finishing.prototype.get_isCompleting_vi2bwp_k$ = function () {
+    return this._isCompleting_1.value_1;
   };
-  Finishing.prototype.un = function (value) {
-    this.fn_1.xg_1 = value;
+  Finishing.prototype.set_rootCause_s52kuy_k$ = function (value) {
+    this._rootCause_1.value_1 = value;
   };
-  Finishing.prototype.nn = function () {
-    return this.fn_1.xg_1;
+  Finishing.prototype.get_rootCause_69dwxu_k$ = function () {
+    return this._rootCause_1.value_1;
   };
-  Finishing.prototype.ln = function () {
+  Finishing.prototype.get_isSealed_zdv4z3_k$ = function () {
     return _get_exceptionsHolder__nhszp(this) === get_SEALED();
   };
-  Finishing.prototype.hn = function () {
-    return !(this.nn() == null);
+  Finishing.prototype.get_isCancelling_o1apv_k$ = function () {
+    return !(this.get_rootCause_69dwxu_k$() == null);
   };
-  Finishing.prototype.lh = function () {
-    return this.nn() == null;
+  Finishing.prototype.get_isActive_quafmh_k$ = function () {
+    return this.get_rootCause_69dwxu_k$() == null;
   };
-  Finishing.prototype.in = function (proposedException) {
+  Finishing.prototype.sealLocked_11gdw4_k$ = function (proposedException) {
     var eh = _get_exceptionsHolder__nhszp(this);
     var tmp;
     if (eh == null) {
@@ -2272,7 +3009,7 @@
           {
           }
           {
-            tmp0_also.b(eh);
+            tmp0_also.add_1j60pz_k$(eh);
           }
           tmp$ret$0 = tmp0_also;
         }
@@ -2287,7 +3024,7 @@
       }
     }
     var list = tmp;
-    var rootCause = this.nn();
+    var rootCause = this.get_rootCause_69dwxu_k$();
     var tmp0_safe_receiver = rootCause;
     if (tmp0_safe_receiver == null)
       null;
@@ -2296,19 +3033,19 @@
       {
         {
         }
-        tmp$ret$1 = list.u4(0, tmp0_safe_receiver);
+        tmp$ret$1 = list.add_ydlf05_k$(0, tmp0_safe_receiver);
       }
     }
     if (!(proposedException == null) ? !equals(proposedException, rootCause) : false) {
-      list.b(proposedException);
+      list.add_1j60pz_k$(proposedException);
     }
     _set_exceptionsHolder__tqm22h(this, get_SEALED());
     return list;
   };
-  Finishing.prototype.mn = function (exception) {
-    var rootCause = this.nn();
+  Finishing.prototype.addExceptionLocked_jeuhbd_k$ = function (exception) {
+    var rootCause = this.get_rootCause_69dwxu_k$();
     if (rootCause == null) {
-      this.un(exception);
+      this.set_rootCause_s52kuy_k$(exception);
       return Unit_getInstance();
     }
     if (exception === rootCause)
@@ -2326,15 +3063,15 @@
           {
           }
           {
-            tmp0_apply.b(eh);
-            tmp0_apply.b(exception);
+            tmp0_apply.add_1j60pz_k$(eh);
+            tmp0_apply.add_1j60pz_k$(exception);
           }
           tmp$ret$0 = tmp0_apply;
         }
         _set_exceptionsHolder__tqm22h(this, tmp$ret$0);
       } else {
         if (eh instanceof ArrayList) {
-          (eh instanceof ArrayList ? eh : THROW_CCE()).b(exception);
+          (eh instanceof ArrayList ? eh : THROW_CCE()).add_1j60pz_k$(exception);
         } else {
           var tmp1_error = 'State is ' + toString(eh);
           throw IllegalStateException_init_$Create$(toString_0(tmp1_error));
@@ -2343,83 +3080,277 @@
     }
   };
   Finishing.prototype.toString = function () {
-    return 'Finishing[cancelling=' + this.hn() + ', completing=' + this.kn() + ', rootCause=' + this.nn() + ', exceptions=' + toString(_get_exceptionsHolder__nhszp(this)) + ', list=' + this.dn_1 + ']';
+    return 'Finishing[cancelling=' + this.get_isCancelling_o1apv_k$() + ', completing=' + this.get_isCompleting_vi2bwp_k$() + ', rootCause=' + this.get_rootCause_69dwxu_k$() + ', exceptions=' + toString(_get_exceptionsHolder__nhszp(this)) + ', list=' + this.list_1 + ']';
   };
   Finishing.$metadata$ = classMeta('Finishing', [Incomplete]);
+  function _get_isCancelling__hlz7m9(_this__u8e3s4, $this) {
+    var tmp;
+    if (_this__u8e3s4 instanceof Finishing) {
+      tmp = _this__u8e3s4.get_isCancelling_o1apv_k$();
+    } else {
+      tmp = false;
+    }
+    return tmp;
+  }
   function ChildCompletion(parent, state, child, proposedUpdate) {
     JobNode.call(this);
-    this.zn_1 = parent;
-    this.ao_1 = state;
-    this.bo_1 = child;
-    this.co_1 = proposedUpdate;
+    this.parent_1 = parent;
+    this.state_1 = state;
+    this.child_1 = child;
+    this.proposedUpdate_1 = proposedUpdate;
   }
-  ChildCompletion.prototype.do = function (cause) {
-    continueCompleting(this.zn_1, this.ao_1, this.bo_1, this.co_1);
+  ChildCompletion.prototype.invoke_7fb7sc_k$ = function (cause) {
+    continueCompleting(this.parent_1, this.state_1, this.child_1, this.proposedUpdate_1);
   };
   ChildCompletion.prototype.invoke = function (cause) {
-    return this.do(cause);
+    return this.invoke_7fb7sc_k$(cause);
   };
   ChildCompletion.$metadata$ = classMeta('ChildCompletion', undefined, undefined, undefined, undefined, JobNode.prototype);
-  function JobSupport(active) {
-    this.eh_1 = atomic$ref$1(active ? get_EMPTY_ACTIVE() : get_EMPTY_NEW());
-    this.fh_1 = atomic$ref$1(null);
+  function AwaitContinuation(delegate, job) {
+    CancellableContinuationImpl.call(this, delegate, get_MODE_CANCELLABLE());
+    this.job_1 = job;
   }
-  JobSupport.prototype.z = function () {
+  AwaitContinuation.prototype.getContinuationCancellationCause_62o4c9_k$ = function (parent) {
+    var state = this.job_1.get_state_iypx7s_k$();
+    if (state instanceof Finishing) {
+      var tmp0_safe_receiver = state.get_rootCause_69dwxu_k$();
+      if (tmp0_safe_receiver == null)
+        null;
+      else {
+        var tmp$ret$0;
+        {
+          {
+          }
+          return tmp0_safe_receiver;
+        }
+      }
+    }
+    if (state instanceof CompletedExceptionally)
+      return state.cause_1;
+    return parent.getCancellationException_8i1q6u_k$();
+  };
+  AwaitContinuation.prototype.nameString_cd9e9w_k$ = function () {
+    return 'AwaitContinuation';
+  };
+  AwaitContinuation.$metadata$ = classMeta('AwaitContinuation', undefined, undefined, undefined, undefined, CancellableContinuationImpl.prototype);
+  function awaitSuspend($this, $cont) {
+    var tmp$ret$2;
+    {
+      var tmp0__anonymous__q1qw7t = $cont;
+      var cont = new AwaitContinuation(intercepted(tmp0__anonymous__q1qw7t), $this);
+      cont.initCancellability_sh6jkn_k$();
+      var tmp$ret$1;
+      {
+        var tmp0__get_asHandler__gq3rkj = new ResumeAwaitOnCompletion(cont);
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = tmp0__get_asHandler__gq3rkj;
+        }
+        tmp$ret$1 = tmp$ret$0;
+      }
+      disposeOnCancellation(cont, $this.invokeOnCompletion_t2apld_k$(tmp$ret$1));
+      tmp$ret$2 = cont.getResult_clfhg3_k$();
+    }
+    return tmp$ret$2;
+  }
+  function JobSupport$_get_children_$slambda_k839f8(this$0, resultContinuation) {
+    this.this$0__1 = this$0;
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  JobSupport$_get_children_$slambda_k839f8.prototype.invoke_6hwafz_k$ = function ($this$sequence, $cont) {
+    var tmp = this.create_d86qwy_k$($this$sequence, $cont);
+    tmp.result_1 = Unit_getInstance();
+    tmp.exception_1 = null;
+    return tmp.doResume_5yljmg_k$();
+  };
+  JobSupport$_get_children_$slambda_k839f8.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
+    return this.invoke_6hwafz_k$(p1 instanceof SequenceScope ? p1 : THROW_CCE(), $cont);
+  };
+  JobSupport$_get_children_$slambda_k839f8.prototype.doResume_5yljmg_k$ = function () {
+    var suspendResult = this.result_1;
+    $sm: do
+      try {
+        var tmp = this.state_1;
+        switch (tmp) {
+          case 0:
+            this.exceptionState_1 = 8;
+            this.state0__1 = this.this$0__1.get_state_iypx7s_k$();
+            var tmp_0 = this.state0__1;
+            if (tmp_0 instanceof ChildHandleNode) {
+              this.state_1 = 6;
+              suspendResult = this.$this$sequence_1.yield_24z9an_k$(this.state0__1.childJob_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              var tmp_1 = this.state0__1;
+              if (!(tmp_1 == null) ? isInterface(tmp_1, Incomplete) : false) {
+                this.tmp0_safe_receiver1__1 = this.state0__1.get_list_wopuqv_k$();
+                if (this.tmp0_safe_receiver1__1 == null) {
+                  this.WHEN_RESULT2__1 = null;
+                  this.state_1 = 5;
+                  continue $sm;
+                } else {
+                  this.cur3__1 = this.tmp0_safe_receiver1__1.get__next_inmai1_k$();
+                  this.state_1 = 1;
+                  continue $sm;
+                }
+              } else {
+                this.state_1 = 7;
+                continue $sm;
+              }
+            }
+
+            break;
+          case 1:
+            if (!!equals(this.cur3__1, this.tmp0_safe_receiver1__1)) {
+              this.state_1 = 4;
+              continue $sm;
+            }
+
+            var tmp_2 = this.cur3__1;
+            if (tmp_2 instanceof ChildHandleNode) {
+              var tmp_3 = this;
+              tmp_3.tmp0__anonymous_4_q5x4yb_1 = this.cur3__1;
+              this.state_1 = 2;
+              suspendResult = this.$this$sequence_1.yield_24z9an_k$(this.tmp0__anonymous_4_q5x4yb_1.childJob_1, this);
+              if (suspendResult === get_COROUTINE_SUSPENDED()) {
+                return suspendResult;
+              }
+              continue $sm;
+            } else {
+              this.state_1 = 3;
+              continue $sm;
+            }
+
+            break;
+          case 2:
+            this.state_1 = 3;
+            continue $sm;
+          case 3:
+            this.cur3__1 = this.cur3__1._next_1;
+            this.state_1 = 1;
+            continue $sm;
+          case 4:
+            this.WHEN_RESULT2__1 = Unit_getInstance();
+            this.state_1 = 5;
+            continue $sm;
+          case 5:
+            ;
+            this.state_1 = 7;
+            continue $sm;
+          case 6:
+            this.state_1 = 7;
+            continue $sm;
+          case 7:
+            return Unit_getInstance();
+          case 8:
+            throw this.exception_1;
+        }
+      } catch ($p) {
+        if (this.exceptionState_1 === 8) {
+          throw $p;
+        } else {
+          this.state_1 = this.exceptionState_1;
+          this.exception_1 = $p;
+        }
+      }
+     while (true);
+  };
+  JobSupport$_get_children_$slambda_k839f8.prototype.create_d86qwy_k$ = function ($this$sequence, completion) {
+    var i = new JobSupport$_get_children_$slambda_k839f8(this.this$0__1, completion);
+    i.$this$sequence_1 = $this$sequence;
+    return i;
+  };
+  JobSupport$_get_children_$slambda_k839f8.prototype.create_xubfvz_k$ = function (value, completion) {
+    return this.create_d86qwy_k$(value instanceof SequenceScope ? value : THROW_CCE(), completion);
+  };
+  JobSupport$_get_children_$slambda_k839f8.$metadata$ = classMeta('JobSupport$<get-children>$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
+  function JobSupport$_get_children_$slambda_k839f8_0(this$0, resultContinuation) {
+    var i = new JobSupport$_get_children_$slambda_k839f8(this$0, resultContinuation);
+    var l = function ($this$sequence, $cont) {
+      return i.invoke_6hwafz_k$($this$sequence, $cont);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function JobSupport(active) {
+    this._state_1 = atomic$ref$1(active ? get_EMPTY_ACTIVE() : get_EMPTY_NEW());
+    this._parentHandle_1 = atomic$ref$1(null);
+  }
+  JobSupport.prototype.get_key_18j28a_k$ = function () {
     return Key_getInstance_2();
   };
-  JobSupport.prototype.ci = function (value) {
-    this.fh_1.xg_1 = value;
+  JobSupport.prototype.set_parentHandle_voxu0m_k$ = function (value) {
+    this._parentHandle_1.value_1 = value;
   };
-  JobSupport.prototype.di = function () {
-    return this.fh_1.xg_1;
+  JobSupport.prototype.get_parentHandle_gmoqez_k$ = function () {
+    return this._parentHandle_1.value_1;
   };
-  JobSupport.prototype.gh = function (parent) {
+  JobSupport.prototype.initParentJob_4c2lht_k$ = function (parent) {
     {
     }
     if (parent == null) {
-      this.ci(NonDisposableHandle_getInstance());
+      this.set_parentHandle_voxu0m_k$(NonDisposableHandle_getInstance());
       return Unit_getInstance();
     }
-    parent.gi();
-    var handle = parent.ui(this);
-    this.ci(handle);
-    if (this.fi()) {
-      handle.ik();
-      this.ci(NonDisposableHandle_getInstance());
+    parent.start_1tchgi_k$();
+    var handle = parent.attachChild_ik9c8b_k$(this);
+    this.set_parentHandle_voxu0m_k$(handle);
+    if (this.get_isCompleted_a6j6c8_k$()) {
+      handle.dispose_3n44we_k$();
+      this.set_parentHandle_voxu0m_k$(NonDisposableHandle_getInstance());
     }
   };
-  JobSupport.prototype.ei = function () {
+  JobSupport.prototype.get_state_iypx7s_k$ = function () {
     {
-      var tmp0_loop = this.eh_1;
+      var tmp0_loop = this._state_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.xg_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           if (!(tmp1__anonymous__uwfjfc instanceof OpDescriptor))
             return tmp1__anonymous__uwfjfc;
-          tmp1__anonymous__uwfjfc.eo(this);
+          tmp1__anonymous__uwfjfc.perform_8emi3i_k$(this);
         }
       }
     }
   };
-  JobSupport.prototype.lh = function () {
-    var state = this.ei();
+  JobSupport.prototype.get_isActive_quafmh_k$ = function () {
+    var state = this.get_state_iypx7s_k$();
     var tmp;
     if (!(state == null) ? isInterface(state, Incomplete) : false) {
-      tmp = state.lh();
+      tmp = state.get_isActive_quafmh_k$();
     } else {
       tmp = false;
     }
     return tmp;
   };
-  JobSupport.prototype.fi = function () {
-    var tmp = this.ei();
+  JobSupport.prototype.get_isCompleted_a6j6c8_k$ = function () {
+    var tmp = this.get_state_iypx7s_k$();
     return !(!(tmp == null) ? isInterface(tmp, Incomplete) : false);
   };
-  JobSupport.prototype.gi = function () {
+  JobSupport.prototype.get_isCancelled_trk8pu_k$ = function () {
+    var state = this.get_state_iypx7s_k$();
+    var tmp;
+    if (state instanceof CompletedExceptionally) {
+      tmp = true;
+    } else {
+      var tmp_0;
+      if (state instanceof Finishing) {
+        tmp_0 = state.get_isCancelling_o1apv_k$();
+      } else {
+        tmp_0 = false;
+      }
+      tmp = tmp_0;
+    }
+    return tmp;
+  };
+  JobSupport.prototype.start_1tchgi_k$ = function () {
     {
       while (true) {
         {
-          var tmp0__anonymous__q1qw7t = this.ei();
+          var tmp0__anonymous__q1qw7t = this.get_state_iypx7s_k$();
           var tmp0_subject = startInternal(this, tmp0__anonymous__q1qw7t);
           if (tmp0_subject === 0)
             return false;
@@ -2429,14 +3360,14 @@
       }
     }
   };
-  JobSupport.prototype.hi = function () {
+  JobSupport.prototype.onStart_qth026_k$ = function () {
   };
-  JobSupport.prototype.ii = function () {
-    var state = this.ei();
+  JobSupport.prototype.getCancellationException_8i1q6u_k$ = function () {
+    var state = this.get_state_iypx7s_k$();
     var tmp;
     if (state instanceof Finishing) {
-      var tmp0_safe_receiver = state.nn();
-      var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : this.ji(tmp0_safe_receiver, get_classSimpleName(this) + ' is cancelling');
+      var tmp0_safe_receiver = state.get_rootCause_69dwxu_k$();
+      var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : this.toCancellationException_8ve25p_k$(tmp0_safe_receiver, get_classSimpleName(this) + ' is cancelling');
       var tmp_0;
       if (tmp1_elvis_lhs == null) {
         var tmp0_error = 'Job is still new or active: ' + this;
@@ -2451,7 +3382,7 @@
         throw IllegalStateException_init_$Create$(toString_0(tmp1_error));
       } else {
         if (state instanceof CompletedExceptionally) {
-          tmp = this.ki(state.qh_1, null, 1, null);
+          tmp = this.toCancellationException$default_c99ojs_k$(state.cause_1, null, 1, null);
         } else {
           tmp = new JobCancellationException(get_classSimpleName(this) + ' has completed normally', null, this);
         }
@@ -2459,14 +3390,14 @@
     }
     return tmp;
   };
-  JobSupport.prototype.ji = function (_this__u8e3s4, message) {
+  JobSupport.prototype.toCancellationException_8ve25p_k$ = function (_this__u8e3s4, message) {
     var tmp0_elvis_lhs = _this__u8e3s4 instanceof CancellationException ? _this__u8e3s4 : null;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       var tmp$ret$0;
       {
         var tmp0_elvis_lhs_0 = message;
-        tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs_0 == null ? this.oh() : tmp0_elvis_lhs_0, _this__u8e3s4, this);
+        tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs_0 == null ? this.cancellationExceptionMessage_a64063_k$() : tmp0_elvis_lhs_0, _this__u8e3s4, this);
       }
       tmp = tmp$ret$0;
     } else {
@@ -2474,28 +3405,78 @@
     }
     return tmp;
   };
-  JobSupport.prototype.ki = function (_this__u8e3s4, message, $mask0, $handler) {
+  JobSupport.prototype.toCancellationException$default_c99ojs_k$ = function (_this__u8e3s4, message, $mask0, $handler) {
     if (!(($mask0 & 1) === 0))
       message = null;
-    return this.ji(_this__u8e3s4, message);
+    return this.toCancellationException_8ve25p_k$(_this__u8e3s4, message);
   };
-  JobSupport.prototype.li = function (onCancelling, invokeImmediately, handler) {
+  JobSupport.prototype.get_completionCause_bxx3i4_k$ = function () {
+    var state = this.get_state_iypx7s_k$();
+    var tmp;
+    if (state instanceof Finishing) {
+      var tmp0_elvis_lhs = state.get_rootCause_69dwxu_k$();
+      var tmp_0;
+      if (tmp0_elvis_lhs == null) {
+        var tmp0_error = 'Job is still new or active: ' + this;
+        throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
+      } else {
+        tmp_0 = tmp0_elvis_lhs;
+      }
+      tmp = tmp_0;
+    } else {
+      if (!(state == null) ? isInterface(state, Incomplete) : false) {
+        var tmp1_error = 'Job is still new or active: ' + this;
+        throw IllegalStateException_init_$Create$(toString_0(tmp1_error));
+      } else {
+        if (state instanceof CompletedExceptionally) {
+          tmp = state.cause_1;
+        } else {
+          tmp = null;
+        }
+      }
+    }
+    return tmp;
+  };
+  JobSupport.prototype.get_completionCauseHandled_bdr920_k$ = function () {
+    var tmp$ret$1;
+    {
+      var tmp0_let = this.get_state_iypx7s_k$();
+      {
+      }
+      var tmp$ret$0;
+      {
+        var tmp;
+        if (tmp0_let instanceof CompletedExceptionally) {
+          tmp = tmp0_let.get_handled_cq14k3_k$();
+        } else {
+          tmp = false;
+        }
+        tmp$ret$0 = tmp;
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return tmp$ret$1;
+  };
+  JobSupport.prototype.invokeOnCompletion_t2apld_k$ = function (handler) {
+    return this.invokeOnCompletion_npwpyn_k$(false, true, handler);
+  };
+  JobSupport.prototype.invokeOnCompletion_npwpyn_k$ = function (onCancelling, invokeImmediately, handler) {
     var node = makeNode(this, handler, onCancelling);
     {
       while (true) {
         var tmp$ret$1;
         $l$block: {
-          var tmp0__anonymous__q1qw7t = this.ei();
+          var tmp0__anonymous__q1qw7t = this.get_state_iypx7s_k$();
           var tmp0_subject = tmp0__anonymous__q1qw7t;
           if (tmp0_subject instanceof Empty) {
-            if (tmp0__anonymous__q1qw7t.gm_1) {
-              if (this.eh_1.atomicfu$compareAndSet(tmp0__anonymous__q1qw7t, node))
+            if (tmp0__anonymous__q1qw7t.isActive_1) {
+              if (this._state_1.atomicfu$compareAndSet(tmp0__anonymous__q1qw7t, node))
                 return node;
             } else
               promoteEmptyToNodeList(this, tmp0__anonymous__q1qw7t);
           } else {
             if (!(tmp0_subject == null) ? isInterface(tmp0_subject, Incomplete) : false) {
-              var list = tmp0__anonymous__q1qw7t.hm();
+              var list = tmp0__anonymous__q1qw7t.get_list_wopuqv_k$();
               if (list == null) {
                 promoteSingleToNodeList(this, tmp0__anonymous__q1qw7t instanceof JobNode ? tmp0__anonymous__q1qw7t : THROW_CCE());
               } else {
@@ -2510,7 +3491,7 @@
                 if (tmp) {
                   var tmp$ret$2;
                   {
-                    rootCause = tmp0__anonymous__q1qw7t.nn();
+                    rootCause = tmp0__anonymous__q1qw7t.get_rootCause_69dwxu_k$();
                     var tmp_0;
                     var tmp_1;
                     if (rootCause == null) {
@@ -2522,7 +3503,7 @@
                         tmp$ret$0 = handler instanceof ChildHandleNode;
                       }
                       if (tmp$ret$0) {
-                        tmp_2 = !tmp0__anonymous__q1qw7t.kn();
+                        tmp_2 = !tmp0__anonymous__q1qw7t.get_isCompleting_vi2bwp_k$();
                       } else {
                         tmp_2 = false;
                       }
@@ -2553,7 +3534,7 @@
             } else {
               if (invokeImmediately) {
                 var tmp1_safe_receiver = tmp0__anonymous__q1qw7t instanceof CompletedExceptionally ? tmp0__anonymous__q1qw7t : null;
-                invokeIt(handler, tmp1_safe_receiver == null ? null : tmp1_safe_receiver.qh_1);
+                invokeIt(handler, tmp1_safe_receiver == null ? null : tmp1_safe_receiver.cause_1);
               }
               return NonDisposableHandle_getInstance();
             }
@@ -2562,21 +3543,65 @@
       }
     }
   };
-  JobSupport.prototype.ni = function (node) {
+  JobSupport.prototype.join_kbq7u1_k$ = function ($cont) {
+    if (!joinInternal(this)) {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = $cont.get_context_h02k06_k$();
+      }
+      ensureActive(tmp$ret$0);
+      return Unit_getInstance();
+    }
+    return joinSuspend(this, $cont);
+  };
+  JobSupport.prototype.get_onJoin_hnj4j6_k$ = function () {
+    return this;
+  };
+  JobSupport.prototype.registerSelectClause0_h2wst5_k$ = function (select, block) {
     {
       while (true) {
         {
-          var tmp0__anonymous__q1qw7t = this.ei();
+          var tmp0__anonymous__q1qw7t = this.get_state_iypx7s_k$();
+          if (select.get_isSelected_dl432q_k$())
+            return Unit_getInstance();
+          if (!(!(tmp0__anonymous__q1qw7t == null) ? isInterface(tmp0__anonymous__q1qw7t, Incomplete) : false)) {
+            if (select.trySelect_1ivjiv_k$()) {
+              startCoroutineUnintercepted(block, select.get_completion_t4gxwb_k$());
+            }
+            return Unit_getInstance();
+          }
+          if (startInternal(this, tmp0__anonymous__q1qw7t) === 0) {
+            var tmp$ret$1;
+            {
+              var tmp0__get_asHandler__gq3rkj = new SelectJoinOnCompletion(select, block);
+              var tmp$ret$0;
+              {
+                tmp$ret$0 = tmp0__get_asHandler__gq3rkj;
+              }
+              tmp$ret$1 = tmp$ret$0;
+            }
+            select.disposeOnSelect_lrl426_k$(this.invokeOnCompletion_t2apld_k$(tmp$ret$1));
+            return Unit_getInstance();
+          }
+        }
+      }
+    }
+  };
+  JobSupport.prototype.removeNode_o3o6t1_k$ = function (node) {
+    {
+      while (true) {
+        {
+          var tmp0__anonymous__q1qw7t = this.get_state_iypx7s_k$();
           var tmp0_subject = tmp0__anonymous__q1qw7t;
           if (tmp0_subject instanceof JobNode) {
             if (!(tmp0__anonymous__q1qw7t === node))
               return Unit_getInstance();
-            if (this.eh_1.atomicfu$compareAndSet(tmp0__anonymous__q1qw7t, get_EMPTY_ACTIVE()))
+            if (this._state_1.atomicfu$compareAndSet(tmp0__anonymous__q1qw7t, get_EMPTY_ACTIVE()))
               return Unit_getInstance();
           } else {
             if (!(tmp0_subject == null) ? isInterface(tmp0_subject, Incomplete) : false) {
-              if (!(tmp0__anonymous__q1qw7t.hm() == null)) {
-                node.bn();
+              if (!(tmp0__anonymous__q1qw7t.get_list_wopuqv_k$() == null)) {
+                node.remove_fgfybg_k$();
               }
               return Unit_getInstance();
             } else {
@@ -2587,23 +3612,67 @@
       }
     }
   };
-  JobSupport.prototype.oi = function () {
+  JobSupport.prototype.get_onCancelComplete_4lfsth_k$ = function () {
     return false;
   };
-  JobSupport.prototype.oh = function () {
+  JobSupport.prototype.cancel_4b7aim_k$ = function (cause) {
+    var tmp0_elvis_lhs = cause;
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      var tmp$ret$0;
+      {
+        var tmp0_elvis_lhs_0 = null;
+        tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs_0 == null ? this.cancellationExceptionMessage_a64063_k$() : tmp0_elvis_lhs_0, null, this);
+      }
+      tmp = tmp$ret$0;
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    this.cancelInternal_wqrppy_k$(tmp);
+  };
+  JobSupport.prototype.cancellationExceptionMessage_a64063_k$ = function () {
     return 'Job was cancelled';
   };
-  JobSupport.prototype.pi = function (parentJob) {
-    this.ri(parentJob);
+  JobSupport.prototype.cancel_as6ug7_k$ = function (cause) {
+    var tmp0_safe_receiver = cause;
+    var tmp;
+    if (tmp0_safe_receiver == null) {
+      tmp = null;
+    } else {
+      tmp = this.toCancellationException$default_c99ojs_k$(tmp0_safe_receiver, null, 1, null);
+    }
+    var tmp1_elvis_lhs = tmp;
+    var tmp_0;
+    if (tmp1_elvis_lhs == null) {
+      var tmp$ret$0;
+      {
+        var tmp0_elvis_lhs = null;
+        tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs == null ? this.cancellationExceptionMessage_a64063_k$() : tmp0_elvis_lhs, null, this);
+      }
+      tmp_0 = tmp$ret$0;
+    } else {
+      tmp_0 = tmp1_elvis_lhs;
+    }
+    this.cancelInternal_wqrppy_k$(tmp_0);
+    return true;
   };
-  JobSupport.prototype.qi = function (cause) {
+  JobSupport.prototype.cancelInternal_wqrppy_k$ = function (cause) {
+    this.cancelImpl_5ls1mt_k$(cause);
+  };
+  JobSupport.prototype.parentCancelled_53w4ri_k$ = function (parentJob) {
+    this.cancelImpl_5ls1mt_k$(parentJob);
+  };
+  JobSupport.prototype.childCancelled_fdoq8t_k$ = function (cause) {
     if (cause instanceof CancellationException)
       return true;
-    return this.ri(cause) ? this.xi() : false;
+    return this.cancelImpl_5ls1mt_k$(cause) ? this.get_handlesException_f6my9f_k$() : false;
   };
-  JobSupport.prototype.ri = function (cause) {
+  JobSupport.prototype.cancelCoroutine_dy4tw5_k$ = function (cause) {
+    return this.cancelImpl_5ls1mt_k$(cause);
+  };
+  JobSupport.prototype.cancelImpl_5ls1mt_k$ = function (cause) {
     var finalState = get_COMPLETING_ALREADY();
-    if (this.oi()) {
+    if (this.get_onCancelComplete_4lfsth_k$()) {
       finalState = cancelMakeCompleting(this, cause);
       if (finalState === get_COMPLETING_WAITING_CHILDREN())
         return true;
@@ -2619,24 +3688,24 @@
     } else if (finalState === get_TOO_LATE_TO_CANCEL()) {
       tmp = false;
     } else {
-      this.vh(finalState);
+      this.afterCompletion_2ogq6g_k$(finalState);
       tmp = true;
     }
     return tmp;
   };
-  JobSupport.prototype.si = function (message, cause) {
+  JobSupport.prototype.defaultCancellationException_lkdizi_k$ = function (message, cause) {
     var tmp0_elvis_lhs = message;
-    return new JobCancellationException(tmp0_elvis_lhs == null ? this.oh() : tmp0_elvis_lhs, cause, this);
+    return new JobCancellationException(tmp0_elvis_lhs == null ? this.cancellationExceptionMessage_a64063_k$() : tmp0_elvis_lhs, cause, this);
   };
-  JobSupport.prototype.ti = function () {
-    var state = this.ei();
+  JobSupport.prototype.getChildJobCancellationCause_wx9uoh_k$ = function () {
+    var state = this.get_state_iypx7s_k$();
     var tmp0_subject = state;
     var tmp;
     if (tmp0_subject instanceof Finishing) {
-      tmp = state.nn();
+      tmp = state.get_rootCause_69dwxu_k$();
     } else {
       if (tmp0_subject instanceof CompletedExceptionally) {
-        tmp = state.qh_1;
+        tmp = state.cause_1;
       } else {
         if (!(tmp0_subject == null) ? isInterface(tmp0_subject, Incomplete) : false) {
           var tmp0_error = 'Cannot be cancelling child in this state: ' + toString(state);
@@ -2650,12 +3719,34 @@
     var tmp1_elvis_lhs = rootCause instanceof CancellationException ? rootCause : null;
     return tmp1_elvis_lhs == null ? new JobCancellationException('Parent job is ' + stateString(this, state), rootCause, this) : tmp1_elvis_lhs;
   };
-  JobSupport.prototype.th = function (proposedUpdate) {
+  JobSupport.prototype.makeCompleting_2ycklh_k$ = function (proposedUpdate) {
     {
       while (true) {
         var tmp$ret$0;
         $l$block: {
-          var tmp0__anonymous__q1qw7t = this.ei();
+          var tmp0__anonymous__q1qw7t = this.get_state_iypx7s_k$();
+          var finalState = tryMakeCompleting(this, tmp0__anonymous__q1qw7t, proposedUpdate);
+          if (finalState === get_COMPLETING_ALREADY())
+            return false;
+          else if (finalState === get_COMPLETING_WAITING_CHILDREN())
+            return true;
+          else if (finalState === get_COMPLETING_RETRY()) {
+            tmp$ret$0 = Unit_getInstance();
+            break $l$block;
+          } else {
+            this.afterCompletion_2ogq6g_k$(finalState);
+            return true;
+          }
+        }
+      }
+    }
+  };
+  JobSupport.prototype.makeCompletingOnce_b13xy2_k$ = function (proposedUpdate) {
+    {
+      while (true) {
+        var tmp$ret$0;
+        $l$block: {
+          var tmp0__anonymous__q1qw7t = this.get_state_iypx7s_k$();
           var finalState = tryMakeCompleting(this, tmp0__anonymous__q1qw7t, proposedUpdate);
           if (finalState === get_COMPLETING_ALREADY())
             throw IllegalStateException_init_$Create$_0('Job ' + this + ' is already complete or completing, ' + ('but is being completed with ' + toString(proposedUpdate)), _get_exceptionOrNull__b3j7js(proposedUpdate, this));
@@ -2668,7 +3759,10 @@
       }
     }
   };
-  JobSupport.prototype.ui = function (child) {
+  JobSupport.prototype.get_children_4cwbp4_k$ = function () {
+    return sequence(JobSupport$_get_children_$slambda_k839f8_0(this, null));
+  };
+  JobSupport.prototype.attachChild_ik9c8b_k$ = function (child) {
     var tmp$ret$1;
     {
       var tmp0__get_asHandler__gq3rkj = new ChildHandleNode(child);
@@ -2678,35 +3772,136 @@
       }
       tmp$ret$1 = tmp$ret$0;
     }
-    var tmp = this.mi(true, false, tmp$ret$1, 2, null);
+    var tmp = this.invokeOnCompletion$default_7q548c_k$(true, false, tmp$ret$1, 2, null);
     return isInterface(tmp, ChildHandle) ? tmp : THROW_CCE();
   };
-  JobSupport.prototype.wh = function (exception) {
+  JobSupport.prototype.handleOnCompletionException_o179kb_k$ = function (exception) {
     throw exception;
   };
-  JobSupport.prototype.vi = function (cause) {
+  JobSupport.prototype.onCancelling_bxyn9n_k$ = function (cause) {
   };
-  JobSupport.prototype.wi = function () {
+  JobSupport.prototype.get_isScopedCoroutine_rwmmff_k$ = function () {
     return false;
   };
-  JobSupport.prototype.xi = function () {
+  JobSupport.prototype.get_handlesException_f6my9f_k$ = function () {
     return true;
   };
-  JobSupport.prototype.yi = function (exception) {
+  JobSupport.prototype.handleJobException_oc4gxk_k$ = function (exception) {
     return false;
   };
-  JobSupport.prototype.ph = function (state) {
+  JobSupport.prototype.onCompletionInternal_39c1g8_k$ = function (state) {
   };
-  JobSupport.prototype.vh = function (state) {
+  JobSupport.prototype.afterCompletion_2ogq6g_k$ = function (state) {
   };
   JobSupport.prototype.toString = function () {
-    return this.zi() + '@' + get_hexAddress(this);
+    return this.toDebugString_v3moy1_k$() + '@' + get_hexAddress(this);
   };
-  JobSupport.prototype.zi = function () {
-    return this.xh() + '{' + stateString(this, this.ei()) + '}';
+  JobSupport.prototype.toDebugString_v3moy1_k$ = function () {
+    return this.nameString_cd9e9w_k$() + '{' + stateString(this, this.get_state_iypx7s_k$()) + '}';
   };
-  JobSupport.prototype.xh = function () {
+  JobSupport.prototype.nameString_cd9e9w_k$ = function () {
     return get_classSimpleName(this);
+  };
+  JobSupport.prototype.get_isCompletedExceptionally_i25lfz_k$ = function () {
+    var tmp = this.get_state_iypx7s_k$();
+    return tmp instanceof CompletedExceptionally;
+  };
+  JobSupport.prototype.getCompletionExceptionOrNull_snuvbb_k$ = function () {
+    var state = this.get_state_iypx7s_k$();
+    {
+      {
+      }
+      if (!!(!(state == null) ? isInterface(state, Incomplete) : false)) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'This job has not completed yet';
+        }
+        var message = tmp$ret$0;
+        throw IllegalStateException_init_$Create$(toString_0(message));
+      }
+    }
+    return _get_exceptionOrNull__b3j7js(state, this);
+  };
+  JobSupport.prototype.getCompletedInternal_26f4i6_k$ = function () {
+    var state = this.get_state_iypx7s_k$();
+    {
+      {
+      }
+      if (!!(!(state == null) ? isInterface(state, Incomplete) : false)) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'This job has not completed yet';
+        }
+        var message = tmp$ret$0;
+        throw IllegalStateException_init_$Create$(toString_0(message));
+      }
+    }
+    if (state instanceof CompletedExceptionally)
+      throw state.cause_1;
+    return unboxState(state);
+  };
+  JobSupport.prototype.awaitInternal_pz51jj_k$ = function ($cont) {
+    $l$loop: while (true) {
+      var state = this.get_state_iypx7s_k$();
+      if (!(!(state == null) ? isInterface(state, Incomplete) : false)) {
+        if (state instanceof CompletedExceptionally) {
+          {
+            var tmp0_recoverAndThrow = state.cause_1;
+            throw tmp0_recoverAndThrow;
+          }
+        }
+        return unboxState(state);
+      }
+      if (startInternal(this, state) >= 0)
+        break $l$loop;
+    }
+    return awaitSuspend(this, $cont);
+  };
+  JobSupport.prototype.registerSelectClause1Internal_amjpx5_k$ = function (select, block) {
+    {
+      while (true) {
+        {
+          var tmp0__anonymous__q1qw7t = this.get_state_iypx7s_k$();
+          if (select.get_isSelected_dl432q_k$())
+            return Unit_getInstance();
+          if (!(!(tmp0__anonymous__q1qw7t == null) ? isInterface(tmp0__anonymous__q1qw7t, Incomplete) : false)) {
+            if (select.trySelect_1ivjiv_k$()) {
+              if (tmp0__anonymous__q1qw7t instanceof CompletedExceptionally) {
+                select.resumeSelectWithException_xs2ljz_k$(tmp0__anonymous__q1qw7t.cause_1);
+              } else {
+                var tmp = unboxState(tmp0__anonymous__q1qw7t);
+                startCoroutineUnintercepted_0(block, (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE(), select.get_completion_t4gxwb_k$());
+              }
+            }
+            return Unit_getInstance();
+          }
+          if (startInternal(this, tmp0__anonymous__q1qw7t) === 0) {
+            var tmp$ret$1;
+            {
+              var tmp0__get_asHandler__gq3rkj = new SelectAwaitOnCompletion(select, block);
+              var tmp$ret$0;
+              {
+                tmp$ret$0 = tmp0__get_asHandler__gq3rkj;
+              }
+              tmp$ret$1 = tmp$ret$0;
+            }
+            select.disposeOnSelect_lrl426_k$(this.invokeOnCompletion_t2apld_k$(tmp$ret$1));
+            return Unit_getInstance();
+          }
+        }
+      }
+    }
+  };
+  JobSupport.prototype.selectAwaitCompletion_tgh7vz_k$ = function (select, block) {
+    var state = this.get_state_iypx7s_k$();
+    if (state instanceof CompletedExceptionally)
+      select.resumeSelectWithException_xs2ljz_k$(state.cause_1);
+    else {
+      var tmp = unboxState(state);
+      var tmp_0 = (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
+      var tmp_1 = select.get_completion_t4gxwb_k$();
+      startCoroutineCancellable$default(block, tmp_0, tmp_1, null, 4, null);
+    }
   };
   JobSupport.$metadata$ = classMeta('JobSupport', [Job, ChildJob, ParentJob, SelectClause0]);
   function boxIncomplete(_this__u8e3s4) {
@@ -2731,76 +3926,211 @@
     return TRUE;
   }
   var TRUE;
-  function InactiveNodeList(list) {
-    this.jn_1 = list;
+  function get_RETRY() {
+    return RETRY;
   }
-  InactiveNodeList.prototype.hm = function () {
-    return this.jn_1;
+  var RETRY;
+  function InactiveNodeList(list) {
+    this.list_1 = list;
+  }
+  InactiveNodeList.prototype.get_list_wopuqv_k$ = function () {
+    return this.list_1;
   };
-  InactiveNodeList.prototype.lh = function () {
+  InactiveNodeList.prototype.get_isActive_quafmh_k$ = function () {
     return false;
   };
   InactiveNodeList.prototype.toString = function () {
-    return get_DEBUG() ? this.jn_1.lm('New') : anyToString(this);
+    return get_DEBUG() ? this.list_1.getString_xqex6i_k$('New') : anyToString(this);
   };
   InactiveNodeList.$metadata$ = classMeta('InactiveNodeList', [Incomplete]);
   function ChildHandleNode(childJob) {
     JobCancellingNode.call(this);
-    this.tn_1 = childJob;
+    this.childJob_1 = childJob;
   }
-  ChildHandleNode.prototype.do = function (cause) {
-    return this.tn_1.pi(this.an());
+  ChildHandleNode.prototype.get_childJob_4cx54m_k$ = function () {
+    return this.childJob_1;
+  };
+  ChildHandleNode.prototype.get_parent_hy4reb_k$ = function () {
+    return this.get_job_18j2r0_k$();
+  };
+  ChildHandleNode.prototype.invoke_7fb7sc_k$ = function (cause) {
+    return this.childJob_1.parentCancelled_53w4ri_k$(this.get_job_18j2r0_k$());
   };
   ChildHandleNode.prototype.invoke = function (cause) {
-    return this.do(cause);
+    return this.invoke_7fb7sc_k$(cause);
   };
-  ChildHandleNode.prototype.qi = function (cause) {
-    return this.an().qi(cause);
+  ChildHandleNode.prototype.childCancelled_fdoq8t_k$ = function (cause) {
+    return this.get_job_18j2r0_k$().childCancelled_fdoq8t_k$(cause);
   };
   ChildHandleNode.$metadata$ = classMeta('ChildHandleNode', [ChildHandle], undefined, undefined, undefined, JobCancellingNode.prototype);
+  function _get_handler__z70553_0($this) {
+    return $this.handler_1;
+  }
+  function _get__invoked__yhwoci($this) {
+    return $this._invoked_1;
+  }
   function InvokeOnCancelling(handler) {
     JobCancellingNode.call(this);
-    this.jo_1 = handler;
-    this.ko_1 = atomic$int$1(0);
+    this.handler_1 = handler;
+    this._invoked_1 = atomic$int$1(0);
   }
-  InvokeOnCancelling.prototype.do = function (cause) {
-    if (this.ko_1.atomicfu$compareAndSet(0, 1))
-      this.jo_1(cause);
+  InvokeOnCancelling.prototype.invoke_7fb7sc_k$ = function (cause) {
+    if (this._invoked_1.atomicfu$compareAndSet(0, 1))
+      this.handler_1(cause);
   };
   InvokeOnCancelling.prototype.invoke = function (cause) {
-    return this.do(cause);
+    return this.invoke_7fb7sc_k$(cause);
   };
   InvokeOnCancelling.$metadata$ = classMeta('InvokeOnCancelling', undefined, undefined, undefined, undefined, JobCancellingNode.prototype);
+  function _get_handler__z70553_1($this) {
+    return $this.handler_1;
+  }
   function InvokeOnCompletion(handler) {
     JobNode.call(this);
-    this.po_1 = handler;
+    this.handler_1 = handler;
   }
-  InvokeOnCompletion.prototype.do = function (cause) {
-    return this.po_1(cause);
+  InvokeOnCompletion.prototype.invoke_7fb7sc_k$ = function (cause) {
+    return this.handler_1(cause);
   };
   InvokeOnCompletion.prototype.invoke = function (cause) {
-    return this.do(cause);
+    return this.invoke_7fb7sc_k$(cause);
   };
   InvokeOnCompletion.$metadata$ = classMeta('InvokeOnCompletion', undefined, undefined, undefined, undefined, JobNode.prototype);
-  function IncompleteStateBox(state) {
-    this.qo_1 = state;
+  function _get_continuation__y3gzck_0($this) {
+    return $this.continuation_1;
   }
+  function ResumeOnCompletion(continuation) {
+    JobNode.call(this);
+    this.continuation_1 = continuation;
+  }
+  ResumeOnCompletion.prototype.invoke_7fb7sc_k$ = function (cause) {
+    var tmp$ret$1;
+    {
+      var tmp0_resume = this.continuation_1;
+      var tmp$ret$0;
+      {
+        var tmp0_success = Companion_getInstance_0();
+        tmp$ret$0 = _Result___init__impl__xyqfz8(Unit_getInstance());
+      }
+      tmp$ret$1 = tmp0_resume.resumeWith_s3a3yh_k$(tmp$ret$0);
+    }
+    return tmp$ret$1;
+  };
+  ResumeOnCompletion.prototype.invoke = function (cause) {
+    return this.invoke_7fb7sc_k$(cause);
+  };
+  ResumeOnCompletion.$metadata$ = classMeta('ResumeOnCompletion', undefined, undefined, undefined, undefined, JobNode.prototype);
+  function _get_select__irrld($this) {
+    return $this.select_1;
+  }
+  function _get_block__jewopo($this) {
+    return $this.block_1;
+  }
+  function SelectJoinOnCompletion(select, block) {
+    JobNode.call(this);
+    this.select_1 = select;
+    this.block_1 = block;
+  }
+  SelectJoinOnCompletion.prototype.invoke_7fb7sc_k$ = function (cause) {
+    if (this.select_1.trySelect_1ivjiv_k$())
+      startCoroutineCancellable_0(this.block_1, this.select_1.get_completion_t4gxwb_k$());
+  };
+  SelectJoinOnCompletion.prototype.invoke = function (cause) {
+    return this.invoke_7fb7sc_k$(cause);
+  };
+  SelectJoinOnCompletion.$metadata$ = classMeta('SelectJoinOnCompletion', undefined, undefined, undefined, undefined, JobNode.prototype);
+  function unboxState(_this__u8e3s4) {
+    init_properties_JobSupport_kt_iaxwag();
+    var tmp0_safe_receiver = _this__u8e3s4 instanceof IncompleteStateBox ? _this__u8e3s4 : null;
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.state_1;
+    return tmp1_elvis_lhs == null ? _this__u8e3s4 : tmp1_elvis_lhs;
+  }
+  function _get_continuation__y3gzck_1($this) {
+    return $this.continuation_1;
+  }
+  function ResumeAwaitOnCompletion(continuation) {
+    JobNode.call(this);
+    this.continuation_1 = continuation;
+  }
+  ResumeAwaitOnCompletion.prototype.invoke_7fb7sc_k$ = function (cause) {
+    var state = this.get_job_18j2r0_k$().get_state_iypx7s_k$();
+    {
+    }
+    if (state instanceof CompletedExceptionally) {
+      var tmp$ret$1;
+      {
+        var tmp0_resumeWithException = this.continuation_1;
+        var tmp1_resumeWithException = state.cause_1;
+        var tmp$ret$0;
+        {
+          var tmp0_failure = Companion_getInstance_0();
+          tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(tmp1_resumeWithException));
+        }
+        tmp$ret$1 = tmp0_resumeWithException.resumeWith_s3a3yh_k$(tmp$ret$0);
+      }
+    } else {
+      var tmp$ret$3;
+      {
+        var tmp2_resume = this.continuation_1;
+        var tmp = unboxState(state);
+        var tmp3_resume = (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
+        var tmp$ret$2;
+        {
+          var tmp0_success = Companion_getInstance_0();
+          tmp$ret$2 = _Result___init__impl__xyqfz8(tmp3_resume);
+        }
+        tmp$ret$3 = tmp2_resume.resumeWith_s3a3yh_k$(tmp$ret$2);
+      }
+    }
+  };
+  ResumeAwaitOnCompletion.prototype.invoke = function (cause) {
+    return this.invoke_7fb7sc_k$(cause);
+  };
+  ResumeAwaitOnCompletion.$metadata$ = classMeta('ResumeAwaitOnCompletion', undefined, undefined, undefined, undefined, JobNode.prototype);
+  function _get_select__irrld_0($this) {
+    return $this.select_1;
+  }
+  function _get_block__jewopo_0($this) {
+    return $this.block_1;
+  }
+  function SelectAwaitOnCompletion(select, block) {
+    JobNode.call(this);
+    this.select_1 = select;
+    this.block_1 = block;
+  }
+  SelectAwaitOnCompletion.prototype.invoke_7fb7sc_k$ = function (cause) {
+    if (this.select_1.trySelect_1ivjiv_k$())
+      this.get_job_18j2r0_k$().selectAwaitCompletion_tgh7vz_k$(this.select_1, this.block_1);
+  };
+  SelectAwaitOnCompletion.prototype.invoke = function (cause) {
+    return this.invoke_7fb7sc_k$(cause);
+  };
+  SelectAwaitOnCompletion.$metadata$ = classMeta('SelectAwaitOnCompletion', undefined, undefined, undefined, undefined, JobNode.prototype);
+  function IncompleteStateBox(state) {
+    this.state_1 = state;
+  }
+  IncompleteStateBox.prototype.get_state_iypx7s_k$ = function () {
+    return this.state_1;
+  };
   IncompleteStateBox.$metadata$ = classMeta('IncompleteStateBox');
   function ChildContinuation(child) {
     JobCancellingNode.call(this);
-    this.vo_1 = child;
+    this.child_1 = child;
   }
-  ChildContinuation.prototype.do = function (cause) {
-    this.vo_1.uk(this.vo_1.vk(this.an()));
+  ChildContinuation.prototype.get_child_ipppmb_k$ = function () {
+    return this.child_1;
+  };
+  ChildContinuation.prototype.invoke_7fb7sc_k$ = function (cause) {
+    this.child_1.parentCancelled_uc06zq_k$(this.child_1.getContinuationCancellationCause_62o4c9_k$(this.get_job_18j2r0_k$()));
   };
   ChildContinuation.prototype.invoke = function (cause) {
-    return this.do(cause);
+    return this.invoke_7fb7sc_k$(cause);
   };
   ChildContinuation.$metadata$ = classMeta('ChildContinuation', undefined, undefined, undefined, undefined, JobCancellingNode.prototype);
   function handlesException($this) {
-    var tmp = $this.di();
+    var tmp = $this.get_parentHandle_gmoqez_k$();
     var tmp0_safe_receiver = tmp instanceof ChildHandleNode ? tmp : null;
-    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.an();
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_job_18j2r0_k$();
     var tmp_0;
     if (tmp1_elvis_lhs == null) {
       return false;
@@ -2809,11 +4139,11 @@
     }
     var parentJob = tmp_0;
     while (true) {
-      if (parentJob.xi())
+      if (parentJob.get_handlesException_f6my9f_k$())
         return true;
-      var tmp_1 = parentJob.di();
+      var tmp_1 = parentJob.get_parentHandle_gmoqez_k$();
       var tmp2_safe_receiver = tmp_1 instanceof ChildHandleNode ? tmp_1 : null;
-      var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.an();
+      var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.get_job_18j2r0_k$();
       var tmp_2;
       if (tmp3_elvis_lhs == null) {
         return false;
@@ -2825,14 +4155,20 @@
   }
   function JobImpl(parent) {
     JobSupport.call(this, true);
-    this.gh(parent);
-    this.yo_1 = handlesException(this);
+    this.initParentJob_4c2lht_k$(parent);
+    this.handlesException_1 = handlesException(this);
   }
-  JobImpl.prototype.oi = function () {
+  JobImpl.prototype.get_onCancelComplete_4lfsth_k$ = function () {
     return true;
   };
-  JobImpl.prototype.xi = function () {
-    return this.yo_1;
+  JobImpl.prototype.get_handlesException_f6my9f_k$ = function () {
+    return this.handlesException_1;
+  };
+  JobImpl.prototype.complete_9ww6vb_k$ = function () {
+    return this.makeCompleting_2ycklh_k$(Unit_getInstance());
+  };
+  JobImpl.prototype.completeExceptionally_7s0ccc_k$ = function (exception) {
+    return this.makeCompleting_2ycklh_k$(CompletedExceptionally_init_$Create$(exception, false, 2, null));
   };
   JobImpl.$metadata$ = classMeta('JobImpl', [CompletableJob], undefined, undefined, undefined, JobSupport.prototype);
   var properties_initialized_JobSupport_kt_5iq8a4;
@@ -2853,16 +4189,20 @@
     CoroutineDispatcher.call(this);
   }
   MainCoroutineDispatcher.prototype.toString = function () {
-    var tmp0_elvis_lhs = this.bp();
+    var tmp0_elvis_lhs = this.toStringInternalImpl_hcqz93_k$();
     return tmp0_elvis_lhs == null ? get_classSimpleName(this) + '@' + get_hexAddress(this) : tmp0_elvis_lhs;
   };
-  MainCoroutineDispatcher.prototype.bp = function () {
-    var main = Dispatchers_getInstance().gp();
+  MainCoroutineDispatcher.prototype.limitedParallelism_glrman_k$ = function (parallelism) {
+    checkParallelism(parallelism);
+    return this;
+  };
+  MainCoroutineDispatcher.prototype.toStringInternalImpl_hcqz93_k$ = function () {
+    var main = Dispatchers_getInstance().get_Main_wo5vz6_k$();
     if (this === main)
       return 'Dispatchers.Main';
     var tmp;
     try {
-      tmp = main.ap();
+      tmp = main.get_immediate_r3y8eg_k$();
     } catch ($p) {
       var tmp_0;
       if ($p instanceof UnsupportedOperationException) {
@@ -2878,20 +4218,52 @@
     return null;
   };
   MainCoroutineDispatcher.$metadata$ = classMeta('MainCoroutineDispatcher', undefined, undefined, undefined, undefined, CoroutineDispatcher.prototype);
-  function TimeoutCancellationException() {
+  function TimeoutCancellationException_init_$Init$(message, $this) {
+    TimeoutCancellationException.call($this, message, null);
+    return $this;
   }
+  function TimeoutCancellationException_init_$Create$(message) {
+    var tmp = TimeoutCancellationException_init_$Init$(message, Object.create(TimeoutCancellationException.prototype));
+    captureStack(tmp, TimeoutCancellationException_init_$Create$);
+    return tmp;
+  }
+  function TimeoutCancellationException(message, coroutine) {
+    CancellationException_init_$Init$(message, this);
+    this.coroutine_1 = coroutine;
+    captureStack(this, TimeoutCancellationException);
+  }
+  TimeoutCancellationException.prototype.get_coroutine_cnpmtt_k$ = function () {
+    return this.coroutine_1;
+  };
+  TimeoutCancellationException.prototype.createCopy_mmw9ld_k$ = function () {
+    var tmp$ret$0;
+    {
+      var tmp0_elvis_lhs = this.message;
+      var tmp0_also = new TimeoutCancellationException(tmp0_elvis_lhs == null ? '' : tmp0_elvis_lhs, this.coroutine_1);
+      {
+      }
+      {
+        initCause(tmp0_also, this);
+      }
+      tmp$ret$0 = tmp0_also;
+    }
+    return tmp$ret$0;
+  };
   TimeoutCancellationException.$metadata$ = classMeta('TimeoutCancellationException', [CopyableThrowable], undefined, undefined, undefined, CancellationException.prototype);
   function Unconfined() {
     Unconfined_instance = this;
     CoroutineDispatcher.call(this);
   }
-  Unconfined.prototype.gl = function (context) {
+  Unconfined.prototype.limitedParallelism_glrman_k$ = function (parallelism) {
+    throw UnsupportedOperationException_init_$Create$('limitedParallelism is not supported for Dispatchers.Unconfined');
+  };
+  Unconfined.prototype.isDispatchNeeded_fmz9vn_k$ = function (context) {
     return false;
   };
-  Unconfined.prototype.hl = function (context, block) {
-    var yieldContext = context.a2(Key_getInstance_3());
+  Unconfined.prototype.dispatch_o98ux7_k$ = function (context, block) {
+    var yieldContext = context.get_1pi7hg_k$(Key_getInstance_3());
     if (!(yieldContext == null)) {
-      yieldContext.jp_1 = true;
+      yieldContext.dispatcherWasUnconfined_1 = true;
       return Unit_getInstance();
     }
     throw UnsupportedOperationException_init_$Create$('Dispatchers.Unconfined.dispatch function can only be used by the yield function. If you wrap Unconfined dispatcher in your code, make sure you properly delegate isDispatchNeeded and dispatch calls.');
@@ -2916,8 +4288,201 @@
       new Key_3();
     return Key_instance_2;
   }
+  function YieldContext() {
+    Key_getInstance_3();
+    AbstractCoroutineContextElement.call(this, Key_getInstance_3());
+    this.dispatcherWasUnconfined_1 = false;
+  }
+  YieldContext.prototype.set_dispatcherWasUnconfined_6oi8pp_k$ = function (_set____db54di) {
+    this.dispatcherWasUnconfined_1 = _set____db54di;
+  };
+  YieldContext.prototype.get_dispatcherWasUnconfined_gkf39i_k$ = function () {
+    return this.dispatcherWasUnconfined_1;
+  };
+  YieldContext.$metadata$ = classMeta('YieldContext', undefined, undefined, undefined, undefined, AbstractCoroutineContextElement.prototype);
+  function get_EMPTY() {
+    init_properties_AbstractChannel_kt_mjk5bh();
+    return EMPTY;
+  }
+  var EMPTY;
+  function get_OFFER_SUCCESS() {
+    init_properties_AbstractChannel_kt_mjk5bh();
+    return OFFER_SUCCESS;
+  }
+  var OFFER_SUCCESS;
+  function get_OFFER_FAILED() {
+    init_properties_AbstractChannel_kt_mjk5bh();
+    return OFFER_FAILED;
+  }
+  var OFFER_FAILED;
+  function get_POLL_FAILED() {
+    init_properties_AbstractChannel_kt_mjk5bh();
+    return POLL_FAILED;
+  }
+  var POLL_FAILED;
+  function get_ENQUEUE_FAILED() {
+    init_properties_AbstractChannel_kt_mjk5bh();
+    return ENQUEUE_FAILED;
+  }
+  var ENQUEUE_FAILED;
+  function get_HANDLER_INVOKED() {
+    init_properties_AbstractChannel_kt_mjk5bh();
+    return HANDLER_INVOKED;
+  }
+  var HANDLER_INVOKED;
+  var properties_initialized_AbstractChannel_kt_uwqnpt;
+  function init_properties_AbstractChannel_kt_mjk5bh() {
+    if (properties_initialized_AbstractChannel_kt_uwqnpt) {
+    } else {
+      properties_initialized_AbstractChannel_kt_uwqnpt = true;
+      EMPTY = new Symbol('EMPTY');
+      OFFER_SUCCESS = new Symbol('OFFER_SUCCESS');
+      OFFER_FAILED = new Symbol('OFFER_FAILED');
+      POLL_FAILED = new Symbol('POLL_FAILED');
+      ENQUEUE_FAILED = new Symbol('ENQUEUE_FAILED');
+      HANDLER_INVOKED = new Symbol('ON_CLOSE_HANDLER_INVOKED');
+    }
+  }
+  function get_NO_VALUE() {
+    init_properties_SharedFlow_kt_5sqb47();
+    return NO_VALUE;
+  }
+  var NO_VALUE;
+  var properties_initialized_SharedFlow_kt_tmefor;
+  function init_properties_SharedFlow_kt_5sqb47() {
+    if (properties_initialized_SharedFlow_kt_tmefor) {
+    } else {
+      properties_initialized_SharedFlow_kt_tmefor = true;
+      NO_VALUE = new Symbol('NO_VALUE');
+    }
+  }
+  function get_NONE() {
+    init_properties_StateFlow_kt_6znnsl();
+    return NONE;
+  }
+  var NONE;
+  function get_PENDING() {
+    init_properties_StateFlow_kt_6znnsl();
+    return PENDING;
+  }
+  var PENDING;
+  var properties_initialized_StateFlow_kt_nsqikx;
+  function init_properties_StateFlow_kt_6znnsl() {
+    if (properties_initialized_StateFlow_kt_nsqikx) {
+    } else {
+      properties_initialized_StateFlow_kt_nsqikx = true;
+      NONE = new Symbol('NONE');
+      PENDING = new Symbol('PENDING');
+    }
+  }
+  function get_EMPTY_RESUMES() {
+    init_properties_AbstractSharedFlow_kt_ejuukb();
+    return EMPTY_RESUMES;
+  }
+  var EMPTY_RESUMES;
+  var properties_initialized_AbstractSharedFlow_kt_2mpafr;
+  function init_properties_AbstractSharedFlow_kt_ejuukb() {
+    if (properties_initialized_AbstractSharedFlow_kt_2mpafr) {
+    } else {
+      properties_initialized_AbstractSharedFlow_kt_2mpafr = true;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = fillArrayVal(Array(0), null);
+      }
+      EMPTY_RESUMES = tmp$ret$0;
+    }
+  }
+  function get_NULL() {
+    init_properties_NullSurrogate_kt_8d5lbx();
+    return NULL;
+  }
+  var NULL;
+  function get_UNINITIALIZED() {
+    init_properties_NullSurrogate_kt_8d5lbx();
+    return UNINITIALIZED;
+  }
+  var UNINITIALIZED;
+  function get_DONE() {
+    init_properties_NullSurrogate_kt_8d5lbx();
+    return DONE;
+  }
+  var DONE;
+  var properties_initialized_NullSurrogate_kt_39v8bl;
+  function init_properties_NullSurrogate_kt_8d5lbx() {
+    if (properties_initialized_NullSurrogate_kt_39v8bl) {
+    } else {
+      properties_initialized_NullSurrogate_kt_39v8bl = true;
+      NULL = new Symbol('NULL');
+      UNINITIALIZED = new Symbol('UNINITIALIZED');
+      DONE = new Symbol('DONE');
+    }
+  }
+  function get_defaultKeySelector() {
+    init_properties_Distinct_kt_yydxy6();
+    return defaultKeySelector;
+  }
+  var defaultKeySelector;
+  function get_defaultAreEquivalent() {
+    init_properties_Distinct_kt_yydxy6();
+    return defaultAreEquivalent;
+  }
+  var defaultAreEquivalent;
+  function defaultKeySelector$lambda() {
+    return function (it) {
+      return it;
+    };
+  }
+  function defaultAreEquivalent$lambda() {
+    return function (old, new_0) {
+      return equals(old, new_0);
+    };
+  }
+  var properties_initialized_Distinct_kt_uy8c72;
+  function init_properties_Distinct_kt_yydxy6() {
+    if (properties_initialized_Distinct_kt_uy8c72) {
+    } else {
+      properties_initialized_Distinct_kt_uy8c72 = true;
+      defaultKeySelector = defaultKeySelector$lambda();
+      defaultAreEquivalent = defaultAreEquivalent$lambda();
+    }
+  }
+  function get_DEFAULT_CONCURRENCY() {
+    init_properties_Merge_kt_uorl8c();
+    return DEFAULT_CONCURRENCY;
+  }
+  var DEFAULT_CONCURRENCY;
+  function get_DEFAULT_CONCURRENCY_PROPERTY_NAME() {
+    return DEFAULT_CONCURRENCY_PROPERTY_NAME;
+  }
+  var DEFAULT_CONCURRENCY_PROPERTY_NAME;
+  var properties_initialized_Merge_kt_dhn6vs;
+  function init_properties_Merge_kt_uorl8c() {
+    if (properties_initialized_Merge_kt_dhn6vs) {
+    } else {
+      properties_initialized_Merge_kt_dhn6vs = true;
+      DEFAULT_CONCURRENCY = systemProp('kotlinx.coroutines.flow.defaultConcurrency', 16, 1, IntCompanionObject_getInstance().MAX_VALUE_1);
+    }
+  }
+  function _set_elements__x18af4($this, _set____db54di) {
+    $this.elements_1 = _set____db54di;
+  }
+  function _get_elements__k8byyc($this) {
+    return $this.elements_1;
+  }
+  function _set_head__9nromv($this, _set____db54di) {
+    $this.head_1 = _set____db54di;
+  }
+  function _get_head__d7jo8b($this) {
+    return $this.head_1;
+  }
+  function _set_tail__9uatxj($this, _set____db54di) {
+    $this.tail_1 = _set____db54di;
+  }
+  function _get_tail__de2tiz($this) {
+    return $this.tail_1;
+  }
   function ensureCapacity($this) {
-    var currentSize = $this.pl_1.length;
+    var currentSize = $this.elements_1.length;
     var newCapacity = currentSize << 1;
     var tmp$ret$0;
     {
@@ -2926,23 +4491,23 @@
     var newElements = tmp$ret$0;
     var tmp$ret$1;
     {
-      var tmp0_copyInto = $this.pl_1;
-      var tmp1_copyInto = $this.ql_1;
+      var tmp0_copyInto = $this.elements_1;
+      var tmp1_copyInto = $this.head_1;
       var tmp2_copyInto = tmp0_copyInto.length;
       arrayCopy(tmp0_copyInto, newElements, 0, tmp1_copyInto, tmp2_copyInto);
       tmp$ret$1 = newElements;
     }
     var tmp$ret$2;
     {
-      var tmp3_copyInto = $this.pl_1;
-      var tmp4_copyInto = $this.pl_1.length - $this.ql_1 | 0;
-      var tmp5_copyInto = $this.ql_1;
+      var tmp3_copyInto = $this.elements_1;
+      var tmp4_copyInto = $this.elements_1.length - $this.head_1 | 0;
+      var tmp5_copyInto = $this.head_1;
       arrayCopy(tmp3_copyInto, newElements, tmp4_copyInto, 0, tmp5_copyInto);
       tmp$ret$2 = newElements;
     }
-    $this.pl_1 = newElements;
-    $this.ql_1 = 0;
-    $this.rl_1 = currentSize;
+    $this.elements_1 = newElements;
+    $this.head_1 = 0;
+    $this.tail_1 = currentSize;
   }
   function ArrayQueue() {
     var tmp = this;
@@ -2950,31 +4515,148 @@
     {
       tmp$ret$0 = fillArrayVal(Array(16), null);
     }
-    tmp.pl_1 = tmp$ret$0;
-    this.ql_1 = 0;
-    this.rl_1 = 0;
+    tmp.elements_1 = tmp$ret$0;
+    this.head_1 = 0;
+    this.tail_1 = 0;
   }
-  ArrayQueue.prototype.xl = function () {
-    return this.ql_1 === this.rl_1;
+  ArrayQueue.prototype.get_isEmpty_zauvru_k$ = function () {
+    return this.head_1 === this.tail_1;
   };
-  ArrayQueue.prototype.ul = function (element) {
-    this.pl_1[this.rl_1] = element;
-    this.rl_1 = (this.rl_1 + 1 | 0) & (this.pl_1.length - 1 | 0);
-    if (this.rl_1 === this.ql_1)
+  ArrayQueue.prototype.addLast_xhfl3v_k$ = function (element) {
+    this.elements_1[this.tail_1] = element;
+    this.tail_1 = (this.tail_1 + 1 | 0) & (this.elements_1.length - 1 | 0);
+    if (this.tail_1 === this.head_1)
       ensureCapacity(this);
   };
-  ArrayQueue.prototype.sl = function () {
-    if (this.ql_1 === this.rl_1)
+  ArrayQueue.prototype.removeFirstOrNull_eges3a_k$ = function () {
+    if (this.head_1 === this.tail_1)
       return null;
-    var element = this.pl_1[this.ql_1];
-    this.pl_1[this.ql_1] = null;
-    this.ql_1 = (this.ql_1 + 1 | 0) & (this.pl_1.length - 1 | 0);
+    var element = this.elements_1[this.head_1];
+    this.elements_1[this.head_1] = null;
+    this.head_1 = (this.head_1 + 1 | 0) & (this.elements_1.length - 1 | 0);
     return isObject(element) ? element : THROW_CCE();
   };
+  ArrayQueue.prototype.clear_j9y8zo_k$ = function () {
+    this.head_1 = 0;
+    this.tail_1 = 0;
+    var tmp = this;
+    var tmp$ret$0;
+    {
+      var tmp0_arrayOfNulls = this.elements_1.length;
+      tmp$ret$0 = fillArrayVal(Array(tmp0_arrayOfNulls), null);
+    }
+    tmp.elements_1 = tmp$ret$0;
+  };
   ArrayQueue.$metadata$ = classMeta('ArrayQueue');
+  function get_NO_DECISION() {
+    init_properties_Atomic_kt_3h20tt();
+    return NO_DECISION;
+  }
+  var NO_DECISION;
+  function get_RETRY_ATOMIC() {
+    init_properties_Atomic_kt_3h20tt();
+    return RETRY_ATOMIC;
+  }
+  var RETRY_ATOMIC;
   function OpDescriptor() {
   }
+  OpDescriptor.prototype.toString = function () {
+    return get_classSimpleName(this) + '@' + get_hexAddress(this);
+  };
+  OpDescriptor.prototype.isEarlierThan_b5adjh_k$ = function (that) {
+    var tmp0_elvis_lhs = this.get_atomicOp_p2pkuj_k$();
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      return false;
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    var thisOp = tmp;
+    var tmp1_elvis_lhs = that.get_atomicOp_p2pkuj_k$();
+    var tmp_0;
+    if (tmp1_elvis_lhs == null) {
+      return false;
+    } else {
+      tmp_0 = tmp1_elvis_lhs;
+    }
+    var thatOp = tmp_0;
+    return thisOp.get_opSequence_bttwhh_k$().compareTo_n4fqi2_k$(thatOp.get_opSequence_bttwhh_k$()) < 0;
+  };
   OpDescriptor.$metadata$ = classMeta('OpDescriptor');
+  function _get__consensus__nhzvjh($this) {
+    return $this._consensus_1;
+  }
+  function AtomicOp() {
+    OpDescriptor.call(this);
+    this._consensus_1 = atomic$ref$1(get_NO_DECISION());
+  }
+  AtomicOp.prototype.get_consensus_1b3g0e_k$ = function () {
+    return this._consensus_1.value_1;
+  };
+  AtomicOp.prototype.get_isDecided_ofk0qx_k$ = function () {
+    return !(this._consensus_1.value_1 === get_NO_DECISION());
+  };
+  AtomicOp.prototype.get_opSequence_bttwhh_k$ = function () {
+    return new Long(0, 0);
+  };
+  AtomicOp.prototype.get_atomicOp_p2pkuj_k$ = function () {
+    return this;
+  };
+  AtomicOp.prototype.decide_ydi1rd_k$ = function (decision) {
+    {
+    }
+    var current = this._consensus_1.value_1;
+    if (!(current === get_NO_DECISION()))
+      return current;
+    if (this._consensus_1.atomicfu$compareAndSet(get_NO_DECISION(), decision))
+      return decision;
+    return this._consensus_1.value_1;
+  };
+  AtomicOp.prototype.perform_8emi3i_k$ = function (affected) {
+    var decision = this._consensus_1.value_1;
+    if (decision === get_NO_DECISION()) {
+      decision = this.decide_ydi1rd_k$(this.prepare_gq68ys_k$((affected == null ? true : isObject(affected)) ? affected : THROW_CCE()));
+    }
+    this.complete_fye4ce_k$((affected == null ? true : isObject(affected)) ? affected : THROW_CCE(), decision);
+    return decision;
+  };
+  AtomicOp.$metadata$ = classMeta('AtomicOp', undefined, undefined, undefined, undefined, OpDescriptor.prototype);
+  function AtomicDesc() {
+  }
+  AtomicDesc.prototype.set_atomicOp_7j6ry0_k$ = function (_set____db54di) {
+    this.atomicOp_1 = _set____db54di;
+  };
+  AtomicDesc.prototype.get_atomicOp_p2pkuj_k$ = function () {
+    var tmp = this.atomicOp_1;
+    if (!(tmp == null))
+      return tmp;
+    else {
+      throwUninitializedPropertyAccessException('atomicOp');
+    }
+  };
+  AtomicDesc.$metadata$ = classMeta('AtomicDesc');
+  var properties_initialized_Atomic_kt_vn225v;
+  function init_properties_Atomic_kt_3h20tt() {
+    if (properties_initialized_Atomic_kt_vn225v) {
+    } else {
+      properties_initialized_Atomic_kt_vn225v = true;
+      NO_DECISION = new Symbol('NO_DECISION');
+      RETRY_ATOMIC = new Symbol('RETRY_ATOMIC');
+    }
+  }
+  function get_CLOSED() {
+    init_properties_ConcurrentLinkedList_kt_u21ib0();
+    return CLOSED;
+  }
+  var CLOSED;
+  var properties_initialized_ConcurrentLinkedList_kt_kwt434;
+  function init_properties_ConcurrentLinkedList_kt_u21ib0() {
+    if (properties_initialized_ConcurrentLinkedList_kt_kwt434) {
+    } else {
+      properties_initialized_ConcurrentLinkedList_kt_kwt434 = true;
+      CLOSED = new Symbol('CLOSED');
+    }
+  }
   function get_UNDEFINED() {
     init_properties_DispatchedContinuation_kt_s7rtw6();
     return UNDEFINED;
@@ -2993,46 +4675,46 @@
       var tmp1_resumeCancellableWith = _this__u8e3s4;
       var state = toState_0(result, onCancellation);
       var tmp_0;
-      if (tmp1_resumeCancellableWith.pj_1.gl(tmp1_resumeCancellableWith.w1())) {
-        tmp1_resumeCancellableWith.rj_1 = state;
-        tmp1_resumeCancellableWith.kp(get_MODE_CANCELLABLE());
-        tmp_0 = tmp1_resumeCancellableWith.pj_1.hl(tmp1_resumeCancellableWith.w1(), tmp1_resumeCancellableWith);
+      if (tmp1_resumeCancellableWith.dispatcher_1.isDispatchNeeded_fmz9vn_k$(tmp1_resumeCancellableWith.get_context_h02k06_k$())) {
+        tmp1_resumeCancellableWith._state_1 = state;
+        tmp1_resumeCancellableWith.set_resumeMode_b1d3vh_k$(get_MODE_CANCELLABLE());
+        tmp_0 = tmp1_resumeCancellableWith.dispatcher_1.dispatch_o98ux7_k$(tmp1_resumeCancellableWith.get_context_h02k06_k$(), tmp1_resumeCancellableWith);
       } else {
         var tmp$ret$0;
         $l$block: {
           var tmp0_executeUnconfined = get_MODE_CANCELLABLE();
           {
           }
-          var eventLoop = ThreadLocalEventLoop_getInstance().cm();
-          if (false ? eventLoop.wl() : false) {
+          var eventLoop = ThreadLocalEventLoop_getInstance().get_eventLoop_913645_k$();
+          if (false ? eventLoop.get_isUnconfinedQueueEmpty_mi405s_k$() : false) {
             tmp$ret$0 = false;
             break $l$block;
           }
           var tmp_1;
-          if (eventLoop.vl()) {
-            tmp1_resumeCancellableWith.rj_1 = state;
-            tmp1_resumeCancellableWith.kp(tmp0_executeUnconfined);
-            eventLoop.tl(tmp1_resumeCancellableWith);
+          if (eventLoop.get_isUnconfinedLoopActive_g78ri6_k$()) {
+            tmp1_resumeCancellableWith._state_1 = state;
+            tmp1_resumeCancellableWith.set_resumeMode_b1d3vh_k$(tmp0_executeUnconfined);
+            eventLoop.dispatchUnconfined_do6j6f_k$(tmp1_resumeCancellableWith);
             tmp_1 = true;
           } else {
             {
-              eventLoop.yl(true);
+              eventLoop.incrementUseCount_ocukpa_k$(true);
               try {
                 {
                   var tmp$ret$3;
                   $l$block_0: {
-                    var job = tmp1_resumeCancellableWith.w1().a2(Key_getInstance_2());
-                    if (!(job == null) ? !job.lh() : false) {
-                      var cause = job.ii();
-                      tmp1_resumeCancellableWith.kk(state, cause);
+                    var job = tmp1_resumeCancellableWith.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
+                    if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
+                      var cause = job.getCancellationException_8i1q6u_k$();
+                      tmp1_resumeCancellableWith.cancelCompletedResult_tweln2_k$(state, cause);
                       var tmp$ret$2;
                       {
                         var tmp$ret$1;
                         {
-                          var tmp0_failure = Companion_getInstance();
+                          var tmp0_failure = Companion_getInstance_0();
                           tmp$ret$1 = _Result___init__impl__xyqfz8(createFailure(cause));
                         }
-                        tmp$ret$2 = tmp1_resumeCancellableWith.x1(tmp$ret$1);
+                        tmp$ret$2 = tmp1_resumeCancellableWith.resumeWith_s3a3yh_k$(tmp$ret$1);
                       }
                       tmp$ret$3 = true;
                       break $l$block_0;
@@ -3043,26 +4725,26 @@
                     {
                       var tmp$ret$4;
                       {
-                        var tmp0_withContinuationContext = tmp1_resumeCancellableWith.qj_1;
-                        var tmp1_withContinuationContext = tmp1_resumeCancellableWith.sj_1;
-                        tmp$ret$4 = tmp1_resumeCancellableWith.qj_1.x1(result);
+                        var tmp0_withContinuationContext = tmp1_resumeCancellableWith.continuation_1;
+                        var tmp1_withContinuationContext = tmp1_resumeCancellableWith.countOrElement_1;
+                        tmp$ret$4 = tmp1_resumeCancellableWith.continuation_1.resumeWith_s3a3yh_k$(result);
                       }
                     }
                   }
                 }
                 $l$loop: while (true) {
-                  if (!eventLoop.ol())
+                  if (!eventLoop.processUnconfinedEvent_mypjl6_k$())
                     break $l$loop;
                 }
               } catch ($p) {
                 if ($p instanceof Error) {
-                  tmp1_resumeCancellableWith.al($p, null);
+                  tmp1_resumeCancellableWith.handleFatalException_56zdfo_k$($p, null);
                 } else {
                   throw $p;
                 }
               }
               finally {
-                eventLoop.zl(true);
+                eventLoop.decrementUseCount_saho26_k$(true);
               }
             }
             tmp_1 = false;
@@ -3073,7 +4755,7 @@
       }
       tmp = tmp_0;
     } else {
-      tmp = _this__u8e3s4.x1(result);
+      tmp = _this__u8e3s4.resumeWith_s3a3yh_k$(result);
     }
     return tmp;
   }
@@ -3082,64 +4764,112 @@
       onCancellation = null;
     return resumeCancellableWith(_this__u8e3s4, result, onCancellation);
   }
+  function _get__reusableCancellableContinuation__ic28e($this) {
+    return $this._reusableCancellableContinuation_1;
+  }
   function _get_reusableCancellableContinuation__9qex09($this) {
-    var tmp = $this.tj_1.xg_1;
+    var tmp = $this._reusableCancellableContinuation_1.value_1;
     return tmp instanceof CancellableContinuationImpl ? tmp : null;
   }
   function DispatchedContinuation(dispatcher, continuation) {
     DispatchedTask.call(this, get_MODE_UNINITIALIZED());
-    this.pj_1 = dispatcher;
-    this.qj_1 = continuation;
-    this.rj_1 = get_UNDEFINED();
-    this.sj_1 = threadContextElements(this.w1());
-    this.tj_1 = atomic$ref$1(null);
+    this.dispatcher_1 = dispatcher;
+    this.continuation_1 = continuation;
+    this._state_1 = get_UNDEFINED();
+    this.countOrElement_1 = threadContextElements(this.get_context_h02k06_k$());
+    this._reusableCancellableContinuation_1 = atomic$ref$1(null);
   }
-  DispatchedContinuation.prototype.lp = function () {
-    return this.qj_1;
+  DispatchedContinuation.prototype.get_dispatcher_usy1bk_k$ = function () {
+    return this.dispatcher_1;
   };
-  DispatchedContinuation.prototype.w1 = function () {
-    return this.qj_1.w1();
+  DispatchedContinuation.prototype.get_continuation_7yron4_k$ = function () {
+    return this.continuation_1;
   };
-  DispatchedContinuation.prototype.mp = function () {
-    return this.sj_1;
+  DispatchedContinuation.prototype.get_context_h02k06_k$ = function () {
+    return this.continuation_1.get_context_h02k06_k$();
   };
-  DispatchedContinuation.prototype.uj = function () {
-    return !(this.tj_1.xg_1 == null);
+  DispatchedContinuation.prototype.set__state_9u8p4v_k$ = function (_set____db54di) {
+    this._state_1 = _set____db54di;
   };
-  DispatchedContinuation.prototype.np = function () {
+  DispatchedContinuation.prototype.get__state_a6aoij_k$ = function () {
+    return this._state_1;
+  };
+  DispatchedContinuation.prototype.get_callerFrame_pfdb95_k$ = function () {
+    var tmp = this.continuation_1;
+    return isInterface(tmp, CoroutineStackFrame) ? tmp : null;
+  };
+  DispatchedContinuation.prototype.getStackTraceElement_um8m53_k$ = function () {
+    return null;
+  };
+  DispatchedContinuation.prototype.get_countOrElement_ut92s3_k$ = function () {
+    return this.countOrElement_1;
+  };
+  DispatchedContinuation.prototype.isReusable_hrfetn_k$ = function () {
+    return !(this._reusableCancellableContinuation_1.value_1 == null);
+  };
+  DispatchedContinuation.prototype.awaitReusability_itz0u_k$ = function () {
     {
-      var tmp0_loop = this.tj_1;
+      var tmp0_loop = this._reusableCancellableContinuation_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.xg_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           if (!(tmp1__anonymous__uwfjfc === get_REUSABLE_CLAIMED()))
             return Unit_getInstance();
         }
       }
     }
   };
-  DispatchedContinuation.prototype.il = function () {
-    this.np();
+  DispatchedContinuation.prototype.release_wtm6d2_k$ = function () {
+    this.awaitReusability_itz0u_k$();
     var tmp0_safe_receiver = _get_reusableCancellableContinuation__9qex09(this);
     if (tmp0_safe_receiver == null)
       null;
     else {
-      tmp0_safe_receiver.zj();
+      tmp0_safe_receiver.detachChild_qdtbew_k$();
     }
   };
-  DispatchedContinuation.prototype.yj = function (continuation) {
+  DispatchedContinuation.prototype.claimReusableCancellableContinuation_oatv30_k$ = function () {
     {
-      var tmp0_loop = this.tj_1;
+      var tmp0_loop = this._reusableCancellableContinuation_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.xg_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          if (tmp1__anonymous__uwfjfc === null) {
+            this._reusableCancellableContinuation_1.value_1 = get_REUSABLE_CLAIMED();
+            return null;
+          } else {
+            if (tmp1__anonymous__uwfjfc instanceof CancellableContinuationImpl) {
+              if (this._reusableCancellableContinuation_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, get_REUSABLE_CLAIMED())) {
+                return tmp1__anonymous__uwfjfc instanceof CancellableContinuationImpl ? tmp1__anonymous__uwfjfc : THROW_CCE();
+              }
+            } else {
+              if (tmp1__anonymous__uwfjfc === get_REUSABLE_CLAIMED()) {
+              } else {
+                if (tmp1__anonymous__uwfjfc instanceof Error) {
+                } else {
+                  var tmp0_error = 'Inconsistent state ' + toString(tmp1__anonymous__uwfjfc);
+                  throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+  DispatchedContinuation.prototype.tryReleaseClaimedContinuation_5s4a1c_k$ = function (continuation) {
+    {
+      var tmp0_loop = this._reusableCancellableContinuation_1;
+      while (true) {
+        {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           if (tmp1__anonymous__uwfjfc === get_REUSABLE_CLAIMED()) {
-            if (this.tj_1.atomicfu$compareAndSet(get_REUSABLE_CLAIMED(), continuation))
+            if (this._reusableCancellableContinuation_1.atomicfu$compareAndSet(get_REUSABLE_CLAIMED(), continuation))
               return null;
           } else {
             if (tmp1__anonymous__uwfjfc instanceof Error) {
               {
-                var tmp0_require = this.tj_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, null);
+                var tmp0_require = this._reusableCancellableContinuation_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, null);
                 {
                 }
                 {
@@ -3165,21 +4895,21 @@
       }
     }
   };
-  DispatchedContinuation.prototype.xj = function (cause) {
+  DispatchedContinuation.prototype.postponeCancellation_723ard_k$ = function (cause) {
     {
-      var tmp0_loop = this.tj_1;
+      var tmp0_loop = this._reusableCancellableContinuation_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.xg_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
           var tmp0_subject = tmp1__anonymous__uwfjfc;
           if (equals(tmp0_subject, get_REUSABLE_CLAIMED())) {
-            if (this.tj_1.atomicfu$compareAndSet(get_REUSABLE_CLAIMED(), cause))
+            if (this._reusableCancellableContinuation_1.atomicfu$compareAndSet(get_REUSABLE_CLAIMED(), cause))
               return true;
           } else {
             if (tmp0_subject instanceof Error)
               return true;
             else {
-              if (this.tj_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, null))
+              if (this._reusableCancellableContinuation_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, null))
                 return false;
             }
           }
@@ -3187,65 +4917,65 @@
       }
     }
   };
-  DispatchedContinuation.prototype.jk = function () {
-    var state = this.rj_1;
+  DispatchedContinuation.prototype.takeState_olvzuy_k$ = function () {
+    var state = this._state_1;
     {
     }
-    this.rj_1 = get_UNDEFINED();
+    this._state_1 = get_UNDEFINED();
     return state;
   };
-  DispatchedContinuation.prototype.gk = function () {
+  DispatchedContinuation.prototype.get_delegate_i94tki_k$ = function () {
     return this;
   };
-  DispatchedContinuation.prototype.x1 = function (result) {
-    var context = this.qj_1.w1();
+  DispatchedContinuation.prototype.resumeWith_s3a3yh_k$ = function (result) {
+    var context = this.continuation_1.get_context_h02k06_k$();
     var state = toState$default(result, null, 1, null);
-    if (this.pj_1.gl(context)) {
-      this.rj_1 = state;
-      this.kp(get_MODE_ATOMIC());
-      this.pj_1.hl(context, this);
+    if (this.dispatcher_1.isDispatchNeeded_fmz9vn_k$(context)) {
+      this._state_1 = state;
+      this.set_resumeMode_b1d3vh_k$(get_MODE_ATOMIC());
+      this.dispatcher_1.dispatch_o98ux7_k$(context, this);
     } else {
       var tmp$ret$0;
       $l$block: {
         var tmp0_executeUnconfined = get_MODE_ATOMIC();
         {
         }
-        var eventLoop = ThreadLocalEventLoop_getInstance().cm();
-        if (false ? eventLoop.wl() : false) {
+        var eventLoop = ThreadLocalEventLoop_getInstance().get_eventLoop_913645_k$();
+        if (false ? eventLoop.get_isUnconfinedQueueEmpty_mi405s_k$() : false) {
           tmp$ret$0 = false;
           break $l$block;
         }
         var tmp;
-        if (eventLoop.vl()) {
-          this.rj_1 = state;
-          this.kp(tmp0_executeUnconfined);
-          eventLoop.tl(this);
+        if (eventLoop.get_isUnconfinedLoopActive_g78ri6_k$()) {
+          this._state_1 = state;
+          this.set_resumeMode_b1d3vh_k$(tmp0_executeUnconfined);
+          eventLoop.dispatchUnconfined_do6j6f_k$(this);
           tmp = true;
         } else {
           {
-            eventLoop.yl(true);
+            eventLoop.incrementUseCount_ocukpa_k$(true);
             try {
               {
                 var tmp$ret$1;
                 {
-                  var tmp0_withCoroutineContext = this.w1();
-                  var tmp1_withCoroutineContext = this.sj_1;
-                  tmp$ret$1 = this.qj_1.x1(result);
+                  var tmp0_withCoroutineContext = this.get_context_h02k06_k$();
+                  var tmp1_withCoroutineContext = this.countOrElement_1;
+                  tmp$ret$1 = this.continuation_1.resumeWith_s3a3yh_k$(result);
                 }
               }
               $l$loop: while (true) {
-                if (!eventLoop.ol())
+                if (!eventLoop.processUnconfinedEvent_mypjl6_k$())
                   break $l$loop;
               }
             } catch ($p) {
               if ($p instanceof Error) {
-                this.al($p, null);
+                this.handleFatalException_56zdfo_k$($p, null);
               } else {
                 throw $p;
               }
             }
             finally {
-              eventLoop.zl(true);
+              eventLoop.decrementUseCount_saho26_k$(true);
             }
           }
           tmp = false;
@@ -3254,72 +4984,157 @@
       }
     }
   };
-  DispatchedContinuation.prototype.kk = function (takenState, cause) {
-    if (takenState instanceof CompletedWithCancellation) {
-      takenState.el_1(cause);
+  DispatchedContinuation.prototype.resumeCancellableWith_tuk66b_k$ = function (result, onCancellation) {
+    var state = toState_0(result, onCancellation);
+    if (this.dispatcher_1.isDispatchNeeded_fmz9vn_k$(this.get_context_h02k06_k$())) {
+      this._state_1 = state;
+      this.set_resumeMode_b1d3vh_k$(get_MODE_CANCELLABLE());
+      this.dispatcher_1.dispatch_o98ux7_k$(this.get_context_h02k06_k$(), this);
+    } else {
+      var tmp$ret$0;
+      $l$block: {
+        var tmp0_executeUnconfined = get_MODE_CANCELLABLE();
+        {
+        }
+        var eventLoop = ThreadLocalEventLoop_getInstance().get_eventLoop_913645_k$();
+        if (false ? eventLoop.get_isUnconfinedQueueEmpty_mi405s_k$() : false) {
+          tmp$ret$0 = false;
+          break $l$block;
+        }
+        var tmp;
+        if (eventLoop.get_isUnconfinedLoopActive_g78ri6_k$()) {
+          this._state_1 = state;
+          this.set_resumeMode_b1d3vh_k$(tmp0_executeUnconfined);
+          eventLoop.dispatchUnconfined_do6j6f_k$(this);
+          tmp = true;
+        } else {
+          {
+            eventLoop.incrementUseCount_ocukpa_k$(true);
+            try {
+              {
+                var tmp$ret$3;
+                $l$block_0: {
+                  var job = this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
+                  if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
+                    var cause = job.getCancellationException_8i1q6u_k$();
+                    this.cancelCompletedResult_tweln2_k$(state, cause);
+                    var tmp$ret$2;
+                    {
+                      var tmp$ret$1;
+                      {
+                        var tmp0_failure = Companion_getInstance_0();
+                        tmp$ret$1 = _Result___init__impl__xyqfz8(createFailure(cause));
+                      }
+                      tmp$ret$2 = this.resumeWith_s3a3yh_k$(tmp$ret$1);
+                    }
+                    tmp$ret$3 = true;
+                    break $l$block_0;
+                  }
+                  tmp$ret$3 = false;
+                }
+                if (!tmp$ret$3) {
+                  {
+                    var tmp$ret$4;
+                    {
+                      var tmp0_withContinuationContext = this.continuation_1;
+                      var tmp1_withContinuationContext = this.countOrElement_1;
+                      tmp$ret$4 = this.continuation_1.resumeWith_s3a3yh_k$(result);
+                    }
+                  }
+                }
+              }
+              $l$loop: while (true) {
+                if (!eventLoop.processUnconfinedEvent_mypjl6_k$())
+                  break $l$loop;
+              }
+            } catch ($p) {
+              if ($p instanceof Error) {
+                this.handleFatalException_56zdfo_k$($p, null);
+              } else {
+                throw $p;
+              }
+            }
+            finally {
+              eventLoop.decrementUseCount_saho26_k$(true);
+            }
+          }
+          tmp = false;
+        }
+        tmp$ret$0 = tmp;
+      }
     }
   };
-  DispatchedContinuation.prototype.op = function (state) {
-    var job = this.w1().a2(Key_getInstance_2());
-    if (!(job == null) ? !job.lh() : false) {
-      var cause = job.ii();
-      this.kk(state, cause);
+  DispatchedContinuation.prototype.cancelCompletedResult_tweln2_k$ = function (takenState, cause) {
+    if (takenState instanceof CompletedWithCancellation) {
+      takenState.onCancellation_1(cause);
+    }
+  };
+  DispatchedContinuation.prototype.resumeCancelled_vc1wm3_k$ = function (state) {
+    var job = this.get_context_h02k06_k$().get_1pi7hg_k$(Key_getInstance_2());
+    if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
+      var cause = job.getCancellationException_8i1q6u_k$();
+      this.cancelCompletedResult_tweln2_k$(state, cause);
       var tmp$ret$1;
       {
         var tmp$ret$0;
         {
-          var tmp0_failure = Companion_getInstance();
+          var tmp0_failure = Companion_getInstance_0();
           tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(cause));
         }
-        tmp$ret$1 = this.x1(tmp$ret$0);
+        tmp$ret$1 = this.resumeWith_s3a3yh_k$(tmp$ret$0);
       }
       return true;
     }
     return false;
   };
-  DispatchedContinuation.prototype.pp = function (result) {
+  DispatchedContinuation.prototype.resumeUndispatchedWith_xz834r_k$ = function (result) {
     var tmp$ret$0;
     {
-      var tmp0_withContinuationContext = this.qj_1;
-      var tmp1_withContinuationContext = this.sj_1;
-      tmp$ret$0 = this.qj_1.x1(result);
+      var tmp0_withContinuationContext = this.continuation_1;
+      var tmp1_withContinuationContext = this.countOrElement_1;
+      tmp$ret$0 = this.continuation_1.resumeWith_s3a3yh_k$(result);
     }
   };
+  DispatchedContinuation.prototype.dispatchYield_r38es3_k$ = function (context, value) {
+    this._state_1 = value;
+    this.set_resumeMode_b1d3vh_k$(get_MODE_CANCELLABLE());
+    this.dispatcher_1.dispatchYield_ww21f6_k$(context, this);
+  };
   DispatchedContinuation.prototype.toString = function () {
-    return 'DispatchedContinuation[' + this.pj_1 + ', ' + toDebugString(this.qj_1) + ']';
+    return 'DispatchedContinuation[' + this.dispatcher_1 + ', ' + toDebugString(this.continuation_1) + ']';
   };
   DispatchedContinuation.$metadata$ = classMeta('DispatchedContinuation', [CoroutineStackFrame, Continuation], undefined, undefined, undefined, DispatchedTask.prototype);
   function executeUnconfined(_this__u8e3s4, contState, mode, doYield, block) {
     init_properties_DispatchedContinuation_kt_s7rtw6();
     {
     }
-    var eventLoop = ThreadLocalEventLoop_getInstance().cm();
-    if (doYield ? eventLoop.wl() : false)
+    var eventLoop = ThreadLocalEventLoop_getInstance().get_eventLoop_913645_k$();
+    if (doYield ? eventLoop.get_isUnconfinedQueueEmpty_mi405s_k$() : false)
       return false;
     var tmp;
-    if (eventLoop.vl()) {
-      _this__u8e3s4.rj_1 = contState;
-      _this__u8e3s4.kp(mode);
-      eventLoop.tl(_this__u8e3s4);
+    if (eventLoop.get_isUnconfinedLoopActive_g78ri6_k$()) {
+      _this__u8e3s4._state_1 = contState;
+      _this__u8e3s4.set_resumeMode_b1d3vh_k$(mode);
+      eventLoop.dispatchUnconfined_do6j6f_k$(_this__u8e3s4);
       tmp = true;
     } else {
       {
-        eventLoop.yl(true);
+        eventLoop.incrementUseCount_ocukpa_k$(true);
         try {
           block();
           $l$loop: while (true) {
-            if (!eventLoop.ol())
+            if (!eventLoop.processUnconfinedEvent_mypjl6_k$())
               break $l$loop;
           }
         } catch ($p) {
           if ($p instanceof Error) {
-            _this__u8e3s4.al($p, null);
+            _this__u8e3s4.handleFatalException_56zdfo_k$($p, null);
           } else {
             throw $p;
           }
         }
         finally {
-          eventLoop.zl(true);
+          eventLoop.decrementUseCount_saho26_k$(true);
         }
       }
       tmp = false;
@@ -3341,50 +5156,50 @@
   var MODE_CANCELLABLE;
   function DispatchedTask(resumeMode) {
     SchedulerTask.call(this);
-    this.vj_1 = resumeMode;
+    this.resumeMode_1 = resumeMode;
   }
-  DispatchedTask.prototype.kp = function (_set____db54di) {
-    this.vj_1 = _set____db54di;
+  DispatchedTask.prototype.set_resumeMode_b1d3vh_k$ = function (_set____db54di) {
+    this.resumeMode_1 = _set____db54di;
   };
-  DispatchedTask.prototype.wj = function () {
-    return this.vj_1;
+  DispatchedTask.prototype.get_resumeMode_te1i4n_k$ = function () {
+    return this.resumeMode_1;
   };
-  DispatchedTask.prototype.kk = function (takenState, cause) {
+  DispatchedTask.prototype.cancelCompletedResult_tweln2_k$ = function (takenState, cause) {
   };
-  DispatchedTask.prototype.xk = function (state) {
+  DispatchedTask.prototype.getSuccessfulResult_gdkv2w_k$ = function (state) {
     return (state == null ? true : isObject(state)) ? state : THROW_CCE();
   };
-  DispatchedTask.prototype.yk = function (state) {
+  DispatchedTask.prototype.getExceptionalResult_bnge6_k$ = function (state) {
     var tmp0_safe_receiver = state instanceof CompletedExceptionally ? state : null;
-    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.qh_1;
+    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.cause_1;
   };
-  DispatchedTask.prototype.zk = function () {
+  DispatchedTask.prototype.run_mw4iiu_k$ = function () {
     {
     }
     var taskContext = get_taskContext(this);
     var fatalException = null;
     try {
-      var tmp = this.gk();
+      var tmp = this.get_delegate_i94tki_k$();
       var delegate = tmp instanceof DispatchedContinuation ? tmp : THROW_CCE();
-      var continuation = delegate.qj_1;
+      var continuation = delegate.continuation_1;
       var tmp$ret$5;
       {
-        var tmp0_withContinuationContext = delegate.sj_1;
-        var context = continuation.w1();
-        var state = this.jk();
-        var exception = this.yk(state);
-        var job = (exception == null ? get_isCancellableMode(this.vj_1) : false) ? context.a2(Key_getInstance_2()) : null;
+        var tmp0_withContinuationContext = delegate.countOrElement_1;
+        var context = continuation.get_context_h02k06_k$();
+        var state = this.takeState_olvzuy_k$();
+        var exception = this.getExceptionalResult_bnge6_k$(state);
+        var job = (exception == null ? get_isCancellableMode(this.resumeMode_1) : false) ? context.get_1pi7hg_k$(Key_getInstance_2()) : null;
         var tmp_0;
-        if (!(job == null) ? !job.lh() : false) {
-          var cause = job.ii();
-          this.kk(state, cause);
+        if (!(job == null) ? !job.get_isActive_quafmh_k$() : false) {
+          var cause = job.getCancellationException_8i1q6u_k$();
+          this.cancelCompletedResult_tweln2_k$(state, cause);
           var tmp$ret$0;
           {
-            var tmp0_failure = Companion_getInstance();
+            var tmp0_failure = Companion_getInstance_0();
             var tmp1_failure = recoverStackTrace(cause, continuation);
             tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(tmp1_failure));
           }
-          tmp_0 = continuation.x1(tmp$ret$0);
+          tmp_0 = continuation.resumeWith_s3a3yh_k$(tmp$ret$0);
         } else {
           var tmp_1;
           if (!(exception == null)) {
@@ -3392,22 +5207,22 @@
             {
               var tmp$ret$1;
               {
-                var tmp0_failure_0 = Companion_getInstance();
+                var tmp0_failure_0 = Companion_getInstance_0();
                 tmp$ret$1 = _Result___init__impl__xyqfz8(createFailure(exception));
               }
-              tmp$ret$2 = continuation.x1(tmp$ret$1);
+              tmp$ret$2 = continuation.resumeWith_s3a3yh_k$(tmp$ret$1);
             }
             tmp_1 = tmp$ret$2;
           } else {
             var tmp$ret$4;
             {
-              var tmp2_resume = this.xk(state);
+              var tmp2_resume = this.getSuccessfulResult_gdkv2w_k$(state);
               var tmp$ret$3;
               {
-                var tmp0_success = Companion_getInstance();
+                var tmp0_success = Companion_getInstance_0();
                 tmp$ret$3 = _Result___init__impl__xyqfz8(tmp2_resume);
               }
-              tmp$ret$4 = continuation.x1(tmp$ret$3);
+              tmp$ret$4 = continuation.resumeWith_s3a3yh_k$(tmp$ret$3);
             }
             tmp_1 = tmp$ret$4;
           }
@@ -3429,7 +5244,7 @@
         try {
           var tmp$ret$6;
           {
-            var tmp0_success_0 = Companion_getInstance();
+            var tmp0_success_0 = Companion_getInstance_0();
             var tmp1_success = Unit_getInstance();
             tmp$ret$6 = _Result___init__impl__xyqfz8(Unit_getInstance());
           }
@@ -3439,7 +5254,7 @@
           if ($p instanceof Error) {
             var tmp$ret$7;
             {
-              var tmp2_failure = Companion_getInstance();
+              var tmp2_failure = Companion_getInstance_0();
               tmp$ret$7 = _Result___init__impl__xyqfz8(createFailure($p));
             }
             tmp_3 = tmp$ret$7;
@@ -3451,10 +5266,10 @@
         tmp$ret$8 = tmp_2;
       }
       var result = tmp$ret$8;
-      this.al(fatalException, Result__exceptionOrNull_impl_p6xea9(result));
+      this.handleFatalException_56zdfo_k$(fatalException, Result__exceptionOrNull_impl_p6xea9(result));
     }
   };
-  DispatchedTask.prototype.al = function (exception, finallyException) {
+  DispatchedTask.prototype.handleFatalException_56zdfo_k$ = function (exception, finallyException) {
     if (exception === null ? finallyException === null : false)
       return Unit_getInstance();
     if (!(exception === null) ? !(finallyException === null) : false) {
@@ -3464,7 +5279,7 @@
     var tmp0_elvis_lhs = exception;
     var cause = tmp0_elvis_lhs == null ? finallyException : tmp0_elvis_lhs;
     var reason = new CoroutinesInternalError('Fatal exception in coroutines machinery for ' + this + '. ' + "Please read KDoc to 'handleFatalException' method and report this incident to maintainers", ensureNotNull(cause));
-    handleCoroutineException(this.gk().w1(), reason);
+    handleCoroutineException(this.get_delegate_i94tki_k$().get_context_h02k06_k$(), reason);
   };
   DispatchedTask.$metadata$ = classMeta('DispatchedTask', undefined, undefined, undefined, undefined, SchedulerTask.prototype);
   function get_MODE_UNINITIALIZED() {
@@ -3474,13 +5289,17 @@
   function get_isReusableMode(_this__u8e3s4) {
     return _this__u8e3s4 === 2;
   }
+  function get_MODE_CANCELLABLE_REUSABLE() {
+    return MODE_CANCELLABLE_REUSABLE;
+  }
+  var MODE_CANCELLABLE_REUSABLE;
   function get_isCancellableMode(_this__u8e3s4) {
     return _this__u8e3s4 === 1 ? true : _this__u8e3s4 === 2;
   }
   function dispatch(_this__u8e3s4, mode) {
     {
     }
-    var delegate = _this__u8e3s4.gk();
+    var delegate = _this__u8e3s4.get_delegate_i94tki_k$();
     var undispatched = mode === 4;
     var tmp;
     var tmp_0;
@@ -3490,15 +5309,15 @@
       tmp_0 = false;
     }
     if (tmp_0) {
-      tmp = get_isCancellableMode(mode) === get_isCancellableMode(_this__u8e3s4.vj_1);
+      tmp = get_isCancellableMode(mode) === get_isCancellableMode(_this__u8e3s4.resumeMode_1);
     } else {
       tmp = false;
     }
     if (tmp) {
-      var dispatcher = delegate.pj_1;
-      var context = delegate.w1();
-      if (dispatcher.gl(context)) {
-        dispatcher.hl(context, _this__u8e3s4);
+      var dispatcher = delegate.dispatcher_1;
+      var context = delegate.get_context_h02k06_k$();
+      if (dispatcher.isDispatchNeeded_fmz9vn_k$(context)) {
+        dispatcher.dispatch_o98ux7_k$(context, _this__u8e3s4);
       } else {
         resumeUnconfined(_this__u8e3s4);
       }
@@ -3506,73 +5325,86 @@
       resume(_this__u8e3s4, delegate, undispatched);
     }
   }
+  function get_MODE_UNDISPATCHED() {
+    return MODE_UNDISPATCHED;
+  }
+  var MODE_UNDISPATCHED;
   function get_MODE_ATOMIC() {
     return MODE_ATOMIC;
   }
   var MODE_ATOMIC;
   function runUnconfinedEventLoop(_this__u8e3s4, eventLoop, block) {
-    eventLoop.yl(true);
+    eventLoop.incrementUseCount_ocukpa_k$(true);
     try {
       block();
       $l$loop: while (true) {
-        if (!eventLoop.ol())
+        if (!eventLoop.processUnconfinedEvent_mypjl6_k$())
           break $l$loop;
       }
     } catch ($p) {
       if ($p instanceof Error) {
-        _this__u8e3s4.al($p, null);
+        _this__u8e3s4.handleFatalException_56zdfo_k$($p, null);
       } else {
         throw $p;
       }
     }
     finally {
-      eventLoop.zl(true);
+      eventLoop.decrementUseCount_saho26_k$(true);
     }
   }
+  function resumeWithStackTrace(_this__u8e3s4, exception) {
+    var tmp$ret$0;
+    {
+      var tmp0_failure = Companion_getInstance_0();
+      var tmp1_failure = recoverStackTrace(exception, _this__u8e3s4);
+      tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(tmp1_failure));
+    }
+    _this__u8e3s4.resumeWith_s3a3yh_k$(tmp$ret$0);
+  }
   function resumeUnconfined(_this__u8e3s4) {
-    var eventLoop = ThreadLocalEventLoop_getInstance().cm();
-    if (eventLoop.vl()) {
-      eventLoop.tl(_this__u8e3s4);
+    var eventLoop = ThreadLocalEventLoop_getInstance().get_eventLoop_913645_k$();
+    if (eventLoop.get_isUnconfinedLoopActive_g78ri6_k$()) {
+      eventLoop.dispatchUnconfined_do6j6f_k$(_this__u8e3s4);
     } else {
       {
-        eventLoop.yl(true);
+        eventLoop.incrementUseCount_ocukpa_k$(true);
         try {
           {
-            resume(_this__u8e3s4, _this__u8e3s4.gk(), true);
+            resume(_this__u8e3s4, _this__u8e3s4.get_delegate_i94tki_k$(), true);
           }
           $l$loop: while (true) {
-            if (!eventLoop.ol())
+            if (!eventLoop.processUnconfinedEvent_mypjl6_k$())
               break $l$loop;
           }
         } catch ($p) {
           if ($p instanceof Error) {
-            _this__u8e3s4.al($p, null);
+            _this__u8e3s4.handleFatalException_56zdfo_k$($p, null);
           } else {
             throw $p;
           }
         }
         finally {
-          eventLoop.zl(true);
+          eventLoop.decrementUseCount_saho26_k$(true);
         }
       }
     }
   }
   function resume(_this__u8e3s4, delegate, undispatched) {
-    var state = _this__u8e3s4.jk();
-    var exception = _this__u8e3s4.yk(state);
+    var state = _this__u8e3s4.takeState_olvzuy_k$();
+    var exception = _this__u8e3s4.getExceptionalResult_bnge6_k$(state);
     var tmp;
     if (!(exception == null)) {
       var tmp$ret$0;
       {
-        var tmp0_failure = Companion_getInstance();
+        var tmp0_failure = Companion_getInstance_0();
         tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(exception));
       }
       tmp = tmp$ret$0;
     } else {
       var tmp$ret$1;
       {
-        var tmp1_success = Companion_getInstance();
-        var tmp2_success = _this__u8e3s4.xk(state);
+        var tmp1_success = Companion_getInstance_0();
+        var tmp2_success = _this__u8e3s4.getSuccessfulResult_gdkv2w_k$(state);
         tmp$ret$1 = _Result___init__impl__xyqfz8(tmp2_success);
       }
       tmp = tmp$ret$1;
@@ -3582,37 +5414,814 @@
       var tmp3_resumeUndispatchedWith = delegate instanceof DispatchedContinuation ? delegate : THROW_CCE();
       var tmp$ret$2;
       {
-        var tmp0_withContinuationContext = tmp3_resumeUndispatchedWith.qj_1;
-        var tmp1_withContinuationContext = tmp3_resumeUndispatchedWith.sj_1;
-        tmp$ret$2 = tmp3_resumeUndispatchedWith.qj_1.x1(result);
+        var tmp0_withContinuationContext = tmp3_resumeUndispatchedWith.continuation_1;
+        var tmp1_withContinuationContext = tmp3_resumeUndispatchedWith.countOrElement_1;
+        tmp$ret$2 = tmp3_resumeUndispatchedWith.continuation_1.resumeWith_s3a3yh_k$(result);
       }
     } else
-      delegate.x1(result);
+      delegate.resumeWith_s3a3yh_k$(result);
   }
+  function checkParallelism(_this__u8e3s4) {
+    var tmp0_require = _this__u8e3s4 >= 1;
+    {
+    }
+    var tmp;
+    if (!tmp0_require) {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = 'Expected positive parallelism level, but got ' + _this__u8e3s4;
+      }
+      var message = tmp$ret$0;
+      throw IllegalArgumentException_init_$Create$(toString_0(message));
+    }
+    return tmp;
+  }
+  function _get_dispatcher__dketks($this) {
+    return $this.dispatcher_1;
+  }
+  function _get_parallelism__25q2h7($this) {
+    return $this.parallelism_1;
+  }
+  function _set_runningWorkers__ctf6jl($this, _set____db54di) {
+    $this.runningWorkers_1 = _set____db54di;
+  }
+  function _get_runningWorkers__wolfe3($this) {
+    return $this.runningWorkers_1;
+  }
+  function _get_queue__c6g84g($this) {
+    return $this.queue_1;
+  }
+  function _get_workerAllocationLock__l5417m($this) {
+    return $this.workerAllocationLock_1;
+  }
+  function dispatchInternal($this, block, dispatch) {
+    if (addAndTryDispatching($this, block))
+      return Unit_getInstance();
+    if (!tryAllocateWorker($this))
+      return Unit_getInstance();
+    dispatch();
+  }
+  function tryAllocateWorker($this) {
+    var tmp$ret$0;
+    {
+      var tmp0_synchronized = $this.workerAllocationLock_1;
+      if ($this.runningWorkers_1 >= $this.parallelism_1)
+        return false;
+      var tmp0_this = $this;
+      tmp0_this.runningWorkers_1 = tmp0_this.runningWorkers_1 + 1 | 0;
+      return true;
+    }
+  }
+  function addAndTryDispatching($this, block) {
+    $this.queue_1.addLast_3l8aar_k$(block);
+    return $this.runningWorkers_1 >= $this.parallelism_1;
+  }
+  function LimitedDispatcher(dispatcher, parallelism) {
+    CoroutineDispatcher.call(this);
+    this.dispatcher_1 = dispatcher;
+    this.parallelism_1 = parallelism;
+    var tmp = this;
+    var tmp0_elvis_lhs = isInterface(dispatcher, Delay) ? dispatcher : null;
+    tmp.$$delegate_0__1 = tmp0_elvis_lhs == null ? get_DefaultDelay() : tmp0_elvis_lhs;
+    this.runningWorkers_1 = 0;
+    this.queue_1 = new LockFreeTaskQueue(false);
+    this.workerAllocationLock_1 = new Object();
+  }
+  LimitedDispatcher.prototype.delay_sw4t2e_k$ = function (time, $cont) {
+    return this.$$delegate_0__1.delay_sw4t2e_k$(time, $cont);
+  };
+  LimitedDispatcher.prototype.invokeOnTimeout_sx2bqq_k$ = function (timeMillis, block, context) {
+    return this.$$delegate_0__1.invokeOnTimeout_sx2bqq_k$(timeMillis, block, context);
+  };
+  LimitedDispatcher.prototype.scheduleResumeAfterDelay_5x4w1l_k$ = function (timeMillis, continuation) {
+    this.$$delegate_0__1.scheduleResumeAfterDelay_5x4w1l_k$(timeMillis, continuation);
+  };
+  LimitedDispatcher.prototype.limitedParallelism_glrman_k$ = function (parallelism) {
+    checkParallelism(parallelism);
+    if (parallelism >= this.parallelism_1)
+      return this;
+    return CoroutineDispatcher.prototype.limitedParallelism_glrman_k$.call(this, parallelism);
+  };
+  LimitedDispatcher.prototype.run_mw4iiu_k$ = function () {
+    var fairnessCounter = 0;
+    $l$loop: while (true) {
+      var task = this.queue_1.removeFirstOrNull_eges3a_k$();
+      if (!(task == null)) {
+        try {
+          task.run_mw4iiu_k$();
+        } catch ($p) {
+          if ($p instanceof Error) {
+            handleCoroutineException(EmptyCoroutineContext_getInstance(), $p);
+          } else {
+            throw $p;
+          }
+        }
+        var tmp;
+        fairnessCounter = fairnessCounter + 1 | 0;
+        if (fairnessCounter >= 16) {
+          tmp = this.dispatcher_1.isDispatchNeeded_fmz9vn_k$(this);
+        } else {
+          tmp = false;
+        }
+        if (tmp) {
+          this.dispatcher_1.dispatch_o98ux7_k$(this, this);
+          return Unit_getInstance();
+        }
+        continue $l$loop;
+      }
+      var tmp$ret$0;
+      {
+        var tmp0_synchronized = this.workerAllocationLock_1;
+        var tmp0_this = this;
+        tmp0_this.runningWorkers_1 = tmp0_this.runningWorkers_1 - 1 | 0;
+        if (this.queue_1.get_size_woubt6_k$() === 0)
+          return Unit_getInstance();
+        var tmp1_this = this;
+        tmp1_this.runningWorkers_1 = tmp1_this.runningWorkers_1 + 1 | 0;
+        fairnessCounter = 0;
+        tmp$ret$0 = Unit_getInstance();
+      }
+    }
+  };
+  LimitedDispatcher.prototype.dispatch_o98ux7_k$ = function (context, block) {
+    var tmp$ret$0;
+    $l$block_0: {
+      if (addAndTryDispatching(this, block)) {
+        tmp$ret$0 = Unit_getInstance();
+        break $l$block_0;
+      }
+      if (!tryAllocateWorker(this)) {
+        tmp$ret$0 = Unit_getInstance();
+        break $l$block_0;
+      }
+      {
+        this.dispatcher_1.dispatch_o98ux7_k$(this, this);
+      }
+    }
+  };
+  LimitedDispatcher.prototype.dispatchYield_ww21f6_k$ = function (context, block) {
+    var tmp$ret$0;
+    $l$block_0: {
+      if (addAndTryDispatching(this, block)) {
+        tmp$ret$0 = Unit_getInstance();
+        break $l$block_0;
+      }
+      if (!tryAllocateWorker(this)) {
+        tmp$ret$0 = Unit_getInstance();
+        break $l$block_0;
+      }
+      {
+        this.dispatcher_1.dispatchYield_ww21f6_k$(this, this);
+      }
+    }
+  };
+  LimitedDispatcher.$metadata$ = classMeta('LimitedDispatcher', [Runnable, Delay], undefined, undefined, undefined, CoroutineDispatcher.prototype);
+  function get_REMOVE_PREPARED() {
+    init_properties_LockFreeLinkedList_common_kt_ecmrzd();
+    return REMOVE_PREPARED;
+  }
+  var REMOVE_PREPARED;
+  var properties_initialized_LockFreeLinkedList_common_kt_b0cmf9;
+  function init_properties_LockFreeLinkedList_common_kt_ecmrzd() {
+    if (properties_initialized_LockFreeLinkedList_common_kt_b0cmf9) {
+    } else {
+      properties_initialized_LockFreeLinkedList_common_kt_b0cmf9 = true;
+      REMOVE_PREPARED = new Symbol('REMOVE_PREPARED');
+    }
+  }
+  function _get__cur__d2ko2y($this) {
+    return $this._cur_1;
+  }
+  function LockFreeTaskQueue(singleConsumer) {
+    var tmp = this;
+    Companion_getInstance_1();
+    tmp._cur_1 = atomic$ref$1(new LockFreeTaskQueueCore(8, singleConsumer));
+  }
+  LockFreeTaskQueue.prototype.get_isEmpty_zauvru_k$ = function () {
+    return this._cur_1.value_1.get_isEmpty_zauvru_k$();
+  };
+  LockFreeTaskQueue.prototype.get_size_woubt6_k$ = function () {
+    return this._cur_1.value_1.get_size_woubt6_k$();
+  };
+  LockFreeTaskQueue.prototype.close_ymq55z_k$ = function () {
+    {
+      var tmp0_loop = this._cur_1;
+      while (true) {
+        {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          if (tmp1__anonymous__uwfjfc.close_1keygo_k$())
+            return Unit_getInstance();
+          this._cur_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, tmp1__anonymous__uwfjfc.next_20eer_k$());
+        }
+      }
+    }
+  };
+  LockFreeTaskQueue.prototype.addLast_3l8aar_k$ = function (element) {
+    {
+      var tmp0_loop = this._cur_1;
+      while (true) {
+        {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          var tmp0_subject = tmp1__anonymous__uwfjfc.addLast_3l8aar_k$(element);
+          Companion_getInstance_1();
+          if (tmp0_subject === 0)
+            return true;
+          else {
+            Companion_getInstance_1();
+            if (tmp0_subject === 2)
+              return false;
+            else {
+              Companion_getInstance_1();
+              if (tmp0_subject === 1) {
+                this._cur_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, tmp1__anonymous__uwfjfc.next_20eer_k$());
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+  LockFreeTaskQueue.prototype.removeFirstOrNull_eges3a_k$ = function () {
+    {
+      var tmp0_loop = this._cur_1;
+      while (true) {
+        {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          var result = tmp1__anonymous__uwfjfc.removeFirstOrNull_eges3a_k$();
+          if (!(result === Companion_getInstance_1().REMOVE_FROZEN_1)) {
+            return (result == null ? true : isObject(result)) ? result : THROW_CCE();
+          }
+          this._cur_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, tmp1__anonymous__uwfjfc.next_20eer_k$());
+        }
+      }
+    }
+  };
+  LockFreeTaskQueue.prototype.map_cey4p6_k$ = function (transform) {
+    return this._cur_1.value_1.map_cey4p6_k$(transform);
+  };
+  LockFreeTaskQueue.prototype.isClosed_baxhhm_k$ = function () {
+    return this._cur_1.value_1.isClosed_baxhhm_k$();
+  };
+  LockFreeTaskQueue.$metadata$ = classMeta('LockFreeTaskQueue');
+  function _get_capacity__a9k9f3($this) {
+    return $this.capacity_1;
+  }
+  function _get_singleConsumer__485sb7($this) {
+    return $this.singleConsumer_1;
+  }
+  function _get_mask__da8grj($this) {
+    return $this.mask_1;
+  }
+  function _get__next__kt3wsh($this) {
+    return $this._next_1;
+  }
+  function _get__state__37adl3_1($this) {
+    return $this._state_1;
+  }
+  function _get_array__jslnqg($this) {
+    return $this.array_1;
+  }
+  function fillPlaceholder($this, index, element) {
+    var old = $this.array_1.atomicfu$get(index & $this.mask_1).value_1;
+    var tmp;
+    if (old instanceof Placeholder) {
+      tmp = old.index_1 === index;
+    } else {
+      tmp = false;
+    }
+    if (tmp) {
+      $this.array_1.atomicfu$get(index & $this.mask_1).value_1 = element;
+      return $this;
+    }
+    return null;
+  }
+  function removeSlowPath($this, oldHead, newHead) {
+    {
+      var tmp0_loop = $this._state_1;
+      while (true) {
+        {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          var tmp$ret$0;
+          {
+            var tmp0_withState = Companion_getInstance_1();
+            var head = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
+            var tail = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
+            {
+            }
+            Companion_getInstance_1();
+            if (!tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0))) {
+              return $this.next_20eer_k$();
+            }
+            var tmp;
+            if ($this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, Companion_getInstance_1().updateHead_eajy5c_k$(tmp1__anonymous__uwfjfc, newHead))) {
+              $this.array_1.atomicfu$get(head & $this.mask_1).value_1 = null;
+              return null;
+            }
+            tmp$ret$0 = tmp;
+          }
+        }
+      }
+    }
+  }
+  function markFrozen($this) {
+    var tmp$ret$1;
+    $l$block: {
+      var tmp0_updateAndGet = $this._state_1;
+      while (true) {
+        var cur = tmp0_updateAndGet.value_1;
+        var tmp$ret$0;
+        {
+          Companion_getInstance_1();
+          if (!cur.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0)))
+            return cur;
+          Companion_getInstance_1();
+          tmp$ret$0 = cur.or_s401rn_k$(new Long(0, 268435456));
+        }
+        var upd = tmp$ret$0;
+        if (tmp0_updateAndGet.atomicfu$compareAndSet(cur, upd)) {
+          tmp$ret$1 = upd;
+          break $l$block;
+        }
+      }
+    }
+    return tmp$ret$1;
+  }
+  function allocateOrGetNextCopy($this, state) {
+    {
+      var tmp0_loop = $this._next_1;
+      while (true) {
+        {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          if (!(tmp1__anonymous__uwfjfc == null))
+            return tmp1__anonymous__uwfjfc;
+          $this._next_1.atomicfu$compareAndSet(null, allocateNextCopy($this, state));
+        }
+      }
+    }
+  }
+  function allocateNextCopy($this, state) {
+    var next = new LockFreeTaskQueueCore(imul($this.capacity_1, 2), $this.singleConsumer_1);
+    var tmp$ret$0;
+    {
+      var tmp0_withState = Companion_getInstance_1();
+      var head = state.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
+      var tail = state.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
+      var index = head;
+      while (!((index & $this.mask_1) === (tail & $this.mask_1))) {
+        var tmp0_elvis_lhs = $this.array_1.atomicfu$get(index & $this.mask_1).value_1;
+        var value = tmp0_elvis_lhs == null ? new Placeholder(index) : tmp0_elvis_lhs;
+        next.array_1.atomicfu$get(index & next.mask_1).value_1 = value;
+        var tmp1 = index;
+        index = tmp1 + 1 | 0;
+      }
+      var tmp = next._state_1;
+      var tmp_0 = Companion_getInstance_1();
+      Companion_getInstance_1();
+      tmp.value_1 = tmp_0.wo_iscla2_k$(state, new Long(0, 268435456));
+      tmp$ret$0 = Unit_getInstance();
+    }
+    return next;
+  }
+  function Placeholder(index) {
+    this.index_1 = index;
+  }
+  Placeholder.prototype.get_index_it478p_k$ = function () {
+    return this.index_1;
+  };
+  Placeholder.$metadata$ = classMeta('Placeholder');
+  function Companion() {
+    Companion_instance = this;
+    this.INITIAL_CAPACITY_1 = 8;
+    this.CAPACITY_BITS_1 = 30;
+    this.MAX_CAPACITY_MASK_1 = 1073741823;
+    this.HEAD_SHIFT_1 = 0;
+    this.HEAD_MASK_1 = new Long(1073741823, 0);
+    this.TAIL_SHIFT_1 = 30;
+    this.TAIL_MASK_1 = new Long(-1073741824, 268435455);
+    this.FROZEN_SHIFT_1 = 60;
+    this.FROZEN_MASK_1 = new Long(0, 268435456);
+    this.CLOSED_SHIFT_1 = 61;
+    this.CLOSED_MASK_1 = new Long(0, 536870912);
+    this.MIN_ADD_SPIN_CAPACITY_1 = 1024;
+    this.REMOVE_FROZEN_1 = new Symbol('REMOVE_FROZEN');
+    this.ADD_SUCCESS_1 = 0;
+    this.ADD_FROZEN_1 = 1;
+    this.ADD_CLOSED_1 = 2;
+  }
+  Companion.prototype.get_INITIAL_CAPACITY_tvo5ku_k$ = function () {
+    return this.INITIAL_CAPACITY_1;
+  };
+  Companion.prototype.get_CAPACITY_BITS_m7bade_k$ = function () {
+    return this.CAPACITY_BITS_1;
+  };
+  Companion.prototype.get_MAX_CAPACITY_MASK_bnmlt9_k$ = function () {
+    return this.MAX_CAPACITY_MASK_1;
+  };
+  Companion.prototype.get_HEAD_SHIFT_ww01xo_k$ = function () {
+    return this.HEAD_SHIFT_1;
+  };
+  Companion.prototype.get_HEAD_MASK_jkay7y_k$ = function () {
+    return this.HEAD_MASK_1;
+  };
+  Companion.prototype.get_TAIL_SHIFT_z9ya0s_k$ = function () {
+    return this.TAIL_SHIFT_1;
+  };
+  Companion.prototype.get_TAIL_MASK_h71l4e_k$ = function () {
+    return this.TAIL_MASK_1;
+  };
+  Companion.prototype.get_FROZEN_SHIFT_9ve6oc_k$ = function () {
+    return this.FROZEN_SHIFT_1;
+  };
+  Companion.prototype.get_FROZEN_MASK_gcrlj6_k$ = function () {
+    return this.FROZEN_MASK_1;
+  };
+  Companion.prototype.get_CLOSED_SHIFT_v5gopk_k$ = function () {
+    return this.CLOSED_SHIFT_1;
+  };
+  Companion.prototype.get_CLOSED_MASK_agddhm_k$ = function () {
+    return this.CLOSED_MASK_1;
+  };
+  Companion.prototype.get_MIN_ADD_SPIN_CAPACITY_z2m7z7_k$ = function () {
+    return this.MIN_ADD_SPIN_CAPACITY_1;
+  };
+  Companion.prototype.get_REMOVE_FROZEN_w56qum_k$ = function () {
+    return this.REMOVE_FROZEN_1;
+  };
+  Companion.prototype.get_ADD_SUCCESS_vnro04_k$ = function () {
+    return this.ADD_SUCCESS_1;
+  };
+  Companion.prototype.get_ADD_FROZEN_bsr1ax_k$ = function () {
+    return this.ADD_FROZEN_1;
+  };
+  Companion.prototype.get_ADD_CLOSED_db6t8t_k$ = function () {
+    return this.ADD_CLOSED_1;
+  };
+  Companion.prototype.wo_iscla2_k$ = function (_this__u8e3s4, other) {
+    return _this__u8e3s4.and_jhajnj_k$(other.inv_28kx_k$());
+  };
+  Companion.prototype.updateHead_eajy5c_k$ = function (_this__u8e3s4, newHead) {
+    return this.wo_iscla2_k$(_this__u8e3s4, new Long(1073741823, 0)).or_s401rn_k$(toLong(newHead).shl_po5ip6_k$(0));
+  };
+  Companion.prototype.updateTail_fwivqo_k$ = function (_this__u8e3s4, newTail) {
+    return this.wo_iscla2_k$(_this__u8e3s4, new Long(-1073741824, 268435455)).or_s401rn_k$(toLong(newTail).shl_po5ip6_k$(30));
+  };
+  Companion.prototype.withState_s3n57v_k$ = function (_this__u8e3s4, block) {
+    var head = _this__u8e3s4.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
+    var tail = _this__u8e3s4.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
+    return block(head, tail);
+  };
+  Companion.prototype.addFailReason_gc2gzp_k$ = function (_this__u8e3s4) {
+    return !_this__u8e3s4.and_jhajnj_k$(new Long(0, 536870912)).equals(new Long(0, 0)) ? 2 : 1;
+  };
+  Companion.$metadata$ = objectMeta('Companion');
+  var Companion_instance;
+  function Companion_getInstance_1() {
+    if (Companion_instance == null)
+      new Companion();
+    return Companion_instance;
+  }
+  function LockFreeTaskQueueCore(capacity, singleConsumer) {
+    Companion_getInstance_1();
+    this.capacity_1 = capacity;
+    this.singleConsumer_1 = singleConsumer;
+    this.mask_1 = this.capacity_1 - 1 | 0;
+    this._next_1 = atomic$ref$1(null);
+    this._state_1 = atomic$long$1(new Long(0, 0));
+    this.array_1 = atomicfu$AtomicRefArray$ofNulls(this.capacity_1);
+    {
+      Companion_getInstance_1();
+      var tmp0_check = this.mask_1 <= 1073741823;
+      {
+      }
+      {
+        {
+        }
+        if (!tmp0_check) {
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = 'Check failed.';
+          }
+          var message = tmp$ret$0;
+          throw IllegalStateException_init_$Create$(toString_0(message));
+        }
+      }
+    }
+    {
+      var tmp1_check = (this.capacity_1 & this.mask_1) === 0;
+      {
+      }
+      {
+        {
+        }
+        if (!tmp1_check) {
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = 'Check failed.';
+          }
+          var message_0 = tmp$ret$1;
+          throw IllegalStateException_init_$Create$(toString_0(message_0));
+        }
+      }
+    }
+  }
+  LockFreeTaskQueueCore.prototype.get_isEmpty_zauvru_k$ = function () {
+    var tmp$ret$1;
+    {
+      var tmp0_withState = Companion_getInstance_1();
+      var tmp1_withState = this._state_1.value_1;
+      var head = tmp1_withState.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
+      var tail = tmp1_withState.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = head === tail;
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return tmp$ret$1;
+  };
+  LockFreeTaskQueueCore.prototype.get_size_woubt6_k$ = function () {
+    var tmp$ret$1;
+    {
+      var tmp0_withState = Companion_getInstance_1();
+      var tmp1_withState = this._state_1.value_1;
+      var head = tmp1_withState.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
+      var tail = tmp1_withState.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
+      var tmp$ret$0;
+      {
+        var tmp = tail - head | 0;
+        Companion_getInstance_1();
+        tmp$ret$0 = tmp & 1073741823;
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return tmp$ret$1;
+  };
+  LockFreeTaskQueueCore.prototype.close_1keygo_k$ = function () {
+    var tmp$ret$1;
+    $l$block: {
+      var tmp0_update = this._state_1;
+      while (true) {
+        var cur = tmp0_update.value_1;
+        var tmp$ret$0;
+        {
+          Companion_getInstance_1();
+          if (!cur.and_jhajnj_k$(new Long(0, 536870912)).equals(new Long(0, 0)))
+            return true;
+          Companion_getInstance_1();
+          if (!cur.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0)))
+            return false;
+          Companion_getInstance_1();
+          tmp$ret$0 = cur.or_s401rn_k$(new Long(0, 536870912));
+        }
+        var upd = tmp$ret$0;
+        if (tmp0_update.atomicfu$compareAndSet(cur, upd)) {
+          tmp$ret$1 = Unit_getInstance();
+          break $l$block;
+        }
+      }
+    }
+    return true;
+  };
+  LockFreeTaskQueueCore.prototype.addLast_3l8aar_k$ = function (element) {
+    {
+      var tmp0_loop = this._state_1;
+      while (true) {
+        var tmp$ret$0;
+        $l$block: {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          Companion_getInstance_1();
+          var tmp = new Long(0, 268435456);
+          Companion_getInstance_1();
+          if (!tmp1__anonymous__uwfjfc.and_jhajnj_k$(tmp.or_s401rn_k$(new Long(0, 536870912))).equals(new Long(0, 0)))
+            return Companion_getInstance_1().addFailReason_gc2gzp_k$(tmp1__anonymous__uwfjfc);
+          var tmp$ret$1;
+          {
+            var tmp0_withState = Companion_getInstance_1();
+            var head = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
+            var tail = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
+            var mask = this.mask_1;
+            if (((tail + 2 | 0) & mask) === (head & mask)) {
+              Companion_getInstance_1();
+              return 1;
+            }
+            if (!this.singleConsumer_1 ? !(this.array_1.atomicfu$get(tail & mask).value_1 == null) : false) {
+              var tmp_0;
+              Companion_getInstance_1();
+              if (this.capacity_1 < 1024) {
+                tmp_0 = true;
+              } else {
+                var tmp_1 = tail - head | 0;
+                Companion_getInstance_1();
+                tmp_0 = (tmp_1 & 1073741823) > this.capacity_1 >> 1;
+              }
+              if (tmp_0) {
+                Companion_getInstance_1();
+                return 1;
+              }
+              tmp$ret$0 = Unit_getInstance();
+              break $l$block;
+            }
+            var tmp_2 = tail + 1 | 0;
+            Companion_getInstance_1();
+            var newTail = tmp_2 & 1073741823;
+            var tmp_3;
+            if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, Companion_getInstance_1().updateTail_fwivqo_k$(tmp1__anonymous__uwfjfc, newTail))) {
+              this.array_1.atomicfu$get(tail & mask).value_1 = element;
+              var cur = this;
+              $l$loop_0: while (true) {
+                var tmp_4 = cur._state_1.value_1;
+                Companion_getInstance_1();
+                if (tmp_4.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0)))
+                  break $l$loop_0;
+                var tmp0_elvis_lhs = fillPlaceholder(cur.next_20eer_k$(), tail, element);
+                var tmp_5;
+                if (tmp0_elvis_lhs == null) {
+                  break $l$loop_0;
+                } else {
+                  tmp_5 = tmp0_elvis_lhs;
+                }
+                cur = tmp_5;
+              }
+              Companion_getInstance_1();
+              return 0;
+            }
+            tmp$ret$1 = tmp_3;
+          }
+        }
+      }
+    }
+  };
+  LockFreeTaskQueueCore.prototype.removeFirstOrNull_eges3a_k$ = function () {
+    {
+      var tmp0_loop = this._state_1;
+      while (true) {
+        var tmp$ret$0;
+        $l$block_0: {
+          var tmp1__anonymous__uwfjfc = tmp0_loop.value_1;
+          Companion_getInstance_1();
+          if (!tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(0, 268435456)).equals(new Long(0, 0)))
+            return Companion_getInstance_1().REMOVE_FROZEN_1;
+          var tmp$ret$1;
+          {
+            var tmp0_withState = Companion_getInstance_1();
+            var head = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
+            var tail = tmp1__anonymous__uwfjfc.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
+            if ((tail & this.mask_1) === (head & this.mask_1))
+              return null;
+            var element = this.array_1.atomicfu$get(head & this.mask_1).value_1;
+            if (element == null) {
+              if (this.singleConsumer_1)
+                return null;
+              tmp$ret$0 = Unit_getInstance();
+              break $l$block_0;
+            }
+            if (element instanceof Placeholder)
+              return null;
+            var tmp = head + 1 | 0;
+            Companion_getInstance_1();
+            var newHead = tmp & 1073741823;
+            if (this._state_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, Companion_getInstance_1().updateHead_eajy5c_k$(tmp1__anonymous__uwfjfc, newHead))) {
+              this.array_1.atomicfu$get(head & this.mask_1).value_1 = null;
+              return element;
+            }
+            if (!this.singleConsumer_1) {
+              tmp$ret$0 = Unit_getInstance();
+              break $l$block_0;
+            }
+            var cur = this;
+            while (true) {
+              var tmp0_elvis_lhs = removeSlowPath(cur, head, newHead);
+              var tmp_0;
+              if (tmp0_elvis_lhs == null) {
+                return element;
+              } else {
+                tmp_0 = tmp0_elvis_lhs;
+              }
+              cur = tmp_0;
+            }
+            tmp$ret$1 = Unit_getInstance();
+          }
+        }
+      }
+    }
+  };
+  LockFreeTaskQueueCore.prototype.next_20eer_k$ = function () {
+    return allocateOrGetNextCopy(this, markFrozen(this));
+  };
+  LockFreeTaskQueueCore.prototype.map_cey4p6_k$ = function (transform) {
+    var res = ArrayList_init_$Create$(this.capacity_1);
+    var tmp$ret$0;
+    {
+      var tmp0_withState = Companion_getInstance_1();
+      var tmp1_withState = this._state_1.value_1;
+      var head = tmp1_withState.and_jhajnj_k$(new Long(1073741823, 0)).shr_wjue3g_k$(0).toInt_1tsl84_k$();
+      var tail = tmp1_withState.and_jhajnj_k$(new Long(-1073741824, 268435455)).shr_wjue3g_k$(30).toInt_1tsl84_k$();
+      var index = head;
+      while (!((index & this.mask_1) === (tail & this.mask_1))) {
+        var element = this.array_1.atomicfu$get(index & this.mask_1).value_1;
+        var tmp;
+        if (!(element == null)) {
+          tmp = !(element instanceof Placeholder);
+        } else {
+          tmp = false;
+        }
+        if (tmp) {
+          res.add_1j60pz_k$(transform(isObject(element) ? element : THROW_CCE()));
+        }
+        var tmp0 = index;
+        index = tmp0 + 1 | 0;
+      }
+      tmp$ret$0 = Unit_getInstance();
+    }
+    return res;
+  };
+  LockFreeTaskQueueCore.prototype.isClosed_baxhhm_k$ = function () {
+    var tmp = this._state_1.value_1;
+    Companion_getInstance_1();
+    return !tmp.and_jhajnj_k$(new Long(0, 536870912)).equals(new Long(0, 0));
+  };
+  LockFreeTaskQueueCore.$metadata$ = classMeta('LockFreeTaskQueueCore');
   function ContextScope(context) {
-    this.qp_1 = context;
+    this.coroutineContext_1 = context;
   }
-  ContextScope.prototype.kh = function () {
-    return this.qp_1;
+  ContextScope.prototype.get_coroutineContext_115oqo_k$ = function () {
+    return this.coroutineContext_1;
   };
   ContextScope.prototype.toString = function () {
-    return 'CoroutineScope(coroutineContext=' + this.qp_1 + ')';
+    return 'CoroutineScope(coroutineContext=' + this.coroutineContext_1 + ')';
   };
   ContextScope.$metadata$ = classMeta('ContextScope', [CoroutineScope]);
   function Symbol(symbol) {
-    this.rp_1 = symbol;
+    this.symbol_1 = symbol;
   }
+  Symbol.prototype.get_symbol_jqdfoh_k$ = function () {
+    return this.symbol_1;
+  };
   Symbol.prototype.toString = function () {
-    return '<' + this.rp_1 + '>';
+    return '<' + this.symbol_1 + '>';
+  };
+  Symbol.prototype.unbox_eumklp_k$ = function (value) {
+    var tmp;
+    if (value === this) {
+      tmp = (null == null ? true : isObject(null)) ? null : THROW_CCE();
+    } else {
+      tmp = (value == null ? true : isObject(value)) ? value : THROW_CCE();
+    }
+    return tmp;
   };
   Symbol.$metadata$ = classMeta('Symbol');
+  function systemProp(propertyName, defaultValue, minValue, maxValue) {
+    return systemProp_0(propertyName, toLong(defaultValue), toLong(minValue), toLong(maxValue)).toInt_1tsl84_k$();
+  }
+  function systemProp$default(propertyName, defaultValue, minValue, maxValue, $mask0, $handler) {
+    if (!(($mask0 & 4) === 0))
+      minValue = 1;
+    if (!(($mask0 & 8) === 0))
+      maxValue = IntCompanionObject_getInstance().MAX_VALUE_1;
+    return systemProp(propertyName, defaultValue, minValue, maxValue);
+  }
+  function systemProp_0(propertyName, defaultValue, minValue, maxValue) {
+    var tmp0_elvis_lhs = systemProp_1(propertyName);
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      return defaultValue;
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    var value = tmp;
+    var tmp1_elvis_lhs = toLongOrNull(value);
+    var tmp_0;
+    if (tmp1_elvis_lhs == null) {
+      var tmp0_error = "System property '" + propertyName + "' has unrecognized value '" + value + "'";
+      throw IllegalStateException_init_$Create$(toString_0(tmp0_error));
+    } else {
+      tmp_0 = tmp1_elvis_lhs;
+    }
+    var parsed = tmp_0;
+    if (!(minValue.compareTo_n4fqi2_k$(parsed) <= 0 ? parsed.compareTo_n4fqi2_k$(maxValue) <= 0 : false)) {
+      {
+        var tmp1_error = "System property '" + propertyName + "' should be in range " + toString_0(minValue) + '..' + toString_0(maxValue) + ", but is '" + toString_0(parsed) + "'";
+        throw IllegalStateException_init_$Create$(toString_0(tmp1_error));
+      }
+    }
+    return parsed;
+  }
+  function systemProp$default_0(propertyName, defaultValue, minValue, maxValue, $mask0, $handler) {
+    if (!(($mask0 & 4) === 0))
+      minValue = new Long(1, 0);
+    if (!(($mask0 & 8) === 0)) {
+      Companion_getInstance();
+      maxValue = new Long(-1, 2147483647);
+    }
+    return systemProp_0(propertyName, defaultValue, minValue, maxValue);
+  }
   function startCoroutineCancellable(_this__u8e3s4, receiver, completion, onCancellation) {
     var tmp;
     try {
       var tmp_0 = intercepted(createCoroutineUnintercepted(_this__u8e3s4, receiver, completion));
       var tmp$ret$0;
       {
-        var tmp0_success = Companion_getInstance();
+        var tmp0_success = Companion_getInstance_0();
         tmp$ret$0 = _Result___init__impl__xyqfz8(Unit_getInstance());
       }
       tmp = resumeCancellableWith(tmp_0, tmp$ret$0, onCancellation);
@@ -3632,22 +6241,55 @@
       onCancellation = null;
     return startCoroutineCancellable(_this__u8e3s4, receiver, completion, onCancellation);
   }
+  function startCoroutineCancellable_0(_this__u8e3s4, completion) {
+    var tmp;
+    try {
+      var tmp_0 = intercepted(createCoroutineUnintercepted_0(_this__u8e3s4, completion));
+      var tmp$ret$0;
+      {
+        var tmp0_success = Companion_getInstance_0();
+        tmp$ret$0 = _Result___init__impl__xyqfz8(Unit_getInstance());
+      }
+      var tmp_1 = tmp$ret$0;
+      tmp = resumeCancellableWith$default(tmp_0, tmp_1, null, 2, null);
+    } catch ($p) {
+      var tmp_2;
+      if ($p instanceof Error) {
+        tmp_2 = dispatcherFailure$accessor$paksz7(completion, $p);
+      } else {
+        throw $p;
+      }
+      tmp = tmp_2;
+    }
+    return tmp;
+  }
+  function runSafely(completion, block) {
+    try {
+      block();
+    } catch ($p) {
+      if ($p instanceof Error) {
+        dispatcherFailure$accessor$paksz7(completion, $p);
+      } else {
+        throw $p;
+      }
+    }
+  }
   function dispatcherFailure(completion, e) {
     var tmp$ret$0;
     {
-      var tmp0_failure = Companion_getInstance();
+      var tmp0_failure = Companion_getInstance_0();
       tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(e));
     }
-    completion.x1(tmp$ret$0);
+    completion.resumeWith_s3a3yh_k$(tmp$ret$0);
     throw e;
   }
-  function startCoroutineCancellable_0(_this__u8e3s4, fatalCompletion) {
+  function startCoroutineCancellable_1(_this__u8e3s4, fatalCompletion) {
     var tmp;
     try {
       var tmp_0 = intercepted(_this__u8e3s4);
       var tmp$ret$0;
       {
-        var tmp0_success = Companion_getInstance();
+        var tmp0_success = Companion_getInstance_0();
         tmp$ret$0 = _Result___init__impl__xyqfz8(Unit_getInstance());
       }
       var tmp_1 = tmp$ret$0;
@@ -3666,6 +6308,122 @@
   function dispatcherFailure$accessor$paksz7(completion, e) {
     return dispatcherFailure(completion, e);
   }
+  function startCoroutineUnintercepted(_this__u8e3s4, completion) {
+    var tmp$ret$6;
+    $l$block: {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = completion;
+      }
+      var actualCompletion = tmp$ret$0;
+      var tmp;
+      try {
+        var tmp$ret$3;
+        {
+          var tmp$ret$2;
+          {
+            var tmp$ret$1;
+            {
+              tmp$ret$1 = _this__u8e3s4;
+            }
+            var a = tmp$ret$1;
+            tmp$ret$2 = typeof a === 'function' ? a(actualCompletion) : _this__u8e3s4.invoke_34if6s_k$(actualCompletion);
+          }
+          tmp$ret$3 = tmp$ret$2;
+        }
+        tmp = tmp$ret$3;
+      } catch ($p) {
+        var tmp_0;
+        if ($p instanceof Error) {
+          var tmp$ret$5;
+          {
+            var tmp$ret$4;
+            {
+              var tmp0_failure = Companion_getInstance_0();
+              tmp$ret$4 = _Result___init__impl__xyqfz8(createFailure($p));
+            }
+            tmp$ret$5 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$4);
+          }
+          tmp$ret$6 = Unit_getInstance();
+          break $l$block;
+        } else {
+          throw $p;
+        }
+        tmp = tmp_0;
+      }
+      var value = tmp;
+      if (!(value === get_COROUTINE_SUSPENDED())) {
+        var tmp$ret$8;
+        {
+          var tmp0_resume = (value == null ? true : isObject(value)) ? value : THROW_CCE();
+          var tmp$ret$7;
+          {
+            var tmp0_success = Companion_getInstance_0();
+            tmp$ret$7 = _Result___init__impl__xyqfz8(tmp0_resume);
+          }
+          tmp$ret$8 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$7);
+        }
+      }
+    }
+  }
+  function startCoroutineUnintercepted_0(_this__u8e3s4, receiver, completion) {
+    var tmp$ret$6;
+    $l$block: {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = completion;
+      }
+      var actualCompletion = tmp$ret$0;
+      var tmp;
+      try {
+        var tmp$ret$3;
+        {
+          var tmp$ret$2;
+          {
+            var tmp$ret$1;
+            {
+              tmp$ret$1 = _this__u8e3s4;
+            }
+            var a = tmp$ret$1;
+            tmp$ret$2 = typeof a === 'function' ? a(receiver, actualCompletion) : _this__u8e3s4.invoke_5zdxxo_k$(receiver, actualCompletion);
+          }
+          tmp$ret$3 = tmp$ret$2;
+        }
+        tmp = tmp$ret$3;
+      } catch ($p) {
+        var tmp_0;
+        if ($p instanceof Error) {
+          var tmp$ret$5;
+          {
+            var tmp$ret$4;
+            {
+              var tmp0_failure = Companion_getInstance_0();
+              tmp$ret$4 = _Result___init__impl__xyqfz8(createFailure($p));
+            }
+            tmp$ret$5 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$4);
+          }
+          tmp$ret$6 = Unit_getInstance();
+          break $l$block;
+        } else {
+          throw $p;
+        }
+        tmp = tmp_0;
+      }
+      var value = tmp;
+      if (!(value === get_COROUTINE_SUSPENDED())) {
+        var tmp$ret$8;
+        {
+          var tmp0_resume = (value == null ? true : isObject(value)) ? value : THROW_CCE();
+          var tmp$ret$7;
+          {
+            var tmp0_success = Companion_getInstance_0();
+            tmp$ret$7 = _Result___init__impl__xyqfz8(tmp0_resume);
+          }
+          tmp$ret$8 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$7);
+        }
+      }
+    }
+  }
   function startDirect(completion, block) {
     var tmp$ret$0;
     {
@@ -3682,10 +6440,10 @@
         {
           var tmp$ret$1;
           {
-            var tmp0_failure = Companion_getInstance();
+            var tmp0_failure = Companion_getInstance_0();
             tmp$ret$1 = _Result___init__impl__xyqfz8(createFailure($p));
           }
-          tmp$ret$2 = actualCompletion.x1(tmp$ret$1);
+          tmp$ret$2 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$1);
         }
         return Unit_getInstance();
       } else {
@@ -3700,14 +6458,14 @@
         var tmp0_resume = (value == null ? true : isObject(value)) ? value : THROW_CCE();
         var tmp$ret$3;
         {
-          var tmp0_success = Companion_getInstance();
+          var tmp0_success = Companion_getInstance_0();
           tmp$ret$3 = _Result___init__impl__xyqfz8(tmp0_resume);
         }
-        tmp$ret$4 = actualCompletion.x1(tmp$ret$3);
+        tmp$ret$4 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$3);
       }
     }
   }
-  function startCoroutineUndispatched(_this__u8e3s4, receiver, completion) {
+  function startCoroutineUndispatched(_this__u8e3s4, completion) {
     var tmp$ret$8;
     $l$block: {
       var tmp$ret$0;
@@ -3721,7 +6479,7 @@
         {
           var tmp$ret$4;
           {
-            var tmp0_withCoroutineContext = completion.w1();
+            var tmp0_withCoroutineContext = completion.get_context_h02k06_k$();
             var tmp$ret$3;
             {
               var tmp$ret$2;
@@ -3731,7 +6489,7 @@
                   tmp$ret$1 = _this__u8e3s4;
                 }
                 var a = tmp$ret$1;
-                tmp$ret$2 = typeof a === 'function' ? a(receiver, actualCompletion) : _this__u8e3s4.cb(receiver, actualCompletion);
+                tmp$ret$2 = typeof a === 'function' ? a(actualCompletion) : _this__u8e3s4.invoke_34if6s_k$(actualCompletion);
               }
               tmp$ret$3 = tmp$ret$2;
             }
@@ -3747,10 +6505,10 @@
           {
             var tmp$ret$6;
             {
-              var tmp0_failure = Companion_getInstance();
+              var tmp0_failure = Companion_getInstance_0();
               tmp$ret$6 = _Result___init__impl__xyqfz8(createFailure($p));
             }
-            tmp$ret$7 = actualCompletion.x1(tmp$ret$6);
+            tmp$ret$7 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$6);
           }
           tmp$ret$8 = Unit_getInstance();
           break $l$block;
@@ -3766,17 +6524,230 @@
           var tmp0_resume = (value == null ? true : isObject(value)) ? value : THROW_CCE();
           var tmp$ret$9;
           {
-            var tmp0_success = Companion_getInstance();
+            var tmp0_success = Companion_getInstance_0();
             tmp$ret$9 = _Result___init__impl__xyqfz8(tmp0_resume);
           }
-          tmp$ret$10 = actualCompletion.x1(tmp$ret$9);
+          tmp$ret$10 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$9);
         }
       }
     }
   }
+  function startCoroutineUndispatched_0(_this__u8e3s4, receiver, completion) {
+    var tmp$ret$8;
+    $l$block: {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = completion;
+      }
+      var actualCompletion = tmp$ret$0;
+      var tmp;
+      try {
+        var tmp$ret$5;
+        {
+          var tmp$ret$4;
+          {
+            var tmp0_withCoroutineContext = completion.get_context_h02k06_k$();
+            var tmp$ret$3;
+            {
+              var tmp$ret$2;
+              {
+                var tmp$ret$1;
+                {
+                  tmp$ret$1 = _this__u8e3s4;
+                }
+                var a = tmp$ret$1;
+                tmp$ret$2 = typeof a === 'function' ? a(receiver, actualCompletion) : _this__u8e3s4.invoke_5zdxxo_k$(receiver, actualCompletion);
+              }
+              tmp$ret$3 = tmp$ret$2;
+            }
+            tmp$ret$4 = tmp$ret$3;
+          }
+          tmp$ret$5 = tmp$ret$4;
+        }
+        tmp = tmp$ret$5;
+      } catch ($p) {
+        var tmp_0;
+        if ($p instanceof Error) {
+          var tmp$ret$7;
+          {
+            var tmp$ret$6;
+            {
+              var tmp0_failure = Companion_getInstance_0();
+              tmp$ret$6 = _Result___init__impl__xyqfz8(createFailure($p));
+            }
+            tmp$ret$7 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$6);
+          }
+          tmp$ret$8 = Unit_getInstance();
+          break $l$block;
+        } else {
+          throw $p;
+        }
+        tmp = tmp_0;
+      }
+      var value = tmp;
+      if (!(value === get_COROUTINE_SUSPENDED())) {
+        var tmp$ret$10;
+        {
+          var tmp0_resume = (value == null ? true : isObject(value)) ? value : THROW_CCE();
+          var tmp$ret$9;
+          {
+            var tmp0_success = Companion_getInstance_0();
+            tmp$ret$9 = _Result___init__impl__xyqfz8(tmp0_resume);
+          }
+          tmp$ret$10 = actualCompletion.resumeWith_s3a3yh_k$(tmp$ret$9);
+        }
+      }
+    }
+  }
+  function get_NOT_SELECTED() {
+    init_properties_Select_kt_rcehwi();
+    return NOT_SELECTED;
+  }
+  var NOT_SELECTED;
+  function get_ALREADY_SELECTED() {
+    init_properties_Select_kt_rcehwi();
+    return ALREADY_SELECTED;
+  }
+  var ALREADY_SELECTED;
+  function get_UNDECIDED_0() {
+    init_properties_Select_kt_rcehwi();
+    return UNDECIDED_0;
+  }
+  var UNDECIDED_0;
+  function get_RESUMED_0() {
+    init_properties_Select_kt_rcehwi();
+    return RESUMED_0;
+  }
+  var RESUMED_0;
+  function get_selectOpSequenceNumber() {
+    init_properties_Select_kt_rcehwi();
+    return selectOpSequenceNumber;
+  }
+  var selectOpSequenceNumber;
   function SelectClause0() {
   }
   SelectClause0.$metadata$ = interfaceMeta('SelectClause0');
+  function SelectInstance() {
+  }
+  SelectInstance.$metadata$ = interfaceMeta('SelectInstance');
+  function _get_number__4pkqn6($this) {
+    return $this.number_1;
+  }
+  function SeqNumber() {
+    this.number_1 = atomic$long$1(new Long(1, 0));
+  }
+  SeqNumber.prototype.next_20eer_k$ = function () {
+    return this.number_1.atomicfu$incrementAndGet$long();
+  };
+  SeqNumber.$metadata$ = classMeta('SeqNumber');
+  var properties_initialized_Select_kt_7rpl36;
+  function init_properties_Select_kt_rcehwi() {
+    if (properties_initialized_Select_kt_7rpl36) {
+    } else {
+      properties_initialized_Select_kt_7rpl36 = true;
+      NOT_SELECTED = new Symbol('NOT_SELECTED');
+      ALREADY_SELECTED = new Symbol('ALREADY_SELECTED');
+      UNDECIDED_0 = new Symbol('UNDECIDED');
+      RESUMED_0 = new Symbol('RESUMED');
+      selectOpSequenceNumber = new SeqNumber();
+    }
+  }
+  function get_LOCK_FAIL() {
+    init_properties_Mutex_kt_ho0aqz();
+    return LOCK_FAIL;
+  }
+  var LOCK_FAIL;
+  function get_UNLOCK_FAIL() {
+    init_properties_Mutex_kt_ho0aqz();
+    return UNLOCK_FAIL;
+  }
+  var UNLOCK_FAIL;
+  function get_LOCKED() {
+    init_properties_Mutex_kt_ho0aqz();
+    return LOCKED;
+  }
+  var LOCKED;
+  function get_UNLOCKED() {
+    init_properties_Mutex_kt_ho0aqz();
+    return UNLOCKED;
+  }
+  var UNLOCKED;
+  function get_EMPTY_LOCKED() {
+    init_properties_Mutex_kt_ho0aqz();
+    return EMPTY_LOCKED;
+  }
+  var EMPTY_LOCKED;
+  function get_EMPTY_UNLOCKED() {
+    init_properties_Mutex_kt_ho0aqz();
+    return EMPTY_UNLOCKED;
+  }
+  var EMPTY_UNLOCKED;
+  function Empty_0(locked) {
+    this.locked_1 = locked;
+  }
+  Empty_0.prototype.get_locked_g9dxjn_k$ = function () {
+    return this.locked_1;
+  };
+  Empty_0.prototype.toString = function () {
+    return 'Empty[' + toString_0(this.locked_1) + ']';
+  };
+  Empty_0.$metadata$ = classMeta('Empty');
+  var properties_initialized_Mutex_kt_yv4p3j;
+  function init_properties_Mutex_kt_ho0aqz() {
+    if (properties_initialized_Mutex_kt_yv4p3j) {
+    } else {
+      properties_initialized_Mutex_kt_yv4p3j = true;
+      LOCK_FAIL = new Symbol('LOCK_FAIL');
+      UNLOCK_FAIL = new Symbol('UNLOCK_FAIL');
+      LOCKED = new Symbol('LOCKED');
+      UNLOCKED = new Symbol('UNLOCKED');
+      EMPTY_LOCKED = new Empty_0(get_LOCKED());
+      EMPTY_UNLOCKED = new Empty_0(get_UNLOCKED());
+    }
+  }
+  function get_MAX_SPIN_CYCLES() {
+    init_properties_Semaphore_kt_nhoai8();
+    return MAX_SPIN_CYCLES;
+  }
+  var MAX_SPIN_CYCLES;
+  function get_PERMIT() {
+    init_properties_Semaphore_kt_nhoai8();
+    return PERMIT;
+  }
+  var PERMIT;
+  function get_TAKEN() {
+    init_properties_Semaphore_kt_nhoai8();
+    return TAKEN;
+  }
+  var TAKEN;
+  function get_BROKEN() {
+    init_properties_Semaphore_kt_nhoai8();
+    return BROKEN;
+  }
+  var BROKEN;
+  function get_CANCELLED() {
+    init_properties_Semaphore_kt_nhoai8();
+    return CANCELLED;
+  }
+  var CANCELLED;
+  function get_SEGMENT_SIZE() {
+    init_properties_Semaphore_kt_nhoai8();
+    return SEGMENT_SIZE;
+  }
+  var SEGMENT_SIZE;
+  var properties_initialized_Semaphore_kt_uqcwok;
+  function init_properties_Semaphore_kt_nhoai8() {
+    if (properties_initialized_Semaphore_kt_uqcwok) {
+    } else {
+      properties_initialized_Semaphore_kt_uqcwok = true;
+      MAX_SPIN_CYCLES = systemProp$default('kotlinx.coroutines.semaphore.maxSpinCycles', 100, 0, 0, 12, null);
+      PERMIT = new Symbol('PERMIT');
+      TAKEN = new Symbol('TAKEN');
+      BROKEN = new Symbol('BROKEN');
+      CANCELLED = new Symbol('CANCELLED');
+      SEGMENT_SIZE = systemProp$default('kotlinx.coroutines.semaphore.segmentSize', 16, 0, 0, 12, null);
+    }
+  }
   function CompletionHandlerBase() {
     LinkedListNode.call(this);
   }
@@ -3800,6 +6771,13 @@
     }
     return tmp$ret$0;
   }
+  function get_asHandler_0(_this__u8e3s4) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    return tmp$ret$0;
+  }
   function CancelHandlerBase() {
   }
   CancelHandlerBase.$metadata$ = classMeta('CancelHandlerBase');
@@ -3811,6 +6789,10 @@
   }
   function withContinuationContext(continuation, countOrElement, block) {
     return block();
+  }
+  function get_DefaultDelay() {
+    var tmp = Dispatchers_getInstance().Default_1;
+    return isInterface(tmp, Delay) ? tmp : THROW_CCE();
   }
   function createDefaultDispatcher() {
     var tmp;
@@ -3854,9 +6836,13 @@
   function isJsdom() {
     return ((((!(typeof navigator === 'undefined') ? navigator != null : false) ? navigator.userAgent != null : false) ? !(typeof navigator.userAgent === 'undefined') : false) ? !(typeof navigator.userAgent.match === 'undefined') : false) ? navigator.userAgent.match('\\bjsdom\\b') : false;
   }
+  function get_UNDEFINED_0() {
+    return UNDEFINED_0;
+  }
+  var UNDEFINED_0;
   function newCoroutineContext(_this__u8e3s4, context) {
-    var combined = _this__u8e3s4.kh().h2(context);
-    return (!(combined === Dispatchers_getInstance().cp_1) ? combined.a2(Key_getInstance()) == null : false) ? combined.h2(Dispatchers_getInstance().cp_1) : combined;
+    var combined = _this__u8e3s4.get_coroutineContext_115oqo_k$().plus_rgw9wi_k$(context);
+    return (!(combined === Dispatchers_getInstance().Default_1) ? combined.get_1pi7hg_k$(Key_getInstance()) == null : false) ? combined.plus_rgw9wi_k$(Dispatchers_getInstance().Default_1) : combined;
   }
   function get_coroutineName(_this__u8e3s4) {
     return null;
@@ -3864,13 +6850,19 @@
   function handleCoroutineExceptionImpl(context, exception) {
     console.error(exception);
   }
+  function set_counter(_set____db54di) {
+    counter = _set____db54di;
+  }
+  function get_counter() {
+    return counter;
+  }
   var counter;
   function get_DEBUG() {
     return DEBUG;
   }
   var DEBUG;
   function get_classSimpleName(_this__u8e3s4) {
-    var tmp0_elvis_lhs = getKClassFromExpression(_this__u8e3s4).h7();
+    var tmp0_elvis_lhs = getKClassFromExpression(_this__u8e3s4).get_simpleName_r6f8py_k$();
     return tmp0_elvis_lhs == null ? 'Unknown' : tmp0_elvis_lhs;
   }
   function get_hexAddress(_this__u8e3s4) {
@@ -3892,19 +6884,37 @@
   }
   function assert(value) {
   }
+  function _get_mainDispatcher__sm5ex7($this) {
+    return $this.mainDispatcher_1;
+  }
+  function _set_injectedMainDispatcher__9278zd($this, _set____db54di) {
+    $this.injectedMainDispatcher_1 = _set____db54di;
+  }
+  function _get_injectedMainDispatcher__d6w7gb($this) {
+    return $this.injectedMainDispatcher_1;
+  }
   function Dispatchers() {
     Dispatchers_instance = this;
-    this.cp_1 = createDefaultDispatcher();
-    this.dp_1 = Unconfined_getInstance();
-    this.ep_1 = new JsMainDispatcher(this.cp_1, false);
-    this.fp_1 = null;
+    this.Default_1 = createDefaultDispatcher();
+    this.Unconfined_1 = Unconfined_getInstance();
+    this.mainDispatcher_1 = new JsMainDispatcher(this.Default_1, false);
+    this.injectedMainDispatcher_1 = null;
   }
-  Dispatchers.prototype.sp = function () {
-    return this.cp_1;
+  Dispatchers.prototype.get_Default_goqax4_k$ = function () {
+    return this.Default_1;
   };
-  Dispatchers.prototype.gp = function () {
-    var tmp0_elvis_lhs = this.fp_1;
-    return tmp0_elvis_lhs == null ? this.ep_1 : tmp0_elvis_lhs;
+  Dispatchers.prototype.get_Main_wo5vz6_k$ = function () {
+    var tmp0_elvis_lhs = this.injectedMainDispatcher_1;
+    return tmp0_elvis_lhs == null ? this.mainDispatcher_1 : tmp0_elvis_lhs;
+  };
+  Dispatchers.prototype.get_Unconfined_sfvx0q_k$ = function () {
+    return this.Unconfined_1;
+  };
+  Dispatchers.prototype.injectMain_isae1a_k$ = function (dispatcher) {
+    this.injectedMainDispatcher_1 = dispatcher;
+  };
+  Dispatchers.prototype.resetInjectedMain_6cv6vt_k$ = function () {
+    this.injectedMainDispatcher_1 = null;
   };
   Dispatchers.$metadata$ = objectMeta('Dispatchers');
   var Dispatchers_instance;
@@ -3913,24 +6923,33 @@
       new Dispatchers();
     return Dispatchers_instance;
   }
+  function _get_invokeImmediately__pxbc17($this) {
+    return $this.invokeImmediately_1;
+  }
   function JsMainDispatcher(delegate, invokeImmediately) {
     MainCoroutineDispatcher.call(this);
-    this.up_1 = delegate;
-    this.vp_1 = invokeImmediately;
-    this.wp_1 = this.vp_1 ? this : new JsMainDispatcher(this.up_1, true);
+    this.delegate_1 = delegate;
+    this.invokeImmediately_1 = invokeImmediately;
+    this.immediate_1 = this.invokeImmediately_1 ? this : new JsMainDispatcher(this.delegate_1, true);
   }
-  JsMainDispatcher.prototype.ap = function () {
-    return this.wp_1;
+  JsMainDispatcher.prototype.get_delegate_i94tki_k$ = function () {
+    return this.delegate_1;
   };
-  JsMainDispatcher.prototype.gl = function (context) {
-    return !this.vp_1;
+  JsMainDispatcher.prototype.get_immediate_r3y8eg_k$ = function () {
+    return this.immediate_1;
   };
-  JsMainDispatcher.prototype.hl = function (context, block) {
-    return this.up_1.hl(context, block);
+  JsMainDispatcher.prototype.isDispatchNeeded_fmz9vn_k$ = function (context) {
+    return !this.invokeImmediately_1;
+  };
+  JsMainDispatcher.prototype.dispatch_o98ux7_k$ = function (context, block) {
+    return this.delegate_1.dispatch_o98ux7_k$(context, block);
+  };
+  JsMainDispatcher.prototype.dispatchYield_ww21f6_k$ = function (context, block) {
+    return this.delegate_1.dispatchYield_ww21f6_k$(context, block);
   };
   JsMainDispatcher.prototype.toString = function () {
-    var tmp0_elvis_lhs = this.bp();
-    return tmp0_elvis_lhs == null ? this.up_1.toString() : tmp0_elvis_lhs;
+    var tmp0_elvis_lhs = this.toStringInternalImpl_hcqz93_k$();
+    return tmp0_elvis_lhs == null ? this.delegate_1.toString() : tmp0_elvis_lhs;
   };
   JsMainDispatcher.$metadata$ = classMeta('JsMainDispatcher', undefined, undefined, undefined, undefined, MainCoroutineDispatcher.prototype);
   function createEventLoop() {
@@ -3939,20 +6958,27 @@
   function UnconfinedEventLoop() {
     EventLoop.call(this);
   }
-  UnconfinedEventLoop.prototype.hl = function (context, block) {
+  UnconfinedEventLoop.prototype.dispatch_o98ux7_k$ = function (context, block) {
     unsupported();
   };
   UnconfinedEventLoop.$metadata$ = classMeta('UnconfinedEventLoop', undefined, undefined, undefined, undefined, EventLoop.prototype);
   function unsupported() {
     throw UnsupportedOperationException_init_$Create$('runBlocking event loop is not supported');
   }
+  function get_RECOVER_STACK_TRACES() {
+    return RECOVER_STACK_TRACES;
+  }
+  var RECOVER_STACK_TRACES;
   function JobCancellationException(message, cause, job) {
-    CancellationException_init_$Init$(message, cause, this);
-    this.bq_1 = job;
+    CancellationException_init_$Init$_0(message, cause, this);
+    this.job_1 = job;
     captureStack(this, JobCancellationException);
   }
+  JobCancellationException.prototype.get_job_18j2r0_k$ = function () {
+    return this.job_1;
+  };
   JobCancellationException.prototype.toString = function () {
-    return CancellationException.prototype.toString.call(this) + '; job=' + this.bq_1;
+    return CancellationException.prototype.toString.call(this) + '; job=' + this.job_1;
   };
   JobCancellationException.prototype.equals = function (other) {
     var tmp;
@@ -3968,7 +6994,7 @@
         tmp_2 = false;
       }
       if (tmp_2) {
-        tmp_1 = equals(other.bq_1, this.bq_1);
+        tmp_1 = equals(other.job_1, this.job_1);
       } else {
         tmp_1 = false;
       }
@@ -3982,7 +7008,7 @@
     return tmp;
   };
   JobCancellationException.prototype.hashCode = function () {
-    var tmp = imul(imul(getStringHashCode(ensureNotNull(this.message)), 31) + hashCode(this.bq_1) | 0, 31);
+    var tmp = imul(imul(getStringHashCode(ensureNotNull(this.message)), 31) + hashCode(this.job_1) | 0, 31);
     var tmp0_safe_receiver = this.cause;
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode(tmp0_safe_receiver);
     return tmp + (tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs) | 0;
@@ -3994,8 +7020,8 @@
     NodeDispatcher_instance = this;
     SetTimeoutBasedDispatcher.call(this);
   }
-  NodeDispatcher.prototype.eq = function () {
-    process.nextTick(this.oq().kq_1);
+  NodeDispatcher.prototype.scheduleQueueProcessing_nyddyc_k$ = function () {
+    process.nextTick(this.get_messageQueue_gxtffx_k$().processQueue_1);
   };
   NodeDispatcher.$metadata$ = objectMeta('NodeDispatcher', undefined, undefined, undefined, undefined, SetTimeoutBasedDispatcher.prototype);
   var NodeDispatcher_instance;
@@ -4008,8 +7034,8 @@
     SetTimeoutDispatcher_instance = this;
     SetTimeoutBasedDispatcher.call(this);
   }
-  SetTimeoutDispatcher.prototype.eq = function () {
-    setTimeout(this.oq().kq_1, 0);
+  SetTimeoutDispatcher.prototype.scheduleQueueProcessing_nyddyc_k$ = function () {
+    setTimeout(this.get_messageQueue_gxtffx_k$().processQueue_1, 0);
   };
   SetTimeoutDispatcher.$metadata$ = objectMeta('SetTimeoutDispatcher', undefined, undefined, undefined, undefined, SetTimeoutBasedDispatcher.prototype);
   var SetTimeoutDispatcher_instance;
@@ -4020,50 +7046,100 @@
   }
   function SetTimeoutBasedDispatcher$ScheduledMessageQueue$processQueue$lambda(this$0) {
     return function () {
-      this$0.wq();
+      this$0.process_mza50i_k$();
       return Unit_getInstance();
     };
   }
   function ScheduledMessageQueue($outer) {
-    this.lq_1 = $outer;
+    this.$this_1 = $outer;
     MessageQueue.call(this);
     var tmp = this;
-    tmp.kq_1 = SetTimeoutBasedDispatcher$ScheduledMessageQueue$processQueue$lambda(this);
+    tmp.processQueue_1 = SetTimeoutBasedDispatcher$ScheduledMessageQueue$processQueue$lambda(this);
   }
-  ScheduledMessageQueue.prototype.xq = function () {
-    this.lq_1.eq();
+  ScheduledMessageQueue.prototype.get_processQueue_xqf7it_k$ = function () {
+    return this.processQueue_1;
   };
-  ScheduledMessageQueue.prototype.yq = function () {
-    setTimeout(this.kq_1, 0);
+  ScheduledMessageQueue.prototype.schedule_o6nex2_k$ = function () {
+    this.$this_1.scheduleQueueProcessing_nyddyc_k$();
+  };
+  ScheduledMessageQueue.prototype.reschedule_mh206x_k$ = function () {
+    setTimeout(this.processQueue_1, 0);
   };
   ScheduledMessageQueue.$metadata$ = classMeta('ScheduledMessageQueue', undefined, undefined, undefined, undefined, MessageQueue.prototype);
+  function SetTimeoutBasedDispatcher$invokeOnTimeout$lambda($block) {
+    return function () {
+      $block.run_mw4iiu_k$();
+      return Unit_getInstance();
+    };
+  }
+  function SetTimeoutBasedDispatcher$scheduleResumeAfterDelay$lambda($continuation, this$0) {
+    return function () {
+      var tmp$ret$0;
+      {
+        {
+        }
+        tmp$ret$0 = $continuation.resumeUndispatched_re4yxz_k$(this$0, Unit_getInstance());
+      }
+      return Unit_getInstance();
+    };
+  }
   function SetTimeoutBasedDispatcher() {
     CoroutineDispatcher.call(this);
-    this.nq_1 = new ScheduledMessageQueue(this);
+    this.messageQueue_1 = new ScheduledMessageQueue(this);
   }
-  SetTimeoutBasedDispatcher.prototype.oq = function () {
-    return this.nq_1;
+  SetTimeoutBasedDispatcher.prototype.get_messageQueue_gxtffx_k$ = function () {
+    return this.messageQueue_1;
   };
-  SetTimeoutBasedDispatcher.prototype.hl = function (context, block) {
-    this.nq_1.zq(block);
+  SetTimeoutBasedDispatcher.prototype.limitedParallelism_glrman_k$ = function (parallelism) {
+    checkParallelism(parallelism);
+    return this;
+  };
+  SetTimeoutBasedDispatcher.prototype.dispatch_o98ux7_k$ = function (context, block) {
+    this.messageQueue_1.enqueue_w6uc33_k$(block);
+  };
+  SetTimeoutBasedDispatcher.prototype.invokeOnTimeout_sx2bqq_k$ = function (timeMillis, block, context) {
+    var handle = setTimeout(SetTimeoutBasedDispatcher$invokeOnTimeout$lambda(block), delayToInt(timeMillis));
+    return new ClearTimeout(handle);
+  };
+  SetTimeoutBasedDispatcher.prototype.scheduleResumeAfterDelay_5x4w1l_k$ = function (timeMillis, continuation) {
+    var handle = setTimeout(SetTimeoutBasedDispatcher$scheduleResumeAfterDelay$lambda(continuation, this), delayToInt(timeMillis));
+    var tmp$ret$1;
+    {
+      var tmp0__get_asHandler__gq3rkj = new ClearTimeout(handle);
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = tmp0__get_asHandler__gq3rkj;
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    continuation.invokeOnCancellation_yygv6h_k$(tmp$ret$1);
   };
   SetTimeoutBasedDispatcher.$metadata$ = classMeta('SetTimeoutBasedDispatcher', [Delay], undefined, undefined, undefined, CoroutineDispatcher.prototype);
+  function _set_scheduled__8qlfaw($this, _set____db54di) {
+    $this.scheduled_1 = _set____db54di;
+  }
+  function _get_scheduled__wzo69o($this) {
+    return $this.scheduled_1;
+  }
   function MessageQueue() {
     ArrayQueue.call(this);
-    this.uq_1 = 16;
-    this.vq_1 = false;
+    this.yieldEvery_1 = 16;
+    this.scheduled_1 = false;
   }
-  MessageQueue.prototype.zq = function (element) {
-    this.ul(element);
-    if (!this.vq_1) {
-      this.vq_1 = true;
-      this.xq();
+  MessageQueue.prototype.get_yieldEvery_1qy12h_k$ = function () {
+    return this.yieldEvery_1;
+  };
+  MessageQueue.prototype.enqueue_w6uc33_k$ = function (element) {
+    this.addLast_xhfl3v_k$(element);
+    if (!this.scheduled_1) {
+      this.scheduled_1 = true;
+      this.schedule_o6nex2_k$();
     }
   };
-  MessageQueue.prototype.wq = function () {
+  MessageQueue.prototype.process_mza50i_k$ = function () {
     try {
       {
-        var tmp0_repeat = this.uq_1;
+        var tmp0_repeat = this.yieldEvery_1;
         {
         }
         var inductionVariable = 0;
@@ -4072,7 +7148,7 @@
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             {
-              var tmp0_elvis_lhs = this.sl();
+              var tmp0_elvis_lhs = this.removeFirstOrNull_eges3a_k$();
               var tmp;
               if (tmp0_elvis_lhs == null) {
                 return Unit_getInstance();
@@ -4080,57 +7156,128 @@
                 tmp = tmp0_elvis_lhs;
               }
               var element = tmp;
-              element.zk();
+              element.run_mw4iiu_k$();
             }
           }
            while (inductionVariable < tmp0_repeat);
       }
     }finally {
-      if (this.xl()) {
-        this.vq_1 = false;
+      if (this.get_isEmpty_zauvru_k$()) {
+        this.scheduled_1 = false;
       } else {
-        this.yq();
+        this.reschedule_mh206x_k$();
       }
     }
   };
   MessageQueue.$metadata$ = classMeta('MessageQueue', undefined, undefined, undefined, undefined, ArrayQueue.prototype);
+  function delayToInt(timeMillis) {
+    return coerceIn(timeMillis, new Long(0, 0), new Long(2147483647, 0)).toInt_1tsl84_k$();
+  }
+  function _get_handle__ls055p_0($this) {
+    return $this.handle_1;
+  }
+  function ClearTimeout(handle) {
+    CancelHandler.call(this);
+    this.handle_1 = handle;
+  }
+  ClearTimeout.prototype.dispose_3n44we_k$ = function () {
+    clearTimeout(this.handle_1);
+  };
+  ClearTimeout.prototype.invoke_7fb7sc_k$ = function (cause) {
+    this.dispose_3n44we_k$();
+  };
+  ClearTimeout.prototype.invoke = function (cause) {
+    return this.invoke_7fb7sc_k$(cause);
+  };
+  ClearTimeout.prototype.toString = function () {
+    return 'ClearTimeout[' + this.handle_1 + ']';
+  };
+  ClearTimeout.$metadata$ = classMeta('ClearTimeout', [DisposableHandle], undefined, undefined, undefined, CancelHandler.prototype);
+  function get_MAX_DELAY() {
+    return MAX_DELAY;
+  }
+  var MAX_DELAY;
+  function _get_window__ax0zxh($this) {
+    return $this.window_1;
+  }
+  function _get_queue__c6g84g_0($this) {
+    return $this.queue_1;
+  }
+  function WindowDispatcher$scheduleResumeAfterDelay$lambda($continuation, this$0) {
+    return function () {
+      var tmp$ret$0;
+      {
+        {
+        }
+        tmp$ret$0 = $continuation.resumeUndispatched_re4yxz_k$(this$0, Unit_getInstance());
+      }
+      return Unit_getInstance();
+    };
+  }
+  function WindowDispatcher$invokeOnTimeout$lambda($block) {
+    return function () {
+      $block.run_mw4iiu_k$();
+      return Unit_getInstance();
+    };
+  }
+  function WindowDispatcher$invokeOnTimeout$1(this$0, $handle) {
+    this.this$0__1 = this$0;
+    this.$handle_1 = $handle;
+  }
+  WindowDispatcher$invokeOnTimeout$1.prototype.dispose_3n44we_k$ = function () {
+    this.this$0__1.window_1.clearTimeout(this.$handle_1);
+  };
+  WindowDispatcher$invokeOnTimeout$1.$metadata$ = classMeta(undefined, [DisposableHandle]);
   function WindowDispatcher(window_0) {
     CoroutineDispatcher.call(this);
-    this.br_1 = window_0;
-    this.cr_1 = new WindowMessageQueue(this.br_1);
+    this.window_1 = window_0;
+    this.queue_1 = new WindowMessageQueue(this.window_1);
   }
-  WindowDispatcher.prototype.hl = function (context, block) {
-    return this.cr_1.zq(block);
+  WindowDispatcher.prototype.dispatch_o98ux7_k$ = function (context, block) {
+    return this.queue_1.enqueue_w6uc33_k$(block);
+  };
+  WindowDispatcher.prototype.scheduleResumeAfterDelay_5x4w1l_k$ = function (timeMillis, continuation) {
+    this.window_1.setTimeout(WindowDispatcher$scheduleResumeAfterDelay$lambda(continuation, this), delayToInt(timeMillis));
+  };
+  WindowDispatcher.prototype.invokeOnTimeout_sx2bqq_k$ = function (timeMillis, block, context) {
+    var handle = this.window_1.setTimeout(WindowDispatcher$invokeOnTimeout$lambda(block), delayToInt(timeMillis));
+    return new WindowDispatcher$invokeOnTimeout$1(this, handle);
   };
   WindowDispatcher.$metadata$ = classMeta('WindowDispatcher', [Delay], undefined, undefined, undefined, CoroutineDispatcher.prototype);
+  function _get_window__ax0zxh_0($this) {
+    return $this.window_1;
+  }
+  function _get_messageName__5th09r($this) {
+    return $this.messageName_1;
+  }
   function WindowMessageQueue$lambda(this$0) {
     return function (event) {
       var tmp;
-      if (event.source == this$0.ir_1 ? event.data == this$0.jr_1 : false) {
+      if (event.source == this$0.window_1 ? event.data == this$0.messageName_1 : false) {
         event.stopPropagation();
-        tmp = this$0.wq();
+        tmp = this$0.process_mza50i_k$();
       }
       return Unit_getInstance();
     };
   }
   function WindowMessageQueue$schedule$lambda(this$0) {
     return function (it) {
-      this$0.wq();
+      this$0.process_mza50i_k$();
       return Unit_getInstance();
     };
   }
   function WindowMessageQueue(window_0) {
     MessageQueue.call(this);
-    this.ir_1 = window_0;
-    this.jr_1 = 'dispatchCoroutine';
-    this.ir_1.addEventListener('message', WindowMessageQueue$lambda(this), true);
+    this.window_1 = window_0;
+    this.messageName_1 = 'dispatchCoroutine';
+    this.window_1.addEventListener('message', WindowMessageQueue$lambda(this), true);
   }
-  WindowMessageQueue.prototype.xq = function () {
+  WindowMessageQueue.prototype.schedule_o6nex2_k$ = function () {
     var tmp = Promise.resolve(Unit_getInstance());
     tmp.then(WindowMessageQueue$schedule$lambda(this));
   };
-  WindowMessageQueue.prototype.yq = function () {
-    this.ir_1.postMessage(this.jr_1, '*');
+  WindowMessageQueue.prototype.reschedule_mh206x_k$ = function () {
+    this.window_1.postMessage(this.messageName_1, '*');
   };
   WindowMessageQueue.$metadata$ = classMeta('WindowMessageQueue', undefined, undefined, undefined, undefined, MessageQueue.prototype);
   function await_0(_this__u8e3s4, $cont) {
@@ -4138,12 +7285,12 @@
     {
       var tmp0__anonymous__q1qw7t = $cont;
       var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
-      cancellable.hk();
+      cancellable.initCancellability_sh6jkn_k$();
       {
         var tmp = await$lambda(cancellable);
         _this__u8e3s4.then(tmp, await$lambda_0(cancellable));
       }
-      tmp$ret$0 = cancellable.wk();
+      tmp$ret$0 = cancellable.getResult_clfhg3_k$();
     }
     return tmp$ret$0;
   }
@@ -4153,10 +7300,10 @@
       {
         var tmp$ret$0;
         {
-          var tmp0_success = Companion_getInstance();
+          var tmp0_success = Companion_getInstance_0();
           tmp$ret$0 = _Result___init__impl__xyqfz8(it);
         }
-        tmp$ret$1 = $cancellable.x1(tmp$ret$0);
+        tmp$ret$1 = $cancellable.resumeWith_s3a3yh_k$(tmp$ret$0);
       }
       return Unit_getInstance();
     };
@@ -4167,10 +7314,10 @@
       {
         var tmp$ret$0;
         {
-          var tmp0_failure = Companion_getInstance();
+          var tmp0_failure = Companion_getInstance_0();
           tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(it));
         }
-        tmp$ret$1 = $cancellable.x1(tmp$ret$0);
+        tmp$ret$1 = $cancellable.resumeWith_s3a3yh_k$(tmp$ret$0);
       }
       return Unit_getInstance();
     };
@@ -4183,6 +7330,8 @@
   SchedulerTask.$metadata$ = classMeta('SchedulerTask', [Runnable]);
   function get_taskContext(_this__u8e3s4) {
     return Unit_getInstance();
+  }
+  function afterTask(_this__u8e3s4) {
   }
   function asCoroutineDispatcher(_this__u8e3s4) {
     var tmp$ret$0;
@@ -4218,62 +7367,170 @@
   function LinkedListHead() {
     LinkedListNode.call(this);
   }
+  LinkedListHead.prototype.get_isEmpty_zauvru_k$ = function () {
+    return this.get__next_inmai1_k$() === this;
+  };
+  LinkedListHead.prototype.remove_fgfybg_k$ = function () {
+    throw UnsupportedOperationException_init_$Create$_0();
+  };
   LinkedListHead.$metadata$ = classMeta('LinkedListHead', undefined, undefined, undefined, undefined, LinkedListNode.prototype);
   function LinkedListNode() {
-    this.mm_1 = this;
-    this.nm_1 = this;
-    this.om_1 = false;
+    this._next_1 = this;
+    this._prev_1 = this;
+    this._removed_1 = false;
   }
-  LinkedListNode.prototype.pm = function () {
-    return this.mm_1;
+  LinkedListNode.prototype.set__next_ir5h2x_k$ = function (_set____db54di) {
+    this._next_1 = _set____db54di;
   };
-  LinkedListNode.prototype.qm = function () {
-    return this.mm_1;
+  LinkedListNode.prototype.get__next_inmai1_k$ = function () {
+    return this._next_1;
   };
-  LinkedListNode.prototype.rm = function () {
-    return this.nm_1;
+  LinkedListNode.prototype.set__prev_qmwz5z_k$ = function (_set____db54di) {
+    this._prev_1 = _set____db54di;
   };
-  LinkedListNode.prototype.sm = function () {
-    return this.om_1;
+  LinkedListNode.prototype.get__prev_inntnt_k$ = function () {
+    return this._prev_1;
   };
-  LinkedListNode.prototype.tm = function (node) {
-    var prev = this.nm_1;
-    node.mm_1 = this;
-    node.nm_1 = prev;
-    prev.mm_1 = node;
-    this.nm_1 = node;
+  LinkedListNode.prototype.set__removed_pin64r_k$ = function (_set____db54di) {
+    this._removed_1 = _set____db54di;
   };
-  LinkedListNode.prototype.bn = function () {
-    return this.um();
+  LinkedListNode.prototype.get__removed_p9514a_k$ = function () {
+    return this._removed_1;
   };
-  LinkedListNode.prototype.um = function () {
-    if (this.om_1)
+  LinkedListNode.prototype.get_nextNode_88zlwi_k$ = function () {
+    return this._next_1;
+  };
+  LinkedListNode.prototype.get_prevNode_i5bmvy_k$ = function () {
+    return this._prev_1;
+  };
+  LinkedListNode.prototype.get_isRemoved_gzdz59_k$ = function () {
+    return this._removed_1;
+  };
+  LinkedListNode.prototype.addLast_uyctnf_k$ = function (node) {
+    var prev = this._prev_1;
+    node._next_1 = this;
+    node._prev_1 = prev;
+    prev._next_1 = node;
+    this._prev_1 = node;
+  };
+  LinkedListNode.prototype.remove_fgfybg_k$ = function () {
+    return this.removeImpl_i5v938_k$();
+  };
+  LinkedListNode.prototype.removeImpl_i5v938_k$ = function () {
+    if (this._removed_1)
       return false;
-    var prev = this.nm_1;
-    var next = this.mm_1;
-    prev.mm_1 = next;
-    next.nm_1 = prev;
-    this.om_1 = true;
+    var prev = this._prev_1;
+    var next = this._next_1;
+    prev._next_1 = next;
+    next._prev_1 = prev;
+    this._removed_1 = true;
     return true;
   };
-  LinkedListNode.prototype.cn = function (node) {
-    if (!(this.mm_1 === this))
+  LinkedListNode.prototype.addOneIfEmpty_cbgboi_k$ = function (node) {
+    if (!(this._next_1 === this))
       return false;
-    this.tm(node);
+    this.addLast_uyctnf_k$(node);
     return true;
   };
-  LinkedListNode.prototype.vm = function (node, condition) {
+  LinkedListNode.prototype.addLastIf_h8xph4_k$ = function (node, condition) {
     if (!condition())
       return false;
-    this.tm(node);
+    this.addLast_uyctnf_k$(node);
     return true;
   };
+  LinkedListNode.prototype.addLastIfPrev_bzlxtw_k$ = function (node, predicate) {
+    if (!predicate(this._prev_1))
+      return false;
+    this.addLast_uyctnf_k$(node);
+    return true;
+  };
+  LinkedListNode.prototype.addLastIfPrevAndIf_gphed7_k$ = function (node, predicate, condition) {
+    if (!predicate(this._prev_1))
+      return false;
+    if (!condition())
+      return false;
+    this.addLast_uyctnf_k$(node);
+    return true;
+  };
+  LinkedListNode.prototype.helpRemove_v3vfak_k$ = function () {
+  };
+  LinkedListNode.prototype.removeFirstOrNull_eges3a_k$ = function () {
+    var next = this._next_1;
+    if (next === this)
+      return null;
+    {
+      var tmp0_check = next.removeImpl_i5v938_k$();
+      {
+      }
+      if (!tmp0_check) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Should remove';
+        }
+        var message = tmp$ret$0;
+        throw IllegalStateException_init_$Create$(toString_0(message));
+      }
+    }
+    return next;
+  };
   LinkedListNode.$metadata$ = classMeta('LinkedListNode');
+  function PrepareOp(affected, desc, atomicOp) {
+    OpDescriptor.call(this);
+    this.affected_1 = affected;
+    this.desc_1 = desc;
+    this.atomicOp_1 = atomicOp;
+  }
+  PrepareOp.prototype.get_affected_lutt4z_k$ = function () {
+    return this.affected_1;
+  };
+  PrepareOp.prototype.get_desc_woknve_k$ = function () {
+    return this.desc_1;
+  };
+  PrepareOp.prototype.get_atomicOp_p2pkuj_k$ = function () {
+    return this.atomicOp_1;
+  };
+  PrepareOp.prototype.perform_8emi3i_k$ = function (affected) {
+    return null;
+  };
+  PrepareOp.prototype.finishPrepare_o9c8d9_k$ = function () {
+  };
+  PrepareOp.$metadata$ = classMeta('PrepareOp', undefined, undefined, undefined, undefined, OpDescriptor.prototype);
+  function AbstractAtomicDesc() {
+    AtomicDesc.call(this);
+  }
+  AbstractAtomicDesc.prototype.onPrepare_soaf0c_k$ = function (prepareOp) {
+    this.finishPrepare_kkga2x_k$(prepareOp);
+    return null;
+  };
+  AbstractAtomicDesc.prototype.onRemoved_gagg6z_k$ = function (affected) {
+  };
+  AbstractAtomicDesc.prototype.prepare_lz7jjr_k$ = function (op) {
+    var affected = this.get_affectedNode_2377z5_k$();
+    var failure = this.failure_mowj19_k$(affected);
+    if (!(failure == null))
+      return failure;
+    return this.onPrepare_soaf0c_k$(new PrepareOp(affected, this, op));
+  };
+  AbstractAtomicDesc.prototype.complete_b09hpj_k$ = function (op, failure) {
+    return this.onComplete_9ma4gp_k$();
+  };
+  AbstractAtomicDesc.prototype.failure_mowj19_k$ = function (affected) {
+    return null;
+  };
+  AbstractAtomicDesc.prototype.retry_84e02v_k$ = function (affected, next) {
+    return false;
+  };
+  AbstractAtomicDesc.$metadata$ = classMeta('AbstractAtomicDesc', undefined, undefined, undefined, undefined, AtomicDesc.prototype);
   function probeCoroutineCreated(completion) {
     return completion;
   }
   function unwrap(exception) {
     return exception;
+  }
+  function recoverAndThrow(exception, $cont) {
+    throw exception;
+  }
+  function initCause(_this__u8e3s4, cause) {
   }
   function CoroutineStackFrame() {
   }
@@ -4284,86 +7541,131 @@
   function synchronized(lock, block) {
     return block();
   }
+  function systemProp_1(propertyName) {
+    return null;
+  }
   function threadContextElements(context) {
     return 0;
   }
-  function CommonThreadLocal() {
-    this.dm_1 = null;
+  function _set_value__lx0xdg($this, _set____db54di) {
+    $this.value_1 = _set____db54di;
   }
-  CommonThreadLocal.prototype.em = function () {
-    var tmp = this.dm_1;
+  function _get_value__a43j40($this) {
+    return $this.value_1;
+  }
+  function CommonThreadLocal() {
+    this.value_1 = null;
+  }
+  CommonThreadLocal.prototype.get_26vq_k$ = function () {
+    var tmp = this.value_1;
     return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
   };
-  CommonThreadLocal.prototype.fm = function (value) {
-    this.dm_1 = value;
+  CommonThreadLocal.prototype.set_hda1d2_k$ = function (value) {
+    this.value_1 = value;
   };
   CommonThreadLocal.$metadata$ = classMeta('CommonThreadLocal');
   //region block: post-declaration
-  JobSupport.prototype.mi = invokeOnCompletion$default;
-  JobSupport.prototype.h2 = plus;
-  JobSupport.prototype.a2 = get;
-  JobSupport.prototype.g2 = fold;
-  JobSupport.prototype.f2 = minusKey;
-  AbstractCoroutine.prototype.mi = invokeOnCompletion$default;
-  AbstractCoroutine.prototype.h2 = plus;
-  AbstractCoroutine.prototype.a2 = get;
-  AbstractCoroutine.prototype.g2 = fold;
-  AbstractCoroutine.prototype.f2 = minusKey;
-  StandaloneCoroutine.prototype.mi = invokeOnCompletion$default;
-  StandaloneCoroutine.prototype.h2 = plus;
-  StandaloneCoroutine.prototype.a2 = get;
-  StandaloneCoroutine.prototype.g2 = fold;
-  StandaloneCoroutine.prototype.f2 = minusKey;
-  LazyStandaloneCoroutine.prototype.mi = invokeOnCompletion$default;
-  LazyStandaloneCoroutine.prototype.h2 = plus;
-  LazyStandaloneCoroutine.prototype.a2 = get;
-  LazyStandaloneCoroutine.prototype.g2 = fold;
-  LazyStandaloneCoroutine.prototype.f2 = minusKey;
-  CoroutineDispatcher.prototype.a2 = get_0;
-  CoroutineDispatcher.prototype.g2 = fold;
-  CoroutineDispatcher.prototype.f2 = minusKey_0;
-  CoroutineDispatcher.prototype.h2 = plus;
-  EventLoop.prototype.h2 = plus;
-  EventLoop.prototype.a2 = get_0;
-  EventLoop.prototype.g2 = fold;
-  EventLoop.prototype.f2 = minusKey_0;
-  JobImpl.prototype.mi = invokeOnCompletion$default;
-  JobImpl.prototype.h2 = plus;
-  JobImpl.prototype.a2 = get;
-  JobImpl.prototype.g2 = fold;
-  JobImpl.prototype.f2 = minusKey;
-  MainCoroutineDispatcher.prototype.h2 = plus;
-  MainCoroutineDispatcher.prototype.a2 = get_0;
-  MainCoroutineDispatcher.prototype.g2 = fold;
-  MainCoroutineDispatcher.prototype.f2 = minusKey_0;
-  Unconfined.prototype.h2 = plus;
-  Unconfined.prototype.a2 = get_0;
-  Unconfined.prototype.g2 = fold;
-  Unconfined.prototype.f2 = minusKey_0;
-  JsMainDispatcher.prototype.h2 = plus;
-  JsMainDispatcher.prototype.a2 = get_0;
-  JsMainDispatcher.prototype.g2 = fold;
-  JsMainDispatcher.prototype.f2 = minusKey_0;
-  UnconfinedEventLoop.prototype.h2 = plus;
-  UnconfinedEventLoop.prototype.a2 = get_0;
-  UnconfinedEventLoop.prototype.g2 = fold;
-  UnconfinedEventLoop.prototype.f2 = minusKey_0;
-  SetTimeoutBasedDispatcher.prototype.h2 = plus;
-  SetTimeoutBasedDispatcher.prototype.a2 = get_0;
-  SetTimeoutBasedDispatcher.prototype.g2 = fold;
-  SetTimeoutBasedDispatcher.prototype.f2 = minusKey_0;
-  NodeDispatcher.prototype.h2 = plus;
-  NodeDispatcher.prototype.a2 = get_0;
-  NodeDispatcher.prototype.g2 = fold;
-  NodeDispatcher.prototype.f2 = minusKey_0;
-  SetTimeoutDispatcher.prototype.h2 = plus;
-  SetTimeoutDispatcher.prototype.a2 = get_0;
-  SetTimeoutDispatcher.prototype.g2 = fold;
-  SetTimeoutDispatcher.prototype.f2 = minusKey_0;
-  WindowDispatcher.prototype.h2 = plus;
-  WindowDispatcher.prototype.a2 = get_0;
-  WindowDispatcher.prototype.g2 = fold;
-  WindowDispatcher.prototype.f2 = minusKey_0;
+  JobSupport.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
+  JobSupport.prototype.cancel$default_bm1z3z_k$ = cancel$default;
+  JobSupport.prototype.cancel$default_5qyvia_k$ = cancel$default_0;
+  JobSupport.prototype.cancel_2kogtl_k$ = cancel;
+  JobSupport.prototype.plus_ee14jq_k$ = plus_0;
+  JobSupport.prototype.plus_rgw9wi_k$ = plus;
+  JobSupport.prototype.get_1pi7hg_k$ = get;
+  JobSupport.prototype.fold_6dbyow_k$ = fold;
+  JobSupport.prototype.minusKey_y21q55_k$ = minusKey;
+  AbstractCoroutine.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
+  AbstractCoroutine.prototype.cancel$default_bm1z3z_k$ = cancel$default;
+  AbstractCoroutine.prototype.cancel$default_5qyvia_k$ = cancel$default_0;
+  AbstractCoroutine.prototype.cancel_2kogtl_k$ = cancel;
+  AbstractCoroutine.prototype.plus_ee14jq_k$ = plus_0;
+  AbstractCoroutine.prototype.plus_rgw9wi_k$ = plus;
+  AbstractCoroutine.prototype.get_1pi7hg_k$ = get;
+  AbstractCoroutine.prototype.fold_6dbyow_k$ = fold;
+  AbstractCoroutine.prototype.minusKey_y21q55_k$ = minusKey;
+  StandaloneCoroutine.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
+  StandaloneCoroutine.prototype.cancel$default_bm1z3z_k$ = cancel$default;
+  StandaloneCoroutine.prototype.cancel$default_5qyvia_k$ = cancel$default_0;
+  StandaloneCoroutine.prototype.cancel_2kogtl_k$ = cancel;
+  StandaloneCoroutine.prototype.plus_ee14jq_k$ = plus_0;
+  StandaloneCoroutine.prototype.plus_rgw9wi_k$ = plus;
+  StandaloneCoroutine.prototype.get_1pi7hg_k$ = get;
+  StandaloneCoroutine.prototype.fold_6dbyow_k$ = fold;
+  StandaloneCoroutine.prototype.minusKey_y21q55_k$ = minusKey;
+  LazyStandaloneCoroutine.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
+  LazyStandaloneCoroutine.prototype.cancel$default_bm1z3z_k$ = cancel$default;
+  LazyStandaloneCoroutine.prototype.cancel$default_5qyvia_k$ = cancel$default_0;
+  LazyStandaloneCoroutine.prototype.cancel_2kogtl_k$ = cancel;
+  LazyStandaloneCoroutine.prototype.plus_ee14jq_k$ = plus_0;
+  LazyStandaloneCoroutine.prototype.plus_rgw9wi_k$ = plus;
+  LazyStandaloneCoroutine.prototype.get_1pi7hg_k$ = get;
+  LazyStandaloneCoroutine.prototype.fold_6dbyow_k$ = fold;
+  LazyStandaloneCoroutine.prototype.minusKey_y21q55_k$ = minusKey;
+  CancellableContinuationImpl.prototype.cancel$default_5qyvia_k$ = cancel$default_1;
+  CancellableContinuationImpl.prototype.tryResume$default_sti3on_k$ = tryResume$default;
+  CoroutineDispatcher.prototype.get_1pi7hg_k$ = get_0;
+  CoroutineDispatcher.prototype.fold_6dbyow_k$ = fold;
+  CoroutineDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
+  CoroutineDispatcher.prototype.plus_rgw9wi_k$ = plus;
+  EventLoop.prototype.plus_rgw9wi_k$ = plus;
+  EventLoop.prototype.get_1pi7hg_k$ = get_0;
+  EventLoop.prototype.fold_6dbyow_k$ = fold;
+  EventLoop.prototype.minusKey_y21q55_k$ = minusKey_0;
+  AwaitContinuation.prototype.cancel$default_5qyvia_k$ = cancel$default_1;
+  AwaitContinuation.prototype.tryResume$default_sti3on_k$ = tryResume$default;
+  JobImpl.prototype.invokeOnCompletion$default_7q548c_k$ = invokeOnCompletion$default;
+  JobImpl.prototype.cancel$default_bm1z3z_k$ = cancel$default;
+  JobImpl.prototype.cancel$default_5qyvia_k$ = cancel$default_0;
+  JobImpl.prototype.cancel_2kogtl_k$ = cancel;
+  JobImpl.prototype.plus_ee14jq_k$ = plus_0;
+  JobImpl.prototype.plus_rgw9wi_k$ = plus;
+  JobImpl.prototype.get_1pi7hg_k$ = get;
+  JobImpl.prototype.fold_6dbyow_k$ = fold;
+  JobImpl.prototype.minusKey_y21q55_k$ = minusKey;
+  MainCoroutineDispatcher.prototype.plus_rgw9wi_k$ = plus;
+  MainCoroutineDispatcher.prototype.get_1pi7hg_k$ = get_0;
+  MainCoroutineDispatcher.prototype.fold_6dbyow_k$ = fold;
+  MainCoroutineDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
+  Unconfined.prototype.plus_rgw9wi_k$ = plus;
+  Unconfined.prototype.get_1pi7hg_k$ = get_0;
+  Unconfined.prototype.fold_6dbyow_k$ = fold;
+  Unconfined.prototype.minusKey_y21q55_k$ = minusKey_0;
+  YieldContext.prototype.get_1pi7hg_k$ = get;
+  YieldContext.prototype.fold_6dbyow_k$ = fold;
+  YieldContext.prototype.minusKey_y21q55_k$ = minusKey;
+  YieldContext.prototype.plus_rgw9wi_k$ = plus;
+  LimitedDispatcher.prototype.plus_rgw9wi_k$ = plus;
+  LimitedDispatcher.prototype.get_1pi7hg_k$ = get_0;
+  LimitedDispatcher.prototype.fold_6dbyow_k$ = fold;
+  LimitedDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
+  JsMainDispatcher.prototype.plus_rgw9wi_k$ = plus;
+  JsMainDispatcher.prototype.get_1pi7hg_k$ = get_0;
+  JsMainDispatcher.prototype.fold_6dbyow_k$ = fold;
+  JsMainDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
+  UnconfinedEventLoop.prototype.plus_rgw9wi_k$ = plus;
+  UnconfinedEventLoop.prototype.get_1pi7hg_k$ = get_0;
+  UnconfinedEventLoop.prototype.fold_6dbyow_k$ = fold;
+  UnconfinedEventLoop.prototype.minusKey_y21q55_k$ = minusKey_0;
+  SetTimeoutBasedDispatcher.prototype.plus_rgw9wi_k$ = plus;
+  SetTimeoutBasedDispatcher.prototype.get_1pi7hg_k$ = get_0;
+  SetTimeoutBasedDispatcher.prototype.fold_6dbyow_k$ = fold;
+  SetTimeoutBasedDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
+  SetTimeoutBasedDispatcher.prototype.delay_sw4t2e_k$ = delay;
+  NodeDispatcher.prototype.plus_rgw9wi_k$ = plus;
+  NodeDispatcher.prototype.get_1pi7hg_k$ = get_0;
+  NodeDispatcher.prototype.fold_6dbyow_k$ = fold;
+  NodeDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
+  NodeDispatcher.prototype.delay_sw4t2e_k$ = delay;
+  SetTimeoutDispatcher.prototype.plus_rgw9wi_k$ = plus;
+  SetTimeoutDispatcher.prototype.get_1pi7hg_k$ = get_0;
+  SetTimeoutDispatcher.prototype.fold_6dbyow_k$ = fold;
+  SetTimeoutDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
+  SetTimeoutDispatcher.prototype.delay_sw4t2e_k$ = delay;
+  WindowDispatcher.prototype.plus_rgw9wi_k$ = plus;
+  WindowDispatcher.prototype.get_1pi7hg_k$ = get_0;
+  WindowDispatcher.prototype.fold_6dbyow_k$ = fold;
+  WindowDispatcher.prototype.minusKey_y21q55_k$ = minusKey_0;
+  WindowDispatcher.prototype.delay_sw4t2e_k$ = delay;
   //endregion
   //region block: init
   UNDECIDED = 0;
@@ -4371,11 +7673,18 @@
   RESUMED = 2;
   FALSE = 0;
   TRUE = 1;
+  RETRY = -1;
+  DEFAULT_CONCURRENCY_PROPERTY_NAME = 'kotlinx.coroutines.flow.defaultConcurrency';
   MODE_CANCELLABLE = 1;
   MODE_UNINITIALIZED = -1;
+  MODE_CANCELLABLE_REUSABLE = 2;
+  MODE_UNDISPATCHED = 4;
   MODE_ATOMIC = 0;
+  UNDEFINED_0 = 'undefined';
   counter = 0;
   DEBUG = false;
+  RECOVER_STACK_TRACES = false;
+  MAX_DELAY = new Long(2147483647, 0);
   //endregion
   //region block: exports
   _.$_$ = _.$_$ || {};
