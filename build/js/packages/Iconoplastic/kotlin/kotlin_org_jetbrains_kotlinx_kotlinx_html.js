@@ -13,56 +13,56 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var interfaceMeta = kotlin_kotlin.$_$.q7;
-  var toString = kotlin_kotlin.$_$.l8;
-  var THROW_CCE = kotlin_kotlin.$_$.la;
-  var Annotation = kotlin_kotlin.$_$.ba;
-  var classMeta = kotlin_kotlin.$_$.j7;
-  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.o1;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.u1;
-  var Unit_getInstance = kotlin_kotlin.$_$.r3;
-  var getProgressionLastElement = kotlin_kotlin.$_$.z6;
-  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.e1;
-  var setOf = kotlin_kotlin.$_$.r5;
-  var listOf = kotlin_kotlin.$_$.j5;
-  var getStringHashCode = kotlin_kotlin.$_$.o7;
-  var Map = kotlin_kotlin.$_$.d4;
-  var Entry = kotlin_kotlin.$_$.c4;
-  var emptyMap = kotlin_kotlin.$_$.z4;
-  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.w1;
-  var objectMeta = kotlin_kotlin.$_$.h8;
-  var joinToString$default = kotlin_kotlin.$_$.h;
-  var Set = kotlin_kotlin.$_$.h4;
-  var isInterface = kotlin_kotlin.$_$.y7;
-  var ensureNotNull = kotlin_kotlin.$_$.xa;
-  var emptySet = kotlin_kotlin.$_$.a5;
-  var Regex_init_$Create$ = kotlin_kotlin.$_$.l1;
-  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.v;
-  var charSequenceLength = kotlin_kotlin.$_$.h7;
-  var toSet = kotlin_kotlin.$_$.a6;
-  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.f1;
-  var MutableMap = kotlin_kotlin.$_$.f4;
-  var THROW_ISE = kotlin_kotlin.$_$.ma;
-  var Enum = kotlin_kotlin.$_$.fa;
-  var mapCapacity = kotlin_kotlin.$_$.k5;
-  var coerceAtLeast = kotlin_kotlin.$_$.o8;
-  var LinkedHashMap_init_$Create$_1 = kotlin_kotlin.$_$.d1;
-  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.e2;
-  var Char = kotlin_kotlin.$_$.ca;
-  var to = kotlin_kotlin.$_$.hb;
-  var mapOf = kotlin_kotlin.$_$.l5;
-  var collectionSizeOrDefault = kotlin_kotlin.$_$.k4;
-  var ArrayList_init_$Create$_0 = kotlin_kotlin.$_$.u;
-  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.h2;
-  var maxOrNull = kotlin_kotlin.$_$.m5;
-  var fillArrayVal = kotlin_kotlin.$_$.l7;
-  var numberToChar = kotlin_kotlin.$_$.f8;
-  var Char__rangeTo_impl_tkncvp = kotlin_kotlin.$_$.g2;
-  var last = kotlin_kotlin.$_$.i5;
-  var get_lastIndex = kotlin_kotlin.$_$.g5;
-  var asList = kotlin_kotlin.$_$.ib;
-  var first = kotlin_kotlin.$_$.b5;
-  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.c2;
+  var interfaceMeta = kotlin_kotlin.$_$.g7;
+  var toString = kotlin_kotlin.$_$.z7;
+  var THROW_CCE = kotlin_kotlin.$_$.p9;
+  var Annotation = kotlin_kotlin.$_$.f9;
+  var classMeta = kotlin_kotlin.$_$.a7;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.l1;
+  var Unit_getInstance = kotlin_kotlin.$_$.i3;
+  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.f1;
+  var getProgressionLastElement = kotlin_kotlin.$_$.q6;
+  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.w;
+  var setOf = kotlin_kotlin.$_$.i5;
+  var listOf = kotlin_kotlin.$_$.a5;
+  var getStringHashCode = kotlin_kotlin.$_$.e7;
+  var Map = kotlin_kotlin.$_$.u3;
+  var Entry = kotlin_kotlin.$_$.t3;
+  var emptyMap = kotlin_kotlin.$_$.q4;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.n1;
+  var objectMeta = kotlin_kotlin.$_$.v7;
+  var joinToString$default = kotlin_kotlin.$_$.g;
+  var Set = kotlin_kotlin.$_$.y3;
+  var isInterface = kotlin_kotlin.$_$.o7;
+  var ensureNotNull = kotlin_kotlin.$_$.ba;
+  var emptySet = kotlin_kotlin.$_$.r4;
+  var Regex_init_$Create$ = kotlin_kotlin.$_$.d1;
+  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.n;
+  var charSequenceLength = kotlin_kotlin.$_$.y6;
+  var toSet = kotlin_kotlin.$_$.r5;
+  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.x;
+  var MutableMap = kotlin_kotlin.$_$.w3;
+  var THROW_ISE = kotlin_kotlin.$_$.q9;
+  var Enum = kotlin_kotlin.$_$.j9;
+  var mapCapacity = kotlin_kotlin.$_$.b5;
+  var coerceAtLeast = kotlin_kotlin.$_$.a8;
+  var LinkedHashMap_init_$Create$_1 = kotlin_kotlin.$_$.v;
+  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.v1;
+  var Char = kotlin_kotlin.$_$.g9;
+  var to = kotlin_kotlin.$_$.la;
+  var mapOf = kotlin_kotlin.$_$.c5;
+  var collectionSizeOrDefault = kotlin_kotlin.$_$.b4;
+  var ArrayList_init_$Create$_0 = kotlin_kotlin.$_$.m;
+  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.y1;
+  var maxOrNull = kotlin_kotlin.$_$.d5;
+  var fillArrayVal = kotlin_kotlin.$_$.c7;
+  var numberToChar = kotlin_kotlin.$_$.u7;
+  var Char__rangeTo_impl_tkncvp = kotlin_kotlin.$_$.x1;
+  var last = kotlin_kotlin.$_$.z4;
+  var get_lastIndex = kotlin_kotlin.$_$.x4;
+  var asList = kotlin_kotlin.$_$.ma;
+  var first = kotlin_kotlin.$_$.s4;
+  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.t1;
   //endregion
   //region block: pre-declaration
   function unaryPlus(_this__u8e3s4) {
@@ -149,12 +149,12 @@
   AreaShape.prototype.constructor = AreaShape;
   DIV.prototype = Object.create(HTMLTag.prototype);
   DIV.prototype.constructor = DIV;
+  FOOTER.prototype = Object.create(HTMLTag.prototype);
+  FOOTER.prototype.constructor = FOOTER;
   INPUT.prototype = Object.create(HTMLTag.prototype);
   INPUT.prototype.constructor = INPUT;
   IMG.prototype = Object.create(HTMLTag.prototype);
   IMG.prototype.constructor = IMG;
-  STYLE.prototype = Object.create(HTMLTag.prototype);
-  STYLE.prototype.constructor = STYLE;
   SPAN.prototype = Object.create(HTMLTag.prototype);
   SPAN.prototype.constructor = SPAN;
   //endregion
@@ -190,19 +190,6 @@
   function Unsafe() {
   }
   Unsafe.$metadata$ = interfaceMeta('Unsafe');
-  function _get_sb__ndcaho($this) {
-    return $this.sb_1;
-  }
-  function DefaultUnsafe() {
-    this.sb_1 = StringBuilder_init_$Create$();
-  }
-  DefaultUnsafe.prototype.unaryPlus_g7ydph_k$ = function (_this__u8e3s4) {
-    this.sb_1.append_ssq29y_k$(_this__u8e3s4);
-  };
-  DefaultUnsafe.prototype.toString = function () {
-    return this.sb_1.toString();
-  };
-  DefaultUnsafe.$metadata$ = classMeta('DefaultUnsafe', [Unsafe]);
   function visitAndFinalize(_this__u8e3s4, consumer, block) {
     init_properties_api_kt_ywlw3q();
     var tmp$ret$0;
@@ -236,6 +223,19 @@
     var tmp0_subject = value;
     return tmp0_subject == null ? get_emptyMap() : singletonMapOf(key, value);
   }
+  function _get_sb__ndcaho($this) {
+    return $this.sb_1;
+  }
+  function DefaultUnsafe() {
+    this.sb_1 = StringBuilder_init_$Create$();
+  }
+  DefaultUnsafe.prototype.unaryPlus_g7ydph_k$ = function (_this__u8e3s4) {
+    this.sb_1.append_ssq29y_k$(_this__u8e3s4);
+  };
+  DefaultUnsafe.prototype.toString = function () {
+    return this.sb_1.toString();
+  };
+  DefaultUnsafe.$metadata$ = classMeta('DefaultUnsafe', [Unsafe]);
   function visit(_this__u8e3s4, block) {
     init_properties_api_kt_ywlw3q();
     _this__u8e3s4.get_consumer_tu5133_k$().onTagStart_jhb705_k$(_this__u8e3s4);
@@ -999,38 +999,6 @@
       attributeThScopeEnumThScopeValues = new EnumAttribute(get_thScopeValues());
     }
   }
-  function style(_this__u8e3s4, type, block) {
-    var tmp$ret$1;
-    {
-      var tmp0_visitAndFinalize = new STYLE(attributesMapOf('type', type), _this__u8e3s4);
-      var tmp$ret$0;
-      {
-        if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === _this__u8e3s4)) {
-          throw IllegalArgumentException_init_$Create$('Wrong exception');
-        }
-        {
-          tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize);
-          try {
-            {
-              block(tmp0_visitAndFinalize);
-            }
-          } catch ($p) {
-            if ($p instanceof Error) {
-              tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize, $p);
-            } else {
-              throw $p;
-            }
-          }
-          finally {
-            tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
-          }
-        }
-        tmp$ret$0 = _this__u8e3s4.finalize_b9lof6_k$();
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  }
   function div(_this__u8e3s4, classes, block) {
     var tmp$ret$1;
     {
@@ -1063,12 +1031,44 @@
     }
     return tmp$ret$1;
   }
-  function style$lambda() {
+  function footer(_this__u8e3s4, classes, block) {
+    var tmp$ret$1;
+    {
+      var tmp0_visitAndFinalize = new FOOTER(attributesMapOf('class', classes), _this__u8e3s4);
+      var tmp$ret$0;
+      {
+        if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === _this__u8e3s4)) {
+          throw IllegalArgumentException_init_$Create$('Wrong exception');
+        }
+        {
+          tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize);
+          try {
+            {
+              block(tmp0_visitAndFinalize);
+            }
+          } catch ($p) {
+            if ($p instanceof Error) {
+              tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize, $p);
+            } else {
+              throw $p;
+            }
+          }
+          finally {
+            tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
+          }
+        }
+        tmp$ret$0 = _this__u8e3s4.finalize_b9lof6_k$();
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return tmp$ret$1;
+  }
+  function div$lambda() {
     return function ($this$null) {
       return Unit_getInstance();
     };
   }
-  function div$lambda() {
+  function footer$lambda() {
     return function ($this$null) {
       return Unit_getInstance();
     };
@@ -3410,24 +3410,15 @@
       thScopeValues = tmp$ret$2_15;
     }
   }
-  function CommonAttributeGroupFacadeFlowMetaDataContent() {
-  }
-  CommonAttributeGroupFacadeFlowMetaDataContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowMetaDataContent', [CommonAttributeGroupFacade, FlowMetaDataContent, HtmlBlockTag, HtmlHeadTag]);
-  function HtmlBlockInlineTag() {
-  }
-  HtmlBlockInlineTag.$metadata$ = interfaceMeta('HtmlBlockInlineTag', [CommonAttributeGroupFacade, FlowPhrasingContent, HtmlBlockTag, HtmlInlineTag]);
   function HtmlBlockTag() {
   }
   HtmlBlockTag.$metadata$ = interfaceMeta('HtmlBlockTag', [CommonAttributeGroupFacade, FlowContent]);
+  function HtmlBlockInlineTag() {
+  }
+  HtmlBlockInlineTag.$metadata$ = interfaceMeta('HtmlBlockInlineTag', [CommonAttributeGroupFacade, FlowPhrasingContent, HtmlBlockTag, HtmlInlineTag]);
   function CommonAttributeGroupFacadeFlowInteractivePhrasingContent() {
   }
   CommonAttributeGroupFacadeFlowInteractivePhrasingContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowInteractivePhrasingContent', [CommonAttributeGroupFacade, CommonAttributeGroupFacadeFlowInteractiveContent, FlowInteractiveContent, FlowInteractivePhrasingContent, FlowPhrasingContent, HtmlBlockInlineTag, HtmlBlockTag, HtmlInlineTag]);
-  function FlowMetaDataContent() {
-  }
-  FlowMetaDataContent.$metadata$ = interfaceMeta('FlowMetaDataContent', [FlowContent, MetaDataContent]);
-  function HtmlHeadTag() {
-  }
-  HtmlHeadTag.$metadata$ = interfaceMeta('HtmlHeadTag', [CommonAttributeGroupFacade, MetaDataContent]);
   function FlowPhrasingContent() {
   }
   FlowPhrasingContent.$metadata$ = interfaceMeta('FlowPhrasingContent', [FlowContent, PhrasingContent]);
@@ -3470,9 +3461,6 @@
   function FlowContent() {
   }
   FlowContent.$metadata$ = interfaceMeta('FlowContent', [FlowOrMetaDataOrPhrasingContent, FlowOrHeadingContent, FlowOrMetaDataContent, FlowOrInteractiveContent, FlowOrPhrasingContent, SectioningOrFlowContent, FlowOrInteractiveOrPhrasingContent, Tag]);
-  function MetaDataContent() {
-  }
-  MetaDataContent.$metadata$ = interfaceMeta('MetaDataContent', [FlowOrMetaDataOrPhrasingContent, FlowOrMetaDataContent, Tag]);
   function PhrasingContent() {
   }
   PhrasingContent.$metadata$ = interfaceMeta('PhrasingContent', [FlowOrMetaDataOrPhrasingContent, FlowOrPhrasingContent, FlowOrInteractiveOrPhrasingContent, Tag]);
@@ -3605,6 +3593,14 @@
     return this.consumer_2;
   };
   DIV.$metadata$ = classMeta('DIV', [HtmlBlockTag], undefined, undefined, undefined, HTMLTag.prototype);
+  function FOOTER(initialAttributes, consumer) {
+    HTMLTag.call(this, 'footer', consumer, initialAttributes, null, false, false);
+    this.consumer_2 = consumer;
+  }
+  FOOTER.prototype.get_consumer_tu5133_k$ = function () {
+    return this.consumer_2;
+  };
+  FOOTER.$metadata$ = classMeta('FOOTER', [HtmlBlockTag], undefined, undefined, undefined, HTMLTag.prototype);
   function INPUT(initialAttributes, consumer) {
     HTMLTag.call(this, 'input', consumer, initialAttributes, null, true, true);
     this.consumer_2 = consumer;
@@ -3843,53 +3839,6 @@
     return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'ismap');
   };
   IMG.$metadata$ = classMeta('IMG', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
-  function STYLE(initialAttributes, consumer) {
-    HTMLTag.call(this, 'style', consumer, initialAttributes, null, false, false);
-    this.consumer_2 = consumer;
-  }
-  STYLE.prototype.get_consumer_tu5133_k$ = function () {
-    return this.consumer_2;
-  };
-  STYLE.prototype.set_type_cttd7p_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'type', newValue);
-  };
-  STYLE.prototype.get_type_wovaf7_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'type');
-  };
-  STYLE.prototype.set_media_v43eut_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'media', newValue);
-  };
-  STYLE.prototype.get_media_iv5mt7_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'media');
-  };
-  STYLE.prototype.set_scoped_mdf3uk_k$ = function (newValue) {
-    get_attributeBooleanTicker().set_r65rse_k$(this, 'scoped', newValue);
-  };
-  STYLE.prototype.get_scoped_jebiqh_k$ = function () {
-    return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'scoped');
-  };
-  STYLE.prototype.set_nonce_jqrmio_k$ = function (newValue) {
-    get_attributeStringString().set_r65rse_k$(this, 'nonce', newValue);
-  };
-  STYLE.prototype.get_nonce_ivw0jq_k$ = function () {
-    return get_attributeStringString().get_kdqgs6_k$(this, 'nonce');
-  };
-  STYLE.prototype.unaryPlus_31ug2c_k$ = function (_this__u8e3s4) {
-    this.entity_uznif4_k$(_this__u8e3s4);
-  };
-  STYLE.prototype.unaryPlus_g7ydph_k$ = function (_this__u8e3s4) {
-    this.text_yddl45_k$(_this__u8e3s4);
-  };
-  STYLE.prototype.text_yddl45_k$ = function (s) {
-    HTMLTag.prototype.text_yddl45_k$.call(this, s);
-  };
-  STYLE.prototype.text_ojl72r_k$ = function (n) {
-    HTMLTag.prototype.text_ojl72r_k$.call(this, n);
-  };
-  STYLE.prototype.entity_uznif4_k$ = function (e) {
-    HTMLTag.prototype.entity_uznif4_k$.call(this, e);
-  };
-  STYLE.$metadata$ = classMeta('STYLE', [CommonAttributeGroupFacadeFlowMetaDataContent], undefined, undefined, undefined, HTMLTag.prototype);
   function SPAN(initialAttributes, consumer) {
     HTMLTag.call(this, 'span', consumer, initialAttributes, null, true, false);
     this.consumer_2 = consumer;
@@ -4393,6 +4342,12 @@
   DIV.prototype.text_ojl72r_k$ = text_0;
   DIV.prototype.entity_uznif4_k$ = entity;
   DIV.prototype.comment_mqs0p9_k$ = comment;
+  FOOTER.prototype.unaryPlus_31ug2c_k$ = unaryPlus;
+  FOOTER.prototype.unaryPlus_g7ydph_k$ = unaryPlus_0;
+  FOOTER.prototype.text_yddl45_k$ = text;
+  FOOTER.prototype.text_ojl72r_k$ = text_0;
+  FOOTER.prototype.entity_uznif4_k$ = entity;
+  FOOTER.prototype.comment_mqs0p9_k$ = comment;
   INPUT.prototype.unaryPlus_31ug2c_k$ = unaryPlus;
   INPUT.prototype.unaryPlus_g7ydph_k$ = unaryPlus_0;
   INPUT.prototype.text_yddl45_k$ = text;
@@ -4405,7 +4360,6 @@
   IMG.prototype.text_ojl72r_k$ = text_0;
   IMG.prototype.entity_uznif4_k$ = entity;
   IMG.prototype.comment_mqs0p9_k$ = comment;
-  STYLE.prototype.comment_mqs0p9_k$ = comment;
   SPAN.prototype.unaryPlus_31ug2c_k$ = unaryPlus;
   SPAN.prototype.unaryPlus_g7ydph_k$ = unaryPlus_0;
   SPAN.prototype.text_yddl45_k$ = text;
@@ -4422,10 +4376,10 @@
   _.$_$.d = set_onClickFunction;
   _.$_$.e = set_onKeyUpFunction;
   _.$_$.f = DIV;
-  _.$_$.g = IMG;
-  _.$_$.h = INPUT;
-  _.$_$.i = SPAN;
-  _.$_$.j = STYLE;
+  _.$_$.g = FOOTER;
+  _.$_$.h = IMG;
+  _.$_$.i = INPUT;
+  _.$_$.j = SPAN;
   _.$_$.k = attributesMapOf_0;
   _.$_$.l = attributesMapOf;
   _.$_$.m = get_id;

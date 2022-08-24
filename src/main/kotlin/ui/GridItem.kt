@@ -1,5 +1,7 @@
 package ui
 
+import addToBars
+import extensions.elementFromId
 import kotlinx.browser.document
 import kotlinx.html.TagConsumer
 import kotlinx.html.div
@@ -7,6 +9,8 @@ import kotlinx.html.dom.append
 import kotlinx.html.id
 import kotlinx.html.js.onClickFunction
 import kotlinx.html.span
+import org.w3c.dom.HTMLInputElement
+import removeFromBars
 import selectedListStorage
 import toSymbol
 
@@ -16,26 +20,14 @@ fun TagConsumer<*>.GridItem(item: Map.Entry<String, String>) {
         onClickFunction = { _ ->
             if (selectedListStorage.any { it == item.key }) {
                 selectedListStorage = selectedListStorage - item.key
-                document.getElementById("selected-item-${item.key}")?.remove()
+                removeFromBars(item)
                 document.getElementById("grid-item-${item.key}")?.className =
                     document.getElementById("grid-item-${item.key}")?.className?.replace(" active", "")
                         ?: ""
             } else {
                 selectedListStorage = selectedListStorage + item.key
                 document.getElementById("grid-item-${item.key}")?.className += " active"
-                document.getElementById("selected-icons")?.append {
-                    div("row") {
-                        id = "selected-item-${item.key}"
-                        span("icon") {
-                            +item.value.toSymbol()
-                        }
-                        span {
-                            +item.key.replace("_", " ").split(" ").joinToString { value ->
-                                value.replaceFirstChar { it.uppercaseChar() }
-                            }.replace(",", "")
-                        }
-                    }
-                }
+                addToBars(item)
             }
         }
         span("icon") {

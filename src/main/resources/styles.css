@@ -44,6 +44,7 @@
     'opsz' 48
 }
 
+
 @media (prefers-color-scheme: light) {
     body {
         background-color: var(--md-surface-light);
@@ -85,6 +86,19 @@
 
     .search {
         color: var(--md-on-surface-variant-light);
+    }
+
+    .bottom-bar {
+        background-color: var(--md-surface-variant-light);
+        color: var(--md-on-surface-variant-light);
+    }
+
+    .surface-variant-background {
+        background-color: var(--md-surface-variant-light);
+    }
+
+    .expanded-bottom-bar {
+        background-color: var(--md-surface-variant-light);
     }
 }
 
@@ -130,9 +144,49 @@
     .search {
         color: var(--md-on-surface-variant-dark);
     }
+
+    .bottom-bar {
+        background-color: var(--md-surface-variant-dark);
+        color: var(--md-on-surface-variant-dark);
+    }
+
+    .surface-variant-background {
+        background-color: var(--md-surface-variant-dark);
+    }
+
+    .expanded-bottom-bar {
+        background-color: var(--md-surface-variant-dark);
+    }
+}
+
+.surface-variant-background {
+    opacity: 1;
+}
+
+.expanded-bottom-bar {
+    height: 0;
+    width: 100%;
+    transition: all 0.3s;
+    overflow: scroll;
+}
+
+.expanded-bottom-bar.active {
+    width: 100%;
+    height: calc(100vh - 5rem);
+}
+
+.rotate {
+    rotate: 0deg;
+}
+
+.rotate.active {
+    rotate: -180deg;
 }
 
 body {
+    scroll-behavior: smooth;
+    width: 100vw;
+    height: 100vh;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -142,6 +196,7 @@ body {
 span.icon {
     font-family: 'Icons';
     font-size: 4rem;
+    transition: all 0.3s;
 }
 
 .row {
@@ -179,6 +234,23 @@ span.icon {
     .grid {
         max-width: 1080px;
     }
+}
+
+span.button {
+    font-variation-settings: 'FILL' 0, 'wght' 200;
+}
+
+@media (hover: hover) {
+    span.button:hover {
+        font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+}
+span.button.active {
+    font-variation-settings: 'FILL' 1, 'wght' 700;
+}
+
+.click-pointer {
+    cursor: pointer;
 }
 
 .column {
@@ -269,21 +341,60 @@ span.search-icon {
 
 .sticky {
     position: sticky;
-    position: -webkit-sticky;
     top: 0;
     align-self: flex-start;
 }
 
 .picker-card {
-    height: 88vh;
-    margin-right: 2%;
-    padding: 2%;
-    min-width: 300px;
-    max-width: 300px;
-    border-radius: 50px;
-    top: 2%;
+    display: inline-block;
+    height: 100vh;
+    width: 100%;
+    transition: all 0.3s;
+    overflow: scroll;
 }
 
-input {
-    width: 100px;
+.bottom-bar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 5rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    transition: all 0.3s;
+    overflow: scroll;
+    justify-content: space-between;
+}
+
+@media (max-width: 720px) {
+    .bottom-bar {
+        height: 5rem;
+    }
+    .picker-card {
+        width: 0;
+        border-radius: 0;
+        display: none;
+    }
+}
+
+@media (min-width: 720px) {
+    .bottom-bar {
+        height: 0rem;
+    }
+    .picker-card {
+        width: 20rem;
+    }
+    .expanded-bottom-bar.active {
+        height: 0;
+    }
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+}
+
+.stick-right {
+    position: sticky;
+    padding: auto;
+    right: 0;
 }

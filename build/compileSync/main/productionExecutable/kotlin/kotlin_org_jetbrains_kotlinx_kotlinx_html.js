@@ -105,14 +105,16 @@
   AreaShape.prototype.constructor = AreaShape;
   DIV.prototype = Object.create(HTMLTag.prototype);
   DIV.prototype.constructor = DIV;
+  FOOTER.prototype = Object.create(HTMLTag.prototype);
+  FOOTER.prototype.constructor = FOOTER;
   INPUT.prototype = Object.create(HTMLTag.prototype);
   INPUT.prototype.constructor = INPUT;
   IMG.prototype = Object.create(HTMLTag.prototype);
   IMG.prototype.constructor = IMG;
-  STYLE.prototype = Object.create(HTMLTag.prototype);
-  STYLE.prototype.constructor = STYLE;
   SPAN.prototype = Object.create(HTMLTag.prototype);
   SPAN.prototype.constructor = SPAN;
+  STYLE.prototype = Object.create(HTMLTag.prototype);
+  STYLE.prototype.constructor = STYLE;
   //endregion
   function get_emptyMap() {
     init_properties_api_kt_ywlw3q();
@@ -494,7 +496,7 @@
               tmp$ret$3 = tmp$ret$2;
             }
             if (!tmp$ret$3) {
-              tmp0_filterNotTo.c(element);
+              tmp0_filterNotTo.b(element);
             }
           }
           tmp$ret$4 = tmp0_filterNotTo;
@@ -705,10 +707,10 @@
       attributeThScopeEnumThScopeValues = new EnumAttribute(get_thScopeValues());
     }
   }
-  function style(_this__u8e3s4, type, block) {
+  function div(_this__u8e3s4, classes, block) {
     var tmp$ret$1;
     {
-      var tmp0_visitAndFinalize = new STYLE(attributesMapOf('type', type), _this__u8e3s4);
+      var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', classes), _this__u8e3s4);
       var tmp$ret$0;
       {
         if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
@@ -737,10 +739,42 @@
     }
     return tmp$ret$1;
   }
-  function div(_this__u8e3s4, classes, block) {
+  function footer(_this__u8e3s4, classes, block) {
     var tmp$ret$1;
     {
-      var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', classes), _this__u8e3s4);
+      var tmp0_visitAndFinalize = new FOOTER(attributesMapOf('class', classes), _this__u8e3s4);
+      var tmp$ret$0;
+      {
+        if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
+          throw IllegalArgumentException_init_$Create$('Wrong exception');
+        }
+        {
+          tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
+          try {
+            {
+              block(tmp0_visitAndFinalize);
+            }
+          } catch ($p) {
+            if ($p instanceof Error) {
+              tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
+            } else {
+              throw $p;
+            }
+          }
+          finally {
+            tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
+          }
+        }
+        tmp$ret$0 = _this__u8e3s4.nj();
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return tmp$ret$1;
+  }
+  function style(_this__u8e3s4, type, block) {
+    var tmp$ret$1;
+    {
+      var tmp0_visitAndFinalize = new STYLE(attributesMapOf('type', type), _this__u8e3s4);
       var tmp$ret$0;
       {
         if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
@@ -1992,30 +2026,30 @@
       thScopeValues = tmp$ret$2_15;
     }
   }
-  function CommonAttributeGroupFacadeFlowMetaDataContent() {
-  }
-  CommonAttributeGroupFacadeFlowMetaDataContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowMetaDataContent', [CommonAttributeGroupFacade, FlowMetaDataContent, HtmlBlockTag, HtmlHeadTag]);
-  function HtmlBlockInlineTag() {
-  }
-  HtmlBlockInlineTag.$metadata$ = interfaceMeta('HtmlBlockInlineTag', [CommonAttributeGroupFacade, FlowPhrasingContent, HtmlBlockTag, HtmlInlineTag]);
   function HtmlBlockTag() {
   }
   HtmlBlockTag.$metadata$ = interfaceMeta('HtmlBlockTag', [CommonAttributeGroupFacade, FlowContent]);
+  function HtmlBlockInlineTag() {
+  }
+  HtmlBlockInlineTag.$metadata$ = interfaceMeta('HtmlBlockInlineTag', [CommonAttributeGroupFacade, FlowPhrasingContent, HtmlBlockTag, HtmlInlineTag]);
+  function CommonAttributeGroupFacadeFlowMetaDataContent() {
+  }
+  CommonAttributeGroupFacadeFlowMetaDataContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowMetaDataContent', [CommonAttributeGroupFacade, FlowMetaDataContent, HtmlBlockTag, HtmlHeadTag]);
   function CommonAttributeGroupFacadeFlowInteractivePhrasingContent() {
   }
   CommonAttributeGroupFacadeFlowInteractivePhrasingContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowInteractivePhrasingContent', [CommonAttributeGroupFacade, CommonAttributeGroupFacadeFlowInteractiveContent, FlowInteractiveContent, FlowInteractivePhrasingContent, FlowPhrasingContent, HtmlBlockInlineTag, HtmlBlockTag, HtmlInlineTag]);
-  function FlowMetaDataContent() {
-  }
-  FlowMetaDataContent.$metadata$ = interfaceMeta('FlowMetaDataContent', [FlowContent, MetaDataContent]);
-  function HtmlHeadTag() {
-  }
-  HtmlHeadTag.$metadata$ = interfaceMeta('HtmlHeadTag', [CommonAttributeGroupFacade, MetaDataContent]);
   function FlowPhrasingContent() {
   }
   FlowPhrasingContent.$metadata$ = interfaceMeta('FlowPhrasingContent', [FlowContent, PhrasingContent]);
   function HtmlInlineTag() {
   }
   HtmlInlineTag.$metadata$ = interfaceMeta('HtmlInlineTag', [CommonAttributeGroupFacade, PhrasingContent]);
+  function FlowMetaDataContent() {
+  }
+  FlowMetaDataContent.$metadata$ = interfaceMeta('FlowMetaDataContent', [FlowContent, MetaDataContent]);
+  function HtmlHeadTag() {
+  }
+  HtmlHeadTag.$metadata$ = interfaceMeta('HtmlHeadTag', [CommonAttributeGroupFacade, MetaDataContent]);
   function CommonAttributeGroupFacadeFlowInteractiveContent() {
   }
   CommonAttributeGroupFacadeFlowInteractiveContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowInteractiveContent', [CommonAttributeGroupFacade, FlowInteractiveContent, HtmlBlockTag]);
@@ -2052,12 +2086,12 @@
   function FlowContent() {
   }
   FlowContent.$metadata$ = interfaceMeta('FlowContent', [FlowOrMetaDataOrPhrasingContent, FlowOrHeadingContent, FlowOrMetaDataContent, FlowOrInteractiveContent, FlowOrPhrasingContent, SectioningOrFlowContent, FlowOrInteractiveOrPhrasingContent, Tag]);
-  function MetaDataContent() {
-  }
-  MetaDataContent.$metadata$ = interfaceMeta('MetaDataContent', [FlowOrMetaDataOrPhrasingContent, FlowOrMetaDataContent, Tag]);
   function PhrasingContent() {
   }
   PhrasingContent.$metadata$ = interfaceMeta('PhrasingContent', [FlowOrMetaDataOrPhrasingContent, FlowOrPhrasingContent, FlowOrInteractiveOrPhrasingContent, Tag]);
+  function MetaDataContent() {
+  }
+  MetaDataContent.$metadata$ = interfaceMeta('MetaDataContent', [FlowOrMetaDataOrPhrasingContent, FlowOrMetaDataContent, Tag]);
   function InteractiveContent() {
   }
   InteractiveContent.$metadata$ = interfaceMeta('InteractiveContent', [FlowOrInteractiveContent, FlowOrInteractiveOrPhrasingContent, Tag]);
@@ -2167,36 +2201,33 @@
     return this.ym_1;
   };
   DIV.$metadata$ = classMeta('DIV', [HtmlBlockTag], undefined, undefined, undefined, HTMLTag.prototype);
-  function INPUT(initialAttributes, consumer) {
-    HTMLTag.call(this, 'input', consumer, initialAttributes, null, true, true);
+  function FOOTER(initialAttributes, consumer) {
+    HTMLTag.call(this, 'footer', consumer, initialAttributes, null, false, false);
     this.ln_1 = consumer;
   }
-  INPUT.prototype.bj = function () {
+  FOOTER.prototype.bj = function () {
     return this.ln_1;
   };
-  INPUT.prototype.mn = function (newValue) {
+  FOOTER.$metadata$ = classMeta('FOOTER', [HtmlBlockTag], undefined, undefined, undefined, HTMLTag.prototype);
+  function INPUT(initialAttributes, consumer) {
+    HTMLTag.call(this, 'input', consumer, initialAttributes, null, true, true);
+    this.sn_1 = consumer;
+  }
+  INPUT.prototype.bj = function () {
+    return this.sn_1;
+  };
+  INPUT.prototype.tn = function (newValue) {
     get_attributeStringString().xj(this, 'placeholder', newValue);
   };
   INPUT.$metadata$ = classMeta('INPUT', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
   function IMG(initialAttributes, consumer) {
     HTMLTag.call(this, 'img', consumer, initialAttributes, null, true, true);
-    this.tn_1 = consumer;
-  }
-  IMG.prototype.bj = function () {
-    return this.tn_1;
-  };
-  IMG.$metadata$ = classMeta('IMG', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
-  function STYLE(initialAttributes, consumer) {
-    HTMLTag.call(this, 'style', consumer, initialAttributes, null, false, false);
     this.ao_1 = consumer;
   }
-  STYLE.prototype.bj = function () {
+  IMG.prototype.bj = function () {
     return this.ao_1;
   };
-  STYLE.prototype.gj = function (s) {
-    HTMLTag.prototype.gj.call(this, s);
-  };
-  STYLE.$metadata$ = classMeta('STYLE', [CommonAttributeGroupFacadeFlowMetaDataContent], undefined, undefined, undefined, HTMLTag.prototype);
+  IMG.$metadata$ = classMeta('IMG', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
   function SPAN(initialAttributes, consumer) {
     HTMLTag.call(this, 'span', consumer, initialAttributes, null, true, false);
     this.ho_1 = consumer;
@@ -2205,6 +2236,17 @@
     return this.ho_1;
   };
   SPAN.$metadata$ = classMeta('SPAN', [HtmlBlockInlineTag], undefined, undefined, undefined, HTMLTag.prototype);
+  function STYLE(initialAttributes, consumer) {
+    HTMLTag.call(this, 'style', consumer, initialAttributes, null, false, false);
+    this.oo_1 = consumer;
+  }
+  STYLE.prototype.bj = function () {
+    return this.oo_1;
+  };
+  STYLE.prototype.gj = function (s) {
+    HTMLTag.prototype.gj.call(this, s);
+  };
+  STYLE.$metadata$ = classMeta('STYLE', [CommonAttributeGroupFacadeFlowMetaDataContent], undefined, undefined, undefined, HTMLTag.prototype);
   function HTMLTag$attributes$lambda(this$0) {
     return function () {
       return this$0.bj();
@@ -2314,26 +2356,26 @@
     return tmp$ret$0;
   }
   function JSDOMBuilder(document) {
-    this.io_1 = document;
+    this.po_1 = document;
     var tmp = this;
     var tmp$ret$0;
     {
       tmp$ret$0 = ArrayList_init_$Create$();
     }
-    tmp.jo_1 = tmp$ret$0;
-    this.ko_1 = null;
+    tmp.qo_1 = tmp$ret$0;
+    this.ro_1 = null;
   }
   JSDOMBuilder.prototype.ij = function (tag) {
     var tmp;
     if (!(tag.cj() == null)) {
       var tmp$ret$0;
       {
-        var tmp0_asDynamic = this.io_1.createElementNS(ensureNotNull(tag.cj()), tag.aj());
+        var tmp0_asDynamic = this.po_1.createElementNS(ensureNotNull(tag.cj()), tag.aj());
         tmp$ret$0 = tmp0_asDynamic;
       }
       tmp = tmp$ret$0;
     } else {
-      var tmp_0 = this.io_1.createElement(tag.aj());
+      var tmp_0 = this.po_1.createElement(tag.aj());
       tmp = tmp_0 instanceof HTMLElement ? tmp_0 : THROW_CCE();
     }
     var element = tmp;
@@ -2349,21 +2391,21 @@
     }
     var tmp$ret$1;
     {
-      var tmp2_isNotEmpty = this.jo_1;
+      var tmp2_isNotEmpty = this.qo_1;
       tmp$ret$1 = !tmp2_isNotEmpty.i();
     }
     if (tmp$ret$1) {
-      last(this.jo_1).appendChild(element);
+      last(this.qo_1).appendChild(element);
     }
-    this.jo_1.c(element);
+    this.qo_1.b(element);
   };
   JSDOMBuilder.prototype.jj = function (tag, attribute, value) {
-    if (this.jo_1.i())
+    if (this.qo_1.i())
       throw IllegalStateException_init_$Create$('No current tag');
     else {
       var tmp$ret$1;
       {
-        var tmp0_toLowerCase = last(this.jo_1).tagName;
+        var tmp0_toLowerCase = last(this.qo_1).tagName;
         var tmp$ret$0;
         {
           tmp$ret$0 = tmp0_toLowerCase;
@@ -2385,7 +2427,7 @@
       else {
         var tmp$ret$4;
         {
-          var tmp2_let = last(this.jo_1);
+          var tmp2_let = last(this.qo_1);
           {
           }
           var tmp_0;
@@ -2400,12 +2442,12 @@
     }
   };
   JSDOMBuilder.prototype.kj = function (tag, event, value) {
-    if (this.jo_1.i())
+    if (this.qo_1.i())
       throw IllegalStateException_init_$Create$('No current tag');
     else {
       var tmp$ret$1;
       {
-        var tmp0_toLowerCase = last(this.jo_1).tagName;
+        var tmp0_toLowerCase = last(this.qo_1).tagName;
         var tmp$ret$0;
         {
           tmp$ret$0 = tmp0_toLowerCase;
@@ -2425,7 +2467,7 @@
       if (!(tmp === tmp$ret$3))
         throw IllegalStateException_init_$Create$('Wrong current tag');
       else {
-        var tmp2_setEvent = last(this.jo_1);
+        var tmp2_setEvent = last(this.qo_1);
         var tmp$ret$4;
         {
           tmp$ret$4 = tmp2_setEvent;
@@ -2436,12 +2478,12 @@
   };
   JSDOMBuilder.prototype.lj = function (tag) {
     var tmp;
-    if (this.jo_1.i()) {
+    if (this.qo_1.i()) {
       tmp = true;
     } else {
       var tmp$ret$1;
       {
-        var tmp0_toLowerCase = last(this.jo_1).tagName;
+        var tmp0_toLowerCase = last(this.qo_1).tagName;
         var tmp$ret$0;
         {
           tmp$ret$0 = tmp0_toLowerCase;
@@ -2463,16 +2505,16 @@
     if (tmp) {
       throw IllegalStateException_init_$Create$("We haven't entered tag " + tag.aj() + ' but trying to leave');
     }
-    this.ko_1 = this.jo_1.a3(get_lastIndex(this.jo_1));
+    this.ro_1 = this.qo_1.a3(get_lastIndex(this.qo_1));
   };
   JSDOMBuilder.prototype.hj = function (content) {
-    if (this.jo_1.i()) {
+    if (this.qo_1.i()) {
       throw IllegalStateException_init_$Create$('No current DOM node');
     }
-    last(this.jo_1).appendChild(this.io_1.createTextNode(toString(content)));
+    last(this.qo_1).appendChild(this.po_1.createTextNode(toString(content)));
   };
   JSDOMBuilder.prototype.nj = function () {
-    var tmp0_safe_receiver = this.ko_1;
+    var tmp0_safe_receiver = this.ro_1;
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : asR(tmp0_safe_receiver, this);
     var tmp;
     if (tmp1_elvis_lhs == null) {
@@ -2487,7 +2529,7 @@
     return function (it, partial) {
       var tmp;
       if (!partial) {
-        $tmp0_let.c(it);
+        $tmp0_let.b(it);
         $this_append.appendChild(it);
         tmp = Unit_getInstance();
       }
@@ -2510,6 +2552,7 @@
   EnumEncoder.prototype.wj = empty;
   HTMLTag.prototype.gj = text;
   DIV.prototype.gj = text;
+  FOOTER.prototype.gj = text;
   INPUT.prototype.gj = text;
   IMG.prototype.gj = text;
   SPAN.prototype.fj = unaryPlus;
@@ -2524,14 +2567,15 @@
   _.$_$.d = set_onClickFunction;
   _.$_$.e = set_onKeyUpFunction;
   _.$_$.f = DIV;
-  _.$_$.g = IMG;
-  _.$_$.h = INPUT;
-  _.$_$.i = SPAN;
-  _.$_$.j = STYLE;
-  _.$_$.k = attributesMapOf_0;
-  _.$_$.l = attributesMapOf;
-  _.$_$.m = get_id;
-  _.$_$.n = set_id;
+  _.$_$.g = FOOTER;
+  _.$_$.h = IMG;
+  _.$_$.i = INPUT;
+  _.$_$.j = SPAN;
+  _.$_$.k = STYLE;
+  _.$_$.l = attributesMapOf_0;
+  _.$_$.m = attributesMapOf;
+  _.$_$.n = get_id;
+  _.$_$.o = set_id;
   //endregion
   return _;
 }));

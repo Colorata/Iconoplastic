@@ -16,88 +16,88 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var THROW_CCE = kotlin_kotlin.$_$.la;
-  var isObject = kotlin_kotlin.$_$.a8;
-  var Unit_getInstance = kotlin_kotlin.$_$.r3;
-  var plus = kotlin_kotlin.$_$.t6;
-  var get = kotlin_kotlin.$_$.p6;
-  var fold = kotlin_kotlin.$_$.o6;
-  var minusKey = kotlin_kotlin.$_$.q6;
-  var Continuation = kotlin_kotlin.$_$.n6;
-  var classMeta = kotlin_kotlin.$_$.j7;
-  var Annotation = kotlin_kotlin.$_$.ba;
-  var EmptyCoroutineContext_getInstance = kotlin_kotlin.$_$.a3;
-  var createCoroutineUnintercepted = kotlin_kotlin.$_$.g6;
-  var intercepted = kotlin_kotlin.$_$.h6;
-  var interfaceMeta = kotlin_kotlin.$_$.q7;
-  var isInterface = kotlin_kotlin.$_$.y7;
-  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.w1;
-  var toString = kotlin_kotlin.$_$.gb;
-  var toString_0 = kotlin_kotlin.$_$.l8;
+  var THROW_CCE = kotlin_kotlin.$_$.p9;
+  var isObject = kotlin_kotlin.$_$.q7;
+  var Unit_getInstance = kotlin_kotlin.$_$.i3;
+  var plus = kotlin_kotlin.$_$.k6;
+  var get = kotlin_kotlin.$_$.g6;
+  var fold = kotlin_kotlin.$_$.f6;
+  var minusKey = kotlin_kotlin.$_$.h6;
+  var Continuation = kotlin_kotlin.$_$.e6;
+  var classMeta = kotlin_kotlin.$_$.a7;
+  var Annotation = kotlin_kotlin.$_$.f9;
+  var EmptyCoroutineContext_getInstance = kotlin_kotlin.$_$.r2;
+  var createCoroutineUnintercepted = kotlin_kotlin.$_$.x5;
+  var intercepted = kotlin_kotlin.$_$.y5;
+  var interfaceMeta = kotlin_kotlin.$_$.g7;
+  var isInterface = kotlin_kotlin.$_$.o7;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.n1;
+  var toString = kotlin_kotlin.$_$.ka;
+  var toString_0 = kotlin_kotlin.$_$.z7;
   var atomic$int$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.e;
   var atomic$ref$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.d;
-  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.e6;
-  var objectMeta = kotlin_kotlin.$_$.h8;
-  var hashCode = kotlin_kotlin.$_$.p7;
-  var equals = kotlin_kotlin.$_$.k7;
+  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.v5;
+  var objectMeta = kotlin_kotlin.$_$.v7;
+  var hashCode = kotlin_kotlin.$_$.f7;
+  var equals = kotlin_kotlin.$_$.b7;
   var atomic$boolean$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.b;
-  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.j1;
-  var Result__exceptionOrNull_impl_p6xea9 = kotlin_kotlin.$_$.k2;
-  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.m2;
-  var AbstractCoroutineContextKey = kotlin_kotlin.$_$.j6;
-  var Key_getInstance = kotlin_kotlin.$_$.z2;
-  var AbstractCoroutineContextElement = kotlin_kotlin.$_$.i6;
-  var get_0 = kotlin_kotlin.$_$.k6;
-  var minusKey_0 = kotlin_kotlin.$_$.l6;
-  var ContinuationInterceptor = kotlin_kotlin.$_$.m6;
-  var Key = kotlin_kotlin.$_$.s6;
-  var Element = kotlin_kotlin.$_$.r6;
-  var RuntimeException_init_$Create$ = kotlin_kotlin.$_$.a2;
-  var THROW_ISE = kotlin_kotlin.$_$.ma;
-  var Enum = kotlin_kotlin.$_$.fa;
-  var startCoroutine = kotlin_kotlin.$_$.x6;
-  var noWhenBranchMatchedException = kotlin_kotlin.$_$.db;
-  var startCoroutine_0 = kotlin_kotlin.$_$.y6;
-  var Long = kotlin_kotlin.$_$.ia;
-  var Companion_getInstance = kotlin_kotlin.$_$.l3;
-  var RuntimeException = kotlin_kotlin.$_$.ka;
-  var RuntimeException_init_$Init$ = kotlin_kotlin.$_$.z1;
-  var captureStack = kotlin_kotlin.$_$.d7;
-  var Error_0 = kotlin_kotlin.$_$.ga;
-  var Error_init_$Init$ = kotlin_kotlin.$_$.p1;
-  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.o1;
-  var anyToString = kotlin_kotlin.$_$.a7;
-  var throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.fb;
-  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.u;
-  var CancellationException = kotlin_kotlin.$_$.d6;
-  var ArrayList = kotlin_kotlin.$_$.s3;
-  var CoroutineImpl = kotlin_kotlin.$_$.u6;
-  var SequenceScope = kotlin_kotlin.$_$.a9;
-  var IllegalStateException_init_$Create$_0 = kotlin_kotlin.$_$.x1;
-  var sequence = kotlin_kotlin.$_$.b9;
-  var Companion_getInstance_0 = kotlin_kotlin.$_$.m3;
-  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.j2;
-  var createFailure = kotlin_kotlin.$_$.wa;
-  var SuspendFunction1 = kotlin_kotlin.$_$.v6;
-  var UnsupportedOperationException = kotlin_kotlin.$_$.ta;
-  var CancellationException_init_$Init$ = kotlin_kotlin.$_$.i1;
-  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.c2;
-  var fillArrayVal = kotlin_kotlin.$_$.l7;
-  var IntCompanionObject_getInstance = kotlin_kotlin.$_$.f3;
-  var arrayCopy = kotlin_kotlin.$_$.i4;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.u1;
-  var ensureNotNull = kotlin_kotlin.$_$.xa;
-  var toLong = kotlin_kotlin.$_$.j8;
+  var CancellationException_init_$Create$ = kotlin_kotlin.$_$.b1;
+  var Result__exceptionOrNull_impl_p6xea9 = kotlin_kotlin.$_$.b2;
+  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.d2;
+  var AbstractCoroutineContextKey = kotlin_kotlin.$_$.a6;
+  var Key_getInstance = kotlin_kotlin.$_$.q2;
+  var AbstractCoroutineContextElement = kotlin_kotlin.$_$.z5;
+  var get_0 = kotlin_kotlin.$_$.b6;
+  var minusKey_0 = kotlin_kotlin.$_$.c6;
+  var ContinuationInterceptor = kotlin_kotlin.$_$.d6;
+  var Key = kotlin_kotlin.$_$.j6;
+  var Element = kotlin_kotlin.$_$.i6;
+  var RuntimeException_init_$Create$ = kotlin_kotlin.$_$.r1;
+  var THROW_ISE = kotlin_kotlin.$_$.q9;
+  var Enum = kotlin_kotlin.$_$.j9;
+  var startCoroutine = kotlin_kotlin.$_$.o6;
+  var noWhenBranchMatchedException = kotlin_kotlin.$_$.ha;
+  var startCoroutine_0 = kotlin_kotlin.$_$.p6;
+  var Long = kotlin_kotlin.$_$.m9;
+  var Companion_getInstance = kotlin_kotlin.$_$.c3;
+  var RuntimeException = kotlin_kotlin.$_$.o9;
+  var RuntimeException_init_$Init$ = kotlin_kotlin.$_$.q1;
+  var captureStack = kotlin_kotlin.$_$.u6;
+  var Error_0 = kotlin_kotlin.$_$.k9;
+  var Error_init_$Init$ = kotlin_kotlin.$_$.g1;
+  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.f1;
+  var anyToString = kotlin_kotlin.$_$.r6;
+  var throwUninitializedPropertyAccessException = kotlin_kotlin.$_$.ja;
+  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.m;
+  var CancellationException = kotlin_kotlin.$_$.u5;
+  var ArrayList = kotlin_kotlin.$_$.j3;
+  var CoroutineImpl = kotlin_kotlin.$_$.l6;
+  var SequenceScope = kotlin_kotlin.$_$.i8;
+  var IllegalStateException_init_$Create$_0 = kotlin_kotlin.$_$.o1;
+  var sequence = kotlin_kotlin.$_$.j8;
+  var Companion_getInstance_0 = kotlin_kotlin.$_$.d3;
+  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.a2;
+  var createFailure = kotlin_kotlin.$_$.aa;
+  var SuspendFunction1 = kotlin_kotlin.$_$.m6;
+  var UnsupportedOperationException = kotlin_kotlin.$_$.x9;
+  var CancellationException_init_$Init$ = kotlin_kotlin.$_$.a1;
+  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.t1;
+  var fillArrayVal = kotlin_kotlin.$_$.c7;
+  var IntCompanionObject_getInstance = kotlin_kotlin.$_$.w2;
+  var arrayCopy = kotlin_kotlin.$_$.z3;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.l1;
+  var ensureNotNull = kotlin_kotlin.$_$.ba;
+  var toLong = kotlin_kotlin.$_$.x7;
   var atomic$long$1 = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.c;
   var atomicfu$AtomicRefArray$ofNulls = kotlin_org_jetbrains_kotlinx_atomicfu.$_$.a;
-  var toLongOrNull = kotlin_kotlin.$_$.r9;
-  var createCoroutineUnintercepted_0 = kotlin_kotlin.$_$.f6;
+  var toLongOrNull = kotlin_kotlin.$_$.v8;
+  var createCoroutineUnintercepted_0 = kotlin_kotlin.$_$.w5;
   var getKClassFromExpression = kotlin_kotlin.$_$.d;
-  var CancellationException_init_$Init$_0 = kotlin_kotlin.$_$.k1;
-  var getStringHashCode = kotlin_kotlin.$_$.o7;
-  var coerceIn = kotlin_kotlin.$_$.s8;
-  var HashSet_init_$Create$ = kotlin_kotlin.$_$.a1;
-  var UnsupportedOperationException_init_$Create$_0 = kotlin_kotlin.$_$.b2;
+  var CancellationException_init_$Init$_0 = kotlin_kotlin.$_$.c1;
+  var getStringHashCode = kotlin_kotlin.$_$.e7;
+  var coerceIn = kotlin_kotlin.$_$.c8;
+  var HashSet_init_$Create$ = kotlin_kotlin.$_$.s;
+  var UnsupportedOperationException_init_$Create$_0 = kotlin_kotlin.$_$.s1;
   //endregion
   //region block: pre-declaration
   function cancel$default(cause, $mask0, $handler) {
@@ -1535,15 +1535,6 @@
   function CoroutineScope() {
   }
   CoroutineScope.$metadata$ = interfaceMeta('CoroutineScope');
-  function CoroutineScope_0(context) {
-    var tmp;
-    if (!(context.get_1pi7hg_k$(Key_getInstance_2()) == null)) {
-      tmp = context;
-    } else {
-      tmp = context.plus_rgw9wi_k$(Job$default(null, 1, null));
-    }
-    return new ContextScope(tmp);
-  }
   var CoroutineStart_DEFAULT_instance;
   var CoroutineStart_LAZY_instance;
   var CoroutineStart_ATOMIC_instance;
@@ -6141,16 +6132,6 @@
     return !tmp.and_jhajnj_k$(new Long(0, 536870912)).equals(new Long(0, 0));
   };
   LockFreeTaskQueueCore.$metadata$ = classMeta('LockFreeTaskQueueCore');
-  function ContextScope(context) {
-    this.coroutineContext_1 = context;
-  }
-  ContextScope.prototype.get_coroutineContext_115oqo_k$ = function () {
-    return this.coroutineContext_1;
-  };
-  ContextScope.prototype.toString = function () {
-    return 'CoroutineScope(coroutineContext=' + this.coroutineContext_1 + ')';
-  };
-  ContextScope.$metadata$ = classMeta('ContextScope', [CoroutineScope]);
   function Symbol(symbol) {
     this.symbol_1 = symbol;
   }
@@ -7689,10 +7670,9 @@
   //region block: exports
   _.$_$ = _.$_$ || {};
   _.$_$.a = await_0;
-  _.$_$.b = launch$default;
-  _.$_$.c = Dispatchers_getInstance;
-  _.$_$.d = CoroutineScope_0;
-  _.$_$.e = CoroutineScope;
+  _.$_$.b = Job$default;
+  _.$_$.c = launch$default;
+  _.$_$.d = CoroutineScope;
   //endregion
   return _;
 }));

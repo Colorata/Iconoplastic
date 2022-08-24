@@ -46,32 +46,35 @@
   var toMap = kotlin_kotlin.$_$.f5;
   var classMeta = kotlin_kotlin.$_$.n6;
   var Unit_getInstance = kotlin_kotlin.$_$.d3;
-  var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.l;
+  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
+  var isInterface = kotlin_kotlin.$_$.b7;
+  var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
+  var get_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.n;
+  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.w;
+  var contains = kotlin_kotlin.$_$.u7;
+  var plus = kotlin_kotlin.$_$.r9;
+  var replace$default = kotlin_kotlin.$_$.j;
+  var Job$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
+  var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.m;
   var DIV = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.f;
   var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.i1;
-  var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
-  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
-  var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
-  var attributesMapOf_0 = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.k;
-  var IMG = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.g;
-  var SPAN = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.i;
+  var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
+  var attributesMapOf_0 = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.l;
+  var IMG = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.h;
+  var SPAN = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.j;
   var enumEncode = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.a;
-  var INPUT = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.h;
-  var set_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.n;
+  var INPUT = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.i;
+  var set_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.o;
   var set_onChangeFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.c;
   var set_onKeyUpFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.e;
+  var FOOTER = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.g;
+  var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
   var toInt = kotlin_kotlin.$_$.e8;
   var Companion_getInstance_0 = kotlin_kotlin.$_$.w2;
   var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.t1;
   var numberToChar = kotlin_kotlin.$_$.h7;
   var toString = kotlin_kotlin.$_$.u1;
-  var STYLE = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.j;
-  var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
-  var CoroutineScope_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e;
-  var isInterface = kotlin_kotlin.$_$.b7;
-  var get_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.m;
-  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.w;
-  var contains = kotlin_kotlin.$_$.u7;
+  var STYLE = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.k;
   var SuspendFunction1 = kotlin_kotlin.$_$.a6;
   var Default_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_json.$_$.a;
   var List = kotlin_kotlin.$_$.m3;
@@ -83,26 +86,23 @@
   var serializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.y1;
   var KSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.s1;
   var emptyList = kotlin_kotlin.$_$.i4;
-  var Collection = kotlin_kotlin.$_$.f3;
-  var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
-  var replace$default = kotlin_kotlin.$_$.j;
-  var joinToString$default = kotlin_kotlin.$_$.g;
   var charSequenceLength = kotlin_kotlin.$_$.l6;
   var charSequenceGet = kotlin_kotlin.$_$.k6;
   var uppercaseChar = kotlin_kotlin.$_$.n8;
-  var plus = kotlin_kotlin.$_$.w4;
-  var plus_0 = kotlin_kotlin.$_$.r9;
+  var joinToString$default = kotlin_kotlin.$_$.g;
+  var Collection = kotlin_kotlin.$_$.f3;
+  var plus_0 = kotlin_kotlin.$_$.w4;
   var minus = kotlin_kotlin.$_$.u4;
   //endregion
   //region block: pre-declaration
   $getCodepointsCOROUTINE$0.prototype = Object.create(CoroutineImpl.prototype);
   $getCodepointsCOROUTINE$0.prototype.constructor = $getCodepointsCOROUTINE$0;
-  sayHello$slambda.prototype = Object.create(CoroutineImpl.prototype);
-  sayHello$slambda.prototype.constructor = sayHello$slambda;
+  App$display$slambda.prototype = Object.create(CoroutineImpl.prototype);
+  App$display$slambda.prototype.constructor = App$display$slambda;
   //endregion
   function $getCodepointsCOROUTINE$0(_this__u8e3s4, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.r1o_1 = _this__u8e3s4;
+    this.w1o_1 = _this__u8e3s4;
   }
   $getCodepointsCOROUTINE$0.prototype.ci = function () {
     var suspendResult = this.uh_1;
@@ -113,17 +113,17 @@
           case 0:
             this.th_1 = 3;
             this.sh_1 = 1;
-            suspendResult = await_0(window.fetch(this.r1o_1.u1o_1 + '/download/codepoints'), this);
+            suspendResult = await_0(window.fetch(this.w1o_1.z1o_1 + '/download/codepoints'), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.s1o_1 = suspendResult;
-            this.t1o_1 = this.s1o_1.text();
+            this.x1o_1 = suspendResult;
+            this.y1o_1 = this.x1o_1.text();
             this.sh_1 = 2;
-            suspendResult = await_0(this.t1o_1, this);
+            suspendResult = await_0(this.y1o_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -131,7 +131,6 @@
             continue $sm;
           case 2:
             var response = suspendResult;
-            console.log(response);
             var tmp0_associate = split$default(response, ['\n'], false, 0, 6, null);
             var capacity = coerceAtLeast(mapCapacity(collectionSizeOrDefault(tmp0_associate, 10)), 16);
             var tmp1_associateTo = LinkedHashMap_init_$Create$(capacity);
@@ -187,360 +186,42 @@
   };
   $getCodepointsCOROUTINE$0.$metadata$ = classMeta('$getCodepointsCOROUTINE$0', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function Api() {
-    this.u1o_1 = 'https://iconoplastic-api.herokuapp.com/';
+    this.z1o_1 = 'https://iconoplastic-api.herokuapp.com/';
   }
-  Api.prototype.v1o = function ($cont) {
+  Api.prototype.a1p = function ($cont) {
     var tmp = new $getCodepointsCOROUTINE$0(this, $cont);
     tmp.uh_1 = Unit_getInstance();
     tmp.vh_1 = null;
     return tmp.ci();
   };
   Api.$metadata$ = classMeta('Api');
-  function main() {
-    var tmp = window;
-    tmp.onload = main$lambda();
+  function set_isBarExpanded(_set____db54di) {
+    isBarExpanded = _set____db54di;
   }
-  function sayHello(_this__u8e3s4) {
-    var response = {_v: null};
-    var tmp$ret$17;
-    {
-      var tmp$ret$16;
-      {
-        var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row'), _this__u8e3s4);
-        var tmp$ret$15;
-        {
-          if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
-            throw IllegalArgumentException_init_$Create$('Wrong exception');
-          }
-          {
-            tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
-            try {
-              {
-                {
-                  var tmp = CoroutineScope(Dispatchers_getInstance().qw_1);
-                  launch$default(tmp, null, null, sayHello$slambda_0(response, null), 3, null);
-                  var tmp$ret$14;
-                  {
-                    var tmp$ret$13;
-                    {
-                      var tmp0_visit = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize.bj());
-                      tmp0_visit.bj().ij(tmp0_visit);
-                      var tmp_0;
-                      try {
-                        var tmp$ret$2;
-                        {
-                          var tmp$ret$1;
-                          {
-                            var tmp0_visit_0 = new IMG(attributesMapOf_0(['alt', null, 'src', null, 'class', 'logo']), tmp0_visit.bj());
-                            tmp0_visit_0.bj().ij(tmp0_visit_0);
-                            var tmp_1;
-                            try {
-                              var tmp$ret$0;
-                              {
-                                tmp$ret$0 = Unit_getInstance();
-                              }
-                              tmp_1 = tmp$ret$0;
-                            } catch ($p) {
-                              var tmp_2;
-                              if ($p instanceof Error) {
-                                tmp_2 = tmp0_visit_0.bj().mj(tmp0_visit_0, $p);
-                              } else {
-                                throw $p;
-                              }
-                              tmp_1 = tmp_2;
-                            }
-                            finally {
-                              tmp0_visit_0.bj().lj(tmp0_visit_0);
-                            }
-                            tmp$ret$1 = tmp_1;
-                          }
-                          tmp$ret$2 = tmp$ret$1;
-                        }
-                        var tmp$ret$10;
-                        {
-                          var tmp$ret$9;
-                          {
-                            var tmp0_visit_1 = new DIV(attributesMapOf('class', 'search-box search-row'), tmp0_visit.bj());
-                            tmp0_visit_1.bj().ij(tmp0_visit_1);
-                            var tmp_3;
-                            try {
-                              var tmp$ret$4;
-                              {
-                                var tmp$ret$3;
-                                {
-                                  var tmp0_visit_2 = new SPAN(attributesMapOf('class', 'search-icon'), tmp0_visit_1.bj());
-                                  tmp0_visit_2.bj().ij(tmp0_visit_2);
-                                  var tmp_4;
-                                  try {
-                                    tmp_4 = tmp0_visit_2.fj('\uE8B6');
-                                  } catch ($p) {
-                                    var tmp_5;
-                                    if ($p instanceof Error) {
-                                      tmp_5 = tmp0_visit_2.bj().mj(tmp0_visit_2, $p);
-                                    } else {
-                                      throw $p;
-                                    }
-                                    tmp_4 = tmp_5;
-                                  }
-                                  finally {
-                                    tmp0_visit_2.bj().lj(tmp0_visit_2);
-                                  }
-                                  tmp$ret$3 = tmp_4;
-                                }
-                                tmp$ret$4 = tmp$ret$3;
-                              }
-                              var tmp$ret$8;
-                              {
-                                var tmp$ret$7;
-                                {
-                                  var tmp0_visit_3 = new SPAN(attributesMapOf('class', null), tmp0_visit_1.bj());
-                                  tmp0_visit_3.bj().ij(tmp0_visit_3);
-                                  var tmp_6;
-                                  try {
-                                    var tmp$ret$6;
-                                    {
-                                      var tmp$ret$5;
-                                      {
-                                        var tmp0_safe_receiver = null;
-                                        var tmp_7 = tmp0_safe_receiver == null ? null : enumEncode(tmp0_safe_receiver);
-                                        var tmp1_safe_receiver = null;
-                                        var tmp_8 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
-                                        var tmp2_safe_receiver = null;
-                                        var tmp0_visit_4 = new INPUT(attributesMapOf_0(['type', tmp_7, 'formenctype', tmp_8, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', null, 'class', 'search']), tmp0_visit_3.bj());
-                                        tmp0_visit_4.bj().ij(tmp0_visit_4);
-                                        var tmp_9;
-                                        try {
-                                          tmp0_visit_4.mn('Search icons');
-                                          set_id(tmp0_visit_4, 'search-field');
-                                          var onChange = sayHello$lambda(tmp0_visit_4, response);
-                                          set_onChangeFunction(tmp0_visit_4, sayHello$lambda_0(onChange));
-                                          tmp_9 = set_onKeyUpFunction(tmp0_visit_4, sayHello$lambda_1(onChange));
-                                        } catch ($p) {
-                                          var tmp_10;
-                                          if ($p instanceof Error) {
-                                            tmp_10 = tmp0_visit_4.bj().mj(tmp0_visit_4, $p);
-                                          } else {
-                                            throw $p;
-                                          }
-                                          tmp_9 = tmp_10;
-                                        }
-                                        finally {
-                                          tmp0_visit_4.bj().lj(tmp0_visit_4);
-                                        }
-                                        tmp$ret$5 = tmp_9;
-                                      }
-                                      tmp$ret$6 = tmp$ret$5;
-                                    }
-                                    tmp_6 = tmp$ret$6;
-                                  } catch ($p) {
-                                    var tmp_11;
-                                    if ($p instanceof Error) {
-                                      tmp_11 = tmp0_visit_3.bj().mj(tmp0_visit_3, $p);
-                                    } else {
-                                      throw $p;
-                                    }
-                                    tmp_6 = tmp_11;
-                                  }
-                                  finally {
-                                    tmp0_visit_3.bj().lj(tmp0_visit_3);
-                                  }
-                                  tmp$ret$7 = tmp_6;
-                                }
-                                tmp$ret$8 = tmp$ret$7;
-                              }
-                              tmp_3 = tmp$ret$8;
-                            } catch ($p) {
-                              var tmp_12;
-                              if ($p instanceof Error) {
-                                tmp_12 = tmp0_visit_1.bj().mj(tmp0_visit_1, $p);
-                              } else {
-                                throw $p;
-                              }
-                              tmp_3 = tmp_12;
-                            }
-                            finally {
-                              tmp0_visit_1.bj().lj(tmp0_visit_1);
-                            }
-                            tmp$ret$9 = tmp_3;
-                          }
-                          tmp$ret$10 = tmp$ret$9;
-                        }
-                        var tmp$ret$12;
-                        {
-                          var tmp$ret$11;
-                          {
-                            var tmp0_visit_5 = new DIV(attributesMapOf('class', 'grid'), tmp0_visit.bj());
-                            tmp0_visit_5.bj().ij(tmp0_visit_5);
-                            var tmp_13;
-                            try {
-                              tmp_13 = set_id(tmp0_visit_5, 'grid-icons');
-                            } catch ($p) {
-                              var tmp_14;
-                              if ($p instanceof Error) {
-                                tmp_14 = tmp0_visit_5.bj().mj(tmp0_visit_5, $p);
-                              } else {
-                                throw $p;
-                              }
-                              tmp_13 = tmp_14;
-                            }
-                            finally {
-                              tmp0_visit_5.bj().lj(tmp0_visit_5);
-                            }
-                            tmp$ret$11 = tmp_13;
-                          }
-                          tmp$ret$12 = tmp$ret$11;
-                        }
-                        tmp_0 = tmp$ret$12;
-                      } catch ($p) {
-                        var tmp_15;
-                        if ($p instanceof Error) {
-                          tmp_15 = tmp0_visit.bj().mj(tmp0_visit, $p);
-                        } else {
-                          throw $p;
-                        }
-                        tmp_0 = tmp_15;
-                      }
-                      finally {
-                        tmp0_visit.bj().lj(tmp0_visit);
-                      }
-                      tmp$ret$13 = tmp_0;
-                    }
-                    tmp$ret$14 = tmp$ret$13;
-                  }
-                }
-              }
-            } catch ($p) {
-              if ($p instanceof Error) {
-                tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
-              } else {
-                throw $p;
-              }
-            }
-            finally {
-              tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
-            }
-          }
-          tmp$ret$15 = _this__u8e3s4.nj();
-        }
-        tmp$ret$16 = tmp$ret$15;
-      }
-      tmp$ret$17 = tmp$ret$16;
-    }
+  function get_isBarExpanded() {
+    return isBarExpanded;
   }
-  function toSymbol(_this__u8e3s4) {
-    var tmp$ret$2;
-    {
-      var tmp0_Char = toInt(_this__u8e3s4, 16);
-      var tmp;
-      var tmp$ret$0;
-      {
-        Companion_getInstance_0();
-        var tmp0__get_code__88qj9g = _Char___init__impl__6a9atx(0);
-        tmp$ret$0 = Char__toInt_impl_vasixd(tmp0__get_code__88qj9g);
-      }
-      if (tmp0_Char < tmp$ret$0) {
-        tmp = true;
-      } else {
-        var tmp$ret$1;
-        {
-          Companion_getInstance_0();
-          var tmp1__get_code__adl84j = _Char___init__impl__6a9atx(65535);
-          tmp$ret$1 = Char__toInt_impl_vasixd(tmp1__get_code__adl84j);
-        }
-        tmp = tmp0_Char > tmp$ret$1;
-      }
-      if (tmp) {
-        throw IllegalArgumentException_init_$Create$('Invalid Char code: ' + tmp0_Char);
-      }
-      tmp$ret$2 = numberToChar(tmp0_Char);
-    }
-    return toString(tmp$ret$2);
-  }
-  function main$lambda$lambda() {
-    return function ($this$append) {
-      var tmp$ret$3;
-      {
-        var tmp$ret$2;
-        {
-          var tmp0_visitAndFinalize = new STYLE(attributesMapOf('type', null), $this$append);
-          var tmp$ret$1;
-          {
-            if (!(tmp0_visitAndFinalize.bj() === $this$append)) {
-              throw IllegalArgumentException_init_$Create$('Wrong exception');
-            }
-            {
-              tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
-              try {
-                {
-                  var tmp$ret$0;
-                  {
-                    tmp$ret$0 = Unit_getInstance();
-                  }
-                }
-              } catch ($p) {
-                if ($p instanceof Error) {
-                  tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
-                } else {
-                  throw $p;
-                }
-              }
-              finally {
-                tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
-              }
-            }
-            tmp$ret$1 = $this$append.nj();
-          }
-          tmp$ret$2 = tmp$ret$1;
-        }
-        tmp$ret$3 = tmp$ret$2;
-      }
-      sayHello($this$append);
-      return Unit_getInstance();
-    };
-  }
-  function main$lambda$lambda_0() {
-    return function ($this$append) {
-      return Unit_getInstance();
-    };
-  }
-  function main$lambda() {
-    return function (it) {
-      var tmp0_safe_receiver = document.body;
-      if (tmp0_safe_receiver == null)
-        null;
-      else {
-        append(tmp0_safe_receiver, main$lambda$lambda());
-      }
-      var tmp1_safe_receiver = document.head;
-      var tmp;
-      if (tmp1_safe_receiver == null) {
-        tmp = null;
-      } else {
-        tmp = append(tmp1_safe_receiver, main$lambda$lambda_0());
-      }
-      return tmp;
-    };
-  }
-  function sayHello$slambda$lambda($element) {
+  var isBarExpanded;
+  function App$display$slambda$lambda($element) {
     return function ($this$append) {
       GridItem($this$append, $element);
       return Unit_getInstance();
     };
   }
-  function sayHello$slambda($response, resultContinuation) {
-    this.e1p_1 = $response;
+  function App$display$slambda($response, resultContinuation) {
+    this.j1p_1 = $response;
     CoroutineImpl.call(this, resultContinuation);
   }
-  sayHello$slambda.prototype.g1p = function ($this$launch, $cont) {
-    var tmp = this.h1p($this$launch, $cont);
+  App$display$slambda.prototype.l1p = function ($this$launch, $cont) {
+    var tmp = this.m1p($this$launch, $cont);
     tmp.uh_1 = Unit_getInstance();
     tmp.vh_1 = null;
     return tmp.ci();
   };
-  sayHello$slambda.prototype.di = function (p1, $cont) {
-    return this.g1p((!(p1 == null) ? isInterface(p1, CoroutineScope_0) : false) ? p1 : THROW_CCE(), $cont);
+  App$display$slambda.prototype.di = function (p1, $cont) {
+    return this.l1p((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
   };
-  sayHello$slambda.prototype.ci = function () {
+  App$display$slambda.prototype.ci = function () {
     var suspendResult = this.uh_1;
     $sm: do
       try {
@@ -549,7 +230,7 @@
           case 0:
             this.th_1 = 2;
             this.sh_1 = 1;
-            suspendResult = (new Api()).v1o(this);
+            suspendResult = (new Api()).a1p(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -557,9 +238,9 @@
             continue $sm;
           case 1:
             var ARGUMENT = suspendResult;
-            this.e1p_1._v = ARGUMENT;
+            this.j1p_1._v = ARGUMENT;
             var grid = document.getElementById('grid-icons');
-            var tmp0_safe_receiver = this.e1p_1._v;
+            var tmp0_safe_receiver = this.j1p_1._v;
             if (tmp0_safe_receiver == null)
               null;
             else {
@@ -570,9 +251,17 @@
                 if (tmp0_safe_receiver_0 == null)
                   null;
                 else {
-                  append(tmp0_safe_receiver_0, sayHello$slambda$lambda(element));
+                  append(tmp0_safe_receiver_0, App$display$slambda$lambda(element));
                 }
               }
+            }
+
+            ;
+            var tmp1_safe_receiver = elementFromId('search-field');
+            if (tmp1_safe_receiver == null)
+              null;
+            else {
+              tmp1_safe_receiver.focus();
             }
 
             ;
@@ -590,27 +279,27 @@
       }
      while (true);
   };
-  sayHello$slambda.prototype.h1p = function ($this$launch, completion) {
-    var i = new sayHello$slambda(this.e1p_1, completion);
-    i.f1p_1 = $this$launch;
+  App$display$slambda.prototype.m1p = function ($this$launch, completion) {
+    var i = new App$display$slambda(this.j1p_1, completion);
+    i.k1p_1 = $this$launch;
     return i;
   };
-  sayHello$slambda.$metadata$ = classMeta('sayHello$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
-  function sayHello$slambda_0($response, resultContinuation) {
-    var i = new sayHello$slambda($response, resultContinuation);
+  App$display$slambda.$metadata$ = classMeta('App$display$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
+  function App$display$slambda_0($response, resultContinuation) {
+    var i = new App$display$slambda($response, resultContinuation);
     var l = function ($this$launch, $cont) {
-      return i.g1p($this$launch, $cont);
+      return i.l1p($this$launch, $cont);
     };
     l.$arity = 1;
     return l;
   }
-  function sayHello$lambda$lambda($element) {
+  function App$display$lambda$lambda($element) {
     return function ($this$append) {
       GridItem($this$append, $element);
       return Unit_getInstance();
     };
   }
-  function sayHello$lambda($tmp0_visit, $response) {
+  function App$display$lambda($tmp0_visit, $response) {
     return function () {
       var grid = document.getElementById('grid-icons');
       var tmp = document.getElementById(get_id($tmp0_visit));
@@ -688,7 +377,7 @@
               if (tmp0_safe_receiver_1 == null)
                 null;
               else {
-                append(tmp0_safe_receiver_1, sayHello$lambda$lambda(element_1));
+                append(tmp0_safe_receiver_1, App$display$lambda$lambda(element_1));
               }
             }
           }
@@ -698,16 +387,692 @@
       return tmp_1;
     };
   }
-  function sayHello$lambda_0($onChange) {
+  function App$display$lambda_0($onChange) {
     return function (it) {
       $onChange();
       return Unit_getInstance();
     };
   }
-  function sayHello$lambda_1($onChange) {
+  function App$display$lambda_1($onChange) {
     return function (it) {
       $onChange();
       return Unit_getInstance();
+    };
+  }
+  function App$display$lambda_2() {
+    return function (it) {
+      var bar = document.getElementById('expanded-bottom-bar');
+      var button = document.getElementById('bar-expand-button');
+      console.log(bar);
+      var tmp;
+      if (isBarExpanded) {
+        var tmp_0 = console;
+        var tmp0_safe_receiver = bar;
+        tmp_0.log(plus(tmp0_safe_receiver == null ? null : tmp0_safe_receiver.className, 'fjalf'));
+        var tmp4_safe_receiver = bar;
+        if (tmp4_safe_receiver == null) {
+        } else {
+          var tmp1_safe_receiver = bar;
+          var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.className;
+          var tmp_1;
+          if (tmp2_safe_receiver == null) {
+            tmp_1 = null;
+          } else {
+            tmp_1 = replace$default(tmp2_safe_receiver, ' active', '', false, 4, null);
+          }
+          var tmp3_elvis_lhs = tmp_1;
+          tmp4_safe_receiver.className = tmp3_elvis_lhs == null ? '' : tmp3_elvis_lhs;
+        }
+        isBarExpanded = false;
+        var tmp8_safe_receiver = button;
+        var tmp_2;
+        if (tmp8_safe_receiver == null) {
+          tmp_2 = Unit_getInstance();
+        } else {
+          var tmp5_safe_receiver = button;
+          var tmp6_safe_receiver = tmp5_safe_receiver == null ? null : tmp5_safe_receiver.className;
+          var tmp_3;
+          if (tmp6_safe_receiver == null) {
+            tmp_3 = null;
+          } else {
+            tmp_3 = replace$default(tmp6_safe_receiver, ' active', '', false, 4, null);
+          }
+          var tmp7_elvis_lhs = tmp_3;
+          tmp_2 = tmp8_safe_receiver.className = tmp7_elvis_lhs == null ? '' : tmp7_elvis_lhs;
+        }
+        tmp = tmp_2;
+      } else {
+        isBarExpanded = true;
+        var tmp_4 = console;
+        var tmp9_safe_receiver = bar;
+        tmp_4.log(tmp9_safe_receiver == null ? null : tmp9_safe_receiver.className);
+        var tmp10_safe_receiver = bar;
+        if (tmp10_safe_receiver == null) {
+        } else {
+          var tmp11_this = tmp10_safe_receiver;
+          tmp11_this.className = plus(tmp11_this.className, ' active');
+        }
+        var tmp12_safe_receiver = button;
+        var tmp_5;
+        if (tmp12_safe_receiver == null) {
+          tmp_5 = Unit_getInstance();
+        } else {
+          var tmp13_this = tmp12_safe_receiver;
+          tmp_5 = tmp13_this.className = plus(tmp13_this.className, ' active');
+        }
+        tmp = tmp_5;
+      }
+      return Unit_getInstance();
+    };
+  }
+  function App() {
+    var tmp = this;
+    tmp.n1p_1 = Job$default(null, 1, null);
+  }
+  App.prototype.fp = function () {
+    return this.n1p_1;
+  };
+  App.prototype.o1p = function (consumer) {
+    var tmp$ret$39;
+    {
+      {
+      }
+      {
+        var response = {_v: null};
+        var tmp$ret$23;
+        {
+          var tmp$ret$22;
+          {
+            var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row'), consumer);
+            var tmp$ret$21;
+            {
+              if (!(tmp0_visitAndFinalize.bj() === consumer)) {
+                throw IllegalArgumentException_init_$Create$('Wrong exception');
+              }
+              {
+                tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
+                try {
+                  {
+                    {
+                      launch$default(this, null, null, App$display$slambda_0(response, null), 3, null);
+                      var tmp$ret$14;
+                      {
+                        var tmp$ret$13;
+                        {
+                          var tmp0_visit = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize.bj());
+                          tmp0_visit.bj().ij(tmp0_visit);
+                          var tmp;
+                          try {
+                            var tmp$ret$2;
+                            {
+                              var tmp$ret$1;
+                              {
+                                var tmp0_visit_0 = new IMG(attributesMapOf_0(['alt', null, 'src', null, 'class', 'logo']), tmp0_visit.bj());
+                                tmp0_visit_0.bj().ij(tmp0_visit_0);
+                                var tmp_0;
+                                try {
+                                  var tmp$ret$0;
+                                  {
+                                    tmp$ret$0 = Unit_getInstance();
+                                  }
+                                  tmp_0 = tmp$ret$0;
+                                } catch ($p) {
+                                  var tmp_1;
+                                  if ($p instanceof Error) {
+                                    tmp_1 = tmp0_visit_0.bj().mj(tmp0_visit_0, $p);
+                                  } else {
+                                    throw $p;
+                                  }
+                                  tmp_0 = tmp_1;
+                                }
+                                finally {
+                                  tmp0_visit_0.bj().lj(tmp0_visit_0);
+                                }
+                                tmp$ret$1 = tmp_0;
+                              }
+                              tmp$ret$2 = tmp$ret$1;
+                            }
+                            var tmp$ret$10;
+                            {
+                              var tmp$ret$9;
+                              {
+                                var tmp0_visit_1 = new DIV(attributesMapOf('class', 'search-box search-row'), tmp0_visit.bj());
+                                tmp0_visit_1.bj().ij(tmp0_visit_1);
+                                var tmp_2;
+                                try {
+                                  var tmp$ret$4;
+                                  {
+                                    var tmp$ret$3;
+                                    {
+                                      var tmp0_visit_2 = new SPAN(attributesMapOf('class', 'search-icon'), tmp0_visit_1.bj());
+                                      tmp0_visit_2.bj().ij(tmp0_visit_2);
+                                      var tmp_3;
+                                      try {
+                                        tmp_3 = tmp0_visit_2.fj('\uE8B6');
+                                      } catch ($p) {
+                                        var tmp_4;
+                                        if ($p instanceof Error) {
+                                          tmp_4 = tmp0_visit_2.bj().mj(tmp0_visit_2, $p);
+                                        } else {
+                                          throw $p;
+                                        }
+                                        tmp_3 = tmp_4;
+                                      }
+                                      finally {
+                                        tmp0_visit_2.bj().lj(tmp0_visit_2);
+                                      }
+                                      tmp$ret$3 = tmp_3;
+                                    }
+                                    tmp$ret$4 = tmp$ret$3;
+                                  }
+                                  var tmp$ret$8;
+                                  {
+                                    var tmp$ret$7;
+                                    {
+                                      var tmp0_visit_3 = new SPAN(attributesMapOf('class', null), tmp0_visit_1.bj());
+                                      tmp0_visit_3.bj().ij(tmp0_visit_3);
+                                      var tmp_5;
+                                      try {
+                                        var tmp$ret$6;
+                                        {
+                                          var tmp$ret$5;
+                                          {
+                                            var tmp0_safe_receiver = null;
+                                            var tmp_6 = tmp0_safe_receiver == null ? null : enumEncode(tmp0_safe_receiver);
+                                            var tmp1_safe_receiver = null;
+                                            var tmp_7 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
+                                            var tmp2_safe_receiver = null;
+                                            var tmp0_visit_4 = new INPUT(attributesMapOf_0(['type', tmp_6, 'formenctype', tmp_7, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', null, 'class', 'search']), tmp0_visit_3.bj());
+                                            tmp0_visit_4.bj().ij(tmp0_visit_4);
+                                            var tmp_8;
+                                            try {
+                                              tmp0_visit_4.tn('Search icons');
+                                              set_id(tmp0_visit_4, 'search-field');
+                                              var onChange = App$display$lambda(tmp0_visit_4, response);
+                                              set_onChangeFunction(tmp0_visit_4, App$display$lambda_0(onChange));
+                                              tmp_8 = set_onKeyUpFunction(tmp0_visit_4, App$display$lambda_1(onChange));
+                                            } catch ($p) {
+                                              var tmp_9;
+                                              if ($p instanceof Error) {
+                                                tmp_9 = tmp0_visit_4.bj().mj(tmp0_visit_4, $p);
+                                              } else {
+                                                throw $p;
+                                              }
+                                              tmp_8 = tmp_9;
+                                            }
+                                            finally {
+                                              tmp0_visit_4.bj().lj(tmp0_visit_4);
+                                            }
+                                            tmp$ret$5 = tmp_8;
+                                          }
+                                          tmp$ret$6 = tmp$ret$5;
+                                        }
+                                        tmp_5 = tmp$ret$6;
+                                      } catch ($p) {
+                                        var tmp_10;
+                                        if ($p instanceof Error) {
+                                          tmp_10 = tmp0_visit_3.bj().mj(tmp0_visit_3, $p);
+                                        } else {
+                                          throw $p;
+                                        }
+                                        tmp_5 = tmp_10;
+                                      }
+                                      finally {
+                                        tmp0_visit_3.bj().lj(tmp0_visit_3);
+                                      }
+                                      tmp$ret$7 = tmp_5;
+                                    }
+                                    tmp$ret$8 = tmp$ret$7;
+                                  }
+                                  tmp_2 = tmp$ret$8;
+                                } catch ($p) {
+                                  var tmp_11;
+                                  if ($p instanceof Error) {
+                                    tmp_11 = tmp0_visit_1.bj().mj(tmp0_visit_1, $p);
+                                  } else {
+                                    throw $p;
+                                  }
+                                  tmp_2 = tmp_11;
+                                }
+                                finally {
+                                  tmp0_visit_1.bj().lj(tmp0_visit_1);
+                                }
+                                tmp$ret$9 = tmp_2;
+                              }
+                              tmp$ret$10 = tmp$ret$9;
+                            }
+                            var tmp$ret$12;
+                            {
+                              var tmp$ret$11;
+                              {
+                                var tmp0_visit_5 = new DIV(attributesMapOf('class', 'grid'), tmp0_visit.bj());
+                                tmp0_visit_5.bj().ij(tmp0_visit_5);
+                                var tmp_12;
+                                try {
+                                  tmp_12 = set_id(tmp0_visit_5, 'grid-icons');
+                                } catch ($p) {
+                                  var tmp_13;
+                                  if ($p instanceof Error) {
+                                    tmp_13 = tmp0_visit_5.bj().mj(tmp0_visit_5, $p);
+                                  } else {
+                                    throw $p;
+                                  }
+                                  tmp_12 = tmp_13;
+                                }
+                                finally {
+                                  tmp0_visit_5.bj().lj(tmp0_visit_5);
+                                }
+                                tmp$ret$11 = tmp_12;
+                              }
+                              tmp$ret$12 = tmp$ret$11;
+                            }
+                            tmp = tmp$ret$12;
+                          } catch ($p) {
+                            var tmp_14;
+                            if ($p instanceof Error) {
+                              tmp_14 = tmp0_visit.bj().mj(tmp0_visit, $p);
+                            } else {
+                              throw $p;
+                            }
+                            tmp = tmp_14;
+                          }
+                          finally {
+                            tmp0_visit.bj().lj(tmp0_visit);
+                          }
+                          tmp$ret$13 = tmp;
+                        }
+                        tmp$ret$14 = tmp$ret$13;
+                      }
+                      var tmp$ret$20;
+                      {
+                        var tmp$ret$19;
+                        {
+                          var tmp0_visit_6 = new DIV(attributesMapOf('class', 'column sticky'), tmp0_visitAndFinalize.bj());
+                          tmp0_visit_6.bj().ij(tmp0_visit_6);
+                          var tmp_15;
+                          try {
+                            var tmp$ret$18;
+                            {
+                              var tmp$ret$17;
+                              {
+                                var tmp0_visit_7 = new DIV(attributesMapOf('class', 'picker-card'), tmp0_visit_6.bj());
+                                tmp0_visit_7.bj().ij(tmp0_visit_7);
+                                var tmp_16;
+                                try {
+                                  var tmp$ret$16;
+                                  {
+                                    var tmp$ret$15;
+                                    {
+                                      var tmp0_visit_8 = new DIV(attributesMapOf('class', 'column'), tmp0_visit_7.bj());
+                                      tmp0_visit_8.bj().ij(tmp0_visit_8);
+                                      var tmp_17;
+                                      try {
+                                        tmp_17 = set_id(tmp0_visit_8, 'selected-icons');
+                                      } catch ($p) {
+                                        var tmp_18;
+                                        if ($p instanceof Error) {
+                                          tmp_18 = tmp0_visit_8.bj().mj(tmp0_visit_8, $p);
+                                        } else {
+                                          throw $p;
+                                        }
+                                        tmp_17 = tmp_18;
+                                      }
+                                      finally {
+                                        tmp0_visit_8.bj().lj(tmp0_visit_8);
+                                      }
+                                      tmp$ret$15 = tmp_17;
+                                    }
+                                    tmp$ret$16 = tmp$ret$15;
+                                  }
+                                  tmp_16 = tmp$ret$16;
+                                } catch ($p) {
+                                  var tmp_19;
+                                  if ($p instanceof Error) {
+                                    tmp_19 = tmp0_visit_7.bj().mj(tmp0_visit_7, $p);
+                                  } else {
+                                    throw $p;
+                                  }
+                                  tmp_16 = tmp_19;
+                                }
+                                finally {
+                                  tmp0_visit_7.bj().lj(tmp0_visit_7);
+                                }
+                                tmp$ret$17 = tmp_16;
+                              }
+                              tmp$ret$18 = tmp$ret$17;
+                            }
+                            tmp_15 = tmp$ret$18;
+                          } catch ($p) {
+                            var tmp_20;
+                            if ($p instanceof Error) {
+                              tmp_20 = tmp0_visit_6.bj().mj(tmp0_visit_6, $p);
+                            } else {
+                              throw $p;
+                            }
+                            tmp_15 = tmp_20;
+                          }
+                          finally {
+                            tmp0_visit_6.bj().lj(tmp0_visit_6);
+                          }
+                          tmp$ret$19 = tmp_15;
+                        }
+                        tmp$ret$20 = tmp$ret$19;
+                      }
+                    }
+                  }
+                } catch ($p) {
+                  if ($p instanceof Error) {
+                    tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
+                  } else {
+                    throw $p;
+                  }
+                }
+                finally {
+                  tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
+                }
+              }
+              tmp$ret$21 = consumer.nj();
+            }
+            tmp$ret$22 = tmp$ret$21;
+          }
+          tmp$ret$23 = tmp$ret$22;
+        }
+        var tmp$ret$38;
+        {
+          var tmp$ret$37;
+          {
+            var tmp0_visitAndFinalize_0 = new FOOTER(attributesMapOf('class', null), consumer);
+            var tmp$ret$36;
+            {
+              if (!(tmp0_visitAndFinalize_0.bj() === consumer)) {
+                throw IllegalArgumentException_init_$Create$('Wrong exception');
+              }
+              {
+                tmp0_visitAndFinalize_0.bj().ij(tmp0_visitAndFinalize_0);
+                try {
+                  {
+                    {
+                      var tmp$ret$35;
+                      {
+                        var tmp$ret$34;
+                        {
+                          var tmp0_visit_9 = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize_0.bj());
+                          tmp0_visit_9.bj().ij(tmp0_visit_9);
+                          var tmp_21;
+                          try {
+                            set_id(tmp0_visit_9, 'footer');
+                            var tmp$ret$29;
+                            {
+                              var tmp$ret$28;
+                              {
+                                var tmp0_visit_10 = new DIV(attributesMapOf('class', 'bottom-bar'), tmp0_visit_9.bj());
+                                tmp0_visit_10.bj().ij(tmp0_visit_10);
+                                var tmp_22;
+                                try {
+                                  var tmp$ret$25;
+                                  {
+                                    var tmp$ret$24;
+                                    {
+                                      var tmp0_visit_11 = new DIV(attributesMapOf('class', 'row marquee'), tmp0_visit_10.bj());
+                                      tmp0_visit_11.bj().ij(tmp0_visit_11);
+                                      var tmp_23;
+                                      try {
+                                        tmp_23 = set_id(tmp0_visit_11, 'bottom-bar');
+                                      } catch ($p) {
+                                        var tmp_24;
+                                        if ($p instanceof Error) {
+                                          tmp_24 = tmp0_visit_11.bj().mj(tmp0_visit_11, $p);
+                                        } else {
+                                          throw $p;
+                                        }
+                                        tmp_23 = tmp_24;
+                                      }
+                                      finally {
+                                        tmp0_visit_11.bj().lj(tmp0_visit_11);
+                                      }
+                                      tmp$ret$24 = tmp_23;
+                                    }
+                                    tmp$ret$25 = tmp$ret$24;
+                                  }
+                                  var tmp$ret$27;
+                                  {
+                                    var tmp$ret$26;
+                                    {
+                                      var tmp0_visit_12 = new SPAN(attributesMapOf('class', 'icon button click-pointer stick-right surface-variant-background rotate'), tmp0_visit_10.bj());
+                                      tmp0_visit_12.bj().ij(tmp0_visit_12);
+                                      var tmp_25;
+                                      try {
+                                        set_id(tmp0_visit_12, 'bar-expand-button');
+                                        tmp0_visit_12.fj('\uE5CE');
+                                        tmp_25 = set_onClickFunction(tmp0_visit_12, App$display$lambda_2());
+                                      } catch ($p) {
+                                        var tmp_26;
+                                        if ($p instanceof Error) {
+                                          tmp_26 = tmp0_visit_12.bj().mj(tmp0_visit_12, $p);
+                                        } else {
+                                          throw $p;
+                                        }
+                                        tmp_25 = tmp_26;
+                                      }
+                                      finally {
+                                        tmp0_visit_12.bj().lj(tmp0_visit_12);
+                                      }
+                                      tmp$ret$26 = tmp_25;
+                                    }
+                                    tmp$ret$27 = tmp$ret$26;
+                                  }
+                                  tmp_22 = tmp$ret$27;
+                                } catch ($p) {
+                                  var tmp_27;
+                                  if ($p instanceof Error) {
+                                    tmp_27 = tmp0_visit_10.bj().mj(tmp0_visit_10, $p);
+                                  } else {
+                                    throw $p;
+                                  }
+                                  tmp_22 = tmp_27;
+                                }
+                                finally {
+                                  tmp0_visit_10.bj().lj(tmp0_visit_10);
+                                }
+                                tmp$ret$28 = tmp_22;
+                              }
+                              tmp$ret$29 = tmp$ret$28;
+                            }
+                            var tmp$ret$33;
+                            {
+                              var tmp$ret$32;
+                              {
+                                var tmp0_visit_13 = new DIV(attributesMapOf('class', 'expanded-bottom-bar'), tmp0_visit_9.bj());
+                                tmp0_visit_13.bj().ij(tmp0_visit_13);
+                                var tmp_28;
+                                try {
+                                  set_id(tmp0_visit_13, 'expanded-bottom-bar');
+                                  var tmp$ret$31;
+                                  {
+                                    var tmp$ret$30;
+                                    {
+                                      var tmp0_visit_14 = new DIV(attributesMapOf('class', 'column'), tmp0_visit_13.bj());
+                                      tmp0_visit_14.bj().ij(tmp0_visit_14);
+                                      var tmp_29;
+                                      try {
+                                        tmp_29 = set_id(tmp0_visit_14, 'bar-selected-icons');
+                                      } catch ($p) {
+                                        var tmp_30;
+                                        if ($p instanceof Error) {
+                                          tmp_30 = tmp0_visit_14.bj().mj(tmp0_visit_14, $p);
+                                        } else {
+                                          throw $p;
+                                        }
+                                        tmp_29 = tmp_30;
+                                      }
+                                      finally {
+                                        tmp0_visit_14.bj().lj(tmp0_visit_14);
+                                      }
+                                      tmp$ret$30 = tmp_29;
+                                    }
+                                    tmp$ret$31 = tmp$ret$30;
+                                  }
+                                  tmp_28 = tmp$ret$31;
+                                } catch ($p) {
+                                  var tmp_31;
+                                  if ($p instanceof Error) {
+                                    tmp_31 = tmp0_visit_13.bj().mj(tmp0_visit_13, $p);
+                                  } else {
+                                    throw $p;
+                                  }
+                                  tmp_28 = tmp_31;
+                                }
+                                finally {
+                                  tmp0_visit_13.bj().lj(tmp0_visit_13);
+                                }
+                                tmp$ret$32 = tmp_28;
+                              }
+                              tmp$ret$33 = tmp$ret$32;
+                            }
+                            tmp_21 = tmp$ret$33;
+                          } catch ($p) {
+                            var tmp_32;
+                            if ($p instanceof Error) {
+                              tmp_32 = tmp0_visit_9.bj().mj(tmp0_visit_9, $p);
+                            } else {
+                              throw $p;
+                            }
+                            tmp_21 = tmp_32;
+                          }
+                          finally {
+                            tmp0_visit_9.bj().lj(tmp0_visit_9);
+                          }
+                          tmp$ret$34 = tmp_21;
+                        }
+                        tmp$ret$35 = tmp$ret$34;
+                      }
+                    }
+                  }
+                } catch ($p) {
+                  if ($p instanceof Error) {
+                    tmp0_visitAndFinalize_0.bj().mj(tmp0_visitAndFinalize_0, $p);
+                  } else {
+                    throw $p;
+                  }
+                }
+                finally {
+                  tmp0_visitAndFinalize_0.bj().lj(tmp0_visitAndFinalize_0);
+                }
+              }
+              tmp$ret$36 = consumer.nj();
+            }
+            tmp$ret$37 = tmp$ret$36;
+          }
+          tmp$ret$38 = tmp$ret$37;
+        }
+      }
+      tmp$ret$39 = consumer;
+    }
+  };
+  App.$metadata$ = classMeta('App', [CoroutineScope]);
+  function main() {
+    var tmp = document;
+    tmp.addEventListener('DOMContentLoaded', main$lambda());
+    var tmp_0 = window;
+    tmp_0.onload = main$lambda_0();
+  }
+  function toSymbol(_this__u8e3s4) {
+    var tmp$ret$2;
+    {
+      var tmp0_Char = toInt(_this__u8e3s4, 16);
+      var tmp;
+      var tmp$ret$0;
+      {
+        Companion_getInstance_0();
+        var tmp0__get_code__88qj9g = _Char___init__impl__6a9atx(0);
+        tmp$ret$0 = Char__toInt_impl_vasixd(tmp0__get_code__88qj9g);
+      }
+      if (tmp0_Char < tmp$ret$0) {
+        tmp = true;
+      } else {
+        var tmp$ret$1;
+        {
+          Companion_getInstance_0();
+          var tmp1__get_code__adl84j = _Char___init__impl__6a9atx(65535);
+          tmp$ret$1 = Char__toInt_impl_vasixd(tmp1__get_code__adl84j);
+        }
+        tmp = tmp0_Char > tmp$ret$1;
+      }
+      if (tmp) {
+        throw IllegalArgumentException_init_$Create$('Invalid Char code: ' + tmp0_Char);
+      }
+      tmp$ret$2 = numberToChar(tmp0_Char);
+    }
+    return toString(tmp$ret$2);
+  }
+  function main$lambda() {
+    return function (it) {
+      return Unit_getInstance();
+    };
+  }
+  function main$lambda$lambda() {
+    return function ($this$append) {
+      var tmp$ret$3;
+      {
+        var tmp$ret$2;
+        {
+          var tmp0_visitAndFinalize = new STYLE(attributesMapOf('type', null), $this$append);
+          var tmp$ret$1;
+          {
+            if (!(tmp0_visitAndFinalize.bj() === $this$append)) {
+              throw IllegalArgumentException_init_$Create$('Wrong exception');
+            }
+            {
+              tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
+              try {
+                {
+                  var tmp$ret$0;
+                  {
+                    tmp$ret$0 = Unit_getInstance();
+                  }
+                }
+              } catch ($p) {
+                if ($p instanceof Error) {
+                  tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
+                } else {
+                  throw $p;
+                }
+              }
+              finally {
+                tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
+              }
+            }
+            tmp$ret$1 = $this$append.nj();
+          }
+          tmp$ret$2 = tmp$ret$1;
+        }
+        tmp$ret$3 = tmp$ret$2;
+      }
+      (new App()).o1p($this$append);
+      return Unit_getInstance();
+    };
+  }
+  function main$lambda$lambda_0() {
+    return function ($this$append) {
+      return Unit_getInstance();
+    };
+  }
+  function main$lambda_0() {
+    return function (it) {
+      var tmp0_safe_receiver = document.body;
+      if (tmp0_safe_receiver == null)
+        null;
+      else {
+        append(tmp0_safe_receiver, main$lambda$lambda());
+      }
+      var tmp1_safe_receiver = document.head;
+      var tmp;
+      if (tmp1_safe_receiver == null) {
+        tmp = null;
+      } else {
+        tmp = append(tmp1_safe_receiver, main$lambda$lambda_0());
+      }
+      return tmp;
     };
   }
   var _selectedListStorage;
@@ -720,7 +1085,7 @@
         var tmp0_encodeToString = Default_getInstance();
         var tmp$ret$1;
         {
-          var tmp1_serializer = tmp0_encodeToString.sz();
+          var tmp1_serializer = tmp0_encodeToString.xz();
           var tmp$ret$0;
           {
             var tmp0_cast = serializer(tmp1_serializer, createKType(getKClass(List), arrayOf([createInvariantKTypeProjection(createKType(PrimitiveClasses_getInstance().ye(), arrayOf([]), false))]), false));
@@ -728,7 +1093,7 @@
           }
           tmp$ret$1 = tmp$ret$0;
         }
-        tmp$ret$2 = tmp0_encodeToString.qz(tmp$ret$1, value);
+        tmp$ret$2 = tmp0_encodeToString.vz(tmp$ret$1, value);
       }
       var tmp2_set = tmp$ret$2;
       var tmp$ret$3;
@@ -765,7 +1130,7 @@
               var tmp0_decodeFromString = Default_getInstance();
               var tmp$ret$3;
               {
-                var tmp1_serializer = tmp0_decodeFromString.sz();
+                var tmp1_serializer = tmp0_decodeFromString.xz();
                 var tmp$ret$2;
                 {
                   var tmp0_cast = serializer(tmp1_serializer, createKType(getKClass(List), arrayOf([createInvariantKTypeProjection(createKType(PrimitiveClasses_getInstance().ye(), arrayOf([]), false))]), true));
@@ -773,7 +1138,7 @@
                 }
                 tmp$ret$3 = tmp$ret$2;
               }
-              tmp$ret$4 = tmp0_decodeFromString.rz(tmp$ret$3, tmp0_safe_receiver);
+              tmp$ret$4 = tmp0_decodeFromString.wz(tmp$ret$3, tmp0_safe_receiver);
             }
             tmp$ret$5 = tmp$ret$4;
           }
@@ -796,6 +1161,247 @@
     }
     var tmp_1 = _selectedListStorage;
     return (!(tmp_1 == null) ? isInterface(tmp_1, List) : false) ? tmp_1 : THROW_CCE();
+  }
+  function addToBars(item) {
+    console.log('AAAAAAAAAAAAAAAAA');
+    addToBars$addRow$default(item, null, 2, null);
+    addToBars$addRow(item, 'bar-');
+    console.log(document.getElementById('bottom-bar'));
+    var tmp0_safe_receiver = document.getElementById('bottom-bar');
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      append(tmp0_safe_receiver, addToBars$lambda(item));
+    }
+  }
+  function removeFromBars(item) {
+    var tmp0_safe_receiver = document.getElementById('selected-item-' + item.p1());
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      tmp0_safe_receiver.remove();
+    }
+    var tmp1_safe_receiver = document.getElementById('bottom-item-' + item.p1());
+    if (tmp1_safe_receiver == null)
+      null;
+    else {
+      tmp1_safe_receiver.remove();
+    }
+  }
+  function addToBars$addRow($item, prefix) {
+    var tmp0_safe_receiver = document.getElementById(prefix + 'selected-icons');
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      append(tmp0_safe_receiver, addToBars$addRow$lambda(prefix, $item));
+    }
+  }
+  function addToBars$addRow$default($item, prefix, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      prefix = '';
+    return addToBars$addRow($item, prefix);
+  }
+  function addToBars$lambda($item) {
+    return function ($this$append) {
+      var tmp$ret$4;
+      {
+        var tmp$ret$3;
+        {
+          var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', null), $this$append);
+          var tmp$ret$2;
+          {
+            if (!(tmp0_visitAndFinalize.bj() === $this$append)) {
+              throw IllegalArgumentException_init_$Create$('Wrong exception');
+            }
+            {
+              tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
+              try {
+                {
+                  {
+                    console.log('AAAA');
+                    set_id(tmp0_visitAndFinalize, 'bottom-item-' + $item.p1());
+                    var tmp$ret$1;
+                    {
+                      var tmp$ret$0;
+                      {
+                        var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.bj());
+                        tmp0_visit.bj().ij(tmp0_visit);
+                        var tmp;
+                        try {
+                          tmp = tmp0_visit.fj(toSymbol($item.r1()));
+                        } catch ($p) {
+                          var tmp_0;
+                          if ($p instanceof Error) {
+                            tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
+                          } else {
+                            throw $p;
+                          }
+                          tmp = tmp_0;
+                        }
+                        finally {
+                          tmp0_visit.bj().lj(tmp0_visit);
+                        }
+                        tmp$ret$0 = tmp;
+                      }
+                      tmp$ret$1 = tmp$ret$0;
+                    }
+                  }
+                }
+              } catch ($p) {
+                if ($p instanceof Error) {
+                  tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
+                } else {
+                  throw $p;
+                }
+              }
+              finally {
+                tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
+              }
+            }
+            tmp$ret$2 = $this$append.nj();
+          }
+          tmp$ret$3 = tmp$ret$2;
+        }
+        tmp$ret$4 = tmp$ret$3;
+      }
+      return Unit_getInstance();
+    };
+  }
+  function addToBars$addRow$lambda$lambda() {
+    return function (value) {
+      var tmp$ret$5;
+      {
+        var tmp;
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = charSequenceLength(value) > 0;
+        }
+        if (tmp$ret$0) {
+          var tmp$ret$4;
+          {
+            var tmp$ret$1;
+            {
+              var tmp0__anonymous__q1qw7t = charSequenceGet(value, 0);
+              tmp$ret$1 = uppercaseChar(tmp0__anonymous__q1qw7t);
+            }
+            var tmp0_plus = tmp$ret$1;
+            var tmp$ret$3;
+            {
+              var tmp$ret$2;
+              {
+                tmp$ret$2 = value;
+              }
+              tmp$ret$3 = tmp$ret$2.substring(1);
+            }
+            var tmp1_plus = tmp$ret$3;
+            tmp$ret$4 = toString(tmp0_plus) + tmp1_plus;
+          }
+          tmp = tmp$ret$4;
+        } else {
+          tmp = value;
+        }
+        tmp$ret$5 = tmp;
+      }
+      return tmp$ret$5;
+    };
+  }
+  function addToBars$addRow$lambda($prefix, $item) {
+    return function ($this$append) {
+      var tmp$ret$6;
+      {
+        var tmp$ret$5;
+        {
+          var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row'), $this$append);
+          var tmp$ret$4;
+          {
+            if (!(tmp0_visitAndFinalize.bj() === $this$append)) {
+              throw IllegalArgumentException_init_$Create$('Wrong exception');
+            }
+            {
+              tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
+              try {
+                {
+                  {
+                    set_id(tmp0_visitAndFinalize, $prefix + 'selected-item-' + $item.p1());
+                    var tmp$ret$1;
+                    {
+                      var tmp$ret$0;
+                      {
+                        var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.bj());
+                        tmp0_visit.bj().ij(tmp0_visit);
+                        var tmp;
+                        try {
+                          tmp = tmp0_visit.fj(toSymbol($item.r1()));
+                        } catch ($p) {
+                          var tmp_0;
+                          if ($p instanceof Error) {
+                            tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
+                          } else {
+                            throw $p;
+                          }
+                          tmp = tmp_0;
+                        }
+                        finally {
+                          tmp0_visit.bj().lj(tmp0_visit);
+                        }
+                        tmp$ret$0 = tmp;
+                      }
+                      tmp$ret$1 = tmp$ret$0;
+                    }
+                    var tmp$ret$3;
+                    {
+                      var tmp$ret$2;
+                      {
+                        var tmp0_visit_0 = new SPAN(attributesMapOf('class', null), tmp0_visitAndFinalize.bj());
+                        tmp0_visit_0.bj().ij(tmp0_visit_0);
+                        var tmp_1;
+                        try {
+                          var tmp_2 = $item.p1();
+                          var tmp_3 = replace$default(tmp_2, '_', ' ', false, 4, null);
+                          var tmp_4 = split$default(tmp_3, [' '], false, 0, 6, null);
+                          var tmp_5 = joinToString$default(tmp_4, null, null, null, 0, null, addToBars$addRow$lambda$lambda(), 31, null);
+                          tmp_1 = tmp0_visit_0.fj(replace$default(tmp_5, ',', '', false, 4, null));
+                        } catch ($p) {
+                          var tmp_6;
+                          if ($p instanceof Error) {
+                            tmp_6 = tmp0_visit_0.bj().mj(tmp0_visit_0, $p);
+                          } else {
+                            throw $p;
+                          }
+                          tmp_1 = tmp_6;
+                        }
+                        finally {
+                          tmp0_visit_0.bj().lj(tmp0_visit_0);
+                        }
+                        tmp$ret$2 = tmp_1;
+                      }
+                      tmp$ret$3 = tmp$ret$2;
+                    }
+                  }
+                }
+              } catch ($p) {
+                if ($p instanceof Error) {
+                  tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
+                } else {
+                  throw $p;
+                }
+              }
+              finally {
+                tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
+              }
+            }
+            tmp$ret$4 = $this$append.nj();
+          }
+          tmp$ret$5 = tmp$ret$4;
+        }
+        tmp$ret$6 = tmp$ret$5;
+      }
+      return Unit_getInstance();
+    };
+  }
+  function elementFromId(id) {
+    var tmp = document.getElementById(id);
+    return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
   }
   function GridItem(_this__u8e3s4, item) {
     var tmp$ret$8;
@@ -923,138 +1529,6 @@
       tmp$ret$8 = tmp$ret$7;
     }
   }
-  function GridItem$lambda$lambda$lambda() {
-    return function (value) {
-      var tmp$ret$5;
-      {
-        var tmp;
-        var tmp$ret$0;
-        {
-          tmp$ret$0 = charSequenceLength(value) > 0;
-        }
-        if (tmp$ret$0) {
-          var tmp$ret$4;
-          {
-            var tmp$ret$1;
-            {
-              var tmp0__anonymous__q1qw7t = charSequenceGet(value, 0);
-              tmp$ret$1 = uppercaseChar(tmp0__anonymous__q1qw7t);
-            }
-            var tmp0_plus = tmp$ret$1;
-            var tmp$ret$3;
-            {
-              var tmp$ret$2;
-              {
-                tmp$ret$2 = value;
-              }
-              tmp$ret$3 = tmp$ret$2.substring(1);
-            }
-            var tmp1_plus = tmp$ret$3;
-            tmp$ret$4 = toString(tmp0_plus) + tmp1_plus;
-          }
-          tmp = tmp$ret$4;
-        } else {
-          tmp = value;
-        }
-        tmp$ret$5 = tmp;
-      }
-      return tmp$ret$5;
-    };
-  }
-  function GridItem$lambda$lambda($item) {
-    return function ($this$append) {
-      var tmp$ret$6;
-      {
-        var tmp$ret$5;
-        {
-          var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row'), $this$append);
-          var tmp$ret$4;
-          {
-            if (!(tmp0_visitAndFinalize.bj() === $this$append)) {
-              throw IllegalArgumentException_init_$Create$('Wrong exception');
-            }
-            {
-              tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
-              try {
-                {
-                  {
-                    set_id(tmp0_visitAndFinalize, 'selected-item-' + $item.p1());
-                    var tmp$ret$1;
-                    {
-                      var tmp$ret$0;
-                      {
-                        var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.bj());
-                        tmp0_visit.bj().ij(tmp0_visit);
-                        var tmp;
-                        try {
-                          tmp = tmp0_visit.fj(toSymbol($item.r1()));
-                        } catch ($p) {
-                          var tmp_0;
-                          if ($p instanceof Error) {
-                            tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
-                          } else {
-                            throw $p;
-                          }
-                          tmp = tmp_0;
-                        }
-                        finally {
-                          tmp0_visit.bj().lj(tmp0_visit);
-                        }
-                        tmp$ret$0 = tmp;
-                      }
-                      tmp$ret$1 = tmp$ret$0;
-                    }
-                    var tmp$ret$3;
-                    {
-                      var tmp$ret$2;
-                      {
-                        var tmp0_visit_0 = new SPAN(attributesMapOf('class', null), tmp0_visitAndFinalize.bj());
-                        tmp0_visit_0.bj().ij(tmp0_visit_0);
-                        var tmp_1;
-                        try {
-                          var tmp_2 = $item.p1();
-                          var tmp_3 = replace$default(tmp_2, '_', ' ', false, 4, null);
-                          var tmp_4 = split$default(tmp_3, [' '], false, 0, 6, null);
-                          var tmp_5 = joinToString$default(tmp_4, null, null, null, 0, null, GridItem$lambda$lambda$lambda(), 31, null);
-                          tmp_1 = tmp0_visit_0.fj(replace$default(tmp_5, ',', '', false, 4, null));
-                        } catch ($p) {
-                          var tmp_6;
-                          if ($p instanceof Error) {
-                            tmp_6 = tmp0_visit_0.bj().mj(tmp0_visit_0, $p);
-                          } else {
-                            throw $p;
-                          }
-                          tmp_1 = tmp_6;
-                        }
-                        finally {
-                          tmp0_visit_0.bj().lj(tmp0_visit_0);
-                        }
-                        tmp$ret$2 = tmp_1;
-                      }
-                      tmp$ret$3 = tmp$ret$2;
-                    }
-                  }
-                }
-              } catch ($p) {
-                if ($p instanceof Error) {
-                  tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
-                } else {
-                  throw $p;
-                }
-              }
-              finally {
-                tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
-              }
-            }
-            tmp$ret$4 = $this$append.nj();
-          }
-          tmp$ret$5 = tmp$ret$4;
-        }
-        tmp$ret$6 = tmp$ret$5;
-      }
-      return Unit_getInstance();
-    };
-  }
   function GridItem$lambda($item) {
     return function (_anonymous_parameter_0__qggqh8) {
       var tmp;
@@ -1087,44 +1561,33 @@
       }
       if (tmp$ret$0) {
         set_selectedListStorage(minus(get_selectedListStorage(), $item.p1()));
-        var tmp0_safe_receiver = document.getElementById('selected-item-' + $item.p1());
-        if (tmp0_safe_receiver == null)
-          null;
-        else {
-          tmp0_safe_receiver.remove();
-        }
-        var tmp4_safe_receiver = document.getElementById('grid-item-' + $item.p1());
+        removeFromBars($item);
+        var tmp3_safe_receiver = document.getElementById('grid-item-' + $item.p1());
         var tmp_1;
-        if (tmp4_safe_receiver == null) {
+        if (tmp3_safe_receiver == null) {
           tmp_1 = Unit_getInstance();
         } else {
-          var tmp1_safe_receiver = document.getElementById('grid-item-' + $item.p1());
-          var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.className;
+          var tmp0_safe_receiver = document.getElementById('grid-item-' + $item.p1());
+          var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.className;
           var tmp_2;
-          if (tmp2_safe_receiver == null) {
+          if (tmp1_safe_receiver == null) {
             tmp_2 = null;
           } else {
-            tmp_2 = replace$default(tmp2_safe_receiver, ' active', '', false, 4, null);
+            tmp_2 = replace$default(tmp1_safe_receiver, ' active', '', false, 4, null);
           }
-          var tmp3_elvis_lhs = tmp_2;
-          tmp_1 = tmp4_safe_receiver.className = tmp3_elvis_lhs == null ? '' : tmp3_elvis_lhs;
+          var tmp2_elvis_lhs = tmp_2;
+          tmp_1 = tmp3_safe_receiver.className = tmp2_elvis_lhs == null ? '' : tmp2_elvis_lhs;
         }
         tmp = tmp_1;
       } else {
-        set_selectedListStorage(plus(get_selectedListStorage(), $item.p1()));
-        var tmp5_safe_receiver = document.getElementById('grid-item-' + $item.p1());
-        if (tmp5_safe_receiver == null) {
+        set_selectedListStorage(plus_0(get_selectedListStorage(), $item.p1()));
+        var tmp4_safe_receiver = document.getElementById('grid-item-' + $item.p1());
+        if (tmp4_safe_receiver == null) {
         } else {
-          var tmp6_this = tmp5_safe_receiver;
-          tmp6_this.className = plus_0(tmp6_this.className, ' active');
+          var tmp5_this = tmp4_safe_receiver;
+          tmp5_this.className = plus(tmp5_this.className, ' active');
         }
-        var tmp7_safe_receiver = document.getElementById('selected-icons');
-        if (tmp7_safe_receiver == null)
-          null;
-        else {
-          append(tmp7_safe_receiver, GridItem$lambda$lambda($item));
-        }
-        tmp = Unit_getInstance();
+        tmp = addToBars($item);
       }
       return Unit_getInstance();
     };
@@ -1168,6 +1631,7 @@
     };
   }
   //region block: init
+  isBarExpanded = false;
   _selectedListStorage = null;
   //endregion
   main();

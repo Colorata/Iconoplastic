@@ -237,24 +237,6 @@ if (typeof Math.imul === 'undefined') {
   function get_indices_0(_this__u8e3s4) {
     return new IntRange(0, get_lastIndex_0(_this__u8e3s4));
   }
-  function joinToString(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform) {
-    return joinTo(_this__u8e3s4, StringBuilder_init_$Create$_0(), separator, prefix, postfix, limit, truncated, transform).toString();
-  }
-  function joinToString$default(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform, $mask0, $handler) {
-    if (!(($mask0 & 1) === 0))
-      separator = ', ';
-    if (!(($mask0 & 2) === 0))
-      prefix = '';
-    if (!(($mask0 & 4) === 0))
-      postfix = '';
-    if (!(($mask0 & 8) === 0))
-      limit = -1;
-    if (!(($mask0 & 16) === 0))
-      truncated = '...';
-    if (!(($mask0 & 32) === 0))
-      transform = null;
-    return joinToString(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform);
-  }
   function associateByTo(_this__u8e3s4, destination, keySelector) {
     var indexedObject = _this__u8e3s4;
     var inductionVariable = 0;
@@ -274,30 +256,6 @@ if (typeof Math.imul === 'undefined') {
   }
   function get_lastIndex_0(_this__u8e3s4) {
     return _this__u8e3s4.length - 1 | 0;
-  }
-  function joinTo(_this__u8e3s4, buffer, separator, prefix, postfix, limit, truncated, transform) {
-    buffer.b(prefix);
-    var count = 0;
-    var indexedObject = _this__u8e3s4;
-    var inductionVariable = 0;
-    var last = indexedObject.length;
-    $l$loop: while (inductionVariable < last) {
-      var element = indexedObject[inductionVariable];
-      inductionVariable = inductionVariable + 1 | 0;
-      count = count + 1 | 0;
-      if (count > 1) {
-        buffer.b(separator);
-      }
-      if (limit < 0 ? true : count <= limit) {
-        appendElement(buffer, element, transform);
-      } else
-        break $l$loop;
-    }
-    if (limit >= 0 ? count > limit : false) {
-      buffer.b(truncated);
-    }
-    buffer.b(postfix);
-    return buffer;
   }
   function toSet(_this__u8e3s4) {
     var tmp0_subject = _this__u8e3s4.length;
@@ -377,9 +335,27 @@ if (typeof Math.imul === 'undefined') {
     while (inductionVariable < last) {
       var item = indexedObject[inductionVariable];
       inductionVariable = inductionVariable + 1 | 0;
-      destination.c(item);
+      destination.b(item);
     }
     return destination;
+  }
+  function joinToString(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform) {
+    return joinTo(_this__u8e3s4, StringBuilder_init_$Create$_0(), separator, prefix, postfix, limit, truncated, transform).toString();
+  }
+  function joinToString$default(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      separator = ', ';
+    if (!(($mask0 & 2) === 0))
+      prefix = '';
+    if (!(($mask0 & 4) === 0))
+      postfix = '';
+    if (!(($mask0 & 8) === 0))
+      limit = -1;
+    if (!(($mask0 & 16) === 0))
+      truncated = '...';
+    if (!(($mask0 & 32) === 0))
+      transform = null;
+    return joinToString(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform);
   }
   function firstOrNull(_this__u8e3s4, predicate) {
     var indexedObject = _this__u8e3s4;
@@ -393,6 +369,30 @@ if (typeof Math.imul === 'undefined') {
     }
     return null;
   }
+  function joinTo(_this__u8e3s4, buffer, separator, prefix, postfix, limit, truncated, transform) {
+    buffer.c(prefix);
+    var count = 0;
+    var indexedObject = _this__u8e3s4;
+    var inductionVariable = 0;
+    var last = indexedObject.length;
+    $l$loop: while (inductionVariable < last) {
+      var element = indexedObject[inductionVariable];
+      inductionVariable = inductionVariable + 1 | 0;
+      count = count + 1 | 0;
+      if (count > 1) {
+        buffer.c(separator);
+      }
+      if (limit < 0 ? true : count <= limit) {
+        appendElement(buffer, element, transform);
+      } else
+        break $l$loop;
+    }
+    if (limit >= 0 ? count > limit : false) {
+      buffer.c(truncated);
+    }
+    buffer.c(postfix);
+    return buffer;
+  }
   function map(_this__u8e3s4, transform) {
     var tmp$ret$0;
     {
@@ -403,7 +403,7 @@ if (typeof Math.imul === 'undefined') {
       while (inductionVariable < last) {
         var item = indexedObject[inductionVariable];
         inductionVariable = inductionVariable + 1 | 0;
-        tmp0_mapTo.c(transform(item));
+        tmp0_mapTo.b(transform(item));
       }
       tmp$ret$0 = tmp0_mapTo;
     }
@@ -426,7 +426,7 @@ if (typeof Math.imul === 'undefined') {
     while (inductionVariable < last) {
       var item = indexedObject[inductionVariable];
       inductionVariable = inductionVariable + 1 | 0;
-      destination.c(transform(item));
+      destination.b(transform(item));
     }
     return destination;
   }
@@ -445,7 +445,7 @@ if (typeof Math.imul === 'undefined') {
       var tmp0_iterator = _this__u8e3s4.d();
       while (tmp0_iterator.e()) {
         var item = tmp0_iterator.f();
-        tmp0_mapTo.c(transform(item));
+        tmp0_mapTo.b(transform(item));
       }
       tmp$ret$0 = tmp0_mapTo;
     }
@@ -477,7 +477,7 @@ if (typeof Math.imul === 'undefined') {
       while (tmp0_iterator.e()) {
         var element = tmp0_iterator.f();
         if (!predicate(element)) {
-          tmp0_filterNotTo.c(element);
+          tmp0_filterNotTo.b(element);
         }
       }
       tmp$ret$0 = tmp0_filterNotTo;
@@ -580,7 +580,7 @@ if (typeof Math.imul === 'undefined') {
           tmp$ret$0 = tmp;
         }
         if (tmp$ret$0) {
-          result.c(element_0);
+          result.b(element_0);
         }
       }
       tmp$ret$1 = result;
@@ -590,26 +590,26 @@ if (typeof Math.imul === 'undefined') {
   function plus_0(_this__u8e3s4, element) {
     var result = ArrayList_init_$Create$_0(_this__u8e3s4.g() + 1 | 0);
     result.m(_this__u8e3s4);
-    result.c(element);
+    result.b(element);
     return result;
   }
   function mapTo_0(_this__u8e3s4, destination, transform) {
     var tmp0_iterator = _this__u8e3s4.d();
     while (tmp0_iterator.e()) {
       var item = tmp0_iterator.f();
-      destination.c(transform(item));
+      destination.b(transform(item));
     }
     return destination;
   }
   function joinTo_0(_this__u8e3s4, buffer, separator, prefix, postfix, limit, truncated, transform) {
-    buffer.b(prefix);
+    buffer.c(prefix);
     var count = 0;
     var tmp0_iterator = _this__u8e3s4.d();
     $l$loop: while (tmp0_iterator.e()) {
       var element = tmp0_iterator.f();
       count = count + 1 | 0;
       if (count > 1) {
-        buffer.b(separator);
+        buffer.c(separator);
       }
       if (limit < 0 ? true : count <= limit) {
         appendElement(buffer, element, transform);
@@ -617,9 +617,9 @@ if (typeof Math.imul === 'undefined') {
         break $l$loop;
     }
     if (limit >= 0 ? count > limit : false) {
-      buffer.b(truncated);
+      buffer.c(truncated);
     }
-    buffer.b(postfix);
+    buffer.c(postfix);
     return buffer;
   }
   function joinTo$default(_this__u8e3s4, buffer, separator, prefix, postfix, limit, truncated, transform, $mask0, $handler) {
@@ -642,7 +642,7 @@ if (typeof Math.imul === 'undefined') {
     while (tmp0_iterator.e()) {
       var element = tmp0_iterator.f();
       if (!predicate(element)) {
-        destination.c(element);
+        destination.b(element);
       }
     }
     return destination;
@@ -651,7 +651,7 @@ if (typeof Math.imul === 'undefined') {
     var tmp0_iterator = _this__u8e3s4.d();
     while (tmp0_iterator.e()) {
       var item = tmp0_iterator.f();
-      destination.c(item);
+      destination.b(item);
     }
     return destination;
   }
@@ -660,7 +660,7 @@ if (typeof Math.imul === 'undefined') {
     while (tmp0_iterator.e()) {
       var element = tmp0_iterator.f();
       if (predicate(element)) {
-        destination.c(element);
+        destination.b(element);
       }
     }
     return destination;
@@ -737,7 +737,7 @@ if (typeof Math.imul === 'undefined') {
       while (tmp0_iterator.e()) {
         var element = tmp0_iterator.f();
         if (predicate(element)) {
-          tmp0_filterTo.c(element);
+          tmp0_filterTo.b(element);
         }
       }
       tmp$ret$0 = tmp0_filterTo;
@@ -832,7 +832,7 @@ if (typeof Math.imul === 'undefined') {
               {
                 {
                 }
-                tmp1_mapIndexedNotNullTo.c(tmp0_safe_receiver);
+                tmp1_mapIndexedNotNullTo.b(tmp0_safe_receiver);
                 tmp$ret$0 = Unit_getInstance();
               }
             }
@@ -861,7 +861,7 @@ if (typeof Math.imul === 'undefined') {
             {
               {
               }
-              destination.c(tmp0_safe_receiver);
+              destination.b(tmp0_safe_receiver);
               tmp$ret$0 = Unit_getInstance();
             }
           }
@@ -973,6 +973,12 @@ if (typeof Math.imul === 'undefined') {
     checkStepIsPositive(step > 0, step);
     return Companion_getInstance_9().a1(_this__u8e3s4.x_1, _this__u8e3s4.y_1, _this__u8e3s4.z_1 > 0 ? step : -step | 0);
   }
+  function coerceAtMost(_this__u8e3s4, maximumValue) {
+    return _this__u8e3s4 > maximumValue ? maximumValue : _this__u8e3s4;
+  }
+  function downTo(_this__u8e3s4, to) {
+    return Companion_getInstance_9().a1(_this__u8e3s4, to, -1);
+  }
   function coerceIn_0(_this__u8e3s4, minimumValue, maximumValue) {
     if (minimumValue > maximumValue)
       throw IllegalArgumentException_init_$Create$_0('Cannot coerce value to an empty range: maximum ' + maximumValue + ' is less than minimum ' + minimumValue + '.');
@@ -981,12 +987,6 @@ if (typeof Math.imul === 'undefined') {
     if (_this__u8e3s4 > maximumValue)
       return maximumValue;
     return _this__u8e3s4;
-  }
-  function coerceAtMost(_this__u8e3s4, maximumValue) {
-    return _this__u8e3s4 > maximumValue ? maximumValue : _this__u8e3s4;
-  }
-  function downTo(_this__u8e3s4, to) {
-    return Companion_getInstance_9().a1(_this__u8e3s4, to, -1);
   }
   function asIterable(_this__u8e3s4) {
     var tmp$ret$0;
@@ -1034,7 +1034,7 @@ if (typeof Math.imul === 'undefined') {
     var tmp0_iterator = _this__u8e3s4.d();
     while (tmp0_iterator.e()) {
       var item = tmp0_iterator.f();
-      destination.c(item);
+      destination.b(item);
     }
     return destination;
   }
@@ -1590,9 +1590,6 @@ if (typeof Math.imul === 'undefined') {
     }
     return _this__u8e3s4 == null ? true : _this__u8e3s4.i();
   }
-  function mutableListOf() {
-    return ArrayList_init_$Create$();
-  }
   function listOf() {
     return emptyList();
   }
@@ -1658,6 +1655,9 @@ if (typeof Math.imul === 'undefined') {
     if (EmptyIterator_instance == null)
       new EmptyIterator();
     return EmptyIterator_instance;
+  }
+  function mutableListOf() {
+    return ArrayList_init_$Create$();
   }
   function get_indices_1(_this__u8e3s4) {
     return numberRangeToNumber(0, _this__u8e3s4.g() - 1 | 0);
@@ -2129,7 +2129,7 @@ if (typeof Math.imul === 'undefined') {
     return tmp$ret$0;
   }
   function plusAssign(_this__u8e3s4, element) {
-    _this__u8e3s4.c(element);
+    _this__u8e3s4.b(element);
   }
   function removeLast(_this__u8e3s4) {
     var tmp;
@@ -2149,7 +2149,7 @@ if (typeof Math.imul === 'undefined') {
       var tmp1_iterator = elements.d();
       while (tmp1_iterator.e()) {
         var item = tmp1_iterator.f();
-        if (_this__u8e3s4.c(item))
+        if (_this__u8e3s4.b(item))
           result = true;
       }
       return result;
@@ -2750,18 +2750,21 @@ if (typeof Math.imul === 'undefined') {
   }
   function appendElement(_this__u8e3s4, element, transform) {
     if (!(transform == null)) {
-      _this__u8e3s4.b(transform(element));
+      _this__u8e3s4.c(transform(element));
     } else {
       if (element == null ? true : isCharSequence(element)) {
-        _this__u8e3s4.b(element);
+        _this__u8e3s4.c(element);
       } else {
         if (element instanceof Char_0) {
           _this__u8e3s4.r4(element.d1_1);
         } else {
-          _this__u8e3s4.b(toString_1(element));
+          _this__u8e3s4.c(toString_1(element));
         }
       }
     }
+  }
+  function plus_2(_this__u8e3s4, other) {
+    return toString_0(_this__u8e3s4) + other;
   }
   function equals(_this__u8e3s4, other, ignoreCase) {
     if (equals_1(new Char_0(_this__u8e3s4), new Char_0(other)))
@@ -2815,9 +2818,6 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function plus_2(_this__u8e3s4, other) {
-    return toString_0(_this__u8e3s4) + other;
-  }
   function titlecase(_this__u8e3s4) {
     return titlecaseImpl(_this__u8e3s4);
   }
@@ -2837,7 +2837,7 @@ if (typeof Math.imul === 'undefined') {
           while (tmp0_iterator.e()) {
             var element = tmp0_iterator.f();
             if (isNotBlank(element)) {
-              tmp0_filterTo.c(element);
+              tmp0_filterTo.b(element);
             }
           }
           tmp$ret$0 = tmp0_filterTo;
@@ -2851,7 +2851,7 @@ if (typeof Math.imul === 'undefined') {
         var tmp0_iterator_0 = tmp0_map.d();
         while (tmp0_iterator_0.e()) {
           var item = tmp0_iterator_0.f();
-          tmp0_mapTo.c(indentWidth(item));
+          tmp0_mapTo.b(indentWidth(item));
         }
         tmp$ret$2 = tmp0_mapTo;
       }
@@ -2914,7 +2914,7 @@ if (typeof Math.imul === 'undefined') {
                   {
                     {
                     }
-                    tmp1_mapIndexedNotNullTo.c(tmp0_safe_receiver_0);
+                    tmp1_mapIndexedNotNullTo.b(tmp0_safe_receiver_0);
                     tmp$ret$7 = Unit_getInstance();
                   }
                 }
@@ -3014,7 +3014,7 @@ if (typeof Math.imul === 'undefined') {
                 {
                   {
                   }
-                  tmp1_mapIndexedNotNullTo.c(tmp0_safe_receiver_0);
+                  tmp1_mapIndexedNotNullTo.b(tmp0_safe_receiver_0);
                   tmp$ret$2 = Unit_getInstance();
                 }
               }
@@ -3221,24 +3221,6 @@ if (typeof Math.imul === 'undefined') {
   function isNotBlank(_this__u8e3s4) {
     return !isBlank(_this__u8e3s4);
   }
-  function contains_2(_this__u8e3s4, other, ignoreCase) {
-    var tmp;
-    if (typeof other === 'string') {
-      tmp = indexOf$default(_this__u8e3s4, other, 0, ignoreCase, 2, null) >= 0;
-    } else {
-      var tmp_0 = charSequenceLength(_this__u8e3s4);
-      tmp = indexOf$default_1(_this__u8e3s4, other, 0, tmp_0, ignoreCase, false, 16, null) >= 0;
-    }
-    return tmp;
-  }
-  function startsWith(_this__u8e3s4, char, ignoreCase) {
-    return charSequenceLength(_this__u8e3s4) > 0 ? equals(charSequenceGet(_this__u8e3s4, 0), char, ignoreCase) : false;
-  }
-  function startsWith$default(_this__u8e3s4, char, ignoreCase, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      ignoreCase = false;
-    return startsWith(_this__u8e3s4, char, ignoreCase);
-  }
   function split_0(_this__u8e3s4, delimiters, ignoreCase, limit) {
     if (delimiters.length === 1) {
       return split_2(_this__u8e3s4, toString_0(delimiters[0]), ignoreCase, limit);
@@ -3256,7 +3238,7 @@ if (typeof Math.imul === 'undefined') {
           {
             tmp$ret$0 = substring(_this__u8e3s4, item);
           }
-          tmp0_mapTo.c(tmp$ret$0);
+          tmp0_mapTo.b(tmp$ret$0);
         }
         tmp$ret$1 = tmp0_mapTo;
       }
@@ -3295,7 +3277,7 @@ if (typeof Math.imul === 'undefined') {
           {
             tmp$ret$1 = substring(_this__u8e3s4, item);
           }
-          tmp0_mapTo.c(tmp$ret$1);
+          tmp0_mapTo.b(tmp$ret$1);
         }
         tmp$ret$2 = tmp0_mapTo;
       }
@@ -3309,6 +3291,16 @@ if (typeof Math.imul === 'undefined') {
     if (!(($mask0 & 4) === 0))
       limit = 0;
     return split_1(_this__u8e3s4, delimiters, ignoreCase, limit);
+  }
+  function contains_2(_this__u8e3s4, other, ignoreCase) {
+    var tmp;
+    if (typeof other === 'string') {
+      tmp = indexOf$default(_this__u8e3s4, other, 0, ignoreCase, 2, null) >= 0;
+    } else {
+      var tmp_0 = charSequenceLength(_this__u8e3s4);
+      tmp = indexOf$default_0(_this__u8e3s4, other, 0, tmp_0, ignoreCase, false, 16, null) >= 0;
+    }
+    return tmp;
   }
   function replaceFirstChar(_this__u8e3s4, transform) {
     var tmp;
@@ -3337,6 +3329,68 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
+  function split_2(_this__u8e3s4, delimiter, ignoreCase, limit) {
+    requireNonNegativeLimit(limit);
+    var currentOffset = 0;
+    var nextIndex = indexOf_0(_this__u8e3s4, delimiter, currentOffset, ignoreCase);
+    if (nextIndex === -1 ? true : limit === 1) {
+      return listOf_0(toString_2(_this__u8e3s4));
+    }
+    var isLimited = limit > 0;
+    var result = ArrayList_init_$Create$_0(isLimited ? coerceAtMost(limit, 10) : 10);
+    $l$loop: do {
+      var tmp$ret$0;
+      {
+        var tmp0_substring = currentOffset;
+        var tmp1_substring = nextIndex;
+        tmp$ret$0 = toString_2(charSequenceSubSequence(_this__u8e3s4, tmp0_substring, tmp1_substring));
+      }
+      result.b(tmp$ret$0);
+      currentOffset = nextIndex + delimiter.length | 0;
+      if (isLimited ? result.g() === (limit - 1 | 0) : false)
+        break $l$loop;
+      nextIndex = indexOf_0(_this__u8e3s4, delimiter, currentOffset, ignoreCase);
+    }
+     while (!(nextIndex === -1));
+    var tmp$ret$1;
+    {
+      var tmp2_substring = currentOffset;
+      var tmp3_substring = charSequenceLength(_this__u8e3s4);
+      tmp$ret$1 = toString_2(charSequenceSubSequence(_this__u8e3s4, tmp2_substring, tmp3_substring));
+    }
+    result.b(tmp$ret$1);
+    return result;
+  }
+  function substring(_this__u8e3s4, range) {
+    return toString_2(charSequenceSubSequence(_this__u8e3s4, range.g5(), range.h5() + 1 | 0));
+  }
+  function rangesDelimitedBy(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit) {
+    requireNonNegativeLimit(limit);
+    return new DelimitedRangesSequence(_this__u8e3s4, startIndex, limit, rangesDelimitedBy$lambda(delimiters, ignoreCase));
+  }
+  function rangesDelimitedBy$default(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      startIndex = 0;
+    if (!(($mask0 & 4) === 0))
+      ignoreCase = false;
+    if (!(($mask0 & 8) === 0))
+      limit = 0;
+    return rangesDelimitedBy(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit);
+  }
+  function rangesDelimitedBy_0(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit) {
+    requireNonNegativeLimit(limit);
+    var delimitersList = asList(delimiters);
+    return new DelimitedRangesSequence(_this__u8e3s4, startIndex, limit, rangesDelimitedBy$lambda_0(delimitersList, ignoreCase));
+  }
+  function rangesDelimitedBy$default_0(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      startIndex = 0;
+    if (!(($mask0 & 4) === 0))
+      ignoreCase = false;
+    if (!(($mask0 & 8) === 0))
+      limit = 0;
+    return rangesDelimitedBy_0(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit);
+  }
   function indexOf_0(_this__u8e3s4, string, startIndex, ignoreCase) {
     var tmp;
     var tmp_0;
@@ -3347,7 +3401,7 @@ if (typeof Math.imul === 'undefined') {
     }
     if (tmp_0) {
       var tmp_1 = charSequenceLength(_this__u8e3s4);
-      tmp = indexOf$default_1(_this__u8e3s4, string, startIndex, tmp_1, ignoreCase, false, 16, null);
+      tmp = indexOf$default_0(_this__u8e3s4, string, startIndex, tmp_1, ignoreCase, false, 16, null);
     } else {
       var tmp$ret$1;
       {
@@ -3369,50 +3423,7 @@ if (typeof Math.imul === 'undefined') {
       ignoreCase = false;
     return indexOf_0(_this__u8e3s4, string, startIndex, ignoreCase);
   }
-  function get_lastIndex_3(_this__u8e3s4) {
-    return charSequenceLength(_this__u8e3s4) - 1 | 0;
-  }
-  function indexOf_1(_this__u8e3s4, char, startIndex, ignoreCase) {
-    var tmp;
-    var tmp_0;
-    if (ignoreCase) {
-      tmp_0 = true;
-    } else {
-      tmp_0 = !(typeof _this__u8e3s4 === 'string');
-    }
-    if (tmp_0) {
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = charArrayOf_0([char]);
-      }
-      tmp = indexOfAny(_this__u8e3s4, tmp$ret$0, startIndex, ignoreCase);
-    } else {
-      var tmp$ret$3;
-      {
-        var tmp1_nativeIndexOf = _this__u8e3s4;
-        var tmp$ret$2;
-        {
-          var tmp0_nativeIndexOf = toString_0(char);
-          var tmp$ret$1;
-          {
-            tmp$ret$1 = tmp1_nativeIndexOf;
-          }
-          tmp$ret$2 = tmp$ret$1.indexOf(tmp0_nativeIndexOf, startIndex);
-        }
-        tmp$ret$3 = tmp$ret$2;
-      }
-      tmp = tmp$ret$3;
-    }
-    return tmp;
-  }
-  function indexOf$default_0(_this__u8e3s4, char, startIndex, ignoreCase, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      startIndex = 0;
-    if (!(($mask0 & 4) === 0))
-      ignoreCase = false;
-    return indexOf_1(_this__u8e3s4, char, startIndex, ignoreCase);
-  }
-  function indexOf_2(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last) {
+  function indexOf_1(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last) {
     var indices = !last ? numberRangeToNumber(coerceAtLeast(startIndex, 0), coerceAtMost(endIndex, charSequenceLength(_this__u8e3s4))) : downTo(coerceAtMost(startIndex, get_lastIndex_3(_this__u8e3s4)), coerceAtLeast(endIndex, 0));
     var tmp;
     if (typeof _this__u8e3s4 === 'string') {
@@ -3447,147 +3458,13 @@ if (typeof Math.imul === 'undefined') {
     }
     return -1;
   }
-  function indexOf$default_1(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last, $mask0, $handler) {
+  function indexOf$default_0(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last, $mask0, $handler) {
     if (!(($mask0 & 16) === 0))
       last = false;
-    return indexOf_2(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last);
-  }
-  function split_2(_this__u8e3s4, delimiter, ignoreCase, limit) {
-    requireNonNegativeLimit(limit);
-    var currentOffset = 0;
-    var nextIndex = indexOf_0(_this__u8e3s4, delimiter, currentOffset, ignoreCase);
-    if (nextIndex === -1 ? true : limit === 1) {
-      return listOf_0(toString_2(_this__u8e3s4));
-    }
-    var isLimited = limit > 0;
-    var result = ArrayList_init_$Create$_0(isLimited ? coerceAtMost(limit, 10) : 10);
-    $l$loop: do {
-      var tmp$ret$0;
-      {
-        var tmp0_substring = currentOffset;
-        var tmp1_substring = nextIndex;
-        tmp$ret$0 = toString_2(charSequenceSubSequence(_this__u8e3s4, tmp0_substring, tmp1_substring));
-      }
-      result.c(tmp$ret$0);
-      currentOffset = nextIndex + delimiter.length | 0;
-      if (isLimited ? result.g() === (limit - 1 | 0) : false)
-        break $l$loop;
-      nextIndex = indexOf_0(_this__u8e3s4, delimiter, currentOffset, ignoreCase);
-    }
-     while (!(nextIndex === -1));
-    var tmp$ret$1;
-    {
-      var tmp2_substring = currentOffset;
-      var tmp3_substring = charSequenceLength(_this__u8e3s4);
-      tmp$ret$1 = toString_2(charSequenceSubSequence(_this__u8e3s4, tmp2_substring, tmp3_substring));
-    }
-    result.c(tmp$ret$1);
-    return result;
-  }
-  function substring(_this__u8e3s4, range) {
-    return toString_2(charSequenceSubSequence(_this__u8e3s4, range.g5(), range.h5() + 1 | 0));
-  }
-  function rangesDelimitedBy(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit) {
-    requireNonNegativeLimit(limit);
-    return new DelimitedRangesSequence(_this__u8e3s4, startIndex, limit, rangesDelimitedBy$lambda(delimiters, ignoreCase));
-  }
-  function rangesDelimitedBy$default(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      startIndex = 0;
-    if (!(($mask0 & 4) === 0))
-      ignoreCase = false;
-    if (!(($mask0 & 8) === 0))
-      limit = 0;
-    return rangesDelimitedBy(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit);
-  }
-  function rangesDelimitedBy_0(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit) {
-    requireNonNegativeLimit(limit);
-    var delimitersList = asList(delimiters);
-    return new DelimitedRangesSequence(_this__u8e3s4, startIndex, limit, rangesDelimitedBy$lambda_0(delimitersList, ignoreCase));
-  }
-  function rangesDelimitedBy$default_0(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      startIndex = 0;
-    if (!(($mask0 & 4) === 0))
-      ignoreCase = false;
-    if (!(($mask0 & 8) === 0))
-      limit = 0;
-    return rangesDelimitedBy_0(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit);
+    return indexOf_1(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last);
   }
   function isNotEmpty_0(_this__u8e3s4) {
     return charSequenceLength(_this__u8e3s4) > 0;
-  }
-  function indexOfAny(_this__u8e3s4, chars, startIndex, ignoreCase) {
-    var tmp;
-    if (!ignoreCase ? chars.length === 1 : false) {
-      tmp = typeof _this__u8e3s4 === 'string';
-    } else {
-      tmp = false;
-    }
-    if (tmp) {
-      var char = single(chars);
-      var tmp$ret$2;
-      {
-        var tmp1_nativeIndexOf = _this__u8e3s4;
-        var tmp$ret$1;
-        {
-          var tmp0_nativeIndexOf = toString_0(char);
-          var tmp$ret$0;
-          {
-            tmp$ret$0 = tmp1_nativeIndexOf;
-          }
-          tmp$ret$1 = tmp$ret$0.indexOf(tmp0_nativeIndexOf, startIndex);
-        }
-        tmp$ret$2 = tmp$ret$1;
-      }
-      return tmp$ret$2;
-    }
-    var inductionVariable = coerceAtLeast(startIndex, 0);
-    var last = get_lastIndex_3(_this__u8e3s4);
-    if (inductionVariable <= last)
-      do {
-        var index = inductionVariable;
-        inductionVariable = inductionVariable + 1 | 0;
-        var charAtIndex = charSequenceGet(_this__u8e3s4, index);
-        var tmp$ret$4;
-        $l$block: {
-          var indexedObject = chars;
-          var inductionVariable_0 = 0;
-          var last_0 = indexedObject.length;
-          while (inductionVariable_0 < last_0) {
-            var element = indexedObject[inductionVariable_0];
-            inductionVariable_0 = inductionVariable_0 + 1 | 0;
-            var tmp$ret$3;
-            {
-              tmp$ret$3 = equals(element, charAtIndex, ignoreCase);
-            }
-            if (tmp$ret$3) {
-              tmp$ret$4 = true;
-              break $l$block;
-            }
-          }
-          tmp$ret$4 = false;
-        }
-        if (tmp$ret$4)
-          return index;
-      }
-       while (!(index === last));
-    return -1;
-  }
-  function regionMatchesImpl(_this__u8e3s4, thisOffset, other, otherOffset, length, ignoreCase) {
-    if (((otherOffset < 0 ? true : thisOffset < 0) ? true : thisOffset > (charSequenceLength(_this__u8e3s4) - length | 0)) ? true : otherOffset > (charSequenceLength(other) - length | 0)) {
-      return false;
-    }
-    var inductionVariable = 0;
-    if (inductionVariable < length)
-      do {
-        var index = inductionVariable;
-        inductionVariable = inductionVariable + 1 | 0;
-        if (!equals(charSequenceGet(_this__u8e3s4, thisOffset + index | 0), charSequenceGet(other, otherOffset + index | 0), ignoreCase))
-          return false;
-      }
-       while (inductionVariable < length);
-    return true;
   }
   function requireNonNegativeLimit(limit) {
     var tmp0_require = limit >= 0;
@@ -3681,6 +3558,63 @@ if (typeof Math.imul === 'undefined') {
     return new DelimitedRangesSequence$iterator$1(this);
   };
   DelimitedRangesSequence.$metadata$ = classMeta('DelimitedRangesSequence', [Sequence]);
+  function indexOfAny(_this__u8e3s4, chars, startIndex, ignoreCase) {
+    var tmp;
+    if (!ignoreCase ? chars.length === 1 : false) {
+      tmp = typeof _this__u8e3s4 === 'string';
+    } else {
+      tmp = false;
+    }
+    if (tmp) {
+      var char = single(chars);
+      var tmp$ret$2;
+      {
+        var tmp1_nativeIndexOf = _this__u8e3s4;
+        var tmp$ret$1;
+        {
+          var tmp0_nativeIndexOf = toString_0(char);
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = tmp1_nativeIndexOf;
+          }
+          tmp$ret$1 = tmp$ret$0.indexOf(tmp0_nativeIndexOf, startIndex);
+        }
+        tmp$ret$2 = tmp$ret$1;
+      }
+      return tmp$ret$2;
+    }
+    var inductionVariable = coerceAtLeast(startIndex, 0);
+    var last = get_lastIndex_3(_this__u8e3s4);
+    if (inductionVariable <= last)
+      do {
+        var index = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        var charAtIndex = charSequenceGet(_this__u8e3s4, index);
+        var tmp$ret$4;
+        $l$block: {
+          var indexedObject = chars;
+          var inductionVariable_0 = 0;
+          var last_0 = indexedObject.length;
+          while (inductionVariable_0 < last_0) {
+            var element = indexedObject[inductionVariable_0];
+            inductionVariable_0 = inductionVariable_0 + 1 | 0;
+            var tmp$ret$3;
+            {
+              tmp$ret$3 = equals(element, charAtIndex, ignoreCase);
+            }
+            if (tmp$ret$3) {
+              tmp$ret$4 = true;
+              break $l$block;
+            }
+          }
+          tmp$ret$4 = false;
+        }
+        if (tmp$ret$4)
+          return index;
+      }
+       while (!(index === last));
+    return -1;
+  }
   function findAnyOf(_this__u8e3s4, strings, startIndex, ignoreCase, last) {
     if (!ignoreCase ? strings.g() === 1 : false) {
       var string = single_0(strings);
@@ -3755,6 +3689,24 @@ if (typeof Math.imul === 'undefined') {
     }
     return null;
   }
+  function get_lastIndex_3(_this__u8e3s4) {
+    return charSequenceLength(_this__u8e3s4) - 1 | 0;
+  }
+  function regionMatchesImpl(_this__u8e3s4, thisOffset, other, otherOffset, length, ignoreCase) {
+    if (((otherOffset < 0 ? true : thisOffset < 0) ? true : thisOffset > (charSequenceLength(_this__u8e3s4) - length | 0)) ? true : otherOffset > (charSequenceLength(other) - length | 0)) {
+      return false;
+    }
+    var inductionVariable = 0;
+    if (inductionVariable < length)
+      do {
+        var index = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        if (!equals(charSequenceGet(_this__u8e3s4, thisOffset + index | 0), charSequenceGet(other, otherOffset + index | 0), ignoreCase))
+          return false;
+      }
+       while (inductionVariable < length);
+    return true;
+  }
   function lastIndexOf(_this__u8e3s4, string, startIndex, ignoreCase) {
     var tmp;
     var tmp_0;
@@ -3764,7 +3716,7 @@ if (typeof Math.imul === 'undefined') {
       tmp_0 = !(typeof _this__u8e3s4 === 'string');
     }
     if (tmp_0) {
-      tmp = indexOf_2(_this__u8e3s4, string, startIndex, 0, ignoreCase, true);
+      tmp = indexOf_1(_this__u8e3s4, string, startIndex, 0, ignoreCase, true);
     } else {
       var tmp$ret$1;
       {
@@ -3786,8 +3738,16 @@ if (typeof Math.imul === 'undefined') {
       ignoreCase = false;
     return lastIndexOf(_this__u8e3s4, string, startIndex, ignoreCase);
   }
+  function startsWith(_this__u8e3s4, char, ignoreCase) {
+    return charSequenceLength(_this__u8e3s4) > 0 ? equals(charSequenceGet(_this__u8e3s4, 0), char, ignoreCase) : false;
+  }
+  function startsWith$default(_this__u8e3s4, char, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      ignoreCase = false;
+    return startsWith(_this__u8e3s4, char, ignoreCase);
+  }
   function contains_3(_this__u8e3s4, char, ignoreCase) {
-    return indexOf$default_0(_this__u8e3s4, char, 0, ignoreCase, 2, null) >= 0;
+    return indexOf$default_1(_this__u8e3s4, char, 0, ignoreCase, 2, null) >= 0;
   }
   function contains$default(_this__u8e3s4, char, ignoreCase, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
@@ -3796,6 +3756,46 @@ if (typeof Math.imul === 'undefined') {
   }
   function padStart(_this__u8e3s4, length, padChar) {
     return toString_2(padStart_0(isCharSequence(_this__u8e3s4) ? _this__u8e3s4 : THROW_CCE(), length, padChar));
+  }
+  function indexOf_2(_this__u8e3s4, char, startIndex, ignoreCase) {
+    var tmp;
+    var tmp_0;
+    if (ignoreCase) {
+      tmp_0 = true;
+    } else {
+      tmp_0 = !(typeof _this__u8e3s4 === 'string');
+    }
+    if (tmp_0) {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = charArrayOf_0([char]);
+      }
+      tmp = indexOfAny(_this__u8e3s4, tmp$ret$0, startIndex, ignoreCase);
+    } else {
+      var tmp$ret$3;
+      {
+        var tmp1_nativeIndexOf = _this__u8e3s4;
+        var tmp$ret$2;
+        {
+          var tmp0_nativeIndexOf = toString_0(char);
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = tmp1_nativeIndexOf;
+          }
+          tmp$ret$2 = tmp$ret$1.indexOf(tmp0_nativeIndexOf, startIndex);
+        }
+        tmp$ret$3 = tmp$ret$2;
+      }
+      tmp = tmp$ret$3;
+    }
+    return tmp;
+  }
+  function indexOf$default_1(_this__u8e3s4, char, startIndex, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      startIndex = 0;
+    if (!(($mask0 & 4) === 0))
+      ignoreCase = false;
+    return indexOf_2(_this__u8e3s4, char, startIndex, ignoreCase);
   }
   function get_indices_2(_this__u8e3s4) {
     return numberRangeToNumber(0, charSequenceLength(_this__u8e3s4) - 1 | 0);
@@ -3815,7 +3815,7 @@ if (typeof Math.imul === 'undefined') {
         sb.r4(padChar);
       }
        while (!(i === last));
-    sb.b(_this__u8e3s4);
+    sb.c(_this__u8e3s4);
     return sb;
   }
   function replaceFirstChar_0(_this__u8e3s4, transform) {
@@ -4537,7 +4537,7 @@ if (typeof Math.imul === 'undefined') {
             throw IllegalArgumentException_init_$Create$_0('Unexpected order of duration components');
           prevUnit = unit;
           var tmp_5 = _Char___init__impl__6a9atx(46);
-          var dotIndex = indexOf$default_0(component, tmp_5, 0, false, 6, null);
+          var dotIndex = indexOf$default_1(component, tmp_5, 0, false, 6, null);
           if (unit.equals(DurationUnit_SECONDS_getInstance()) ? dotIndex > 0 : false) {
             var tmp$ret$8;
             {
@@ -4706,7 +4706,7 @@ if (typeof Math.imul === 'undefined') {
                 throw IllegalArgumentException_init_$Create$_0('Unexpected order of duration components');
               prevUnit_0 = unit_0;
               var tmp_12 = _Char___init__impl__6a9atx(46);
-              var dotIndex_0 = indexOf$default_0(component_0, tmp_12, 0, false, 6, null);
+              var dotIndex_0 = indexOf$default_1(component_0, tmp_12, 0, false, 6, null);
               if (dotIndex_0 > 0) {
                 var tmp$ret$26;
                 {
@@ -7084,7 +7084,7 @@ if (typeof Math.imul === 'undefined') {
     var tmp0_iterator = elements.d();
     while (tmp0_iterator.e()) {
       var element = tmp0_iterator.f();
-      if (this.c(element))
+      if (this.b(element))
         modified = true;
     }
     return modified;
@@ -7142,7 +7142,7 @@ if (typeof Math.imul === 'undefined') {
   AbstractMutableList.prototype.pa = function () {
     return this.na_1;
   };
-  AbstractMutableList.prototype.c = function (element) {
+  AbstractMutableList.prototype.b = function (element) {
     this.ja();
     this.qa(this.g(), element);
     return true;
@@ -7230,7 +7230,7 @@ if (typeof Math.imul === 'undefined') {
   AbstractMutableMap$keys$1.prototype.ya = function (element) {
     throw UnsupportedOperationException_init_$Create$_0('Add is not supported on keys');
   };
-  AbstractMutableMap$keys$1.prototype.c = function (element) {
+  AbstractMutableMap$keys$1.prototype.b = function (element) {
     return this.ya((element == null ? true : isObject(element)) ? element : THROW_CCE());
   };
   AbstractMutableMap$keys$1.prototype.v1 = function (element) {
@@ -7388,7 +7388,7 @@ if (typeof Math.imul === 'undefined') {
     var tmp = this.k_1[rangeCheck(this, index)];
     return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
   };
-  ArrayList.prototype.c = function (element) {
+  ArrayList.prototype.b = function (element) {
     this.ja();
     var tmp$ret$0;
     {
@@ -7508,7 +7508,7 @@ if (typeof Math.imul === 'undefined') {
   EntrySet.prototype.kb = function (element) {
     throw UnsupportedOperationException_init_$Create$_0('Add is not supported on entries');
   };
-  EntrySet.prototype.c = function (element) {
+  EntrySet.prototype.b = function (element) {
     return this.kb((!(element == null) ? isInterface(element, MutableEntry) : false) ? element : THROW_CCE());
   };
   EntrySet.prototype.wa = function (element) {
@@ -7652,7 +7652,7 @@ if (typeof Math.imul === 'undefined') {
   HashSet.prototype.vb = function () {
     return this.ub_1;
   };
-  HashSet.prototype.c = function (element) {
+  HashSet.prototype.b = function (element) {
     var old = this.ub_1.a(element, this);
     return old == null;
   };
@@ -8020,7 +8020,7 @@ if (typeof Math.imul === 'undefined') {
   EntrySet_0.prototype.kb = function (element) {
     throw UnsupportedOperationException_init_$Create$_0('Add is not supported on entries');
   };
-  EntrySet_0.prototype.c = function (element) {
+  EntrySet_0.prototype.b = function (element) {
     return this.kb((!(element == null) ? isInterface(element, MutableEntry) : false) ? element : THROW_CCE());
   };
   EntrySet_0.prototype.wa = function (element) {
@@ -9242,7 +9242,7 @@ if (typeof Math.imul === 'undefined') {
     tmp0_this.s5_1 = tmp0_this.s5_1 + new Char_0(value);
     return this;
   };
-  StringBuilder.prototype.b = function (value) {
+  StringBuilder.prototype.c = function (value) {
     var tmp0_this = this;
     tmp0_this.s5_1 = tmp0_this.s5_1 + toString_1(value);
     return this;
@@ -9424,6 +9424,40 @@ if (typeof Math.imul === 'undefined') {
     }
     return radix;
   }
+  function toInt(_this__u8e3s4, radix) {
+    var tmp0_elvis_lhs = toIntOrNull_0(_this__u8e3s4, radix);
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      numberFormatError(_this__u8e3s4);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    return tmp;
+  }
+  function toInt_0(_this__u8e3s4) {
+    var tmp0_elvis_lhs = toIntOrNull(_this__u8e3s4);
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      numberFormatError(_this__u8e3s4);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    return tmp;
+  }
+  function digitOf(char, radix) {
+    var tmp$ret$1;
+    {
+      var tmp0_let = (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(48)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(57)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(48)) : (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(90)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(65)) + 10 | 0 : (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(97)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(122)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(97)) + 10 | 0 : Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(128)) < 0 ? -1 : (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65313)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65338)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(65313)) + 10 | 0 : (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65345)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65370)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(65345)) + 10 | 0 : digitToIntImpl(char);
+      {
+      }
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = tmp0_let >= radix ? -1 : tmp0_let;
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return tmp$ret$1;
+  }
   function toDouble(_this__u8e3s4) {
     var tmp$ret$2;
     {
@@ -9447,40 +9481,6 @@ if (typeof Math.imul === 'undefined') {
       tmp$ret$2 = tmp1_also;
     }
     return tmp$ret$2;
-  }
-  function toInt(_this__u8e3s4) {
-    var tmp0_elvis_lhs = toIntOrNull(_this__u8e3s4);
-    var tmp;
-    if (tmp0_elvis_lhs == null) {
-      numberFormatError(_this__u8e3s4);
-    } else {
-      tmp = tmp0_elvis_lhs;
-    }
-    return tmp;
-  }
-  function toInt_0(_this__u8e3s4, radix) {
-    var tmp0_elvis_lhs = toIntOrNull_0(_this__u8e3s4, radix);
-    var tmp;
-    if (tmp0_elvis_lhs == null) {
-      numberFormatError(_this__u8e3s4);
-    } else {
-      tmp = tmp0_elvis_lhs;
-    }
-    return tmp;
-  }
-  function digitOf(char, radix) {
-    var tmp$ret$1;
-    {
-      var tmp0_let = (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(48)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(57)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(48)) : (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(90)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(65)) + 10 | 0 : (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(97)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(122)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(97)) + 10 | 0 : Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(128)) < 0 ? -1 : (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65313)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65338)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(65313)) + 10 | 0 : (Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65345)) >= 0 ? Char__compareTo_impl_ypi4mb(char, _Char___init__impl__6a9atx(65370)) <= 0 : false) ? Char__minus_impl_a2frrh(char, _Char___init__impl__6a9atx(65345)) + 10 | 0 : digitToIntImpl(char);
-      {
-      }
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = tmp0_let >= radix ? -1 : tmp0_let;
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
   }
   function toLong(_this__u8e3s4) {
     var tmp0_elvis_lhs = toLongOrNull(_this__u8e3s4);
@@ -9655,16 +9655,27 @@ if (typeof Math.imul === 'undefined') {
     var tmp0_iterator = matches.d();
     while (tmp0_iterator.e()) {
       var match = tmp0_iterator.f();
-      result.c(toString_2(charSequenceSubSequence(input, lastStart, match.t5().g5())));
+      result.b(toString_2(charSequenceSubSequence(input, lastStart, match.t5().g5())));
       lastStart = match.t5().h5() + 1 | 0;
     }
-    result.c(toString_2(charSequenceSubSequence(input, lastStart, charSequenceLength(input))));
+    result.b(toString_2(charSequenceSubSequence(input, lastStart, charSequenceLength(input))));
     return result;
   };
   Regex.prototype.toString = function () {
     return this.z4_1.toString();
   };
   Regex.$metadata$ = classMeta('Regex');
+  function toFlags(_this__u8e3s4, prepend) {
+    return joinToString$default_0(_this__u8e3s4, '', prepend, null, 0, null, toFlags$lambda(), 28, null);
+  }
+  function findNext(_this__u8e3s4, input, from, nextPattern) {
+    _this__u8e3s4.lastIndex = from;
+    var match = _this__u8e3s4.exec(input);
+    if (match == null)
+      return null;
+    var range = numberRangeToNumber(match.index, _this__u8e3s4.lastIndex - 1 | 0);
+    return new findNext$1(range, match, nextPattern, input);
+  }
   function MatchGroup(value) {
     this.tf_1 = value;
   }
@@ -9685,17 +9696,6 @@ if (typeof Math.imul === 'undefined') {
     return true;
   };
   MatchGroup.$metadata$ = classMeta('MatchGroup');
-  function toFlags(_this__u8e3s4, prepend) {
-    return joinToString$default_0(_this__u8e3s4, '', prepend, null, 0, null, toFlags$lambda(), 28, null);
-  }
-  function findNext(_this__u8e3s4, input, from, nextPattern) {
-    _this__u8e3s4.lastIndex = from;
-    var match = _this__u8e3s4.exec(input);
-    if (match == null)
-      return null;
-    var range = numberRangeToNumber(match.index, _this__u8e3s4.lastIndex - 1 | 0);
-    return new findNext$1(range, match, nextPattern, input);
-  }
   function toFlags$lambda() {
     return function (it) {
       return it.wf_1;
@@ -9894,14 +9894,6 @@ if (typeof Math.imul === 'undefined') {
       return compareTo_0(_this__u8e3s4, other);
     }
   }
-  function lowercase_0(_this__u8e3s4) {
-    init_properties_string_kt_z8k4s7();
-    var tmp$ret$0;
-    {
-      tmp$ret$0 = _this__u8e3s4;
-    }
-    return tmp$ret$0.toLowerCase();
-  }
   function nativeIndexOf(_this__u8e3s4, str, fromIndex) {
     init_properties_string_kt_z8k4s7();
     var tmp$ret$0;
@@ -9925,6 +9917,14 @@ if (typeof Math.imul === 'undefined') {
       tmp$ret$0 = _this__u8e3s4;
     }
     return tmp$ret$0.startsWith(s, position);
+  }
+  function lowercase_0(_this__u8e3s4) {
+    init_properties_string_kt_z8k4s7();
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    return tmp$ret$0.toLowerCase();
   }
   function toLowerCase(_this__u8e3s4) {
     init_properties_string_kt_z8k4s7();
@@ -9957,25 +9957,6 @@ if (typeof Math.imul === 'undefined') {
       var tmp = STRING_CASE_INSENSITIVE_ORDER$lambda();
       STRING_CASE_INSENSITIVE_ORDER = new sam$kotlin_Comparator$0(tmp);
     }
-  }
-  function startsWith_0(_this__u8e3s4, prefix, ignoreCase) {
-    if (!ignoreCase) {
-      var tmp$ret$1;
-      {
-        var tmp$ret$0;
-        {
-          tmp$ret$0 = _this__u8e3s4;
-        }
-        tmp$ret$1 = tmp$ret$0.startsWith(prefix, 0);
-      }
-      return tmp$ret$1;
-    } else
-      return regionMatches(_this__u8e3s4, 0, prefix, 0, prefix.length, ignoreCase);
-  }
-  function startsWith$default_0(_this__u8e3s4, prefix, ignoreCase, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      ignoreCase = false;
-    return startsWith_0(_this__u8e3s4, prefix, ignoreCase);
   }
   function replace(_this__u8e3s4, oldValue, newValue, ignoreCase) {
     var tmp$ret$1;
@@ -10035,6 +10016,9 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
+  function regionMatches(_this__u8e3s4, thisOffset, other, otherOffset, length, ignoreCase) {
+    return regionMatchesImpl(_this__u8e3s4, thisOffset, other, otherOffset, length, ignoreCase);
+  }
   function nativeIndexOf_0(_this__u8e3s4, ch, fromIndex) {
     var tmp$ret$1;
     {
@@ -10047,8 +10031,24 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$1;
   }
-  function regionMatches(_this__u8e3s4, thisOffset, other, otherOffset, length, ignoreCase) {
-    return regionMatchesImpl(_this__u8e3s4, thisOffset, other, otherOffset, length, ignoreCase);
+  function startsWith_0(_this__u8e3s4, prefix, ignoreCase) {
+    if (!ignoreCase) {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4;
+        }
+        tmp$ret$1 = tmp$ret$0.startsWith(prefix, 0);
+      }
+      return tmp$ret$1;
+    } else
+      return regionMatches(_this__u8e3s4, 0, prefix, 0, prefix.length, ignoreCase);
+  }
+  function startsWith$default_0(_this__u8e3s4, prefix, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      ignoreCase = false;
+    return startsWith_0(_this__u8e3s4, prefix, ignoreCase);
   }
   function equals_0(_this__u8e3s4, other, ignoreCase) {
     if (_this__u8e3s4 == null)
@@ -10351,13 +10351,13 @@ if (typeof Math.imul === 'undefined') {
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : toString_2(tmp0_safe_receiver);
     return tmp + (tmp1_elvis_lhs == null ? 'null' : tmp1_elvis_lhs);
   }
-  function charArrayOf(elements) {
-    return elements;
-  }
   function toString_1(_this__u8e3s4) {
     var tmp0_safe_receiver = _this__u8e3s4;
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : toString_2(tmp0_safe_receiver);
     return tmp1_elvis_lhs == null ? 'null' : tmp1_elvis_lhs;
+  }
+  function charArrayOf(elements) {
+    return elements;
   }
   function intArrayOf(elements) {
     return elements;
@@ -13091,7 +13091,7 @@ if (typeof Math.imul === 'undefined') {
   _.$_$.e = getKClass;
   _.$_$.f = LazyThreadSafetyMode_PUBLICATION_getInstance;
   _.$_$.g = joinToString$default_0;
-  _.$_$.h = indexOf$default_0;
+  _.$_$.h = indexOf$default_1;
   _.$_$.i = lastIndexOf$default;
   _.$_$.j = replace$default;
   _.$_$.k = split$default;
@@ -13295,8 +13295,8 @@ if (typeof Math.imul === 'undefined') {
   _.$_$.a8 = toDoubleOrNull;
   _.$_$.b8 = toDouble;
   _.$_$.c8 = toIntOrNull;
-  _.$_$.d8 = toInt;
-  _.$_$.e8 = toInt_0;
+  _.$_$.d8 = toInt_0;
+  _.$_$.e8 = toInt;
   _.$_$.f8 = toLongOrNull;
   _.$_$.g8 = toLong;
   _.$_$.h8 = toUByte_1;

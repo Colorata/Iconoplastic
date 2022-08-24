@@ -86,6 +86,13 @@ config.ignoreWarnings = [/Failed to parse source map/]
         errors: false
     })
 })(config);
+
+// webpack.config.js
+module.exports = {
+    devtool: 'inline-source-map'
+}
+
+
 // save evaluated config file
 ;(function(config) {
     const util = require('util');

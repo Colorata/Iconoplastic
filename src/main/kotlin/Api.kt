@@ -6,7 +6,6 @@ class Api {
 
     suspend fun getCodepoints(): Map<String, String> {
         val response = window.fetch("$baseUrl/download/codepoints").await().text().await()
-        console.log(response)
         return response.split("\n").associate {
             kotlin.runCatching {
                 val final = it.split(' ')

@@ -88,7 +88,7 @@
       onCancelling = false;
     if (!(($mask0 & 2) === 0))
       invokeImmediately = true;
-    return $handler == null ? this.zp(onCancelling, invokeImmediately, handler) : $handler(onCancelling, invokeImmediately, handler);
+    return $handler == null ? this.gq(onCancelling, invokeImmediately, handler) : $handler(onCancelling, invokeImmediately, handler);
   }
   AbstractCoroutine.prototype = Object.create(JobSupport.prototype);
   AbstractCoroutine.prototype.constructor = AbstractCoroutine;
@@ -172,63 +172,63 @@
   function AbstractCoroutine(parentContext, initParentJob, active) {
     JobSupport.call(this, active);
     if (initParentJob)
-      this.uo(parentContext.v3(Key_getInstance_2()));
-    this.xo_1 = parentContext.c4(this);
+      this.bp(parentContext.v3(Key_getInstance_2()));
+    this.ep_1 = parentContext.c4(this);
   }
   AbstractCoroutine.prototype.r3 = function () {
-    return this.xo_1;
+    return this.ep_1;
   };
-  AbstractCoroutine.prototype.yo = function () {
-    return this.xo_1;
+  AbstractCoroutine.prototype.fp = function () {
+    return this.ep_1;
   };
-  AbstractCoroutine.prototype.zo = function () {
-    return JobSupport.prototype.zo.call(this);
+  AbstractCoroutine.prototype.gp = function () {
+    return JobSupport.prototype.gp.call(this);
   };
-  AbstractCoroutine.prototype.ap = function (value) {
+  AbstractCoroutine.prototype.hp = function (value) {
   };
-  AbstractCoroutine.prototype.bp = function (cause, handled) {
+  AbstractCoroutine.prototype.ip = function (cause, handled) {
   };
-  AbstractCoroutine.prototype.cp = function () {
+  AbstractCoroutine.prototype.jp = function () {
     return get_classSimpleName(this) + ' was cancelled';
   };
-  AbstractCoroutine.prototype.dp = function (state) {
+  AbstractCoroutine.prototype.kp = function (state) {
     if (state instanceof CompletedExceptionally)
-      this.bp(state.ep_1, state.gp());
+      this.ip(state.lp_1, state.np());
     else {
-      this.ap((state == null ? true : isObject(state)) ? state : THROW_CCE());
+      this.hp((state == null ? true : isObject(state)) ? state : THROW_CCE());
     }
   };
   AbstractCoroutine.prototype.s3 = function (result) {
-    var state = this.hp(toState$default(result, null, 1, null));
+    var state = this.op(toState$default(result, null, 1, null));
     if (state === get_COMPLETING_WAITING_CHILDREN())
       return Unit_getInstance();
-    this.ip(state);
+    this.pp(state);
   };
-  AbstractCoroutine.prototype.ip = function (state) {
-    return this.jp(state);
+  AbstractCoroutine.prototype.pp = function (state) {
+    return this.qp(state);
   };
-  AbstractCoroutine.prototype.kp = function (exception) {
-    handleCoroutineException(this.xo_1, exception);
+  AbstractCoroutine.prototype.rp = function (exception) {
+    handleCoroutineException(this.ep_1, exception);
   };
-  AbstractCoroutine.prototype.lp = function () {
-    var tmp0_elvis_lhs = get_coroutineName(this.xo_1);
+  AbstractCoroutine.prototype.sp = function () {
+    var tmp0_elvis_lhs = get_coroutineName(this.ep_1);
     var tmp;
     if (tmp0_elvis_lhs == null) {
-      return JobSupport.prototype.lp.call(this);
+      return JobSupport.prototype.sp.call(this);
     } else {
       tmp = tmp0_elvis_lhs;
     }
     var coroutineName = tmp;
-    return '"' + coroutineName + '":' + JobSupport.prototype.lp.call(this);
+    return '"' + coroutineName + '":' + JobSupport.prototype.sp.call(this);
   };
-  AbstractCoroutine.prototype.mp = function (start, receiver, block) {
-    start.pp(block, receiver, this);
+  AbstractCoroutine.prototype.tp = function (start, receiver, block) {
+    start.wp(block, receiver, this);
   };
   AbstractCoroutine.$metadata$ = classMeta('AbstractCoroutine', [Job, Continuation, CoroutineScope], undefined, undefined, undefined, JobSupport.prototype);
   function launch(_this__u8e3s4, context, start, block) {
     var newContext = newCoroutineContext(_this__u8e3s4, context);
-    var coroutine = start.oq() ? new LazyStandaloneCoroutine(newContext, block) : new StandaloneCoroutine(newContext, true);
-    coroutine.mp(start, coroutine, block);
+    var coroutine = start.vq() ? new LazyStandaloneCoroutine(newContext, block) : new StandaloneCoroutine(newContext, true);
+    coroutine.tp(start, coroutine, block);
     return coroutine;
   }
   function launch$default(_this__u8e3s4, context, start, block, $mask0, $handler) {
@@ -241,24 +241,24 @@
   function StandaloneCoroutine(parentContext, active) {
     AbstractCoroutine.call(this, parentContext, true, active);
   }
-  StandaloneCoroutine.prototype.mq = function (exception) {
+  StandaloneCoroutine.prototype.tq = function (exception) {
     handleCoroutineException(this.r3(), exception);
     return true;
   };
   StandaloneCoroutine.$metadata$ = classMeta('StandaloneCoroutine', undefined, undefined, undefined, undefined, AbstractCoroutine.prototype);
   function LazyStandaloneCoroutine(parentContext, block) {
     StandaloneCoroutine.call(this, parentContext, false);
-    this.vq_1 = createCoroutineUnintercepted(block, this, this);
+    this.cr_1 = createCoroutineUnintercepted(block, this, this);
   }
-  LazyStandaloneCoroutine.prototype.vp = function () {
-    startCoroutineCancellable_0(this.vq_1, this);
+  LazyStandaloneCoroutine.prototype.cq = function () {
+    startCoroutineCancellable_0(this.cr_1, this);
   };
   LazyStandaloneCoroutine.$metadata$ = classMeta('LazyStandaloneCoroutine', undefined, undefined, undefined, undefined, StandaloneCoroutine.prototype);
   function CancellableContinuation() {
   }
   CancellableContinuation.$metadata$ = interfaceMeta('CancellableContinuation', [Continuation]);
   function _get_stateDebugRepresentation__bf18u4($this) {
-    var tmp0_subject = $this.sp();
+    var tmp0_subject = $this.zp();
     var tmp;
     if (!(tmp0_subject == null) ? isInterface(tmp0_subject, NotCompleted) : false) {
       tmp = 'Active';
@@ -273,9 +273,9 @@
   }
   function isReusable($this) {
     var tmp;
-    if (get_isReusableMode($this.kr())) {
-      var tmp_0 = $this.xq_1;
-      tmp = (tmp_0 instanceof DispatchedContinuation ? tmp_0 : THROW_CCE()).ir();
+    if (get_isReusableMode($this.rr())) {
+      var tmp_0 = $this.er_1;
+      tmp = (tmp_0 instanceof DispatchedContinuation ? tmp_0 : THROW_CCE()).pr();
     } else {
       tmp = false;
     }
@@ -284,20 +284,20 @@
   function cancelLater($this, cause) {
     if (!isReusable($this))
       return false;
-    var tmp = $this.xq_1;
+    var tmp = $this.er_1;
     var dispatched = tmp instanceof DispatchedContinuation ? tmp : THROW_CCE();
-    return dispatched.lr(cause);
+    return dispatched.sr(cause);
   }
   function trySuspend($this) {
     {
-      var tmp0_loop = $this.zq_1;
+      var tmp0_loop = $this.gr_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.mo_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.to_1;
           var tmp0_subject = tmp1__anonymous__uwfjfc;
           switch (tmp0_subject) {
             case 0:
-              if ($this.zq_1.atomicfu$compareAndSet(0, 1))
+              if ($this.gr_1.atomicfu$compareAndSet(0, 1))
                 return true;
               break;
             case 2:
@@ -311,14 +311,14 @@
   }
   function tryResume($this) {
     {
-      var tmp0_loop = $this.zq_1;
+      var tmp0_loop = $this.gr_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.mo_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.to_1;
           var tmp0_subject = tmp1__anonymous__uwfjfc;
           switch (tmp0_subject) {
             case 0:
-              if ($this.zq_1.atomicfu$compareAndSet(0, 2))
+              if ($this.gr_1.atomicfu$compareAndSet(0, 2))
                 return true;
               break;
             case 1:
@@ -348,14 +348,14 @@
       }
       tmp$ret$1 = tmp$ret$0;
     }
-    var handle = parent.aq(true, false, tmp$ret$1, 2, null);
-    $this.br_1 = handle;
+    var handle = parent.hq(true, false, tmp$ret$1, 2, null);
+    $this.ir_1 = handle;
     return handle;
   }
   function releaseClaimedReusableContinuation($this) {
-    var tmp = $this.xq_1;
+    var tmp = $this.er_1;
     var tmp0_safe_receiver = tmp instanceof DispatchedContinuation ? tmp : null;
-    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.mr($this);
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.tr($this);
     var tmp_0;
     if (tmp1_elvis_lhs == null) {
       return Unit_getInstance();
@@ -363,8 +363,8 @@
       tmp_0 = tmp1_elvis_lhs;
     }
     var cancellationCause = tmp_0;
-    $this.nr();
-    $this.or(cancellationCause);
+    $this.ur();
+    $this.vr(cancellationCause);
   }
   function dispatchResume($this, mode) {
     if (tryResume($this))
@@ -413,15 +413,15 @@
   }
   function resumeImpl($this, proposedUpdate, resumeMode, onCancellation) {
     {
-      var tmp0_loop = $this.ar_1;
+      var tmp0_loop = $this.hr_1;
       while (true) {
         var tmp$ret$0;
         $l$block: {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.lo_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.so_1;
           var tmp0_subject = tmp1__anonymous__uwfjfc;
           if (!(tmp0_subject == null) ? isInterface(tmp0_subject, NotCompleted) : false) {
             var update = resumedState($this, tmp1__anonymous__uwfjfc, proposedUpdate, resumeMode, onCancellation, null);
-            if (!$this.ar_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
+            if (!$this.hr_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
               tmp$ret$0 = Unit_getInstance();
               break $l$block;
             }
@@ -430,7 +430,7 @@
             return Unit_getInstance();
           } else {
             if (tmp0_subject instanceof CancelledContinuation) {
-              if (tmp1__anonymous__uwfjfc.tr()) {
+              if (tmp1__anonymous__uwfjfc.as()) {
                 var tmp1_safe_receiver = onCancellation;
                 if (tmp1_safe_receiver == null)
                   null;
@@ -439,7 +439,7 @@
                   {
                     {
                     }
-                    tmp$ret$1 = $this.pr(tmp1_safe_receiver, tmp1__anonymous__uwfjfc.f1());
+                    tmp$ret$1 = $this.wr(tmp1_safe_receiver, tmp1__anonymous__uwfjfc.f1());
                   }
                 }
                 return Unit_getInstance();
@@ -464,32 +464,32 @@
   }
   function detachChildIfNonResuable($this) {
     if (!isReusable($this))
-      $this.nr();
+      $this.ur();
   }
   function CancellableContinuationImpl(delegate, resumeMode) {
     DispatchedTask.call(this, resumeMode);
-    this.xq_1 = delegate;
+    this.er_1 = delegate;
     {
     }
-    this.yq_1 = this.xq_1.r3();
-    this.zq_1 = atomic$int$1(0);
-    this.ar_1 = atomic$ref$1(Active_getInstance());
-    this.br_1 = null;
+    this.fr_1 = this.er_1.r3();
+    this.gr_1 = atomic$int$1(0);
+    this.hr_1 = atomic$ref$1(Active_getInstance());
+    this.ir_1 = null;
   }
-  CancellableContinuationImpl.prototype.ur = function () {
-    return this.xq_1;
+  CancellableContinuationImpl.prototype.bs = function () {
+    return this.er_1;
   };
   CancellableContinuationImpl.prototype.r3 = function () {
-    return this.yq_1;
+    return this.fr_1;
   };
-  CancellableContinuationImpl.prototype.sp = function () {
-    return this.ar_1.lo_1;
+  CancellableContinuationImpl.prototype.zp = function () {
+    return this.hr_1.so_1;
   };
-  CancellableContinuationImpl.prototype.tp = function () {
-    var tmp = this.sp();
+  CancellableContinuationImpl.prototype.aq = function () {
+    var tmp = this.zp();
     return !(!(tmp == null) ? isInterface(tmp, NotCompleted) : false);
   };
-  CancellableContinuationImpl.prototype.vr = function () {
+  CancellableContinuationImpl.prototype.cs = function () {
     var tmp0_elvis_lhs = installParentHandle(this);
     var tmp;
     if (tmp0_elvis_lhs == null) {
@@ -498,19 +498,19 @@
       tmp = tmp0_elvis_lhs;
     }
     var handle = tmp;
-    if (this.tp()) {
-      handle.wr();
-      this.br_1 = NonDisposableHandle_getInstance();
+    if (this.aq()) {
+      handle.ds();
+      this.ir_1 = NonDisposableHandle_getInstance();
     }
   };
-  CancellableContinuationImpl.prototype.xr = function () {
-    return this.sp();
+  CancellableContinuationImpl.prototype.es = function () {
+    return this.zp();
   };
-  CancellableContinuationImpl.prototype.yr = function (takenState, cause) {
-    var tmp0_loop = this.ar_1;
+  CancellableContinuationImpl.prototype.fs = function (takenState, cause) {
+    var tmp0_loop = this.hr_1;
     while (true) {
       {
-        var tmp1__anonymous__uwfjfc = tmp0_loop.lo_1;
+        var tmp1__anonymous__uwfjfc = tmp0_loop.so_1;
         var tmp0_subject = tmp1__anonymous__uwfjfc;
         if (!(tmp0_subject == null) ? isInterface(tmp0_subject, NotCompleted) : false) {
           throw IllegalStateException_init_$Create$('Not completed');
@@ -520,7 +520,7 @@
           else {
             if (tmp0_subject instanceof CompletedContinuation) {
               {
-                var tmp0_check = !tmp1__anonymous__uwfjfc.es();
+                var tmp0_check = !tmp1__anonymous__uwfjfc.ls();
                 {
                 }
                 if (!tmp0_check) {
@@ -532,13 +532,13 @@
                   throw IllegalStateException_init_$Create$(toString_0(message));
                 }
               }
-              var update = tmp1__anonymous__uwfjfc.fs(null, null, null, null, cause, 15, null);
-              if (this.ar_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
-                tmp1__anonymous__uwfjfc.gs(this, cause);
+              var update = tmp1__anonymous__uwfjfc.ms(null, null, null, null, cause, 15, null);
+              if (this.hr_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
+                tmp1__anonymous__uwfjfc.ns(this, cause);
                 return Unit_getInstance();
               }
             } else {
-              if (this.ar_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, CompletedContinuation_init_$Create$(tmp1__anonymous__uwfjfc, null, null, null, cause, 14, null))) {
+              if (this.hr_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, CompletedContinuation_init_$Create$(tmp1__anonymous__uwfjfc, null, null, null, cause, 14, null))) {
                 return Unit_getInstance();
               }
             }
@@ -548,17 +548,17 @@
     }
     return Unit_getInstance();
   };
-  CancellableContinuationImpl.prototype.or = function (cause) {
+  CancellableContinuationImpl.prototype.vr = function (cause) {
     {
-      var tmp0_loop = this.ar_1;
+      var tmp0_loop = this.hr_1;
       while (true) {
         var tmp$ret$0;
         $l$block: {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.lo_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.so_1;
           if (!(!(tmp1__anonymous__uwfjfc == null) ? isInterface(tmp1__anonymous__uwfjfc, NotCompleted) : false))
             return false;
           var update = new CancelledContinuation(this, cause, tmp1__anonymous__uwfjfc instanceof CancelHandler);
-          if (!this.ar_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
+          if (!this.hr_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, update)) {
             tmp$ret$0 = Unit_getInstance();
             break $l$block;
           }
@@ -570,23 +570,23 @@
             {
               {
               }
-              tmp$ret$1 = this.hs(tmp0_safe_receiver, cause);
+              tmp$ret$1 = this.os(tmp0_safe_receiver, cause);
             }
           }
           detachChildIfNonResuable(this);
-          dispatchResume(this, this.kr());
+          dispatchResume(this, this.rr());
           return true;
         }
       }
     }
   };
-  CancellableContinuationImpl.prototype.is = function (cause) {
+  CancellableContinuationImpl.prototype.ps = function (cause) {
     if (cancelLater(this, cause))
       return Unit_getInstance();
-    this.or(cause);
+    this.vr(cause);
     detachChildIfNonResuable(this);
   };
-  CancellableContinuationImpl.prototype.hs = function (handler, cause) {
+  CancellableContinuationImpl.prototype.os = function (handler, cause) {
     var tmp;
     try {
       tmp = handler.invoke(cause);
@@ -601,7 +601,7 @@
     }
     return tmp;
   };
-  CancellableContinuationImpl.prototype.pr = function (onCancellation, cause) {
+  CancellableContinuationImpl.prototype.wr = function (onCancellation, cause) {
     try {
       onCancellation(cause);
     } catch ($p) {
@@ -612,13 +612,13 @@
       }
     }
   };
-  CancellableContinuationImpl.prototype.js = function (parent) {
-    return parent.wp();
+  CancellableContinuationImpl.prototype.qs = function (parent) {
+    return parent.dq();
   };
-  CancellableContinuationImpl.prototype.ks = function () {
+  CancellableContinuationImpl.prototype.rs = function () {
     var isReusable_0 = isReusable(this);
     if (trySuspend(this)) {
-      if (this.br_1 == null) {
+      if (this.ir_1 == null) {
         installParentHandle(this);
       }
       if (isReusable_0) {
@@ -629,26 +629,26 @@
     if (isReusable_0) {
       releaseClaimedReusableContinuation(this);
     }
-    var state = this.sp();
+    var state = this.zp();
     if (state instanceof CompletedExceptionally)
-      throw recoverStackTrace(state.ep_1, this);
-    if (get_isCancellableMode(this.kr())) {
+      throw recoverStackTrace(state.lp_1, this);
+    if (get_isCancellableMode(this.rr())) {
       var job = this.r3().v3(Key_getInstance_2());
-      if (!(job == null) ? !job.zo() : false) {
-        var cause = job.wp();
-        this.yr(state, cause);
+      if (!(job == null) ? !job.gp() : false) {
+        var cause = job.dq();
+        this.fs(state, cause);
         throw recoverStackTrace(cause, this);
       }
     }
-    return this.ls(state);
+    return this.ss(state);
   };
   CancellableContinuationImpl.prototype.s3 = function (result) {
     var tmp = toState(result, this);
-    var tmp_0 = this.kr();
+    var tmp_0 = this.rr();
     return resumeImpl$default(this, tmp, tmp_0, null, 8, null);
   };
-  CancellableContinuationImpl.prototype.nr = function () {
-    var tmp0_elvis_lhs = this.br_1;
+  CancellableContinuationImpl.prototype.ur = function () {
+    var tmp0_elvis_lhs = this.ir_1;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return Unit_getInstance();
@@ -656,22 +656,22 @@
       tmp = tmp0_elvis_lhs;
     }
     var handle = tmp;
-    handle.wr();
-    this.br_1 = NonDisposableHandle_getInstance();
+    handle.ds();
+    this.ir_1 = NonDisposableHandle_getInstance();
   };
-  CancellableContinuationImpl.prototype.ls = function (state) {
+  CancellableContinuationImpl.prototype.ss = function (state) {
     var tmp0_subject = state;
     var tmp;
     if (tmp0_subject instanceof CompletedContinuation) {
-      var tmp_0 = state.zr_1;
+      var tmp_0 = state.gs_1;
       tmp = (tmp_0 == null ? true : isObject(tmp_0)) ? tmp_0 : THROW_CCE();
     } else {
       tmp = (state == null ? true : isObject(state)) ? state : THROW_CCE();
     }
     return tmp;
   };
-  CancellableContinuationImpl.prototype.ms = function (state) {
-    var tmp0_safe_receiver = DispatchedTask.prototype.ms.call(this, state);
+  CancellableContinuationImpl.prototype.ts = function (state) {
+    var tmp0_safe_receiver = DispatchedTask.prototype.ts.call(this, state);
     var tmp;
     if (tmp0_safe_receiver == null) {
       tmp = null;
@@ -682,7 +682,7 @@
         }
         var tmp$ret$0;
         {
-          tmp$ret$0 = recoverStackTrace(tmp0_safe_receiver, this.xq_1);
+          tmp$ret$0 = recoverStackTrace(tmp0_safe_receiver, this.er_1);
         }
         tmp$ret$1 = tmp$ret$0;
       }
@@ -691,9 +691,9 @@
     return tmp;
   };
   CancellableContinuationImpl.prototype.toString = function () {
-    return this.lp() + '(' + toDebugString(this.xq_1) + '){' + _get_stateDebugRepresentation__bf18u4(this) + '}@' + get_hexAddress(this);
+    return this.sp() + '(' + toDebugString(this.er_1) + '){' + _get_stateDebugRepresentation__bf18u4(this) + '}@' + get_hexAddress(this);
   };
-  CancellableContinuationImpl.prototype.lp = function () {
+  CancellableContinuationImpl.prototype.sp = function () {
     return 'CancellableContinuation';
   };
   CancellableContinuationImpl.$metadata$ = classMeta('CancellableContinuationImpl', [CancellableContinuation, CoroutineStackFrame], undefined, undefined, undefined, DispatchedTask.prototype);
@@ -736,17 +736,17 @@
     return CompletedContinuation_init_$Init$(result, cancelHandler, onCancellation, idempotentResume, cancelCause, $mask0, $marker, Object.create(CompletedContinuation.prototype));
   }
   function CompletedContinuation(result, cancelHandler, onCancellation, idempotentResume, cancelCause) {
-    this.zr_1 = result;
-    this.as_1 = cancelHandler;
-    this.bs_1 = onCancellation;
-    this.cs_1 = idempotentResume;
-    this.ds_1 = cancelCause;
+    this.gs_1 = result;
+    this.hs_1 = cancelHandler;
+    this.is_1 = onCancellation;
+    this.js_1 = idempotentResume;
+    this.ks_1 = cancelCause;
   }
-  CompletedContinuation.prototype.es = function () {
-    return !(this.ds_1 == null);
+  CompletedContinuation.prototype.ls = function () {
+    return !(this.ks_1 == null);
   };
-  CompletedContinuation.prototype.gs = function (cont, cause) {
-    var tmp0_safe_receiver = this.as_1;
+  CompletedContinuation.prototype.ns = function (cont, cause) {
+    var tmp0_safe_receiver = this.hs_1;
     if (tmp0_safe_receiver == null)
       null;
     else {
@@ -754,10 +754,10 @@
       {
         {
         }
-        tmp$ret$0 = cont.hs(tmp0_safe_receiver, cause);
+        tmp$ret$0 = cont.os(tmp0_safe_receiver, cause);
       }
     }
-    var tmp1_safe_receiver = this.bs_1;
+    var tmp1_safe_receiver = this.is_1;
     if (tmp1_safe_receiver == null)
       null;
     else {
@@ -765,35 +765,35 @@
       {
         {
         }
-        tmp$ret$1 = cont.pr(tmp1_safe_receiver, cause);
+        tmp$ret$1 = cont.wr(tmp1_safe_receiver, cause);
       }
     }
   };
-  CompletedContinuation.prototype.ps = function (result, cancelHandler, onCancellation, idempotentResume, cancelCause) {
+  CompletedContinuation.prototype.ws = function (result, cancelHandler, onCancellation, idempotentResume, cancelCause) {
     return new CompletedContinuation(result, cancelHandler, onCancellation, idempotentResume, cancelCause);
   };
-  CompletedContinuation.prototype.fs = function (result, cancelHandler, onCancellation, idempotentResume, cancelCause, $mask0, $handler) {
+  CompletedContinuation.prototype.ms = function (result, cancelHandler, onCancellation, idempotentResume, cancelCause, $mask0, $handler) {
     if (!(($mask0 & 1) === 0))
-      result = this.zr_1;
+      result = this.gs_1;
     if (!(($mask0 & 2) === 0))
-      cancelHandler = this.as_1;
+      cancelHandler = this.hs_1;
     if (!(($mask0 & 4) === 0))
-      onCancellation = this.bs_1;
+      onCancellation = this.is_1;
     if (!(($mask0 & 8) === 0))
-      idempotentResume = this.cs_1;
+      idempotentResume = this.js_1;
     if (!(($mask0 & 16) === 0))
-      cancelCause = this.ds_1;
-    return this.ps(result, cancelHandler, onCancellation, idempotentResume, cancelCause);
+      cancelCause = this.ks_1;
+    return this.ws(result, cancelHandler, onCancellation, idempotentResume, cancelCause);
   };
   CompletedContinuation.prototype.toString = function () {
-    return 'CompletedContinuation(result=' + toString(this.zr_1) + ', cancelHandler=' + this.as_1 + ', onCancellation=' + this.bs_1 + ', idempotentResume=' + toString(this.cs_1) + ', cancelCause=' + this.ds_1 + ')';
+    return 'CompletedContinuation(result=' + toString(this.gs_1) + ', cancelHandler=' + this.hs_1 + ', onCancellation=' + this.is_1 + ', idempotentResume=' + toString(this.js_1) + ', cancelCause=' + this.ks_1 + ')';
   };
   CompletedContinuation.prototype.hashCode = function () {
-    var result = this.zr_1 == null ? 0 : hashCode(this.zr_1);
-    result = imul(result, 31) + (this.as_1 == null ? 0 : hashCode(this.as_1)) | 0;
-    result = imul(result, 31) + (this.bs_1 == null ? 0 : hashCode(this.bs_1)) | 0;
-    result = imul(result, 31) + (this.cs_1 == null ? 0 : hashCode(this.cs_1)) | 0;
-    result = imul(result, 31) + (this.ds_1 == null ? 0 : hashCode(this.ds_1)) | 0;
+    var result = this.gs_1 == null ? 0 : hashCode(this.gs_1);
+    result = imul(result, 31) + (this.hs_1 == null ? 0 : hashCode(this.hs_1)) | 0;
+    result = imul(result, 31) + (this.is_1 == null ? 0 : hashCode(this.is_1)) | 0;
+    result = imul(result, 31) + (this.js_1 == null ? 0 : hashCode(this.js_1)) | 0;
+    result = imul(result, 31) + (this.ks_1 == null ? 0 : hashCode(this.ks_1)) | 0;
     return result;
   };
   CompletedContinuation.prototype.equals = function (other) {
@@ -802,15 +802,15 @@
     if (!(other instanceof CompletedContinuation))
       return false;
     var tmp0_other_with_cast = other instanceof CompletedContinuation ? other : THROW_CCE();
-    if (!equals(this.zr_1, tmp0_other_with_cast.zr_1))
+    if (!equals(this.gs_1, tmp0_other_with_cast.gs_1))
       return false;
-    if (!equals(this.as_1, tmp0_other_with_cast.as_1))
+    if (!equals(this.hs_1, tmp0_other_with_cast.hs_1))
       return false;
-    if (!equals(this.bs_1, tmp0_other_with_cast.bs_1))
+    if (!equals(this.is_1, tmp0_other_with_cast.is_1))
       return false;
-    if (!equals(this.cs_1, tmp0_other_with_cast.cs_1))
+    if (!equals(this.js_1, tmp0_other_with_cast.js_1))
       return false;
-    if (!equals(this.ds_1, tmp0_other_with_cast.ds_1))
+    if (!equals(this.ks_1, tmp0_other_with_cast.ks_1))
       return false;
     return true;
   };
@@ -839,29 +839,29 @@
     return CompletedExceptionally_init_$Init$(cause, handled, $mask0, $marker, Object.create(CompletedExceptionally.prototype));
   }
   function CompletedExceptionally(cause, handled) {
-    this.ep_1 = cause;
-    this.fp_1 = atomic$boolean$1(handled);
+    this.lp_1 = cause;
+    this.mp_1 = atomic$boolean$1(handled);
   }
   CompletedExceptionally.prototype.f1 = function () {
-    return this.ep_1;
+    return this.lp_1;
   };
-  CompletedExceptionally.prototype.gp = function () {
-    return this.fp_1.po_1;
+  CompletedExceptionally.prototype.np = function () {
+    return this.mp_1.wo_1;
   };
-  CompletedExceptionally.prototype.qs = function () {
-    return this.fp_1.atomicfu$compareAndSet(false, true);
+  CompletedExceptionally.prototype.xs = function () {
+    return this.mp_1.atomicfu$compareAndSet(false, true);
   };
   CompletedExceptionally.prototype.toString = function () {
-    return get_classSimpleName(this) + '[' + this.ep_1 + ']';
+    return get_classSimpleName(this) + '[' + this.lp_1 + ']';
   };
   CompletedExceptionally.$metadata$ = classMeta('CompletedExceptionally');
   function CancelledContinuation(continuation, cause, handled) {
     var tmp0_elvis_lhs = cause;
     CompletedExceptionally.call(this, tmp0_elvis_lhs == null ? CancellationException_init_$Create$('Continuation ' + continuation + ' was cancelled normally') : tmp0_elvis_lhs, handled);
-    this.sr_1 = atomic$boolean$1(false);
+    this.zr_1 = atomic$boolean$1(false);
   }
-  CancelledContinuation.prototype.tr = function () {
-    return this.sr_1.atomicfu$compareAndSet(false, true);
+  CancelledContinuation.prototype.as = function () {
+    return this.zr_1.atomicfu$compareAndSet(false, true);
   };
   CancelledContinuation.$metadata$ = classMeta('CancelledContinuation', undefined, undefined, undefined, undefined, CompletedExceptionally.prototype);
   function toState(_this__u8e3s4, caller) {
@@ -923,15 +923,15 @@
     return toState_0(_this__u8e3s4, onCancellation);
   }
   function CompletedWithCancellation(result, onCancellation) {
-    this.rs_1 = result;
-    this.ss_1 = onCancellation;
+    this.ys_1 = result;
+    this.zs_1 = onCancellation;
   }
   CompletedWithCancellation.prototype.toString = function () {
-    return 'CompletedWithCancellation(result=' + toString(this.rs_1) + ', onCancellation=' + this.ss_1 + ')';
+    return 'CompletedWithCancellation(result=' + toString(this.ys_1) + ', onCancellation=' + this.zs_1 + ')';
   };
   CompletedWithCancellation.prototype.hashCode = function () {
-    var result = this.rs_1 == null ? 0 : hashCode(this.rs_1);
-    result = imul(result, 31) + hashCode(this.ss_1) | 0;
+    var result = this.ys_1 == null ? 0 : hashCode(this.ys_1);
+    result = imul(result, 31) + hashCode(this.zs_1) | 0;
     return result;
   };
   CompletedWithCancellation.prototype.equals = function (other) {
@@ -940,9 +940,9 @@
     if (!(other instanceof CompletedWithCancellation))
       return false;
     var tmp0_other_with_cast = other instanceof CompletedWithCancellation ? other : THROW_CCE();
-    if (!equals(this.rs_1, tmp0_other_with_cast.rs_1))
+    if (!equals(this.ys_1, tmp0_other_with_cast.ys_1))
       return false;
-    if (!equals(this.ss_1, tmp0_other_with_cast.ss_1))
+    if (!equals(this.zs_1, tmp0_other_with_cast.zs_1))
       return false;
     return true;
   };
@@ -968,7 +968,7 @@
     Key_getInstance_0();
     AbstractCoroutineContextElement.call(this, Key_getInstance());
   }
-  CoroutineDispatcher.prototype.us = function (context) {
+  CoroutineDispatcher.prototype.bt = function (context) {
     return true;
   };
   CoroutineDispatcher.prototype.t3 = function (continuation) {
@@ -976,7 +976,7 @@
   };
   CoroutineDispatcher.prototype.u3 = function (continuation) {
     var dispatched = continuation instanceof DispatchedContinuation ? continuation : THROW_CCE();
-    dispatched.ws();
+    dispatched.dt();
   };
   CoroutineDispatcher.prototype.toString = function () {
     return get_classSimpleName(this) + '@' + get_hexAddress(this);
@@ -992,7 +992,7 @@
         {
           {
           }
-          tmp0_safe_receiver.xs(context, exception);
+          tmp0_safe_receiver.et(context, exception);
           return Unit_getInstance();
         }
       }
@@ -1035,15 +1035,6 @@
   function CoroutineScope() {
   }
   CoroutineScope.$metadata$ = interfaceMeta('CoroutineScope');
-  function CoroutineScope_0(context) {
-    var tmp;
-    if (!(context.v3(Key_getInstance_2()) == null)) {
-      tmp = context;
-    } else {
-      tmp = context.c4(Job$default(null, 1, null));
-    }
-    return new ContextScope(tmp);
-  }
   var CoroutineStart_DEFAULT_instance;
   var CoroutineStart_LAZY_instance;
   var CoroutineStart_ATOMIC_instance;
@@ -1061,7 +1052,7 @@
   function CoroutineStart(name, ordinal) {
     Enum.call(this, name, ordinal);
   }
-  CoroutineStart.prototype.pp = function (block, receiver, completion) {
+  CoroutineStart.prototype.wp = function (block, receiver, completion) {
     var tmp0_subject = this;
     var tmp0 = tmp0_subject.q4();
     var tmp;
@@ -1084,7 +1075,7 @@
     }
     return tmp;
   };
-  CoroutineStart.prototype.oq = function () {
+  CoroutineStart.prototype.vq = function () {
     return this === CoroutineStart_LAZY_getInstance();
   };
   CoroutineStart.$metadata$ = classMeta('CoroutineStart', undefined, undefined, undefined, undefined, Enum.prototype);
@@ -1107,12 +1098,12 @@
   }
   function EventLoop() {
     CoroutineDispatcher.call(this);
-    this.zs_1 = new Long(0, 0);
-    this.at_1 = false;
-    this.bt_1 = null;
+    this.gt_1 = new Long(0, 0);
+    this.ht_1 = false;
+    this.it_1 = null;
   }
-  EventLoop.prototype.ct = function () {
-    var tmp0_elvis_lhs = this.bt_1;
+  EventLoop.prototype.jt = function () {
+    var tmp0_elvis_lhs = this.it_1;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       return false;
@@ -1120,7 +1111,7 @@
       tmp = tmp0_elvis_lhs;
     }
     var queue = tmp;
-    var tmp1_elvis_lhs = queue.gt();
+    var tmp1_elvis_lhs = queue.nt();
     var tmp_0;
     if (tmp1_elvis_lhs == null) {
       return false;
@@ -1128,11 +1119,11 @@
       tmp_0 = tmp1_elvis_lhs;
     }
     var task = tmp_0;
-    task.ns();
+    task.us();
     return true;
   };
-  EventLoop.prototype.ht = function (task) {
-    var tmp0_elvis_lhs = this.bt_1;
+  EventLoop.prototype.ot = function (task) {
+    var tmp0_elvis_lhs = this.it_1;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       var tmp$ret$0;
@@ -1141,7 +1132,7 @@
         {
         }
         {
-          this.bt_1 = tmp0_also;
+          this.it_1 = tmp0_also;
         }
         tmp$ret$0 = tmp0_also;
       }
@@ -1150,42 +1141,42 @@
       tmp = tmp0_elvis_lhs;
     }
     var queue = tmp;
-    queue.it(task);
+    queue.pt(task);
   };
-  EventLoop.prototype.jt = function () {
-    return this.zs_1.w(delta(this, true)) >= 0;
+  EventLoop.prototype.qt = function () {
+    return this.gt_1.w(delta(this, true)) >= 0;
   };
-  EventLoop.prototype.kt = function () {
-    var tmp0_safe_receiver = this.bt_1;
-    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.lt();
+  EventLoop.prototype.rt = function () {
+    var tmp0_safe_receiver = this.it_1;
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.st();
     return tmp1_elvis_lhs == null ? true : tmp1_elvis_lhs;
   };
-  EventLoop.prototype.mt = function (unconfined) {
+  EventLoop.prototype.tt = function (unconfined) {
     var tmp0_this = this;
-    tmp0_this.zs_1 = tmp0_this.zs_1.v4(delta(this, unconfined));
+    tmp0_this.gt_1 = tmp0_this.gt_1.v4(delta(this, unconfined));
     if (!unconfined)
-      this.at_1 = true;
+      this.ht_1 = true;
   };
-  EventLoop.prototype.nt = function (unconfined) {
+  EventLoop.prototype.ut = function (unconfined) {
     var tmp0_this = this;
-    tmp0_this.zs_1 = tmp0_this.zs_1.w4(delta(this, unconfined));
-    if (this.zs_1.w(new Long(0, 0)) > 0)
+    tmp0_this.gt_1 = tmp0_this.gt_1.w4(delta(this, unconfined));
+    if (this.gt_1.w(new Long(0, 0)) > 0)
       return Unit_getInstance();
     {
     }
-    if (this.at_1) {
-      this.ot();
+    if (this.ht_1) {
+      this.vt();
     }
   };
-  EventLoop.prototype.ot = function () {
+  EventLoop.prototype.vt = function () {
   };
   EventLoop.$metadata$ = classMeta('EventLoop', undefined, undefined, undefined, undefined, CoroutineDispatcher.prototype);
   function ThreadLocalEventLoop() {
     ThreadLocalEventLoop_instance = this;
-    this.pt_1 = new CommonThreadLocal();
+    this.wt_1 = new CommonThreadLocal();
   }
-  ThreadLocalEventLoop.prototype.qt = function () {
-    var tmp0_elvis_lhs = this.pt_1.st();
+  ThreadLocalEventLoop.prototype.xt = function () {
+    var tmp0_elvis_lhs = this.wt_1.zt();
     var tmp;
     if (tmp0_elvis_lhs == null) {
       var tmp$ret$0;
@@ -1194,7 +1185,7 @@
         {
         }
         {
-          ThreadLocalEventLoop_getInstance().pt_1.tt(tmp0_also);
+          ThreadLocalEventLoop_getInstance().wt_1.au(tmp0_also);
         }
         tmp$ret$0 = tmp0_also;
       }
@@ -1249,9 +1240,9 @@
   function NonDisposableHandle() {
     NonDisposableHandle_instance = this;
   }
-  NonDisposableHandle.prototype.wr = function () {
+  NonDisposableHandle.prototype.ds = function () {
   };
-  NonDisposableHandle.prototype.eq = function (cause) {
+  NonDisposableHandle.prototype.lq = function (cause) {
     return false;
   };
   NonDisposableHandle.prototype.toString = function () {
@@ -1308,16 +1299,16 @@
   }
   var EMPTY_ACTIVE;
   function Empty(isActive) {
-    this.ut_1 = isActive;
+    this.bu_1 = isActive;
   }
-  Empty.prototype.zo = function () {
-    return this.ut_1;
+  Empty.prototype.gp = function () {
+    return this.bu_1;
   };
-  Empty.prototype.vt = function () {
+  Empty.prototype.cu = function () {
     return null;
   };
   Empty.prototype.toString = function () {
-    return 'Empty{' + (this.ut_1 ? 'Active' : 'New') + '}';
+    return 'Empty{' + (this.bu_1 ? 'Active' : 'New') + '}';
   };
   Empty.$metadata$ = classMeta('Empty', [Incomplete]);
   function Incomplete() {
@@ -1326,13 +1317,13 @@
   function NodeList() {
     LinkedListHead.call(this);
   }
-  NodeList.prototype.zo = function () {
+  NodeList.prototype.gp = function () {
     return true;
   };
-  NodeList.prototype.vt = function () {
+  NodeList.prototype.cu = function () {
     return this;
   };
-  NodeList.prototype.zt = function (state) {
+  NodeList.prototype.gu = function (state) {
     var tmp$ret$1;
     {
       {
@@ -1348,7 +1339,7 @@
           tmp0_apply.e6('}[');
           var first = true;
           {
-            var cur = this.du();
+            var cur = this.ku();
             while (!equals(cur, this)) {
               if (cur instanceof JobNode) {
                 var tmp0__anonymous__q1qw7t = cur;
@@ -1359,7 +1350,7 @@
                 }
                 tmp0_apply.d6(tmp0__anonymous__q1qw7t);
               }
-              cur = cur.au_1;
+              cur = cur.hu_1;
             }
           }
           tmp0_apply.e6(']');
@@ -1371,38 +1362,38 @@
     return tmp$ret$1;
   };
   NodeList.prototype.toString = function () {
-    return get_DEBUG() ? this.zt('Active') : anyToString(this);
+    return get_DEBUG() ? this.gu('Active') : anyToString(this);
   };
   NodeList.$metadata$ = classMeta('NodeList', [Incomplete], undefined, undefined, undefined, LinkedListHead.prototype);
   function JobNode() {
     CompletionHandlerBase.call(this);
   }
-  JobNode.prototype.ou = function () {
-    var tmp = this.nu_1;
+  JobNode.prototype.vu = function () {
+    var tmp = this.uu_1;
     if (!(tmp == null))
       return tmp;
     else {
       throwUninitializedPropertyAccessException('job');
     }
   };
-  JobNode.prototype.zo = function () {
+  JobNode.prototype.gp = function () {
     return true;
   };
-  JobNode.prototype.vt = function () {
+  JobNode.prototype.cu = function () {
     return null;
   };
-  JobNode.prototype.wr = function () {
-    return this.ou().bq(this);
+  JobNode.prototype.ds = function () {
+    return this.vu().iq(this);
   };
   JobNode.prototype.toString = function () {
-    return get_classSimpleName(this) + '@' + get_hexAddress(this) + '[job@' + get_hexAddress(this.ou()) + ']';
+    return get_classSimpleName(this) + '@' + get_hexAddress(this) + '[job@' + get_hexAddress(this.vu()) + ']';
   };
   JobNode.$metadata$ = classMeta('JobNode', [DisposableHandle, Incomplete], undefined, undefined, undefined, CompletionHandlerBase.prototype);
   function _set_exceptionsHolder__tqm22h($this, value) {
-    $this.uu_1.lo_1 = value;
+    $this.bv_1.so_1 = value;
   }
   function _get_exceptionsHolder__nhszp($this) {
-    return $this.uu_1.lo_1;
+    return $this.bv_1.so_1;
   }
   function allocateList($this) {
     return ArrayList_init_$Create$(4);
@@ -1415,14 +1406,14 @@
     {
     }
     var tmp0_safe_receiver = proposedUpdate instanceof CompletedExceptionally ? proposedUpdate : null;
-    var proposedException = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.ep_1;
+    var proposedException = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.lp_1;
     var wasCancelling = false;
     var tmp$ret$1;
     {
       var tmp$ret$0;
       {
-        wasCancelling = state.vu();
-        var exceptions = state.wu(proposedException);
+        wasCancelling = state.cv();
+        var exceptions = state.dv(proposedException);
         var finalCause = getFinalRootCause($this, state, exceptions);
         if (!(finalCause == null))
           addSuppressedExceptions($this, finalCause, exceptions);
@@ -1441,15 +1432,15 @@
     }
     var finalState = tmp;
     if (!(finalException == null)) {
-      var handled = cancelParent($this, finalException) ? true : $this.mq(finalException);
+      var handled = cancelParent($this, finalException) ? true : $this.tq(finalException);
       if (handled) {
-        (finalState instanceof CompletedExceptionally ? finalState : THROW_CCE()).qs();
+        (finalState instanceof CompletedExceptionally ? finalState : THROW_CCE()).xs();
       }
     }
     if (!wasCancelling)
-      $this.jq(finalException);
-    $this.dp(finalState);
-    var casSuccess = $this.so_1.atomicfu$compareAndSet(state, boxIncomplete(finalState));
+      $this.qq(finalException);
+    $this.kp(finalState);
+    var casSuccess = $this.zo_1.atomicfu$compareAndSet(state, boxIncomplete(finalState));
     {
     }
     completeStateFinalization($this, state, finalState);
@@ -1457,11 +1448,11 @@
   }
   function getFinalRootCause($this, state, exceptions) {
     if (exceptions.i()) {
-      if (state.vu()) {
+      if (state.cv()) {
         var tmp$ret$0;
         {
           var tmp0_elvis_lhs = null;
-          tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs == null ? $this.cp() : tmp0_elvis_lhs, null, $this);
+          tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs == null ? $this.jp() : tmp0_elvis_lhs, null, $this);
         }
         return tmp$ret$0;
       }
@@ -1533,7 +1524,7 @@
         tmp_0 = false;
       }
       if (tmp_0) {
-        tmp = seenExceptions.c(unwrapped);
+        tmp = seenExceptions.b(unwrapped);
       } else {
         tmp = false;
       }
@@ -1548,15 +1539,15 @@
     }
     {
     }
-    if (!$this.so_1.atomicfu$compareAndSet(state, boxIncomplete(update)))
+    if (!$this.zo_1.atomicfu$compareAndSet(state, boxIncomplete(update)))
       return false;
-    $this.jq(null);
-    $this.dp(update);
+    $this.qq(null);
+    $this.kp(update);
     completeStateFinalization($this, state, update);
     return true;
   }
   function completeStateFinalization($this, state, update) {
-    var tmp0_safe_receiver = $this.rp();
+    var tmp0_safe_receiver = $this.yp();
     if (tmp0_safe_receiver == null)
       null;
     else {
@@ -1564,24 +1555,24 @@
       {
         {
         }
-        tmp0_safe_receiver.wr();
-        tmp$ret$0 = $this.qp(NonDisposableHandle_getInstance());
+        tmp0_safe_receiver.ds();
+        tmp$ret$0 = $this.xp(NonDisposableHandle_getInstance());
       }
     }
     var tmp1_safe_receiver = update instanceof CompletedExceptionally ? update : null;
-    var cause = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.ep_1;
+    var cause = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.lp_1;
     if (state instanceof JobNode) {
       try {
         state.invoke(cause);
       } catch ($p) {
         if ($p instanceof Error) {
-          $this.kp(new CompletionHandlerException('Exception in completion handler ' + state + ' for ' + $this, $p));
+          $this.rp(new CompletionHandlerException('Exception in completion handler ' + state + ' for ' + $this, $p));
         } else {
           throw $p;
         }
       }
     } else {
-      var tmp2_safe_receiver = state.vt();
+      var tmp2_safe_receiver = state.cu();
       if (tmp2_safe_receiver == null)
         null;
       else {
@@ -1590,11 +1581,11 @@
     }
   }
   function notifyCancelling($this, list, cause) {
-    $this.jq(cause);
+    $this.qq(cause);
     {
       var exception = null;
       {
-        var cur = list.du();
+        var cur = list.ku();
         while (!equals(cur, list)) {
           if (cur instanceof JobCancellingNode) {
             var tmp0__anonymous__q1qw7t = cur;
@@ -1635,7 +1626,7 @@
               }
             }
           }
-          cur = cur.au_1;
+          cur = cur.hu_1;
         }
       }
       var tmp0_safe_receiver_0 = exception;
@@ -1646,26 +1637,26 @@
         {
           {
           }
-          tmp$ret$2 = $this.kp(tmp0_safe_receiver_0);
+          tmp$ret$2 = $this.rp(tmp0_safe_receiver_0);
         }
       }
     }
     cancelParent($this, cause);
   }
   function cancelParent($this, cause) {
-    if ($this.kq())
+    if ($this.rq())
       return true;
     var isCancellation = cause instanceof CancellationException;
-    var parent = $this.rp();
+    var parent = $this.yp();
     if (parent === null ? true : parent === NonDisposableHandle_getInstance()) {
       return isCancellation;
     }
-    return parent.eq(cause) ? true : isCancellation;
+    return parent.lq(cause) ? true : isCancellation;
   }
   function notifyCompletion(_this__u8e3s4, $this, cause) {
     var exception = null;
     {
-      var cur = _this__u8e3s4.du();
+      var cur = _this__u8e3s4.ku();
       while (!equals(cur, _this__u8e3s4)) {
         if (cur instanceof JobNode) {
           var tmp0__anonymous__q1qw7t = cur;
@@ -1706,7 +1697,7 @@
             }
           }
         }
-        cur = cur.au_1;
+        cur = cur.hu_1;
       }
     }
     var tmp0_safe_receiver_0 = exception;
@@ -1717,7 +1708,7 @@
       {
         {
         }
-        tmp$ret$2 = $this.kp(tmp0_safe_receiver_0);
+        tmp$ret$2 = $this.rp(tmp0_safe_receiver_0);
       }
     }
     return Unit_getInstance();
@@ -1725,17 +1716,17 @@
   function startInternal($this, state) {
     var tmp0_subject = state;
     if (tmp0_subject instanceof Empty) {
-      if (state.ut_1)
+      if (state.bu_1)
         return 0;
-      if (!$this.so_1.atomicfu$compareAndSet(state, get_EMPTY_ACTIVE()))
+      if (!$this.zo_1.atomicfu$compareAndSet(state, get_EMPTY_ACTIVE()))
         return -1;
-      $this.vp();
+      $this.cq();
       return 1;
     } else {
       if (tmp0_subject instanceof InactiveNodeList) {
-        if (!$this.so_1.atomicfu$compareAndSet(state, state.xu_1))
+        if (!$this.zo_1.atomicfu$compareAndSet(state, state.ev_1))
           return -1;
-        $this.vp();
+        $this.cq();
         return 1;
       } else {
         return 0;
@@ -1769,7 +1760,7 @@
       tmp = tmp2_elvis_lhs == null ? new InvokeOnCompletion(handler) : tmp2_elvis_lhs;
     }
     var node = tmp;
-    node.nu_1 = $this;
+    node.uu_1 = $this;
     return node;
   }
   function addLastAtomic($this, expect, list, node) {
@@ -1777,43 +1768,43 @@
     $l$block: {
       var tmp$ret$0;
       {
-        tmp$ret$0 = $this.sp() === expect;
+        tmp$ret$0 = $this.zp() === expect;
       }
       if (!tmp$ret$0) {
         tmp$ret$1 = false;
         break $l$block;
       }
-      list.hu(node);
+      list.ou(node);
       tmp$ret$1 = true;
     }
     return tmp$ret$1;
   }
   function promoteEmptyToNodeList($this, state) {
     var list = new NodeList();
-    var update = state.ut_1 ? list : new InactiveNodeList(list);
-    $this.so_1.atomicfu$compareAndSet(state, update);
+    var update = state.bu_1 ? list : new InactiveNodeList(list);
+    $this.zo_1.atomicfu$compareAndSet(state, update);
   }
   function promoteSingleToNodeList($this, state) {
-    state.qu(new NodeList());
+    state.xu(new NodeList());
     var tmp$ret$0;
     {
-      tmp$ret$0 = state.au_1;
+      tmp$ret$0 = state.hu_1;
     }
     var list = tmp$ret$0;
-    $this.so_1.atomicfu$compareAndSet(state, list);
+    $this.zo_1.atomicfu$compareAndSet(state, list);
   }
   function cancelMakeCompleting($this, cause) {
     {
       while (true) {
         {
-          var tmp0__anonymous__q1qw7t = $this.sp();
+          var tmp0__anonymous__q1qw7t = $this.zp();
           var tmp;
           if (!(!(tmp0__anonymous__q1qw7t == null) ? isInterface(tmp0__anonymous__q1qw7t, Incomplete) : false)) {
             tmp = true;
           } else {
             var tmp_0;
             if (tmp0__anonymous__q1qw7t instanceof Finishing) {
-              tmp_0 = tmp0__anonymous__q1qw7t.yu();
+              tmp_0 = tmp0__anonymous__q1qw7t.fv();
             } else {
               tmp_0 = false;
             }
@@ -1841,7 +1832,7 @@
         var tmp$ret$0;
         {
           var tmp0_elvis_lhs = null;
-          tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs == null ? $this.cp() : tmp0_elvis_lhs, null, $this);
+          tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs == null ? $this.jp() : tmp0_elvis_lhs, null, $this);
         }
         tmp_0 = tmp$ret$0;
       } else {
@@ -1849,7 +1840,7 @@
       }
       tmp = tmp_0;
     } else {
-      tmp = ((!(cause == null) ? isInterface(cause, ParentJob) : false) ? cause : THROW_CCE()).hq();
+      tmp = ((!(cause == null) ? isInterface(cause, ParentJob) : false) ? cause : THROW_CCE()).oq();
     }
     return tmp;
   }
@@ -1859,16 +1850,16 @@
       while (true) {
         var tmp$ret$7;
         $l$block: {
-          var tmp0__anonymous__q1qw7t = $this.sp();
+          var tmp0__anonymous__q1qw7t = $this.zp();
           var tmp0_subject = tmp0__anonymous__q1qw7t;
           if (tmp0_subject instanceof Finishing) {
             var tmp$ret$4;
             {
               var tmp$ret$3;
               {
-                if (tmp0__anonymous__q1qw7t.zu())
+                if (tmp0__anonymous__q1qw7t.gv())
                   return get_TOO_LATE_TO_CANCEL();
-                var wasCancelling = tmp0__anonymous__q1qw7t.vu();
+                var wasCancelling = tmp0__anonymous__q1qw7t.cv();
                 if (!(cause == null) ? true : !wasCancelling) {
                   var tmp0_elvis_lhs = causeExceptionCache;
                   var tmp;
@@ -1888,11 +1879,11 @@
                     tmp = tmp0_elvis_lhs;
                   }
                   var causeException = tmp;
-                  tmp0__anonymous__q1qw7t.av(causeException);
+                  tmp0__anonymous__q1qw7t.hv(causeException);
                 }
                 var tmp$ret$2;
                 {
-                  var tmp1_takeIf = tmp0__anonymous__q1qw7t.bv();
+                  var tmp1_takeIf = tmp0__anonymous__q1qw7t.iv();
                   {
                   }
                   var tmp_0;
@@ -1920,7 +1911,7 @@
               {
                 {
                 }
-                tmp$ret$5 = notifyCancelling($this, tmp0__anonymous__q1qw7t.ru_1, tmp1_safe_receiver);
+                tmp$ret$5 = notifyCancelling($this, tmp0__anonymous__q1qw7t.yu_1, tmp1_safe_receiver);
               }
             }
             return get_COMPLETING_ALREADY();
@@ -1944,7 +1935,7 @@
                 tmp_1 = tmp2_elvis_lhs;
               }
               var causeException_0 = tmp_1;
-              if (tmp0__anonymous__q1qw7t.zo()) {
+              if (tmp0__anonymous__q1qw7t.gp()) {
                 if (tryMakeCancelling($this, tmp0__anonymous__q1qw7t, causeException_0))
                   return get_COMPLETING_ALREADY();
               } else {
@@ -1967,7 +1958,7 @@
     }
   }
   function getOrPromoteCancellingList($this, state) {
-    var tmp1_elvis_lhs = state.vt();
+    var tmp1_elvis_lhs = state.cu();
     var tmp;
     if (tmp1_elvis_lhs == null) {
       var tmp0_subject = state;
@@ -2003,7 +1994,7 @@
     }
     var list = tmp;
     var cancelling = new Finishing(list, false, rootCause);
-    if (!$this.so_1.atomicfu$compareAndSet(state, cancelling))
+    if (!$this.zo_1.atomicfu$compareAndSet(state, cancelling))
       return false;
     notifyCancelling($this, list, rootCause);
     return true;
@@ -2051,16 +2042,16 @@
     var notifyRootCause = null;
     var tmp$ret$3;
     {
-      if (finishing.yu())
+      if (finishing.fv())
         return get_COMPLETING_ALREADY();
-      finishing.cv(true);
+      finishing.jv(true);
       if (!(finishing === state)) {
-        if (!$this.so_1.atomicfu$compareAndSet(state, finishing))
+        if (!$this.zo_1.atomicfu$compareAndSet(state, finishing))
           return get_COMPLETING_RETRY();
       }
       {
       }
-      var wasCancelling = finishing.vu();
+      var wasCancelling = finishing.cv();
       var tmp0_safe_receiver = proposedUpdate instanceof CompletedExceptionally ? proposedUpdate : null;
       if (tmp0_safe_receiver == null)
         null;
@@ -2069,12 +2060,12 @@
         {
           {
           }
-          tmp$ret$0 = finishing.av(tmp0_safe_receiver.ep_1);
+          tmp$ret$0 = finishing.hv(tmp0_safe_receiver.lp_1);
         }
       }
       var tmp$ret$2;
       {
-        var tmp0_takeIf = finishing.bv();
+        var tmp0_takeIf = finishing.iv();
         {
         }
         var tmp_0;
@@ -2110,13 +2101,13 @@
   }
   function _get_exceptionOrNull__b3j7js(_this__u8e3s4, $this) {
     var tmp0_safe_receiver = _this__u8e3s4 instanceof CompletedExceptionally ? _this__u8e3s4 : null;
-    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.ep_1;
+    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.lp_1;
   }
   function firstChild($this, state) {
     var tmp1_elvis_lhs = state instanceof ChildHandleNode ? state : null;
     var tmp;
     if (tmp1_elvis_lhs == null) {
-      var tmp0_safe_receiver = state.vt();
+      var tmp0_safe_receiver = state.cu();
       tmp = tmp0_safe_receiver == null ? null : nextChild(tmp0_safe_receiver, $this);
     } else {
       tmp = tmp1_elvis_lhs;
@@ -2142,7 +2133,7 @@
         }
         tmp$ret$1 = tmp$ret$0;
       }
-      var handle = child_1.hv_1.aq(false, false, tmp$ret$1, 1, null);
+      var handle = child_1.ov_1.hq(false, false, tmp$ret$1, 1, null);
       if (!(handle === NonDisposableHandle_getInstance()))
         return true;
       var tmp0_elvis_lhs = nextChild(child_1, $this_1);
@@ -2171,7 +2162,7 @@
     if (!(waitChild == null) ? tryWaitForChild($this, state, waitChild, proposedUpdate) : false)
       return Unit_getInstance();
     var finalState = finalizeFinishingState($this, state, proposedUpdate);
-    $this.jp(finalState);
+    $this.qp(finalState);
   }
   function nextChild(_this__u8e3s4, $this) {
     var cur = _this__u8e3s4;
@@ -2179,7 +2170,7 @@
       var tmp$ret$0;
       {
         var tmp0__get_isRemoved__hsfvgr = cur;
-        tmp$ret$0 = tmp0__get_isRemoved__hsfvgr.cu_1;
+        tmp$ret$0 = tmp0__get_isRemoved__hsfvgr.ju_1;
       }
       if (!tmp$ret$0) {
         break $l$loop;
@@ -2187,7 +2178,7 @@
       var tmp$ret$1;
       {
         var tmp1__get_prevNode__b1i0ed = cur;
-        tmp$ret$1 = tmp1__get_prevNode__b1i0ed.bu_1;
+        tmp$ret$1 = tmp1__get_prevNode__b1i0ed.iu_1;
       }
       cur = tmp$ret$1;
     }
@@ -2195,13 +2186,13 @@
       var tmp$ret$2;
       {
         var tmp2__get_nextNode__ek7k4a = cur;
-        tmp$ret$2 = tmp2__get_nextNode__ek7k4a.au_1;
+        tmp$ret$2 = tmp2__get_nextNode__ek7k4a.hu_1;
       }
       cur = tmp$ret$2;
       var tmp$ret$3;
       {
         var tmp3__get_isRemoved__lodk3s = cur;
-        tmp$ret$3 = tmp3__get_isRemoved__lodk3s.cu_1;
+        tmp$ret$3 = tmp3__get_isRemoved__lodk3s.ju_1;
       }
       if (tmp$ret$3)
         continue $l$loop_0;
@@ -2215,10 +2206,10 @@
     var tmp0_subject = state;
     var tmp;
     if (tmp0_subject instanceof Finishing) {
-      tmp = state.vu() ? 'Cancelling' : state.yu() ? 'Completing' : 'Active';
+      tmp = state.cv() ? 'Cancelling' : state.fv() ? 'Completing' : 'Active';
     } else {
       if (!(tmp0_subject == null) ? isInterface(tmp0_subject, Incomplete) : false) {
-        tmp = state.zo() ? 'Active' : 'New';
+        tmp = state.gp() ? 'Active' : 'New';
       } else {
         if (tmp0_subject instanceof CompletedExceptionally) {
           tmp = 'Cancelled';
@@ -2230,36 +2221,36 @@
     return tmp;
   }
   function Finishing(list, isCompleting, rootCause) {
-    this.ru_1 = list;
-    this.su_1 = atomic$boolean$1(isCompleting);
-    this.tu_1 = atomic$ref$1(rootCause);
-    this.uu_1 = atomic$ref$1(null);
+    this.yu_1 = list;
+    this.zu_1 = atomic$boolean$1(isCompleting);
+    this.av_1 = atomic$ref$1(rootCause);
+    this.bv_1 = atomic$ref$1(null);
   }
-  Finishing.prototype.vt = function () {
-    return this.ru_1;
+  Finishing.prototype.cu = function () {
+    return this.yu_1;
   };
-  Finishing.prototype.cv = function (value) {
-    this.su_1.po_1 = value;
+  Finishing.prototype.jv = function (value) {
+    this.zu_1.wo_1 = value;
   };
-  Finishing.prototype.yu = function () {
-    return this.su_1.po_1;
+  Finishing.prototype.fv = function () {
+    return this.zu_1.wo_1;
   };
-  Finishing.prototype.iv = function (value) {
-    this.tu_1.lo_1 = value;
+  Finishing.prototype.pv = function (value) {
+    this.av_1.so_1 = value;
   };
-  Finishing.prototype.bv = function () {
-    return this.tu_1.lo_1;
+  Finishing.prototype.iv = function () {
+    return this.av_1.so_1;
   };
-  Finishing.prototype.zu = function () {
+  Finishing.prototype.gv = function () {
     return _get_exceptionsHolder__nhszp(this) === get_SEALED();
   };
-  Finishing.prototype.vu = function () {
-    return !(this.bv() == null);
+  Finishing.prototype.cv = function () {
+    return !(this.iv() == null);
   };
-  Finishing.prototype.zo = function () {
-    return this.bv() == null;
+  Finishing.prototype.gp = function () {
+    return this.iv() == null;
   };
-  Finishing.prototype.wu = function (proposedException) {
+  Finishing.prototype.dv = function (proposedException) {
     var eh = _get_exceptionsHolder__nhszp(this);
     var tmp;
     if (eh == null) {
@@ -2272,7 +2263,7 @@
           {
           }
           {
-            tmp0_also.c(eh);
+            tmp0_also.b(eh);
           }
           tmp$ret$0 = tmp0_also;
         }
@@ -2287,7 +2278,7 @@
       }
     }
     var list = tmp;
-    var rootCause = this.bv();
+    var rootCause = this.iv();
     var tmp0_safe_receiver = rootCause;
     if (tmp0_safe_receiver == null)
       null;
@@ -2300,15 +2291,15 @@
       }
     }
     if (!(proposedException == null) ? !equals(proposedException, rootCause) : false) {
-      list.c(proposedException);
+      list.b(proposedException);
     }
     _set_exceptionsHolder__tqm22h(this, get_SEALED());
     return list;
   };
-  Finishing.prototype.av = function (exception) {
-    var rootCause = this.bv();
+  Finishing.prototype.hv = function (exception) {
+    var rootCause = this.iv();
     if (rootCause == null) {
-      this.iv(exception);
+      this.pv(exception);
       return Unit_getInstance();
     }
     if (exception === rootCause)
@@ -2326,15 +2317,15 @@
           {
           }
           {
-            tmp0_apply.c(eh);
-            tmp0_apply.c(exception);
+            tmp0_apply.b(eh);
+            tmp0_apply.b(exception);
           }
           tmp$ret$0 = tmp0_apply;
         }
         _set_exceptionsHolder__tqm22h(this, tmp$ret$0);
       } else {
         if (eh instanceof ArrayList) {
-          (eh instanceof ArrayList ? eh : THROW_CCE()).c(exception);
+          (eh instanceof ArrayList ? eh : THROW_CCE()).b(exception);
         } else {
           var tmp1_error = 'State is ' + toString(eh);
           throw IllegalStateException_init_$Create$(toString_0(tmp1_error));
@@ -2343,83 +2334,83 @@
     }
   };
   Finishing.prototype.toString = function () {
-    return 'Finishing[cancelling=' + this.vu() + ', completing=' + this.yu() + ', rootCause=' + this.bv() + ', exceptions=' + toString(_get_exceptionsHolder__nhszp(this)) + ', list=' + this.ru_1 + ']';
+    return 'Finishing[cancelling=' + this.cv() + ', completing=' + this.fv() + ', rootCause=' + this.iv() + ', exceptions=' + toString(_get_exceptionsHolder__nhszp(this)) + ', list=' + this.yu_1 + ']';
   };
   Finishing.$metadata$ = classMeta('Finishing', [Incomplete]);
   function ChildCompletion(parent, state, child, proposedUpdate) {
     JobNode.call(this);
-    this.nv_1 = parent;
-    this.ov_1 = state;
-    this.pv_1 = child;
-    this.qv_1 = proposedUpdate;
+    this.uv_1 = parent;
+    this.vv_1 = state;
+    this.wv_1 = child;
+    this.xv_1 = proposedUpdate;
   }
-  ChildCompletion.prototype.rv = function (cause) {
-    continueCompleting(this.nv_1, this.ov_1, this.pv_1, this.qv_1);
+  ChildCompletion.prototype.yv = function (cause) {
+    continueCompleting(this.uv_1, this.vv_1, this.wv_1, this.xv_1);
   };
   ChildCompletion.prototype.invoke = function (cause) {
-    return this.rv(cause);
+    return this.yv(cause);
   };
   ChildCompletion.$metadata$ = classMeta('ChildCompletion', undefined, undefined, undefined, undefined, JobNode.prototype);
   function JobSupport(active) {
-    this.so_1 = atomic$ref$1(active ? get_EMPTY_ACTIVE() : get_EMPTY_NEW());
-    this.to_1 = atomic$ref$1(null);
+    this.zo_1 = atomic$ref$1(active ? get_EMPTY_ACTIVE() : get_EMPTY_NEW());
+    this.ap_1 = atomic$ref$1(null);
   }
   JobSupport.prototype.p1 = function () {
     return Key_getInstance_2();
   };
-  JobSupport.prototype.qp = function (value) {
-    this.to_1.lo_1 = value;
+  JobSupport.prototype.xp = function (value) {
+    this.ap_1.so_1 = value;
   };
-  JobSupport.prototype.rp = function () {
-    return this.to_1.lo_1;
+  JobSupport.prototype.yp = function () {
+    return this.ap_1.so_1;
   };
-  JobSupport.prototype.uo = function (parent) {
+  JobSupport.prototype.bp = function (parent) {
     {
     }
     if (parent == null) {
-      this.qp(NonDisposableHandle_getInstance());
+      this.xp(NonDisposableHandle_getInstance());
       return Unit_getInstance();
     }
-    parent.up();
-    var handle = parent.iq(this);
-    this.qp(handle);
-    if (this.tp()) {
-      handle.wr();
-      this.qp(NonDisposableHandle_getInstance());
+    parent.bq();
+    var handle = parent.pq(this);
+    this.xp(handle);
+    if (this.aq()) {
+      handle.ds();
+      this.xp(NonDisposableHandle_getInstance());
     }
   };
-  JobSupport.prototype.sp = function () {
+  JobSupport.prototype.zp = function () {
     {
-      var tmp0_loop = this.so_1;
+      var tmp0_loop = this.zo_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.lo_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.so_1;
           if (!(tmp1__anonymous__uwfjfc instanceof OpDescriptor))
             return tmp1__anonymous__uwfjfc;
-          tmp1__anonymous__uwfjfc.sv(this);
+          tmp1__anonymous__uwfjfc.zv(this);
         }
       }
     }
   };
-  JobSupport.prototype.zo = function () {
-    var state = this.sp();
+  JobSupport.prototype.gp = function () {
+    var state = this.zp();
     var tmp;
     if (!(state == null) ? isInterface(state, Incomplete) : false) {
-      tmp = state.zo();
+      tmp = state.gp();
     } else {
       tmp = false;
     }
     return tmp;
   };
-  JobSupport.prototype.tp = function () {
-    var tmp = this.sp();
+  JobSupport.prototype.aq = function () {
+    var tmp = this.zp();
     return !(!(tmp == null) ? isInterface(tmp, Incomplete) : false);
   };
-  JobSupport.prototype.up = function () {
+  JobSupport.prototype.bq = function () {
     {
       while (true) {
         {
-          var tmp0__anonymous__q1qw7t = this.sp();
+          var tmp0__anonymous__q1qw7t = this.zp();
           var tmp0_subject = startInternal(this, tmp0__anonymous__q1qw7t);
           if (tmp0_subject === 0)
             return false;
@@ -2429,14 +2420,14 @@
       }
     }
   };
-  JobSupport.prototype.vp = function () {
+  JobSupport.prototype.cq = function () {
   };
-  JobSupport.prototype.wp = function () {
-    var state = this.sp();
+  JobSupport.prototype.dq = function () {
+    var state = this.zp();
     var tmp;
     if (state instanceof Finishing) {
-      var tmp0_safe_receiver = state.bv();
-      var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : this.xp(tmp0_safe_receiver, get_classSimpleName(this) + ' is cancelling');
+      var tmp0_safe_receiver = state.iv();
+      var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : this.eq(tmp0_safe_receiver, get_classSimpleName(this) + ' is cancelling');
       var tmp_0;
       if (tmp1_elvis_lhs == null) {
         var tmp0_error = 'Job is still new or active: ' + this;
@@ -2451,7 +2442,7 @@
         throw IllegalStateException_init_$Create$(toString_0(tmp1_error));
       } else {
         if (state instanceof CompletedExceptionally) {
-          tmp = this.yp(state.ep_1, null, 1, null);
+          tmp = this.fq(state.lp_1, null, 1, null);
         } else {
           tmp = new JobCancellationException(get_classSimpleName(this) + ' has completed normally', null, this);
         }
@@ -2459,14 +2450,14 @@
     }
     return tmp;
   };
-  JobSupport.prototype.xp = function (_this__u8e3s4, message) {
+  JobSupport.prototype.eq = function (_this__u8e3s4, message) {
     var tmp0_elvis_lhs = _this__u8e3s4 instanceof CancellationException ? _this__u8e3s4 : null;
     var tmp;
     if (tmp0_elvis_lhs == null) {
       var tmp$ret$0;
       {
         var tmp0_elvis_lhs_0 = message;
-        tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs_0 == null ? this.cp() : tmp0_elvis_lhs_0, _this__u8e3s4, this);
+        tmp$ret$0 = new JobCancellationException(tmp0_elvis_lhs_0 == null ? this.jp() : tmp0_elvis_lhs_0, _this__u8e3s4, this);
       }
       tmp = tmp$ret$0;
     } else {
@@ -2474,28 +2465,28 @@
     }
     return tmp;
   };
-  JobSupport.prototype.yp = function (_this__u8e3s4, message, $mask0, $handler) {
+  JobSupport.prototype.fq = function (_this__u8e3s4, message, $mask0, $handler) {
     if (!(($mask0 & 1) === 0))
       message = null;
-    return this.xp(_this__u8e3s4, message);
+    return this.eq(_this__u8e3s4, message);
   };
-  JobSupport.prototype.zp = function (onCancelling, invokeImmediately, handler) {
+  JobSupport.prototype.gq = function (onCancelling, invokeImmediately, handler) {
     var node = makeNode(this, handler, onCancelling);
     {
       while (true) {
         var tmp$ret$1;
         $l$block: {
-          var tmp0__anonymous__q1qw7t = this.sp();
+          var tmp0__anonymous__q1qw7t = this.zp();
           var tmp0_subject = tmp0__anonymous__q1qw7t;
           if (tmp0_subject instanceof Empty) {
-            if (tmp0__anonymous__q1qw7t.ut_1) {
-              if (this.so_1.atomicfu$compareAndSet(tmp0__anonymous__q1qw7t, node))
+            if (tmp0__anonymous__q1qw7t.bu_1) {
+              if (this.zo_1.atomicfu$compareAndSet(tmp0__anonymous__q1qw7t, node))
                 return node;
             } else
               promoteEmptyToNodeList(this, tmp0__anonymous__q1qw7t);
           } else {
             if (!(tmp0_subject == null) ? isInterface(tmp0_subject, Incomplete) : false) {
-              var list = tmp0__anonymous__q1qw7t.vt();
+              var list = tmp0__anonymous__q1qw7t.cu();
               if (list == null) {
                 promoteSingleToNodeList(this, tmp0__anonymous__q1qw7t instanceof JobNode ? tmp0__anonymous__q1qw7t : THROW_CCE());
               } else {
@@ -2510,7 +2501,7 @@
                 if (tmp) {
                   var tmp$ret$2;
                   {
-                    rootCause = tmp0__anonymous__q1qw7t.bv();
+                    rootCause = tmp0__anonymous__q1qw7t.iv();
                     var tmp_0;
                     var tmp_1;
                     if (rootCause == null) {
@@ -2522,7 +2513,7 @@
                         tmp$ret$0 = handler instanceof ChildHandleNode;
                       }
                       if (tmp$ret$0) {
-                        tmp_2 = !tmp0__anonymous__q1qw7t.yu();
+                        tmp_2 = !tmp0__anonymous__q1qw7t.fv();
                       } else {
                         tmp_2 = false;
                       }
@@ -2553,7 +2544,7 @@
             } else {
               if (invokeImmediately) {
                 var tmp1_safe_receiver = tmp0__anonymous__q1qw7t instanceof CompletedExceptionally ? tmp0__anonymous__q1qw7t : null;
-                invokeIt(handler, tmp1_safe_receiver == null ? null : tmp1_safe_receiver.ep_1);
+                invokeIt(handler, tmp1_safe_receiver == null ? null : tmp1_safe_receiver.lp_1);
               }
               return NonDisposableHandle_getInstance();
             }
@@ -2562,21 +2553,21 @@
       }
     }
   };
-  JobSupport.prototype.bq = function (node) {
+  JobSupport.prototype.iq = function (node) {
     {
       while (true) {
         {
-          var tmp0__anonymous__q1qw7t = this.sp();
+          var tmp0__anonymous__q1qw7t = this.zp();
           var tmp0_subject = tmp0__anonymous__q1qw7t;
           if (tmp0_subject instanceof JobNode) {
             if (!(tmp0__anonymous__q1qw7t === node))
               return Unit_getInstance();
-            if (this.so_1.atomicfu$compareAndSet(tmp0__anonymous__q1qw7t, get_EMPTY_ACTIVE()))
+            if (this.zo_1.atomicfu$compareAndSet(tmp0__anonymous__q1qw7t, get_EMPTY_ACTIVE()))
               return Unit_getInstance();
           } else {
             if (!(tmp0_subject == null) ? isInterface(tmp0_subject, Incomplete) : false) {
-              if (!(tmp0__anonymous__q1qw7t.vt() == null)) {
-                node.pu();
+              if (!(tmp0__anonymous__q1qw7t.cu() == null)) {
+                node.wu();
               }
               return Unit_getInstance();
             } else {
@@ -2587,23 +2578,23 @@
       }
     }
   };
-  JobSupport.prototype.cq = function () {
+  JobSupport.prototype.jq = function () {
     return false;
   };
-  JobSupport.prototype.cp = function () {
+  JobSupport.prototype.jp = function () {
     return 'Job was cancelled';
   };
-  JobSupport.prototype.dq = function (parentJob) {
-    this.fq(parentJob);
+  JobSupport.prototype.kq = function (parentJob) {
+    this.mq(parentJob);
   };
-  JobSupport.prototype.eq = function (cause) {
+  JobSupport.prototype.lq = function (cause) {
     if (cause instanceof CancellationException)
       return true;
-    return this.fq(cause) ? this.lq() : false;
+    return this.mq(cause) ? this.sq() : false;
   };
-  JobSupport.prototype.fq = function (cause) {
+  JobSupport.prototype.mq = function (cause) {
     var finalState = get_COMPLETING_ALREADY();
-    if (this.cq()) {
+    if (this.jq()) {
       finalState = cancelMakeCompleting(this, cause);
       if (finalState === get_COMPLETING_WAITING_CHILDREN())
         return true;
@@ -2619,24 +2610,24 @@
     } else if (finalState === get_TOO_LATE_TO_CANCEL()) {
       tmp = false;
     } else {
-      this.jp(finalState);
+      this.qp(finalState);
       tmp = true;
     }
     return tmp;
   };
-  JobSupport.prototype.gq = function (message, cause) {
+  JobSupport.prototype.nq = function (message, cause) {
     var tmp0_elvis_lhs = message;
-    return new JobCancellationException(tmp0_elvis_lhs == null ? this.cp() : tmp0_elvis_lhs, cause, this);
+    return new JobCancellationException(tmp0_elvis_lhs == null ? this.jp() : tmp0_elvis_lhs, cause, this);
   };
-  JobSupport.prototype.hq = function () {
-    var state = this.sp();
+  JobSupport.prototype.oq = function () {
+    var state = this.zp();
     var tmp0_subject = state;
     var tmp;
     if (tmp0_subject instanceof Finishing) {
-      tmp = state.bv();
+      tmp = state.iv();
     } else {
       if (tmp0_subject instanceof CompletedExceptionally) {
-        tmp = state.ep_1;
+        tmp = state.lp_1;
       } else {
         if (!(tmp0_subject == null) ? isInterface(tmp0_subject, Incomplete) : false) {
           var tmp0_error = 'Cannot be cancelling child in this state: ' + toString(state);
@@ -2650,12 +2641,12 @@
     var tmp1_elvis_lhs = rootCause instanceof CancellationException ? rootCause : null;
     return tmp1_elvis_lhs == null ? new JobCancellationException('Parent job is ' + stateString(this, state), rootCause, this) : tmp1_elvis_lhs;
   };
-  JobSupport.prototype.hp = function (proposedUpdate) {
+  JobSupport.prototype.op = function (proposedUpdate) {
     {
       while (true) {
         var tmp$ret$0;
         $l$block: {
-          var tmp0__anonymous__q1qw7t = this.sp();
+          var tmp0__anonymous__q1qw7t = this.zp();
           var finalState = tryMakeCompleting(this, tmp0__anonymous__q1qw7t, proposedUpdate);
           if (finalState === get_COMPLETING_ALREADY())
             throw IllegalStateException_init_$Create$_0('Job ' + this + ' is already complete or completing, ' + ('but is being completed with ' + toString(proposedUpdate)), _get_exceptionOrNull__b3j7js(proposedUpdate, this));
@@ -2668,7 +2659,7 @@
       }
     }
   };
-  JobSupport.prototype.iq = function (child) {
+  JobSupport.prototype.pq = function (child) {
     var tmp$ret$1;
     {
       var tmp0__get_asHandler__gq3rkj = new ChildHandleNode(child);
@@ -2678,34 +2669,34 @@
       }
       tmp$ret$1 = tmp$ret$0;
     }
-    var tmp = this.aq(true, false, tmp$ret$1, 2, null);
+    var tmp = this.hq(true, false, tmp$ret$1, 2, null);
     return isInterface(tmp, ChildHandle) ? tmp : THROW_CCE();
   };
-  JobSupport.prototype.kp = function (exception) {
+  JobSupport.prototype.rp = function (exception) {
     throw exception;
   };
-  JobSupport.prototype.jq = function (cause) {
+  JobSupport.prototype.qq = function (cause) {
   };
-  JobSupport.prototype.kq = function () {
+  JobSupport.prototype.rq = function () {
     return false;
   };
-  JobSupport.prototype.lq = function () {
+  JobSupport.prototype.sq = function () {
     return true;
   };
-  JobSupport.prototype.mq = function (exception) {
+  JobSupport.prototype.tq = function (exception) {
     return false;
   };
-  JobSupport.prototype.dp = function (state) {
+  JobSupport.prototype.kp = function (state) {
   };
-  JobSupport.prototype.jp = function (state) {
+  JobSupport.prototype.qp = function (state) {
   };
   JobSupport.prototype.toString = function () {
-    return this.nq() + '@' + get_hexAddress(this);
+    return this.uq() + '@' + get_hexAddress(this);
   };
-  JobSupport.prototype.nq = function () {
-    return this.lp() + '{' + stateString(this, this.sp()) + '}';
+  JobSupport.prototype.uq = function () {
+    return this.sp() + '{' + stateString(this, this.zp()) + '}';
   };
-  JobSupport.prototype.lp = function () {
+  JobSupport.prototype.sp = function () {
     return get_classSimpleName(this);
   };
   JobSupport.$metadata$ = classMeta('JobSupport', [Job, ChildJob, ParentJob, SelectClause0]);
@@ -2732,75 +2723,75 @@
   }
   var TRUE;
   function InactiveNodeList(list) {
-    this.xu_1 = list;
+    this.ev_1 = list;
   }
-  InactiveNodeList.prototype.vt = function () {
-    return this.xu_1;
+  InactiveNodeList.prototype.cu = function () {
+    return this.ev_1;
   };
-  InactiveNodeList.prototype.zo = function () {
+  InactiveNodeList.prototype.gp = function () {
     return false;
   };
   InactiveNodeList.prototype.toString = function () {
-    return get_DEBUG() ? this.xu_1.zt('New') : anyToString(this);
+    return get_DEBUG() ? this.ev_1.gu('New') : anyToString(this);
   };
   InactiveNodeList.$metadata$ = classMeta('InactiveNodeList', [Incomplete]);
   function ChildHandleNode(childJob) {
     JobCancellingNode.call(this);
-    this.hv_1 = childJob;
+    this.ov_1 = childJob;
   }
-  ChildHandleNode.prototype.rv = function (cause) {
-    return this.hv_1.dq(this.ou());
+  ChildHandleNode.prototype.yv = function (cause) {
+    return this.ov_1.kq(this.vu());
   };
   ChildHandleNode.prototype.invoke = function (cause) {
-    return this.rv(cause);
+    return this.yv(cause);
   };
-  ChildHandleNode.prototype.eq = function (cause) {
-    return this.ou().eq(cause);
+  ChildHandleNode.prototype.lq = function (cause) {
+    return this.vu().lq(cause);
   };
   ChildHandleNode.$metadata$ = classMeta('ChildHandleNode', [ChildHandle], undefined, undefined, undefined, JobCancellingNode.prototype);
   function InvokeOnCancelling(handler) {
     JobCancellingNode.call(this);
-    this.xv_1 = handler;
-    this.yv_1 = atomic$int$1(0);
+    this.ew_1 = handler;
+    this.fw_1 = atomic$int$1(0);
   }
-  InvokeOnCancelling.prototype.rv = function (cause) {
-    if (this.yv_1.atomicfu$compareAndSet(0, 1))
-      this.xv_1(cause);
+  InvokeOnCancelling.prototype.yv = function (cause) {
+    if (this.fw_1.atomicfu$compareAndSet(0, 1))
+      this.ew_1(cause);
   };
   InvokeOnCancelling.prototype.invoke = function (cause) {
-    return this.rv(cause);
+    return this.yv(cause);
   };
   InvokeOnCancelling.$metadata$ = classMeta('InvokeOnCancelling', undefined, undefined, undefined, undefined, JobCancellingNode.prototype);
   function InvokeOnCompletion(handler) {
     JobNode.call(this);
-    this.dw_1 = handler;
+    this.kw_1 = handler;
   }
-  InvokeOnCompletion.prototype.rv = function (cause) {
-    return this.dw_1(cause);
+  InvokeOnCompletion.prototype.yv = function (cause) {
+    return this.kw_1(cause);
   };
   InvokeOnCompletion.prototype.invoke = function (cause) {
-    return this.rv(cause);
+    return this.yv(cause);
   };
   InvokeOnCompletion.$metadata$ = classMeta('InvokeOnCompletion', undefined, undefined, undefined, undefined, JobNode.prototype);
   function IncompleteStateBox(state) {
-    this.ew_1 = state;
+    this.lw_1 = state;
   }
   IncompleteStateBox.$metadata$ = classMeta('IncompleteStateBox');
   function ChildContinuation(child) {
     JobCancellingNode.call(this);
-    this.jw_1 = child;
+    this.qw_1 = child;
   }
-  ChildContinuation.prototype.rv = function (cause) {
-    this.jw_1.is(this.jw_1.js(this.ou()));
+  ChildContinuation.prototype.yv = function (cause) {
+    this.qw_1.ps(this.qw_1.qs(this.vu()));
   };
   ChildContinuation.prototype.invoke = function (cause) {
-    return this.rv(cause);
+    return this.yv(cause);
   };
   ChildContinuation.$metadata$ = classMeta('ChildContinuation', undefined, undefined, undefined, undefined, JobCancellingNode.prototype);
   function handlesException($this) {
-    var tmp = $this.rp();
+    var tmp = $this.yp();
     var tmp0_safe_receiver = tmp instanceof ChildHandleNode ? tmp : null;
-    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.ou();
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.vu();
     var tmp_0;
     if (tmp1_elvis_lhs == null) {
       return false;
@@ -2809,11 +2800,11 @@
     }
     var parentJob = tmp_0;
     while (true) {
-      if (parentJob.lq())
+      if (parentJob.sq())
         return true;
-      var tmp_1 = parentJob.rp();
+      var tmp_1 = parentJob.yp();
       var tmp2_safe_receiver = tmp_1 instanceof ChildHandleNode ? tmp_1 : null;
-      var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.ou();
+      var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.vu();
       var tmp_2;
       if (tmp3_elvis_lhs == null) {
         return false;
@@ -2825,14 +2816,14 @@
   }
   function JobImpl(parent) {
     JobSupport.call(this, true);
-    this.uo(parent);
-    this.mw_1 = handlesException(this);
+    this.bp(parent);
+    this.tw_1 = handlesException(this);
   }
-  JobImpl.prototype.cq = function () {
+  JobImpl.prototype.jq = function () {
     return true;
   };
-  JobImpl.prototype.lq = function () {
-    return this.mw_1;
+  JobImpl.prototype.sq = function () {
+    return this.tw_1;
   };
   JobImpl.$metadata$ = classMeta('JobImpl', [CompletableJob], undefined, undefined, undefined, JobSupport.prototype);
   var properties_initialized_JobSupport_kt_5iq8a4;
@@ -2853,16 +2844,16 @@
     CoroutineDispatcher.call(this);
   }
   MainCoroutineDispatcher.prototype.toString = function () {
-    var tmp0_elvis_lhs = this.pw();
+    var tmp0_elvis_lhs = this.ww();
     return tmp0_elvis_lhs == null ? get_classSimpleName(this) + '@' + get_hexAddress(this) : tmp0_elvis_lhs;
   };
-  MainCoroutineDispatcher.prototype.pw = function () {
-    var main = Dispatchers_getInstance().uw();
+  MainCoroutineDispatcher.prototype.ww = function () {
+    var main = Dispatchers_getInstance().bx();
     if (this === main)
       return 'Dispatchers.Main';
     var tmp;
     try {
-      tmp = main.ow();
+      tmp = main.vw();
     } catch ($p) {
       var tmp_0;
       if ($p instanceof UnsupportedOperationException) {
@@ -2885,13 +2876,13 @@
     Unconfined_instance = this;
     CoroutineDispatcher.call(this);
   }
-  Unconfined.prototype.us = function (context) {
+  Unconfined.prototype.bt = function (context) {
     return false;
   };
-  Unconfined.prototype.vs = function (context, block) {
+  Unconfined.prototype.ct = function (context, block) {
     var yieldContext = context.v3(Key_getInstance_3());
     if (!(yieldContext == null)) {
-      yieldContext.xw_1 = true;
+      yieldContext.ex_1 = true;
       return Unit_getInstance();
     }
     throw UnsupportedOperationException_init_$Create$('Dispatchers.Unconfined.dispatch function can only be used by the yield function. If you wrap Unconfined dispatcher in your code, make sure you properly delegate isDispatchNeeded and dispatch calls.');
@@ -2917,7 +2908,7 @@
     return Key_instance_2;
   }
   function ensureCapacity($this) {
-    var currentSize = $this.dt_1.length;
+    var currentSize = $this.kt_1.length;
     var newCapacity = currentSize << 1;
     var tmp$ret$0;
     {
@@ -2926,23 +2917,23 @@
     var newElements = tmp$ret$0;
     var tmp$ret$1;
     {
-      var tmp0_copyInto = $this.dt_1;
-      var tmp1_copyInto = $this.et_1;
+      var tmp0_copyInto = $this.kt_1;
+      var tmp1_copyInto = $this.lt_1;
       var tmp2_copyInto = tmp0_copyInto.length;
       arrayCopy(tmp0_copyInto, newElements, 0, tmp1_copyInto, tmp2_copyInto);
       tmp$ret$1 = newElements;
     }
     var tmp$ret$2;
     {
-      var tmp3_copyInto = $this.dt_1;
-      var tmp4_copyInto = $this.dt_1.length - $this.et_1 | 0;
-      var tmp5_copyInto = $this.et_1;
+      var tmp3_copyInto = $this.kt_1;
+      var tmp4_copyInto = $this.kt_1.length - $this.lt_1 | 0;
+      var tmp5_copyInto = $this.lt_1;
       arrayCopy(tmp3_copyInto, newElements, tmp4_copyInto, 0, tmp5_copyInto);
       tmp$ret$2 = newElements;
     }
-    $this.dt_1 = newElements;
-    $this.et_1 = 0;
-    $this.ft_1 = currentSize;
+    $this.kt_1 = newElements;
+    $this.lt_1 = 0;
+    $this.mt_1 = currentSize;
   }
   function ArrayQueue() {
     var tmp = this;
@@ -2950,25 +2941,25 @@
     {
       tmp$ret$0 = fillArrayVal(Array(16), null);
     }
-    tmp.dt_1 = tmp$ret$0;
-    this.et_1 = 0;
-    this.ft_1 = 0;
+    tmp.kt_1 = tmp$ret$0;
+    this.lt_1 = 0;
+    this.mt_1 = 0;
   }
-  ArrayQueue.prototype.lt = function () {
-    return this.et_1 === this.ft_1;
+  ArrayQueue.prototype.st = function () {
+    return this.lt_1 === this.mt_1;
   };
-  ArrayQueue.prototype.it = function (element) {
-    this.dt_1[this.ft_1] = element;
-    this.ft_1 = (this.ft_1 + 1 | 0) & (this.dt_1.length - 1 | 0);
-    if (this.ft_1 === this.et_1)
+  ArrayQueue.prototype.pt = function (element) {
+    this.kt_1[this.mt_1] = element;
+    this.mt_1 = (this.mt_1 + 1 | 0) & (this.kt_1.length - 1 | 0);
+    if (this.mt_1 === this.lt_1)
       ensureCapacity(this);
   };
-  ArrayQueue.prototype.gt = function () {
-    if (this.et_1 === this.ft_1)
+  ArrayQueue.prototype.nt = function () {
+    if (this.lt_1 === this.mt_1)
       return null;
-    var element = this.dt_1[this.et_1];
-    this.dt_1[this.et_1] = null;
-    this.et_1 = (this.et_1 + 1 | 0) & (this.dt_1.length - 1 | 0);
+    var element = this.kt_1[this.lt_1];
+    this.kt_1[this.lt_1] = null;
+    this.lt_1 = (this.lt_1 + 1 | 0) & (this.kt_1.length - 1 | 0);
     return isObject(element) ? element : THROW_CCE();
   };
   ArrayQueue.$metadata$ = classMeta('ArrayQueue');
@@ -2993,38 +2984,38 @@
       var tmp1_resumeCancellableWith = _this__u8e3s4;
       var state = toState_0(result, onCancellation);
       var tmp_0;
-      if (tmp1_resumeCancellableWith.dr_1.us(tmp1_resumeCancellableWith.r3())) {
-        tmp1_resumeCancellableWith.fr_1 = state;
-        tmp1_resumeCancellableWith.yw(get_MODE_CANCELLABLE());
-        tmp_0 = tmp1_resumeCancellableWith.dr_1.vs(tmp1_resumeCancellableWith.r3(), tmp1_resumeCancellableWith);
+      if (tmp1_resumeCancellableWith.kr_1.bt(tmp1_resumeCancellableWith.r3())) {
+        tmp1_resumeCancellableWith.mr_1 = state;
+        tmp1_resumeCancellableWith.fx(get_MODE_CANCELLABLE());
+        tmp_0 = tmp1_resumeCancellableWith.kr_1.ct(tmp1_resumeCancellableWith.r3(), tmp1_resumeCancellableWith);
       } else {
         var tmp$ret$0;
         $l$block: {
           var tmp0_executeUnconfined = get_MODE_CANCELLABLE();
           {
           }
-          var eventLoop = ThreadLocalEventLoop_getInstance().qt();
-          if (false ? eventLoop.kt() : false) {
+          var eventLoop = ThreadLocalEventLoop_getInstance().xt();
+          if (false ? eventLoop.rt() : false) {
             tmp$ret$0 = false;
             break $l$block;
           }
           var tmp_1;
-          if (eventLoop.jt()) {
-            tmp1_resumeCancellableWith.fr_1 = state;
-            tmp1_resumeCancellableWith.yw(tmp0_executeUnconfined);
-            eventLoop.ht(tmp1_resumeCancellableWith);
+          if (eventLoop.qt()) {
+            tmp1_resumeCancellableWith.mr_1 = state;
+            tmp1_resumeCancellableWith.fx(tmp0_executeUnconfined);
+            eventLoop.ot(tmp1_resumeCancellableWith);
             tmp_1 = true;
           } else {
             {
-              eventLoop.mt(true);
+              eventLoop.tt(true);
               try {
                 {
                   var tmp$ret$3;
                   $l$block_0: {
                     var job = tmp1_resumeCancellableWith.r3().v3(Key_getInstance_2());
-                    if (!(job == null) ? !job.zo() : false) {
-                      var cause = job.wp();
-                      tmp1_resumeCancellableWith.yr(state, cause);
+                    if (!(job == null) ? !job.gp() : false) {
+                      var cause = job.dq();
+                      tmp1_resumeCancellableWith.fs(state, cause);
                       var tmp$ret$2;
                       {
                         var tmp$ret$1;
@@ -3043,26 +3034,26 @@
                     {
                       var tmp$ret$4;
                       {
-                        var tmp0_withContinuationContext = tmp1_resumeCancellableWith.er_1;
-                        var tmp1_withContinuationContext = tmp1_resumeCancellableWith.gr_1;
-                        tmp$ret$4 = tmp1_resumeCancellableWith.er_1.s3(result);
+                        var tmp0_withContinuationContext = tmp1_resumeCancellableWith.lr_1;
+                        var tmp1_withContinuationContext = tmp1_resumeCancellableWith.nr_1;
+                        tmp$ret$4 = tmp1_resumeCancellableWith.lr_1.s3(result);
                       }
                     }
                   }
                 }
                 $l$loop: while (true) {
-                  if (!eventLoop.ct())
+                  if (!eventLoop.jt())
                     break $l$loop;
                 }
               } catch ($p) {
                 if ($p instanceof Error) {
-                  tmp1_resumeCancellableWith.os($p, null);
+                  tmp1_resumeCancellableWith.vs($p, null);
                 } else {
                   throw $p;
                 }
               }
               finally {
-                eventLoop.nt(true);
+                eventLoop.ut(true);
               }
             }
             tmp_1 = false;
@@ -3083,63 +3074,63 @@
     return resumeCancellableWith(_this__u8e3s4, result, onCancellation);
   }
   function _get_reusableCancellableContinuation__9qex09($this) {
-    var tmp = $this.hr_1.lo_1;
+    var tmp = $this.or_1.so_1;
     return tmp instanceof CancellableContinuationImpl ? tmp : null;
   }
   function DispatchedContinuation(dispatcher, continuation) {
     DispatchedTask.call(this, get_MODE_UNINITIALIZED());
-    this.dr_1 = dispatcher;
-    this.er_1 = continuation;
-    this.fr_1 = get_UNDEFINED();
-    this.gr_1 = threadContextElements(this.r3());
-    this.hr_1 = atomic$ref$1(null);
+    this.kr_1 = dispatcher;
+    this.lr_1 = continuation;
+    this.mr_1 = get_UNDEFINED();
+    this.nr_1 = threadContextElements(this.r3());
+    this.or_1 = atomic$ref$1(null);
   }
-  DispatchedContinuation.prototype.zw = function () {
-    return this.er_1;
+  DispatchedContinuation.prototype.gx = function () {
+    return this.lr_1;
   };
   DispatchedContinuation.prototype.r3 = function () {
-    return this.er_1.r3();
+    return this.lr_1.r3();
   };
-  DispatchedContinuation.prototype.ax = function () {
-    return this.gr_1;
+  DispatchedContinuation.prototype.hx = function () {
+    return this.nr_1;
   };
-  DispatchedContinuation.prototype.ir = function () {
-    return !(this.hr_1.lo_1 == null);
+  DispatchedContinuation.prototype.pr = function () {
+    return !(this.or_1.so_1 == null);
   };
-  DispatchedContinuation.prototype.bx = function () {
+  DispatchedContinuation.prototype.ix = function () {
     {
-      var tmp0_loop = this.hr_1;
+      var tmp0_loop = this.or_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.lo_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.so_1;
           if (!(tmp1__anonymous__uwfjfc === get_REUSABLE_CLAIMED()))
             return Unit_getInstance();
         }
       }
     }
   };
-  DispatchedContinuation.prototype.ws = function () {
-    this.bx();
+  DispatchedContinuation.prototype.dt = function () {
+    this.ix();
     var tmp0_safe_receiver = _get_reusableCancellableContinuation__9qex09(this);
     if (tmp0_safe_receiver == null)
       null;
     else {
-      tmp0_safe_receiver.nr();
+      tmp0_safe_receiver.ur();
     }
   };
-  DispatchedContinuation.prototype.mr = function (continuation) {
+  DispatchedContinuation.prototype.tr = function (continuation) {
     {
-      var tmp0_loop = this.hr_1;
+      var tmp0_loop = this.or_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.lo_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.so_1;
           if (tmp1__anonymous__uwfjfc === get_REUSABLE_CLAIMED()) {
-            if (this.hr_1.atomicfu$compareAndSet(get_REUSABLE_CLAIMED(), continuation))
+            if (this.or_1.atomicfu$compareAndSet(get_REUSABLE_CLAIMED(), continuation))
               return null;
           } else {
             if (tmp1__anonymous__uwfjfc instanceof Error) {
               {
-                var tmp0_require = this.hr_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, null);
+                var tmp0_require = this.or_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, null);
                 {
                 }
                 {
@@ -3165,21 +3156,21 @@
       }
     }
   };
-  DispatchedContinuation.prototype.lr = function (cause) {
+  DispatchedContinuation.prototype.sr = function (cause) {
     {
-      var tmp0_loop = this.hr_1;
+      var tmp0_loop = this.or_1;
       while (true) {
         {
-          var tmp1__anonymous__uwfjfc = tmp0_loop.lo_1;
+          var tmp1__anonymous__uwfjfc = tmp0_loop.so_1;
           var tmp0_subject = tmp1__anonymous__uwfjfc;
           if (equals(tmp0_subject, get_REUSABLE_CLAIMED())) {
-            if (this.hr_1.atomicfu$compareAndSet(get_REUSABLE_CLAIMED(), cause))
+            if (this.or_1.atomicfu$compareAndSet(get_REUSABLE_CLAIMED(), cause))
               return true;
           } else {
             if (tmp0_subject instanceof Error)
               return true;
             else {
-              if (this.hr_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, null))
+              if (this.or_1.atomicfu$compareAndSet(tmp1__anonymous__uwfjfc, null))
                 return false;
             }
           }
@@ -3187,65 +3178,65 @@
       }
     }
   };
-  DispatchedContinuation.prototype.xr = function () {
-    var state = this.fr_1;
+  DispatchedContinuation.prototype.es = function () {
+    var state = this.mr_1;
     {
     }
-    this.fr_1 = get_UNDEFINED();
+    this.mr_1 = get_UNDEFINED();
     return state;
   };
-  DispatchedContinuation.prototype.ur = function () {
+  DispatchedContinuation.prototype.bs = function () {
     return this;
   };
   DispatchedContinuation.prototype.s3 = function (result) {
-    var context = this.er_1.r3();
+    var context = this.lr_1.r3();
     var state = toState$default(result, null, 1, null);
-    if (this.dr_1.us(context)) {
-      this.fr_1 = state;
-      this.yw(get_MODE_ATOMIC());
-      this.dr_1.vs(context, this);
+    if (this.kr_1.bt(context)) {
+      this.mr_1 = state;
+      this.fx(get_MODE_ATOMIC());
+      this.kr_1.ct(context, this);
     } else {
       var tmp$ret$0;
       $l$block: {
         var tmp0_executeUnconfined = get_MODE_ATOMIC();
         {
         }
-        var eventLoop = ThreadLocalEventLoop_getInstance().qt();
-        if (false ? eventLoop.kt() : false) {
+        var eventLoop = ThreadLocalEventLoop_getInstance().xt();
+        if (false ? eventLoop.rt() : false) {
           tmp$ret$0 = false;
           break $l$block;
         }
         var tmp;
-        if (eventLoop.jt()) {
-          this.fr_1 = state;
-          this.yw(tmp0_executeUnconfined);
-          eventLoop.ht(this);
+        if (eventLoop.qt()) {
+          this.mr_1 = state;
+          this.fx(tmp0_executeUnconfined);
+          eventLoop.ot(this);
           tmp = true;
         } else {
           {
-            eventLoop.mt(true);
+            eventLoop.tt(true);
             try {
               {
                 var tmp$ret$1;
                 {
                   var tmp0_withCoroutineContext = this.r3();
-                  var tmp1_withCoroutineContext = this.gr_1;
-                  tmp$ret$1 = this.er_1.s3(result);
+                  var tmp1_withCoroutineContext = this.nr_1;
+                  tmp$ret$1 = this.lr_1.s3(result);
                 }
               }
               $l$loop: while (true) {
-                if (!eventLoop.ct())
+                if (!eventLoop.jt())
                   break $l$loop;
               }
             } catch ($p) {
               if ($p instanceof Error) {
-                this.os($p, null);
+                this.vs($p, null);
               } else {
                 throw $p;
               }
             }
             finally {
-              eventLoop.nt(true);
+              eventLoop.ut(true);
             }
           }
           tmp = false;
@@ -3254,16 +3245,16 @@
       }
     }
   };
-  DispatchedContinuation.prototype.yr = function (takenState, cause) {
+  DispatchedContinuation.prototype.fs = function (takenState, cause) {
     if (takenState instanceof CompletedWithCancellation) {
-      takenState.ss_1(cause);
+      takenState.zs_1(cause);
     }
   };
-  DispatchedContinuation.prototype.cx = function (state) {
+  DispatchedContinuation.prototype.jx = function (state) {
     var job = this.r3().v3(Key_getInstance_2());
-    if (!(job == null) ? !job.zo() : false) {
-      var cause = job.wp();
-      this.yr(state, cause);
+    if (!(job == null) ? !job.gp() : false) {
+      var cause = job.dq();
+      this.fs(state, cause);
       var tmp$ret$1;
       {
         var tmp$ret$0;
@@ -3277,49 +3268,49 @@
     }
     return false;
   };
-  DispatchedContinuation.prototype.dx = function (result) {
+  DispatchedContinuation.prototype.kx = function (result) {
     var tmp$ret$0;
     {
-      var tmp0_withContinuationContext = this.er_1;
-      var tmp1_withContinuationContext = this.gr_1;
-      tmp$ret$0 = this.er_1.s3(result);
+      var tmp0_withContinuationContext = this.lr_1;
+      var tmp1_withContinuationContext = this.nr_1;
+      tmp$ret$0 = this.lr_1.s3(result);
     }
   };
   DispatchedContinuation.prototype.toString = function () {
-    return 'DispatchedContinuation[' + this.dr_1 + ', ' + toDebugString(this.er_1) + ']';
+    return 'DispatchedContinuation[' + this.kr_1 + ', ' + toDebugString(this.lr_1) + ']';
   };
   DispatchedContinuation.$metadata$ = classMeta('DispatchedContinuation', [CoroutineStackFrame, Continuation], undefined, undefined, undefined, DispatchedTask.prototype);
   function executeUnconfined(_this__u8e3s4, contState, mode, doYield, block) {
     init_properties_DispatchedContinuation_kt_s7rtw6();
     {
     }
-    var eventLoop = ThreadLocalEventLoop_getInstance().qt();
-    if (doYield ? eventLoop.kt() : false)
+    var eventLoop = ThreadLocalEventLoop_getInstance().xt();
+    if (doYield ? eventLoop.rt() : false)
       return false;
     var tmp;
-    if (eventLoop.jt()) {
-      _this__u8e3s4.fr_1 = contState;
-      _this__u8e3s4.yw(mode);
-      eventLoop.ht(_this__u8e3s4);
+    if (eventLoop.qt()) {
+      _this__u8e3s4.mr_1 = contState;
+      _this__u8e3s4.fx(mode);
+      eventLoop.ot(_this__u8e3s4);
       tmp = true;
     } else {
       {
-        eventLoop.mt(true);
+        eventLoop.tt(true);
         try {
           block();
           $l$loop: while (true) {
-            if (!eventLoop.ct())
+            if (!eventLoop.jt())
               break $l$loop;
           }
         } catch ($p) {
           if ($p instanceof Error) {
-            _this__u8e3s4.os($p, null);
+            _this__u8e3s4.vs($p, null);
           } else {
             throw $p;
           }
         }
         finally {
-          eventLoop.nt(true);
+          eventLoop.ut(true);
         }
       }
       tmp = false;
@@ -3341,43 +3332,43 @@
   var MODE_CANCELLABLE;
   function DispatchedTask(resumeMode) {
     SchedulerTask.call(this);
-    this.jr_1 = resumeMode;
+    this.qr_1 = resumeMode;
   }
-  DispatchedTask.prototype.yw = function (_set____db54di) {
-    this.jr_1 = _set____db54di;
+  DispatchedTask.prototype.fx = function (_set____db54di) {
+    this.qr_1 = _set____db54di;
   };
-  DispatchedTask.prototype.kr = function () {
-    return this.jr_1;
+  DispatchedTask.prototype.rr = function () {
+    return this.qr_1;
   };
-  DispatchedTask.prototype.yr = function (takenState, cause) {
+  DispatchedTask.prototype.fs = function (takenState, cause) {
   };
-  DispatchedTask.prototype.ls = function (state) {
+  DispatchedTask.prototype.ss = function (state) {
     return (state == null ? true : isObject(state)) ? state : THROW_CCE();
   };
-  DispatchedTask.prototype.ms = function (state) {
+  DispatchedTask.prototype.ts = function (state) {
     var tmp0_safe_receiver = state instanceof CompletedExceptionally ? state : null;
-    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.ep_1;
+    return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.lp_1;
   };
-  DispatchedTask.prototype.ns = function () {
+  DispatchedTask.prototype.us = function () {
     {
     }
     var taskContext = get_taskContext(this);
     var fatalException = null;
     try {
-      var tmp = this.ur();
+      var tmp = this.bs();
       var delegate = tmp instanceof DispatchedContinuation ? tmp : THROW_CCE();
-      var continuation = delegate.er_1;
+      var continuation = delegate.lr_1;
       var tmp$ret$5;
       {
-        var tmp0_withContinuationContext = delegate.gr_1;
+        var tmp0_withContinuationContext = delegate.nr_1;
         var context = continuation.r3();
-        var state = this.xr();
-        var exception = this.ms(state);
-        var job = (exception == null ? get_isCancellableMode(this.jr_1) : false) ? context.v3(Key_getInstance_2()) : null;
+        var state = this.es();
+        var exception = this.ts(state);
+        var job = (exception == null ? get_isCancellableMode(this.qr_1) : false) ? context.v3(Key_getInstance_2()) : null;
         var tmp_0;
-        if (!(job == null) ? !job.zo() : false) {
-          var cause = job.wp();
-          this.yr(state, cause);
+        if (!(job == null) ? !job.gp() : false) {
+          var cause = job.dq();
+          this.fs(state, cause);
           var tmp$ret$0;
           {
             var tmp0_failure = Companion_getInstance();
@@ -3401,7 +3392,7 @@
           } else {
             var tmp$ret$4;
             {
-              var tmp2_resume = this.ls(state);
+              var tmp2_resume = this.ss(state);
               var tmp$ret$3;
               {
                 var tmp0_success = Companion_getInstance();
@@ -3451,10 +3442,10 @@
         tmp$ret$8 = tmp_2;
       }
       var result = tmp$ret$8;
-      this.os(fatalException, Result__exceptionOrNull_impl_p6xea9(result));
+      this.vs(fatalException, Result__exceptionOrNull_impl_p6xea9(result));
     }
   };
-  DispatchedTask.prototype.os = function (exception, finallyException) {
+  DispatchedTask.prototype.vs = function (exception, finallyException) {
     if (exception === null ? finallyException === null : false)
       return Unit_getInstance();
     if (!(exception === null) ? !(finallyException === null) : false) {
@@ -3464,7 +3455,7 @@
     var tmp0_elvis_lhs = exception;
     var cause = tmp0_elvis_lhs == null ? finallyException : tmp0_elvis_lhs;
     var reason = new CoroutinesInternalError('Fatal exception in coroutines machinery for ' + this + '. ' + "Please read KDoc to 'handleFatalException' method and report this incident to maintainers", ensureNotNull(cause));
-    handleCoroutineException(this.ur().r3(), reason);
+    handleCoroutineException(this.bs().r3(), reason);
   };
   DispatchedTask.$metadata$ = classMeta('DispatchedTask', undefined, undefined, undefined, undefined, SchedulerTask.prototype);
   function get_MODE_UNINITIALIZED() {
@@ -3480,7 +3471,7 @@
   function dispatch(_this__u8e3s4, mode) {
     {
     }
-    var delegate = _this__u8e3s4.ur();
+    var delegate = _this__u8e3s4.bs();
     var undispatched = mode === 4;
     var tmp;
     var tmp_0;
@@ -3490,15 +3481,15 @@
       tmp_0 = false;
     }
     if (tmp_0) {
-      tmp = get_isCancellableMode(mode) === get_isCancellableMode(_this__u8e3s4.jr_1);
+      tmp = get_isCancellableMode(mode) === get_isCancellableMode(_this__u8e3s4.qr_1);
     } else {
       tmp = false;
     }
     if (tmp) {
-      var dispatcher = delegate.dr_1;
+      var dispatcher = delegate.kr_1;
       var context = delegate.r3();
-      if (dispatcher.us(context)) {
-        dispatcher.vs(context, _this__u8e3s4);
+      if (dispatcher.bt(context)) {
+        dispatcher.ct(context, _this__u8e3s4);
       } else {
         resumeUnconfined(_this__u8e3s4);
       }
@@ -3511,55 +3502,55 @@
   }
   var MODE_ATOMIC;
   function runUnconfinedEventLoop(_this__u8e3s4, eventLoop, block) {
-    eventLoop.mt(true);
+    eventLoop.tt(true);
     try {
       block();
       $l$loop: while (true) {
-        if (!eventLoop.ct())
+        if (!eventLoop.jt())
           break $l$loop;
       }
     } catch ($p) {
       if ($p instanceof Error) {
-        _this__u8e3s4.os($p, null);
+        _this__u8e3s4.vs($p, null);
       } else {
         throw $p;
       }
     }
     finally {
-      eventLoop.nt(true);
+      eventLoop.ut(true);
     }
   }
   function resumeUnconfined(_this__u8e3s4) {
-    var eventLoop = ThreadLocalEventLoop_getInstance().qt();
-    if (eventLoop.jt()) {
-      eventLoop.ht(_this__u8e3s4);
+    var eventLoop = ThreadLocalEventLoop_getInstance().xt();
+    if (eventLoop.qt()) {
+      eventLoop.ot(_this__u8e3s4);
     } else {
       {
-        eventLoop.mt(true);
+        eventLoop.tt(true);
         try {
           {
-            resume(_this__u8e3s4, _this__u8e3s4.ur(), true);
+            resume(_this__u8e3s4, _this__u8e3s4.bs(), true);
           }
           $l$loop: while (true) {
-            if (!eventLoop.ct())
+            if (!eventLoop.jt())
               break $l$loop;
           }
         } catch ($p) {
           if ($p instanceof Error) {
-            _this__u8e3s4.os($p, null);
+            _this__u8e3s4.vs($p, null);
           } else {
             throw $p;
           }
         }
         finally {
-          eventLoop.nt(true);
+          eventLoop.ut(true);
         }
       }
     }
   }
   function resume(_this__u8e3s4, delegate, undispatched) {
-    var state = _this__u8e3s4.xr();
-    var exception = _this__u8e3s4.ms(state);
+    var state = _this__u8e3s4.es();
+    var exception = _this__u8e3s4.ts(state);
     var tmp;
     if (!(exception == null)) {
       var tmp$ret$0;
@@ -3572,7 +3563,7 @@
       var tmp$ret$1;
       {
         var tmp1_success = Companion_getInstance();
-        var tmp2_success = _this__u8e3s4.ls(state);
+        var tmp2_success = _this__u8e3s4.ss(state);
         tmp$ret$1 = _Result___init__impl__xyqfz8(tmp2_success);
       }
       tmp = tmp$ret$1;
@@ -3582,28 +3573,18 @@
       var tmp3_resumeUndispatchedWith = delegate instanceof DispatchedContinuation ? delegate : THROW_CCE();
       var tmp$ret$2;
       {
-        var tmp0_withContinuationContext = tmp3_resumeUndispatchedWith.er_1;
-        var tmp1_withContinuationContext = tmp3_resumeUndispatchedWith.gr_1;
-        tmp$ret$2 = tmp3_resumeUndispatchedWith.er_1.s3(result);
+        var tmp0_withContinuationContext = tmp3_resumeUndispatchedWith.lr_1;
+        var tmp1_withContinuationContext = tmp3_resumeUndispatchedWith.nr_1;
+        tmp$ret$2 = tmp3_resumeUndispatchedWith.lr_1.s3(result);
       }
     } else
       delegate.s3(result);
   }
-  function ContextScope(context) {
-    this.ex_1 = context;
-  }
-  ContextScope.prototype.yo = function () {
-    return this.ex_1;
-  };
-  ContextScope.prototype.toString = function () {
-    return 'CoroutineScope(coroutineContext=' + this.ex_1 + ')';
-  };
-  ContextScope.$metadata$ = classMeta('ContextScope', [CoroutineScope]);
   function Symbol(symbol) {
-    this.fx_1 = symbol;
+    this.lx_1 = symbol;
   }
   Symbol.prototype.toString = function () {
-    return '<' + this.fx_1 + '>';
+    return '<' + this.lx_1 + '>';
   };
   Symbol.$metadata$ = classMeta('Symbol');
   function startCoroutineCancellable(_this__u8e3s4, receiver, completion, onCancellation) {
@@ -3855,8 +3836,8 @@
     return ((((!(typeof navigator === 'undefined') ? navigator != null : false) ? navigator.userAgent != null : false) ? !(typeof navigator.userAgent === 'undefined') : false) ? !(typeof navigator.userAgent.match === 'undefined') : false) ? navigator.userAgent.match('\\bjsdom\\b') : false;
   }
   function newCoroutineContext(_this__u8e3s4, context) {
-    var combined = _this__u8e3s4.yo().c4(context);
-    return (!(combined === Dispatchers_getInstance().qw_1) ? combined.v3(Key_getInstance()) == null : false) ? combined.c4(Dispatchers_getInstance().qw_1) : combined;
+    var combined = _this__u8e3s4.fp().c4(context);
+    return (!(combined === Dispatchers_getInstance().xw_1) ? combined.v3(Key_getInstance()) == null : false) ? combined.c4(Dispatchers_getInstance().xw_1) : combined;
   }
   function get_coroutineName(_this__u8e3s4) {
     return null;
@@ -3894,17 +3875,14 @@
   }
   function Dispatchers() {
     Dispatchers_instance = this;
-    this.qw_1 = createDefaultDispatcher();
-    this.rw_1 = Unconfined_getInstance();
-    this.sw_1 = new JsMainDispatcher(this.qw_1, false);
-    this.tw_1 = null;
+    this.xw_1 = createDefaultDispatcher();
+    this.yw_1 = Unconfined_getInstance();
+    this.zw_1 = new JsMainDispatcher(this.xw_1, false);
+    this.ax_1 = null;
   }
-  Dispatchers.prototype.gx = function () {
-    return this.qw_1;
-  };
-  Dispatchers.prototype.uw = function () {
-    var tmp0_elvis_lhs = this.tw_1;
-    return tmp0_elvis_lhs == null ? this.sw_1 : tmp0_elvis_lhs;
+  Dispatchers.prototype.bx = function () {
+    var tmp0_elvis_lhs = this.ax_1;
+    return tmp0_elvis_lhs == null ? this.zw_1 : tmp0_elvis_lhs;
   };
   Dispatchers.$metadata$ = objectMeta('Dispatchers');
   var Dispatchers_instance;
@@ -3915,22 +3893,22 @@
   }
   function JsMainDispatcher(delegate, invokeImmediately) {
     MainCoroutineDispatcher.call(this);
-    this.ix_1 = delegate;
-    this.jx_1 = invokeImmediately;
-    this.kx_1 = this.jx_1 ? this : new JsMainDispatcher(this.ix_1, true);
+    this.nx_1 = delegate;
+    this.ox_1 = invokeImmediately;
+    this.px_1 = this.ox_1 ? this : new JsMainDispatcher(this.nx_1, true);
   }
-  JsMainDispatcher.prototype.ow = function () {
-    return this.kx_1;
+  JsMainDispatcher.prototype.vw = function () {
+    return this.px_1;
   };
-  JsMainDispatcher.prototype.us = function (context) {
-    return !this.jx_1;
+  JsMainDispatcher.prototype.bt = function (context) {
+    return !this.ox_1;
   };
-  JsMainDispatcher.prototype.vs = function (context, block) {
-    return this.ix_1.vs(context, block);
+  JsMainDispatcher.prototype.ct = function (context, block) {
+    return this.nx_1.ct(context, block);
   };
   JsMainDispatcher.prototype.toString = function () {
-    var tmp0_elvis_lhs = this.pw();
-    return tmp0_elvis_lhs == null ? this.ix_1.toString() : tmp0_elvis_lhs;
+    var tmp0_elvis_lhs = this.ww();
+    return tmp0_elvis_lhs == null ? this.nx_1.toString() : tmp0_elvis_lhs;
   };
   JsMainDispatcher.$metadata$ = classMeta('JsMainDispatcher', undefined, undefined, undefined, undefined, MainCoroutineDispatcher.prototype);
   function createEventLoop() {
@@ -3939,7 +3917,7 @@
   function UnconfinedEventLoop() {
     EventLoop.call(this);
   }
-  UnconfinedEventLoop.prototype.vs = function (context, block) {
+  UnconfinedEventLoop.prototype.ct = function (context, block) {
     unsupported();
   };
   UnconfinedEventLoop.$metadata$ = classMeta('UnconfinedEventLoop', undefined, undefined, undefined, undefined, EventLoop.prototype);
@@ -3948,11 +3926,11 @@
   }
   function JobCancellationException(message, cause, job) {
     CancellationException_init_$Init$(message, cause, this);
-    this.px_1 = job;
+    this.ux_1 = job;
     captureStack(this, JobCancellationException);
   }
   JobCancellationException.prototype.toString = function () {
-    return CancellationException.prototype.toString.call(this) + '; job=' + this.px_1;
+    return CancellationException.prototype.toString.call(this) + '; job=' + this.ux_1;
   };
   JobCancellationException.prototype.equals = function (other) {
     var tmp;
@@ -3968,7 +3946,7 @@
         tmp_2 = false;
       }
       if (tmp_2) {
-        tmp_1 = equals(other.px_1, this.px_1);
+        tmp_1 = equals(other.ux_1, this.ux_1);
       } else {
         tmp_1 = false;
       }
@@ -3982,7 +3960,7 @@
     return tmp;
   };
   JobCancellationException.prototype.hashCode = function () {
-    var tmp = imul(imul(getStringHashCode(ensureNotNull(this.message)), 31) + hashCode(this.px_1) | 0, 31);
+    var tmp = imul(imul(getStringHashCode(ensureNotNull(this.message)), 31) + hashCode(this.ux_1) | 0, 31);
     var tmp0_safe_receiver = this.cause;
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode(tmp0_safe_receiver);
     return tmp + (tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs) | 0;
@@ -3994,8 +3972,8 @@
     NodeDispatcher_instance = this;
     SetTimeoutBasedDispatcher.call(this);
   }
-  NodeDispatcher.prototype.sx = function () {
-    process.nextTick(this.cy().yx_1);
+  NodeDispatcher.prototype.xx = function () {
+    process.nextTick(this.hy().dy_1);
   };
   NodeDispatcher.$metadata$ = objectMeta('NodeDispatcher', undefined, undefined, undefined, undefined, SetTimeoutBasedDispatcher.prototype);
   var NodeDispatcher_instance;
@@ -4008,8 +3986,8 @@
     SetTimeoutDispatcher_instance = this;
     SetTimeoutBasedDispatcher.call(this);
   }
-  SetTimeoutDispatcher.prototype.sx = function () {
-    setTimeout(this.cy().yx_1, 0);
+  SetTimeoutDispatcher.prototype.xx = function () {
+    setTimeout(this.hy().dy_1, 0);
   };
   SetTimeoutDispatcher.$metadata$ = objectMeta('SetTimeoutDispatcher', undefined, undefined, undefined, undefined, SetTimeoutBasedDispatcher.prototype);
   var SetTimeoutDispatcher_instance;
@@ -4020,50 +3998,50 @@
   }
   function SetTimeoutBasedDispatcher$ScheduledMessageQueue$processQueue$lambda(this$0) {
     return function () {
-      this$0.ky();
+      this$0.py();
       return Unit_getInstance();
     };
   }
   function ScheduledMessageQueue($outer) {
-    this.zx_1 = $outer;
+    this.ey_1 = $outer;
     MessageQueue.call(this);
     var tmp = this;
-    tmp.yx_1 = SetTimeoutBasedDispatcher$ScheduledMessageQueue$processQueue$lambda(this);
+    tmp.dy_1 = SetTimeoutBasedDispatcher$ScheduledMessageQueue$processQueue$lambda(this);
   }
-  ScheduledMessageQueue.prototype.ly = function () {
-    this.zx_1.sx();
+  ScheduledMessageQueue.prototype.qy = function () {
+    this.ey_1.xx();
   };
-  ScheduledMessageQueue.prototype.my = function () {
-    setTimeout(this.yx_1, 0);
+  ScheduledMessageQueue.prototype.ry = function () {
+    setTimeout(this.dy_1, 0);
   };
   ScheduledMessageQueue.$metadata$ = classMeta('ScheduledMessageQueue', undefined, undefined, undefined, undefined, MessageQueue.prototype);
   function SetTimeoutBasedDispatcher() {
     CoroutineDispatcher.call(this);
-    this.by_1 = new ScheduledMessageQueue(this);
+    this.gy_1 = new ScheduledMessageQueue(this);
   }
-  SetTimeoutBasedDispatcher.prototype.cy = function () {
-    return this.by_1;
+  SetTimeoutBasedDispatcher.prototype.hy = function () {
+    return this.gy_1;
   };
-  SetTimeoutBasedDispatcher.prototype.vs = function (context, block) {
-    this.by_1.ny(block);
+  SetTimeoutBasedDispatcher.prototype.ct = function (context, block) {
+    this.gy_1.sy(block);
   };
   SetTimeoutBasedDispatcher.$metadata$ = classMeta('SetTimeoutBasedDispatcher', [Delay], undefined, undefined, undefined, CoroutineDispatcher.prototype);
   function MessageQueue() {
     ArrayQueue.call(this);
-    this.iy_1 = 16;
-    this.jy_1 = false;
+    this.ny_1 = 16;
+    this.oy_1 = false;
   }
-  MessageQueue.prototype.ny = function (element) {
-    this.it(element);
-    if (!this.jy_1) {
-      this.jy_1 = true;
-      this.ly();
+  MessageQueue.prototype.sy = function (element) {
+    this.pt(element);
+    if (!this.oy_1) {
+      this.oy_1 = true;
+      this.qy();
     }
   };
-  MessageQueue.prototype.ky = function () {
+  MessageQueue.prototype.py = function () {
     try {
       {
-        var tmp0_repeat = this.iy_1;
+        var tmp0_repeat = this.ny_1;
         {
         }
         var inductionVariable = 0;
@@ -4072,7 +4050,7 @@
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             {
-              var tmp0_elvis_lhs = this.gt();
+              var tmp0_elvis_lhs = this.nt();
               var tmp;
               if (tmp0_elvis_lhs == null) {
                 return Unit_getInstance();
@@ -4080,57 +4058,57 @@
                 tmp = tmp0_elvis_lhs;
               }
               var element = tmp;
-              element.ns();
+              element.us();
             }
           }
            while (inductionVariable < tmp0_repeat);
       }
     }finally {
-      if (this.lt()) {
-        this.jy_1 = false;
+      if (this.st()) {
+        this.oy_1 = false;
       } else {
-        this.my();
+        this.ry();
       }
     }
   };
   MessageQueue.$metadata$ = classMeta('MessageQueue', undefined, undefined, undefined, undefined, ArrayQueue.prototype);
   function WindowDispatcher(window_0) {
     CoroutineDispatcher.call(this);
-    this.py_1 = window_0;
-    this.qy_1 = new WindowMessageQueue(this.py_1);
+    this.uy_1 = window_0;
+    this.vy_1 = new WindowMessageQueue(this.uy_1);
   }
-  WindowDispatcher.prototype.vs = function (context, block) {
-    return this.qy_1.ny(block);
+  WindowDispatcher.prototype.ct = function (context, block) {
+    return this.vy_1.sy(block);
   };
   WindowDispatcher.$metadata$ = classMeta('WindowDispatcher', [Delay], undefined, undefined, undefined, CoroutineDispatcher.prototype);
   function WindowMessageQueue$lambda(this$0) {
     return function (event) {
       var tmp;
-      if (event.source == this$0.wy_1 ? event.data == this$0.xy_1 : false) {
+      if (event.source == this$0.bz_1 ? event.data == this$0.cz_1 : false) {
         event.stopPropagation();
-        tmp = this$0.ky();
+        tmp = this$0.py();
       }
       return Unit_getInstance();
     };
   }
   function WindowMessageQueue$schedule$lambda(this$0) {
     return function (it) {
-      this$0.ky();
+      this$0.py();
       return Unit_getInstance();
     };
   }
   function WindowMessageQueue(window_0) {
     MessageQueue.call(this);
-    this.wy_1 = window_0;
-    this.xy_1 = 'dispatchCoroutine';
-    this.wy_1.addEventListener('message', WindowMessageQueue$lambda(this), true);
+    this.bz_1 = window_0;
+    this.cz_1 = 'dispatchCoroutine';
+    this.bz_1.addEventListener('message', WindowMessageQueue$lambda(this), true);
   }
-  WindowMessageQueue.prototype.ly = function () {
+  WindowMessageQueue.prototype.qy = function () {
     var tmp = Promise.resolve(Unit_getInstance());
     tmp.then(WindowMessageQueue$schedule$lambda(this));
   };
-  WindowMessageQueue.prototype.my = function () {
-    this.wy_1.postMessage(this.xy_1, '*');
+  WindowMessageQueue.prototype.ry = function () {
+    this.bz_1.postMessage(this.cz_1, '*');
   };
   WindowMessageQueue.$metadata$ = classMeta('WindowMessageQueue', undefined, undefined, undefined, undefined, MessageQueue.prototype);
   function await_0(_this__u8e3s4, $cont) {
@@ -4138,12 +4116,12 @@
     {
       var tmp0__anonymous__q1qw7t = $cont;
       var cancellable = new CancellableContinuationImpl(intercepted(tmp0__anonymous__q1qw7t), get_MODE_CANCELLABLE());
-      cancellable.vr();
+      cancellable.cs();
       {
         var tmp = await$lambda(cancellable);
         _this__u8e3s4.then(tmp, await$lambda_0(cancellable));
       }
-      tmp$ret$0 = cancellable.ks();
+      tmp$ret$0 = cancellable.rs();
     }
     return tmp$ret$0;
   }
@@ -4220,52 +4198,52 @@
   }
   LinkedListHead.$metadata$ = classMeta('LinkedListHead', undefined, undefined, undefined, undefined, LinkedListNode.prototype);
   function LinkedListNode() {
-    this.au_1 = this;
-    this.bu_1 = this;
-    this.cu_1 = false;
+    this.hu_1 = this;
+    this.iu_1 = this;
+    this.ju_1 = false;
   }
-  LinkedListNode.prototype.du = function () {
-    return this.au_1;
+  LinkedListNode.prototype.ku = function () {
+    return this.hu_1;
   };
-  LinkedListNode.prototype.eu = function () {
-    return this.au_1;
+  LinkedListNode.prototype.lu = function () {
+    return this.hu_1;
   };
-  LinkedListNode.prototype.fu = function () {
-    return this.bu_1;
+  LinkedListNode.prototype.mu = function () {
+    return this.iu_1;
   };
-  LinkedListNode.prototype.gu = function () {
-    return this.cu_1;
+  LinkedListNode.prototype.nu = function () {
+    return this.ju_1;
   };
-  LinkedListNode.prototype.hu = function (node) {
-    var prev = this.bu_1;
-    node.au_1 = this;
-    node.bu_1 = prev;
-    prev.au_1 = node;
-    this.bu_1 = node;
+  LinkedListNode.prototype.ou = function (node) {
+    var prev = this.iu_1;
+    node.hu_1 = this;
+    node.iu_1 = prev;
+    prev.hu_1 = node;
+    this.iu_1 = node;
+  };
+  LinkedListNode.prototype.wu = function () {
+    return this.pu();
   };
   LinkedListNode.prototype.pu = function () {
-    return this.iu();
-  };
-  LinkedListNode.prototype.iu = function () {
-    if (this.cu_1)
+    if (this.ju_1)
       return false;
-    var prev = this.bu_1;
-    var next = this.au_1;
-    prev.au_1 = next;
-    next.bu_1 = prev;
-    this.cu_1 = true;
+    var prev = this.iu_1;
+    var next = this.hu_1;
+    prev.hu_1 = next;
+    next.iu_1 = prev;
+    this.ju_1 = true;
     return true;
   };
-  LinkedListNode.prototype.qu = function (node) {
-    if (!(this.au_1 === this))
+  LinkedListNode.prototype.xu = function (node) {
+    if (!(this.hu_1 === this))
       return false;
-    this.hu(node);
+    this.ou(node);
     return true;
   };
-  LinkedListNode.prototype.ju = function (node, condition) {
+  LinkedListNode.prototype.qu = function (node, condition) {
     if (!condition())
       return false;
-    this.hu(node);
+    this.ou(node);
     return true;
   };
   LinkedListNode.$metadata$ = classMeta('LinkedListNode');
@@ -4288,33 +4266,33 @@
     return 0;
   }
   function CommonThreadLocal() {
-    this.rt_1 = null;
+    this.yt_1 = null;
   }
-  CommonThreadLocal.prototype.st = function () {
-    var tmp = this.rt_1;
+  CommonThreadLocal.prototype.zt = function () {
+    var tmp = this.yt_1;
     return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
   };
-  CommonThreadLocal.prototype.tt = function (value) {
-    this.rt_1 = value;
+  CommonThreadLocal.prototype.au = function (value) {
+    this.yt_1 = value;
   };
   CommonThreadLocal.$metadata$ = classMeta('CommonThreadLocal');
   //region block: post-declaration
-  JobSupport.prototype.aq = invokeOnCompletion$default;
+  JobSupport.prototype.hq = invokeOnCompletion$default;
   JobSupport.prototype.c4 = plus;
   JobSupport.prototype.v3 = get;
   JobSupport.prototype.b4 = fold;
   JobSupport.prototype.a4 = minusKey;
-  AbstractCoroutine.prototype.aq = invokeOnCompletion$default;
+  AbstractCoroutine.prototype.hq = invokeOnCompletion$default;
   AbstractCoroutine.prototype.c4 = plus;
   AbstractCoroutine.prototype.v3 = get;
   AbstractCoroutine.prototype.b4 = fold;
   AbstractCoroutine.prototype.a4 = minusKey;
-  StandaloneCoroutine.prototype.aq = invokeOnCompletion$default;
+  StandaloneCoroutine.prototype.hq = invokeOnCompletion$default;
   StandaloneCoroutine.prototype.c4 = plus;
   StandaloneCoroutine.prototype.v3 = get;
   StandaloneCoroutine.prototype.b4 = fold;
   StandaloneCoroutine.prototype.a4 = minusKey;
-  LazyStandaloneCoroutine.prototype.aq = invokeOnCompletion$default;
+  LazyStandaloneCoroutine.prototype.hq = invokeOnCompletion$default;
   LazyStandaloneCoroutine.prototype.c4 = plus;
   LazyStandaloneCoroutine.prototype.v3 = get;
   LazyStandaloneCoroutine.prototype.b4 = fold;
@@ -4327,7 +4305,7 @@
   EventLoop.prototype.v3 = get_0;
   EventLoop.prototype.b4 = fold;
   EventLoop.prototype.a4 = minusKey_0;
-  JobImpl.prototype.aq = invokeOnCompletion$default;
+  JobImpl.prototype.hq = invokeOnCompletion$default;
   JobImpl.prototype.c4 = plus;
   JobImpl.prototype.v3 = get;
   JobImpl.prototype.b4 = fold;
@@ -4380,10 +4358,9 @@
   //region block: exports
   _.$_$ = _.$_$ || {};
   _.$_$.a = await_0;
-  _.$_$.b = launch$default;
-  _.$_$.c = Dispatchers_getInstance;
-  _.$_$.d = CoroutineScope_0;
-  _.$_$.e = CoroutineScope;
+  _.$_$.b = Job$default;
+  _.$_$.c = launch$default;
+  _.$_$.d = CoroutineScope;
   //endregion
   return _;
 }));
