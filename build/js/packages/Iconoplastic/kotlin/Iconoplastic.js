@@ -90,6 +90,7 @@
   var serializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.i2;
   var KSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.c2;
   var emptyList = kotlin_kotlin.$_$.y4;
+  var Collection = kotlin_kotlin.$_$.t3;
   var plus_0 = kotlin_kotlin.$_$.p5;
   var minus = kotlin_kotlin.$_$.n5;
   //endregion
@@ -1185,13 +1186,46 @@
     return (!(tmp_1 == null) ? isInterface(tmp_1, List) : false) ? tmp_1 : THROW_CCE();
   }
   function GridItem(_this__u8e3s4, item) {
-    var tmp$ret$6;
+    var tmp$ret$8;
     {
-      var tmp0_div = 'grid-item column' + (get_selectedListStorage().contains_2ehdt1_k$(item.get_key_18j28a_k$()) ? ' active' : '');
-      var tmp$ret$5;
+      var tmp;
+      var tmp$ret$0;
+      $l$block_0: {
+        var tmp0_any = get_selectedListStorage();
+        var tmp_0;
+        if (isInterface(tmp0_any, Collection)) {
+          tmp_0 = tmp0_any.isEmpty_y1axqb_k$();
+        } else {
+          tmp_0 = false;
+        }
+        if (tmp_0) {
+          tmp$ret$0 = false;
+          break $l$block_0;
+        }
+        var tmp0_iterator = tmp0_any.iterator_jk1svi_k$();
+        while (tmp0_iterator.hasNext_bitz1p_k$()) {
+          var element = tmp0_iterator.next_20eer_k$();
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = element === item.get_key_18j28a_k$();
+          }
+          if (tmp$ret$1) {
+            tmp$ret$0 = true;
+            break $l$block_0;
+          }
+        }
+        tmp$ret$0 = false;
+      }
+      if (tmp$ret$0) {
+        tmp = ' active';
+      } else {
+        tmp = '';
+      }
+      var tmp1_div = 'grid-item column' + tmp;
+      var tmp$ret$7;
       {
-        var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', tmp0_div), _this__u8e3s4);
-        var tmp$ret$4;
+        var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', tmp1_div), _this__u8e3s4);
+        var tmp$ret$6;
         {
           if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === _this__u8e3s4)) {
             throw IllegalArgumentException_init_$Create$('Wrong exception');
@@ -1203,59 +1237,59 @@
                 {
                   set_id(tmp0_visitAndFinalize, 'grid-item-' + item.get_key_18j28a_k$());
                   set_onClickFunction(tmp0_visitAndFinalize, GridItem$lambda(item));
-                  var tmp$ret$1;
-                  {
-                    var tmp$ret$0;
-                    {
-                      var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
-                      tmp0_visit.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit);
-                      var tmp;
-                      try {
-                        tmp = tmp0_visit.unaryPlus_g7ydph_k$(toSymbol(item.get_value_j01efc_k$()));
-                      } catch ($p) {
-                        var tmp_0;
-                        if ($p instanceof Error) {
-                          tmp_0 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
-                        } else {
-                          throw $p;
-                        }
-                        tmp = tmp_0;
-                      }
-                      finally {
-                        tmp0_visit.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit);
-                      }
-                      tmp$ret$0 = tmp;
-                    }
-                    tmp$ret$1 = tmp$ret$0;
-                  }
                   var tmp$ret$3;
                   {
                     var tmp$ret$2;
                     {
-                      var tmp0_visit_0 = new SPAN(attributesMapOf('class', 'grid-item-span'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
-                      tmp0_visit_0.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_0);
+                      var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
+                      tmp0_visit.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit);
                       var tmp_1;
                       try {
-                        var tmp_2 = item.get_key_18j28a_k$();
-                        var tmp_3 = replace$default(tmp_2, '_', ' ', false, 4, null);
-                        var tmp_4 = split$default(tmp_3, [' '], false, 0, 6, null);
-                        var tmp_5 = joinToString$default(tmp_4, null, null, null, 0, null, GridItem$lambda_0(), 31, null);
-                        tmp_1 = tmp0_visit_0.unaryPlus_g7ydph_k$(replace$default(tmp_5, ',', '', false, 4, null));
+                        tmp_1 = tmp0_visit.unaryPlus_g7ydph_k$(toSymbol(item.get_value_j01efc_k$()));
                       } catch ($p) {
-                        var tmp_6;
+                        var tmp_2;
                         if ($p instanceof Error) {
-                          tmp_6 = tmp0_visit_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_0, $p);
+                          tmp_2 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
                         } else {
                           throw $p;
                         }
-                        tmp_1 = tmp_6;
+                        tmp_1 = tmp_2;
                       }
                       finally {
-                        tmp0_visit_0.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_0);
+                        tmp0_visit.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit);
                       }
                       tmp$ret$2 = tmp_1;
                     }
                     tmp$ret$3 = tmp$ret$2;
+                  }
+                  var tmp$ret$5;
+                  {
+                    var tmp$ret$4;
+                    {
+                      var tmp0_visit_0 = new SPAN(attributesMapOf('class', 'grid-item-span'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
+                      tmp0_visit_0.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_0);
+                      var tmp_3;
+                      try {
+                        var tmp_4 = item.get_key_18j28a_k$();
+                        var tmp_5 = replace$default(tmp_4, '_', ' ', false, 4, null);
+                        var tmp_6 = split$default(tmp_5, [' '], false, 0, 6, null);
+                        var tmp_7 = joinToString$default(tmp_6, null, null, null, 0, null, GridItem$lambda_0(), 31, null);
+                        tmp_3 = tmp0_visit_0.unaryPlus_g7ydph_k$(replace$default(tmp_7, ',', '', false, 4, null));
+                      } catch ($p) {
+                        var tmp_8;
+                        if ($p instanceof Error) {
+                          tmp_8 = tmp0_visit_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_0, $p);
+                        } else {
+                          throw $p;
+                        }
+                        tmp_3 = tmp_8;
+                      }
+                      finally {
+                        tmp0_visit_0.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_0);
+                      }
+                      tmp$ret$4 = tmp_3;
+                    }
+                    tmp$ret$5 = tmp$ret$4;
                   }
                 }
               }
@@ -1270,11 +1304,11 @@
               tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
             }
           }
-          tmp$ret$4 = _this__u8e3s4.finalize_b9lof6_k$();
+          tmp$ret$6 = _this__u8e3s4.finalize_b9lof6_k$();
         }
-        tmp$ret$5 = tmp$ret$4;
+        tmp$ret$7 = tmp$ret$6;
       }
-      tmp$ret$6 = tmp$ret$5;
+      tmp$ret$8 = tmp$ret$7;
     }
   }
   function GridItem$lambda$lambda$lambda() {
@@ -1412,7 +1446,34 @@
   function GridItem$lambda($item) {
     return function (_anonymous_parameter_0__qggqh8) {
       var tmp;
-      if (get_selectedListStorage().contains_2ehdt1_k$($item.get_key_18j28a_k$())) {
+      var tmp$ret$0;
+      $l$block_0: {
+        var tmp0_any = get_selectedListStorage();
+        var tmp_0;
+        if (isInterface(tmp0_any, Collection)) {
+          tmp_0 = tmp0_any.isEmpty_y1axqb_k$();
+        } else {
+          tmp_0 = false;
+        }
+        if (tmp_0) {
+          tmp$ret$0 = false;
+          break $l$block_0;
+        }
+        var tmp0_iterator = tmp0_any.iterator_jk1svi_k$();
+        while (tmp0_iterator.hasNext_bitz1p_k$()) {
+          var element = tmp0_iterator.next_20eer_k$();
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = element === $item.get_key_18j28a_k$();
+          }
+          if (tmp$ret$1) {
+            tmp$ret$0 = true;
+            break $l$block_0;
+          }
+        }
+        tmp$ret$0 = false;
+      }
+      if (tmp$ret$0) {
         set_selectedListStorage(minus(get_selectedListStorage(), $item.get_key_18j28a_k$()));
         var tmp0_safe_receiver = document.getElementById('selected-item-' + $item.get_key_18j28a_k$());
         if (tmp0_safe_receiver == null)
@@ -1421,22 +1482,22 @@
           tmp0_safe_receiver.remove();
         }
         var tmp4_safe_receiver = document.getElementById('grid-item-' + $item.get_key_18j28a_k$());
-        var tmp_0;
+        var tmp_1;
         if (tmp4_safe_receiver == null) {
-          tmp_0 = Unit_getInstance();
+          tmp_1 = Unit_getInstance();
         } else {
           var tmp1_safe_receiver = document.getElementById('grid-item-' + $item.get_key_18j28a_k$());
           var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.className;
-          var tmp_1;
+          var tmp_2;
           if (tmp2_safe_receiver == null) {
-            tmp_1 = null;
+            tmp_2 = null;
           } else {
-            tmp_1 = replace$default(tmp2_safe_receiver, ' active', '', false, 4, null);
+            tmp_2 = replace$default(tmp2_safe_receiver, ' active', '', false, 4, null);
           }
-          var tmp3_elvis_lhs = tmp_1;
-          tmp_0 = tmp4_safe_receiver.className = tmp3_elvis_lhs == null ? '' : tmp3_elvis_lhs;
+          var tmp3_elvis_lhs = tmp_2;
+          tmp_1 = tmp4_safe_receiver.className = tmp3_elvis_lhs == null ? '' : tmp3_elvis_lhs;
         }
-        tmp = tmp_0;
+        tmp = tmp_1;
       } else {
         set_selectedListStorage(plus_0(get_selectedListStorage(), $item.get_key_18j28a_k$()));
         var tmp5_safe_receiver = document.getElementById('grid-item-' + $item.get_key_18j28a_k$());

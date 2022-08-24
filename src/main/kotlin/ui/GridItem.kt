@@ -11,10 +11,10 @@ import selectedListStorage
 import toSymbol
 
 fun TagConsumer<*>.GridItem(item: Map.Entry<String, String>) {
-    div("grid-item column" + if (selectedListStorage.contains(item.key)) " active" else "") {
+    div("grid-item column" + if (selectedListStorage.any { it == item.key }) " active" else "") {
         id = "grid-item-${item.key}"
         onClickFunction = { _ ->
-            if (selectedListStorage.contains(item.key)) {
+            if (selectedListStorage.any { it == item.key }) {
                 selectedListStorage = selectedListStorage - item.key
                 document.getElementById("selected-item-${item.key}")?.remove()
                 document.getElementById("grid-item-${item.key}")?.className =

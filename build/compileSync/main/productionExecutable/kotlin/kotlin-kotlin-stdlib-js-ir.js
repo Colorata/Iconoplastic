@@ -543,6 +543,23 @@ if (typeof Math.imul === 'undefined') {
     }
     return accumulator;
   }
+  function any_0(_this__u8e3s4, predicate) {
+    var tmp;
+    if (isInterface(_this__u8e3s4, Collection)) {
+      tmp = _this__u8e3s4.i();
+    } else {
+      tmp = false;
+    }
+    if (tmp)
+      return false;
+    var tmp0_iterator = _this__u8e3s4.d();
+    while (tmp0_iterator.e()) {
+      var element = tmp0_iterator.f();
+      if (predicate(element))
+        return true;
+    }
+    return false;
+  }
   function minus(_this__u8e3s4, element) {
     var result = ArrayList_init_$Create$_0(collectionSizeOrDefault(_this__u8e3s4, 10));
     var removed = false;
@@ -572,7 +589,7 @@ if (typeof Math.imul === 'undefined') {
   }
   function plus_0(_this__u8e3s4, element) {
     var result = ArrayList_init_$Create$_0(_this__u8e3s4.g() + 1 | 0);
-    result.l(_this__u8e3s4);
+    result.m(_this__u8e3s4);
     result.c(element);
     return result;
   }
@@ -672,7 +689,7 @@ if (typeof Math.imul === 'undefined') {
   function all(_this__u8e3s4, predicate) {
     var tmp;
     if (isInterface(_this__u8e3s4, Collection)) {
-      tmp = _this__u8e3s4.m();
+      tmp = _this__u8e3s4.i();
     } else {
       tmp = false;
     }
@@ -685,23 +702,6 @@ if (typeof Math.imul === 'undefined') {
         return false;
     }
     return true;
-  }
-  function any_0(_this__u8e3s4, predicate) {
-    var tmp;
-    if (isInterface(_this__u8e3s4, Collection)) {
-      tmp = _this__u8e3s4.m();
-    } else {
-      tmp = false;
-    }
-    if (tmp)
-      return false;
-    var tmp0_iterator = _this__u8e3s4.d();
-    while (tmp0_iterator.e()) {
-      var element = tmp0_iterator.f();
-      if (predicate(element))
-        return true;
-    }
-    return false;
   }
   function single_1(_this__u8e3s4) {
     var tmp0_subject = _this__u8e3s4.g();
@@ -725,7 +725,7 @@ if (typeof Math.imul === 'undefined') {
     }
   }
   function last(_this__u8e3s4) {
-    if (_this__u8e3s4.m())
+    if (_this__u8e3s4.i())
       throw NoSuchElementException_init_$Create$_0('List is empty.');
     return _this__u8e3s4.h(get_lastIndex_2(_this__u8e3s4));
   }
@@ -797,7 +797,7 @@ if (typeof Math.imul === 'undefined') {
     return toCollection_0(_this__u8e3s4, ArrayList_init_$Create$());
   }
   function lastOrNull(_this__u8e3s4) {
-    return _this__u8e3s4.m() ? null : _this__u8e3s4.h(_this__u8e3s4.g() - 1 | 0);
+    return _this__u8e3s4.i() ? null : _this__u8e3s4.h(_this__u8e3s4.g() - 1 | 0);
   }
   function minOrNull(_this__u8e3s4) {
     var iterator = _this__u8e3s4.d();
@@ -1069,7 +1069,7 @@ if (typeof Math.imul === 'undefined') {
     }
     var tmp1_elvis_lhs = tmp;
     var result = LinkedHashSet_init_$Create$_1(mapCapacity(tmp1_elvis_lhs == null ? imul(_this__u8e3s4.g(), 2) : tmp1_elvis_lhs));
-    result.l(_this__u8e3s4);
+    result.m(_this__u8e3s4);
     addAll(result, elements);
     return result;
   }
@@ -1204,7 +1204,7 @@ if (typeof Math.imul === 'undefined') {
     $l$block_0: {
       var tmp;
       if (isInterface(this, Collection)) {
-        tmp = this.m();
+        tmp = this.i();
       } else {
         tmp = false;
       }
@@ -1233,7 +1233,7 @@ if (typeof Math.imul === 'undefined') {
     $l$block_0: {
       var tmp;
       if (isInterface(elements, Collection)) {
-        tmp = elements.m();
+        tmp = elements.i();
       } else {
         tmp = false;
       }
@@ -1257,7 +1257,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0;
   };
-  AbstractCollection.prototype.m = function () {
+  AbstractCollection.prototype.i = function () {
     return this.g() === 0;
   };
   AbstractCollection.prototype.toString = function () {
@@ -1481,7 +1481,7 @@ if (typeof Math.imul === 'undefined') {
       var tmp0_all = other.o();
       var tmp;
       if (isInterface(tmp0_all, Collection)) {
-        tmp = tmp0_all.m();
+        tmp = tmp0_all.i();
       } else {
         tmp = false;
       }
@@ -1512,7 +1512,7 @@ if (typeof Math.imul === 'undefined') {
   AbstractMap.prototype.hashCode = function () {
     return hashCode_0(this.o());
   };
-  AbstractMap.prototype.m = function () {
+  AbstractMap.prototype.i = function () {
     return this.g() === 0;
   };
   AbstractMap.prototype.g = function () {
@@ -1588,7 +1588,7 @@ if (typeof Math.imul === 'undefined') {
   function isNullOrEmpty(_this__u8e3s4) {
     {
     }
-    return _this__u8e3s4 == null ? true : _this__u8e3s4.m();
+    return _this__u8e3s4 == null ? true : _this__u8e3s4.i();
   }
   function mutableListOf() {
     return ArrayList_init_$Create$();
@@ -1603,7 +1603,7 @@ if (typeof Math.imul === 'undefined') {
   EmptyList.prototype.equals = function (other) {
     var tmp;
     if (!(other == null) ? isInterface(other, List) : false) {
-      tmp = other.m();
+      tmp = other.i();
     } else {
       tmp = false;
     }
@@ -1618,28 +1618,14 @@ if (typeof Math.imul === 'undefined') {
   EmptyList.prototype.g = function () {
     return 0;
   };
-  EmptyList.prototype.m = function () {
+  EmptyList.prototype.i = function () {
     return true;
   };
-  EmptyList.prototype.g2 = function (element) {
-    return false;
-  };
-  EmptyList.prototype.g1 = function (element) {
-    if (!false)
-      return false;
-    var tmp;
-    if (false) {
-      tmp = element;
-    } else {
-      tmp = THROW_CCE();
-    }
-    return this.g2(tmp);
-  };
-  EmptyList.prototype.h2 = function (elements) {
-    return elements.m();
+  EmptyList.prototype.g2 = function (elements) {
+    return elements.i();
   };
   EmptyList.prototype.h1 = function (elements) {
-    return this.h2(elements);
+    return this.g2(elements);
   };
   EmptyList.prototype.h = function (index) {
     throw IndexOutOfBoundsException_init_$Create$("Empty list doesn't contain element at index " + index + '.');
@@ -1680,29 +1666,29 @@ if (typeof Math.imul === 'undefined') {
     return _this__u8e3s4.g() - 1 | 0;
   }
   function ArrayAsCollection(values, isVarargs) {
-    this.i2_1 = values;
-    this.j2_1 = isVarargs;
+    this.h2_1 = values;
+    this.i2_1 = isVarargs;
   }
   ArrayAsCollection.prototype.g = function () {
-    return this.i2_1.length;
+    return this.h2_1.length;
   };
-  ArrayAsCollection.prototype.m = function () {
+  ArrayAsCollection.prototype.i = function () {
     var tmp$ret$0;
     {
-      var tmp0_isEmpty = this.i2_1;
+      var tmp0_isEmpty = this.h2_1;
       tmp$ret$0 = tmp0_isEmpty.length === 0;
     }
     return tmp$ret$0;
   };
-  ArrayAsCollection.prototype.k2 = function (element) {
-    return contains(this.i2_1, element);
+  ArrayAsCollection.prototype.j2 = function (element) {
+    return contains(this.h2_1, element);
   };
-  ArrayAsCollection.prototype.l2 = function (elements) {
+  ArrayAsCollection.prototype.k2 = function (elements) {
     var tmp$ret$0;
     $l$block_0: {
       var tmp;
       if (isInterface(elements, Collection)) {
-        tmp = elements.m();
+        tmp = elements.i();
       } else {
         tmp = false;
       }
@@ -1715,7 +1701,7 @@ if (typeof Math.imul === 'undefined') {
         var element = tmp0_iterator.f();
         var tmp$ret$1;
         {
-          tmp$ret$1 = this.k2(element);
+          tmp$ret$1 = this.j2(element);
         }
         if (!tmp$ret$1) {
           tmp$ret$0 = false;
@@ -1727,10 +1713,10 @@ if (typeof Math.imul === 'undefined') {
     return tmp$ret$0;
   };
   ArrayAsCollection.prototype.h1 = function (elements) {
-    return this.l2(elements);
+    return this.k2(elements);
   };
   ArrayAsCollection.prototype.d = function () {
-    return arrayIterator(this.i2_1);
+    return arrayIterator(this.h2_1);
   };
   ArrayAsCollection.$metadata$ = classMeta('ArrayAsCollection', [Collection]);
   function arrayListOf_0(elements) {
@@ -1743,7 +1729,7 @@ if (typeof Math.imul === 'undefined') {
     return _this__u8e3s4.h1(elements);
   }
   function isNotEmpty(_this__u8e3s4) {
-    return !_this__u8e3s4.m();
+    return !_this__u8e3s4.i();
   }
   function optimizeReadOnlyList(_this__u8e3s4) {
     var tmp0_subject = _this__u8e3s4.g();
@@ -1757,21 +1743,21 @@ if (typeof Math.imul === 'undefined') {
     }
   }
   function IndexedValue(index, value) {
-    this.m2_1 = index;
-    this.n2_1 = value;
+    this.l2_1 = index;
+    this.m2_1 = value;
   }
-  IndexedValue.prototype.o2 = function () {
-    return this.m2_1;
+  IndexedValue.prototype.n2 = function () {
+    return this.l2_1;
   };
   IndexedValue.prototype.r1 = function () {
-    return this.n2_1;
+    return this.m2_1;
   };
   IndexedValue.prototype.toString = function () {
-    return 'IndexedValue(index=' + this.m2_1 + ', value=' + this.n2_1 + ')';
+    return 'IndexedValue(index=' + this.l2_1 + ', value=' + this.m2_1 + ')';
   };
   IndexedValue.prototype.hashCode = function () {
-    var result = this.m2_1;
-    result = imul(result, 31) + (this.n2_1 == null ? 0 : hashCode_0(this.n2_1)) | 0;
+    var result = this.l2_1;
+    result = imul(result, 31) + (this.m2_1 == null ? 0 : hashCode_0(this.m2_1)) | 0;
     return result;
   };
   IndexedValue.prototype.equals = function (other) {
@@ -1780,9 +1766,9 @@ if (typeof Math.imul === 'undefined') {
     if (!(other instanceof IndexedValue))
       return false;
     var tmp0_other_with_cast = other instanceof IndexedValue ? other : THROW_CCE();
-    if (!(this.m2_1 === tmp0_other_with_cast.m2_1))
+    if (!(this.l2_1 === tmp0_other_with_cast.l2_1))
       return false;
-    if (!equals_1(this.n2_1, tmp0_other_with_cast.n2_1))
+    if (!equals_1(this.m2_1, tmp0_other_with_cast.m2_1))
       return false;
     return true;
   };
@@ -1791,10 +1777,10 @@ if (typeof Math.imul === 'undefined') {
     return new _no_name_provided__qut3iv_1(iterator);
   }
   function IndexingIterable(iteratorFactory) {
-    this.p2_1 = iteratorFactory;
+    this.o2_1 = iteratorFactory;
   }
   IndexingIterable.prototype.d = function () {
-    return new IndexingIterator(this.p2_1());
+    return new IndexingIterator(this.o2_1());
   };
   IndexingIterable.$metadata$ = classMeta('IndexingIterable', [Iterable_0]);
   function collectionSizeOrDefault(_this__u8e3s4, default_0) {
@@ -1816,10 +1802,10 @@ if (typeof Math.imul === 'undefined') {
     return tmp;
   }
   function _no_name_provided__qut3iv_1($iterator) {
-    this.q2_1 = $iterator;
+    this.p2_1 = $iterator;
   }
   _no_name_provided__qut3iv_1.prototype.d = function () {
-    return this.q2_1();
+    return this.p2_1();
   };
   _no_name_provided__qut3iv_1.$metadata$ = classMeta(undefined, [Iterable_0]);
   function forEach_2(_this__u8e3s4, operation) {
@@ -1837,22 +1823,22 @@ if (typeof Math.imul === 'undefined') {
     return _this__u8e3s4;
   }
   function IndexingIterator(iterator) {
-    this.r2_1 = iterator;
-    this.s2_1 = 0;
+    this.q2_1 = iterator;
+    this.r2_1 = 0;
   }
   IndexingIterator.prototype.e = function () {
-    return this.r2_1.e();
+    return this.q2_1.e();
   };
   IndexingIterator.prototype.f = function () {
     var tmp0_this = this;
-    var tmp1 = tmp0_this.s2_1;
-    tmp0_this.s2_1 = tmp1 + 1 | 0;
-    return new IndexedValue(checkIndexOverflow(tmp1), this.r2_1.f());
+    var tmp1 = tmp0_this.r2_1;
+    tmp0_this.r2_1 = tmp1 + 1 | 0;
+    return new IndexedValue(checkIndexOverflow(tmp1), this.q2_1.f());
   };
   IndexingIterator.$metadata$ = classMeta('IndexingIterator', [Iterator]);
   function getOrImplicitDefault(_this__u8e3s4, key) {
     if (isInterface(_this__u8e3s4, MapWithDefault))
-      return _this__u8e3s4.t2(key);
+      return _this__u8e3s4.s2(key);
     var tmp$ret$0;
     $l$block: {
       var value = _this__u8e3s4.b2(key);
@@ -1973,12 +1959,12 @@ if (typeof Math.imul === 'undefined') {
   }
   function EmptyMap() {
     EmptyMap_instance = this;
-    this.u2_1 = new Long(-888910638, 1920087921);
+    this.t2_1 = new Long(-888910638, 1920087921);
   }
   EmptyMap.prototype.equals = function (other) {
     var tmp;
     if (!(other == null) ? isInterface(other, Map) : false) {
-      tmp = other.m();
+      tmp = other.i();
     } else {
       tmp = false;
     }
@@ -1993,24 +1979,24 @@ if (typeof Math.imul === 'undefined') {
   EmptyMap.prototype.g = function () {
     return 0;
   };
-  EmptyMap.prototype.m = function () {
+  EmptyMap.prototype.i = function () {
     return true;
   };
-  EmptyMap.prototype.v2 = function (key) {
+  EmptyMap.prototype.u2 = function (key) {
     return false;
   };
   EmptyMap.prototype.y1 = function (key) {
     if (!(key == null ? true : isObject(key)))
       return false;
-    return this.v2((key == null ? true : isObject(key)) ? key : THROW_CCE());
+    return this.u2((key == null ? true : isObject(key)) ? key : THROW_CCE());
   };
-  EmptyMap.prototype.w2 = function (key) {
+  EmptyMap.prototype.v2 = function (key) {
     return null;
   };
   EmptyMap.prototype.b2 = function (key) {
     if (!(key == null ? true : isObject(key)))
       return null;
-    return this.w2((key == null ? true : isObject(key)) ? key : THROW_CCE());
+    return this.v2((key == null ? true : isObject(key)) ? key : THROW_CCE());
   };
   EmptyMap.prototype.o = function () {
     return EmptySet_getInstance();
@@ -2094,8 +2080,8 @@ if (typeof Math.imul === 'undefined') {
     while (inductionVariable < last) {
       var tmp1_loop_parameter = indexedObject[inductionVariable];
       inductionVariable = inductionVariable + 1 | 0;
-      var key = tmp1_loop_parameter.z2();
-      var value = tmp1_loop_parameter.a3();
+      var key = tmp1_loop_parameter.y2();
+      var value = tmp1_loop_parameter.z2();
       _this__u8e3s4.a(key, value);
     }
   }
@@ -2103,8 +2089,8 @@ if (typeof Math.imul === 'undefined') {
     var tmp0_iterator = pairs.d();
     while (tmp0_iterator.e()) {
       var tmp1_loop_parameter = tmp0_iterator.f();
-      var key = tmp1_loop_parameter.z2();
-      var value = tmp1_loop_parameter.a3();
+      var key = tmp1_loop_parameter.y2();
+      var value = tmp1_loop_parameter.z2();
       _this__u8e3s4.a(key, value);
     }
   }
@@ -2147,17 +2133,17 @@ if (typeof Math.imul === 'undefined') {
   }
   function removeLast(_this__u8e3s4) {
     var tmp;
-    if (_this__u8e3s4.m()) {
+    if (_this__u8e3s4.i()) {
       throw NoSuchElementException_init_$Create$_0('List is empty.');
     } else {
-      tmp = _this__u8e3s4.b3(get_lastIndex_2(_this__u8e3s4));
+      tmp = _this__u8e3s4.a3(get_lastIndex_2(_this__u8e3s4));
     }
     return tmp;
   }
   function addAll(_this__u8e3s4, elements) {
     var tmp0_subject = elements;
     if (isInterface(tmp0_subject, Collection))
-      return _this__u8e3s4.l(elements);
+      return _this__u8e3s4.m(elements);
     else {
       var result = false;
       var tmp1_iterator = elements.d();
@@ -2185,32 +2171,32 @@ if (typeof Math.imul === 'undefined') {
   }
   DropTakeSequence.$metadata$ = interfaceMeta('DropTakeSequence', [Sequence]);
   function TakeSequence$iterator$1(this$0) {
-    this.c3_1 = this$0.f3_1;
-    this.d3_1 = this$0.e3_1.d();
+    this.b3_1 = this$0.e3_1;
+    this.c3_1 = this$0.d3_1.d();
   }
   TakeSequence$iterator$1.prototype.f = function () {
-    if (this.c3_1 === 0)
+    if (this.b3_1 === 0)
       throw NoSuchElementException_init_$Create$();
     var tmp0_this = this;
-    var tmp1 = tmp0_this.c3_1;
-    tmp0_this.c3_1 = tmp1 - 1 | 0;
-    return this.d3_1.f();
+    var tmp1 = tmp0_this.b3_1;
+    tmp0_this.b3_1 = tmp1 - 1 | 0;
+    return this.c3_1.f();
   };
   TakeSequence$iterator$1.prototype.e = function () {
-    return this.c3_1 > 0 ? this.d3_1.e() : false;
+    return this.b3_1 > 0 ? this.c3_1.e() : false;
   };
   TakeSequence$iterator$1.$metadata$ = classMeta(undefined, [Iterator]);
   function TakeSequence(sequence, count) {
-    this.e3_1 = sequence;
-    this.f3_1 = count;
+    this.d3_1 = sequence;
+    this.e3_1 = count;
     {
-      var tmp0_require = this.f3_1 >= 0;
+      var tmp0_require = this.e3_1 >= 0;
       {
       }
       if (!tmp0_require) {
         var tmp$ret$0;
         {
-          tmp$ret$0 = 'count must be non-negative, but was ' + this.f3_1 + '.';
+          tmp$ret$0 = 'count must be non-negative, but was ' + this.e3_1 + '.';
         }
         var message = tmp$ret$0;
         throw IllegalArgumentException_init_$Create$_0(toString_2(message));
@@ -2218,59 +2204,59 @@ if (typeof Math.imul === 'undefined') {
     }
   }
   TakeSequence.prototype.b1 = function (n) {
-    return n >= this.f3_1 ? this : new TakeSequence(this.e3_1, n);
+    return n >= this.e3_1 ? this : new TakeSequence(this.d3_1, n);
   };
   TakeSequence.prototype.d = function () {
     return new TakeSequence$iterator$1(this);
   };
   TakeSequence.$metadata$ = classMeta('TakeSequence', [Sequence, DropTakeSequence]);
   function TransformingSequence$iterator$1(this$0) {
-    this.h3_1 = this$0;
-    this.g3_1 = this$0.i3_1.d();
+    this.g3_1 = this$0;
+    this.f3_1 = this$0.h3_1.d();
   }
   TransformingSequence$iterator$1.prototype.f = function () {
-    return this.h3_1.j3_1(this.g3_1.f());
+    return this.g3_1.i3_1(this.f3_1.f());
   };
   TransformingSequence$iterator$1.prototype.e = function () {
-    return this.g3_1.e();
+    return this.f3_1.e();
   };
   TransformingSequence$iterator$1.$metadata$ = classMeta(undefined, [Iterator]);
   function TransformingSequence(sequence, transformer) {
-    this.i3_1 = sequence;
-    this.j3_1 = transformer;
+    this.h3_1 = sequence;
+    this.i3_1 = transformer;
   }
   TransformingSequence.prototype.d = function () {
     return new TransformingSequence$iterator$1(this);
   };
   TransformingSequence.$metadata$ = classMeta('TransformingSequence', [Sequence]);
   function calcNext($this) {
-    $this.k3_1 = $this.l3_1 === -2 ? $this.m3_1.n3_1() : $this.m3_1.o3_1(ensureNotNull($this.k3_1));
-    $this.l3_1 = $this.k3_1 == null ? 0 : 1;
+    $this.j3_1 = $this.k3_1 === -2 ? $this.l3_1.m3_1() : $this.l3_1.n3_1(ensureNotNull($this.j3_1));
+    $this.k3_1 = $this.j3_1 == null ? 0 : 1;
   }
   function GeneratorSequence$iterator$1(this$0) {
-    this.m3_1 = this$0;
-    this.k3_1 = null;
-    this.l3_1 = -2;
+    this.l3_1 = this$0;
+    this.j3_1 = null;
+    this.k3_1 = -2;
   }
   GeneratorSequence$iterator$1.prototype.f = function () {
-    if (this.l3_1 < 0)
+    if (this.k3_1 < 0)
       calcNext(this);
-    if (this.l3_1 === 0)
+    if (this.k3_1 === 0)
       throw NoSuchElementException_init_$Create$();
-    var tmp = this.k3_1;
+    var tmp = this.j3_1;
     var result = isObject(tmp) ? tmp : THROW_CCE();
-    this.l3_1 = -1;
+    this.k3_1 = -1;
     return result;
   };
   GeneratorSequence$iterator$1.prototype.e = function () {
-    if (this.l3_1 < 0)
+    if (this.k3_1 < 0)
       calcNext(this);
-    return this.l3_1 === 1;
+    return this.k3_1 === 1;
   };
   GeneratorSequence$iterator$1.$metadata$ = classMeta(undefined, [Iterator]);
   function GeneratorSequence(getInitialValue, getNextValue) {
-    this.n3_1 = getInitialValue;
-    this.o3_1 = getNextValue;
+    this.m3_1 = getInitialValue;
+    this.n3_1 = getNextValue;
   }
   GeneratorSequence.prototype.d = function () {
     return new GeneratorSequence$iterator$1(this);
@@ -2293,10 +2279,10 @@ if (typeof Math.imul === 'undefined') {
     return EmptySequence_instance;
   }
   function _no_name_provided__qut3iv_2($iterator) {
-    this.p3_1 = $iterator;
+    this.o3_1 = $iterator;
   }
   _no_name_provided__qut3iv_2.prototype.d = function () {
-    return this.p3_1();
+    return this.o3_1();
   };
   _no_name_provided__qut3iv_2.$metadata$ = classMeta(undefined, [Sequence]);
   function emptySet() {
@@ -2307,12 +2293,12 @@ if (typeof Math.imul === 'undefined') {
   }
   function EmptySet() {
     EmptySet_instance = this;
-    this.q3_1 = new Long(1993859828, 793161749);
+    this.p3_1 = new Long(1993859828, 793161749);
   }
   EmptySet.prototype.equals = function (other) {
     var tmp;
     if (!(other == null) ? isInterface(other, Set) : false) {
-      tmp = other.m();
+      tmp = other.i();
     } else {
       tmp = false;
     }
@@ -2327,10 +2313,10 @@ if (typeof Math.imul === 'undefined') {
   EmptySet.prototype.g = function () {
     return 0;
   };
-  EmptySet.prototype.m = function () {
+  EmptySet.prototype.i = function () {
     return true;
   };
-  EmptySet.prototype.g2 = function (element) {
+  EmptySet.prototype.q3 = function (element) {
     return false;
   };
   EmptySet.prototype.g1 = function (element) {
@@ -2342,13 +2328,13 @@ if (typeof Math.imul === 'undefined') {
     } else {
       tmp = THROW_CCE();
     }
-    return this.g2(tmp);
+    return this.q3(tmp);
   };
-  EmptySet.prototype.h2 = function (elements) {
-    return elements.m();
+  EmptySet.prototype.g2 = function (elements) {
+    return elements.i();
   };
   EmptySet.prototype.h1 = function (elements) {
-    return this.h2(elements);
+    return this.g2(elements);
   };
   EmptySet.prototype.d = function () {
     return EmptyIterator_getInstance();
@@ -3655,8 +3641,8 @@ if (typeof Math.imul === 'undefined') {
           $this.k5_1 = -1;
         } else {
           var tmp1_container = match;
-          var index = tmp1_container.z2();
-          var length = tmp1_container.a3();
+          var index = tmp1_container.y2();
+          var length = tmp1_container.z2();
           $this.l5_1 = until($this.j5_1, index);
           $this.j5_1 = index + length | 0;
           $this.k5_1 = $this.j5_1 + (length === 0 ? 1 : 0) | 0;
@@ -3905,7 +3891,7 @@ if (typeof Math.imul === 'undefined') {
           }
           var tmp$ret$0;
           {
-            tmp$ret$0 = to(tmp0_safe_receiver.x2_1, tmp0_safe_receiver.y2_1.length);
+            tmp$ret$0 = to(tmp0_safe_receiver.w2_1, tmp0_safe_receiver.x2_1.length);
           }
           tmp$ret$1 = tmp$ret$0;
         }
@@ -4848,7 +4834,7 @@ if (typeof Math.imul === 'undefined') {
         var tmp0_all = numberRangeToNumber(startIndex, get_lastIndex_3(value));
         var tmp_2;
         if (isInterface(tmp0_all, Collection)) {
-          tmp_2 = tmp0_all.m();
+          tmp_2 = tmp0_all.i();
         } else {
           tmp_2 = false;
         }
@@ -5458,27 +5444,27 @@ if (typeof Math.imul === 'undefined') {
     return !predicate(_this__u8e3s4) ? _this__u8e3s4 : null;
   }
   function Pair(first, second) {
-    this.x2_1 = first;
-    this.y2_1 = second;
+    this.w2_1 = first;
+    this.x2_1 = second;
   }
   Pair.prototype.k6 = function () {
-    return this.x2_1;
+    return this.w2_1;
   };
   Pair.prototype.c7 = function () {
-    return this.y2_1;
+    return this.x2_1;
   };
   Pair.prototype.toString = function () {
-    return '(' + this.x2_1 + ', ' + this.y2_1 + ')';
+    return '(' + this.w2_1 + ', ' + this.x2_1 + ')';
+  };
+  Pair.prototype.y2 = function () {
+    return this.w2_1;
   };
   Pair.prototype.z2 = function () {
     return this.x2_1;
   };
-  Pair.prototype.a3 = function () {
-    return this.y2_1;
-  };
   Pair.prototype.hashCode = function () {
-    var result = this.x2_1 == null ? 0 : hashCode_0(this.x2_1);
-    result = imul(result, 31) + (this.y2_1 == null ? 0 : hashCode_0(this.y2_1)) | 0;
+    var result = this.w2_1 == null ? 0 : hashCode_0(this.w2_1);
+    result = imul(result, 31) + (this.x2_1 == null ? 0 : hashCode_0(this.x2_1)) | 0;
     return result;
   };
   Pair.prototype.equals = function (other) {
@@ -5487,9 +5473,9 @@ if (typeof Math.imul === 'undefined') {
     if (!(other instanceof Pair))
       return false;
     var tmp0_other_with_cast = other instanceof Pair ? other : THROW_CCE();
-    if (!equals_1(this.x2_1, tmp0_other_with_cast.x2_1))
+    if (!equals_1(this.w2_1, tmp0_other_with_cast.w2_1))
       return false;
-    if (!equals_1(this.y2_1, tmp0_other_with_cast.y2_1))
+    if (!equals_1(this.x2_1, tmp0_other_with_cast.x2_1))
       return false;
     return true;
   };
@@ -6477,20 +6463,20 @@ if (typeof Math.imul === 'undefined') {
   IntProgression.prototype.d = function () {
     return new IntProgressionIterator(this.x_1, this.y_1, this.z_1);
   };
-  IntProgression.prototype.m = function () {
+  IntProgression.prototype.i = function () {
     return this.z_1 > 0 ? this.x_1 > this.y_1 : this.x_1 < this.y_1;
   };
   IntProgression.prototype.equals = function (other) {
     var tmp;
     if (other instanceof IntProgression) {
-      tmp = (this.m() ? other.m() : false) ? true : (this.x_1 === other.x_1 ? this.y_1 === other.y_1 : false) ? this.z_1 === other.z_1 : false;
+      tmp = (this.i() ? other.i() : false) ? true : (this.x_1 === other.x_1 ? this.y_1 === other.y_1 : false) ? this.z_1 === other.z_1 : false;
     } else {
       tmp = false;
     }
     return tmp;
   };
   IntProgression.prototype.hashCode = function () {
-    return this.m() ? -1 : imul(31, imul(31, this.x_1) + this.y_1 | 0) + this.z_1 | 0;
+    return this.i() ? -1 : imul(31, imul(31, this.x_1) + this.y_1 | 0) + this.z_1 | 0;
   };
   IntProgression.prototype.toString = function () {
     return this.z_1 > 0 ? '' + this.x_1 + '..' + this.y_1 + ' step ' + this.z_1 : '' + this.x_1 + ' downTo ' + this.y_1 + ' step ' + (-this.z_1 | 0);
@@ -6535,13 +6521,13 @@ if (typeof Math.imul === 'undefined') {
   CharProgression.prototype.d = function () {
     return new CharProgressionIterator(this.v8_1, this.w8_1, this.x8_1);
   };
-  CharProgression.prototype.m = function () {
+  CharProgression.prototype.i = function () {
     return this.x8_1 > 0 ? Char__compareTo_impl_ypi4mb(this.v8_1, this.w8_1) > 0 : Char__compareTo_impl_ypi4mb(this.v8_1, this.w8_1) < 0;
   };
   CharProgression.prototype.equals = function (other) {
     var tmp;
     if (other instanceof CharProgression) {
-      tmp = (this.m() ? other.m() : false) ? true : (equals_1(new Char_0(this.v8_1), new Char_0(other.v8_1)) ? equals_1(new Char_0(this.w8_1), new Char_0(other.w8_1)) : false) ? this.x8_1 === other.x8_1 : false;
+      tmp = (this.i() ? other.i() : false) ? true : (equals_1(new Char_0(this.v8_1), new Char_0(other.v8_1)) ? equals_1(new Char_0(this.w8_1), new Char_0(other.w8_1)) : false) ? this.x8_1 === other.x8_1 : false;
     } else {
       tmp = false;
     }
@@ -6549,7 +6535,7 @@ if (typeof Math.imul === 'undefined') {
   };
   CharProgression.prototype.hashCode = function () {
     var tmp;
-    if (this.m()) {
+    if (this.i()) {
       tmp = -1;
     } else {
       var tmp$ret$0;
@@ -6598,20 +6584,20 @@ if (typeof Math.imul === 'undefined') {
   IntRange.prototype.a9 = function (value) {
     return this.k6() <= value ? value <= this.l6() : false;
   };
-  IntRange.prototype.m = function () {
+  IntRange.prototype.i = function () {
     return this.k6() > this.l6();
   };
   IntRange.prototype.equals = function (other) {
     var tmp;
     if (other instanceof IntRange) {
-      tmp = (this.m() ? other.m() : false) ? true : this.k6() === other.k6() ? this.l6() === other.l6() : false;
+      tmp = (this.i() ? other.i() : false) ? true : this.k6() === other.k6() ? this.l6() === other.l6() : false;
     } else {
       tmp = false;
     }
     return tmp;
   };
   IntRange.prototype.hashCode = function () {
-    return this.m() ? -1 : imul(31, this.k6()) + this.l6() | 0;
+    return this.i() ? -1 : imul(31, this.k6()) + this.l6() | 0;
   };
   IntRange.prototype.toString = function () {
     return '' + this.k6() + '..' + this.l6();
@@ -6635,13 +6621,13 @@ if (typeof Math.imul === 'undefined') {
   CharRange.prototype.f9 = function (value) {
     return Char__compareTo_impl_ypi4mb(this.y8(), value) <= 0 ? Char__compareTo_impl_ypi4mb(value, this.z8()) <= 0 : false;
   };
-  CharRange.prototype.m = function () {
+  CharRange.prototype.i = function () {
     return Char__compareTo_impl_ypi4mb(this.y8(), this.z8()) > 0;
   };
   CharRange.prototype.equals = function (other) {
     var tmp;
     if (other instanceof CharRange) {
-      tmp = (this.m() ? other.m() : false) ? true : equals_1(new Char_0(this.y8()), new Char_0(other.y8())) ? equals_1(new Char_0(this.z8()), new Char_0(other.z8())) : false;
+      tmp = (this.i() ? other.i() : false) ? true : equals_1(new Char_0(this.y8()), new Char_0(other.y8())) ? equals_1(new Char_0(this.z8()), new Char_0(other.z8())) : false;
     } else {
       tmp = false;
     }
@@ -6649,7 +6635,7 @@ if (typeof Math.imul === 'undefined') {
   };
   CharRange.prototype.hashCode = function () {
     var tmp;
-    if (this.m()) {
+    if (this.i()) {
       tmp = -1;
     } else {
       var tmp$ret$0;
@@ -7097,7 +7083,7 @@ if (typeof Math.imul === 'undefined') {
   function AbstractMutableCollection() {
     AbstractCollection.call(this);
   }
-  AbstractMutableCollection.prototype.l = function (elements) {
+  AbstractMutableCollection.prototype.m = function (elements) {
     this.ja();
     var modified = false;
     var tmp0_iterator = elements.d();
@@ -7146,7 +7132,7 @@ if (typeof Math.imul === 'undefined') {
         throw IllegalStateException_init_$Create$(toString_2(message));
       }
     }
-    this.ma_1.b3(this.la_1);
+    this.ma_1.a3(this.la_1);
     this.ka_1 = this.la_1;
     this.la_1 = -1;
   };
@@ -7395,23 +7381,23 @@ if (typeof Math.imul === 'undefined') {
   }
   function ArrayList(array) {
     AbstractMutableList.call(this);
-    this.j_1 = array;
-    this.k_1 = false;
+    this.k_1 = array;
+    this.l_1 = false;
   }
   ArrayList.prototype.fb = function (minCapacity) {
   };
   ArrayList.prototype.g = function () {
-    return this.j_1.length;
+    return this.k_1.length;
   };
   ArrayList.prototype.h = function (index) {
-    var tmp = this.j_1[rangeCheck(this, index)];
+    var tmp = this.k_1[rangeCheck(this, index)];
     return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
   };
   ArrayList.prototype.c = function (element) {
     this.ja();
     var tmp$ret$0;
     {
-      var tmp0_asDynamic = this.j_1;
+      var tmp0_asDynamic = this.k_1;
       tmp$ret$0 = tmp0_asDynamic;
     }
     tmp$ret$0.push(element);
@@ -7424,7 +7410,7 @@ if (typeof Math.imul === 'undefined') {
     this.ja();
     var tmp$ret$0;
     {
-      var tmp0_asDynamic = this.j_1;
+      var tmp0_asDynamic = this.k_1;
       tmp$ret$0 = tmp0_asDynamic;
     }
     tmp$ret$0.splice(insertionRangeCheck(this, index), 0, element);
@@ -7432,15 +7418,15 @@ if (typeof Math.imul === 'undefined') {
     var tmp1 = tmp0_this.pa();
     tmp0_this.oa(tmp1 + 1 | 0);
   };
-  ArrayList.prototype.l = function (elements) {
+  ArrayList.prototype.m = function (elements) {
     this.ja();
-    if (elements.m())
+    if (elements.i())
       return false;
     var tmp0_this = this;
     var tmp = tmp0_this;
     var tmp$ret$2;
     {
-      var tmp0_plus = tmp0_this.j_1;
+      var tmp0_plus = tmp0_this.k_1;
       var tmp$ret$0;
       {
         tmp$ret$0 = copyToArray(elements);
@@ -7452,13 +7438,13 @@ if (typeof Math.imul === 'undefined') {
       }
       tmp$ret$2 = tmp$ret$1.concat(tmp1_plus);
     }
-    tmp.j_1 = tmp$ret$2;
+    tmp.k_1 = tmp$ret$2;
     var tmp1_this = this;
     var tmp2 = tmp1_this.pa();
     tmp1_this.oa(tmp2 + 1 | 0);
     return true;
   };
-  ArrayList.prototype.b3 = function (index) {
+  ArrayList.prototype.a3 = function (index) {
     this.ja();
     rangeCheck(this, index);
     var tmp0_this = this;
@@ -7468,14 +7454,14 @@ if (typeof Math.imul === 'undefined') {
     if (index === get_lastIndex_2(this)) {
       var tmp$ret$0;
       {
-        var tmp0_asDynamic = this.j_1;
+        var tmp0_asDynamic = this.k_1;
         tmp$ret$0 = tmp0_asDynamic;
       }
       tmp = tmp$ret$0.pop();
     } else {
       var tmp$ret$1;
       {
-        var tmp1_asDynamic = this.j_1;
+        var tmp1_asDynamic = this.k_1;
         tmp$ret$1 = tmp1_asDynamic;
       }
       tmp = tmp$ret$1.splice(index, 1)[0];
@@ -7483,19 +7469,19 @@ if (typeof Math.imul === 'undefined') {
     return tmp;
   };
   ArrayList.prototype.ra = function (element) {
-    return indexOf(this.j_1, element);
+    return indexOf(this.k_1, element);
   };
   ArrayList.prototype.toString = function () {
-    return arrayToString(this.j_1);
+    return arrayToString(this.k_1);
   };
   ArrayList.prototype.gb = function () {
-    return [].slice.call(this.j_1);
+    return [].slice.call(this.k_1);
   };
   ArrayList.prototype.toArray = function () {
     return this.gb();
   };
   ArrayList.prototype.ja = function () {
-    if (this.k_1)
+    if (this.l_1)
       throw UnsupportedOperationException_init_$Create$();
   };
   ArrayList.$metadata$ = classMeta('ArrayList', [MutableList, RandomAccess], undefined, undefined, undefined, AbstractMutableList.prototype);
@@ -7643,7 +7629,7 @@ if (typeof Math.imul === 'undefined') {
     AbstractMutableSet.call($this);
     HashSet.call($this);
     $this.ub_1 = HashMap_init_$Create$_1(elements.g());
-    $this.l(elements);
+    $this.m(elements);
     return $this;
   }
   function HashSet_init_$Create$_0(elements) {
@@ -7678,8 +7664,8 @@ if (typeof Math.imul === 'undefined') {
   HashSet.prototype.g1 = function (element) {
     return this.ub_1.y1(element);
   };
-  HashSet.prototype.m = function () {
-    return this.ub_1.m();
+  HashSet.prototype.i = function () {
+    return this.ub_1.i();
   };
   HashSet.prototype.d = function () {
     return this.ub_1.c2().d();
@@ -8211,7 +8197,7 @@ if (typeof Math.imul === 'undefined') {
   function LinkedHashSet_init_$Init$_0(elements, $this) {
     HashSet_init_$Init$_3(LinkedHashMap_init_$Create$(), $this);
     LinkedHashSet.call($this);
-    $this.l(elements);
+    $this.m(elements);
     return $this;
   }
   function LinkedHashSet_init_$Create$_0(elements) {
@@ -8523,7 +8509,7 @@ if (typeof Math.imul === 'undefined') {
     var kClass = isInterface(tmp, KClass) ? tmp : null;
     var classifierName = kClass == null ? toString_2(this.rd_1) : !(kClass.fd() == null) ? kClass.fd() : '(non-denotable type)';
     var tmp_0;
-    if (this.sd_1.m()) {
+    if (this.sd_1.i()) {
       tmp_0 = '';
     } else {
       tmp_0 = joinToString$default_0(this.sd_1, ', ', '<', '>', 0, null, null, 56, null);
@@ -9810,7 +9796,7 @@ if (typeof Math.imul === 'undefined') {
     return this.zf_1;
   };
   findNext$1.prototype.f = function () {
-    return findNext(this.eg_1, this.fg_1, this.cg_1.m() ? advanceToNextCharacter(this, this.cg_1.g5()) : this.cg_1.h5() + 1 | 0, this.eg_1);
+    return findNext(this.eg_1, this.fg_1, this.cg_1.i() ? advanceToNextCharacter(this, this.cg_1.g5()) : this.cg_1.h5() + 1 | 0, this.eg_1);
   };
   findNext$1.$metadata$ = classMeta(undefined, [MatchResult]);
   var STRING_CASE_INSENSITIVE_ORDER;
@@ -10024,7 +10010,7 @@ if (typeof Math.imul === 'undefined') {
         var tmp0_all = get_indices_2(_this__u8e3s4);
         var tmp_0;
         if (isInterface(tmp0_all, Collection)) {
-          tmp_0 = tmp0_all.m();
+          tmp_0 = tmp0_all.i();
         } else {
           tmp_0 = false;
         }

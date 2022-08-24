@@ -1456,7 +1456,7 @@
     return finalState;
   }
   function getFinalRootCause($this, state, exceptions) {
-    if (exceptions.m()) {
+    if (exceptions.i()) {
       if (state.vu()) {
         var tmp$ret$0;
         {

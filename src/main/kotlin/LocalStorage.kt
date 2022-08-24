@@ -8,7 +8,8 @@ private var _selectedListStorage: List<String>? = null
 
 var selectedListStorage: List<String>
     get() {
-        if (_selectedListStorage == null) _selectedListStorage = localStorage["selectedList"]?.let { kotlinx.serialization.json.Json.decodeFromString(it) } ?: listOf()
+        if (_selectedListStorage == null) _selectedListStorage =
+            localStorage["selectedList"]?.let { kotlinx.serialization.json.Json.decodeFromString(it) } ?: listOf()
         return _selectedListStorage as List<String>
     }
     set(value) {

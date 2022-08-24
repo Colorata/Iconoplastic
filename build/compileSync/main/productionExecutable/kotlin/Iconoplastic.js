@@ -83,6 +83,7 @@
   var serializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.y1;
   var KSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.s1;
   var emptyList = kotlin_kotlin.$_$.j4;
+  var Collection = kotlin_kotlin.$_$.g3;
   var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
   var replace$default = kotlin_kotlin.$_$.k;
   var joinToString$default = kotlin_kotlin.$_$.g;
@@ -101,7 +102,7 @@
   //endregion
   function $getCodepointsCOROUTINE$0(_this__u8e3s4, resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
-    this.s1o_1 = _this__u8e3s4;
+    this.r1o_1 = _this__u8e3s4;
   }
   $getCodepointsCOROUTINE$0.prototype.ci = function () {
     var suspendResult = this.uh_1;
@@ -112,17 +113,17 @@
           case 0:
             this.th_1 = 3;
             this.sh_1 = 1;
-            suspendResult = await_0(window.fetch(this.s1o_1.v1o_1 + '/download/codepoints'), this);
+            suspendResult = await_0(window.fetch(this.r1o_1.u1o_1 + '/download/codepoints'), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
             continue $sm;
           case 1:
-            this.t1o_1 = suspendResult;
-            this.u1o_1 = this.t1o_1.text();
+            this.s1o_1 = suspendResult;
+            this.t1o_1 = this.s1o_1.text();
             this.sh_1 = 2;
-            suspendResult = await_0(this.u1o_1, this);
+            suspendResult = await_0(this.t1o_1, this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -167,7 +168,7 @@
               }
                while (false);
               var tmp0_plusAssign = tmp$ret$0;
-              tmp1_associateTo.a(tmp0_plusAssign.x2_1, tmp0_plusAssign.y2_1);
+              tmp1_associateTo.a(tmp0_plusAssign.w2_1, tmp0_plusAssign.x2_1);
             }
 
             return toMap(tmp1_associateTo);
@@ -186,9 +187,9 @@
   };
   $getCodepointsCOROUTINE$0.$metadata$ = classMeta('$getCodepointsCOROUTINE$0', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function Api() {
-    this.v1o_1 = 'https://iconoplastic-api.herokuapp.com/';
+    this.u1o_1 = 'https://iconoplastic-api.herokuapp.com/';
   }
-  Api.prototype.w1o = function ($cont) {
+  Api.prototype.v1o = function ($cont) {
     var tmp = new $getCodepointsCOROUTINE$0(this, $cont);
     tmp.uh_1 = Unit_getInstance();
     tmp.vh_1 = null;
@@ -527,17 +528,17 @@
     };
   }
   function sayHello$slambda($response, resultContinuation) {
-    this.f1p_1 = $response;
+    this.e1p_1 = $response;
     CoroutineImpl.call(this, resultContinuation);
   }
-  sayHello$slambda.prototype.h1p = function ($this$launch, $cont) {
-    var tmp = this.i1p($this$launch, $cont);
+  sayHello$slambda.prototype.g1p = function ($this$launch, $cont) {
+    var tmp = this.h1p($this$launch, $cont);
     tmp.uh_1 = Unit_getInstance();
     tmp.vh_1 = null;
     return tmp.ci();
   };
   sayHello$slambda.prototype.di = function (p1, $cont) {
-    return this.h1p((!(p1 == null) ? isInterface(p1, CoroutineScope_0) : false) ? p1 : THROW_CCE(), $cont);
+    return this.g1p((!(p1 == null) ? isInterface(p1, CoroutineScope_0) : false) ? p1 : THROW_CCE(), $cont);
   };
   sayHello$slambda.prototype.ci = function () {
     var suspendResult = this.uh_1;
@@ -548,7 +549,7 @@
           case 0:
             this.th_1 = 2;
             this.sh_1 = 1;
-            suspendResult = (new Api()).w1o(this);
+            suspendResult = (new Api()).v1o(this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
@@ -556,9 +557,9 @@
             continue $sm;
           case 1:
             var ARGUMENT = suspendResult;
-            this.f1p_1._v = ARGUMENT;
+            this.e1p_1._v = ARGUMENT;
             var grid = document.getElementById('grid-icons');
-            var tmp0_safe_receiver = this.f1p_1._v;
+            var tmp0_safe_receiver = this.e1p_1._v;
             if (tmp0_safe_receiver == null)
               null;
             else {
@@ -589,16 +590,16 @@
       }
      while (true);
   };
-  sayHello$slambda.prototype.i1p = function ($this$launch, completion) {
-    var i = new sayHello$slambda(this.f1p_1, completion);
-    i.g1p_1 = $this$launch;
+  sayHello$slambda.prototype.h1p = function ($this$launch, completion) {
+    var i = new sayHello$slambda(this.e1p_1, completion);
+    i.f1p_1 = $this$launch;
     return i;
   };
   sayHello$slambda.$metadata$ = classMeta('sayHello$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
   function sayHello$slambda_0($response, resultContinuation) {
     var i = new sayHello$slambda($response, resultContinuation);
     var l = function ($this$launch, $cont) {
-      return i.h1p($this$launch, $cont);
+      return i.g1p($this$launch, $cont);
     };
     l.$arity = 1;
     return l;
@@ -805,13 +806,46 @@
     return (!(tmp_1 == null) ? isInterface(tmp_1, List) : false) ? tmp_1 : THROW_CCE();
   }
   function GridItem(_this__u8e3s4, item) {
-    var tmp$ret$6;
+    var tmp$ret$8;
     {
-      var tmp0_div = 'grid-item column' + (get_selectedListStorage().g1(item.p1()) ? ' active' : '');
-      var tmp$ret$5;
+      var tmp;
+      var tmp$ret$0;
+      $l$block_0: {
+        var tmp0_any = get_selectedListStorage();
+        var tmp_0;
+        if (isInterface(tmp0_any, Collection)) {
+          tmp_0 = tmp0_any.i();
+        } else {
+          tmp_0 = false;
+        }
+        if (tmp_0) {
+          tmp$ret$0 = false;
+          break $l$block_0;
+        }
+        var tmp0_iterator = tmp0_any.d();
+        while (tmp0_iterator.e()) {
+          var element = tmp0_iterator.f();
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = element === item.p1();
+          }
+          if (tmp$ret$1) {
+            tmp$ret$0 = true;
+            break $l$block_0;
+          }
+        }
+        tmp$ret$0 = false;
+      }
+      if (tmp$ret$0) {
+        tmp = ' active';
+      } else {
+        tmp = '';
+      }
+      var tmp1_div = 'grid-item column' + tmp;
+      var tmp$ret$7;
       {
-        var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', tmp0_div), _this__u8e3s4);
-        var tmp$ret$4;
+        var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', tmp1_div), _this__u8e3s4);
+        var tmp$ret$6;
         {
           if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
             throw IllegalArgumentException_init_$Create$('Wrong exception');
@@ -823,59 +857,59 @@
                 {
                   set_id(tmp0_visitAndFinalize, 'grid-item-' + item.p1());
                   set_onClickFunction(tmp0_visitAndFinalize, GridItem$lambda(item));
-                  var tmp$ret$1;
-                  {
-                    var tmp$ret$0;
-                    {
-                      var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.bj());
-                      tmp0_visit.bj().ij(tmp0_visit);
-                      var tmp;
-                      try {
-                        tmp = tmp0_visit.fj(toSymbol(item.r1()));
-                      } catch ($p) {
-                        var tmp_0;
-                        if ($p instanceof Error) {
-                          tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
-                        } else {
-                          throw $p;
-                        }
-                        tmp = tmp_0;
-                      }
-                      finally {
-                        tmp0_visit.bj().lj(tmp0_visit);
-                      }
-                      tmp$ret$0 = tmp;
-                    }
-                    tmp$ret$1 = tmp$ret$0;
-                  }
                   var tmp$ret$3;
                   {
                     var tmp$ret$2;
                     {
-                      var tmp0_visit_0 = new SPAN(attributesMapOf('class', 'grid-item-span'), tmp0_visitAndFinalize.bj());
-                      tmp0_visit_0.bj().ij(tmp0_visit_0);
+                      var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.bj());
+                      tmp0_visit.bj().ij(tmp0_visit);
                       var tmp_1;
                       try {
-                        var tmp_2 = item.p1();
-                        var tmp_3 = replace$default(tmp_2, '_', ' ', false, 4, null);
-                        var tmp_4 = split$default(tmp_3, [' '], false, 0, 6, null);
-                        var tmp_5 = joinToString$default(tmp_4, null, null, null, 0, null, GridItem$lambda_0(), 31, null);
-                        tmp_1 = tmp0_visit_0.fj(replace$default(tmp_5, ',', '', false, 4, null));
+                        tmp_1 = tmp0_visit.fj(toSymbol(item.r1()));
                       } catch ($p) {
-                        var tmp_6;
+                        var tmp_2;
                         if ($p instanceof Error) {
-                          tmp_6 = tmp0_visit_0.bj().mj(tmp0_visit_0, $p);
+                          tmp_2 = tmp0_visit.bj().mj(tmp0_visit, $p);
                         } else {
                           throw $p;
                         }
-                        tmp_1 = tmp_6;
+                        tmp_1 = tmp_2;
                       }
                       finally {
-                        tmp0_visit_0.bj().lj(tmp0_visit_0);
+                        tmp0_visit.bj().lj(tmp0_visit);
                       }
                       tmp$ret$2 = tmp_1;
                     }
                     tmp$ret$3 = tmp$ret$2;
+                  }
+                  var tmp$ret$5;
+                  {
+                    var tmp$ret$4;
+                    {
+                      var tmp0_visit_0 = new SPAN(attributesMapOf('class', 'grid-item-span'), tmp0_visitAndFinalize.bj());
+                      tmp0_visit_0.bj().ij(tmp0_visit_0);
+                      var tmp_3;
+                      try {
+                        var tmp_4 = item.p1();
+                        var tmp_5 = replace$default(tmp_4, '_', ' ', false, 4, null);
+                        var tmp_6 = split$default(tmp_5, [' '], false, 0, 6, null);
+                        var tmp_7 = joinToString$default(tmp_6, null, null, null, 0, null, GridItem$lambda_0(), 31, null);
+                        tmp_3 = tmp0_visit_0.fj(replace$default(tmp_7, ',', '', false, 4, null));
+                      } catch ($p) {
+                        var tmp_8;
+                        if ($p instanceof Error) {
+                          tmp_8 = tmp0_visit_0.bj().mj(tmp0_visit_0, $p);
+                        } else {
+                          throw $p;
+                        }
+                        tmp_3 = tmp_8;
+                      }
+                      finally {
+                        tmp0_visit_0.bj().lj(tmp0_visit_0);
+                      }
+                      tmp$ret$4 = tmp_3;
+                    }
+                    tmp$ret$5 = tmp$ret$4;
                   }
                 }
               }
@@ -890,11 +924,11 @@
               tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
             }
           }
-          tmp$ret$4 = _this__u8e3s4.nj();
+          tmp$ret$6 = _this__u8e3s4.nj();
         }
-        tmp$ret$5 = tmp$ret$4;
+        tmp$ret$7 = tmp$ret$6;
       }
-      tmp$ret$6 = tmp$ret$5;
+      tmp$ret$8 = tmp$ret$7;
     }
   }
   function GridItem$lambda$lambda$lambda() {
@@ -1032,7 +1066,34 @@
   function GridItem$lambda($item) {
     return function (_anonymous_parameter_0__qggqh8) {
       var tmp;
-      if (get_selectedListStorage().g1($item.p1())) {
+      var tmp$ret$0;
+      $l$block_0: {
+        var tmp0_any = get_selectedListStorage();
+        var tmp_0;
+        if (isInterface(tmp0_any, Collection)) {
+          tmp_0 = tmp0_any.i();
+        } else {
+          tmp_0 = false;
+        }
+        if (tmp_0) {
+          tmp$ret$0 = false;
+          break $l$block_0;
+        }
+        var tmp0_iterator = tmp0_any.d();
+        while (tmp0_iterator.e()) {
+          var element = tmp0_iterator.f();
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = element === $item.p1();
+          }
+          if (tmp$ret$1) {
+            tmp$ret$0 = true;
+            break $l$block_0;
+          }
+        }
+        tmp$ret$0 = false;
+      }
+      if (tmp$ret$0) {
         set_selectedListStorage(minus(get_selectedListStorage(), $item.p1()));
         var tmp0_safe_receiver = document.getElementById('selected-item-' + $item.p1());
         if (tmp0_safe_receiver == null)
@@ -1041,22 +1102,22 @@
           tmp0_safe_receiver.remove();
         }
         var tmp4_safe_receiver = document.getElementById('grid-item-' + $item.p1());
-        var tmp_0;
+        var tmp_1;
         if (tmp4_safe_receiver == null) {
-          tmp_0 = Unit_getInstance();
+          tmp_1 = Unit_getInstance();
         } else {
           var tmp1_safe_receiver = document.getElementById('grid-item-' + $item.p1());
           var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.className;
-          var tmp_1;
+          var tmp_2;
           if (tmp2_safe_receiver == null) {
-            tmp_1 = null;
+            tmp_2 = null;
           } else {
-            tmp_1 = replace$default(tmp2_safe_receiver, ' active', '', false, 4, null);
+            tmp_2 = replace$default(tmp2_safe_receiver, ' active', '', false, 4, null);
           }
-          var tmp3_elvis_lhs = tmp_1;
-          tmp_0 = tmp4_safe_receiver.className = tmp3_elvis_lhs == null ? '' : tmp3_elvis_lhs;
+          var tmp3_elvis_lhs = tmp_2;
+          tmp_1 = tmp4_safe_receiver.className = tmp3_elvis_lhs == null ? '' : tmp3_elvis_lhs;
         }
-        tmp = tmp_0;
+        tmp = tmp_1;
       } else {
         set_selectedListStorage(plus(get_selectedListStorage(), $item.p1()));
         var tmp5_safe_receiver = document.getElementById('grid-item-' + $item.p1());

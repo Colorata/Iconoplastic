@@ -247,7 +247,7 @@
       return null;
     return this.rj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
   };
-  SingletonStringMap.prototype.m = function () {
+  SingletonStringMap.prototype.i = function () {
     return false;
   };
   SingletonStringMap.prototype.toString = function () {
@@ -533,8 +533,8 @@
   DelegatingMap.prototype.g = function () {
     return this.lk_1.g();
   };
-  DelegatingMap.prototype.m = function () {
-    return this.lk_1.m();
+  DelegatingMap.prototype.i = function () {
+    return this.lk_1.i();
   };
   DelegatingMap.prototype.qj = function (key) {
     return this.lk_1.y1(key);
@@ -2350,7 +2350,7 @@
     var tmp$ret$1;
     {
       var tmp2_isNotEmpty = this.jo_1;
-      tmp$ret$1 = !tmp2_isNotEmpty.m();
+      tmp$ret$1 = !tmp2_isNotEmpty.i();
     }
     if (tmp$ret$1) {
       last(this.jo_1).appendChild(element);
@@ -2358,7 +2358,7 @@
     this.jo_1.c(element);
   };
   JSDOMBuilder.prototype.jj = function (tag, attribute, value) {
-    if (this.jo_1.m())
+    if (this.jo_1.i())
       throw IllegalStateException_init_$Create$('No current tag');
     else {
       var tmp$ret$1;
@@ -2400,7 +2400,7 @@
     }
   };
   JSDOMBuilder.prototype.kj = function (tag, event, value) {
-    if (this.jo_1.m())
+    if (this.jo_1.i())
       throw IllegalStateException_init_$Create$('No current tag');
     else {
       var tmp$ret$1;
@@ -2436,7 +2436,7 @@
   };
   JSDOMBuilder.prototype.lj = function (tag) {
     var tmp;
-    if (this.jo_1.m()) {
+    if (this.jo_1.i()) {
       tmp = true;
     } else {
       var tmp$ret$1;
@@ -2463,10 +2463,10 @@
     if (tmp) {
       throw IllegalStateException_init_$Create$("We haven't entered tag " + tag.aj() + ' but trying to leave');
     }
-    this.ko_1 = this.jo_1.b3(get_lastIndex(this.jo_1));
+    this.ko_1 = this.jo_1.a3(get_lastIndex(this.jo_1));
   };
   JSDOMBuilder.prototype.hj = function (content) {
-    if (this.jo_1.m()) {
+    if (this.jo_1.i()) {
       throw IllegalStateException_init_$Create$('No current DOM node');
     }
     last(this.jo_1).appendChild(this.io_1.createTextNode(toString(content)));

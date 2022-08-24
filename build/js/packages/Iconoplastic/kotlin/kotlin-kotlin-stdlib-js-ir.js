@@ -4,6 +4,15 @@ if (typeof ArrayBuffer.isView === 'undefined') {
     return a != null && a.__proto__ != null && a.__proto__.__proto__ === Int8Array.prototype.__proto__;
   };
 }
+if (typeof Math.sign === 'undefined') {
+  Math.sign = function (x) {
+    x = +x;
+    if (x === 0 || isNaN(x)) {
+      return Number(x);
+    }
+    return x > 0 ? 1 : -1;
+  };
+}
 if (typeof Math.clz32 === 'undefined') {
   Math.clz32 = function (log, LN2) {
     return function (x) {
@@ -20,21 +29,6 @@ if (typeof Math.log10 === 'undefined') {
     return Math.log(x) * Math.LOG10E;
   };
 }
-if (typeof Math.sign === 'undefined') {
-  Math.sign = function (x) {
-    x = +x;
-    if (x === 0 || isNaN(x)) {
-      return Number(x);
-    }
-    return x > 0 ? 1 : -1;
-  };
-}
-if (typeof String.prototype.startsWith === 'undefined') {
-  Object.defineProperty(String.prototype, 'startsWith', {value: function (searchString, position) {
-    position = position || 0;
-    return this.lastIndexOf(searchString, position) === position;
-  }});
-}
 if (typeof String.prototype.endsWith === 'undefined') {
   Object.defineProperty(String.prototype, 'endsWith', {value: function (searchString, position) {
     var subjectString = this.toString();
@@ -44,6 +38,12 @@ if (typeof String.prototype.endsWith === 'undefined') {
     position -= searchString.length;
     var lastIndex = subjectString.indexOf(searchString, position);
     return lastIndex !== -1 && lastIndex === position;
+  }});
+}
+if (typeof String.prototype.startsWith === 'undefined') {
+  Object.defineProperty(String.prototype, 'startsWith', {value: function (searchString, position) {
+    position = position || 0;
+    return this.lastIndexOf(searchString, position) === position;
   }});
 }
 (function () {
@@ -919,6 +919,23 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0;
   }
+  function any_0(_this__u8e3s4, predicate) {
+    var tmp;
+    if (isInterface(_this__u8e3s4, Collection)) {
+      tmp = _this__u8e3s4.isEmpty_y1axqb_k$();
+    } else {
+      tmp = false;
+    }
+    if (tmp)
+      return false;
+    var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var element = tmp0_iterator.next_20eer_k$();
+      if (predicate(element))
+        return true;
+    }
+    return false;
+  }
   function minus(_this__u8e3s4, element) {
     var result = ArrayList_init_$Create$_0(collectionSizeOrDefault(_this__u8e3s4, 10));
     var removed = false;
@@ -1077,23 +1094,6 @@ if (typeof Math.imul === 'undefined') {
     if (isInterface(_this__u8e3s4, Collection))
       return _this__u8e3s4.contains_2ehdt1_k$(element);
     return indexOf_5(_this__u8e3s4, element) >= 0;
-  }
-  function any_0(_this__u8e3s4, predicate) {
-    var tmp;
-    if (isInterface(_this__u8e3s4, Collection)) {
-      tmp = _this__u8e3s4.isEmpty_y1axqb_k$();
-    } else {
-      tmp = false;
-    }
-    if (tmp)
-      return false;
-    var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
-    while (tmp0_iterator.hasNext_bitz1p_k$()) {
-      var element = tmp0_iterator.next_20eer_k$();
-      if (predicate(element))
-        return true;
-    }
-    return false;
   }
   function single_1(_this__u8e3s4) {
     var tmp0_subject = _this__u8e3s4.get_size_woubt6_k$();
