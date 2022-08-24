@@ -12,8 +12,8 @@
 }(this, function (_, kotlin_kotlin) {
   'use strict';
   //region block: imports
-  var objectMeta = kotlin_kotlin.$_$.j7;
-  var classMeta = kotlin_kotlin.$_$.o6;
+  var objectMeta = kotlin_kotlin.$_$.i7;
+  var classMeta = kotlin_kotlin.$_$.n6;
   var toString = kotlin_kotlin.$_$.t9;
   //endregion
   //region block: pre-declaration

@@ -50,7 +50,8 @@ fun TagConsumer<*>.sayHello() {
                         val onChange = {
                             val grid = document.getElementById("grid-icons")
                             val search = (document.getElementById(id) as HTMLInputElement).value
-                            val filtered = response?.filter { it.key.contains(search) || it.value.contains(search) }
+                            val filtered =
+                                response?.filter { it.key.contains(search, true) || it.value.contains(search, true) }
                             response?.forEach {
                                 document.getElementById("grid-item-${it.key}")?.remove()
                             }

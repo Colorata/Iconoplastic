@@ -24,31 +24,31 @@
 }(this, function (_, kotlin_kotlin, kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core, kotlin_org_jetbrains_kotlinx_kotlinx_html, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_json, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core) {
   'use strict';
   //region block: imports
-  var CoroutineImpl = kotlin_kotlin.$_$.a6;
+  var CoroutineImpl = kotlin_kotlin.$_$.z5;
   var await_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.a;
-  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.l5;
-  var split$default = kotlin_kotlin.$_$.m;
-  var collectionSizeOrDefault = kotlin_kotlin.$_$.w3;
-  var mapCapacity = kotlin_kotlin.$_$.t4;
-  var coerceAtLeast = kotlin_kotlin.$_$.o7;
-  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.w;
-  var Companion_getInstance = kotlin_kotlin.$_$.z2;
-  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.s1;
-  var charArrayOf = kotlin_kotlin.$_$.j6;
-  var split$default_0 = kotlin_kotlin.$_$.l;
+  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.k5;
+  var split$default = kotlin_kotlin.$_$.l;
+  var collectionSizeOrDefault = kotlin_kotlin.$_$.v3;
+  var mapCapacity = kotlin_kotlin.$_$.s4;
+  var coerceAtLeast = kotlin_kotlin.$_$.n7;
+  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.v;
+  var Companion_getInstance = kotlin_kotlin.$_$.y2;
+  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.r1;
+  var charArrayOf = kotlin_kotlin.$_$.i6;
+  var split$default_0 = kotlin_kotlin.$_$.k;
   var to = kotlin_kotlin.$_$.u9;
-  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.w1;
+  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.v1;
   var createFailure = kotlin_kotlin.$_$.j9;
-  var _Result___get_isFailure__impl__jpiriv = kotlin_kotlin.$_$.y1;
-  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.z1;
+  var _Result___get_isFailure__impl__jpiriv = kotlin_kotlin.$_$.x1;
+  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.y1;
   var THROW_CCE = kotlin_kotlin.$_$.z8;
-  var isObject = kotlin_kotlin.$_$.e7;
-  var toMap = kotlin_kotlin.$_$.g5;
-  var classMeta = kotlin_kotlin.$_$.o6;
-  var Unit_getInstance = kotlin_kotlin.$_$.e3;
+  var isObject = kotlin_kotlin.$_$.d7;
+  var toMap = kotlin_kotlin.$_$.f5;
+  var classMeta = kotlin_kotlin.$_$.n6;
+  var Unit_getInstance = kotlin_kotlin.$_$.d3;
   var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.l;
   var DIV = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.f;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.j1;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.i1;
   var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
   var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
   var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
@@ -61,38 +61,38 @@
   var set_onChangeFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.c;
   var set_onKeyUpFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.e;
   var toInt = kotlin_kotlin.$_$.e8;
-  var Companion_getInstance_0 = kotlin_kotlin.$_$.x2;
-  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.u1;
-  var numberToChar = kotlin_kotlin.$_$.i7;
-  var toString = kotlin_kotlin.$_$.v1;
+  var Companion_getInstance_0 = kotlin_kotlin.$_$.w2;
+  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.t1;
+  var numberToChar = kotlin_kotlin.$_$.h7;
+  var toString = kotlin_kotlin.$_$.u1;
   var STYLE = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.j;
   var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
   var CoroutineScope_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e;
-  var isInterface = kotlin_kotlin.$_$.c7;
+  var isInterface = kotlin_kotlin.$_$.b7;
   var get_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.m;
-  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.x;
-  var contains$default = kotlin_kotlin.$_$.h;
-  var SuspendFunction1 = kotlin_kotlin.$_$.b6;
+  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.w;
+  var contains = kotlin_kotlin.$_$.u7;
+  var SuspendFunction1 = kotlin_kotlin.$_$.a6;
   var Default_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_json.$_$.a;
-  var List = kotlin_kotlin.$_$.n3;
+  var List = kotlin_kotlin.$_$.m3;
   var getKClass = kotlin_kotlin.$_$.e;
-  var PrimitiveClasses_getInstance = kotlin_kotlin.$_$.v2;
+  var PrimitiveClasses_getInstance = kotlin_kotlin.$_$.u2;
   var arrayOf = kotlin_kotlin.$_$.h9;
   var createKType = kotlin_kotlin.$_$.b;
   var createInvariantKTypeProjection = kotlin_kotlin.$_$.a;
   var serializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.y1;
   var KSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.s1;
-  var emptyList = kotlin_kotlin.$_$.j4;
-  var Collection = kotlin_kotlin.$_$.g3;
+  var emptyList = kotlin_kotlin.$_$.i4;
+  var Collection = kotlin_kotlin.$_$.f3;
   var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
-  var replace$default = kotlin_kotlin.$_$.k;
+  var replace$default = kotlin_kotlin.$_$.j;
   var joinToString$default = kotlin_kotlin.$_$.g;
-  var charSequenceLength = kotlin_kotlin.$_$.m6;
-  var charSequenceGet = kotlin_kotlin.$_$.l6;
+  var charSequenceLength = kotlin_kotlin.$_$.l6;
+  var charSequenceGet = kotlin_kotlin.$_$.k6;
   var uppercaseChar = kotlin_kotlin.$_$.n8;
-  var plus = kotlin_kotlin.$_$.x4;
+  var plus = kotlin_kotlin.$_$.w4;
   var plus_0 = kotlin_kotlin.$_$.r9;
-  var minus = kotlin_kotlin.$_$.v4;
+  var minus = kotlin_kotlin.$_$.u4;
   //endregion
   //region block: pre-declaration
   $getCodepointsCOROUTINE$0.prototype = Object.create(CoroutineImpl.prototype);
@@ -634,15 +634,7 @@
               var element = tmp0_iterator.f();
               var tmp$ret$1;
               {
-                var tmp_1;
-                var tmp_2 = element.p1();
-                if (contains$default(tmp_2, search, false, 2, null)) {
-                  tmp_1 = true;
-                } else {
-                  var tmp_3 = element.r1();
-                  tmp_1 = contains$default(tmp_3, search, false, 2, null);
-                }
-                tmp$ret$1 = tmp_1;
+                tmp$ret$1 = contains(element.p1(), search, true) ? true : contains(element.r1(), search, true);
               }
               if (tmp$ret$1) {
                 tmp0_filterTo.a(element.p1(), element.r1());
@@ -679,9 +671,9 @@
         }
       }
       var tmp2_safe_receiver = filtered;
-      var tmp_4;
+      var tmp_1;
       if (tmp2_safe_receiver == null) {
-        tmp_4 = null;
+        tmp_1 = null;
       } else {
         {
           var tmp$ret$5;
@@ -701,9 +693,9 @@
             }
           }
         }
-        tmp_4 = Unit_getInstance();
+        tmp_1 = Unit_getInstance();
       }
-      return tmp_4;
+      return tmp_1;
     };
   }
   function sayHello$lambda_0($onChange) {

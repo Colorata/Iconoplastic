@@ -4,15 +4,6 @@ if (typeof ArrayBuffer.isView === 'undefined') {
     return a != null && a.__proto__ != null && a.__proto__.__proto__ === Int8Array.prototype.__proto__;
   };
 }
-if (typeof Math.sign === 'undefined') {
-  Math.sign = function (x) {
-    x = +x;
-    if (x === 0 || isNaN(x)) {
-      return Number(x);
-    }
-    return x > 0 ? 1 : -1;
-  };
-}
 if (typeof Math.clz32 === 'undefined') {
   Math.clz32 = function (log, LN2) {
     return function (x) {
@@ -24,10 +15,25 @@ if (typeof Math.clz32 === 'undefined') {
     };
   }(Math.log, Math.LN2);
 }
+if (typeof Math.sign === 'undefined') {
+  Math.sign = function (x) {
+    x = +x;
+    if (x === 0 || isNaN(x)) {
+      return Number(x);
+    }
+    return x > 0 ? 1 : -1;
+  };
+}
 if (typeof Math.log10 === 'undefined') {
   Math.log10 = function (x) {
     return Math.log(x) * Math.LOG10E;
   };
+}
+if (typeof String.prototype.startsWith === 'undefined') {
+  Object.defineProperty(String.prototype, 'startsWith', {value: function (searchString, position) {
+    position = position || 0;
+    return this.lastIndexOf(searchString, position) === position;
+  }});
 }
 if (typeof String.prototype.endsWith === 'undefined') {
   Object.defineProperty(String.prototype, 'endsWith', {value: function (searchString, position) {
@@ -38,12 +44,6 @@ if (typeof String.prototype.endsWith === 'undefined') {
     position -= searchString.length;
     var lastIndex = subjectString.indexOf(searchString, position);
     return lastIndex !== -1 && lastIndex === position;
-  }});
-}
-if (typeof String.prototype.startsWith === 'undefined') {
-  Object.defineProperty(String.prototype, 'startsWith', {value: function (searchString, position) {
-    position = position || 0;
-    return this.lastIndexOf(searchString, position) === position;
   }});
 }
 (function () {
@@ -25262,64 +25262,65 @@ if (typeof Math.imul === 'undefined') {
   _.$_$.z8 = KTypeParameter;
   _.$_$.a9 = SequenceScope;
   _.$_$.b9 = sequence;
-  _.$_$.c9 = endsWith_0;
-  _.$_$.d9 = equals_0;
-  _.$_$.e9 = isBlank;
-  _.$_$.f9 = isLowerCase;
-  _.$_$.g9 = repeat_0;
-  _.$_$.h9 = single_2;
-  _.$_$.i9 = startsWith_0;
-  _.$_$.j9 = substring;
-  _.$_$.k9 = titlecase;
-  _.$_$.l9 = toDoubleOrNull;
-  _.$_$.m9 = toDouble;
-  _.$_$.n9 = toIntOrNull;
-  _.$_$.o9 = toInt;
-  _.$_$.p9 = toInt_0;
-  _.$_$.q9 = toLongOrNull;
-  _.$_$.r9 = toLong;
-  _.$_$.s9 = toUByte_3;
-  _.$_$.t9 = toUInt_5;
-  _.$_$.u9 = toULongOrNull;
-  _.$_$.v9 = toULong_5;
-  _.$_$.w9 = toUShort_2;
-  _.$_$.x9 = trimIndent;
-  _.$_$.y9 = uppercaseChar;
-  _.$_$.z9 = Duration;
-  _.$_$.aa = Annotation;
-  _.$_$.ba = Char_0;
-  _.$_$.ca = DeepRecursiveFunction;
-  _.$_$.da = DeepRecursiveScope;
-  _.$_$.ea = Enum;
-  _.$_$.fa = Error_0;
-  _.$_$.ga = IllegalArgumentException;
-  _.$_$.ha = Long;
-  _.$_$.ia = Pair;
-  _.$_$.ja = RuntimeException;
-  _.$_$.ka = THROW_CCE;
-  _.$_$.la = THROW_ISE;
-  _.$_$.ma = Triple;
-  _.$_$.na = UByte;
-  _.$_$.oa = UInt;
-  _.$_$.pa = ULong;
-  _.$_$.qa = UShort;
-  _.$_$.ra = Unit;
-  _.$_$.sa = UnsupportedOperationException;
-  _.$_$.ta = arrayOf;
-  _.$_$.ua = countTrailingZeroBits;
-  _.$_$.va = createFailure;
-  _.$_$.wa = ensureNotNull;
-  _.$_$.xa = invoke;
-  _.$_$.ya = isFinite_0;
-  _.$_$.za = isFinite;
-  _.$_$.ab = lazy;
-  _.$_$.bb = lazy_0;
-  _.$_$.cb = noWhenBranchMatchedException;
-  _.$_$.db = plus_3;
-  _.$_$.eb = throwUninitializedPropertyAccessException;
-  _.$_$.fb = toString_1;
-  _.$_$.gb = to;
-  _.$_$.hb = asList;
+  _.$_$.c9 = contains_10;
+  _.$_$.d9 = endsWith_0;
+  _.$_$.e9 = equals_0;
+  _.$_$.f9 = isBlank;
+  _.$_$.g9 = isLowerCase;
+  _.$_$.h9 = repeat_0;
+  _.$_$.i9 = single_2;
+  _.$_$.j9 = startsWith_0;
+  _.$_$.k9 = substring;
+  _.$_$.l9 = titlecase;
+  _.$_$.m9 = toDoubleOrNull;
+  _.$_$.n9 = toDouble;
+  _.$_$.o9 = toIntOrNull;
+  _.$_$.p9 = toInt;
+  _.$_$.q9 = toInt_0;
+  _.$_$.r9 = toLongOrNull;
+  _.$_$.s9 = toLong;
+  _.$_$.t9 = toUByte_3;
+  _.$_$.u9 = toUInt_5;
+  _.$_$.v9 = toULongOrNull;
+  _.$_$.w9 = toULong_5;
+  _.$_$.x9 = toUShort_2;
+  _.$_$.y9 = trimIndent;
+  _.$_$.z9 = uppercaseChar;
+  _.$_$.aa = Duration;
+  _.$_$.ba = Annotation;
+  _.$_$.ca = Char_0;
+  _.$_$.da = DeepRecursiveFunction;
+  _.$_$.ea = DeepRecursiveScope;
+  _.$_$.fa = Enum;
+  _.$_$.ga = Error_0;
+  _.$_$.ha = IllegalArgumentException;
+  _.$_$.ia = Long;
+  _.$_$.ja = Pair;
+  _.$_$.ka = RuntimeException;
+  _.$_$.la = THROW_CCE;
+  _.$_$.ma = THROW_ISE;
+  _.$_$.na = Triple;
+  _.$_$.oa = UByte;
+  _.$_$.pa = UInt;
+  _.$_$.qa = ULong;
+  _.$_$.ra = UShort;
+  _.$_$.sa = Unit;
+  _.$_$.ta = UnsupportedOperationException;
+  _.$_$.ua = arrayOf;
+  _.$_$.va = countTrailingZeroBits;
+  _.$_$.wa = createFailure;
+  _.$_$.xa = ensureNotNull;
+  _.$_$.ya = invoke;
+  _.$_$.za = isFinite_0;
+  _.$_$.ab = isFinite;
+  _.$_$.bb = lazy;
+  _.$_$.cb = lazy_0;
+  _.$_$.db = noWhenBranchMatchedException;
+  _.$_$.eb = plus_3;
+  _.$_$.fb = throwUninitializedPropertyAccessException;
+  _.$_$.gb = toString_1;
+  _.$_$.hb = to;
+  _.$_$.ib = asList;
   //endregion
   return _;
 }));
