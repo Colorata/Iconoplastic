@@ -13,41 +13,45 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var interfaceMeta = kotlin_kotlin.$_$.y2;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.p;
-  var Unit_getInstance = kotlin_kotlin.$_$.g1;
-  var getProgressionLastElement = kotlin_kotlin.$_$.n2;
-  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.j;
-  var setOf = kotlin_kotlin.$_$.s1;
-  var THROW_CCE = kotlin_kotlin.$_$.l3;
-  var getStringHashCode = kotlin_kotlin.$_$.w2;
-  var Map = kotlin_kotlin.$_$.j1;
-  var Entry = kotlin_kotlin.$_$.i1;
-  var classMeta = kotlin_kotlin.$_$.t2;
-  var emptyMap = kotlin_kotlin.$_$.o1;
-  var objectMeta = kotlin_kotlin.$_$.c3;
-  var joinToString$default = kotlin_kotlin.$_$.b;
-  var Set = kotlin_kotlin.$_$.l1;
-  var isInterface = kotlin_kotlin.$_$.z2;
-  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.k;
-  var MutableMap = kotlin_kotlin.$_$.k1;
-  var Enum = kotlin_kotlin.$_$.h3;
-  var mapCapacity = kotlin_kotlin.$_$.r1;
-  var coerceAtLeast = kotlin_kotlin.$_$.e3;
-  var LinkedHashMap_init_$Create$_1 = kotlin_kotlin.$_$.i;
-  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.g;
-  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.q;
-  var ensureNotNull = kotlin_kotlin.$_$.o3;
-  var last = kotlin_kotlin.$_$.q1;
-  var get_lastIndex = kotlin_kotlin.$_$.p1;
-  var toString = kotlin_kotlin.$_$.d3;
+  var interfaceMeta = kotlin_kotlin.$_$.u6;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.j1;
+  var Unit_getInstance = kotlin_kotlin.$_$.e3;
+  var getProgressionLastElement = kotlin_kotlin.$_$.e6;
+  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.x;
+  var setOf = kotlin_kotlin.$_$.z4;
+  var THROW_CCE = kotlin_kotlin.$_$.z8;
+  var getStringHashCode = kotlin_kotlin.$_$.s6;
+  var Map = kotlin_kotlin.$_$.p3;
+  var Entry = kotlin_kotlin.$_$.o3;
+  var classMeta = kotlin_kotlin.$_$.o6;
+  var emptyMap = kotlin_kotlin.$_$.k4;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.l1;
+  var objectMeta = kotlin_kotlin.$_$.j7;
+  var joinToString$default = kotlin_kotlin.$_$.g;
+  var Set = kotlin_kotlin.$_$.t3;
+  var isInterface = kotlin_kotlin.$_$.c7;
+  var ensureNotNull = kotlin_kotlin.$_$.k9;
+  var emptySet = kotlin_kotlin.$_$.l4;
+  var Regex_init_$Create$ = kotlin_kotlin.$_$.d1;
+  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.o;
+  var charSequenceLength = kotlin_kotlin.$_$.m6;
+  var toSet = kotlin_kotlin.$_$.i5;
+  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.y;
+  var MutableMap = kotlin_kotlin.$_$.r3;
+  var Enum = kotlin_kotlin.$_$.t8;
+  var mapCapacity = kotlin_kotlin.$_$.t4;
+  var coerceAtLeast = kotlin_kotlin.$_$.o7;
+  var LinkedHashMap_init_$Create$_1 = kotlin_kotlin.$_$.w;
+  var last = kotlin_kotlin.$_$.s4;
+  var get_lastIndex = kotlin_kotlin.$_$.q4;
+  var toString = kotlin_kotlin.$_$.n7;
   //endregion
   //region block: pre-declaration
   function unaryPlus(_this__u8e3s4) {
-    this.ec(_this__u8e3s4);
+    this.gj(_this__u8e3s4);
   }
   function text(s) {
-    this.zb().fc(s);
+    this.bj().hj(s);
   }
   function onTagError(tag, exception) {
     throw exception;
@@ -62,6 +66,9 @@
   TickerAttribute.prototype.constructor = TickerAttribute;
   EnumAttribute.prototype = Object.create(Attribute.prototype);
   EnumAttribute.prototype.constructor = EnumAttribute;
+  function empty(attributeName, tag) {
+    throw IllegalStateException_init_$Create$('Attribute ' + attributeName + ' is not yet defined for tag ' + tag.aj());
+  }
   ButtonFormEncType.prototype = Object.create(Enum.prototype);
   ButtonFormEncType.prototype.constructor = ButtonFormEncType;
   ButtonFormMethod.prototype = Object.create(Enum.prototype);
@@ -100,6 +107,8 @@
   DIV.prototype.constructor = DIV;
   INPUT.prototype = Object.create(HTMLTag.prototype);
   INPUT.prototype.constructor = INPUT;
+  IMG.prototype = Object.create(HTMLTag.prototype);
+  IMG.prototype.constructor = IMG;
   STYLE.prototype = Object.create(HTMLTag.prototype);
   STYLE.prototype.constructor = STYLE;
   SPAN.prototype = Object.create(HTMLTag.prototype);
@@ -123,27 +132,27 @@
     init_properties_api_kt_ywlw3q();
     var tmp$ret$0;
     {
-      if (!(_this__u8e3s4.zb() === consumer)) {
+      if (!(_this__u8e3s4.bj() === consumer)) {
         throw IllegalArgumentException_init_$Create$('Wrong exception');
       }
       {
-        _this__u8e3s4.zb().gc(_this__u8e3s4);
+        _this__u8e3s4.bj().ij(_this__u8e3s4);
         try {
           {
             block(_this__u8e3s4);
           }
         } catch ($p) {
           if ($p instanceof Error) {
-            _this__u8e3s4.zb().kc(_this__u8e3s4, $p);
+            _this__u8e3s4.bj().mj(_this__u8e3s4, $p);
           } else {
             throw $p;
           }
         }
         finally {
-          _this__u8e3s4.zb().jc(_this__u8e3s4);
+          _this__u8e3s4.bj().lj(_this__u8e3s4);
         }
       }
-      tmp$ret$0 = consumer.lc();
+      tmp$ret$0 = consumer.nj();
     }
     return tmp$ret$0;
   }
@@ -154,21 +163,21 @@
   }
   function visit(_this__u8e3s4, block) {
     init_properties_api_kt_ywlw3q();
-    _this__u8e3s4.zb().gc(_this__u8e3s4);
+    _this__u8e3s4.bj().ij(_this__u8e3s4);
     var tmp;
     try {
       tmp = block(_this__u8e3s4);
     } catch ($p) {
       var tmp_0;
       if ($p instanceof Error) {
-        tmp_0 = _this__u8e3s4.zb().kc(_this__u8e3s4, $p);
+        tmp_0 = _this__u8e3s4.bj().mj(_this__u8e3s4, $p);
       } else {
         throw $p;
       }
       tmp = tmp_0;
     }
     finally {
-      _this__u8e3s4.zb().jc(_this__u8e3s4);
+      _this__u8e3s4.bj().lj(_this__u8e3s4);
     }
     return tmp;
   }
@@ -204,46 +213,49 @@
     return new SingletonStringMap(key, value);
   }
   function SingletonStringMap(key, value) {
-    this.mc_1 = key;
-    this.nc_1 = value;
+    this.oj_1 = key;
+    this.pj_1 = value;
   }
-  SingletonStringMap.prototype.z = function () {
-    return this.mc_1;
+  SingletonStringMap.prototype.p1 = function () {
+    return this.oj_1;
   };
-  SingletonStringMap.prototype.b1 = function () {
-    return this.nc_1;
+  SingletonStringMap.prototype.r1 = function () {
+    return this.pj_1;
   };
-  SingletonStringMap.prototype.j = function () {
+  SingletonStringMap.prototype.o = function () {
     return setOf(this);
   };
-  SingletonStringMap.prototype.h = function () {
-    return 1;
-  };
-  SingletonStringMap.prototype.oc = function (key) {
-    return key === this.mc_1;
-  };
-  SingletonStringMap.prototype.h1 = function (key) {
-    if (!(!(key == null) ? typeof key === 'string' : false))
-      return false;
-    return this.oc((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
-  };
-  SingletonStringMap.prototype.pc = function (key) {
-    return key === this.mc_1 ? this.nc_1 : null;
-  };
-  SingletonStringMap.prototype.j1 = function (key) {
-    if (!(!(key == null) ? typeof key === 'string' : false))
-      return null;
-    return this.pc((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+  SingletonStringMap.prototype.c2 = function () {
+    return setOf(this.oj_1);
   };
   SingletonStringMap.prototype.g = function () {
+    return 1;
+  };
+  SingletonStringMap.prototype.qj = function (key) {
+    return key === this.oj_1;
+  };
+  SingletonStringMap.prototype.y1 = function (key) {
+    if (!(!(key == null) ? typeof key === 'string' : false))
+      return false;
+    return this.qj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+  };
+  SingletonStringMap.prototype.rj = function (key) {
+    return key === this.oj_1 ? this.pj_1 : null;
+  };
+  SingletonStringMap.prototype.b2 = function (key) {
+    if (!(!(key == null) ? typeof key === 'string' : false))
+      return null;
+    return this.rj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+  };
+  SingletonStringMap.prototype.m = function () {
     return false;
   };
   SingletonStringMap.prototype.toString = function () {
-    return 'SingletonStringMap(key=' + this.mc_1 + ', value=' + this.nc_1 + ')';
+    return 'SingletonStringMap(key=' + this.oj_1 + ', value=' + this.pj_1 + ')';
   };
   SingletonStringMap.prototype.hashCode = function () {
-    var result = getStringHashCode(this.mc_1);
-    result = imul(result, 31) + getStringHashCode(this.nc_1) | 0;
+    var result = getStringHashCode(this.oj_1);
+    result = imul(result, 31) + getStringHashCode(this.pj_1) | 0;
     return result;
   };
   SingletonStringMap.prototype.equals = function (other) {
@@ -252,9 +264,9 @@
     if (!(other instanceof SingletonStringMap))
       return false;
     var tmp0_other_with_cast = other instanceof SingletonStringMap ? other : THROW_CCE();
-    if (!(this.mc_1 === tmp0_other_with_cast.mc_1))
+    if (!(this.oj_1 === tmp0_other_with_cast.oj_1))
       return false;
-    if (!(this.nc_1 === tmp0_other_with_cast.nc_1))
+    if (!(this.pj_1 === tmp0_other_with_cast.pj_1))
       return false;
     return true;
   };
@@ -268,10 +280,34 @@
     }
   }
   function Attribute(encoder) {
-    this.qc_1 = encoder;
+    this.sj_1 = encoder;
   }
-  Attribute.prototype.rc = function (thisRef, attributeName, value) {
-    thisRef.bc().a(attributeName, this.qc_1.sc(attributeName, value));
+  Attribute.prototype.tj = function () {
+    return this.sj_1;
+  };
+  Attribute.prototype.uj = function (thisRef, attributeName) {
+    var tmp0_safe_receiver = thisRef.dj().b2(attributeName);
+    var tmp;
+    if (tmp0_safe_receiver == null) {
+      tmp = null;
+    } else {
+      var tmp$ret$1;
+      {
+        {
+        }
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = this.sj_1.vj(attributeName, tmp0_safe_receiver);
+        }
+        tmp$ret$1 = tmp$ret$0;
+      }
+      tmp = tmp$ret$1;
+    }
+    var tmp1_elvis_lhs = tmp;
+    return tmp1_elvis_lhs == null ? this.sj_1.wj(attributeName, thisRef) : tmp1_elvis_lhs;
+  };
+  Attribute.prototype.xj = function (thisRef, attributeName, value) {
+    thisRef.dj().a(attributeName, this.sj_1.yj(attributeName, value));
   };
   Attribute.$metadata$ = classMeta('Attribute');
   function StringAttribute() {
@@ -300,20 +336,20 @@
   function TickerAttribute() {
     Attribute.call(this, TickerEncoder_getInstance());
   }
-  TickerAttribute.prototype.uc = function (thisRef, attributeName, value) {
+  TickerAttribute.prototype.ak = function (thisRef, attributeName, value) {
     if (value) {
-      thisRef.bc().a(attributeName, attributeName);
+      thisRef.dj().a(attributeName, attributeName);
     } else {
-      thisRef.bc().k5(attributeName);
+      thisRef.dj().eb(attributeName);
     }
   };
-  TickerAttribute.prototype.rc = function (thisRef, attributeName, value) {
-    return this.uc(thisRef, attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
+  TickerAttribute.prototype.xj = function (thisRef, attributeName, value) {
+    return this.ak(thisRef, attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
   };
   TickerAttribute.$metadata$ = classMeta('TickerAttribute', undefined, undefined, undefined, undefined, Attribute.prototype);
   function EnumAttribute(values) {
     Attribute.call(this, new EnumEncoder(values));
-    this.wc_1 = values;
+    this.ck_1 = values;
   }
   EnumAttribute.$metadata$ = classMeta('EnumAttribute', undefined, undefined, undefined, undefined, Attribute.prototype);
   function AttributeEncoder() {
@@ -322,11 +358,14 @@
   function StringEncoder() {
     StringEncoder_instance = this;
   }
-  StringEncoder.prototype.xc = function (attributeName, value) {
+  StringEncoder.prototype.dk = function (attributeName, value) {
     return value;
   };
-  StringEncoder.prototype.sc = function (attributeName, value) {
-    return this.xc(attributeName, (!(value == null) ? typeof value === 'string' : false) ? value : THROW_CCE());
+  StringEncoder.prototype.yj = function (attributeName, value) {
+    return this.dk(attributeName, (!(value == null) ? typeof value === 'string' : false) ? value : THROW_CCE());
+  };
+  StringEncoder.prototype.vj = function (attributeName, value) {
+    return value;
   };
   StringEncoder.$metadata$ = objectMeta('StringEncoder', [AttributeEncoder]);
   var StringEncoder_instance;
@@ -338,11 +377,17 @@
   function StringSetEncoder() {
     StringSetEncoder_instance = this;
   }
-  StringSetEncoder.prototype.yc = function (attributeName, value) {
+  StringSetEncoder.prototype.ek = function (attributeName, value) {
     return joinToString$default(value, ' ', null, null, 0, null, null, 62, null);
   };
-  StringSetEncoder.prototype.sc = function (attributeName, value) {
-    return this.yc(attributeName, (!(value == null) ? isInterface(value, Set) : false) ? value : THROW_CCE());
+  StringSetEncoder.prototype.yj = function (attributeName, value) {
+    return this.ek(attributeName, (!(value == null) ? isInterface(value, Set) : false) ? value : THROW_CCE());
+  };
+  StringSetEncoder.prototype.vj = function (attributeName, value) {
+    return ensureNotNull(stringSetDecode(value));
+  };
+  StringSetEncoder.prototype.wj = function (attributeName, tag) {
+    return emptySet();
   };
   StringSetEncoder.$metadata$ = objectMeta('StringSetEncoder', [AttributeEncoder]);
   var StringSetEncoder_instance;
@@ -352,24 +397,39 @@
     return StringSetEncoder_instance;
   }
   function BooleanEncoder(trueValue, falseValue) {
-    this.zc_1 = trueValue;
-    this.ad_1 = falseValue;
+    this.fk_1 = trueValue;
+    this.gk_1 = falseValue;
   }
-  BooleanEncoder.prototype.bd = function (attributeName, value) {
-    return value ? this.zc_1 : this.ad_1;
+  BooleanEncoder.prototype.hk = function (attributeName, value) {
+    return value ? this.fk_1 : this.gk_1;
   };
-  BooleanEncoder.prototype.sc = function (attributeName, value) {
-    return this.bd(attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
+  BooleanEncoder.prototype.yj = function (attributeName, value) {
+    return this.hk(attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
+  };
+  BooleanEncoder.prototype.vj = function (attributeName, value) {
+    var tmp0_subject = value;
+    var tmp;
+    if (tmp0_subject === this.fk_1) {
+      tmp = true;
+    } else if (tmp0_subject === this.gk_1) {
+      tmp = false;
+    } else {
+      throw IllegalArgumentException_init_$Create$('Unknown value ' + value + ' for ' + attributeName);
+    }
+    return tmp;
   };
   BooleanEncoder.$metadata$ = classMeta('BooleanEncoder', [AttributeEncoder]);
   function TickerEncoder() {
     TickerEncoder_instance = this;
   }
-  TickerEncoder.prototype.bd = function (attributeName, value) {
+  TickerEncoder.prototype.hk = function (attributeName, value) {
     return tickerEncode(value, attributeName);
   };
-  TickerEncoder.prototype.sc = function (attributeName, value) {
-    return this.bd(attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
+  TickerEncoder.prototype.yj = function (attributeName, value) {
+    return this.hk(attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
+  };
+  TickerEncoder.prototype.vj = function (attributeName, value) {
+    return value === attributeName;
   };
   TickerEncoder.$metadata$ = objectMeta('TickerEncoder', [AttributeEncoder]);
   var TickerEncoder_instance;
@@ -379,73 +439,134 @@
     return TickerEncoder_instance;
   }
   function EnumEncoder(valuesMap) {
-    this.cd_1 = valuesMap;
+    this.ik_1 = valuesMap;
   }
-  EnumEncoder.prototype.sc = function (attributeName, value) {
-    return value.xb();
+  EnumEncoder.prototype.yj = function (attributeName, value) {
+    return value.zi();
+  };
+  EnumEncoder.prototype.vj = function (attributeName, value) {
+    var tmp0_elvis_lhs = this.ik_1.b2(value);
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      throw IllegalArgumentException_init_$Create$('Unknown value ' + value + ' for ' + attributeName);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    return tmp;
   };
   EnumEncoder.$metadata$ = classMeta('EnumEncoder', [AttributeEncoder]);
+  function stringSetDecode(value) {
+    var tmp0_safe_receiver = value;
+    var tmp;
+    if (tmp0_safe_receiver == null) {
+      tmp = null;
+    } else {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = Regex_init_$Create$('\\s+');
+        }
+        var tmp0_split = tmp$ret$0;
+        tmp$ret$1 = tmp0_split.c5(tmp0_safe_receiver, 0);
+      }
+      tmp = tmp$ret$1;
+    }
+    var tmp1_safe_receiver = tmp;
+    var tmp_0;
+    if (tmp1_safe_receiver == null) {
+      tmp_0 = null;
+    } else {
+      var tmp$ret$5;
+      {
+        var tmp$ret$4;
+        {
+          var tmp0_filterNotTo = ArrayList_init_$Create$();
+          var tmp0_iterator = tmp1_safe_receiver.d();
+          while (tmp0_iterator.e()) {
+            var element = tmp0_iterator.f();
+            var tmp$ret$3;
+            {
+              var tmp$ret$2;
+              {
+                tmp$ret$2 = charSequenceLength(element) === 0;
+              }
+              tmp$ret$3 = tmp$ret$2;
+            }
+            if (!tmp$ret$3) {
+              tmp0_filterNotTo.c(element);
+            }
+          }
+          tmp$ret$4 = tmp0_filterNotTo;
+        }
+        tmp$ret$5 = tmp$ret$4;
+      }
+      tmp_0 = tmp$ret$5;
+    }
+    var tmp2_safe_receiver = tmp_0;
+    return tmp2_safe_receiver == null ? null : toSet(tmp2_safe_receiver);
+  }
   function tickerEncode(_this__u8e3s4, attributeName) {
     return _this__u8e3s4 ? attributeName : '';
   }
   function enumEncode(_this__u8e3s4) {
-    return _this__u8e3s4.xb();
+    return _this__u8e3s4.zi();
   }
   function switchToMutable($this) {
     var tmp;
-    if ($this.gd_1) {
-      tmp = $this.fd_1;
+    if ($this.mk_1) {
+      tmp = $this.lk_1;
     } else {
-      $this.gd_1 = true;
-      $this.fd_1 = LinkedHashMap_init_$Create$_0($this.fd_1);
-      tmp = $this.fd_1;
+      $this.mk_1 = true;
+      $this.lk_1 = LinkedHashMap_init_$Create$_0($this.lk_1);
+      tmp = $this.lk_1;
     }
     var tmp_0 = tmp;
     return isInterface(tmp_0, MutableMap) ? tmp_0 : THROW_CCE();
   }
   function DelegatingMap(initialValues, tag, consumer) {
-    this.dd_1 = tag;
-    this.ed_1 = consumer;
-    this.fd_1 = initialValues;
-    this.gd_1 = false;
+    this.jk_1 = tag;
+    this.kk_1 = consumer;
+    this.lk_1 = initialValues;
+    this.mk_1 = false;
   }
-  DelegatingMap.prototype.h = function () {
-    return this.fd_1.h();
-  };
   DelegatingMap.prototype.g = function () {
-    return this.fd_1.g();
+    return this.lk_1.g();
   };
-  DelegatingMap.prototype.oc = function (key) {
-    return this.fd_1.h1(key);
+  DelegatingMap.prototype.m = function () {
+    return this.lk_1.m();
   };
-  DelegatingMap.prototype.h1 = function (key) {
+  DelegatingMap.prototype.qj = function (key) {
+    return this.lk_1.y1(key);
+  };
+  DelegatingMap.prototype.y1 = function (key) {
     if (!(!(key == null) ? typeof key === 'string' : false))
       return false;
-    return this.oc((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+    return this.qj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
   };
-  DelegatingMap.prototype.pc = function (key) {
-    return this.fd_1.j1(key);
+  DelegatingMap.prototype.rj = function (key) {
+    return this.lk_1.b2(key);
   };
-  DelegatingMap.prototype.j1 = function (key) {
+  DelegatingMap.prototype.b2 = function (key) {
     if (!(!(key == null) ? typeof key === 'string' : false))
       return null;
-    return this.pc((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+    return this.rj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
   };
-  DelegatingMap.prototype.hd = function (key, value) {
+  DelegatingMap.prototype.nk = function (key, value) {
     var mutable = switchToMutable(this);
     var old = mutable.a(key, value);
     if (!(old === value)) {
-      this.ed_1().hc(this.dd_1, key, value);
+      this.kk_1().jj(this.jk_1, key, value);
     }
     return old;
   };
   DelegatingMap.prototype.a = function (key, value) {
     var tmp = (!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE();
-    return this.hd(tmp, (!(value == null) ? typeof value === 'string' : false) ? value : THROW_CCE());
+    return this.nk(tmp, (!(value == null) ? typeof value === 'string' : false) ? value : THROW_CCE());
   };
-  DelegatingMap.prototype.id = function (key) {
+  DelegatingMap.prototype.ok = function (key) {
     var mutable = switchToMutable(this);
-    var tmp0_safe_receiver = mutable.k5(key);
+    var tmp0_safe_receiver = mutable.eb(key);
     var tmp;
     if (tmp0_safe_receiver == null) {
       tmp = null;
@@ -456,7 +577,7 @@
         }
         var tmp$ret$0;
         {
-          this.ed_1().hc(this.dd_1, key, null);
+          this.kk_1().jj(this.jk_1, key, null);
           tmp$ret$0 = tmp0_safe_receiver;
         }
         tmp$ret$1 = tmp$ret$0;
@@ -465,52 +586,55 @@
     }
     return tmp;
   };
-  DelegatingMap.prototype.k5 = function (key) {
+  DelegatingMap.prototype.eb = function (key) {
     if (!(!(key == null) ? typeof key === 'string' : false))
       return null;
-    return this.id((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+    return this.ok((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
   };
-  DelegatingMap.prototype.jd = function () {
-    return this.fd_1.j();
+  DelegatingMap.prototype.pk = function () {
+    return this.lk_1.o();
   };
-  DelegatingMap.prototype.j = function () {
-    return switchToMutable(this).j();
+  DelegatingMap.prototype.c2 = function () {
+    return switchToMutable(this).c2();
+  };
+  DelegatingMap.prototype.o = function () {
+    return switchToMutable(this).o();
   };
   DelegatingMap.$metadata$ = classMeta('DelegatingMap', [MutableMap]);
   function onFinalize(_this__u8e3s4, block) {
     return new FinalizeConsumer(_this__u8e3s4, onFinalize$lambda(block));
   }
   function FinalizeConsumer(downstream, block) {
-    this.kd_1 = downstream;
-    this.ld_1 = block;
-    this.md_1 = 0;
+    this.qk_1 = downstream;
+    this.rk_1 = block;
+    this.sk_1 = 0;
   }
-  FinalizeConsumer.prototype.gc = function (tag) {
-    this.kd_1.gc(tag);
+  FinalizeConsumer.prototype.ij = function (tag) {
+    this.qk_1.ij(tag);
     var tmp0_this = this;
-    var tmp1 = tmp0_this.md_1;
-    tmp0_this.md_1 = tmp1 + 1 | 0;
+    var tmp1 = tmp0_this.sk_1;
+    tmp0_this.sk_1 = tmp1 + 1 | 0;
   };
-  FinalizeConsumer.prototype.jc = function (tag) {
-    this.kd_1.jc(tag);
+  FinalizeConsumer.prototype.lj = function (tag) {
+    this.qk_1.lj(tag);
     var tmp0_this = this;
-    var tmp1 = tmp0_this.md_1;
-    tmp0_this.md_1 = tmp1 - 1 | 0;
+    var tmp1 = tmp0_this.sk_1;
+    tmp0_this.sk_1 = tmp1 - 1 | 0;
   };
-  FinalizeConsumer.prototype.hc = function (tag, attribute, value) {
-    return this.kd_1.hc(tag, attribute, value);
+  FinalizeConsumer.prototype.jj = function (tag, attribute, value) {
+    return this.qk_1.jj(tag, attribute, value);
   };
-  FinalizeConsumer.prototype.ic = function (tag, event, value) {
-    return this.kd_1.ic(tag, event, value);
+  FinalizeConsumer.prototype.kj = function (tag, event, value) {
+    return this.qk_1.kj(tag, event, value);
   };
-  FinalizeConsumer.prototype.fc = function (content) {
-    return this.kd_1.fc(content);
+  FinalizeConsumer.prototype.hj = function (content) {
+    return this.qk_1.hj(content);
   };
-  FinalizeConsumer.prototype.kc = function (tag, exception) {
-    return this.kd_1.kc(tag, exception);
+  FinalizeConsumer.prototype.mj = function (tag, exception) {
+    return this.qk_1.mj(tag, exception);
   };
-  FinalizeConsumer.prototype.lc = function () {
-    return this.ld_1(this.kd_1.lc(), this.md_1 > 0);
+  FinalizeConsumer.prototype.nj = function () {
+    return this.rk_1(this.qk_1.nj(), this.sk_1 > 0);
   };
   FinalizeConsumer.$metadata$ = classMeta('FinalizeConsumer', [TagConsumer]);
   function onFinalize$lambda($block) {
@@ -520,7 +644,10 @@
     };
   }
   function set_id(_this__u8e3s4, newValue) {
-    get_attributeStringString().rc(_this__u8e3s4, 'id', newValue);
+    get_attributeStringString().xj(_this__u8e3s4, 'id', newValue);
+  }
+  function get_id(_this__u8e3s4) {
+    return get_attributeStringString().uj(_this__u8e3s4, 'id');
   }
   function CommonAttributeGroupFacade() {
   }
@@ -584,27 +711,27 @@
       var tmp0_visitAndFinalize = new STYLE(attributesMapOf('type', type), _this__u8e3s4);
       var tmp$ret$0;
       {
-        if (!(tmp0_visitAndFinalize.zb() === _this__u8e3s4)) {
+        if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
           throw IllegalArgumentException_init_$Create$('Wrong exception');
         }
         {
-          tmp0_visitAndFinalize.zb().gc(tmp0_visitAndFinalize);
+          tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
           try {
             {
               block(tmp0_visitAndFinalize);
             }
           } catch ($p) {
             if ($p instanceof Error) {
-              tmp0_visitAndFinalize.zb().kc(tmp0_visitAndFinalize, $p);
+              tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
             } else {
               throw $p;
             }
           }
           finally {
-            tmp0_visitAndFinalize.zb().jc(tmp0_visitAndFinalize);
+            tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
           }
         }
-        tmp$ret$0 = _this__u8e3s4.lc();
+        tmp$ret$0 = _this__u8e3s4.nj();
       }
       tmp$ret$1 = tmp$ret$0;
     }
@@ -616,27 +743,27 @@
       var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', classes), _this__u8e3s4);
       var tmp$ret$0;
       {
-        if (!(tmp0_visitAndFinalize.zb() === _this__u8e3s4)) {
+        if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
           throw IllegalArgumentException_init_$Create$('Wrong exception');
         }
         {
-          tmp0_visitAndFinalize.zb().gc(tmp0_visitAndFinalize);
+          tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
           try {
             {
               block(tmp0_visitAndFinalize);
             }
           } catch ($p) {
             if ($p instanceof Error) {
-              tmp0_visitAndFinalize.zb().kc(tmp0_visitAndFinalize, $p);
+              tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
             } else {
               throw $p;
             }
           }
           finally {
-            tmp0_visitAndFinalize.zb().jc(tmp0_visitAndFinalize);
+            tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
           }
         }
-        tmp$ret$0 = _this__u8e3s4.lc();
+        tmp$ret$0 = _this__u8e3s4.nj();
       }
       tmp$ret$1 = tmp$ret$0;
     }
@@ -740,10 +867,10 @@
   }
   function ButtonFormEncType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.pd_1 = realValue;
+    this.vk_1 = realValue;
   }
-  ButtonFormEncType.prototype.xb = function () {
-    return this.pd_1;
+  ButtonFormEncType.prototype.zi = function () {
+    return this.vk_1;
   };
   ButtonFormEncType.$metadata$ = classMeta('ButtonFormEncType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var ButtonFormMethod_get_instance;
@@ -767,10 +894,10 @@
   }
   function ButtonFormMethod(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.sd_1 = realValue;
+    this.yk_1 = realValue;
   }
-  ButtonFormMethod.prototype.xb = function () {
-    return this.sd_1;
+  ButtonFormMethod.prototype.zi = function () {
+    return this.yk_1;
   };
   ButtonFormMethod.$metadata$ = classMeta('ButtonFormMethod', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var ButtonType_button_instance;
@@ -790,10 +917,10 @@
   }
   function ButtonType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.vd_1 = realValue;
+    this.bl_1 = realValue;
   }
-  ButtonType.prototype.xb = function () {
-    return this.vd_1;
+  ButtonType.prototype.zi = function () {
+    return this.bl_1;
   };
   ButtonType.$metadata$ = classMeta('ButtonType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var CommandType_command_instance;
@@ -813,10 +940,10 @@
   }
   function CommandType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.yd_1 = realValue;
+    this.el_1 = realValue;
   }
-  CommandType.prototype.xb = function () {
-    return this.yd_1;
+  CommandType.prototype.zi = function () {
+    return this.el_1;
   };
   CommandType.$metadata$ = classMeta('CommandType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var Dir_ltr_instance;
@@ -834,10 +961,10 @@
   }
   function Dir(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.be_1 = realValue;
+    this.hl_1 = realValue;
   }
-  Dir.prototype.xb = function () {
-    return this.be_1;
+  Dir.prototype.zi = function () {
+    return this.hl_1;
   };
   Dir.$metadata$ = classMeta('Dir', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var Draggable_htmlTrue_instance;
@@ -857,10 +984,10 @@
   }
   function Draggable(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.ee_1 = realValue;
+    this.kl_1 = realValue;
   }
-  Draggable.prototype.xb = function () {
-    return this.ee_1;
+  Draggable.prototype.zi = function () {
+    return this.kl_1;
   };
   Draggable.$metadata$ = classMeta('Draggable', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var FormEncType_multipartFormData_instance;
@@ -880,10 +1007,10 @@
   }
   function FormEncType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.he_1 = realValue;
+    this.nl_1 = realValue;
   }
-  FormEncType.prototype.xb = function () {
-    return this.he_1;
+  FormEncType.prototype.zi = function () {
+    return this.nl_1;
   };
   FormEncType.$metadata$ = classMeta('FormEncType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var FormMethod_get_instance;
@@ -907,10 +1034,10 @@
   }
   function FormMethod(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.ke_1 = realValue;
+    this.ql_1 = realValue;
   }
-  FormMethod.prototype.xb = function () {
-    return this.ke_1;
+  FormMethod.prototype.zi = function () {
+    return this.ql_1;
   };
   FormMethod.$metadata$ = classMeta('FormMethod', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var IframeSandbox_allowSameOrigin_instance;
@@ -930,10 +1057,10 @@
   }
   function IframeSandbox(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.ne_1 = realValue;
+    this.tl_1 = realValue;
   }
-  IframeSandbox.prototype.xb = function () {
-    return this.ne_1;
+  IframeSandbox.prototype.zi = function () {
+    return this.tl_1;
   };
   IframeSandbox.$metadata$ = classMeta('IframeSandbox', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var InputFormEncType_multipartFormData_instance;
@@ -953,10 +1080,10 @@
   }
   function InputFormEncType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.qe_1 = realValue;
+    this.wl_1 = realValue;
   }
-  InputFormEncType.prototype.xb = function () {
-    return this.qe_1;
+  InputFormEncType.prototype.zi = function () {
+    return this.wl_1;
   };
   InputFormEncType.$metadata$ = classMeta('InputFormEncType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var InputFormMethod_get_instance;
@@ -980,10 +1107,10 @@
   }
   function InputFormMethod(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.te_1 = realValue;
+    this.zl_1 = realValue;
   }
-  InputFormMethod.prototype.xb = function () {
-    return this.te_1;
+  InputFormMethod.prototype.zi = function () {
+    return this.zl_1;
   };
   InputFormMethod.$metadata$ = classMeta('InputFormMethod', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var InputType_button_instance;
@@ -1043,10 +1170,10 @@
   }
   function InputType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.we_1 = realValue;
+    this.cm_1 = realValue;
   }
-  InputType.prototype.xb = function () {
-    return this.we_1;
+  InputType.prototype.zi = function () {
+    return this.cm_1;
   };
   InputType.$metadata$ = classMeta('InputType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var KeyGenKeyType_rsa_instance;
@@ -1062,10 +1189,10 @@
   }
   function KeyGenKeyType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.ze_1 = realValue;
+    this.fm_1 = realValue;
   }
-  KeyGenKeyType.prototype.xb = function () {
-    return this.ze_1;
+  KeyGenKeyType.prototype.zi = function () {
+    return this.fm_1;
   };
   KeyGenKeyType.$metadata$ = classMeta('KeyGenKeyType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var RunAt_server_instance;
@@ -1081,10 +1208,10 @@
   }
   function RunAt(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.cf_1 = realValue;
+    this.im_1 = realValue;
   }
-  RunAt.prototype.xb = function () {
-    return this.cf_1;
+  RunAt.prototype.zi = function () {
+    return this.im_1;
   };
   RunAt.$metadata$ = classMeta('RunAt', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var TextAreaWrap_hard_instance;
@@ -1102,10 +1229,10 @@
   }
   function TextAreaWrap(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.ff_1 = realValue;
+    this.lm_1 = realValue;
   }
-  TextAreaWrap.prototype.xb = function () {
-    return this.ff_1;
+  TextAreaWrap.prototype.zi = function () {
+    return this.lm_1;
   };
   TextAreaWrap.$metadata$ = classMeta('TextAreaWrap', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var ThScope_col_instance;
@@ -1127,10 +1254,10 @@
   }
   function ThScope(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.if_1 = realValue;
+    this.om_1 = realValue;
   }
-  ThScope.prototype.xb = function () {
-    return this.if_1;
+  ThScope.prototype.zi = function () {
+    return this.om_1;
   };
   ThScope.$metadata$ = classMeta('ThScope', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var AreaShape_rect_instance;
@@ -1152,10 +1279,10 @@
   }
   function AreaShape(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.lf_1 = realValue;
+    this.rm_1 = realValue;
   }
-  AreaShape.prototype.xb = function () {
-    return this.lf_1;
+  AreaShape.prototype.zi = function () {
+    return this.rm_1;
   };
   AreaShape.$metadata$ = classMeta('AreaShape', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   function ButtonFormEncType_multipartFormData_getInstance() {
@@ -1470,7 +1597,7 @@
             inductionVariable = inductionVariable + 1 | 0;
             var tmp$ret$0;
             {
-              tmp$ret$0 = element.be_1;
+              tmp$ret$0 = element.hl_1;
             }
             tmp0_associateByTo.a(tmp$ret$0, element);
           }
@@ -1494,7 +1621,7 @@
             inductionVariable_0 = inductionVariable_0 + 1 | 0;
             var tmp$ret$0_0;
             {
-              tmp$ret$0_0 = element_0.ee_1;
+              tmp$ret$0_0 = element_0.kl_1;
             }
             tmp0_associateByTo_0.a(tmp$ret$0_0, element_0);
           }
@@ -1518,7 +1645,7 @@
             inductionVariable_1 = inductionVariable_1 + 1 | 0;
             var tmp$ret$0_1;
             {
-              tmp$ret$0_1 = element_1.cf_1;
+              tmp$ret$0_1 = element_1.im_1;
             }
             tmp0_associateByTo_1.a(tmp$ret$0_1, element_1);
           }
@@ -1542,7 +1669,7 @@
             inductionVariable_2 = inductionVariable_2 + 1 | 0;
             var tmp$ret$0_2;
             {
-              tmp$ret$0_2 = element_2.lf_1;
+              tmp$ret$0_2 = element_2.rm_1;
             }
             tmp0_associateByTo_2.a(tmp$ret$0_2, element_2);
           }
@@ -1566,7 +1693,7 @@
             inductionVariable_3 = inductionVariable_3 + 1 | 0;
             var tmp$ret$0_3;
             {
-              tmp$ret$0_3 = element_3.pd_1;
+              tmp$ret$0_3 = element_3.vk_1;
             }
             tmp0_associateByTo_3.a(tmp$ret$0_3, element_3);
           }
@@ -1590,7 +1717,7 @@
             inductionVariable_4 = inductionVariable_4 + 1 | 0;
             var tmp$ret$0_4;
             {
-              tmp$ret$0_4 = element_4.sd_1;
+              tmp$ret$0_4 = element_4.yk_1;
             }
             tmp0_associateByTo_4.a(tmp$ret$0_4, element_4);
           }
@@ -1614,7 +1741,7 @@
             inductionVariable_5 = inductionVariable_5 + 1 | 0;
             var tmp$ret$0_5;
             {
-              tmp$ret$0_5 = element_5.vd_1;
+              tmp$ret$0_5 = element_5.bl_1;
             }
             tmp0_associateByTo_5.a(tmp$ret$0_5, element_5);
           }
@@ -1638,7 +1765,7 @@
             inductionVariable_6 = inductionVariable_6 + 1 | 0;
             var tmp$ret$0_6;
             {
-              tmp$ret$0_6 = element_6.yd_1;
+              tmp$ret$0_6 = element_6.el_1;
             }
             tmp0_associateByTo_6.a(tmp$ret$0_6, element_6);
           }
@@ -1662,7 +1789,7 @@
             inductionVariable_7 = inductionVariable_7 + 1 | 0;
             var tmp$ret$0_7;
             {
-              tmp$ret$0_7 = element_7.he_1;
+              tmp$ret$0_7 = element_7.nl_1;
             }
             tmp0_associateByTo_7.a(tmp$ret$0_7, element_7);
           }
@@ -1686,7 +1813,7 @@
             inductionVariable_8 = inductionVariable_8 + 1 | 0;
             var tmp$ret$0_8;
             {
-              tmp$ret$0_8 = element_8.ke_1;
+              tmp$ret$0_8 = element_8.ql_1;
             }
             tmp0_associateByTo_8.a(tmp$ret$0_8, element_8);
           }
@@ -1710,7 +1837,7 @@
             inductionVariable_9 = inductionVariable_9 + 1 | 0;
             var tmp$ret$0_9;
             {
-              tmp$ret$0_9 = element_9.ne_1;
+              tmp$ret$0_9 = element_9.tl_1;
             }
             tmp0_associateByTo_9.a(tmp$ret$0_9, element_9);
           }
@@ -1734,7 +1861,7 @@
             inductionVariable_10 = inductionVariable_10 + 1 | 0;
             var tmp$ret$0_10;
             {
-              tmp$ret$0_10 = element_10.we_1;
+              tmp$ret$0_10 = element_10.cm_1;
             }
             tmp0_associateByTo_10.a(tmp$ret$0_10, element_10);
           }
@@ -1758,7 +1885,7 @@
             inductionVariable_11 = inductionVariable_11 + 1 | 0;
             var tmp$ret$0_11;
             {
-              tmp$ret$0_11 = element_11.qe_1;
+              tmp$ret$0_11 = element_11.wl_1;
             }
             tmp0_associateByTo_11.a(tmp$ret$0_11, element_11);
           }
@@ -1782,7 +1909,7 @@
             inductionVariable_12 = inductionVariable_12 + 1 | 0;
             var tmp$ret$0_12;
             {
-              tmp$ret$0_12 = element_12.te_1;
+              tmp$ret$0_12 = element_12.zl_1;
             }
             tmp0_associateByTo_12.a(tmp$ret$0_12, element_12);
           }
@@ -1806,7 +1933,7 @@
             inductionVariable_13 = inductionVariable_13 + 1 | 0;
             var tmp$ret$0_13;
             {
-              tmp$ret$0_13 = element_13.ze_1;
+              tmp$ret$0_13 = element_13.fm_1;
             }
             tmp0_associateByTo_13.a(tmp$ret$0_13, element_13);
           }
@@ -1830,7 +1957,7 @@
             inductionVariable_14 = inductionVariable_14 + 1 | 0;
             var tmp$ret$0_14;
             {
-              tmp$ret$0_14 = element_14.ff_1;
+              tmp$ret$0_14 = element_14.lm_1;
             }
             tmp0_associateByTo_14.a(tmp$ret$0_14, element_14);
           }
@@ -1854,7 +1981,7 @@
             inductionVariable_15 = inductionVariable_15 + 1 | 0;
             var tmp$ret$0_15;
             {
-              tmp$ret$0_15 = element_15.if_1;
+              tmp$ret$0_15 = element_15.om_1;
             }
             tmp0_associateByTo_15.a(tmp$ret$0_15, element_15);
           }
@@ -1901,22 +2028,22 @@
   function div_0(_this__u8e3s4, classes, block) {
     var tmp$ret$0;
     {
-      var tmp0_visit = new DIV(attributesMapOf('class', classes), _this__u8e3s4.zb());
-      tmp0_visit.zb().gc(tmp0_visit);
+      var tmp0_visit = new DIV(attributesMapOf('class', classes), _this__u8e3s4.bj());
+      tmp0_visit.bj().ij(tmp0_visit);
       var tmp;
       try {
         tmp = block(tmp0_visit);
       } catch ($p) {
         var tmp_0;
         if ($p instanceof Error) {
-          tmp_0 = tmp0_visit.zb().kc(tmp0_visit, $p);
+          tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
         } else {
           throw $p;
         }
         tmp = tmp_0;
       }
       finally {
-        tmp0_visit.zb().jc(tmp0_visit);
+        tmp0_visit.bj().lj(tmp0_visit);
       }
       tmp$ret$0 = tmp;
     }
@@ -1934,25 +2061,49 @@
   function InteractiveContent() {
   }
   InteractiveContent.$metadata$ = interfaceMeta('InteractiveContent', [FlowOrInteractiveContent, FlowOrInteractiveOrPhrasingContent, Tag]);
-  function span(_this__u8e3s4, classes, block) {
+  function img(_this__u8e3s4, alt, src, classes, block) {
     var tmp$ret$0;
     {
-      var tmp0_visit = new SPAN(attributesMapOf('class', classes), _this__u8e3s4.zb());
-      tmp0_visit.zb().gc(tmp0_visit);
+      var tmp0_visit = new IMG(attributesMapOf_0(['alt', alt, 'src', src, 'class', classes]), _this__u8e3s4.bj());
+      tmp0_visit.bj().ij(tmp0_visit);
       var tmp;
       try {
         tmp = block(tmp0_visit);
       } catch ($p) {
         var tmp_0;
         if ($p instanceof Error) {
-          tmp_0 = tmp0_visit.zb().kc(tmp0_visit, $p);
+          tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
         } else {
           throw $p;
         }
         tmp = tmp_0;
       }
       finally {
-        tmp0_visit.zb().jc(tmp0_visit);
+        tmp0_visit.bj().lj(tmp0_visit);
+      }
+      tmp$ret$0 = tmp;
+    }
+    return tmp$ret$0;
+  }
+  function span(_this__u8e3s4, classes, block) {
+    var tmp$ret$0;
+    {
+      var tmp0_visit = new SPAN(attributesMapOf('class', classes), _this__u8e3s4.bj());
+      tmp0_visit.bj().ij(tmp0_visit);
+      var tmp;
+      try {
+        tmp = block(tmp0_visit);
+      } catch ($p) {
+        var tmp_0;
+        if ($p instanceof Error) {
+          tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
+        } else {
+          throw $p;
+        }
+        tmp = tmp_0;
+      }
+      finally {
+        tmp0_visit.bj().lj(tmp0_visit);
       }
       tmp$ret$0 = tmp;
     }
@@ -1966,33 +2117,27 @@
       var tmp1_safe_receiver = formEncType;
       var tmp_0 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
       var tmp2_safe_receiver = formMethod;
-      var tmp0_visit = new INPUT(attributesMapOf_0(['type', tmp, 'formenctype', tmp_0, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', name, 'class', classes]), _this__u8e3s4.zb());
-      tmp0_visit.zb().gc(tmp0_visit);
+      var tmp0_visit = new INPUT(attributesMapOf_0(['type', tmp, 'formenctype', tmp_0, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', name, 'class', classes]), _this__u8e3s4.bj());
+      tmp0_visit.bj().ij(tmp0_visit);
       var tmp_1;
       try {
         tmp_1 = block(tmp0_visit);
       } catch ($p) {
         var tmp_2;
         if ($p instanceof Error) {
-          tmp_2 = tmp0_visit.zb().kc(tmp0_visit, $p);
+          tmp_2 = tmp0_visit.bj().mj(tmp0_visit, $p);
         } else {
           throw $p;
         }
         tmp_1 = tmp_2;
       }
       finally {
-        tmp0_visit.zb().jc(tmp0_visit);
+        tmp0_visit.bj().lj(tmp0_visit);
       }
       tmp$ret$0 = tmp_1;
     }
     return tmp$ret$0;
   }
-  function FlowOrPhrasingContent() {
-  }
-  FlowOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrPhrasingContent', [FlowOrInteractiveOrPhrasingContent, FlowOrMetaDataOrPhrasingContent, Tag]);
-  function FlowOrInteractiveOrPhrasingContent() {
-  }
-  FlowOrInteractiveOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrInteractiveOrPhrasingContent', [Tag]);
   function FlowOrMetaDataOrPhrasingContent() {
   }
   FlowOrMetaDataOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrMetaDataOrPhrasingContent', [Tag]);
@@ -2005,108 +2150,125 @@
   function FlowOrInteractiveContent() {
   }
   FlowOrInteractiveContent.$metadata$ = interfaceMeta('FlowOrInteractiveContent', [FlowOrInteractiveOrPhrasingContent, Tag]);
+  function FlowOrPhrasingContent() {
+  }
+  FlowOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrPhrasingContent', [FlowOrInteractiveOrPhrasingContent, FlowOrMetaDataOrPhrasingContent, Tag]);
   function SectioningOrFlowContent() {
   }
   SectioningOrFlowContent.$metadata$ = interfaceMeta('SectioningOrFlowContent', [Tag]);
+  function FlowOrInteractiveOrPhrasingContent() {
+  }
+  FlowOrInteractiveOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrInteractiveOrPhrasingContent', [Tag]);
   function DIV(initialAttributes, consumer) {
     HTMLTag.call(this, 'div', consumer, initialAttributes, null, false, false);
-    this.sf_1 = consumer;
+    this.ym_1 = consumer;
   }
-  DIV.prototype.zb = function () {
-    return this.sf_1;
+  DIV.prototype.bj = function () {
+    return this.ym_1;
   };
   DIV.$metadata$ = classMeta('DIV', [HtmlBlockTag], undefined, undefined, undefined, HTMLTag.prototype);
   function INPUT(initialAttributes, consumer) {
     HTMLTag.call(this, 'input', consumer, initialAttributes, null, true, true);
-    this.fg_1 = consumer;
+    this.ln_1 = consumer;
   }
-  INPUT.prototype.zb = function () {
-    return this.fg_1;
+  INPUT.prototype.bj = function () {
+    return this.ln_1;
+  };
+  INPUT.prototype.mn = function (newValue) {
+    get_attributeStringString().xj(this, 'placeholder', newValue);
   };
   INPUT.$metadata$ = classMeta('INPUT', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
+  function IMG(initialAttributes, consumer) {
+    HTMLTag.call(this, 'img', consumer, initialAttributes, null, true, true);
+    this.tn_1 = consumer;
+  }
+  IMG.prototype.bj = function () {
+    return this.tn_1;
+  };
+  IMG.$metadata$ = classMeta('IMG', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
   function STYLE(initialAttributes, consumer) {
     HTMLTag.call(this, 'style', consumer, initialAttributes, null, false, false);
-    this.mg_1 = consumer;
+    this.ao_1 = consumer;
   }
-  STYLE.prototype.zb = function () {
-    return this.mg_1;
+  STYLE.prototype.bj = function () {
+    return this.ao_1;
   };
-  STYLE.prototype.ec = function (s) {
-    HTMLTag.prototype.ec.call(this, s);
+  STYLE.prototype.gj = function (s) {
+    HTMLTag.prototype.gj.call(this, s);
   };
   STYLE.$metadata$ = classMeta('STYLE', [CommonAttributeGroupFacadeFlowMetaDataContent], undefined, undefined, undefined, HTMLTag.prototype);
   function SPAN(initialAttributes, consumer) {
     HTMLTag.call(this, 'span', consumer, initialAttributes, null, true, false);
-    this.tg_1 = consumer;
+    this.ho_1 = consumer;
   }
-  SPAN.prototype.zb = function () {
-    return this.tg_1;
+  SPAN.prototype.bj = function () {
+    return this.ho_1;
   };
   SPAN.$metadata$ = classMeta('SPAN', [HtmlBlockInlineTag], undefined, undefined, undefined, HTMLTag.prototype);
   function HTMLTag$attributes$lambda(this$0) {
     return function () {
-      return this$0.zb();
+      return this$0.bj();
     };
   }
   function HTMLTag(tagName, consumer, initialAttributes, namespace, inlineTag, emptyTag) {
-    this.tf_1 = tagName;
-    this.uf_1 = consumer;
-    this.vf_1 = namespace;
-    this.wf_1 = inlineTag;
-    this.xf_1 = emptyTag;
+    this.zm_1 = tagName;
+    this.an_1 = consumer;
+    this.bn_1 = namespace;
+    this.cn_1 = inlineTag;
+    this.dn_1 = emptyTag;
     var tmp = this;
-    tmp.yf_1 = new DelegatingMap(initialAttributes, this, HTMLTag$attributes$lambda(this));
+    tmp.en_1 = new DelegatingMap(initialAttributes, this, HTMLTag$attributes$lambda(this));
   }
-  HTMLTag.prototype.yb = function () {
-    return this.tf_1;
+  HTMLTag.prototype.aj = function () {
+    return this.zm_1;
   };
-  HTMLTag.prototype.zb = function () {
-    return this.uf_1;
+  HTMLTag.prototype.bj = function () {
+    return this.an_1;
   };
-  HTMLTag.prototype.ac = function () {
-    return this.vf_1;
+  HTMLTag.prototype.cj = function () {
+    return this.bn_1;
   };
-  HTMLTag.prototype.bc = function () {
-    return this.yf_1;
+  HTMLTag.prototype.dj = function () {
+    return this.en_1;
   };
-  HTMLTag.prototype.cc = function () {
-    return this.bc().jd();
+  HTMLTag.prototype.ej = function () {
+    return this.dj().pk();
   };
   HTMLTag.$metadata$ = classMeta('HTMLTag', [Tag]);
   function visitTagAndFinalize(_this__u8e3s4, consumer, block) {
-    if (!(_this__u8e3s4.zb() === consumer)) {
+    if (!(_this__u8e3s4.bj() === consumer)) {
       throw IllegalArgumentException_init_$Create$('Wrong exception');
     }
     {
-      _this__u8e3s4.zb().gc(_this__u8e3s4);
+      _this__u8e3s4.bj().ij(_this__u8e3s4);
       try {
         block(_this__u8e3s4);
       } catch ($p) {
         if ($p instanceof Error) {
-          _this__u8e3s4.zb().kc(_this__u8e3s4, $p);
+          _this__u8e3s4.bj().mj(_this__u8e3s4, $p);
         } else {
           throw $p;
         }
       }
       finally {
-        _this__u8e3s4.zb().jc(_this__u8e3s4);
+        _this__u8e3s4.bj().lj(_this__u8e3s4);
       }
     }
-    return consumer.lc();
+    return consumer.nj();
   }
   function visitTag(_this__u8e3s4, block) {
-    _this__u8e3s4.zb().gc(_this__u8e3s4);
+    _this__u8e3s4.bj().ij(_this__u8e3s4);
     try {
       block(_this__u8e3s4);
     } catch ($p) {
       if ($p instanceof Error) {
-        _this__u8e3s4.zb().kc(_this__u8e3s4, $p);
+        _this__u8e3s4.bj().mj(_this__u8e3s4, $p);
       } else {
         throw $p;
       }
     }
     finally {
-      _this__u8e3s4.zb().jc(_this__u8e3s4);
+      _this__u8e3s4.bj().lj(_this__u8e3s4);
     }
   }
   function append(_this__u8e3s4, block) {
@@ -2152,56 +2314,56 @@
     return tmp$ret$0;
   }
   function JSDOMBuilder(document) {
-    this.ug_1 = document;
+    this.io_1 = document;
     var tmp = this;
     var tmp$ret$0;
     {
       tmp$ret$0 = ArrayList_init_$Create$();
     }
-    tmp.vg_1 = tmp$ret$0;
-    this.wg_1 = null;
+    tmp.jo_1 = tmp$ret$0;
+    this.ko_1 = null;
   }
-  JSDOMBuilder.prototype.gc = function (tag) {
+  JSDOMBuilder.prototype.ij = function (tag) {
     var tmp;
-    if (!(tag.ac() == null)) {
+    if (!(tag.cj() == null)) {
       var tmp$ret$0;
       {
-        var tmp0_asDynamic = this.ug_1.createElementNS(ensureNotNull(tag.ac()), tag.yb());
+        var tmp0_asDynamic = this.io_1.createElementNS(ensureNotNull(tag.cj()), tag.aj());
         tmp$ret$0 = tmp0_asDynamic;
       }
       tmp = tmp$ret$0;
     } else {
-      var tmp_0 = this.ug_1.createElement(tag.yb());
+      var tmp_0 = this.io_1.createElement(tag.aj());
       tmp = tmp_0 instanceof HTMLElement ? tmp_0 : THROW_CCE();
     }
     var element = tmp;
     {
-      var tmp1_forEach = tag.cc();
+      var tmp1_forEach = tag.ej();
       var tmp0_iterator = tmp1_forEach.d();
       while (tmp0_iterator.e()) {
         var element_0 = tmp0_iterator.f();
         {
-          element.setAttribute(element_0.z(), element_0.b1());
+          element.setAttribute(element_0.p1(), element_0.r1());
         }
       }
     }
     var tmp$ret$1;
     {
-      var tmp2_isNotEmpty = this.vg_1;
-      tmp$ret$1 = !tmp2_isNotEmpty.g();
+      var tmp2_isNotEmpty = this.jo_1;
+      tmp$ret$1 = !tmp2_isNotEmpty.m();
     }
     if (tmp$ret$1) {
-      last(this.vg_1).appendChild(element);
+      last(this.jo_1).appendChild(element);
     }
-    this.vg_1.b(element);
+    this.jo_1.c(element);
   };
-  JSDOMBuilder.prototype.hc = function (tag, attribute, value) {
-    if (this.vg_1.g())
+  JSDOMBuilder.prototype.jj = function (tag, attribute, value) {
+    if (this.jo_1.m())
       throw IllegalStateException_init_$Create$('No current tag');
     else {
       var tmp$ret$1;
       {
-        var tmp0_toLowerCase = last(this.vg_1).tagName;
+        var tmp0_toLowerCase = last(this.jo_1).tagName;
         var tmp$ret$0;
         {
           tmp$ret$0 = tmp0_toLowerCase;
@@ -2211,7 +2373,7 @@
       var tmp = tmp$ret$1;
       var tmp$ret$3;
       {
-        var tmp1_toLowerCase = tag.yb();
+        var tmp1_toLowerCase = tag.aj();
         var tmp$ret$2;
         {
           tmp$ret$2 = tmp1_toLowerCase;
@@ -2223,7 +2385,7 @@
       else {
         var tmp$ret$4;
         {
-          var tmp2_let = last(this.vg_1);
+          var tmp2_let = last(this.jo_1);
           {
           }
           var tmp_0;
@@ -2237,13 +2399,13 @@
       }
     }
   };
-  JSDOMBuilder.prototype.ic = function (tag, event, value) {
-    if (this.vg_1.g())
+  JSDOMBuilder.prototype.kj = function (tag, event, value) {
+    if (this.jo_1.m())
       throw IllegalStateException_init_$Create$('No current tag');
     else {
       var tmp$ret$1;
       {
-        var tmp0_toLowerCase = last(this.vg_1).tagName;
+        var tmp0_toLowerCase = last(this.jo_1).tagName;
         var tmp$ret$0;
         {
           tmp$ret$0 = tmp0_toLowerCase;
@@ -2253,7 +2415,7 @@
       var tmp = tmp$ret$1;
       var tmp$ret$3;
       {
-        var tmp1_toLowerCase = tag.yb();
+        var tmp1_toLowerCase = tag.aj();
         var tmp$ret$2;
         {
           tmp$ret$2 = tmp1_toLowerCase;
@@ -2263,7 +2425,7 @@
       if (!(tmp === tmp$ret$3))
         throw IllegalStateException_init_$Create$('Wrong current tag');
       else {
-        var tmp2_setEvent = last(this.vg_1);
+        var tmp2_setEvent = last(this.jo_1);
         var tmp$ret$4;
         {
           tmp$ret$4 = tmp2_setEvent;
@@ -2272,14 +2434,14 @@
       }
     }
   };
-  JSDOMBuilder.prototype.jc = function (tag) {
+  JSDOMBuilder.prototype.lj = function (tag) {
     var tmp;
-    if (this.vg_1.g()) {
+    if (this.jo_1.m()) {
       tmp = true;
     } else {
       var tmp$ret$1;
       {
-        var tmp0_toLowerCase = last(this.vg_1).tagName;
+        var tmp0_toLowerCase = last(this.jo_1).tagName;
         var tmp$ret$0;
         {
           tmp$ret$0 = tmp0_toLowerCase;
@@ -2289,7 +2451,7 @@
       var tmp_0 = tmp$ret$1;
       var tmp$ret$3;
       {
-        var tmp1_toLowerCase = tag.yb();
+        var tmp1_toLowerCase = tag.aj();
         var tmp$ret$2;
         {
           tmp$ret$2 = tmp1_toLowerCase;
@@ -2299,18 +2461,18 @@
       tmp = !(tmp_0 === tmp$ret$3);
     }
     if (tmp) {
-      throw IllegalStateException_init_$Create$("We haven't entered tag " + tag.yb() + ' but trying to leave');
+      throw IllegalStateException_init_$Create$("We haven't entered tag " + tag.aj() + ' but trying to leave');
     }
-    this.wg_1 = this.vg_1.r4(get_lastIndex(this.vg_1));
+    this.ko_1 = this.jo_1.b3(get_lastIndex(this.jo_1));
   };
-  JSDOMBuilder.prototype.fc = function (content) {
-    if (this.vg_1.g()) {
+  JSDOMBuilder.prototype.hj = function (content) {
+    if (this.jo_1.m()) {
       throw IllegalStateException_init_$Create$('No current DOM node');
     }
-    last(this.vg_1).appendChild(this.ug_1.createTextNode(toString(content)));
+    last(this.jo_1).appendChild(this.io_1.createTextNode(toString(content)));
   };
-  JSDOMBuilder.prototype.lc = function () {
-    var tmp0_safe_receiver = this.wg_1;
+  JSDOMBuilder.prototype.nj = function () {
+    var tmp0_safe_receiver = this.ko_1;
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : asR(tmp0_safe_receiver, this);
     var tmp;
     if (tmp1_elvis_lhs == null) {
@@ -2325,36 +2487,51 @@
     return function (it, partial) {
       var tmp;
       if (!partial) {
-        $tmp0_let.b(it);
+        $tmp0_let.c(it);
         $this_append.appendChild(it);
         tmp = Unit_getInstance();
       }
       return Unit_getInstance();
     };
   }
+  function set_onChangeFunction(_this__u8e3s4, newValue) {
+    _this__u8e3s4.bj().kj(_this__u8e3s4, 'onchange', newValue);
+  }
+  function set_onKeyUpFunction(_this__u8e3s4, newValue) {
+    _this__u8e3s4.bj().kj(_this__u8e3s4, 'onkeyup', newValue);
+  }
   function set_onClickFunction(_this__u8e3s4, newValue) {
-    _this__u8e3s4.zb().ic(_this__u8e3s4, 'onclick', newValue);
+    _this__u8e3s4.bj().kj(_this__u8e3s4, 'onclick', newValue);
   }
   //region block: post-declaration
-  HTMLTag.prototype.ec = text;
-  DIV.prototype.ec = text;
-  INPUT.prototype.ec = text;
-  SPAN.prototype.dc = unaryPlus;
-  SPAN.prototype.ec = text;
-  JSDOMBuilder.prototype.kc = onTagError;
+  StringEncoder.prototype.wj = empty;
+  BooleanEncoder.prototype.wj = empty;
+  TickerEncoder.prototype.wj = empty;
+  EnumEncoder.prototype.wj = empty;
+  HTMLTag.prototype.gj = text;
+  DIV.prototype.gj = text;
+  INPUT.prototype.gj = text;
+  IMG.prototype.gj = text;
+  SPAN.prototype.fj = unaryPlus;
+  SPAN.prototype.gj = text;
+  JSDOMBuilder.prototype.mj = onTagError;
   //endregion
   //region block: exports
   _.$_$ = _.$_$ || {};
   _.$_$.a = enumEncode;
   _.$_$.b = append;
-  _.$_$.c = set_onClickFunction;
-  _.$_$.d = DIV;
-  _.$_$.e = INPUT;
-  _.$_$.f = SPAN;
-  _.$_$.g = STYLE;
-  _.$_$.h = attributesMapOf_0;
-  _.$_$.i = attributesMapOf;
-  _.$_$.j = set_id;
+  _.$_$.c = set_onChangeFunction;
+  _.$_$.d = set_onClickFunction;
+  _.$_$.e = set_onKeyUpFunction;
+  _.$_$.f = DIV;
+  _.$_$.g = IMG;
+  _.$_$.h = INPUT;
+  _.$_$.i = SPAN;
+  _.$_$.j = STYLE;
+  _.$_$.k = attributesMapOf_0;
+  _.$_$.l = attributesMapOf;
+  _.$_$.m = get_id;
+  _.$_$.n = set_id;
   //endregion
   return _;
 }));

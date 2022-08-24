@@ -1,5 +1,5 @@
 {
-  mode: 'development',
+  mode: 'production',
   resolve: {
     modules: [
       'node_modules'
@@ -49,13 +49,13 @@
     ]
   },
   output: {
-    path: '/home/renattele/StudioProjects/NoBackup/Iconoplastic/build/developmentExecutable',
+    path: '/home/renattele/StudioProjects/NoBackup/Iconoplastic/build/distributions',
     filename: [Function: filename],
     library: 'Iconoplastic',
     libraryTarget: 'umd',
     globalObject: 'this'
   },
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
   ignoreWarnings: [
     /Failed to parse source map/
   ],

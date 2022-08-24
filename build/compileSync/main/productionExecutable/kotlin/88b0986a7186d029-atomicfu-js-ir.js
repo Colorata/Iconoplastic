@@ -12,9 +12,9 @@
 }(this, function (_, kotlin_kotlin) {
   'use strict';
   //region block: imports
-  var objectMeta = kotlin_kotlin.$_$.c3;
-  var classMeta = kotlin_kotlin.$_$.t2;
-  var toString = kotlin_kotlin.$_$.s3;
+  var objectMeta = kotlin_kotlin.$_$.j7;
+  var classMeta = kotlin_kotlin.$_$.o6;
+  var toString = kotlin_kotlin.$_$.t9;
   //endregion
   //region block: pre-declaration
   None.prototype = Object.create(atomicfu$TraceBase.prototype);
@@ -22,12 +22,12 @@
   //endregion
   function loop(_this__u8e3s4, action) {
     while (true) {
-      action(_this__u8e3s4.xg_1);
+      action(_this__u8e3s4.lo_1);
     }
   }
   function loop_0(_this__u8e3s4, action) {
     while (true) {
-      action(_this__u8e3s4.yg_1);
+      action(_this__u8e3s4.mo_1);
     }
   }
   function None() {
@@ -53,130 +53,130 @@
   };
   atomicfu$TraceBase.$metadata$ = classMeta('TraceBase');
   function AtomicRef(value) {
-    this.xg_1 = value;
+    this.lo_1 = value;
   }
-  AtomicRef.prototype.zg = function (_set____db54di) {
-    this.xg_1 = _set____db54di;
+  AtomicRef.prototype.no = function (_set____db54di) {
+    this.lo_1 = _set____db54di;
   };
-  AtomicRef.prototype.ah = function () {
-    return this.xg_1;
+  AtomicRef.prototype.oo = function () {
+    return this.lo_1;
   };
   AtomicRef.prototype.atomicfu$compareAndSet = function (expect, update) {
-    if (!(this.xg_1 === expect))
+    if (!(this.lo_1 === expect))
       return false;
-    this.xg_1 = update;
+    this.lo_1 = update;
     return true;
   };
   AtomicRef.prototype.atomicfu$getAndSet = function (value) {
-    var oldValue = this.xg_1;
-    this.xg_1 = value;
+    var oldValue = this.lo_1;
+    this.lo_1 = value;
     return oldValue;
   };
   AtomicRef.prototype.toString = function () {
-    return toString(this.xg_1);
+    return toString(this.lo_1);
   };
   AtomicRef.$metadata$ = classMeta('AtomicRef');
   Object.defineProperty(AtomicRef.prototype, 'kotlinx$atomicfu$value', {
     configurable: true,
-    get: AtomicRef.prototype.ah,
-    set: AtomicRef.prototype.zg
+    get: AtomicRef.prototype.oo,
+    set: AtomicRef.prototype.no
   });
   function atomic$ref$1(initial) {
     return atomic(initial, None_getInstance());
   }
   function AtomicBoolean(value) {
-    this.bh_1 = value;
+    this.po_1 = value;
   }
-  AtomicBoolean.prototype.ch = function (_set____db54di) {
-    this.bh_1 = _set____db54di;
+  AtomicBoolean.prototype.qo = function (_set____db54di) {
+    this.po_1 = _set____db54di;
   };
-  AtomicBoolean.prototype.ah = function () {
-    return this.bh_1;
+  AtomicBoolean.prototype.oo = function () {
+    return this.po_1;
   };
   AtomicBoolean.prototype.atomicfu$compareAndSet = function (expect, update) {
-    if (!(this.bh_1 === expect))
+    if (!(this.po_1 === expect))
       return false;
-    this.bh_1 = update;
+    this.po_1 = update;
     return true;
   };
   AtomicBoolean.prototype.atomicfu$getAndSet = function (value) {
-    var oldValue = this.bh_1;
-    this.bh_1 = value;
+    var oldValue = this.po_1;
+    this.po_1 = value;
     return oldValue;
   };
   AtomicBoolean.prototype.toString = function () {
-    return this.bh_1.toString();
+    return this.po_1.toString();
   };
   AtomicBoolean.$metadata$ = classMeta('AtomicBoolean');
   Object.defineProperty(AtomicBoolean.prototype, 'kotlinx$atomicfu$value', {
     configurable: true,
-    get: AtomicBoolean.prototype.ah,
-    set: AtomicBoolean.prototype.ch
+    get: AtomicBoolean.prototype.oo,
+    set: AtomicBoolean.prototype.qo
   });
   function atomic$boolean$1(initial) {
     return atomic_0(initial, None_getInstance());
   }
   function AtomicInt(value) {
-    this.yg_1 = value;
+    this.mo_1 = value;
   }
-  AtomicInt.prototype.dh = function (_set____db54di) {
-    this.yg_1 = _set____db54di;
+  AtomicInt.prototype.ro = function (_set____db54di) {
+    this.mo_1 = _set____db54di;
   };
-  AtomicInt.prototype.ah = function () {
-    return this.yg_1;
+  AtomicInt.prototype.oo = function () {
+    return this.mo_1;
   };
   AtomicInt.prototype.atomicfu$compareAndSet = function (expect, update) {
-    if (!(this.yg_1 === expect))
+    if (!(this.mo_1 === expect))
       return false;
-    this.yg_1 = update;
+    this.mo_1 = update;
     return true;
   };
   AtomicInt.prototype.atomicfu$getAndSet = function (value) {
-    var oldValue = this.yg_1;
-    this.yg_1 = value;
+    var oldValue = this.mo_1;
+    this.mo_1 = value;
     return oldValue;
   };
   AtomicInt.prototype.atomicfu$getAndIncrement = function () {
     var tmp0_this = this;
-    var tmp1 = tmp0_this.yg_1;
-    tmp0_this.yg_1 = tmp1 + 1 | 0;
+    var tmp1 = tmp0_this.mo_1;
+    tmp0_this.mo_1 = tmp1 + 1 | 0;
     return tmp1;
   };
   AtomicInt.prototype.atomicfu$getAndDecrement = function () {
     var tmp0_this = this;
-    var tmp1 = tmp0_this.yg_1;
-    tmp0_this.yg_1 = tmp1 - 1 | 0;
+    var tmp1 = tmp0_this.mo_1;
+    tmp0_this.mo_1 = tmp1 - 1 | 0;
     return tmp1;
   };
   AtomicInt.prototype.atomicfu$getAndAdd = function (delta) {
-    var oldValue = this.yg_1;
+    var oldValue = this.mo_1;
     var tmp0_this = this;
-    tmp0_this.yg_1 = tmp0_this.yg_1 + delta | 0;
+    tmp0_this.mo_1 = tmp0_this.mo_1 + delta | 0;
     return oldValue;
   };
   AtomicInt.prototype.atomicfu$addAndGet = function (delta) {
     var tmp0_this = this;
-    tmp0_this.yg_1 = tmp0_this.yg_1 + delta | 0;
-    return this.yg_1;
+    tmp0_this.mo_1 = tmp0_this.mo_1 + delta | 0;
+    return this.mo_1;
   };
   AtomicInt.prototype.atomicfu$incrementAndGet = function () {
     var tmp0_this = this;
-    tmp0_this.yg_1 = tmp0_this.yg_1 + 1 | 0;
-    return tmp0_this.yg_1;
+    tmp0_this.mo_1 = tmp0_this.mo_1 + 1 | 0;
+    return tmp0_this.mo_1;
   };
   AtomicInt.prototype.atomicfu$decrementAndGet = function () {
     var tmp0_this = this;
-    tmp0_this.yg_1 = tmp0_this.yg_1 - 1 | 0;
-    return tmp0_this.yg_1;
+    tmp0_this.mo_1 = tmp0_this.mo_1 - 1 | 0;
+    return tmp0_this.mo_1;
   };
   AtomicInt.prototype.toString = function () {
-    return this.yg_1.toString();
+    return this.mo_1.toString();
   };
   AtomicInt.$metadata$ = classMeta('AtomicInt');
   Object.defineProperty(AtomicInt.prototype, 'kotlinx$atomicfu$value', {
     configurable: true,
-    get: AtomicInt.prototype.ah,
-    set: AtomicInt.prototype.dh
+    get: AtomicInt.prototype.oo,
+    set: AtomicInt.prototype.ro
   });
   function atomic$int$1(initial) {
     return atomic_1(initial, None_getInstance());

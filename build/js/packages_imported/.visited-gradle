@@ -77,6 +77,15 @@
     },
     "db0531404860243a6b593b40bc631091": {
       "src": "/home/renattele/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-js/1.3.3/e9d8021dbf71cdbd6797c347739835d0f7b5102d/kotlinx-serialization-core-jsir-1.3.3.klib"
+    },
+    "b7c10cc959647bfd0137a1a8758ca8e3": {
+      "src": "/home/renattele/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-js/1.4.0/2f5978b444bb396865fd7204128f334acfc54f56/kotlinx-serialization-json-jsir-1.4.0.klib"
+    },
+    "627bdde88d1b9274aff279e0440c728b": {
+      "src": "/home/renattele/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-js/1.4.0/b1dd2933343e8f054002ac1c6937a814c38220df/kotlinx-serialization-core-jsir-1.4.0.klib"
+    },
+    "acb46bdb0977232d247cebe0ecc5ed41": {
+      "src": "/home/renattele/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin-wrappers/kotlin-css-js/1.0.0-pre.374/b2a2f6e371f1908bc58541d4646ebb7bc4b97aa3/kotlin-css-jsir-1.0.0-pre.374.klib"
     }
   }
 }

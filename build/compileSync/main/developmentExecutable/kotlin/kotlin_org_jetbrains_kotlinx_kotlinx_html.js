@@ -13,56 +13,56 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var interfaceMeta = kotlin_kotlin.$_$.m3;
-  var toString = kotlin_kotlin.$_$.s3;
-  var THROW_CCE = kotlin_kotlin.$_$.g4;
-  var Annotation = kotlin_kotlin.$_$.a4;
-  var classMeta = kotlin_kotlin.$_$.h3;
-  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.p;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.r;
-  var Unit_getInstance = kotlin_kotlin.$_$.m1;
-  var getProgressionLastElement = kotlin_kotlin.$_$.b3;
-  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.j;
-  var setOf = kotlin_kotlin.$_$.d2;
-  var listOf = kotlin_kotlin.$_$.z1;
-  var getStringHashCode = kotlin_kotlin.$_$.k3;
-  var Map = kotlin_kotlin.$_$.p1;
-  var Entry = kotlin_kotlin.$_$.o1;
-  var emptyMap = kotlin_kotlin.$_$.u1;
-  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.s;
-  var objectMeta = kotlin_kotlin.$_$.q3;
-  var joinToString$default = kotlin_kotlin.$_$.b;
-  var Set = kotlin_kotlin.$_$.r1;
-  var isInterface = kotlin_kotlin.$_$.n3;
-  var ensureNotNull = kotlin_kotlin.$_$.k4;
-  var emptySet = kotlin_kotlin.$_$.v1;
-  var Regex_init_$Create$ = kotlin_kotlin.$_$.o;
-  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.g;
-  var charSequenceLength = kotlin_kotlin.$_$.g3;
-  var toSet = kotlin_kotlin.$_$.f2;
-  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.k;
-  var MutableMap = kotlin_kotlin.$_$.q1;
-  var THROW_ISE = kotlin_kotlin.$_$.h4;
-  var Enum = kotlin_kotlin.$_$.c4;
-  var mapCapacity = kotlin_kotlin.$_$.a2;
-  var coerceAtLeast = kotlin_kotlin.$_$.t3;
-  var LinkedHashMap_init_$Create$_1 = kotlin_kotlin.$_$.i;
-  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.y;
-  var Char = kotlin_kotlin.$_$.b4;
-  var to = kotlin_kotlin.$_$.p4;
-  var mapOf = kotlin_kotlin.$_$.b2;
-  var collectionSizeOrDefault = kotlin_kotlin.$_$.t1;
-  var ArrayList_init_$Create$_0 = kotlin_kotlin.$_$.f;
-  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.a1;
-  var maxOrNull = kotlin_kotlin.$_$.c2;
-  var fillArrayVal = kotlin_kotlin.$_$.j3;
-  var numberToChar = kotlin_kotlin.$_$.p3;
-  var Char__rangeTo_impl_tkncvp = kotlin_kotlin.$_$.z;
-  var last = kotlin_kotlin.$_$.y1;
-  var get_lastIndex = kotlin_kotlin.$_$.x1;
-  var asList = kotlin_kotlin.$_$.q4;
-  var first = kotlin_kotlin.$_$.w1;
-  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.x;
+  var interfaceMeta = kotlin_kotlin.$_$.q7;
+  var toString = kotlin_kotlin.$_$.l8;
+  var THROW_CCE = kotlin_kotlin.$_$.ka;
+  var Annotation = kotlin_kotlin.$_$.aa;
+  var classMeta = kotlin_kotlin.$_$.j7;
+  var StringBuilder_init_$Create$ = kotlin_kotlin.$_$.o1;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.u1;
+  var Unit_getInstance = kotlin_kotlin.$_$.r3;
+  var getProgressionLastElement = kotlin_kotlin.$_$.z6;
+  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.e1;
+  var setOf = kotlin_kotlin.$_$.r5;
+  var listOf = kotlin_kotlin.$_$.j5;
+  var getStringHashCode = kotlin_kotlin.$_$.o7;
+  var Map = kotlin_kotlin.$_$.d4;
+  var Entry = kotlin_kotlin.$_$.c4;
+  var emptyMap = kotlin_kotlin.$_$.z4;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.w1;
+  var objectMeta = kotlin_kotlin.$_$.h8;
+  var joinToString$default = kotlin_kotlin.$_$.h;
+  var Set = kotlin_kotlin.$_$.h4;
+  var isInterface = kotlin_kotlin.$_$.y7;
+  var ensureNotNull = kotlin_kotlin.$_$.wa;
+  var emptySet = kotlin_kotlin.$_$.a5;
+  var Regex_init_$Create$ = kotlin_kotlin.$_$.l1;
+  var ArrayList_init_$Create$ = kotlin_kotlin.$_$.v;
+  var charSequenceLength = kotlin_kotlin.$_$.h7;
+  var toSet = kotlin_kotlin.$_$.a6;
+  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.f1;
+  var MutableMap = kotlin_kotlin.$_$.f4;
+  var THROW_ISE = kotlin_kotlin.$_$.la;
+  var Enum = kotlin_kotlin.$_$.ea;
+  var mapCapacity = kotlin_kotlin.$_$.k5;
+  var coerceAtLeast = kotlin_kotlin.$_$.o8;
+  var LinkedHashMap_init_$Create$_1 = kotlin_kotlin.$_$.d1;
+  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.e2;
+  var Char = kotlin_kotlin.$_$.ba;
+  var to = kotlin_kotlin.$_$.gb;
+  var mapOf = kotlin_kotlin.$_$.l5;
+  var collectionSizeOrDefault = kotlin_kotlin.$_$.k4;
+  var ArrayList_init_$Create$_0 = kotlin_kotlin.$_$.u;
+  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.h2;
+  var maxOrNull = kotlin_kotlin.$_$.m5;
+  var fillArrayVal = kotlin_kotlin.$_$.l7;
+  var numberToChar = kotlin_kotlin.$_$.f8;
+  var Char__rangeTo_impl_tkncvp = kotlin_kotlin.$_$.g2;
+  var last = kotlin_kotlin.$_$.i5;
+  var get_lastIndex = kotlin_kotlin.$_$.g5;
+  var asList = kotlin_kotlin.$_$.hb;
+  var first = kotlin_kotlin.$_$.b5;
+  var UnsupportedOperationException_init_$Create$ = kotlin_kotlin.$_$.c2;
   //endregion
   //region block: pre-declaration
   function unaryPlus(_this__u8e3s4) {
@@ -151,6 +151,8 @@
   DIV.prototype.constructor = DIV;
   INPUT.prototype = Object.create(HTMLTag.prototype);
   INPUT.prototype.constructor = INPUT;
+  IMG.prototype = Object.create(HTMLTag.prototype);
+  IMG.prototype.constructor = IMG;
   STYLE.prototype = Object.create(HTMLTag.prototype);
   STYLE.prototype.constructor = STYLE;
   SPAN.prototype = Object.create(HTMLTag.prototype);
@@ -3482,6 +3484,30 @@
       return Unit_getInstance();
     };
   }
+  function img(_this__u8e3s4, alt, src, classes, block) {
+    var tmp$ret$0;
+    {
+      var tmp0_visit = new IMG(attributesMapOf_0(['alt', alt, 'src', src, 'class', classes]), _this__u8e3s4.get_consumer_tu5133_k$());
+      tmp0_visit.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit);
+      var tmp;
+      try {
+        tmp = block(tmp0_visit);
+      } catch ($p) {
+        var tmp_0;
+        if ($p instanceof Error) {
+          tmp_0 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
+        } else {
+          throw $p;
+        }
+        tmp = tmp_0;
+      }
+      finally {
+        tmp0_visit.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit);
+      }
+      tmp$ret$0 = tmp;
+    }
+    return tmp$ret$0;
+  }
   function span(_this__u8e3s4, classes, block) {
     var tmp$ret$0;
     {
@@ -3535,12 +3561,6 @@
     }
     return tmp$ret$0;
   }
-  function FlowOrPhrasingContent() {
-  }
-  FlowOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrPhrasingContent', [FlowOrInteractiveOrPhrasingContent, FlowOrMetaDataOrPhrasingContent, Tag]);
-  function FlowOrInteractiveOrPhrasingContent() {
-  }
-  FlowOrInteractiveOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrInteractiveOrPhrasingContent', [Tag]);
   function FlowOrMetaDataOrPhrasingContent() {
   }
   FlowOrMetaDataOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrMetaDataOrPhrasingContent', [Tag]);
@@ -3553,9 +3573,20 @@
   function FlowOrInteractiveContent() {
   }
   FlowOrInteractiveContent.$metadata$ = interfaceMeta('FlowOrInteractiveContent', [FlowOrInteractiveOrPhrasingContent, Tag]);
+  function FlowOrPhrasingContent() {
+  }
+  FlowOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrPhrasingContent', [FlowOrInteractiveOrPhrasingContent, FlowOrMetaDataOrPhrasingContent, Tag]);
   function SectioningOrFlowContent() {
   }
   SectioningOrFlowContent.$metadata$ = interfaceMeta('SectioningOrFlowContent', [Tag]);
+  function FlowOrInteractiveOrPhrasingContent() {
+  }
+  FlowOrInteractiveOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrInteractiveOrPhrasingContent', [Tag]);
+  function img$lambda() {
+    return function ($this$null) {
+      return Unit_getInstance();
+    };
+  }
   function span$lambda() {
     return function ($this$null) {
       return Unit_getInstance();
@@ -3768,6 +3799,50 @@
     return get_attributeStringString().get_kdqgs6_k$(this, 'name');
   };
   INPUT.$metadata$ = classMeta('INPUT', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
+  function IMG(initialAttributes, consumer) {
+    HTMLTag.call(this, 'img', consumer, initialAttributes, null, true, true);
+    this.consumer_2 = consumer;
+  }
+  IMG.prototype.get_consumer_tu5133_k$ = function () {
+    return this.consumer_2;
+  };
+  IMG.prototype.set_alt_vr0wxm_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'alt', newValue);
+  };
+  IMG.prototype.get_alt_18j9hc_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'alt');
+  };
+  IMG.prototype.set_src_70g1px_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'src', newValue);
+  };
+  IMG.prototype.get_src_18iw05_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'src');
+  };
+  IMG.prototype.set_height_iaj1q_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'height', newValue);
+  };
+  IMG.prototype.get_height_e7t92o_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'height');
+  };
+  IMG.prototype.set_width_bs5acp_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'width', newValue);
+  };
+  IMG.prototype.get_width_j0q4yl_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'width');
+  };
+  IMG.prototype.set_usemap_wz0oo0_k$ = function (newValue) {
+    get_attributeStringString().set_r65rse_k$(this, 'usemap', newValue);
+  };
+  IMG.prototype.get_usemap_kl10u6_k$ = function () {
+    return get_attributeStringString().get_kdqgs6_k$(this, 'usemap');
+  };
+  IMG.prototype.set_ismap_rnpwuk_k$ = function (newValue) {
+    get_attributeBooleanTicker().set_r65rse_k$(this, 'ismap', newValue);
+  };
+  IMG.prototype.get_ismap_it7kqx_k$ = function () {
+    return get_attributeBooleanTicker().get_kdqgs6_k$(this, 'ismap');
+  };
+  IMG.$metadata$ = classMeta('IMG', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
   function STYLE(initialAttributes, consumer) {
     HTMLTag.call(this, 'style', consumer, initialAttributes, null, false, false);
     this.consumer_2 = consumer;
@@ -4279,6 +4354,18 @@
       return Unit_getInstance();
     };
   }
+  function set_onChangeFunction(_this__u8e3s4, newValue) {
+    _this__u8e3s4.get_consumer_tu5133_k$().onTagEvent_ll97zc_k$(_this__u8e3s4, 'onchange', newValue);
+  }
+  function get_onChangeFunction(_this__u8e3s4) {
+    throw UnsupportedOperationException_init_$Create$("You can't read variable onChange");
+  }
+  function set_onKeyUpFunction(_this__u8e3s4, newValue) {
+    _this__u8e3s4.get_consumer_tu5133_k$().onTagEvent_ll97zc_k$(_this__u8e3s4, 'onkeyup', newValue);
+  }
+  function get_onKeyUpFunction(_this__u8e3s4) {
+    throw UnsupportedOperationException_init_$Create$("You can't read variable onKeyUp");
+  }
   function set_onClickFunction(_this__u8e3s4, newValue) {
     _this__u8e3s4.get_consumer_tu5133_k$().onTagEvent_ll97zc_k$(_this__u8e3s4, 'onclick', newValue);
   }
@@ -4312,6 +4399,12 @@
   INPUT.prototype.text_ojl72r_k$ = text_0;
   INPUT.prototype.entity_uznif4_k$ = entity;
   INPUT.prototype.comment_mqs0p9_k$ = comment;
+  IMG.prototype.unaryPlus_31ug2c_k$ = unaryPlus;
+  IMG.prototype.unaryPlus_g7ydph_k$ = unaryPlus_0;
+  IMG.prototype.text_yddl45_k$ = text;
+  IMG.prototype.text_ojl72r_k$ = text_0;
+  IMG.prototype.entity_uznif4_k$ = entity;
+  IMG.prototype.comment_mqs0p9_k$ = comment;
   STYLE.prototype.comment_mqs0p9_k$ = comment;
   SPAN.prototype.unaryPlus_31ug2c_k$ = unaryPlus;
   SPAN.prototype.unaryPlus_g7ydph_k$ = unaryPlus_0;
@@ -4325,14 +4418,18 @@
   _.$_$ = _.$_$ || {};
   _.$_$.a = enumEncode;
   _.$_$.b = append;
-  _.$_$.c = set_onClickFunction;
-  _.$_$.d = DIV;
-  _.$_$.e = INPUT;
-  _.$_$.f = SPAN;
-  _.$_$.g = STYLE;
-  _.$_$.h = attributesMapOf_0;
-  _.$_$.i = attributesMapOf;
-  _.$_$.j = set_id;
+  _.$_$.c = set_onChangeFunction;
+  _.$_$.d = set_onClickFunction;
+  _.$_$.e = set_onKeyUpFunction;
+  _.$_$.f = DIV;
+  _.$_$.g = IMG;
+  _.$_$.h = INPUT;
+  _.$_$.i = SPAN;
+  _.$_$.j = STYLE;
+  _.$_$.k = attributesMapOf_0;
+  _.$_$.l = attributesMapOf;
+  _.$_$.m = get_id;
+  _.$_$.n = set_id;
   //endregion
   return _;
 }));

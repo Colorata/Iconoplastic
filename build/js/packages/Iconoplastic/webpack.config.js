@@ -1,5 +1,5 @@
 let config = {
-  mode: 'development',
+  mode: 'production',
   resolve: {
     modules: [
       "node_modules"
@@ -17,7 +17,7 @@ config.entry = {
 };
 
 config.output = {
-    path: "/home/renattele/StudioProjects/NoBackup/Iconoplastic/build/developmentExecutable",
+    path: "/home/renattele/StudioProjects/NoBackup/Iconoplastic/build/distributions",
     filename: (chunkData) => {
         return chunkData.chunk.name === 'main'
             ? "Iconoplastic.js"
@@ -34,7 +34,7 @@ config.module.rules.push({
         use: ["source-map-loader"],
         enforce: "pre"
 });
-config.devtool = 'eval-source-map';
+config.devtool = 'source-map';
 config.ignoreWarnings = [/Failed to parse source map/]
 
 // Report progress to console

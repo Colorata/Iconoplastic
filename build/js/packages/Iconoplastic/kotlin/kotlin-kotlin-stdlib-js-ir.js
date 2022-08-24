@@ -4,6 +4,48 @@ if (typeof ArrayBuffer.isView === 'undefined') {
     return a != null && a.__proto__ != null && a.__proto__.__proto__ === Int8Array.prototype.__proto__;
   };
 }
+if (typeof Math.clz32 === 'undefined') {
+  Math.clz32 = function (log, LN2) {
+    return function (x) {
+      var asUint = x >>> 0;
+      if (asUint === 0) {
+        return 32;
+      }
+      return 31 - (log(asUint) / LN2 | 0) | 0;
+    };
+  }(Math.log, Math.LN2);
+}
+if (typeof Math.log10 === 'undefined') {
+  Math.log10 = function (x) {
+    return Math.log(x) * Math.LOG10E;
+  };
+}
+if (typeof Math.sign === 'undefined') {
+  Math.sign = function (x) {
+    x = +x;
+    if (x === 0 || isNaN(x)) {
+      return Number(x);
+    }
+    return x > 0 ? 1 : -1;
+  };
+}
+if (typeof String.prototype.startsWith === 'undefined') {
+  Object.defineProperty(String.prototype, 'startsWith', {value: function (searchString, position) {
+    position = position || 0;
+    return this.lastIndexOf(searchString, position) === position;
+  }});
+}
+if (typeof String.prototype.endsWith === 'undefined') {
+  Object.defineProperty(String.prototype, 'endsWith', {value: function (searchString, position) {
+    var subjectString = this.toString();
+    if (position === undefined || position > subjectString.length) {
+      position = subjectString.length;
+    }
+    position -= searchString.length;
+    var lastIndex = subjectString.indexOf(searchString, position);
+    return lastIndex !== -1 && lastIndex === position;
+  }});
+}
 (function () {
   if (typeof globalThis === 'object')
     return;
@@ -31,6 +73,9 @@ if (typeof Math.imul === 'undefined') {
   //region block: imports
   var imul = Math.imul;
   var isView = ArrayBuffer.isView;
+  var sign = Math.sign;
+  var log10 = Math.log10;
+  var clz32 = Math.clz32;
   //endregion
   //region block: pre-declaration
   Exception.prototype = Object.create(Error.prototype);
@@ -73,7 +118,7 @@ if (typeof Math.imul === 'undefined') {
   }
   function get(key) {
     var tmp;
-    if (equals_0(this.get_key_18j28a_k$(), key)) {
+    if (equals_1(this.get_key_18j28a_k$(), key)) {
       tmp = isInterface(this, Element) ? this : THROW_CCE();
     } else {
       tmp = null;
@@ -84,7 +129,7 @@ if (typeof Math.imul === 'undefined') {
     return operation(initial, this);
   }
   function minusKey(key) {
-    return equals_0(this.get_key_18j28a_k$(), key) ? EmptyCoroutineContext_getInstance() : this;
+    return equals_1(this.get_key_18j28a_k$(), key) ? EmptyCoroutineContext_getInstance() : this;
   }
   function releaseInterceptedContinuation(continuation) {
   }
@@ -117,21 +162,33 @@ if (typeof Math.imul === 'undefined') {
   CoroutineSingletons.prototype.constructor = CoroutineSingletons;
   RequireKotlinVersionKind.prototype = Object.create(Enum.prototype);
   RequireKotlinVersionKind.prototype.constructor = RequireKotlinVersionKind;
-  KVariance.prototype = Object.create(Enum.prototype);
-  KVariance.prototype.constructor = KVariance;
-  function get_destructured() {
-    return new Destructured(this);
-  }
-  Error_0.prototype = Object.create(Error.prototype);
-  Error_0.prototype.constructor = Error_0;
-  NotImplementedError.prototype = Object.create(Error_0.prototype);
-  NotImplementedError.prototype.constructor = NotImplementedError;
   function contains(value) {
     return compareTo_0(value, this.get_start_iypx6h_k$()) >= 0 ? compareTo_0(value, this.get_endInclusive_r07xpi_k$()) <= 0 : false;
   }
   function isEmpty() {
     return compareTo_0(this.get_start_iypx6h_k$(), this.get_endInclusive_r07xpi_k$()) > 0;
   }
+  function contains_0(value) {
+    return this.lessThanOrEquals_fm7qp2_k$(this.get_start_iypx6h_k$(), value) ? this.lessThanOrEquals_fm7qp2_k$(value, this.get_endInclusive_r07xpi_k$()) : false;
+  }
+  function isEmpty_0() {
+    return !this.lessThanOrEquals_fm7qp2_k$(this.get_start_iypx6h_k$(), this.get_endInclusive_r07xpi_k$());
+  }
+  KVariance.prototype = Object.create(Enum.prototype);
+  KVariance.prototype.constructor = KVariance;
+  iterator$1.prototype = Object.create(CharIterator.prototype);
+  iterator$1.prototype.constructor = iterator$1;
+  function get_destructured() {
+    return new Destructured(this);
+  }
+  DeepRecursiveScopeImpl.prototype = Object.create(DeepRecursiveScope.prototype);
+  DeepRecursiveScopeImpl.prototype.constructor = DeepRecursiveScopeImpl;
+  LazyThreadSafetyMode.prototype = Object.create(Enum.prototype);
+  LazyThreadSafetyMode.prototype.constructor = LazyThreadSafetyMode;
+  Error_0.prototype = Object.create(Error.prototype);
+  Error_0.prototype.constructor = Error_0;
+  NotImplementedError.prototype = Object.create(Error_0.prototype);
+  NotImplementedError.prototype.constructor = NotImplementedError;
   UIntRange.prototype = Object.create(UIntProgression.prototype);
   UIntRange.prototype.constructor = UIntRange;
   ULongRange.prototype = Object.create(ULongProgression.prototype);
@@ -220,6 +277,8 @@ if (typeof Math.imul === 'undefined') {
   findNext$1$groups$1.prototype.constructor = findNext$1$groups$1;
   findNext$1$groupValues$1.prototype = Object.create(AbstractList.prototype);
   findNext$1$groupValues$1.prototype.constructor = findNext$1$groupValues$1;
+  DurationUnit.prototype = Object.create(Enum.prototype);
+  DurationUnit.prototype.constructor = DurationUnit;
   booleanArrayIterator$1.prototype = Object.create(BooleanIterator.prototype);
   booleanArrayIterator$1.prototype.constructor = booleanArrayIterator$1;
   charArrayIterator$1.prototype = Object.create(CharIterator.prototype);
@@ -240,12 +299,12 @@ if (typeof Math.imul === 'undefined') {
   Long.prototype.constructor = Long;
   IrLinkageError.prototype = Object.create(Error_0.prototype);
   IrLinkageError.prototype.constructor = IrLinkageError;
-  _no_name_provided__qut3iv_6.prototype = Object.create(CoroutineImpl.prototype);
-  _no_name_provided__qut3iv_6.prototype.constructor = _no_name_provided__qut3iv_6;
-  _no_name_provided__qut3iv_7.prototype = Object.create(CoroutineImpl.prototype);
-  _no_name_provided__qut3iv_7.prototype.constructor = _no_name_provided__qut3iv_7;
   _no_name_provided__qut3iv_8.prototype = Object.create(CoroutineImpl.prototype);
   _no_name_provided__qut3iv_8.prototype.constructor = _no_name_provided__qut3iv_8;
+  _no_name_provided__qut3iv_9.prototype = Object.create(CoroutineImpl.prototype);
+  _no_name_provided__qut3iv_9.prototype.constructor = _no_name_provided__qut3iv_9;
+  _no_name_provided__qut3iv_10.prototype = Object.create(CoroutineImpl.prototype);
+  _no_name_provided__qut3iv_10.prototype.constructor = _no_name_provided__qut3iv_10;
   IllegalArgumentException.prototype = Object.create(RuntimeException.prototype);
   IllegalArgumentException.prototype.constructor = IllegalArgumentException;
   NoSuchElementException.prototype = Object.create(RuntimeException.prototype);
@@ -254,6 +313,8 @@ if (typeof Math.imul === 'undefined') {
   UnsupportedOperationException.prototype.constructor = UnsupportedOperationException;
   IndexOutOfBoundsException.prototype = Object.create(RuntimeException.prototype);
   IndexOutOfBoundsException.prototype.constructor = IndexOutOfBoundsException;
+  AssertionError.prototype = Object.create(Error_0.prototype);
+  AssertionError.prototype.constructor = AssertionError;
   NumberFormatException.prototype = Object.create(IllegalArgumentException.prototype);
   NumberFormatException.prototype.constructor = NumberFormatException;
   ArithmeticException.prototype = Object.create(RuntimeException.prototype);
@@ -296,122 +357,25 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0;
   }
-  function associateByTo(_this__u8e3s4, destination, keySelector) {
-    var indexedObject = _this__u8e3s4;
-    var inductionVariable = 0;
-    var last = indexedObject.length;
-    while (inductionVariable < last) {
-      var element = indexedObject[inductionVariable];
-      inductionVariable = inductionVariable + 1 | 0;
-      destination.put_3mhbri_k$(keySelector(element), element);
-    }
-    return destination;
-  }
-  function single(_this__u8e3s4) {
+  function toList(_this__u8e3s4) {
     var tmp0_subject = _this__u8e3s4.length;
-    var tmp;
     switch (tmp0_subject) {
       case 0:
-        throw NoSuchElementException_init_$Create$_0('Array is empty.');
+        return emptyList();
       case 1:
-        tmp = _this__u8e3s4[0];
-        break;
+        return listOf_0(_this__u8e3s4[0]);
       default:
-        throw IllegalArgumentException_init_$Create$_0('Array has more than one element.');
+        return toMutableList(_this__u8e3s4);
     }
-    return tmp;
   }
-  function any(_this__u8e3s4, predicate) {
-    var indexedObject = _this__u8e3s4;
-    var inductionVariable = 0;
-    var last = indexedObject.length;
-    while (inductionVariable < last) {
-      var element = indexedObject[inductionVariable];
-      inductionVariable = inductionVariable + 1 | 0;
-      if (predicate(new Char_0(element)))
-        return true;
-    }
-    return false;
+  function withIndex(_this__u8e3s4) {
+    return new IndexingIterable(withIndex$lambda(_this__u8e3s4));
   }
   function get_indices(_this__u8e3s4) {
     return new IntRange(0, get_lastIndex(_this__u8e3s4));
   }
-  function indexOf(_this__u8e3s4, element) {
-    if (element == null) {
-      var inductionVariable = 0;
-      var last = _this__u8e3s4.length - 1 | 0;
-      if (inductionVariable <= last)
-        do {
-          var index = inductionVariable;
-          inductionVariable = inductionVariable + 1 | 0;
-          if (_this__u8e3s4[index] == null) {
-            return index;
-          }
-        }
-         while (inductionVariable <= last);
-    } else {
-      var inductionVariable_0 = 0;
-      var last_0 = _this__u8e3s4.length - 1 | 0;
-      if (inductionVariable_0 <= last_0)
-        do {
-          var index_0 = inductionVariable_0;
-          inductionVariable_0 = inductionVariable_0 + 1 | 0;
-          if (equals_0(element, _this__u8e3s4[index_0])) {
-            return index_0;
-          }
-        }
-         while (inductionVariable_0 <= last_0);
-    }
-    return -1;
-  }
-  function lastIndexOf(_this__u8e3s4, element) {
-    if (element == null) {
-      var inductionVariable = _this__u8e3s4.length - 1 | 0;
-      if (0 <= inductionVariable)
-        do {
-          var index = inductionVariable;
-          inductionVariable = inductionVariable + -1 | 0;
-          if (_this__u8e3s4[index] == null) {
-            return index;
-          }
-        }
-         while (0 <= inductionVariable);
-    } else {
-      var inductionVariable_0 = _this__u8e3s4.length - 1 | 0;
-      if (0 <= inductionVariable_0)
-        do {
-          var index_0 = inductionVariable_0;
-          inductionVariable_0 = inductionVariable_0 + -1 | 0;
-          if (equals_0(element, _this__u8e3s4[index_0])) {
-            return index_0;
-          }
-        }
-         while (0 <= inductionVariable_0);
-    }
-    return -1;
-  }
-  function isEmpty_0(_this__u8e3s4) {
-    return _this__u8e3s4.length === 0;
-  }
-  function contains_0(_this__u8e3s4, element) {
-    return indexOf(_this__u8e3s4, element) >= 0;
-  }
-  function get_lastIndex(_this__u8e3s4) {
-    return _this__u8e3s4.length - 1 | 0;
-  }
-  function toCollection(_this__u8e3s4, destination) {
-    var indexedObject = _this__u8e3s4;
-    var inductionVariable = 0;
-    var last = indexedObject.length;
-    while (inductionVariable < last) {
-      var item = indexedObject[inductionVariable];
-      inductionVariable = inductionVariable + 1 | 0;
-      destination.add_1j60pz_k$(item);
-    }
-    return destination;
-  }
-  function contains_1(_this__u8e3s4, element) {
-    return indexOf_0(_this__u8e3s4, element) >= 0;
+  function get_indices_0(_this__u8e3s4) {
+    return new IntRange(0, get_lastIndex_0(_this__u8e3s4));
   }
   function joinToString(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform) {
     return joinTo(_this__u8e3s4, StringBuilder_init_$Create$_1(), separator, prefix, postfix, limit, truncated, transform).toString();
@@ -431,19 +395,25 @@ if (typeof Math.imul === 'undefined') {
       transform = null;
     return joinToString(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform);
   }
-  function indexOf_0(_this__u8e3s4, element) {
+  function associateByTo(_this__u8e3s4, destination, keySelector) {
+    var indexedObject = _this__u8e3s4;
     var inductionVariable = 0;
-    var last = _this__u8e3s4.length - 1 | 0;
-    if (inductionVariable <= last)
-      do {
-        var index = inductionVariable;
-        inductionVariable = inductionVariable + 1 | 0;
-        if (equals_0(new Char_0(element), new Char_0(_this__u8e3s4[index]))) {
-          return index;
-        }
-      }
-       while (inductionVariable <= last);
-    return -1;
+    var last = indexedObject.length;
+    while (inductionVariable < last) {
+      var element = indexedObject[inductionVariable];
+      inductionVariable = inductionVariable + 1 | 0;
+      destination.put_3mhbri_k$(keySelector(element), element);
+    }
+    return destination;
+  }
+  function toMutableList(_this__u8e3s4) {
+    return ArrayList_init_$Create$_1(asCollection(_this__u8e3s4));
+  }
+  function get_lastIndex(_this__u8e3s4) {
+    return _this__u8e3s4.length - 1 | 0;
+  }
+  function get_lastIndex_0(_this__u8e3s4) {
+    return _this__u8e3s4.length - 1 | 0;
   }
   function joinTo(_this__u8e3s4, buffer, separator, prefix, postfix, limit, truncated, transform) {
     buffer.append_oz4qxs_k$(prefix);
@@ -484,11 +454,116 @@ if (typeof Math.imul === 'undefined') {
       transform = null;
     return joinTo(_this__u8e3s4, buffer, separator, prefix, postfix, limit, truncated, transform);
   }
-  function get_indices_0(_this__u8e3s4) {
-    return new IntRange(0, get_lastIndex_0(_this__u8e3s4));
+  function toSet(_this__u8e3s4) {
+    var tmp0_subject = _this__u8e3s4.length;
+    switch (tmp0_subject) {
+      case 0:
+        return emptySet();
+      case 1:
+        return setOf_1(_this__u8e3s4[0]);
+      default:
+        return toCollection(_this__u8e3s4, LinkedHashSet_init_$Create$_3(mapCapacity(_this__u8e3s4.length)));
+    }
   }
-  function get_lastIndex_0(_this__u8e3s4) {
-    return _this__u8e3s4.length - 1 | 0;
+  function single(_this__u8e3s4) {
+    var tmp0_subject = _this__u8e3s4.length;
+    var tmp;
+    switch (tmp0_subject) {
+      case 0:
+        throw NoSuchElementException_init_$Create$_0('Array is empty.');
+      case 1:
+        tmp = _this__u8e3s4[0];
+        break;
+      default:
+        throw IllegalArgumentException_init_$Create$_0('Array has more than one element.');
+    }
+    return tmp;
+  }
+  function any(_this__u8e3s4, predicate) {
+    var indexedObject = _this__u8e3s4;
+    var inductionVariable = 0;
+    var last = indexedObject.length;
+    while (inductionVariable < last) {
+      var element = indexedObject[inductionVariable];
+      inductionVariable = inductionVariable + 1 | 0;
+      if (predicate(new Char_0(element)))
+        return true;
+    }
+    return false;
+  }
+  function indexOf(_this__u8e3s4, element) {
+    if (element == null) {
+      var inductionVariable = 0;
+      var last = _this__u8e3s4.length - 1 | 0;
+      if (inductionVariable <= last)
+        do {
+          var index = inductionVariable;
+          inductionVariable = inductionVariable + 1 | 0;
+          if (_this__u8e3s4[index] == null) {
+            return index;
+          }
+        }
+         while (inductionVariable <= last);
+    } else {
+      var inductionVariable_0 = 0;
+      var last_0 = _this__u8e3s4.length - 1 | 0;
+      if (inductionVariable_0 <= last_0)
+        do {
+          var index_0 = inductionVariable_0;
+          inductionVariable_0 = inductionVariable_0 + 1 | 0;
+          if (equals_1(element, _this__u8e3s4[index_0])) {
+            return index_0;
+          }
+        }
+         while (inductionVariable_0 <= last_0);
+    }
+    return -1;
+  }
+  function lastIndexOf(_this__u8e3s4, element) {
+    if (element == null) {
+      var inductionVariable = _this__u8e3s4.length - 1 | 0;
+      if (0 <= inductionVariable)
+        do {
+          var index = inductionVariable;
+          inductionVariable = inductionVariable + -1 | 0;
+          if (_this__u8e3s4[index] == null) {
+            return index;
+          }
+        }
+         while (0 <= inductionVariable);
+    } else {
+      var inductionVariable_0 = _this__u8e3s4.length - 1 | 0;
+      if (0 <= inductionVariable_0)
+        do {
+          var index_0 = inductionVariable_0;
+          inductionVariable_0 = inductionVariable_0 + -1 | 0;
+          if (equals_1(element, _this__u8e3s4[index_0])) {
+            return index_0;
+          }
+        }
+         while (0 <= inductionVariable_0);
+    }
+    return -1;
+  }
+  function isEmpty_1(_this__u8e3s4) {
+    return _this__u8e3s4.length === 0;
+  }
+  function contains_1(_this__u8e3s4, element) {
+    return indexOf(_this__u8e3s4, element) >= 0;
+  }
+  function toCollection(_this__u8e3s4, destination) {
+    var indexedObject = _this__u8e3s4;
+    var inductionVariable = 0;
+    var last = indexedObject.length;
+    while (inductionVariable < last) {
+      var item = indexedObject[inductionVariable];
+      inductionVariable = inductionVariable + 1 | 0;
+      destination.add_1j60pz_k$(item);
+    }
+    return destination;
+  }
+  function contains_2(_this__u8e3s4, element) {
+    return indexOf_0(_this__u8e3s4, element) >= 0;
   }
   function firstOrNull(_this__u8e3s4, predicate) {
     var indexedObject = _this__u8e3s4;
@@ -502,7 +577,130 @@ if (typeof Math.imul === 'undefined') {
     }
     return null;
   }
-  function contains_2(_this__u8e3s4, element) {
+  function indexOf_0(_this__u8e3s4, element) {
+    var inductionVariable = 0;
+    var last = _this__u8e3s4.length - 1 | 0;
+    if (inductionVariable <= last)
+      do {
+        var index = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        if (equals_1(new Char_0(element), new Char_0(_this__u8e3s4[index]))) {
+          return index;
+        }
+      }
+       while (inductionVariable <= last);
+    return -1;
+  }
+  function get_indices_1(_this__u8e3s4) {
+    return new IntRange(0, get_lastIndex_1(_this__u8e3s4));
+  }
+  function get_lastIndex_1(_this__u8e3s4) {
+    return _this__u8e3s4.length - 1 | 0;
+  }
+  function map(_this__u8e3s4, transform) {
+    var tmp$ret$0;
+    {
+      var tmp0_mapTo = ArrayList_init_$Create$_0(_this__u8e3s4.length);
+      var indexedObject = _this__u8e3s4;
+      var inductionVariable = 0;
+      var last = indexedObject.length;
+      while (inductionVariable < last) {
+        var item = indexedObject[inductionVariable];
+        inductionVariable = inductionVariable + 1 | 0;
+        tmp0_mapTo.add_1j60pz_k$(transform(item));
+      }
+      tmp$ret$0 = tmp0_mapTo;
+    }
+    return tmp$ret$0;
+  }
+  function forEach(_this__u8e3s4, action) {
+    var indexedObject = _this__u8e3s4;
+    var inductionVariable = 0;
+    var last = indexedObject.length;
+    while (inductionVariable < last) {
+      var element = indexedObject[inductionVariable];
+      inductionVariable = inductionVariable + 1 | 0;
+      action(element);
+    }
+  }
+  function mapTo(_this__u8e3s4, destination, transform) {
+    var indexedObject = _this__u8e3s4;
+    var inductionVariable = 0;
+    var last = indexedObject.length;
+    while (inductionVariable < last) {
+      var item = indexedObject[inductionVariable];
+      inductionVariable = inductionVariable + 1 | 0;
+      destination.add_1j60pz_k$(transform(item));
+    }
+    return destination;
+  }
+  function get_lastIndex_2(_this__u8e3s4) {
+    return _this__u8e3s4.length - 1 | 0;
+  }
+  function get_indices_2(_this__u8e3s4) {
+    return new IntRange(0, get_lastIndex_2(_this__u8e3s4));
+  }
+  function distinct(_this__u8e3s4) {
+    return toList_0(toMutableSet(_this__u8e3s4));
+  }
+  function zip(_this__u8e3s4, other) {
+    var tmp$ret$2;
+    {
+      var tmp$ret$0;
+      {
+        var tmp0_minOf = _this__u8e3s4.length;
+        var tmp1_minOf = other.length;
+        tmp$ret$0 = Math.min(tmp0_minOf, tmp1_minOf);
+      }
+      var size = tmp$ret$0;
+      var list = ArrayList_init_$Create$_0(size);
+      var inductionVariable = 0;
+      if (inductionVariable < size)
+        do {
+          var i = inductionVariable;
+          inductionVariable = inductionVariable + 1 | 0;
+          var tmp$ret$1;
+          {
+            var tmp2__anonymous__z9zvc9 = _this__u8e3s4[i];
+            var tmp3__anonymous__ufb84q = other[i];
+            tmp$ret$1 = to(tmp2__anonymous__z9zvc9, tmp3__anonymous__ufb84q);
+          }
+          list.add_1j60pz_k$(tmp$ret$1);
+        }
+         while (inductionVariable < size);
+      tmp$ret$2 = list;
+    }
+    return tmp$ret$2;
+  }
+  function toMutableSet(_this__u8e3s4) {
+    return toCollection(_this__u8e3s4, LinkedHashSet_init_$Create$_3(mapCapacity(_this__u8e3s4.length)));
+  }
+  function zip_0(_this__u8e3s4, other, transform) {
+    var tmp$ret$0;
+    {
+      var tmp0_minOf = _this__u8e3s4.length;
+      var tmp1_minOf = other.length;
+      tmp$ret$0 = Math.min(tmp0_minOf, tmp1_minOf);
+    }
+    var size = tmp$ret$0;
+    var list = ArrayList_init_$Create$_0(size);
+    var inductionVariable = 0;
+    if (inductionVariable < size)
+      do {
+        var i = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        list.add_1j60pz_k$(transform(_this__u8e3s4[i], other[i]));
+      }
+       while (inductionVariable < size);
+    return list;
+  }
+  function get_indices_3(_this__u8e3s4) {
+    return new IntRange(0, get_lastIndex_3(_this__u8e3s4));
+  }
+  function get_lastIndex_3(_this__u8e3s4) {
+    return _this__u8e3s4.length - 1 | 0;
+  }
+  function contains_3(_this__u8e3s4, element) {
     return indexOf_1(_this__u8e3s4, element) >= 0;
   }
   function indexOf_1(_this__u8e3s4, element) {
@@ -519,13 +717,13 @@ if (typeof Math.imul === 'undefined') {
        while (inductionVariable <= last);
     return -1;
   }
-  function get_indices_1(_this__u8e3s4) {
-    return new IntRange(0, get_lastIndex_1(_this__u8e3s4));
+  function get_indices_4(_this__u8e3s4) {
+    return new IntRange(0, get_lastIndex_4(_this__u8e3s4));
   }
-  function get_lastIndex_1(_this__u8e3s4) {
+  function get_lastIndex_4(_this__u8e3s4) {
     return _this__u8e3s4.length - 1 | 0;
   }
-  function contains_3(_this__u8e3s4, element) {
+  function contains_4(_this__u8e3s4, element) {
     return indexOf_2(_this__u8e3s4, element) >= 0;
   }
   function indexOf_2(_this__u8e3s4, element) {
@@ -542,13 +740,13 @@ if (typeof Math.imul === 'undefined') {
        while (inductionVariable <= last);
     return -1;
   }
-  function get_indices_2(_this__u8e3s4) {
-    return new IntRange(0, get_lastIndex_2(_this__u8e3s4));
+  function get_indices_5(_this__u8e3s4) {
+    return new IntRange(0, get_lastIndex_5(_this__u8e3s4));
   }
-  function get_lastIndex_2(_this__u8e3s4) {
+  function get_lastIndex_5(_this__u8e3s4) {
     return _this__u8e3s4.length - 1 | 0;
   }
-  function contains_4(_this__u8e3s4, element) {
+  function contains_5(_this__u8e3s4, element) {
     return indexOf_3(_this__u8e3s4, element) >= 0;
   }
   function indexOf_3(_this__u8e3s4, element) {
@@ -565,13 +763,7 @@ if (typeof Math.imul === 'undefined') {
        while (inductionVariable <= last);
     return -1;
   }
-  function get_indices_3(_this__u8e3s4) {
-    return new IntRange(0, get_lastIndex_3(_this__u8e3s4));
-  }
-  function get_lastIndex_3(_this__u8e3s4) {
-    return _this__u8e3s4.length - 1 | 0;
-  }
-  function contains_5(_this__u8e3s4, element) {
+  function contains_6(_this__u8e3s4, element) {
     return indexOf_4(_this__u8e3s4, element) >= 0;
   }
   function indexOf_4(_this__u8e3s4, element) {
@@ -588,11 +780,10 @@ if (typeof Math.imul === 'undefined') {
        while (inductionVariable <= last);
     return -1;
   }
-  function get_indices_4(_this__u8e3s4) {
-    return new IntRange(0, get_lastIndex_4(_this__u8e3s4));
-  }
-  function get_lastIndex_4(_this__u8e3s4) {
-    return _this__u8e3s4.length - 1 | 0;
+  function withIndex$lambda($this_withIndex) {
+    return function () {
+      return arrayIterator($this_withIndex);
+    };
   }
   function maxOrNull(_this__u8e3s4) {
     var iterator = _this__u8e3s4.iterator_jk1svi_k$();
@@ -606,7 +797,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return max;
   }
-  function map(_this__u8e3s4, transform) {
+  function map_0(_this__u8e3s4, transform) {
     var tmp$ret$0;
     {
       var tmp0_mapTo = ArrayList_init_$Create$_0(collectionSizeOrDefault(_this__u8e3s4, 10));
@@ -652,7 +843,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0;
   }
-  function toSet(_this__u8e3s4) {
+  function toSet_0(_this__u8e3s4) {
     if (isInterface(_this__u8e3s4, Collection)) {
       var tmp0_subject = _this__u8e3s4.get_size_woubt6_k$();
       var tmp;
@@ -668,7 +859,7 @@ if (typeof Math.imul === 'undefined') {
             tmp_0 = _this__u8e3s4.iterator_jk1svi_k$().next_20eer_k$();
           }
 
-          tmp = setOf(tmp_0);
+          tmp = setOf_1(tmp_0);
           break;
         default:
           tmp = toCollection_0(_this__u8e3s4, LinkedHashSet_init_$Create$_3(mapCapacity(_this__u8e3s4.get_size_woubt6_k$())));
@@ -687,6 +878,30 @@ if (typeof Math.imul === 'undefined') {
     }
     return null;
   }
+  function toHashSet(_this__u8e3s4) {
+    return toCollection_0(_this__u8e3s4, HashSet_init_$Create$_2(mapCapacity(collectionSizeOrDefault(_this__u8e3s4, 12))));
+  }
+  function toBooleanArray(_this__u8e3s4) {
+    var result = booleanArray(_this__u8e3s4.get_size_woubt6_k$());
+    var index = 0;
+    var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var element = tmp0_iterator.next_20eer_k$();
+      var tmp1 = index;
+      index = tmp1 + 1 | 0;
+      result[tmp1] = element;
+    }
+    return result;
+  }
+  function fold_1(_this__u8e3s4, initial, operation) {
+    var accumulator = initial;
+    var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var element = tmp0_iterator.next_20eer_k$();
+      accumulator = operation(accumulator, element);
+    }
+    return accumulator;
+  }
   function associate(_this__u8e3s4, transform) {
     var capacity = coerceAtLeast(mapCapacity(collectionSizeOrDefault(_this__u8e3s4, 10)), 16);
     var tmp$ret$0;
@@ -704,7 +919,40 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0;
   }
-  function mapTo(_this__u8e3s4, destination, transform) {
+  function minus(_this__u8e3s4, element) {
+    var result = ArrayList_init_$Create$_0(collectionSizeOrDefault(_this__u8e3s4, 10));
+    var removed = false;
+    var tmp$ret$1;
+    {
+      var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+      while (tmp0_iterator.hasNext_bitz1p_k$()) {
+        var element_0 = tmp0_iterator.next_20eer_k$();
+        var tmp$ret$0;
+        {
+          var tmp;
+          if (!removed ? equals_1(element_0, element) : false) {
+            removed = true;
+            tmp = false;
+          } else {
+            tmp = true;
+          }
+          tmp$ret$0 = tmp;
+        }
+        if (tmp$ret$0) {
+          result.add_1j60pz_k$(element_0);
+        }
+      }
+      tmp$ret$1 = result;
+    }
+    return tmp$ret$1;
+  }
+  function plus_0(_this__u8e3s4, element) {
+    var result = ArrayList_init_$Create$_0(_this__u8e3s4.get_size_woubt6_k$() + 1 | 0);
+    result.addAll_oxxjjk_k$(_this__u8e3s4);
+    result.add_1j60pz_k$(element);
+    return result;
+  }
+  function mapTo_0(_this__u8e3s4, destination, transform) {
     var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
     while (tmp0_iterator.hasNext_bitz1p_k$()) {
       var item = tmp0_iterator.next_20eer_k$();
@@ -777,6 +1025,16 @@ if (typeof Math.imul === 'undefined') {
     }
     return destination;
   }
+  function filterTo(_this__u8e3s4, destination, predicate) {
+    var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var element = tmp0_iterator.next_20eer_k$();
+      if (predicate(element)) {
+        destination.add_1j60pz_k$(element);
+      }
+    }
+    return destination;
+  }
   function single_0(_this__u8e3s4) {
     var tmp0_subject = _this__u8e3s4;
     if (isInterface(tmp0_subject, List))
@@ -798,11 +1056,6 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0;
   }
-  function contains_6(_this__u8e3s4, element) {
-    if (isInterface(_this__u8e3s4, Collection))
-      return _this__u8e3s4.contains_2ehdt1_k$(element);
-    return indexOf_5(_this__u8e3s4, element) >= 0;
-  }
   function all(_this__u8e3s4, predicate) {
     var tmp;
     if (isInterface(_this__u8e3s4, Collection)) {
@@ -819,6 +1072,28 @@ if (typeof Math.imul === 'undefined') {
         return false;
     }
     return true;
+  }
+  function contains_7(_this__u8e3s4, element) {
+    if (isInterface(_this__u8e3s4, Collection))
+      return _this__u8e3s4.contains_2ehdt1_k$(element);
+    return indexOf_5(_this__u8e3s4, element) >= 0;
+  }
+  function any_0(_this__u8e3s4, predicate) {
+    var tmp;
+    if (isInterface(_this__u8e3s4, Collection)) {
+      tmp = _this__u8e3s4.isEmpty_y1axqb_k$();
+    } else {
+      tmp = false;
+    }
+    if (tmp)
+      return false;
+    var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var element = tmp0_iterator.next_20eer_k$();
+      if (predicate(element))
+        return true;
+    }
+    return false;
   }
   function single_1(_this__u8e3s4) {
     var tmp0_subject = _this__u8e3s4.get_size_woubt6_k$();
@@ -842,29 +1117,12 @@ if (typeof Math.imul === 'undefined') {
     while (tmp0_iterator.hasNext_bitz1p_k$()) {
       var item = tmp0_iterator.next_20eer_k$();
       checkIndexOverflow(index);
-      if (equals_0(element, item))
+      if (equals_1(element, item))
         return index;
       var tmp1 = index;
       index = tmp1 + 1 | 0;
     }
     return -1;
-  }
-  function any_0(_this__u8e3s4, predicate) {
-    var tmp;
-    if (isInterface(_this__u8e3s4, Collection)) {
-      tmp = _this__u8e3s4.isEmpty_y1axqb_k$();
-    } else {
-      tmp = false;
-    }
-    if (tmp)
-      return false;
-    var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
-    while (tmp0_iterator.hasNext_bitz1p_k$()) {
-      var element = tmp0_iterator.next_20eer_k$();
-      if (predicate(element))
-        return true;
-    }
-    return false;
   }
   function indexOfFirst(_this__u8e3s4, predicate) {
     var index = 0;
@@ -887,7 +1145,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return -1;
   }
-  function forEach(_this__u8e3s4, action) {
+  function forEach_0(_this__u8e3s4, action) {
     var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
     while (tmp0_iterator.hasNext_bitz1p_k$()) {
       var element = tmp0_iterator.next_20eer_k$();
@@ -897,7 +1155,7 @@ if (typeof Math.imul === 'undefined') {
   function last(_this__u8e3s4) {
     if (_this__u8e3s4.isEmpty_y1axqb_k$())
       throw NoSuchElementException_init_$Create$_0('List is empty.');
-    return _this__u8e3s4.get_fkrdnv_k$(get_lastIndex_5(_this__u8e3s4));
+    return _this__u8e3s4.get_fkrdnv_k$(get_lastIndex_6(_this__u8e3s4));
   }
   function first(_this__u8e3s4) {
     if (_this__u8e3s4.isEmpty_y1axqb_k$())
@@ -919,15 +1177,152 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0;
   }
-  function filterTo(_this__u8e3s4, destination, predicate) {
+  function find(_this__u8e3s4, predicate) {
+    var tmp$ret$0;
+    $l$block: {
+      var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+      while (tmp0_iterator.hasNext_bitz1p_k$()) {
+        var element = tmp0_iterator.next_20eer_k$();
+        if (predicate(element)) {
+          tmp$ret$0 = element;
+          break $l$block;
+        }
+      }
+      tmp$ret$0 = null;
+    }
+    return tmp$ret$0;
+  }
+  function toList_0(_this__u8e3s4) {
+    if (isInterface(_this__u8e3s4, Collection)) {
+      var tmp0_subject = _this__u8e3s4.get_size_woubt6_k$();
+      var tmp;
+      switch (tmp0_subject) {
+        case 0:
+          tmp = emptyList();
+          break;
+        case 1:
+          var tmp_0;
+          if (isInterface(_this__u8e3s4, List)) {
+            tmp_0 = _this__u8e3s4.get_fkrdnv_k$(0);
+          } else {
+            tmp_0 = _this__u8e3s4.iterator_jk1svi_k$().next_20eer_k$();
+          }
+
+          tmp = listOf_0(tmp_0);
+          break;
+        default:
+          tmp = toMutableList_0(_this__u8e3s4);
+          break;
+      }
+      return tmp;
+    }
+    return optimizeReadOnlyList(toMutableList_1(_this__u8e3s4));
+  }
+  function singleOrNull(_this__u8e3s4) {
+    return _this__u8e3s4.get_size_woubt6_k$() === 1 ? _this__u8e3s4.get_fkrdnv_k$(0) : null;
+  }
+  function toMutableList_0(_this__u8e3s4) {
+    return ArrayList_init_$Create$_1(_this__u8e3s4);
+  }
+  function toMutableList_1(_this__u8e3s4) {
+    if (isInterface(_this__u8e3s4, Collection))
+      return toMutableList_0(_this__u8e3s4);
+    return toCollection_0(_this__u8e3s4, ArrayList_init_$Create$());
+  }
+  function lastOrNull(_this__u8e3s4) {
+    return _this__u8e3s4.isEmpty_y1axqb_k$() ? null : _this__u8e3s4.get_fkrdnv_k$(_this__u8e3s4.get_size_woubt6_k$() - 1 | 0);
+  }
+  function groupingBy(_this__u8e3s4, keySelector) {
+    return new _no_name_provided__qut3iv_0(_this__u8e3s4, keySelector);
+  }
+  function associateByTo_0(_this__u8e3s4, destination, keySelector, valueTransform) {
     var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
     while (tmp0_iterator.hasNext_bitz1p_k$()) {
       var element = tmp0_iterator.next_20eer_k$();
-      if (predicate(element)) {
-        destination.add_1j60pz_k$(element);
+      destination.put_3mhbri_k$(keySelector(element), valueTransform(element));
+    }
+    return destination;
+  }
+  function minOrNull(_this__u8e3s4) {
+    var iterator = _this__u8e3s4.iterator_jk1svi_k$();
+    if (!iterator.hasNext_bitz1p_k$())
+      return null;
+    var min = iterator.next_20eer_k$();
+    while (iterator.hasNext_bitz1p_k$()) {
+      var e = iterator.next_20eer_k$();
+      if (compareTo_0(min, e) > 0)
+        min = e;
+    }
+    return min;
+  }
+  function mapIndexedNotNull(_this__u8e3s4, transform) {
+    var tmp$ret$1;
+    {
+      var tmp1_mapIndexedNotNullTo = ArrayList_init_$Create$();
+      {
+        var index = 0;
+        var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+        while (tmp0_iterator.hasNext_bitz1p_k$()) {
+          var item = tmp0_iterator.next_20eer_k$();
+          {
+            var tmp1 = index;
+            index = tmp1 + 1 | 0;
+            var tmp0__anonymous__q1qw7t = checkIndexOverflow(tmp1);
+            var tmp0_safe_receiver = transform(tmp0__anonymous__q1qw7t, item);
+            if (tmp0_safe_receiver == null)
+              null;
+            else {
+              var tmp$ret$0;
+              {
+                {
+                }
+                tmp1_mapIndexedNotNullTo.add_1j60pz_k$(tmp0_safe_receiver);
+                tmp$ret$0 = Unit_getInstance();
+              }
+            }
+          }
+        }
+      }
+      tmp$ret$1 = tmp1_mapIndexedNotNullTo;
+    }
+    return tmp$ret$1;
+  }
+  function mapIndexedNotNullTo(_this__u8e3s4, destination, transform) {
+    {
+      var index = 0;
+      var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+      while (tmp0_iterator.hasNext_bitz1p_k$()) {
+        var item = tmp0_iterator.next_20eer_k$();
+        {
+          var tmp1 = index;
+          index = tmp1 + 1 | 0;
+          var tmp0__anonymous__q1qw7t = checkIndexOverflow(tmp1);
+          var tmp0_safe_receiver = transform(tmp0__anonymous__q1qw7t, item);
+          if (tmp0_safe_receiver == null)
+            null;
+          else {
+            var tmp$ret$0;
+            {
+              {
+              }
+              destination.add_1j60pz_k$(tmp0_safe_receiver);
+              tmp$ret$0 = Unit_getInstance();
+            }
+          }
+        }
       }
     }
     return destination;
+  }
+  function forEachIndexed(_this__u8e3s4, action) {
+    var index = 0;
+    var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var item = tmp0_iterator.next_20eer_k$();
+      var tmp1 = index;
+      index = tmp1 + 1 | 0;
+      action(checkIndexOverflow(tmp1), item);
+    }
   }
   function _no_name_provided__qut3iv($this_asSequence) {
     this.$this_asSequence_1 = $this_asSequence;
@@ -940,7 +1335,18 @@ if (typeof Math.imul === 'undefined') {
     return tmp$ret$0;
   };
   _no_name_provided__qut3iv.$metadata$ = classMeta(undefined, [Sequence]);
-  function forEach_0(_this__u8e3s4, action) {
+  function _no_name_provided__qut3iv_0($this_groupingBy, $keySelector) {
+    this.$this_groupingBy_1 = $this_groupingBy;
+    this.$keySelector_1 = $keySelector;
+  }
+  _no_name_provided__qut3iv_0.prototype.sourceIterator_2zqxcn_k$ = function () {
+    return this.$this_groupingBy_1.iterator_jk1svi_k$();
+  };
+  _no_name_provided__qut3iv_0.prototype.keyOf_dhlc0l_k$ = function (element) {
+    return this.$keySelector_1(element);
+  };
+  _no_name_provided__qut3iv_0.$metadata$ = classMeta(undefined, [Grouping]);
+  function forEach_1(_this__u8e3s4, action) {
     var tmp$ret$0;
     {
       tmp$ret$0 = _this__u8e3s4.get_entries_p20ztl_k$().iterator_jk1svi_k$();
@@ -951,9 +1357,59 @@ if (typeof Math.imul === 'undefined') {
       action(element);
     }
   }
+  function titlecaseImpl(_this__u8e3s4) {
+    var tmp$ret$2;
+    {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          var tmp0_asDynamic = toString_0(_this__u8e3s4);
+          tmp$ret$0 = tmp0_asDynamic;
+        }
+        var tmp1_unsafeCast = tmp$ret$0.toUpperCase();
+        tmp$ret$1 = tmp1_unsafeCast;
+      }
+      tmp$ret$2 = tmp$ret$1;
+    }
+    var uppercase = tmp$ret$2;
+    if (uppercase.length > 1) {
+      var tmp;
+      if (equals_1(new Char_0(_this__u8e3s4), new Char_0(_Char___init__impl__6a9atx(329)))) {
+        tmp = uppercase;
+      } else {
+        var tmp$ret$7;
+        {
+          var tmp3_plus = charSequenceGet(uppercase, 0);
+          var tmp$ret$6;
+          {
+            var tmp$ret$4;
+            {
+              var tmp$ret$3;
+              {
+                tmp$ret$3 = uppercase;
+              }
+              tmp$ret$4 = tmp$ret$3.substring(1);
+            }
+            var tmp2_lowercase = tmp$ret$4;
+            var tmp$ret$5;
+            {
+              tmp$ret$5 = tmp2_lowercase;
+            }
+            tmp$ret$6 = tmp$ret$5.toLowerCase();
+          }
+          var tmp4_plus = tmp$ret$6;
+          tmp$ret$7 = toString_0(tmp3_plus) + tmp4_plus;
+        }
+        tmp = tmp$ret$7;
+      }
+      return tmp;
+    }
+    return toString_0(titlecaseChar(_this__u8e3s4));
+  }
   function until(_this__u8e3s4, to) {
     if (to <= IntCompanionObject_getInstance().MIN_VALUE_1)
-      return Companion_getInstance_16().EMPTY_1;
+      return Companion_getInstance_17().EMPTY_1;
     return numberRangeToNumber(_this__u8e3s4, to - 1 | 0);
   }
   function coerceIn(_this__u8e3s4, minimumValue, maximumValue) {
@@ -968,8 +1424,9 @@ if (typeof Math.imul === 'undefined') {
   function coerceAtLeast(_this__u8e3s4, minimumValue) {
     return _this__u8e3s4 < minimumValue ? minimumValue : _this__u8e3s4;
   }
-  function coerceAtMost(_this__u8e3s4, maximumValue) {
-    return _this__u8e3s4 > maximumValue ? maximumValue : _this__u8e3s4;
+  function step(_this__u8e3s4, step) {
+    checkStepIsPositive(step > 0, step);
+    return Companion_getInstance_14().fromClosedRange_vhxzyy_k$(_this__u8e3s4.first_1, _this__u8e3s4.last_1, _this__u8e3s4.step_1 > 0 ? step : -step | 0);
   }
   function coerceIn_0(_this__u8e3s4, minimumValue, maximumValue) {
     if (minimumValue > maximumValue)
@@ -980,20 +1437,41 @@ if (typeof Math.imul === 'undefined') {
       return maximumValue;
     return _this__u8e3s4;
   }
+  function coerceIn_1(_this__u8e3s4, minimumValue, maximumValue) {
+    if (minimumValue > maximumValue)
+      throw IllegalArgumentException_init_$Create$_0('Cannot coerce value to an empty range: maximum ' + maximumValue + ' is less than minimum ' + minimumValue + '.');
+    if (_this__u8e3s4 < minimumValue)
+      return minimumValue;
+    if (_this__u8e3s4 > maximumValue)
+      return maximumValue;
+    return _this__u8e3s4;
+  }
+  function coerceAtMost(_this__u8e3s4, maximumValue) {
+    return _this__u8e3s4 > maximumValue ? maximumValue : _this__u8e3s4;
+  }
   function downTo(_this__u8e3s4, to) {
-    return Companion_getInstance_13().fromClosedRange_vhxzyy_k$(_this__u8e3s4, to, -1);
+    return Companion_getInstance_14().fromClosedRange_vhxzyy_k$(_this__u8e3s4, to, -1);
+  }
+  function coerceIn_2(_this__u8e3s4, range) {
+    if (isInterface(range, ClosedFloatingPointRange)) {
+      return coerceIn_3(_this__u8e3s4, range);
+    }
+    if (range.isEmpty_y1axqb_k$())
+      throw IllegalArgumentException_init_$Create$_0('Cannot coerce value to an empty range: ' + range + '.');
+    return _this__u8e3s4.compareTo_n4fqi2_k$(range.get_start_iypx6h_k$()) < 0 ? range.get_start_iypx6h_k$() : _this__u8e3s4.compareTo_n4fqi2_k$(range.get_endInclusive_r07xpi_k$()) > 0 ? range.get_endInclusive_r07xpi_k$() : _this__u8e3s4;
   }
   function reversed(_this__u8e3s4) {
-    return Companion_getInstance_13().fromClosedRange_vhxzyy_k$(_this__u8e3s4.last_1, _this__u8e3s4.first_1, -_this__u8e3s4.step_1 | 0);
+    return Companion_getInstance_14().fromClosedRange_vhxzyy_k$(_this__u8e3s4.last_1, _this__u8e3s4.first_1, -_this__u8e3s4.step_1 | 0);
   }
-  function step(_this__u8e3s4, step) {
-    checkStepIsPositive(step > 0, step);
-    return Companion_getInstance_13().fromClosedRange_vhxzyy_k$(_this__u8e3s4.first_1, _this__u8e3s4.last_1, _this__u8e3s4.step_1 > 0 ? step : -step | 0);
+  function coerceIn_3(_this__u8e3s4, range) {
+    if (range.isEmpty_y1axqb_k$())
+      throw IllegalArgumentException_init_$Create$_0('Cannot coerce value to an empty range: ' + range + '.');
+    return (range.lessThanOrEquals_fm7qp2_k$(_this__u8e3s4, range.get_start_iypx6h_k$()) ? !range.lessThanOrEquals_fm7qp2_k$(range.get_start_iypx6h_k$(), _this__u8e3s4) : false) ? range.get_start_iypx6h_k$() : (range.lessThanOrEquals_fm7qp2_k$(range.get_endInclusive_r07xpi_k$(), _this__u8e3s4) ? !range.lessThanOrEquals_fm7qp2_k$(_this__u8e3s4, range.get_endInclusive_r07xpi_k$()) : false) ? range.get_endInclusive_r07xpi_k$() : _this__u8e3s4;
   }
   function asIterable(_this__u8e3s4) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = new _no_name_provided__qut3iv_0(_this__u8e3s4);
+      tmp$ret$0 = new _no_name_provided__qut3iv_1(_this__u8e3s4);
     }
     return tmp$ret$0;
   }
@@ -1023,22 +1501,135 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function map_0(_this__u8e3s4, transform) {
+  function map_1(_this__u8e3s4, transform) {
     return new TransformingSequence(_this__u8e3s4, transform);
   }
-  function _no_name_provided__qut3iv_0($this_asIterable) {
+  function toList_1(_this__u8e3s4) {
+    return optimizeReadOnlyList(toMutableList_2(_this__u8e3s4));
+  }
+  function toMutableList_2(_this__u8e3s4) {
+    return toCollection_1(_this__u8e3s4, ArrayList_init_$Create$());
+  }
+  function toCollection_1(_this__u8e3s4, destination) {
+    var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var item = tmp0_iterator.next_20eer_k$();
+      destination.add_1j60pz_k$(item);
+    }
+    return destination;
+  }
+  function _no_name_provided__qut3iv_1($this_asIterable) {
     this.$this_asIterable_1 = $this_asIterable;
   }
-  _no_name_provided__qut3iv_0.prototype.iterator_jk1svi_k$ = function () {
+  _no_name_provided__qut3iv_1.prototype.iterator_jk1svi_k$ = function () {
     var tmp$ret$0;
     {
       tmp$ret$0 = this.$this_asIterable_1.iterator_jk1svi_k$();
     }
     return tmp$ret$0;
   };
-  _no_name_provided__qut3iv_0.$metadata$ = classMeta(undefined, [Iterable_0]);
+  _no_name_provided__qut3iv_1.$metadata$ = classMeta(undefined, [Iterable_0]);
+  function plus_1(_this__u8e3s4, elements) {
+    var tmp0_safe_receiver = collectionSizeOrNull(elements);
+    var tmp;
+    if (tmp0_safe_receiver == null) {
+      tmp = null;
+    } else {
+      var tmp$ret$1;
+      {
+        {
+        }
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4.get_size_woubt6_k$() + tmp0_safe_receiver | 0;
+        }
+        tmp$ret$1 = tmp$ret$0;
+      }
+      tmp = tmp$ret$1;
+    }
+    var tmp1_elvis_lhs = tmp;
+    var result = LinkedHashSet_init_$Create$_3(mapCapacity(tmp1_elvis_lhs == null ? imul(_this__u8e3s4.get_size_woubt6_k$(), 2) : tmp1_elvis_lhs));
+    result.addAll_oxxjjk_k$(_this__u8e3s4);
+    addAll(result, elements);
+    return result;
+  }
   function getOrElse(_this__u8e3s4, index, defaultValue) {
-    return (index >= 0 ? index <= get_lastIndex_6(_this__u8e3s4) : false) ? charSequenceGet(_this__u8e3s4, index) : defaultValue(index).value_1;
+    return (index >= 0 ? index <= get_lastIndex_7(_this__u8e3s4) : false) ? charSequenceGet(_this__u8e3s4, index) : defaultValue(index).value_1;
+  }
+  function indexOfLast_0(_this__u8e3s4, predicate) {
+    var inductionVariable = charSequenceLength(_this__u8e3s4) - 1 | 0;
+    if (0 <= inductionVariable)
+      do {
+        var index = inductionVariable;
+        inductionVariable = inductionVariable + -1 | 0;
+        if (predicate(new Char_0(charSequenceGet(_this__u8e3s4, index)))) {
+          return index;
+        }
+      }
+       while (0 <= inductionVariable);
+    return -1;
+  }
+  function last_0(_this__u8e3s4) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = charSequenceLength(_this__u8e3s4) === 0;
+    }
+    if (tmp$ret$0)
+      throw NoSuchElementException_init_$Create$_0('Char sequence is empty.');
+    return charSequenceGet(_this__u8e3s4, get_lastIndex_7(_this__u8e3s4));
+  }
+  function drop(_this__u8e3s4, n) {
+    {
+      var tmp0_require = n >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Requested character count ' + n + ' is less than zero.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    var tmp$ret$2;
+    {
+      var tmp1_substring = coerceAtMost(n, _this__u8e3s4.length);
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = _this__u8e3s4;
+      }
+      tmp$ret$2 = tmp$ret$1.substring(tmp1_substring);
+    }
+    return tmp$ret$2;
+  }
+  function single_2(_this__u8e3s4) {
+    var tmp0_subject = charSequenceLength(_this__u8e3s4);
+    var tmp;
+    switch (tmp0_subject) {
+      case 0:
+        throw NoSuchElementException_init_$Create$_0('Char sequence is empty.');
+      case 1:
+        tmp = charSequenceGet(_this__u8e3s4, 0);
+        break;
+      default:
+        throw IllegalArgumentException_init_$Create$_0('Char sequence has more than one element.');
+    }
+    return tmp;
+  }
+  function indexOfFirst_0(_this__u8e3s4, predicate) {
+    var inductionVariable = 0;
+    var last = charSequenceLength(_this__u8e3s4) - 1 | 0;
+    if (inductionVariable <= last)
+      do {
+        var index = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        if (predicate(new Char_0(charSequenceGet(_this__u8e3s4, index)))) {
+          return index;
+        }
+      }
+       while (inductionVariable <= last);
+    return -1;
   }
   function contentEquals(_this__u8e3s4, other) {
     var tmp1_safe_receiver = _this__u8e3s4;
@@ -1058,7 +1649,7 @@ if (typeof Math.imul === 'undefined') {
     } else {
       tmp_2 = _UByteArray___get_storage__impl__d4kctt(tmp0_safe_receiver);
     }
-    return contentEquals_3(tmp_1, tmp_2);
+    return contentEquals_4(tmp_1, tmp_2);
   }
   function contentEquals_0(_this__u8e3s4, other) {
     var tmp1_safe_receiver = _this__u8e3s4;
@@ -1078,7 +1669,7 @@ if (typeof Math.imul === 'undefined') {
     } else {
       tmp_2 = _UIntArray___get_storage__impl__92a0v0(tmp0_safe_receiver);
     }
-    return contentEquals_4(tmp_1, tmp_2);
+    return contentEquals_5(tmp_1, tmp_2);
   }
   function contentEquals_1(_this__u8e3s4, other) {
     var tmp1_safe_receiver = _this__u8e3s4;
@@ -1098,7 +1689,7 @@ if (typeof Math.imul === 'undefined') {
     } else {
       tmp_2 = _ULongArray___get_storage__impl__28e64j(tmp0_safe_receiver);
     }
-    return contentEquals_5(tmp_1, tmp_2);
+    return contentEquals_6(tmp_1, tmp_2);
   }
   function contentEquals_2(_this__u8e3s4, other) {
     var tmp1_safe_receiver = _this__u8e3s4;
@@ -1118,7 +1709,7 @@ if (typeof Math.imul === 'undefined') {
     } else {
       tmp_2 = _UShortArray___get_storage__impl__t2jpv5(tmp0_safe_receiver);
     }
-    return contentEquals_6(tmp_1, tmp_2);
+    return contentEquals_7(tmp_1, tmp_2);
   }
   function KotlinNothingValueException_init_$Init$($this) {
     RuntimeException_init_$Init$($this);
@@ -1164,6 +1755,10 @@ if (typeof Math.imul === 'undefined') {
     captureStack(this, KotlinNothingValueException);
   }
   KotlinNothingValueException.$metadata$ = classMeta('KotlinNothingValueException', undefined, undefined, undefined, undefined, RuntimeException.prototype);
+  function get_PI() {
+    return PI;
+  }
+  var PI;
   function get_code(_this__u8e3s4) {
     return Char__toInt_impl_vasixd(_this__u8e3s4);
   }
@@ -1171,7 +1766,7 @@ if (typeof Math.imul === 'undefined') {
     var tmp;
     var tmp$ret$0;
     {
-      Companion_getInstance_20();
+      Companion_getInstance_21();
       var tmp0__get_code__88qj9g = _Char___init__impl__6a9atx(0);
       tmp$ret$0 = Char__toInt_impl_vasixd(tmp0__get_code__88qj9g);
     }
@@ -1180,7 +1775,7 @@ if (typeof Math.imul === 'undefined') {
     } else {
       var tmp$ret$1;
       {
-        Companion_getInstance_20();
+        Companion_getInstance_21();
         var tmp1__get_code__adl84j = _Char___init__impl__6a9atx(65535);
         tmp$ret$1 = Char__toInt_impl_vasixd(tmp1__get_code__adl84j);
       }
@@ -1201,12 +1796,12 @@ if (typeof Math.imul === 'undefined') {
     if (!(other instanceof WasExperimental))
       return false;
     var tmp0_other_with_cast = other instanceof WasExperimental ? other : THROW_CCE();
-    if (!contentEquals_7(this.markerClass_1, tmp0_other_with_cast.markerClass_1))
+    if (!contentEquals_3(this.markerClass_1, tmp0_other_with_cast.markerClass_1))
       return false;
     return true;
   };
   WasExperimental.prototype.hashCode = function () {
-    return imul(getStringHashCode('markerClass'), 127) ^ hashCode(this.markerClass_1);
+    return imul(getStringHashCode('markerClass'), 127) ^ hashCode_0(this.markerClass_1);
   };
   WasExperimental.prototype.toString = function () {
     return '@kotlin.WasExperimental(markerClass=' + toString_2(this.markerClass_1) + ')';
@@ -1374,12 +1969,12 @@ if (typeof Math.imul === 'undefined') {
     if (!(other instanceof OptIn))
       return false;
     var tmp0_other_with_cast = other instanceof OptIn ? other : THROW_CCE();
-    if (!contentEquals_7(this.markerClass_1, tmp0_other_with_cast.markerClass_1))
+    if (!contentEquals_3(this.markerClass_1, tmp0_other_with_cast.markerClass_1))
       return false;
     return true;
   };
   OptIn.prototype.hashCode = function () {
-    return imul(getStringHashCode('markerClass'), 127) ^ hashCode(this.markerClass_1);
+    return imul(getStringHashCode('markerClass'), 127) ^ hashCode_0(this.markerClass_1);
   };
   OptIn.prototype.toString = function () {
     return '@kotlin.OptIn(markerClass=' + toString_2(this.markerClass_1) + ')';
@@ -1410,7 +2005,7 @@ if (typeof Math.imul === 'undefined') {
         var element_0 = tmp0_iterator.next_20eer_k$();
         var tmp$ret$1;
         {
-          tmp$ret$1 = equals_0(element_0, element);
+          tmp$ret$1 = equals_1(element_0, element);
         }
         if (tmp$ret$1) {
           tmp$ret$0 = true;
@@ -1566,16 +2161,16 @@ if (typeof Math.imul === 'undefined') {
     }
   };
   Companion.prototype.orderedHashCode_2n0xp_k$ = function (c) {
-    var hashCode_0 = 1;
+    var hashCode = 1;
     var tmp0_iterator = c.iterator_jk1svi_k$();
     while (tmp0_iterator.hasNext_bitz1p_k$()) {
       var e = tmp0_iterator.next_20eer_k$();
-      var tmp = imul(31, hashCode_0);
+      var tmp = imul(31, hashCode);
       var tmp1_safe_receiver = e;
-      var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : hashCode(tmp1_safe_receiver);
-      hashCode_0 = tmp + (tmp2_elvis_lhs == null ? 0 : tmp2_elvis_lhs) | 0;
+      var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : hashCode_0(tmp1_safe_receiver);
+      hashCode = tmp + (tmp2_elvis_lhs == null ? 0 : tmp2_elvis_lhs) | 0;
     }
-    return hashCode_0;
+    return hashCode;
   };
   Companion.prototype.orderedEquals_40uhas_k$ = function (c, other) {
     if (!(c.get_size_woubt6_k$() === other.get_size_woubt6_k$()))
@@ -1585,7 +2180,7 @@ if (typeof Math.imul === 'undefined') {
     while (tmp0_iterator.hasNext_bitz1p_k$()) {
       var elem = tmp0_iterator.next_20eer_k$();
       var elemOther = otherIterator.next_20eer_k$();
-      if (!equals_0(elem, elemOther)) {
+      if (!equals_1(elem, elemOther)) {
         return false;
       }
     }
@@ -1614,7 +2209,7 @@ if (typeof Math.imul === 'undefined') {
         var item = tmp0_iterator.next_20eer_k$();
         var tmp$ret$0;
         {
-          tmp$ret$0 = equals_0(item, element);
+          tmp$ret$0 = equals_1(item, element);
         }
         if (tmp$ret$0) {
           tmp$ret$1 = index;
@@ -1635,7 +2230,7 @@ if (typeof Math.imul === 'undefined') {
         var tmp$ret$0;
         {
           var tmp0__anonymous__q1qw7t = iterator.previous_l2dfd5_k$();
-          tmp$ret$0 = equals_0(tmp0__anonymous__q1qw7t, element);
+          tmp$ret$0 = equals_1(tmp0__anonymous__q1qw7t, element);
         }
         if (tmp$ret$0) {
           tmp$ret$1 = iterator.nextIndex_jshxun_k$();
@@ -1704,7 +2299,7 @@ if (typeof Math.imul === 'undefined') {
         var element = tmp0_iterator.next_20eer_k$();
         var tmp$ret$0;
         {
-          tmp$ret$0 = equals_0(element.get_key_18j28a_k$(), key);
+          tmp$ret$0 = equals_1(element.get_key_18j28a_k$(), key);
         }
         if (tmp$ret$0) {
           tmp$ret$1 = element;
@@ -1726,10 +2321,10 @@ if (typeof Math.imul === 'undefined') {
       var tmp$ret$0;
       {
         var tmp2_safe_receiver = e.get_key_18j28a_k$();
-        var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : hashCode(tmp2_safe_receiver);
+        var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : hashCode_0(tmp2_safe_receiver);
         var tmp = tmp3_elvis_lhs == null ? 0 : tmp3_elvis_lhs;
         var tmp0_safe_receiver = e.get_value_j01efc_k$();
-        var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode(tmp0_safe_receiver);
+        var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode_0(tmp0_safe_receiver);
         tmp$ret$0 = tmp ^ (tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs);
       }
       tmp$ret$1 = tmp$ret$0;
@@ -1752,7 +2347,7 @@ if (typeof Math.imul === 'undefined') {
   Companion_0.prototype.entryEquals_sgqdyf_k$ = function (e, other) {
     if (!(!(other == null) ? isInterface(other, Entry) : false))
       return false;
-    return equals_0(e.get_key_18j28a_k$(), other.get_key_18j28a_k$()) ? equals_0(e.get_value_j01efc_k$(), other.get_value_j01efc_k$()) : false;
+    return equals_1(e.get_key_18j28a_k$(), other.get_key_18j28a_k$()) ? equals_1(e.get_value_j01efc_k$(), other.get_value_j01efc_k$()) : false;
   };
   Companion_0.$metadata$ = objectMeta('Companion');
   var Companion_instance_0;
@@ -1833,7 +2428,7 @@ if (typeof Math.imul === 'undefined') {
         var element = tmp0_iterator.next_20eer_k$();
         var tmp$ret$1;
         {
-          tmp$ret$1 = equals_0(element.get_value_j01efc_k$(), value);
+          tmp$ret$1 = equals_1(element.get_value_j01efc_k$(), value);
         }
         if (tmp$ret$1) {
           tmp$ret$0 = true;
@@ -1854,7 +2449,7 @@ if (typeof Math.imul === 'undefined') {
       tmp$ret$0 = (isInterface(this, Map) ? this : THROW_CCE()).get_1mhr4y_k$(key);
     }
     var ourValue = tmp$ret$0;
-    if (!equals_0(value, ourValue)) {
+    if (!equals_1(value, ourValue)) {
       return false;
     }
     var tmp;
@@ -1913,7 +2508,7 @@ if (typeof Math.imul === 'undefined') {
     return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.get_value_j01efc_k$();
   };
   AbstractMap.prototype.hashCode = function () {
-    return hashCode(this.get_entries_p20ztl_k$());
+    return hashCode_0(this.get_entries_p20ztl_k$());
   };
   AbstractMap.prototype.isEmpty_y1axqb_k$ = function () {
     return this.get_size_woubt6_k$() === 0;
@@ -1953,16 +2548,16 @@ if (typeof Math.imul === 'undefined') {
     Companion_instance_1 = this;
   }
   Companion_1.prototype.unorderedHashCode_hl8x0c_k$ = function (c) {
-    var hashCode_0 = 0;
+    var hashCode = 0;
     var tmp0_iterator = c.iterator_jk1svi_k$();
     while (tmp0_iterator.hasNext_bitz1p_k$()) {
       var element = tmp0_iterator.next_20eer_k$();
-      var tmp = hashCode_0;
+      var tmp = hashCode;
       var tmp1_safe_receiver = element;
-      var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : hashCode(tmp1_safe_receiver);
-      hashCode_0 = tmp + (tmp2_elvis_lhs == null ? 0 : tmp2_elvis_lhs) | 0;
+      var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : hashCode_0(tmp1_safe_receiver);
+      hashCode = tmp + (tmp2_elvis_lhs == null ? 0 : tmp2_elvis_lhs) | 0;
     }
-    return hashCode_0;
+    return hashCode;
   };
   Companion_1.prototype.setEquals_mwtoa3_k$ = function (c, other) {
     if (!(c.get_size_woubt6_k$() === other.get_size_woubt6_k$()))
@@ -1995,6 +2590,23 @@ if (typeof Math.imul === 'undefined') {
     return Companion_getInstance_1().unorderedHashCode_hl8x0c_k$(this);
   };
   AbstractSet.$metadata$ = classMeta('AbstractSet', [Set], undefined, undefined, undefined, AbstractCollection.prototype);
+  function emptyList() {
+    return EmptyList_getInstance();
+  }
+  function arrayListOf() {
+    return ArrayList_init_$Create$();
+  }
+  function isNullOrEmpty(_this__u8e3s4) {
+    {
+    }
+    return _this__u8e3s4 == null ? true : _this__u8e3s4.isEmpty_y1axqb_k$();
+  }
+  function mutableListOf() {
+    return ArrayList_init_$Create$();
+  }
+  function listOf() {
+    return emptyList();
+  }
   function _get_serialVersionUID__fhggm9($this) {
     return $this.serialVersionUID_1;
   }
@@ -2100,6 +2712,9 @@ if (typeof Math.imul === 'undefined') {
       new EmptyList();
     return EmptyList_instance;
   }
+  function asCollection(_this__u8e3s4) {
+    return new ArrayAsCollection(_this__u8e3s4, false);
+  }
   function EmptyIterator() {
     EmptyIterator_instance = this;
   }
@@ -2128,17 +2743,11 @@ if (typeof Math.imul === 'undefined') {
       new EmptyIterator();
     return EmptyIterator_instance;
   }
-  function mutableListOf() {
-    return ArrayList_init_$Create$();
-  }
-  function get_indices_5(_this__u8e3s4) {
+  function get_indices_6(_this__u8e3s4) {
     return numberRangeToNumber(0, _this__u8e3s4.get_size_woubt6_k$() - 1 | 0);
   }
-  function get_lastIndex_5(_this__u8e3s4) {
+  function get_lastIndex_6(_this__u8e3s4) {
     return _this__u8e3s4.get_size_woubt6_k$() - 1 | 0;
-  }
-  function arrayListOf(elements) {
-    return elements.length === 0 ? ArrayList_init_$Create$() : ArrayList_init_$Create$_1(new ArrayAsCollection(elements, true));
   }
   function ArrayAsCollection(values, isVarargs) {
     this.values_1 = values;
@@ -2162,7 +2771,7 @@ if (typeof Math.imul === 'undefined') {
     return tmp$ret$0;
   };
   ArrayAsCollection.prototype.contains_2ehdtg_k$ = function (element) {
-    return contains_0(this.values_1, element);
+    return contains_1(this.values_1, element);
   };
   ArrayAsCollection.prototype.contains_2ehdt1_k$ = function (element) {
     if (!(element == null ? true : isObject(element)))
@@ -2228,21 +2837,137 @@ if (typeof Math.imul === 'undefined') {
     return tmp$ret$2;
   };
   ArrayAsCollection.$metadata$ = classMeta('ArrayAsCollection', [Collection]);
+  function arrayListOf_0(elements) {
+    return elements.length === 0 ? ArrayList_init_$Create$() : ArrayList_init_$Create$_1(new ArrayAsCollection(elements, true));
+  }
   function throwIndexOverflow() {
     throw ArithmeticException_init_$Create$_0('Index overflow has happened.');
   }
   function containsAll(_this__u8e3s4, elements) {
     return _this__u8e3s4.containsAll_jr3fla_k$(elements);
   }
-  function arrayListOf_0() {
-    return ArrayList_init_$Create$();
-  }
   function isNotEmpty(_this__u8e3s4) {
     return !_this__u8e3s4.isEmpty_y1axqb_k$();
   }
-  function emptyList() {
-    return EmptyList_getInstance();
+  function optimizeReadOnlyList(_this__u8e3s4) {
+    var tmp0_subject = _this__u8e3s4.get_size_woubt6_k$();
+    switch (tmp0_subject) {
+      case 0:
+        return emptyList();
+      case 1:
+        return listOf_0(_this__u8e3s4.get_fkrdnv_k$(0));
+      default:
+        return _this__u8e3s4;
+    }
   }
+  function aggregate(_this__u8e3s4, operation) {
+    var tmp$ret$2;
+    {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = LinkedHashMap_init_$Create$();
+      }
+      var tmp2_aggregateTo = tmp$ret$0;
+      var tmp$ret$1;
+      {
+        var tmp0_iterator = _this__u8e3s4.sourceIterator_2zqxcn_k$();
+        tmp$ret$1 = tmp0_iterator;
+      }
+      var tmp0_iterator_0 = tmp$ret$1;
+      while (tmp0_iterator_0.hasNext_bitz1p_k$()) {
+        var e = tmp0_iterator_0.next_20eer_k$();
+        var key = _this__u8e3s4.keyOf_dhlc0l_k$(e);
+        var accumulator = tmp2_aggregateTo.get_1mhr4y_k$(key);
+        {
+          var tmp1_set = operation(key, accumulator, e, accumulator == null ? !tmp2_aggregateTo.containsKey_wgk31w_k$(key) : false);
+          tmp2_aggregateTo.put_3mhbri_k$(key, tmp1_set);
+        }
+      }
+      tmp$ret$2 = tmp2_aggregateTo;
+    }
+    return tmp$ret$2;
+  }
+  function Grouping() {
+  }
+  Grouping.$metadata$ = interfaceMeta('Grouping');
+  function aggregateTo(_this__u8e3s4, destination, operation) {
+    var tmp$ret$0;
+    {
+      var tmp0_iterator = _this__u8e3s4.sourceIterator_2zqxcn_k$();
+      tmp$ret$0 = tmp0_iterator;
+    }
+    var tmp0_iterator_0 = tmp$ret$0;
+    while (tmp0_iterator_0.hasNext_bitz1p_k$()) {
+      var e = tmp0_iterator_0.next_20eer_k$();
+      var key = _this__u8e3s4.keyOf_dhlc0l_k$(e);
+      var accumulator = destination.get_1mhr4y_k$(key);
+      {
+        var tmp1_set = operation(key, accumulator, e, accumulator == null ? !destination.containsKey_wgk31w_k$(key) : false);
+        destination.put_3mhbri_k$(key, tmp1_set);
+      }
+    }
+    return destination;
+  }
+  function IndexedValue(index, value) {
+    this.index_1 = index;
+    this.value_1 = value;
+  }
+  IndexedValue.prototype.get_index_it478p_k$ = function () {
+    return this.index_1;
+  };
+  IndexedValue.prototype.get_value_j01efc_k$ = function () {
+    return this.value_1;
+  };
+  IndexedValue.prototype.component1_7eebsc_k$ = function () {
+    return this.index_1;
+  };
+  IndexedValue.prototype.component2_7eebsb_k$ = function () {
+    return this.value_1;
+  };
+  IndexedValue.prototype.copy_iapttt_k$ = function (index, value) {
+    return new IndexedValue(index, value);
+  };
+  IndexedValue.prototype.copy$default_k1uh21_k$ = function (index, value, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      index = this.index_1;
+    if (!(($mask0 & 2) === 0))
+      value = this.value_1;
+    return this.copy_iapttt_k$(index, value);
+  };
+  IndexedValue.prototype.toString = function () {
+    return 'IndexedValue(index=' + this.index_1 + ', value=' + this.value_1 + ')';
+  };
+  IndexedValue.prototype.hashCode = function () {
+    var result = this.index_1;
+    result = imul(result, 31) + (this.value_1 == null ? 0 : hashCode_0(this.value_1)) | 0;
+    return result;
+  };
+  IndexedValue.prototype.equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof IndexedValue))
+      return false;
+    var tmp0_other_with_cast = other instanceof IndexedValue ? other : THROW_CCE();
+    if (!(this.index_1 === tmp0_other_with_cast.index_1))
+      return false;
+    if (!equals_1(this.value_1, tmp0_other_with_cast.value_1))
+      return false;
+    return true;
+  };
+  IndexedValue.$metadata$ = classMeta('IndexedValue');
+  function Iterable(iterator) {
+    return new _no_name_provided__qut3iv_2(iterator);
+  }
+  function _get_iteratorFactory__v4c94b($this) {
+    return $this.iteratorFactory_1;
+  }
+  function IndexingIterable(iteratorFactory) {
+    this.iteratorFactory_1 = iteratorFactory;
+  }
+  IndexingIterable.prototype.iterator_jk1svi_k$ = function () {
+    return new IndexingIterator(this.iteratorFactory_1());
+  };
+  IndexingIterable.$metadata$ = classMeta('IndexingIterable', [Iterable_0]);
   function collectionSizeOrDefault(_this__u8e3s4, default_0) {
     var tmp;
     if (isInterface(_this__u8e3s4, Collection)) {
@@ -2252,24 +2977,141 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function Iterable(iterator) {
-    return new _no_name_provided__qut3iv_1(iterator);
+  function collectionSizeOrNull(_this__u8e3s4) {
+    var tmp;
+    if (isInterface(_this__u8e3s4, Collection)) {
+      tmp = _this__u8e3s4.get_size_woubt6_k$();
+    } else {
+      tmp = null;
+    }
+    return tmp;
   }
-  function _no_name_provided__qut3iv_1($iterator) {
+  function _no_name_provided__qut3iv_2($iterator) {
     this.$iterator_1 = $iterator;
   }
-  _no_name_provided__qut3iv_1.prototype.iterator_jk1svi_k$ = function () {
+  _no_name_provided__qut3iv_2.prototype.iterator_jk1svi_k$ = function () {
     return this.$iterator_1();
   };
-  _no_name_provided__qut3iv_1.$metadata$ = classMeta(undefined, [Iterable_0]);
+  _no_name_provided__qut3iv_2.$metadata$ = classMeta(undefined, [Iterable_0]);
+  function forEach_2(_this__u8e3s4, operation) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    var tmp0_iterator = tmp$ret$0;
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var element = tmp0_iterator.next_20eer_k$();
+      operation(element);
+    }
+  }
+  function iterator(_this__u8e3s4) {
+    return _this__u8e3s4;
+  }
+  function _get_iterator__8i7rvn($this) {
+    return $this.iterator_1;
+  }
+  function _set_index__fyfqnn($this, _set____db54di) {
+    $this.index_1 = _set____db54di;
+  }
+  function _get_index__g2optt($this) {
+    return $this.index_1;
+  }
+  function IndexingIterator(iterator) {
+    this.iterator_1 = iterator;
+    this.index_1 = 0;
+  }
+  IndexingIterator.prototype.hasNext_bitz1p_k$ = function () {
+    return this.iterator_1.hasNext_bitz1p_k$();
+  };
+  IndexingIterator.prototype.next_20eer_k$ = function () {
+    var tmp0_this = this;
+    var tmp1 = tmp0_this.index_1;
+    tmp0_this.index_1 = tmp1 + 1 | 0;
+    return new IndexedValue(checkIndexOverflow(tmp1), this.iterator_1.next_20eer_k$());
+  };
+  IndexingIterator.$metadata$ = classMeta('IndexingIterator', [Iterator_3]);
+  function getOrImplicitDefault(_this__u8e3s4, key) {
+    if (isInterface(_this__u8e3s4, MapWithDefault))
+      return _this__u8e3s4.getOrImplicitDefault_r2k68f_k$(key);
+    var tmp$ret$0;
+    $l$block: {
+      var value = _this__u8e3s4.get_1mhr4y_k$(key);
+      if (value == null ? !_this__u8e3s4.containsKey_wgk31w_k$(key) : false) {
+        throw NoSuchElementException_init_$Create$_0('Key ' + key + ' is missing in the map.');
+      } else {
+        tmp$ret$0 = (value == null ? true : isObject(value)) ? value : THROW_CCE();
+        break $l$block;
+      }
+    }
+    return tmp$ret$0;
+  }
+  function MapWithDefault() {
+  }
+  MapWithDefault.$metadata$ = interfaceMeta('MapWithDefault', [Map]);
   function emptyMap() {
     var tmp = EmptyMap_getInstance();
     return isInterface(tmp, Map) ? tmp : THROW_CCE();
   }
   function mapOf(pairs) {
-    return pairs.length > 0 ? toMap_0(pairs, LinkedHashMap_init_$Create$_2(mapCapacity(pairs.length))) : emptyMap();
+    return pairs.length > 0 ? toMap_1(pairs, LinkedHashMap_init_$Create$_2(mapCapacity(pairs.length))) : emptyMap();
+  }
+  function get_1(_this__u8e3s4, key) {
+    return (isInterface(_this__u8e3s4, Map) ? _this__u8e3s4 : THROW_CCE()).get_1mhr4y_k$(key);
+  }
+  function component1(_this__u8e3s4) {
+    return _this__u8e3s4.get_key_18j28a_k$();
+  }
+  function component2(_this__u8e3s4) {
+    return _this__u8e3s4.get_value_j01efc_k$();
+  }
+  function getValue(_this__u8e3s4, key) {
+    return getOrImplicitDefault(_this__u8e3s4, key);
+  }
+  function set(_this__u8e3s4, key, value) {
+    _this__u8e3s4.put_3mhbri_k$(key, value);
+  }
+  function iterator_0(_this__u8e3s4) {
+    return _this__u8e3s4.get_entries_p20ztl_k$().iterator_jk1svi_k$();
   }
   function toMap(_this__u8e3s4) {
+    if (isInterface(_this__u8e3s4, Collection)) {
+      var tmp0_subject = _this__u8e3s4.get_size_woubt6_k$();
+      var tmp;
+      switch (tmp0_subject) {
+        case 0:
+          tmp = emptyMap();
+          break;
+        case 1:
+          var tmp_0;
+          if (isInterface(_this__u8e3s4, List)) {
+            tmp_0 = _this__u8e3s4.get_fkrdnv_k$(0);
+          } else {
+            tmp_0 = _this__u8e3s4.iterator_jk1svi_k$().next_20eer_k$();
+          }
+
+          tmp = mapOf_0(tmp_0);
+          break;
+        default:
+          tmp = toMap_2(_this__u8e3s4, LinkedHashMap_init_$Create$_2(mapCapacity(_this__u8e3s4.get_size_woubt6_k$())));
+          break;
+      }
+      return tmp;
+    }
+    return optimizeReadOnlyMap(toMap_2(_this__u8e3s4, LinkedHashMap_init_$Create$()));
+  }
+  function getOrPut(_this__u8e3s4, key, defaultValue) {
+    var value = _this__u8e3s4.get_1mhr4y_k$(key);
+    var tmp;
+    if (value == null) {
+      var answer = defaultValue();
+      _this__u8e3s4.put_3mhbri_k$(key, answer);
+      tmp = answer;
+    } else {
+      tmp = value;
+    }
+    return tmp;
+  }
+  function toMap_0(_this__u8e3s4) {
     var tmp0_subject = _this__u8e3s4.get_size_woubt6_k$();
     var tmp;
     switch (tmp0_subject) {
@@ -2290,11 +3132,24 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function mutableMapOf() {
-    return LinkedHashMap_init_$Create$();
-  }
-  function set(_this__u8e3s4, key, value) {
-    _this__u8e3s4.put_3mhbri_k$(key, value);
+  function filter_0(_this__u8e3s4, predicate) {
+    var tmp$ret$1;
+    {
+      var tmp0_filterTo = LinkedHashMap_init_$Create$();
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = _this__u8e3s4.get_entries_p20ztl_k$().iterator_jk1svi_k$();
+      }
+      var tmp0_iterator = tmp$ret$0;
+      while (tmp0_iterator.hasNext_bitz1p_k$()) {
+        var element = tmp0_iterator.next_20eer_k$();
+        if (predicate(element)) {
+          tmp0_filterTo.put_3mhbri_k$(element.get_key_18j28a_k$(), element.get_value_j01efc_k$());
+        }
+      }
+      tmp$ret$1 = tmp0_filterTo;
+    }
+    return tmp$ret$1;
   }
   function _get_serialVersionUID__fhggm9_0($this) {
     return $this.serialVersionUID_1;
@@ -2373,7 +3228,7 @@ if (typeof Math.imul === 'undefined') {
       new EmptyMap();
     return EmptyMap_instance;
   }
-  function toMap_0(_this__u8e3s4, destination) {
+  function toMap_1(_this__u8e3s4, destination) {
     var tmp$ret$0;
     {
       {
@@ -2385,8 +3240,55 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0;
   }
+  function toMap_2(_this__u8e3s4, destination) {
+    var tmp$ret$0;
+    {
+      {
+      }
+      {
+        putAll_0(destination, _this__u8e3s4);
+      }
+      tmp$ret$0 = destination;
+    }
+    return tmp$ret$0;
+  }
+  function optimizeReadOnlyMap(_this__u8e3s4) {
+    var tmp0_subject = _this__u8e3s4.get_size_woubt6_k$();
+    var tmp;
+    switch (tmp0_subject) {
+      case 0:
+        tmp = emptyMap();
+        break;
+      case 1:
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4;
+        }
+
+        tmp = tmp$ret$0;
+        break;
+      default:
+        tmp = _this__u8e3s4;
+        break;
+    }
+    return tmp;
+  }
   function toMutableMap(_this__u8e3s4) {
     return LinkedHashMap_init_$Create$_3(_this__u8e3s4);
+  }
+  function filterTo_0(_this__u8e3s4, destination, predicate) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4.get_entries_p20ztl_k$().iterator_jk1svi_k$();
+    }
+    var tmp0_iterator = tmp$ret$0;
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var element = tmp0_iterator.next_20eer_k$();
+      if (predicate(element)) {
+        destination.put_3mhbri_k$(element.get_key_18j28a_k$(), element.get_value_j01efc_k$());
+      }
+    }
+    return destination;
   }
   function putAll(_this__u8e3s4, pairs) {
     var indexedObject = pairs;
@@ -2400,26 +3302,96 @@ if (typeof Math.imul === 'undefined') {
       _this__u8e3s4.put_3mhbri_k$(key, value);
     }
   }
+  function putAll_0(_this__u8e3s4, pairs) {
+    var tmp0_iterator = pairs.iterator_jk1svi_k$();
+    while (tmp0_iterator.hasNext_bitz1p_k$()) {
+      var tmp1_loop_parameter = tmp0_iterator.next_20eer_k$();
+      var key = tmp1_loop_parameter.component1_7eebsc_k$();
+      var value = tmp1_loop_parameter.component2_7eebsb_k$();
+      _this__u8e3s4.put_3mhbri_k$(key, value);
+    }
+  }
   function plusAssign(_this__u8e3s4, pair) {
     _this__u8e3s4.put_3mhbri_k$(pair.first_1, pair.second_1);
   }
-  function iterator(_this__u8e3s4) {
-    return _this__u8e3s4.get_entries_p20ztl_k$().iterator_jk1svi_k$();
+  function hashMapOf(pairs) {
+    var tmp$ret$0;
+    {
+      var tmp0_apply = HashMap_init_$Create$_2(mapCapacity(pairs.length));
+      {
+      }
+      {
+        putAll(tmp0_apply, pairs);
+      }
+      tmp$ret$0 = tmp0_apply;
+    }
+    return tmp$ret$0;
   }
-  function component1(_this__u8e3s4) {
-    return _this__u8e3s4.get_key_18j28a_k$();
-  }
-  function component2(_this__u8e3s4) {
-    return _this__u8e3s4.get_value_j01efc_k$();
-  }
-  function get_1(_this__u8e3s4, key) {
-    return (isInterface(_this__u8e3s4, Map) ? _this__u8e3s4 : THROW_CCE()).get_1mhr4y_k$(key);
+  function getOrElseNullable(_this__u8e3s4, key, defaultValue) {
+    var value = _this__u8e3s4.get_1mhr4y_k$(key);
+    if (value == null ? !_this__u8e3s4.containsKey_wgk31w_k$(key) : false) {
+      return defaultValue();
+    } else {
+      return (value == null ? true : isObject(value)) ? value : THROW_CCE();
+    }
   }
   function containsKey(_this__u8e3s4, key) {
     return (isInterface(_this__u8e3s4, Map) ? _this__u8e3s4 : THROW_CCE()).containsKey_wgk31w_k$(key);
   }
   function linkedMapOf() {
     return LinkedHashMap_init_$Create$();
+  }
+  function contains_8(_this__u8e3s4, key) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = (isInterface(_this__u8e3s4, Map) ? _this__u8e3s4 : THROW_CCE()).containsKey_wgk31w_k$(key);
+    }
+    return tmp$ret$0;
+  }
+  function mapValues(_this__u8e3s4, transform) {
+    var tmp$ret$2;
+    {
+      var tmp1_mapValuesTo = LinkedHashMap_init_$Create$_2(mapCapacity(_this__u8e3s4.get_size_woubt6_k$()));
+      var tmp$ret$1;
+      {
+        var tmp0_associateByTo = _this__u8e3s4.get_entries_p20ztl_k$();
+        var tmp0_iterator = tmp0_associateByTo.iterator_jk1svi_k$();
+        while (tmp0_iterator.hasNext_bitz1p_k$()) {
+          var element = tmp0_iterator.next_20eer_k$();
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = element.get_key_18j28a_k$();
+          }
+          tmp1_mapValuesTo.put_3mhbri_k$(tmp$ret$0, transform(element));
+        }
+        tmp$ret$1 = tmp1_mapValuesTo;
+      }
+      tmp$ret$2 = tmp$ret$1;
+    }
+    return tmp$ret$2;
+  }
+  function mapValuesTo(_this__u8e3s4, destination, transform) {
+    var tmp$ret$1;
+    {
+      var tmp0_associateByTo = _this__u8e3s4.get_entries_p20ztl_k$();
+      var tmp0_iterator = tmp0_associateByTo.iterator_jk1svi_k$();
+      while (tmp0_iterator.hasNext_bitz1p_k$()) {
+        var element = tmp0_iterator.next_20eer_k$();
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = element.get_key_18j28a_k$();
+        }
+        destination.put_3mhbri_k$(tmp$ret$0, transform(element));
+      }
+      tmp$ret$1 = destination;
+    }
+    return tmp$ret$1;
+  }
+  function mutableMapOf() {
+    return LinkedHashMap_init_$Create$();
+  }
+  function plusAssign_0(_this__u8e3s4, element) {
+    _this__u8e3s4.add_1j60pz_k$(element);
   }
   function removeAll(_this__u8e3s4, predicate) {
     return filterInPlace(_this__u8e3s4, predicate, true);
@@ -2433,7 +3405,7 @@ if (typeof Math.imul === 'undefined') {
     }
     var writeIndex = 0;
     var inductionVariable = 0;
-    var last = get_lastIndex_5(_this__u8e3s4);
+    var last = get_lastIndex_6(_this__u8e3s4);
     if (inductionVariable <= last)
       $l$loop: do {
         var readIndex = inductionVariable;
@@ -2449,7 +3421,7 @@ if (typeof Math.imul === 'undefined') {
       }
        while (!(readIndex === last));
     if (writeIndex < _this__u8e3s4.get_size_woubt6_k$()) {
-      var inductionVariable_0 = get_lastIndex_5(_this__u8e3s4);
+      var inductionVariable_0 = get_lastIndex_6(_this__u8e3s4);
       var last_0 = writeIndex;
       if (last_0 <= inductionVariable_0)
         do {
@@ -2479,13 +3451,37 @@ if (typeof Math.imul === 'undefined') {
     }
     return result;
   }
+  function removeLast(_this__u8e3s4) {
+    var tmp;
+    if (_this__u8e3s4.isEmpty_y1axqb_k$()) {
+      throw NoSuchElementException_init_$Create$_0('List is empty.');
+    } else {
+      tmp = _this__u8e3s4.removeAt_qvpkxi_k$(get_lastIndex_6(_this__u8e3s4));
+    }
+    return tmp;
+  }
+  function addAll(_this__u8e3s4, elements) {
+    var tmp0_subject = elements;
+    if (isInterface(tmp0_subject, Collection))
+      return _this__u8e3s4.addAll_oxxjjk_k$(elements);
+    else {
+      var result = false;
+      var tmp1_iterator = elements.iterator_jk1svi_k$();
+      while (tmp1_iterator.hasNext_bitz1p_k$()) {
+        var item = tmp1_iterator.next_20eer_k$();
+        if (_this__u8e3s4.add_1j60pz_k$(item))
+          result = true;
+      }
+      return result;
+    }
+  }
   function Sequence() {
   }
   Sequence.$metadata$ = interfaceMeta('Sequence');
   function sequence(block) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = new _no_name_provided__qut3iv_2(block);
+      tmp$ret$0 = new _no_name_provided__qut3iv_3(block);
     }
     return tmp$ret$0;
   }
@@ -2506,7 +3502,7 @@ if (typeof Math.imul === 'undefined') {
     return this.yieldAll_rrnzpm_k$(sequence.iterator_jk1svi_k$(), $cont);
   };
   SequenceScope.$metadata$ = classMeta('SequenceScope');
-  function iterator_0(block) {
+  function iterator_1(block) {
     var iterator = new SequenceBuilderIterator();
     iterator.nextStep_1 = createCoroutineUnintercepted(block, iterator, iterator);
     return iterator;
@@ -2589,7 +3585,7 @@ if (typeof Math.imul === 'undefined') {
       {
         var tmp$ret$0;
         {
-          var tmp0_success = Companion_getInstance_4();
+          var tmp0_success = Companion_getInstance_5();
           tmp$ret$0 = _Result___init__impl__xyqfz8(Unit_getInstance());
         }
         tmp$ret$1 = step.resumeWith_s3a3yh_k$(tmp$ret$0);
@@ -2679,22 +3675,22 @@ if (typeof Math.imul === 'undefined') {
     return State_Failed;
   }
   var State_Failed;
-  function _no_name_provided__qut3iv_2($block) {
+  function _no_name_provided__qut3iv_3($block) {
     this.$block_1 = $block;
   }
-  _no_name_provided__qut3iv_2.prototype.iterator_jk1svi_k$ = function () {
+  _no_name_provided__qut3iv_3.prototype.iterator_jk1svi_k$ = function () {
     var tmp$ret$0;
     {
-      tmp$ret$0 = iterator_0(this.$block_1);
+      tmp$ret$0 = iterator_1(this.$block_1);
     }
     return tmp$ret$0;
   };
-  _no_name_provided__qut3iv_2.$metadata$ = classMeta(undefined, [Sequence]);
+  _no_name_provided__qut3iv_3.$metadata$ = classMeta(undefined, [Sequence]);
   function generateSequence(seedFunction, nextFunction) {
     return new GeneratorSequence(seedFunction, nextFunction);
   }
   function Sequence_0(iterator) {
-    return new _no_name_provided__qut3iv_3(iterator);
+    return new _no_name_provided__qut3iv_4(iterator);
   }
   function emptySequence() {
     return EmptySequence_getInstance();
@@ -2861,7 +3857,7 @@ if (typeof Math.imul === 'undefined') {
       new EmptySequence();
     return EmptySequence_instance;
   }
-  function drop($this) {
+  function drop_0($this) {
     while ($this.position_1 < $this.this$0__1.startIndex_1 ? $this.iterator_1.hasNext_bitz1p_k$() : false) {
       $this.iterator_1.next_20eer_k$();
       var tmp0_this = $this;
@@ -2896,11 +3892,11 @@ if (typeof Math.imul === 'undefined') {
     return this.position_1;
   };
   SubSequence$iterator$1.prototype.hasNext_bitz1p_k$ = function () {
-    drop(this);
+    drop_0(this);
     return this.position_1 < this.this$0__1.endIndex_1 ? this.iterator_1.hasNext_bitz1p_k$() : false;
   };
   SubSequence$iterator$1.prototype.next_20eer_k$ = function () {
-    drop(this);
+    drop_0(this);
     if (this.position_1 >= this.this$0__1.endIndex_1)
       throw NoSuchElementException_init_$Create$();
     var tmp0_this = this;
@@ -2987,7 +3983,7 @@ if (typeof Math.imul === 'undefined') {
   function _get_transformer__3cg414_0($this) {
     return $this.transformer_1;
   }
-  function _get_iterator__8i7rvn($this) {
+  function _get_iterator__8i7rvn_0($this) {
     return $this.iterator_1;
   }
   function FlatteningSequence$iterator$1(this$0) {
@@ -3022,15 +4018,21 @@ if (typeof Math.imul === 'undefined') {
     return new FlatteningSequence$iterator$1(this);
   };
   FlatteningSequence.$metadata$ = classMeta('FlatteningSequence', [Sequence]);
-  function _no_name_provided__qut3iv_3($iterator) {
+  function _no_name_provided__qut3iv_4($iterator) {
     this.$iterator_1 = $iterator;
   }
-  _no_name_provided__qut3iv_3.prototype.iterator_jk1svi_k$ = function () {
+  _no_name_provided__qut3iv_4.prototype.iterator_jk1svi_k$ = function () {
     return this.$iterator_1();
   };
-  _no_name_provided__qut3iv_3.$metadata$ = classMeta(undefined, [Sequence]);
+  _no_name_provided__qut3iv_4.$metadata$ = classMeta(undefined, [Sequence]);
   function emptySet() {
     return EmptySet_getInstance();
+  }
+  function setOf(elements) {
+    return elements.length > 0 ? toSet(elements) : emptySet();
+  }
+  function setOf_0() {
+    return emptySet();
   }
   function _get_serialVersionUID__fhggm9_1($this) {
     return $this.serialVersionUID_1;
@@ -3099,13 +4101,20 @@ if (typeof Math.imul === 'undefined') {
       case 0:
         return emptySet();
       case 1:
-        return setOf(_this__u8e3s4.iterator_jk1svi_k$().next_20eer_k$());
+        return setOf_1(_this__u8e3s4.iterator_jk1svi_k$().next_20eer_k$());
       default:
         return _this__u8e3s4;
     }
   }
   function hashSetOf(elements) {
     return toCollection(elements, HashSet_init_$Create$_2(mapCapacity(elements.length)));
+  }
+  function linkedSetOf() {
+    return LinkedHashSet_init_$Create$_0();
+  }
+  function orEmpty(_this__u8e3s4) {
+    var tmp0_elvis_lhs = _this__u8e3s4;
+    return tmp0_elvis_lhs == null ? emptySet() : tmp0_elvis_lhs;
   }
   function contract(builder) {
   }
@@ -3202,7 +4211,7 @@ if (typeof Math.imul === 'undefined') {
   }
   Continuation.$metadata$ = interfaceMeta('Continuation');
   function Continuation_0(context, resumeWith) {
-    return new _no_name_provided__qut3iv_4(context, resumeWith);
+    return new _no_name_provided__qut3iv_5(context, resumeWith);
   }
   function get_coroutineContext() {
     throw new NotImplementedError('Implemented as intrinsic');
@@ -3210,7 +4219,7 @@ if (typeof Math.imul === 'undefined') {
   function resume(_this__u8e3s4, value) {
     var tmp$ret$0;
     {
-      var tmp0_success = Companion_getInstance_4();
+      var tmp0_success = Companion_getInstance_5();
       tmp$ret$0 = _Result___init__impl__xyqfz8(value);
     }
     return _this__u8e3s4.resumeWith_s3a3yh_k$(tmp$ret$0);
@@ -3218,7 +4227,7 @@ if (typeof Math.imul === 'undefined') {
   function resumeWithException(_this__u8e3s4, exception) {
     var tmp$ret$0;
     {
-      var tmp0_failure = Companion_getInstance_4();
+      var tmp0_failure = Companion_getInstance_5();
       tmp$ret$0 = _Result___init__impl__xyqfz8(createFailure(exception));
     }
     return _this__u8e3s4.resumeWith_s3a3yh_k$(tmp$ret$0);
@@ -3244,7 +4253,7 @@ if (typeof Math.imul === 'undefined') {
       var tmp0_resume = intercepted(createCoroutineUnintercepted_0(_this__u8e3s4, completion));
       var tmp$ret$0;
       {
-        var tmp0_success = Companion_getInstance_4();
+        var tmp0_success = Companion_getInstance_5();
         tmp$ret$0 = _Result___init__impl__xyqfz8(Unit_getInstance());
       }
       tmp$ret$1 = tmp0_resume.resumeWith_s3a3yh_k$(tmp$ret$0);
@@ -3256,23 +4265,23 @@ if (typeof Math.imul === 'undefined') {
       var tmp0_resume = intercepted(createCoroutineUnintercepted(_this__u8e3s4, receiver, completion));
       var tmp$ret$0;
       {
-        var tmp0_success = Companion_getInstance_4();
+        var tmp0_success = Companion_getInstance_5();
         tmp$ret$0 = _Result___init__impl__xyqfz8(Unit_getInstance());
       }
       tmp$ret$1 = tmp0_resume.resumeWith_s3a3yh_k$(tmp$ret$0);
     }
   }
-  function _no_name_provided__qut3iv_4($context, $resumeWith) {
+  function _no_name_provided__qut3iv_5($context, $resumeWith) {
     this.$context_1 = $context;
     this.$resumeWith_1 = $resumeWith;
   }
-  _no_name_provided__qut3iv_4.prototype.get_context_h02k06_k$ = function () {
+  _no_name_provided__qut3iv_5.prototype.get_context_h02k06_k$ = function () {
     return this.$context_1;
   };
-  _no_name_provided__qut3iv_4.prototype.resumeWith_s3a3yh_k$ = function (result) {
+  _no_name_provided__qut3iv_5.prototype.resumeWith_s3a3yh_k$ = function (result) {
     return this.$resumeWith_1(new Result(result));
   };
-  _no_name_provided__qut3iv_4.$metadata$ = classMeta(undefined, [Continuation]);
+  _no_name_provided__qut3iv_5.$metadata$ = classMeta(undefined, [Continuation]);
   function Key() {
     Key_instance = this;
   }
@@ -3406,19 +4415,19 @@ if (typeof Math.imul === 'undefined') {
       size = tmp1 + 1 | 0;
     }
   }
-  function contains_7($this, element) {
-    return equals_0($this.get_1pi7hg_k$(element.get_key_18j28a_k$()), element);
+  function contains_9($this, element) {
+    return equals_1($this.get_1pi7hg_k$(element.get_key_18j28a_k$()), element);
   }
   function containsAll_0($this, context) {
     var cur = context;
     while (true) {
-      if (!contains_7($this, cur.element_1))
+      if (!contains_9($this, cur.element_1))
         return false;
       var next = cur.left_1;
       if (next instanceof CombinedContext) {
         cur = next;
       } else {
-        return contains_7($this, isInterface(next, Element) ? next : THROW_CCE());
+        return contains_9($this, isInterface(next, Element) ? next : THROW_CCE());
       }
     }
   }
@@ -3547,7 +4556,7 @@ if (typeof Math.imul === 'undefined') {
     return tmp;
   };
   CombinedContext.prototype.hashCode = function () {
-    return hashCode(this.left_1) + hashCode(this.element_1) | 0;
+    return hashCode_0(this.left_1) + hashCode_0(this.element_1) | 0;
   };
   CombinedContext.prototype.toString = function () {
     return '[' + this.fold_6dbyow_k$('', CombinedContext$toString$lambda()) + ']';
@@ -3849,21 +4858,6 @@ if (typeof Math.imul === 'undefined') {
     return '@kotlin.internal.ContractsDsl()';
   };
   ContractsDsl.$metadata$ = classMeta('ContractsDsl', [Annotation]);
-  function HidesMembers() {
-  }
-  HidesMembers.prototype.equals = function (other) {
-    if (!(other instanceof HidesMembers))
-      return false;
-    var tmp0_other_with_cast = other instanceof HidesMembers ? other : THROW_CCE();
-    return true;
-  };
-  HidesMembers.prototype.hashCode = function () {
-    return 0;
-  };
-  HidesMembers.prototype.toString = function () {
-    return '@kotlin.internal.HidesMembers()';
-  };
-  HidesMembers.$metadata$ = classMeta('HidesMembers', [Annotation]);
   function OnlyInputTypes() {
   }
   OnlyInputTypes.prototype.equals = function (other) {
@@ -3879,6 +4873,21 @@ if (typeof Math.imul === 'undefined') {
     return '@kotlin.internal.OnlyInputTypes()';
   };
   OnlyInputTypes.$metadata$ = classMeta('OnlyInputTypes', [Annotation]);
+  function HidesMembers() {
+  }
+  HidesMembers.prototype.equals = function (other) {
+    if (!(other instanceof HidesMembers))
+      return false;
+    var tmp0_other_with_cast = other instanceof HidesMembers ? other : THROW_CCE();
+    return true;
+  };
+  HidesMembers.prototype.hashCode = function () {
+    return 0;
+  };
+  HidesMembers.prototype.toString = function () {
+    return '@kotlin.internal.HidesMembers()';
+  };
+  HidesMembers.$metadata$ = classMeta('HidesMembers', [Annotation]);
   function RequireKotlinVersionKind_LANGUAGE_VERSION_getInstance() {
     RequireKotlinVersionKind_initEntries();
     return RequireKotlinVersionKind_LANGUAGE_VERSION_instance;
@@ -3895,6 +4904,9 @@ if (typeof Math.imul === 'undefined') {
     if (!isPositive)
       throw IllegalArgumentException_init_$Create$_0('Step must be positive, was: ' + toString_2(step) + '.');
   }
+  function ClosedFloatingPointRange() {
+  }
+  ClosedFloatingPointRange.$metadata$ = interfaceMeta('ClosedFloatingPointRange', [ClosedRange]);
   function KClassifier() {
   }
   KClassifier.$metadata$ = interfaceMeta('KClassifier');
@@ -3992,7 +5004,7 @@ if (typeof Math.imul === 'undefined') {
   };
   KTypeProjection.prototype.hashCode = function () {
     var result = this.variance_1 == null ? 0 : this.variance_1.hashCode();
-    result = imul(result, 31) + (this.type_1 == null ? 0 : hashCode(this.type_1)) | 0;
+    result = imul(result, 31) + (this.type_1 == null ? 0 : hashCode_0(this.type_1)) | 0;
     return result;
   };
   KTypeProjection.prototype.equals = function (other) {
@@ -4001,9 +5013,9 @@ if (typeof Math.imul === 'undefined') {
     if (!(other instanceof KTypeProjection))
       return false;
     var tmp0_other_with_cast = other instanceof KTypeProjection ? other : THROW_CCE();
-    if (!equals_0(this.variance_1, tmp0_other_with_cast.variance_1))
+    if (!equals_1(this.variance_1, tmp0_other_with_cast.variance_1))
       return false;
-    if (!equals_0(this.type_1, tmp0_other_with_cast.type_1))
+    if (!equals_1(this.type_1, tmp0_other_with_cast.type_1))
       return false;
     return true;
   };
@@ -4068,18 +5080,15 @@ if (typeof Math.imul === 'undefined') {
       }
     }
   }
-  function plus_0(_this__u8e3s4, other) {
-    return toString_0(_this__u8e3s4) + other;
-  }
   function equals(_this__u8e3s4, other, ignoreCase) {
-    if (equals_0(new Char_0(_this__u8e3s4), new Char_0(other)))
+    if (equals_1(new Char_0(_this__u8e3s4), new Char_0(other)))
       return true;
     if (!ignoreCase)
       return false;
     var thisUpper = uppercaseChar(_this__u8e3s4);
     var otherUpper = uppercaseChar(other);
     var tmp;
-    if (equals_0(new Char_0(thisUpper), new Char_0(otherUpper))) {
+    if (equals_1(new Char_0(thisUpper), new Char_0(otherUpper))) {
       tmp = true;
     } else {
       var tmp$ret$3;
@@ -4119,7 +5128,7 @@ if (typeof Math.imul === 'undefined') {
         }
         tmp$ret$7 = charSequenceGet(tmp$ret$6, 0);
       }
-      tmp = equals_0(tmp_0, new Char_0(tmp$ret$7));
+      tmp = equals_1(tmp_0, new Char_0(tmp$ret$7));
     }
     return tmp;
   }
@@ -4127,6 +5136,248 @@ if (typeof Math.imul === 'undefined') {
     if (!(($mask0 & 2) === 0))
       ignoreCase = false;
     return equals(_this__u8e3s4, other, ignoreCase);
+  }
+  function plus_2(_this__u8e3s4, other) {
+    return toString_0(_this__u8e3s4) + other;
+  }
+  function titlecase(_this__u8e3s4) {
+    return titlecaseImpl(_this__u8e3s4);
+  }
+  function trimIndent(_this__u8e3s4) {
+    return replaceIndent(_this__u8e3s4, '');
+  }
+  function replaceIndent(_this__u8e3s4, newIndent) {
+    var lines_0 = lines(_this__u8e3s4);
+    var tmp$ret$3;
+    {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          var tmp0_filterTo = ArrayList_init_$Create$();
+          var tmp0_iterator = lines_0.iterator_jk1svi_k$();
+          while (tmp0_iterator.hasNext_bitz1p_k$()) {
+            var element = tmp0_iterator.next_20eer_k$();
+            if (isNotBlank(element)) {
+              tmp0_filterTo.add_1j60pz_k$(element);
+            }
+          }
+          tmp$ret$0 = tmp0_filterTo;
+        }
+        tmp$ret$1 = tmp$ret$0;
+      }
+      var tmp0_map = tmp$ret$1;
+      var tmp$ret$2;
+      {
+        var tmp0_mapTo = ArrayList_init_$Create$_0(collectionSizeOrDefault(tmp0_map, 10));
+        var tmp0_iterator_0 = tmp0_map.iterator_jk1svi_k$();
+        while (tmp0_iterator_0.hasNext_bitz1p_k$()) {
+          var item = tmp0_iterator_0.next_20eer_k$();
+          tmp0_mapTo.add_1j60pz_k$(indentWidth(item));
+        }
+        tmp$ret$2 = tmp0_mapTo;
+      }
+      tmp$ret$3 = tmp$ret$2;
+    }
+    var tmp0_elvis_lhs = minOrNull(tmp$ret$3);
+    var minCommonIndent = tmp0_elvis_lhs == null ? 0 : tmp0_elvis_lhs;
+    var tmp$ret$10;
+    {
+      var tmp1_reindent = _this__u8e3s4.length + imul(newIndent.length, lines_0.get_size_woubt6_k$()) | 0;
+      var tmp2_reindent = getIndentFunction(newIndent);
+      var lastIndex = get_lastIndex_6(lines_0);
+      var tmp$ret$9;
+      {
+        var tmp$ret$8;
+        {
+          var tmp1_mapIndexedNotNullTo = ArrayList_init_$Create$();
+          {
+            var index = 0;
+            var tmp0_iterator_1 = lines_0.iterator_jk1svi_k$();
+            while (tmp0_iterator_1.hasNext_bitz1p_k$()) {
+              var item_0 = tmp0_iterator_1.next_20eer_k$();
+              {
+                var tmp1 = index;
+                index = tmp1 + 1 | 0;
+                var tmp0__anonymous__q1qw7t = checkIndexOverflow(tmp1);
+                var tmp$ret$6;
+                {
+                  var tmp;
+                  if ((tmp0__anonymous__q1qw7t === 0 ? true : tmp0__anonymous__q1qw7t === lastIndex) ? isBlank(item_0) : false) {
+                    tmp = null;
+                  } else {
+                    var tmp$ret$4;
+                    {
+                      tmp$ret$4 = drop(item_0, minCommonIndent);
+                    }
+                    var tmp0_safe_receiver = tmp$ret$4;
+                    var tmp_0;
+                    if (tmp0_safe_receiver == null) {
+                      tmp_0 = null;
+                    } else {
+                      var tmp$ret$5;
+                      {
+                        {
+                        }
+                        tmp$ret$5 = tmp2_reindent(tmp0_safe_receiver);
+                      }
+                      tmp_0 = tmp$ret$5;
+                    }
+                    var tmp1_elvis_lhs = tmp_0;
+                    tmp = tmp1_elvis_lhs == null ? item_0 : tmp1_elvis_lhs;
+                  }
+                  tmp$ret$6 = tmp;
+                }
+                var tmp0_safe_receiver_0 = tmp$ret$6;
+                if (tmp0_safe_receiver_0 == null)
+                  null;
+                else {
+                  var tmp$ret$7;
+                  {
+                    {
+                    }
+                    tmp1_mapIndexedNotNullTo.add_1j60pz_k$(tmp0_safe_receiver_0);
+                    tmp$ret$7 = Unit_getInstance();
+                  }
+                }
+              }
+            }
+          }
+          tmp$ret$8 = tmp1_mapIndexedNotNullTo;
+        }
+        tmp$ret$9 = tmp$ret$8;
+      }
+      var tmp_1 = tmp$ret$9;
+      var tmp_2 = StringBuilder_init_$Create$(tmp1_reindent);
+      tmp$ret$10 = joinTo$default_0(tmp_1, tmp_2, '\n', null, null, 0, null, null, 124, null).toString();
+    }
+    return tmp$ret$10;
+  }
+  function replaceIndent$default(_this__u8e3s4, newIndent, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      newIndent = '';
+    return replaceIndent(_this__u8e3s4, newIndent);
+  }
+  function indentWidth(_this__u8e3s4) {
+    var tmp$ret$3;
+    {
+      var tmp$ret$1;
+      $l$block: {
+        var inductionVariable = 0;
+        var last = charSequenceLength(_this__u8e3s4) - 1 | 0;
+        if (inductionVariable <= last)
+          do {
+            var index = inductionVariable;
+            inductionVariable = inductionVariable + 1 | 0;
+            var tmp$ret$0;
+            {
+              var tmp0__anonymous__q1qw7t = charSequenceGet(_this__u8e3s4, index);
+              tmp$ret$0 = !isWhitespace(tmp0__anonymous__q1qw7t);
+            }
+            if (tmp$ret$0) {
+              tmp$ret$1 = index;
+              break $l$block;
+            }
+          }
+           while (inductionVariable <= last);
+        tmp$ret$1 = -1;
+      }
+      var tmp1_let = tmp$ret$1;
+      {
+      }
+      var tmp$ret$2;
+      {
+        tmp$ret$2 = tmp1_let === -1 ? _this__u8e3s4.length : tmp1_let;
+      }
+      tmp$ret$3 = tmp$ret$2;
+    }
+    return tmp$ret$3;
+  }
+  function reindent(_this__u8e3s4, resultSizeEstimate, indentAddFunction, indentCutFunction) {
+    var lastIndex = get_lastIndex_6(_this__u8e3s4);
+    var tmp$ret$4;
+    {
+      var tmp$ret$3;
+      {
+        var tmp1_mapIndexedNotNullTo = ArrayList_init_$Create$();
+        {
+          var index = 0;
+          var tmp0_iterator = _this__u8e3s4.iterator_jk1svi_k$();
+          while (tmp0_iterator.hasNext_bitz1p_k$()) {
+            var item = tmp0_iterator.next_20eer_k$();
+            {
+              var tmp1 = index;
+              index = tmp1 + 1 | 0;
+              var tmp0__anonymous__q1qw7t = checkIndexOverflow(tmp1);
+              var tmp$ret$1;
+              {
+                var tmp;
+                if ((tmp0__anonymous__q1qw7t === 0 ? true : tmp0__anonymous__q1qw7t === lastIndex) ? isBlank(item) : false) {
+                  tmp = null;
+                } else {
+                  var tmp0_safe_receiver = indentCutFunction(item);
+                  var tmp_0;
+                  if (tmp0_safe_receiver == null) {
+                    tmp_0 = null;
+                  } else {
+                    var tmp$ret$0;
+                    {
+                      {
+                      }
+                      tmp$ret$0 = indentAddFunction(tmp0_safe_receiver);
+                    }
+                    tmp_0 = tmp$ret$0;
+                  }
+                  var tmp1_elvis_lhs = tmp_0;
+                  tmp = tmp1_elvis_lhs == null ? item : tmp1_elvis_lhs;
+                }
+                tmp$ret$1 = tmp;
+              }
+              var tmp0_safe_receiver_0 = tmp$ret$1;
+              if (tmp0_safe_receiver_0 == null)
+                null;
+              else {
+                var tmp$ret$2;
+                {
+                  {
+                  }
+                  tmp1_mapIndexedNotNullTo.add_1j60pz_k$(tmp0_safe_receiver_0);
+                  tmp$ret$2 = Unit_getInstance();
+                }
+              }
+            }
+          }
+        }
+        tmp$ret$3 = tmp1_mapIndexedNotNullTo;
+      }
+      tmp$ret$4 = tmp$ret$3;
+    }
+    var tmp_1 = tmp$ret$4;
+    var tmp_2 = StringBuilder_init_$Create$(resultSizeEstimate);
+    return joinTo$default_0(tmp_1, tmp_2, '\n', null, null, 0, null, null, 124, null).toString();
+  }
+  function getIndentFunction(indent) {
+    var tmp;
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = charSequenceLength(indent) === 0;
+    }
+    if (tmp$ret$0) {
+      tmp = getIndentFunction$lambda();
+    } else {
+      tmp = getIndentFunction$lambda_0(indent);
+    }
+    return tmp;
+  }
+  function getIndentFunction$lambda() {
+    return function (line) {
+      return line;
+    };
+  }
+  function getIndentFunction$lambda_0($indent) {
+    return function (line) {
+      return $indent + line;
+    };
   }
   function buildString(builderAction) {
     {
@@ -4144,6 +5395,9 @@ if (typeof Math.imul === 'undefined') {
   function toLongOrNull(_this__u8e3s4) {
     return toLongOrNull_0(_this__u8e3s4, 10);
   }
+  function toIntOrNull(_this__u8e3s4) {
+    return toIntOrNull_0(_this__u8e3s4, 10);
+  }
   function toLongOrNull_0(_this__u8e3s4, radix) {
     checkRadix(radix);
     var length = _this__u8e3s4.length;
@@ -4157,25 +5411,25 @@ if (typeof Math.imul === 'undefined') {
       if (length === 1)
         return null;
       start = 1;
-      if (equals_0(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(45)))) {
+      if (equals_1(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(45)))) {
         isNegative = true;
-        Companion_getInstance_22();
+        Companion_getInstance_23();
         limit = new Long(0, -2147483648);
-      } else if (equals_0(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(43)))) {
+      } else if (equals_1(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(43)))) {
         isNegative = false;
-        Companion_getInstance_22();
+        Companion_getInstance_23();
         limit = (new Long(-1, 2147483647)).unaryMinus_6uz0qp_k$();
       } else
         return null;
     } else {
       start = 0;
       isNegative = false;
-      Companion_getInstance_22();
+      Companion_getInstance_23();
       limit = (new Long(-1, 2147483647)).unaryMinus_6uz0qp_k$();
     }
     var tmp$ret$0;
     {
-      Companion_getInstance_22();
+      Companion_getInstance_23();
       var tmp0_div = (new Long(-1, 2147483647)).unaryMinus_6uz0qp_k$();
       tmp$ret$0 = tmp0_div.div_9s1fi3_k$(new Long(36, 0));
     }
@@ -4194,7 +5448,7 @@ if (typeof Math.imul === 'undefined') {
           if (limitBeforeMul.equals(limitForMaxRadix)) {
             var tmp$ret$1;
             {
-              tmp$ret$1 = limit.div_9s1fi3_k$(toLong(radix));
+              tmp$ret$1 = limit.div_9s1fi3_k$(toLong_0(radix));
             }
             limitBeforeMul = tmp$ret$1;
             if (result.compareTo_n4fqi2_k$(limitBeforeMul) < 0) {
@@ -4207,27 +5461,27 @@ if (typeof Math.imul === 'undefined') {
         var tmp$ret$2;
         {
           var tmp1_times = result;
-          tmp$ret$2 = tmp1_times.times_2zfqpc_k$(toLong(radix));
+          tmp$ret$2 = tmp1_times.times_2zfqpc_k$(toLong_0(radix));
         }
         result = tmp$ret$2;
         var tmp = result;
         var tmp$ret$3;
         {
-          tmp$ret$3 = limit.plus_u6jwas_k$(toLong(digit));
+          tmp$ret$3 = limit.plus_u6jwas_k$(toLong_0(digit));
         }
         if (tmp.compareTo_n4fqi2_k$(tmp$ret$3) < 0)
           return null;
         var tmp$ret$4;
         {
           var tmp2_minus = result;
-          tmp$ret$4 = tmp2_minus.minus_llf5ei_k$(toLong(digit));
+          tmp$ret$4 = tmp2_minus.minus_llf5ei_k$(toLong_0(digit));
         }
         result = tmp$ret$4;
       }
        while (inductionVariable < length);
     return isNegative ? result : result.unaryMinus_6uz0qp_k$();
   }
-  function toIntOrNull(_this__u8e3s4, radix) {
+  function toIntOrNull_0(_this__u8e3s4, radix) {
     checkRadix(radix);
     var length = _this__u8e3s4.length;
     if (length === 0)
@@ -4240,10 +5494,10 @@ if (typeof Math.imul === 'undefined') {
       if (length === 1)
         return null;
       start = 1;
-      if (equals_0(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(45)))) {
+      if (equals_1(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(45)))) {
         isNegative = true;
         limit = IntCompanionObject_getInstance().MIN_VALUE_1;
-      } else if (equals_0(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(43)))) {
+      } else if (equals_1(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(43)))) {
         isNegative = false;
         limit = -IntCompanionObject_getInstance().MAX_VALUE_1 | 0;
       } else
@@ -4285,14 +5539,107 @@ if (typeof Math.imul === 'undefined') {
   function numberFormatError(input) {
     throw NumberFormatException_init_$Create$_0("Invalid number format: '" + input + "'");
   }
-  function toIntOrNull_0(_this__u8e3s4) {
-    return toIntOrNull(_this__u8e3s4, 10);
-  }
-  function isEmpty_1(_this__u8e3s4) {
+  function isEmpty_2(_this__u8e3s4) {
     return charSequenceLength(_this__u8e3s4) === 0;
   }
   function split(_this__u8e3s4, regex, limit) {
     return regex.split_8rwwda_k$(_this__u8e3s4, limit);
+  }
+  function isNotBlank(_this__u8e3s4) {
+    return !isBlank(_this__u8e3s4);
+  }
+  function substringBefore(_this__u8e3s4, delimiter, missingDelimiterValue) {
+    var index = indexOf$default(_this__u8e3s4, delimiter, 0, false, 6, null);
+    var tmp;
+    if (index === -1) {
+      tmp = missingDelimiterValue;
+    } else {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4;
+        }
+        tmp$ret$1 = tmp$ret$0.substring(0, index);
+      }
+      tmp = tmp$ret$1;
+    }
+    return tmp;
+  }
+  function substringBefore$default(_this__u8e3s4, delimiter, missingDelimiterValue, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      missingDelimiterValue = _this__u8e3s4;
+    return substringBefore(_this__u8e3s4, delimiter, missingDelimiterValue);
+  }
+  function endsWith(_this__u8e3s4, char, ignoreCase) {
+    return charSequenceLength(_this__u8e3s4) > 0 ? equals(charSequenceGet(_this__u8e3s4, get_lastIndex_7(_this__u8e3s4)), char, ignoreCase) : false;
+  }
+  function endsWith$default(_this__u8e3s4, char, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      ignoreCase = false;
+    return endsWith(_this__u8e3s4, char, ignoreCase);
+  }
+  function substringBefore_0(_this__u8e3s4, delimiter, missingDelimiterValue) {
+    var index = indexOf$default_0(_this__u8e3s4, delimiter, 0, false, 6, null);
+    var tmp;
+    if (index === -1) {
+      tmp = missingDelimiterValue;
+    } else {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4;
+        }
+        tmp$ret$1 = tmp$ret$0.substring(0, index);
+      }
+      tmp = tmp$ret$1;
+    }
+    return tmp;
+  }
+  function substringBefore$default_0(_this__u8e3s4, delimiter, missingDelimiterValue, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      missingDelimiterValue = _this__u8e3s4;
+    return substringBefore_0(_this__u8e3s4, delimiter, missingDelimiterValue);
+  }
+  function substring(_this__u8e3s4, range) {
+    var tmp$ret$1;
+    {
+      var tmp0_substring = range.get_start_iypx6h_k$();
+      var tmp1_substring = range.get_endInclusive_r07xpi_k$() + 1 | 0;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = _this__u8e3s4;
+      }
+      tmp$ret$1 = tmp$ret$0.substring(tmp0_substring, tmp1_substring);
+    }
+    return tmp$ret$1;
+  }
+  function contains_10(_this__u8e3s4, other, ignoreCase) {
+    var tmp;
+    if (typeof other === 'string') {
+      tmp = indexOf$default(_this__u8e3s4, other, 0, ignoreCase, 2, null) >= 0;
+    } else {
+      var tmp_0 = charSequenceLength(_this__u8e3s4);
+      tmp = indexOf$default_1(_this__u8e3s4, other, 0, tmp_0, ignoreCase, false, 16, null) >= 0;
+    }
+    return tmp;
+  }
+  function contains$default(_this__u8e3s4, other, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      ignoreCase = false;
+    return contains_10(_this__u8e3s4, other, ignoreCase);
+  }
+  function startsWith(_this__u8e3s4, char, ignoreCase) {
+    return charSequenceLength(_this__u8e3s4) > 0 ? equals(charSequenceGet(_this__u8e3s4, 0), char, ignoreCase) : false;
+  }
+  function startsWith$default(_this__u8e3s4, char, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      ignoreCase = false;
+    return startsWith(_this__u8e3s4, char, ignoreCase);
+  }
+  function replace(_this__u8e3s4, regex, transform) {
+    return regex.replace_8a09nm_k$(_this__u8e3s4, transform);
   }
   function split_0(_this__u8e3s4, delimiters, ignoreCase, limit) {
     if (delimiters.length === 1) {
@@ -4309,7 +5656,7 @@ if (typeof Math.imul === 'undefined') {
           var item = tmp0_iterator.next_20eer_k$();
           var tmp$ret$0;
           {
-            tmp$ret$0 = substring(_this__u8e3s4, item);
+            tmp$ret$0 = substring_0(_this__u8e3s4, item);
           }
           tmp0_mapTo.add_1j60pz_k$(tmp$ret$0);
         }
@@ -4348,7 +5695,7 @@ if (typeof Math.imul === 'undefined') {
           var item = tmp0_iterator.next_20eer_k$();
           var tmp$ret$1;
           {
-            tmp$ret$1 = substring(_this__u8e3s4, item);
+            tmp$ret$1 = substring_0(_this__u8e3s4, item);
           }
           tmp0_mapTo.add_1j60pz_k$(tmp$ret$1);
         }
@@ -4392,12 +5739,127 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
+  function indexOf_6(_this__u8e3s4, string, startIndex, ignoreCase) {
+    var tmp;
+    var tmp_0;
+    if (ignoreCase) {
+      tmp_0 = true;
+    } else {
+      tmp_0 = !(typeof _this__u8e3s4 === 'string');
+    }
+    if (tmp_0) {
+      var tmp_1 = charSequenceLength(_this__u8e3s4);
+      tmp = indexOf$default_1(_this__u8e3s4, string, startIndex, tmp_1, ignoreCase, false, 16, null);
+    } else {
+      var tmp$ret$1;
+      {
+        var tmp0_nativeIndexOf = _this__u8e3s4;
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = tmp0_nativeIndexOf;
+        }
+        tmp$ret$1 = tmp$ret$0.indexOf(string, startIndex);
+      }
+      tmp = tmp$ret$1;
+    }
+    return tmp;
+  }
+  function indexOf$default(_this__u8e3s4, string, startIndex, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      startIndex = 0;
+    if (!(($mask0 & 4) === 0))
+      ignoreCase = false;
+    return indexOf_6(_this__u8e3s4, string, startIndex, ignoreCase);
+  }
+  function get_lastIndex_7(_this__u8e3s4) {
+    return charSequenceLength(_this__u8e3s4) - 1 | 0;
+  }
+  function indexOf_7(_this__u8e3s4, char, startIndex, ignoreCase) {
+    var tmp;
+    var tmp_0;
+    if (ignoreCase) {
+      tmp_0 = true;
+    } else {
+      tmp_0 = !(typeof _this__u8e3s4 === 'string');
+    }
+    if (tmp_0) {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = charArrayOf_0([char]);
+      }
+      tmp = indexOfAny(_this__u8e3s4, tmp$ret$0, startIndex, ignoreCase);
+    } else {
+      var tmp$ret$3;
+      {
+        var tmp1_nativeIndexOf = _this__u8e3s4;
+        var tmp$ret$2;
+        {
+          var tmp0_nativeIndexOf = toString_0(char);
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = tmp1_nativeIndexOf;
+          }
+          tmp$ret$2 = tmp$ret$1.indexOf(tmp0_nativeIndexOf, startIndex);
+        }
+        tmp$ret$3 = tmp$ret$2;
+      }
+      tmp = tmp$ret$3;
+    }
+    return tmp;
+  }
+  function indexOf$default_0(_this__u8e3s4, char, startIndex, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      startIndex = 0;
+    if (!(($mask0 & 4) === 0))
+      ignoreCase = false;
+    return indexOf_7(_this__u8e3s4, char, startIndex, ignoreCase);
+  }
+  function indexOf_8(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last) {
+    var indices = !last ? numberRangeToNumber(coerceAtLeast(startIndex, 0), coerceAtMost(endIndex, charSequenceLength(_this__u8e3s4))) : downTo(coerceAtMost(startIndex, get_lastIndex_7(_this__u8e3s4)), coerceAtLeast(endIndex, 0));
+    var tmp;
+    if (typeof _this__u8e3s4 === 'string') {
+      tmp = typeof other === 'string';
+    } else {
+      tmp = false;
+    }
+    if (tmp) {
+      var inductionVariable = indices.first_1;
+      var last_0 = indices.last_1;
+      var step = indices.step_1;
+      if ((step > 0 ? inductionVariable <= last_0 : false) ? true : step < 0 ? last_0 <= inductionVariable : false)
+        do {
+          var index = inductionVariable;
+          inductionVariable = inductionVariable + step | 0;
+          if (regionMatches(other, 0, _this__u8e3s4, index, charSequenceLength(other), ignoreCase))
+            return index;
+        }
+         while (!(index === last_0));
+    } else {
+      var inductionVariable_0 = indices.first_1;
+      var last_1 = indices.last_1;
+      var step_0 = indices.step_1;
+      if ((step_0 > 0 ? inductionVariable_0 <= last_1 : false) ? true : step_0 < 0 ? last_1 <= inductionVariable_0 : false)
+        do {
+          var index_0 = inductionVariable_0;
+          inductionVariable_0 = inductionVariable_0 + step_0 | 0;
+          if (regionMatchesImpl(other, 0, _this__u8e3s4, index_0, charSequenceLength(other), ignoreCase))
+            return index_0;
+        }
+         while (!(index_0 === last_1));
+    }
+    return -1;
+  }
+  function indexOf$default_1(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last, $mask0, $handler) {
+    if (!(($mask0 & 16) === 0))
+      last = false;
+    return indexOf_8(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last);
+  }
   function split_2(_this__u8e3s4, delimiter, ignoreCase, limit) {
     requireNonNegativeLimit(limit);
     var currentOffset = 0;
     var nextIndex = indexOf_6(_this__u8e3s4, delimiter, currentOffset, ignoreCase);
     if (nextIndex === -1 ? true : limit === 1) {
-      return listOf(toString_2(_this__u8e3s4));
+      return listOf_0(toString_2(_this__u8e3s4));
     }
     var isLimited = limit > 0;
     var result = ArrayList_init_$Create$_0(isLimited ? coerceAtMost(limit, 10) : 10);
@@ -4424,7 +5886,7 @@ if (typeof Math.imul === 'undefined') {
     result.add_1j60pz_k$(tmp$ret$1);
     return result;
   }
-  function substring(_this__u8e3s4, range) {
+  function substring_0(_this__u8e3s4, range) {
     return toString_2(charSequenceSubSequence(_this__u8e3s4, range.get_start_iypx6h_k$(), range.get_endInclusive_r07xpi_k$() + 1 | 0));
   }
   function rangesDelimitedBy(_this__u8e3s4, delimiters, startIndex, ignoreCase, limit) {
@@ -4457,6 +5919,85 @@ if (typeof Math.imul === 'undefined') {
   function isNotEmpty_0(_this__u8e3s4) {
     return charSequenceLength(_this__u8e3s4) > 0;
   }
+  function indexOfAny(_this__u8e3s4, chars, startIndex, ignoreCase) {
+    var tmp;
+    if (!ignoreCase ? chars.length === 1 : false) {
+      tmp = typeof _this__u8e3s4 === 'string';
+    } else {
+      tmp = false;
+    }
+    if (tmp) {
+      var char = single(chars);
+      var tmp$ret$2;
+      {
+        var tmp1_nativeIndexOf = _this__u8e3s4;
+        var tmp$ret$1;
+        {
+          var tmp0_nativeIndexOf = toString_0(char);
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = tmp1_nativeIndexOf;
+          }
+          tmp$ret$1 = tmp$ret$0.indexOf(tmp0_nativeIndexOf, startIndex);
+        }
+        tmp$ret$2 = tmp$ret$1;
+      }
+      return tmp$ret$2;
+    }
+    var inductionVariable = coerceAtLeast(startIndex, 0);
+    var last = get_lastIndex_7(_this__u8e3s4);
+    if (inductionVariable <= last)
+      do {
+        var index = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        var charAtIndex = charSequenceGet(_this__u8e3s4, index);
+        var tmp$ret$4;
+        $l$block: {
+          var indexedObject = chars;
+          var inductionVariable_0 = 0;
+          var last_0 = indexedObject.length;
+          while (inductionVariable_0 < last_0) {
+            var element = indexedObject[inductionVariable_0];
+            inductionVariable_0 = inductionVariable_0 + 1 | 0;
+            var tmp$ret$3;
+            {
+              tmp$ret$3 = equals(element, charAtIndex, ignoreCase);
+            }
+            if (tmp$ret$3) {
+              tmp$ret$4 = true;
+              break $l$block;
+            }
+          }
+          tmp$ret$4 = false;
+        }
+        if (tmp$ret$4)
+          return index;
+      }
+       while (!(index === last));
+    return -1;
+  }
+  function indexOfAny$default(_this__u8e3s4, chars, startIndex, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      startIndex = 0;
+    if (!(($mask0 & 4) === 0))
+      ignoreCase = false;
+    return indexOfAny(_this__u8e3s4, chars, startIndex, ignoreCase);
+  }
+  function regionMatchesImpl(_this__u8e3s4, thisOffset, other, otherOffset, length, ignoreCase) {
+    if (((otherOffset < 0 ? true : thisOffset < 0) ? true : thisOffset > (charSequenceLength(_this__u8e3s4) - length | 0)) ? true : otherOffset > (charSequenceLength(other) - length | 0)) {
+      return false;
+    }
+    var inductionVariable = 0;
+    if (inductionVariable < length)
+      do {
+        var index = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        if (!equals(charSequenceGet(_this__u8e3s4, thisOffset + index | 0), charSequenceGet(other, otherOffset + index | 0), ignoreCase))
+          return false;
+      }
+       while (inductionVariable < length);
+    return true;
+  }
   function requireNonNegativeLimit(limit) {
     var tmp0_require = limit >= 0;
     {
@@ -4472,39 +6013,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function indexOf_6(_this__u8e3s4, string, startIndex, ignoreCase) {
-    var tmp;
-    var tmp_0;
-    if (ignoreCase) {
-      tmp_0 = true;
-    } else {
-      tmp_0 = !(typeof _this__u8e3s4 === 'string');
-    }
-    if (tmp_0) {
-      var tmp_1 = charSequenceLength(_this__u8e3s4);
-      tmp = indexOf$default_0(_this__u8e3s4, string, startIndex, tmp_1, ignoreCase, false, 16, null);
-    } else {
-      var tmp$ret$1;
-      {
-        var tmp0_nativeIndexOf = _this__u8e3s4;
-        var tmp$ret$0;
-        {
-          tmp$ret$0 = tmp0_nativeIndexOf;
-        }
-        tmp$ret$1 = tmp$ret$0.indexOf(string, startIndex);
-      }
-      tmp = tmp$ret$1;
-    }
-    return tmp;
-  }
-  function indexOf$default(_this__u8e3s4, string, startIndex, ignoreCase, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      startIndex = 0;
-    if (!(($mask0 & 4) === 0))
-      ignoreCase = false;
-    return indexOf_6(_this__u8e3s4, string, startIndex, ignoreCase);
-  }
-  function substring_0(_this__u8e3s4, startIndex, endIndex) {
+  function substring_1(_this__u8e3s4, startIndex, endIndex) {
     return toString_2(charSequenceSubSequence(_this__u8e3s4, startIndex, endIndex));
   }
   function calcNext_0($this) {
@@ -4527,12 +6036,12 @@ if (typeof Math.imul === 'undefined') {
         tmp = $this.nextSearchIndex_1 > charSequenceLength($this.this$0__1.input_1);
       }
       if (tmp) {
-        $this.nextItem_1 = numberRangeToNumber($this.currentStartIndex_1, get_lastIndex_6($this.this$0__1.input_1));
+        $this.nextItem_1 = numberRangeToNumber($this.currentStartIndex_1, get_lastIndex_7($this.this$0__1.input_1));
         $this.nextSearchIndex_1 = -1;
       } else {
         var match = $this.this$0__1.getNextMatch_1($this.this$0__1.input_1, $this.nextSearchIndex_1);
         if (match == null) {
-          $this.nextItem_1 = numberRangeToNumber($this.currentStartIndex_1, get_lastIndex_6($this.this$0__1.input_1));
+          $this.nextItem_1 = numberRangeToNumber($this.currentStartIndex_1, get_lastIndex_7($this.this$0__1.input_1));
           $this.nextSearchIndex_1 = -1;
         } else {
           var tmp1_container = match;
@@ -4561,7 +6070,7 @@ if (typeof Math.imul === 'undefined') {
   function DelimitedRangesSequence$iterator$1(this$0) {
     this.this$0__1 = this$0;
     this.nextState_1 = -1;
-    this.currentStartIndex_1 = coerceIn_0(this$0.startIndex_1, 0, charSequenceLength(this$0.input_1));
+    this.currentStartIndex_1 = coerceIn_1(this$0.startIndex_1, 0, charSequenceLength(this$0.input_1));
     this.nextSearchIndex_1 = this.currentStartIndex_1;
     this.nextItem_1 = null;
     this.counter_1 = 0;
@@ -4623,70 +6132,6 @@ if (typeof Math.imul === 'undefined') {
     return new DelimitedRangesSequence$iterator$1(this);
   };
   DelimitedRangesSequence.$metadata$ = classMeta('DelimitedRangesSequence', [Sequence]);
-  function indexOfAny(_this__u8e3s4, chars, startIndex, ignoreCase) {
-    var tmp;
-    if (!ignoreCase ? chars.length === 1 : false) {
-      tmp = typeof _this__u8e3s4 === 'string';
-    } else {
-      tmp = false;
-    }
-    if (tmp) {
-      var char = single(chars);
-      var tmp$ret$2;
-      {
-        var tmp1_nativeIndexOf = _this__u8e3s4;
-        var tmp$ret$1;
-        {
-          var tmp0_nativeIndexOf = toString_0(char);
-          var tmp$ret$0;
-          {
-            tmp$ret$0 = tmp1_nativeIndexOf;
-          }
-          tmp$ret$1 = tmp$ret$0.indexOf(tmp0_nativeIndexOf, startIndex);
-        }
-        tmp$ret$2 = tmp$ret$1;
-      }
-      return tmp$ret$2;
-    }
-    var inductionVariable = coerceAtLeast(startIndex, 0);
-    var last = get_lastIndex_6(_this__u8e3s4);
-    if (inductionVariable <= last)
-      do {
-        var index = inductionVariable;
-        inductionVariable = inductionVariable + 1 | 0;
-        var charAtIndex = charSequenceGet(_this__u8e3s4, index);
-        var tmp$ret$4;
-        $l$block: {
-          var indexedObject = chars;
-          var inductionVariable_0 = 0;
-          var last_0 = indexedObject.length;
-          while (inductionVariable_0 < last_0) {
-            var element = indexedObject[inductionVariable_0];
-            inductionVariable_0 = inductionVariable_0 + 1 | 0;
-            var tmp$ret$3;
-            {
-              tmp$ret$3 = equals(element, charAtIndex, ignoreCase);
-            }
-            if (tmp$ret$3) {
-              tmp$ret$4 = true;
-              break $l$block;
-            }
-          }
-          tmp$ret$4 = false;
-        }
-        if (tmp$ret$4)
-          return index;
-      }
-       while (!(index === last));
-    return -1;
-  }
-  function indexOfAny$default(_this__u8e3s4, chars, startIndex, ignoreCase, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      startIndex = 0;
-    if (!(($mask0 & 4) === 0))
-      ignoreCase = false;
-    return indexOfAny(_this__u8e3s4, chars, startIndex, ignoreCase);
-  }
   function findAnyOf(_this__u8e3s4, strings, startIndex, ignoreCase, last) {
     if (!ignoreCase ? strings.get_size_woubt6_k$() === 1 : false) {
       var string = single_0(strings);
@@ -4699,7 +6144,7 @@ if (typeof Math.imul === 'undefined') {
       var index = tmp;
       return index < 0 ? null : to(index, string);
     }
-    var indices = !last ? numberRangeToNumber(coerceAtLeast(startIndex, 0), charSequenceLength(_this__u8e3s4)) : downTo(coerceAtMost(startIndex, get_lastIndex_6(_this__u8e3s4)), 0);
+    var indices = !last ? numberRangeToNumber(coerceAtLeast(startIndex, 0), charSequenceLength(_this__u8e3s4)) : downTo(coerceAtMost(startIndex, get_lastIndex_7(_this__u8e3s4)), 0);
     if (typeof _this__u8e3s4 === 'string') {
       var inductionVariable = indices.first_1;
       var last_0 = indices.last_1;
@@ -4761,49 +6206,6 @@ if (typeof Math.imul === 'undefined') {
     }
     return null;
   }
-  function indexOf_7(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last) {
-    var indices = !last ? numberRangeToNumber(coerceAtLeast(startIndex, 0), coerceAtMost(endIndex, charSequenceLength(_this__u8e3s4))) : downTo(coerceAtMost(startIndex, get_lastIndex_6(_this__u8e3s4)), coerceAtLeast(endIndex, 0));
-    var tmp;
-    if (typeof _this__u8e3s4 === 'string') {
-      tmp = typeof other === 'string';
-    } else {
-      tmp = false;
-    }
-    if (tmp) {
-      var inductionVariable = indices.first_1;
-      var last_0 = indices.last_1;
-      var step = indices.step_1;
-      if ((step > 0 ? inductionVariable <= last_0 : false) ? true : step < 0 ? last_0 <= inductionVariable : false)
-        do {
-          var index = inductionVariable;
-          inductionVariable = inductionVariable + step | 0;
-          if (regionMatches(other, 0, _this__u8e3s4, index, charSequenceLength(other), ignoreCase))
-            return index;
-        }
-         while (!(index === last_0));
-    } else {
-      var inductionVariable_0 = indices.first_1;
-      var last_1 = indices.last_1;
-      var step_0 = indices.step_1;
-      if ((step_0 > 0 ? inductionVariable_0 <= last_1 : false) ? true : step_0 < 0 ? last_1 <= inductionVariable_0 : false)
-        do {
-          var index_0 = inductionVariable_0;
-          inductionVariable_0 = inductionVariable_0 + step_0 | 0;
-          if (regionMatchesImpl(other, 0, _this__u8e3s4, index_0, charSequenceLength(other), ignoreCase))
-            return index_0;
-        }
-         while (!(index_0 === last_1));
-    }
-    return -1;
-  }
-  function indexOf$default_0(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last, $mask0, $handler) {
-    if (!(($mask0 & 16) === 0))
-      last = false;
-    return indexOf_7(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last);
-  }
-  function get_lastIndex_6(_this__u8e3s4) {
-    return charSequenceLength(_this__u8e3s4) - 1 | 0;
-  }
   function lastIndexOf_0(_this__u8e3s4, string, startIndex, ignoreCase) {
     var tmp;
     var tmp_0;
@@ -4813,7 +6215,7 @@ if (typeof Math.imul === 'undefined') {
       tmp_0 = !(typeof _this__u8e3s4 === 'string');
     }
     if (tmp_0) {
-      tmp = indexOf_7(_this__u8e3s4, string, startIndex, 0, ignoreCase, true);
+      tmp = indexOf_8(_this__u8e3s4, string, startIndex, 0, ignoreCase, true);
     } else {
       var tmp$ret$1;
       {
@@ -4830,41 +6232,10 @@ if (typeof Math.imul === 'undefined') {
   }
   function lastIndexOf$default(_this__u8e3s4, string, startIndex, ignoreCase, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
-      startIndex = get_lastIndex_6(_this__u8e3s4);
+      startIndex = get_lastIndex_7(_this__u8e3s4);
     if (!(($mask0 & 4) === 0))
       ignoreCase = false;
     return lastIndexOf_0(_this__u8e3s4, string, startIndex, ignoreCase);
-  }
-  function regionMatchesImpl(_this__u8e3s4, thisOffset, other, otherOffset, length, ignoreCase) {
-    if (((otherOffset < 0 ? true : thisOffset < 0) ? true : thisOffset > (charSequenceLength(_this__u8e3s4) - length | 0)) ? true : otherOffset > (charSequenceLength(other) - length | 0)) {
-      return false;
-    }
-    var inductionVariable = 0;
-    if (inductionVariable < length)
-      do {
-        var index = inductionVariable;
-        inductionVariable = inductionVariable + 1 | 0;
-        if (!equals(charSequenceGet(_this__u8e3s4, thisOffset + index | 0), charSequenceGet(other, otherOffset + index | 0), ignoreCase))
-          return false;
-      }
-       while (inductionVariable < length);
-    return true;
-  }
-  function startsWith(_this__u8e3s4, char, ignoreCase) {
-    return charSequenceLength(_this__u8e3s4) > 0 ? equals(charSequenceGet(_this__u8e3s4, 0), char, ignoreCase) : false;
-  }
-  function startsWith$default(_this__u8e3s4, char, ignoreCase, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      ignoreCase = false;
-    return startsWith(_this__u8e3s4, char, ignoreCase);
-  }
-  function endsWith(_this__u8e3s4, char, ignoreCase) {
-    return charSequenceLength(_this__u8e3s4) > 0 ? equals(charSequenceGet(_this__u8e3s4, get_lastIndex_6(_this__u8e3s4)), char, ignoreCase) : false;
-  }
-  function endsWith$default(_this__u8e3s4, char, ignoreCase, $mask0, $handler) {
-    if (!(($mask0 & 2) === 0))
-      ignoreCase = false;
-    return endsWith(_this__u8e3s4, char, ignoreCase);
   }
   function trimEnd(_this__u8e3s4, chars) {
     var tmp$ret$2;
@@ -4880,7 +6251,7 @@ if (typeof Math.imul === 'undefined') {
             var tmp$ret$0;
             {
               var tmp1__anonymous__uwfjfc = charSequenceGet(tmp0_trimEnd, index);
-              tmp$ret$0 = contains_1(chars, tmp1__anonymous__uwfjfc);
+              tmp$ret$0 = contains_2(chars, tmp1__anonymous__uwfjfc);
             }
             if (!tmp$ret$0) {
               tmp$ret$1 = charSequenceSubSequence(tmp0_trimEnd, 0, index + 1 | 0);
@@ -4909,7 +6280,7 @@ if (typeof Math.imul === 'undefined') {
             var tmp$ret$0;
             {
               var tmp1__anonymous__uwfjfc = charSequenceGet(tmp0_trimStart, index);
-              tmp$ret$0 = contains_1(chars, tmp1__anonymous__uwfjfc);
+              tmp$ret$0 = contains_2(chars, tmp1__anonymous__uwfjfc);
             }
             if (!tmp$ret$0) {
               tmp$ret$1 = charSequenceSubSequence(tmp0_trimStart, index, charSequenceLength(tmp0_trimStart));
@@ -4923,13 +6294,24 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$2;
   }
-  function contains_8(_this__u8e3s4, char, ignoreCase) {
-    return indexOf$default_1(_this__u8e3s4, char, 0, ignoreCase, 2, null) >= 0;
+  function contains_11(_this__u8e3s4, char, ignoreCase) {
+    return indexOf$default_0(_this__u8e3s4, char, 0, ignoreCase, 2, null) >= 0;
   }
-  function contains$default(_this__u8e3s4, char, ignoreCase, $mask0, $handler) {
+  function contains$default_0(_this__u8e3s4, char, ignoreCase, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
       ignoreCase = false;
-    return contains_8(_this__u8e3s4, char, ignoreCase);
+    return contains_11(_this__u8e3s4, char, ignoreCase);
+  }
+  function padStart(_this__u8e3s4, length, padChar) {
+    return toString_2(padStart_0(isCharSequence(_this__u8e3s4) ? _this__u8e3s4 : THROW_CCE(), length, padChar));
+  }
+  function padStart$default(_this__u8e3s4, length, padChar, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      padChar = _Char___init__impl__6a9atx(32);
+    return padStart(_this__u8e3s4, length, padChar);
+  }
+  function get_indices_7(_this__u8e3s4) {
+    return numberRangeToNumber(0, charSequenceLength(_this__u8e3s4) - 1 | 0);
   }
   function trimEnd_0(_this__u8e3s4, predicate) {
     var tmp$ret$0;
@@ -4970,45 +6352,28 @@ if (typeof Math.imul === 'undefined') {
     }
     return toString_2(tmp$ret$0);
   }
-  function indexOf_8(_this__u8e3s4, char, startIndex, ignoreCase) {
-    var tmp;
-    var tmp_0;
-    if (ignoreCase) {
-      tmp_0 = true;
-    } else {
-      tmp_0 = !(typeof _this__u8e3s4 === 'string');
-    }
-    if (tmp_0) {
-      var tmp$ret$0;
-      {
-        tmp$ret$0 = charArrayOf_0([char]);
+  function padStart_0(_this__u8e3s4, length, padChar) {
+    if (length < 0)
+      throw IllegalArgumentException_init_$Create$_0('Desired length ' + length + ' is less than zero.');
+    if (length <= charSequenceLength(_this__u8e3s4))
+      return charSequenceSubSequence(_this__u8e3s4, 0, charSequenceLength(_this__u8e3s4));
+    var sb = StringBuilder_init_$Create$(length);
+    var inductionVariable = 1;
+    var last = length - charSequenceLength(_this__u8e3s4) | 0;
+    if (inductionVariable <= last)
+      do {
+        var i = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        sb.append_t8oh9e_k$(padChar);
       }
-      tmp = indexOfAny(_this__u8e3s4, tmp$ret$0, startIndex, ignoreCase);
-    } else {
-      var tmp$ret$3;
-      {
-        var tmp1_nativeIndexOf = _this__u8e3s4;
-        var tmp$ret$2;
-        {
-          var tmp0_nativeIndexOf = toString_0(char);
-          var tmp$ret$1;
-          {
-            tmp$ret$1 = tmp1_nativeIndexOf;
-          }
-          tmp$ret$2 = tmp$ret$1.indexOf(tmp0_nativeIndexOf, startIndex);
-        }
-        tmp$ret$3 = tmp$ret$2;
-      }
-      tmp = tmp$ret$3;
-    }
-    return tmp;
+       while (!(i === last));
+    sb.append_oz4qxs_k$(_this__u8e3s4);
+    return sb;
   }
-  function indexOf$default_1(_this__u8e3s4, char, startIndex, ignoreCase, $mask0, $handler) {
+  function padStart$default_0(_this__u8e3s4, length, padChar, $mask0, $handler) {
     if (!(($mask0 & 2) === 0))
-      startIndex = 0;
-    if (!(($mask0 & 4) === 0))
-      ignoreCase = false;
-    return indexOf_8(_this__u8e3s4, char, startIndex, ignoreCase);
+      padChar = _Char___init__impl__6a9atx(32);
+    return padStart_0(_this__u8e3s4, length, padChar);
   }
   function trimEnd_1(_this__u8e3s4, predicate) {
     var inductionVariable = charSequenceLength(_this__u8e3s4) - 1 | 0;
@@ -5035,8 +6400,47 @@ if (typeof Math.imul === 'undefined') {
        while (inductionVariable <= last);
     return '';
   }
-  function get_indices_6(_this__u8e3s4) {
-    return numberRangeToNumber(0, charSequenceLength(_this__u8e3s4) - 1 | 0);
+  function replaceFirstChar_0(_this__u8e3s4, transform) {
+    var tmp;
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = charSequenceLength(_this__u8e3s4) > 0;
+    }
+    if (tmp$ret$0) {
+      var tmp_0 = toString_2(transform(new Char_0(charSequenceGet(_this__u8e3s4, 0))));
+      var tmp$ret$2;
+      {
+        var tmp$ret$1;
+        {
+          tmp$ret$1 = _this__u8e3s4;
+        }
+        tmp$ret$2 = tmp$ret$1.substring(1);
+      }
+      tmp = tmp_0 + tmp$ret$2;
+    } else {
+      tmp = _this__u8e3s4;
+    }
+    return tmp;
+  }
+  function lines(_this__u8e3s4) {
+    return toList_1(lineSequence(_this__u8e3s4));
+  }
+  function lineSequence(_this__u8e3s4) {
+    return splitToSequence$default(_this__u8e3s4, ['\r\n', '\n', '\r'], false, 0, 6, null);
+  }
+  function splitToSequence(_this__u8e3s4, delimiters, ignoreCase, limit) {
+    var tmp = rangesDelimitedBy$default_0(_this__u8e3s4, delimiters, 0, ignoreCase, limit, 2, null);
+    return map_1(tmp, splitToSequence$lambda(_this__u8e3s4));
+  }
+  function splitToSequence$default(_this__u8e3s4, delimiters, ignoreCase, limit, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      ignoreCase = false;
+    if (!(($mask0 & 4) === 0))
+      limit = 0;
+    return splitToSequence(_this__u8e3s4, delimiters, ignoreCase, limit);
+  }
+  function iterator_2(_this__u8e3s4) {
+    return new iterator$1(_this__u8e3s4);
   }
   function rangesDelimitedBy$lambda($delimiters, $ignoreCase) {
     return function ($this$$receiver, currentIndex) {
@@ -5076,6 +6480,32 @@ if (typeof Math.imul === 'undefined') {
       return tmp;
     };
   }
+  function splitToSequence$lambda($this_splitToSequence) {
+    return function (it) {
+      return substring_0($this_splitToSequence, it);
+    };
+  }
+  function _set_index__fyfqnn_0($this, _set____db54di) {
+    $this.index_1 = _set____db54di;
+  }
+  function _get_index__g2optt_0($this) {
+    return $this.index_1;
+  }
+  function iterator$1($this_iterator) {
+    this.$this_iterator_1 = $this_iterator;
+    CharIterator.call(this);
+    this.index_1 = 0;
+  }
+  iterator$1.prototype.nextChar_yv3rl6_k$ = function () {
+    var tmp0_this = this;
+    var tmp1 = tmp0_this.index_1;
+    tmp0_this.index_1 = tmp1 + 1 | 0;
+    return charSequenceGet(this.$this_iterator_1, tmp1);
+  };
+  iterator$1.prototype.hasNext_bitz1p_k$ = function () {
+    return this.index_1 < charSequenceLength(this.$this_iterator_1);
+  };
+  iterator$1.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, CharIterator.prototype);
   function Destructured(match) {
     this.match_1 = match;
   }
@@ -5128,11 +6558,1789 @@ if (typeof Math.imul === 'undefined') {
   function toRegex(_this__u8e3s4) {
     return Regex_init_$Create$_0(_this__u8e3s4);
   }
+  function _Duration___init__impl__kdtzql(rawValue) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = true;
+    }
+    if (tmp$ret$0) {
+      if (isInNanos(rawValue)) {
+        var containsLower = new Long(387905, -1073741824);
+        var containsUpper = new Long(-387905, 1073741823);
+        var containsArg = _get_value__a43j40(rawValue);
+        if (!(containsLower.compareTo_n4fqi2_k$(containsArg) <= 0 ? containsArg.compareTo_n4fqi2_k$(containsUpper) <= 0 : false))
+          throw AssertionError_init_$Create$_0(toString_2(_get_value__a43j40(rawValue)) + ' ns is out of nanoseconds range');
+      } else {
+        var containsLower_0 = new Long(1, -1073741824);
+        var containsUpper_0 = new Long(-1, 1073741823);
+        var containsArg_0 = _get_value__a43j40(rawValue);
+        if (!(containsLower_0.compareTo_n4fqi2_k$(containsArg_0) <= 0 ? containsArg_0.compareTo_n4fqi2_k$(containsUpper_0) <= 0 : false))
+          throw AssertionError_init_$Create$_0(toString_2(_get_value__a43j40(rawValue)) + ' ms is out of milliseconds range');
+        var containsLower_1 = new Long(1108857478, -1074);
+        var containsUpper_1 = new Long(-1108857478, 1073);
+        var containsArg_1 = _get_value__a43j40(rawValue);
+        if (containsLower_1.compareTo_n4fqi2_k$(containsArg_1) <= 0 ? containsArg_1.compareTo_n4fqi2_k$(containsUpper_1) <= 0 : false)
+          throw AssertionError_init_$Create$_0(toString_2(_get_value__a43j40(rawValue)) + ' ms is denormalized');
+      }
+    }
+    return rawValue;
+  }
+  function _get_rawValue__5zfu4e($this) {
+    return $this;
+  }
+  function _get_value__a43j40($this) {
+    return _get_rawValue__5zfu4e($this).shr_wjue3g_k$(1);
+  }
+  function _get_unitDiscriminator__x2qpqx($this) {
+    return _get_rawValue__5zfu4e($this).toInt_1tsl84_k$() & 1;
+  }
+  function isInNanos($this) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _get_rawValue__5zfu4e($this).toInt_1tsl84_k$() & 1;
+    }
+    return tmp$ret$0 === 0;
+  }
+  function isInMillis($this) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _get_rawValue__5zfu4e($this).toInt_1tsl84_k$() & 1;
+    }
+    return tmp$ret$0 === 1;
+  }
+  function _get_storageUnit__szjgha($this) {
+    return isInNanos($this) ? DurationUnit_NANOSECONDS_getInstance() : DurationUnit_MILLISECONDS_getInstance();
+  }
+  function Companion_4() {
+    Companion_instance_4 = this;
+    this.ZERO_1 = _Duration___init__impl__kdtzql(new Long(0, 0));
+    this.INFINITE_1 = durationOfMillis(new Long(-1, 1073741823));
+    this.NEG_INFINITE_1 = durationOfMillis(new Long(1, -1073741824));
+  }
+  Companion_4.prototype.get_ZERO_jbbt8n_k$ = function () {
+    return this.ZERO_1;
+  };
+  Companion_4.prototype.get_INFINITE_ddulsd_k$ = function () {
+    return this.INFINITE_1;
+  };
+  Companion_4.prototype.get_NEG_INFINITE_dtgxqa_k$ = function () {
+    return this.NEG_INFINITE_1;
+  };
+  Companion_4.prototype.convert_kaar72_k$ = function (value, sourceUnit, targetUnit) {
+    return convertDurationUnit(value, sourceUnit, targetUnit);
+  };
+  Companion_4.prototype.get_nanoseconds_odf8iv_k$ = function (_this__u8e3s4) {
+    return toDuration(_this__u8e3s4, DurationUnit_NANOSECONDS_getInstance());
+  };
+  Companion_4.prototype.get_nanoseconds_duy15c_k$ = function (_this__u8e3s4) {
+    return toDuration_0(_this__u8e3s4, DurationUnit_NANOSECONDS_getInstance());
+  };
+  Companion_4.prototype.get_nanoseconds_6yyhs5_k$ = function (_this__u8e3s4) {
+    return toDuration_1(_this__u8e3s4, DurationUnit_NANOSECONDS_getInstance());
+  };
+  Companion_4.prototype.get_microseconds_k7xtqd_k$ = function (_this__u8e3s4) {
+    return toDuration(_this__u8e3s4, DurationUnit_MICROSECONDS_getInstance());
+  };
+  Companion_4.prototype.get_microseconds_r76ek2_k$ = function (_this__u8e3s4) {
+    return toDuration_0(_this__u8e3s4, DurationUnit_MICROSECONDS_getInstance());
+  };
+  Companion_4.prototype.get_microseconds_u2xhqx_k$ = function (_this__u8e3s4) {
+    return toDuration_1(_this__u8e3s4, DurationUnit_MICROSECONDS_getInstance());
+  };
+  Companion_4.prototype.get_milliseconds_p35i5q_k$ = function (_this__u8e3s4) {
+    return toDuration(_this__u8e3s4, DurationUnit_MILLISECONDS_getInstance());
+  };
+  Companion_4.prototype.get_milliseconds_z0jq53_k$ = function (_this__u8e3s4) {
+    return toDuration_0(_this__u8e3s4, DurationUnit_MILLISECONDS_getInstance());
+  };
+  Companion_4.prototype.get_milliseconds_aamplu_k$ = function (_this__u8e3s4) {
+    return toDuration_1(_this__u8e3s4, DurationUnit_MILLISECONDS_getInstance());
+  };
+  Companion_4.prototype.get_seconds_wrs3lf_k$ = function (_this__u8e3s4) {
+    return toDuration(_this__u8e3s4, DurationUnit_SECONDS_getInstance());
+  };
+  Companion_4.prototype.get_seconds_9wffjw_k$ = function (_this__u8e3s4) {
+    return toDuration_0(_this__u8e3s4, DurationUnit_SECONDS_getInstance());
+  };
+  Companion_4.prototype.get_seconds_puapfr_k$ = function (_this__u8e3s4) {
+    return toDuration_1(_this__u8e3s4, DurationUnit_SECONDS_getInstance());
+  };
+  Companion_4.prototype.get_minutes_qy7lcj_k$ = function (_this__u8e3s4) {
+    return toDuration(_this__u8e3s4, DurationUnit_MINUTES_getInstance());
+  };
+  Companion_4.prototype.get_minutes_mq90pw_k$ = function (_this__u8e3s4) {
+    return toDuration_0(_this__u8e3s4, DurationUnit_MINUTES_getInstance());
+  };
+  Companion_4.prototype.get_minutes_6xrggp_k$ = function (_this__u8e3s4) {
+    return toDuration_1(_this__u8e3s4, DurationUnit_MINUTES_getInstance());
+  };
+  Companion_4.prototype.get_hours_uedtst_k$ = function (_this__u8e3s4) {
+    return toDuration(_this__u8e3s4, DurationUnit_HOURS_getInstance());
+  };
+  Companion_4.prototype.get_hours_knmcic_k$ = function (_this__u8e3s4) {
+    return toDuration_0(_this__u8e3s4, DurationUnit_HOURS_getInstance());
+  };
+  Companion_4.prototype.get_hours_3loq2x_k$ = function (_this__u8e3s4) {
+    return toDuration_1(_this__u8e3s4, DurationUnit_HOURS_getInstance());
+  };
+  Companion_4.prototype.get_days_vcxb55_k$ = function (_this__u8e3s4) {
+    return toDuration(_this__u8e3s4, DurationUnit_DAYS_getInstance());
+  };
+  Companion_4.prototype.get_days_hc64em_k$ = function (_this__u8e3s4) {
+    return toDuration_0(_this__u8e3s4, DurationUnit_DAYS_getInstance());
+  };
+  Companion_4.prototype.get_days_bbmvlv_k$ = function (_this__u8e3s4) {
+    return toDuration_1(_this__u8e3s4, DurationUnit_DAYS_getInstance());
+  };
+  Companion_4.prototype.nanoseconds_eec3kc_k$ = function (value) {
+    return toDuration(value, DurationUnit_NANOSECONDS_getInstance());
+  };
+  Companion_4.prototype.nanoseconds_b8b0ol_k$ = function (value) {
+    return toDuration_0(value, DurationUnit_NANOSECONDS_getInstance());
+  };
+  Companion_4.prototype.nanoseconds_pcgs74_k$ = function (value) {
+    return toDuration_1(value, DurationUnit_NANOSECONDS_getInstance());
+  };
+  Companion_4.prototype.microseconds_1th4bg_k$ = function (value) {
+    return toDuration(value, DurationUnit_MICROSECONDS_getInstance());
+  };
+  Companion_4.prototype.microseconds_ozoyij_k$ = function (value) {
+    return toDuration_0(value, DurationUnit_MICROSECONDS_getInstance());
+  };
+  Companion_4.prototype.microseconds_ky939s_k$ = function (value) {
+    return toDuration_1(value, DurationUnit_MICROSECONDS_getInstance());
+  };
+  Companion_4.prototype.milliseconds_lgirzv_k$ = function (value) {
+    return toDuration(value, DurationUnit_MILLISECONDS_getInstance());
+  };
+  Companion_4.prototype.milliseconds_dowoj6_k$ = function (value) {
+    return toDuration_0(value, DurationUnit_MILLISECONDS_getInstance());
+  };
+  Companion_4.prototype.milliseconds_c4v5zt_k$ = function (value) {
+    return toDuration_1(value, DurationUnit_MILLISECONDS_getInstance());
+  };
+  Companion_4.prototype.seconds_615b1k_k$ = function (value) {
+    return toDuration(value, DurationUnit_SECONDS_getInstance());
+  };
+  Companion_4.prototype.seconds_5aa3r5_k$ = function (value) {
+    return toDuration_0(value, DurationUnit_SECONDS_getInstance());
+  };
+  Companion_4.prototype.seconds_5gxuk4_k$ = function (value) {
+    return toDuration_1(value, DurationUnit_SECONDS_getInstance());
+  };
+  Companion_4.prototype.minutes_75le0_k$ = function (value) {
+    return toDuration(value, DurationUnit_MINUTES_getInstance());
+  };
+  Companion_4.prototype.minutes_xh8vkv_k$ = function (value) {
+    return toDuration_0(value, DurationUnit_MINUTES_getInstance());
+  };
+  Companion_4.prototype.minutes_wxhr58_k$ = function (value) {
+    return toDuration_1(value, DurationUnit_MINUTES_getInstance());
+  };
+  Companion_4.prototype.hours_i0dpoo_k$ = function (value) {
+    return toDuration(value, DurationUnit_HOURS_getInstance());
+  };
+  Companion_4.prototype.hours_tpyz2n_k$ = function (value) {
+    return toDuration_0(value, DurationUnit_HOURS_getInstance());
+  };
+  Companion_4.prototype.hours_lg3ou4_k$ = function (value) {
+    return toDuration_1(value, DurationUnit_HOURS_getInstance());
+  };
+  Companion_4.prototype.days_byc8w0_k$ = function (value) {
+    return toDuration(value, DurationUnit_DAYS_getInstance());
+  };
+  Companion_4.prototype.days_fz2dnt_k$ = function (value) {
+    return toDuration_0(value, DurationUnit_DAYS_getInstance());
+  };
+  Companion_4.prototype.days_xbhbyk_k$ = function (value) {
+    return toDuration_1(value, DurationUnit_DAYS_getInstance());
+  };
+  Companion_4.prototype.parse_p9ahi0_k$ = function (value) {
+    var tmp;
+    try {
+      tmp = parseDuration(value, false);
+    } catch ($p) {
+      var tmp_0;
+      if ($p instanceof IllegalArgumentException) {
+        throw IllegalArgumentException_init_$Create$_1("Invalid duration string format: '" + value + "'.", $p);
+      } else {
+        throw $p;
+      }
+      tmp = tmp_0;
+    }
+    return tmp;
+  };
+  Companion_4.prototype.parseIsoString_k4vyyg_k$ = function (value) {
+    var tmp;
+    try {
+      tmp = parseDuration(value, true);
+    } catch ($p) {
+      var tmp_0;
+      if ($p instanceof IllegalArgumentException) {
+        throw IllegalArgumentException_init_$Create$_1("Invalid ISO duration string format: '" + value + "'.", $p);
+      } else {
+        throw $p;
+      }
+      tmp = tmp_0;
+    }
+    return tmp;
+  };
+  Companion_4.prototype.parseOrNull_w0mz1r_k$ = function (value) {
+    var tmp;
+    try {
+      tmp = parseDuration(value, false);
+    } catch ($p) {
+      var tmp_0;
+      if ($p instanceof IllegalArgumentException) {
+        tmp_0 = null;
+      } else {
+        throw $p;
+      }
+      tmp = tmp_0;
+    }
+    return tmp;
+  };
+  Companion_4.prototype.parseIsoStringOrNull_amxlnl_k$ = function (value) {
+    var tmp;
+    try {
+      tmp = parseDuration(value, true);
+    } catch ($p) {
+      var tmp_0;
+      if ($p instanceof IllegalArgumentException) {
+        tmp_0 = null;
+      } else {
+        throw $p;
+      }
+      tmp = tmp_0;
+    }
+    return tmp;
+  };
+  Companion_4.$metadata$ = objectMeta('Companion');
+  var Companion_instance_4;
+  function Companion_getInstance_4() {
+    if (Companion_instance_4 == null)
+      new Companion_4();
+    return Companion_instance_4;
+  }
+  function Duration__unaryMinus_impl_x2k1y0($this) {
+    var tmp = _get_value__a43j40($this).unaryMinus_6uz0qp_k$();
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _get_rawValue__5zfu4e($this).toInt_1tsl84_k$() & 1;
+    }
+    return durationOf(tmp, tmp$ret$0);
+  }
+  function Duration__plus_impl_yu9v8f($this, other) {
+    if (Duration__isInfinite_impl_tsn9y3($this)) {
+      if (Duration__isFinite_impl_rzjsps(other) ? true : _get_rawValue__5zfu4e($this).xor_jjua9n_k$(_get_rawValue__5zfu4e(other)).compareTo_n4fqi2_k$(new Long(0, 0)) >= 0)
+        return $this;
+      else
+        throw IllegalArgumentException_init_$Create$_0('Summing infinite durations of different signs yields an undefined result.');
+    } else if (Duration__isInfinite_impl_tsn9y3(other))
+      return other;
+    var tmp;
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _get_rawValue__5zfu4e($this).toInt_1tsl84_k$() & 1;
+    }
+    var tmp_0 = tmp$ret$0;
+    var tmp$ret$1;
+    {
+      tmp$ret$1 = _get_rawValue__5zfu4e(other).toInt_1tsl84_k$() & 1;
+    }
+    if (tmp_0 === tmp$ret$1) {
+      var result = _get_value__a43j40($this).plus_u6jwas_k$(_get_value__a43j40(other));
+      tmp = isInNanos($this) ? durationOfNanosNormalized(result) : durationOfMillisNormalized(result);
+    } else {
+      if (isInMillis($this)) {
+        tmp = addValuesMixedRanges($this, _get_value__a43j40($this), _get_value__a43j40(other));
+      } else {
+        tmp = addValuesMixedRanges($this, _get_value__a43j40(other), _get_value__a43j40($this));
+      }
+    }
+    return tmp;
+  }
+  function addValuesMixedRanges($this, thisMillis, otherNanos) {
+    var otherMillis = nanosToMillis(otherNanos);
+    var resultMillis = thisMillis.plus_u6jwas_k$(otherMillis);
+    var tmp;
+    var containsLower = new Long(1108857478, -1074);
+    if (resultMillis.compareTo_n4fqi2_k$(new Long(-1108857478, 1073)) <= 0 ? containsLower.compareTo_n4fqi2_k$(resultMillis) <= 0 : false) {
+      var otherNanoRemainder = otherNanos.minus_llf5ei_k$(millisToNanos(otherMillis));
+      tmp = durationOfNanos(millisToNanos(resultMillis).plus_u6jwas_k$(otherNanoRemainder));
+    } else {
+      tmp = durationOfMillis(coerceIn(resultMillis, new Long(1, -1073741824), new Long(-1, 1073741823)));
+    }
+    return tmp;
+  }
+  function Duration__minus_impl_q5cfm7($this, other) {
+    return Duration__plus_impl_yu9v8f($this, Duration__unaryMinus_impl_x2k1y0(other));
+  }
+  function Duration__times_impl_sfuzvp($this, scale) {
+    if (Duration__isInfinite_impl_tsn9y3($this)) {
+      var tmp;
+      if (scale === 0) {
+        throw IllegalArgumentException_init_$Create$_0('Multiplying infinite duration by zero yields an undefined result.');
+      } else if (scale > 0) {
+        tmp = $this;
+      } else {
+        tmp = Duration__unaryMinus_impl_x2k1y0($this);
+      }
+      return tmp;
+    }
+    if (scale === 0)
+      return Companion_getInstance_4().ZERO_1;
+    var value = _get_value__a43j40($this);
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = value.times_2zfqpc_k$(toLong_0(scale));
+    }
+    var result = tmp$ret$0;
+    var tmp_0;
+    if (isInNanos($this)) {
+      var tmp_1;
+      var tmp$ret$1;
+      {
+        var tmp0_div = new Long(-387905, 1073741823);
+        var tmp1_div = IntCompanionObject_getInstance().MIN_VALUE_1;
+        tmp$ret$1 = tmp0_div.div_9s1fi3_k$(toLong_0(tmp1_div));
+      }
+      var containsLower = tmp$ret$1;
+      var tmp_2;
+      var tmp$ret$2;
+      {
+        var tmp2_div = new Long(387905, -1073741824);
+        var tmp3_div = IntCompanionObject_getInstance().MIN_VALUE_1;
+        tmp$ret$2 = tmp2_div.div_9s1fi3_k$(toLong_0(tmp3_div));
+      }
+      if (value.compareTo_n4fqi2_k$(tmp$ret$2) <= 0) {
+        tmp_2 = containsLower.compareTo_n4fqi2_k$(value) <= 0;
+      } else {
+        tmp_2 = false;
+      }
+      if (tmp_2) {
+        tmp_1 = durationOfNanos(result);
+      } else {
+        var tmp_3;
+        var tmp$ret$3;
+        {
+          tmp$ret$3 = result.div_9s1fi3_k$(toLong_0(scale));
+        }
+        if (tmp$ret$3.equals(value)) {
+          tmp_3 = durationOfNanosNormalized(result);
+        } else {
+          var millis = nanosToMillis(value);
+          var remNanos = value.minus_llf5ei_k$(millisToNanos(millis));
+          var tmp$ret$4;
+          {
+            tmp$ret$4 = millis.times_2zfqpc_k$(toLong_0(scale));
+          }
+          var resultMillis = tmp$ret$4;
+          var tmp$ret$5;
+          {
+            tmp$ret$5 = remNanos.times_2zfqpc_k$(toLong_0(scale));
+          }
+          var totalMillis = resultMillis.plus_u6jwas_k$(nanosToMillis(tmp$ret$5));
+          var tmp_4;
+          var tmp_5;
+          var tmp$ret$6;
+          {
+            tmp$ret$6 = resultMillis.div_9s1fi3_k$(toLong_0(scale));
+          }
+          if (tmp$ret$6.equals(millis)) {
+            tmp_5 = totalMillis.xor_jjua9n_k$(resultMillis).compareTo_n4fqi2_k$(new Long(0, 0)) >= 0;
+          } else {
+            tmp_5 = false;
+          }
+          if (tmp_5) {
+            tmp_4 = durationOfMillis(coerceIn_2(totalMillis, (new Long(1, -1073741824)).rangeTo_5i95fi_k$(new Long(-1, 1073741823))));
+          } else {
+            tmp_4 = imul(get_sign_0(value), get_sign(scale)) > 0 ? Companion_getInstance_4().INFINITE_1 : Companion_getInstance_4().NEG_INFINITE_1;
+          }
+          tmp_3 = tmp_4;
+        }
+        tmp_1 = tmp_3;
+      }
+      tmp_0 = tmp_1;
+    } else {
+      var tmp_6;
+      var tmp$ret$7;
+      {
+        tmp$ret$7 = result.div_9s1fi3_k$(toLong_0(scale));
+      }
+      if (tmp$ret$7.equals(value)) {
+        tmp_6 = durationOfMillis(coerceIn_2(result, (new Long(1, -1073741824)).rangeTo_5i95fi_k$(new Long(-1, 1073741823))));
+      } else {
+        tmp_6 = imul(get_sign_0(value), get_sign(scale)) > 0 ? Companion_getInstance_4().INFINITE_1 : Companion_getInstance_4().NEG_INFINITE_1;
+      }
+      tmp_0 = tmp_6;
+    }
+    return tmp_0;
+  }
+  function Duration__times_impl_sfuzvp_0($this, scale) {
+    var intScale = roundToInt(scale);
+    if (intScale === scale) {
+      return Duration__times_impl_sfuzvp($this, intScale);
+    }
+    var unit = _get_storageUnit__szjgha($this);
+    var result = Duration__toDouble_impl_a56y2b($this, unit) * scale;
+    return toDuration_1(result, unit);
+  }
+  function Duration__div_impl_dknbf4($this, scale) {
+    if (scale === 0) {
+      var tmp;
+      if (Duration__isPositive_impl_tvkkt2($this)) {
+        tmp = Companion_getInstance_4().INFINITE_1;
+      } else if (Duration__isNegative_impl_pbysfa($this)) {
+        tmp = Companion_getInstance_4().NEG_INFINITE_1;
+      } else {
+        throw IllegalArgumentException_init_$Create$_0('Dividing zero duration by zero yields an undefined result.');
+      }
+      return tmp;
+    }
+    if (isInNanos($this)) {
+      var tmp$ret$0;
+      {
+        var tmp0_div = _get_value__a43j40($this);
+        tmp$ret$0 = tmp0_div.div_9s1fi3_k$(toLong_0(scale));
+      }
+      return durationOfNanos(tmp$ret$0);
+    } else {
+      if (Duration__isInfinite_impl_tsn9y3($this))
+        return Duration__times_impl_sfuzvp($this, get_sign(scale));
+      var tmp$ret$1;
+      {
+        var tmp1_div = _get_value__a43j40($this);
+        tmp$ret$1 = tmp1_div.div_9s1fi3_k$(toLong_0(scale));
+      }
+      var result = tmp$ret$1;
+      var containsLower = new Long(1108857478, -1074);
+      if (result.compareTo_n4fqi2_k$(new Long(-1108857478, 1073)) <= 0 ? containsLower.compareTo_n4fqi2_k$(result) <= 0 : false) {
+        var tmp$ret$3;
+        {
+          var tmp_0 = _get_value__a43j40($this);
+          var tmp$ret$2;
+          {
+            tmp$ret$2 = result.times_2zfqpc_k$(toLong_0(scale));
+          }
+          var tmp2_div = millisToNanos(tmp_0.minus_llf5ei_k$(tmp$ret$2));
+          tmp$ret$3 = tmp2_div.div_9s1fi3_k$(toLong_0(scale));
+        }
+        var rem = tmp$ret$3;
+        return durationOfNanos(millisToNanos(result).plus_u6jwas_k$(rem));
+      }
+      return durationOfMillis(result);
+    }
+  }
+  function Duration__div_impl_dknbf4_0($this, scale) {
+    var intScale = roundToInt(scale);
+    if (intScale === scale ? !(intScale === 0) : false) {
+      return Duration__div_impl_dknbf4($this, intScale);
+    }
+    var unit = _get_storageUnit__szjgha($this);
+    var result = Duration__toDouble_impl_a56y2b($this, unit) / scale;
+    return toDuration_1(result, unit);
+  }
+  function Duration__div_impl_dknbf4_1($this, other) {
+    var coarserUnit = maxOf_0(_get_storageUnit__szjgha($this), _get_storageUnit__szjgha(other));
+    return Duration__toDouble_impl_a56y2b($this, coarserUnit) / Duration__toDouble_impl_a56y2b(other, coarserUnit);
+  }
+  function Duration__isNegative_impl_pbysfa($this) {
+    return _get_rawValue__5zfu4e($this).compareTo_n4fqi2_k$(new Long(0, 0)) < 0;
+  }
+  function Duration__isPositive_impl_tvkkt2($this) {
+    return _get_rawValue__5zfu4e($this).compareTo_n4fqi2_k$(new Long(0, 0)) > 0;
+  }
+  function Duration__isInfinite_impl_tsn9y3($this) {
+    return _get_rawValue__5zfu4e($this).equals(_get_rawValue__5zfu4e(Companion_getInstance_4().INFINITE_1)) ? true : _get_rawValue__5zfu4e($this).equals(_get_rawValue__5zfu4e(Companion_getInstance_4().NEG_INFINITE_1));
+  }
+  function Duration__isFinite_impl_rzjsps($this) {
+    return !Duration__isInfinite_impl_tsn9y3($this);
+  }
+  function _Duration___get_absoluteValue__impl__vr7i6w($this) {
+    return Duration__isNegative_impl_pbysfa($this) ? Duration__unaryMinus_impl_x2k1y0($this) : $this;
+  }
+  function Duration__compareTo_impl_pchp0f($this, other) {
+    var compareBits = _get_rawValue__5zfu4e($this).xor_jjua9n_k$(_get_rawValue__5zfu4e(other));
+    if (compareBits.compareTo_n4fqi2_k$(new Long(0, 0)) < 0 ? true : (compareBits.toInt_1tsl84_k$() & 1) === 0)
+      return _get_rawValue__5zfu4e($this).compareTo_n4fqi2_k$(_get_rawValue__5zfu4e(other));
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _get_rawValue__5zfu4e($this).toInt_1tsl84_k$() & 1;
+    }
+    var tmp = tmp$ret$0;
+    var tmp$ret$1;
+    {
+      tmp$ret$1 = _get_rawValue__5zfu4e(other).toInt_1tsl84_k$() & 1;
+    }
+    var r = tmp - tmp$ret$1 | 0;
+    return Duration__isNegative_impl_pbysfa($this) ? -r | 0 : r;
+  }
+  function Duration__compareTo_impl_pchp0f_0($this, other) {
+    var tmp = $this.rawValue_1;
+    return Duration__compareTo_impl_pchp0f(tmp, other instanceof Duration ? other.rawValue_1 : THROW_CCE());
+  }
+  function Duration__toComponents_impl_rvki3c($this, action) {
+    {
+    }
+    return action(_Duration___get_inWholeDays__impl__7bvpxz($this), _Duration___get_hoursComponent__impl__7hllxa($this), _Duration___get_minutesComponent__impl__ctvd8u($this), _Duration___get_secondsComponent__impl__if34a6($this), _Duration___get_nanosecondsComponent__impl__nh19kq($this));
+  }
+  function Duration__toComponents_impl_rvki3c_0($this, action) {
+    {
+    }
+    return action(_Duration___get_inWholeHours__impl__kb9f3j($this), _Duration___get_minutesComponent__impl__ctvd8u($this), _Duration___get_secondsComponent__impl__if34a6($this), _Duration___get_nanosecondsComponent__impl__nh19kq($this));
+  }
+  function Duration__toComponents_impl_rvki3c_1($this, action) {
+    {
+    }
+    return action(_Duration___get_inWholeMinutes__impl__dognoh($this), _Duration___get_secondsComponent__impl__if34a6($this), _Duration___get_nanosecondsComponent__impl__nh19kq($this));
+  }
+  function Duration__toComponents_impl_rvki3c_2($this, action) {
+    {
+    }
+    return action(_Duration___get_inWholeSeconds__impl__hpy7b3($this), _Duration___get_nanosecondsComponent__impl__nh19kq($this));
+  }
+  function _Duration___get_hoursComponent__impl__7hllxa($this) {
+    var tmp;
+    if (Duration__isInfinite_impl_tsn9y3($this)) {
+      tmp = 0;
+    } else {
+      var tmp$ret$0;
+      {
+        var tmp0_rem = _Duration___get_inWholeHours__impl__kb9f3j($this);
+        tmp$ret$0 = tmp0_rem.rem_9rbcjo_k$(new Long(24, 0));
+      }
+      tmp = tmp$ret$0.toInt_1tsl84_k$();
+    }
+    return tmp;
+  }
+  function _Duration___get_minutesComponent__impl__ctvd8u($this) {
+    var tmp;
+    if (Duration__isInfinite_impl_tsn9y3($this)) {
+      tmp = 0;
+    } else {
+      var tmp$ret$0;
+      {
+        var tmp0_rem = _Duration___get_inWholeMinutes__impl__dognoh($this);
+        tmp$ret$0 = tmp0_rem.rem_9rbcjo_k$(new Long(60, 0));
+      }
+      tmp = tmp$ret$0.toInt_1tsl84_k$();
+    }
+    return tmp;
+  }
+  function _Duration___get_secondsComponent__impl__if34a6($this) {
+    var tmp;
+    if (Duration__isInfinite_impl_tsn9y3($this)) {
+      tmp = 0;
+    } else {
+      var tmp$ret$0;
+      {
+        var tmp0_rem = _Duration___get_inWholeSeconds__impl__hpy7b3($this);
+        tmp$ret$0 = tmp0_rem.rem_9rbcjo_k$(new Long(60, 0));
+      }
+      tmp = tmp$ret$0.toInt_1tsl84_k$();
+    }
+    return tmp;
+  }
+  function _Duration___get_nanosecondsComponent__impl__nh19kq($this) {
+    var tmp;
+    if (Duration__isInfinite_impl_tsn9y3($this)) {
+      tmp = 0;
+    } else if (isInMillis($this)) {
+      var tmp$ret$0;
+      {
+        var tmp0_rem = _get_value__a43j40($this);
+        tmp$ret$0 = tmp0_rem.rem_9rbcjo_k$(new Long(1000, 0));
+      }
+      tmp = millisToNanos(tmp$ret$0).toInt_1tsl84_k$();
+    } else {
+      var tmp$ret$1;
+      {
+        var tmp1_rem = _get_value__a43j40($this);
+        tmp$ret$1 = tmp1_rem.rem_9rbcjo_k$(new Long(1000000000, 0));
+      }
+      tmp = tmp$ret$1.toInt_1tsl84_k$();
+    }
+    return tmp;
+  }
+  function Duration__toDouble_impl_a56y2b($this, unit) {
+    var tmp0_subject = _get_rawValue__5zfu4e($this);
+    var tmp;
+    if (tmp0_subject.equals(_get_rawValue__5zfu4e(Companion_getInstance_4().INFINITE_1))) {
+      DoubleCompanionObject_getInstance();
+      tmp = Infinity;
+    } else if (tmp0_subject.equals(_get_rawValue__5zfu4e(Companion_getInstance_4().NEG_INFINITE_1))) {
+      DoubleCompanionObject_getInstance();
+      tmp = -Infinity;
+    } else {
+      tmp = convertDurationUnit(_get_value__a43j40($this).toDouble_ygsx0s_k$(), _get_storageUnit__szjgha($this), unit);
+    }
+    return tmp;
+  }
+  function Duration__toLong_impl_shr43i($this, unit) {
+    var tmp0_subject = _get_rawValue__5zfu4e($this);
+    var tmp;
+    if (tmp0_subject.equals(_get_rawValue__5zfu4e(Companion_getInstance_4().INFINITE_1))) {
+      Companion_getInstance_23();
+      tmp = new Long(-1, 2147483647);
+    } else if (tmp0_subject.equals(_get_rawValue__5zfu4e(Companion_getInstance_4().NEG_INFINITE_1))) {
+      Companion_getInstance_23();
+      tmp = new Long(0, -2147483648);
+    } else {
+      tmp = convertDurationUnit_0(_get_value__a43j40($this), _get_storageUnit__szjgha($this), unit);
+    }
+    return tmp;
+  }
+  function Duration__toInt_impl_nnev71($this, unit) {
+    return coerceIn(Duration__toLong_impl_shr43i($this, unit), toLong_0(IntCompanionObject_getInstance().MIN_VALUE_1), toLong_0(IntCompanionObject_getInstance().MAX_VALUE_1)).toInt_1tsl84_k$();
+  }
+  function _Duration___get_inDays__impl__wmk3dc($this) {
+    return Duration__toDouble_impl_a56y2b($this, DurationUnit_DAYS_getInstance());
+  }
+  function _Duration___get_inHours__impl__jl5bq0($this) {
+    return Duration__toDouble_impl_a56y2b($this, DurationUnit_HOURS_getInstance());
+  }
+  function _Duration___get_inMinutes__impl__158z8o($this) {
+    return Duration__toDouble_impl_a56y2b($this, DurationUnit_MINUTES_getInstance());
+  }
+  function _Duration___get_inSeconds__impl__u95vqw($this) {
+    return Duration__toDouble_impl_a56y2b($this, DurationUnit_SECONDS_getInstance());
+  }
+  function _Duration___get_inMilliseconds__impl__n1myob($this) {
+    return Duration__toDouble_impl_a56y2b($this, DurationUnit_MILLISECONDS_getInstance());
+  }
+  function _Duration___get_inMicroseconds__impl__ginbn0($this) {
+    return Duration__toDouble_impl_a56y2b($this, DurationUnit_MICROSECONDS_getInstance());
+  }
+  function _Duration___get_inNanoseconds__impl__vlhu1g($this) {
+    return Duration__toDouble_impl_a56y2b($this, DurationUnit_NANOSECONDS_getInstance());
+  }
+  function _Duration___get_inWholeDays__impl__7bvpxz($this) {
+    return Duration__toLong_impl_shr43i($this, DurationUnit_DAYS_getInstance());
+  }
+  function _Duration___get_inWholeHours__impl__kb9f3j($this) {
+    return Duration__toLong_impl_shr43i($this, DurationUnit_HOURS_getInstance());
+  }
+  function _Duration___get_inWholeMinutes__impl__dognoh($this) {
+    return Duration__toLong_impl_shr43i($this, DurationUnit_MINUTES_getInstance());
+  }
+  function _Duration___get_inWholeSeconds__impl__hpy7b3($this) {
+    return Duration__toLong_impl_shr43i($this, DurationUnit_SECONDS_getInstance());
+  }
+  function _Duration___get_inWholeMilliseconds__impl__msfiry($this) {
+    return (isInMillis($this) ? Duration__isFinite_impl_rzjsps($this) : false) ? _get_value__a43j40($this) : Duration__toLong_impl_shr43i($this, DurationUnit_MILLISECONDS_getInstance());
+  }
+  function _Duration___get_inWholeMicroseconds__impl__8oe8vv($this) {
+    return Duration__toLong_impl_shr43i($this, DurationUnit_MICROSECONDS_getInstance());
+  }
+  function _Duration___get_inWholeNanoseconds__impl__r5x4mr($this) {
+    var value = _get_value__a43j40($this);
+    var tmp;
+    if (isInNanos($this)) {
+      tmp = value;
+    } else {
+      var tmp$ret$0;
+      {
+        Companion_getInstance_23();
+        var tmp0_div = new Long(-1, 2147483647);
+        var tmp1_div = 1000000;
+        tmp$ret$0 = tmp0_div.div_9s1fi3_k$(toLong_0(tmp1_div));
+      }
+      if (value.compareTo_n4fqi2_k$(tmp$ret$0) > 0) {
+        Companion_getInstance_23();
+        tmp = new Long(-1, 2147483647);
+      } else {
+        var tmp$ret$1;
+        {
+          Companion_getInstance_23();
+          var tmp2_div = new Long(0, -2147483648);
+          var tmp3_div = 1000000;
+          tmp$ret$1 = tmp2_div.div_9s1fi3_k$(toLong_0(tmp3_div));
+        }
+        if (value.compareTo_n4fqi2_k$(tmp$ret$1) < 0) {
+          Companion_getInstance_23();
+          tmp = new Long(0, -2147483648);
+        } else {
+          tmp = millisToNanos(value);
+        }
+      }
+    }
+    return tmp;
+  }
+  function Duration__toLongNanoseconds_impl_xyxob7($this) {
+    return _Duration___get_inWholeNanoseconds__impl__r5x4mr($this);
+  }
+  function Duration__toLongMilliseconds_impl_q1hqts($this) {
+    return _Duration___get_inWholeMilliseconds__impl__msfiry($this);
+  }
+  function Duration__toString_impl_8d916b($this) {
+    var tmp0_subject = _get_rawValue__5zfu4e($this);
+    var tmp;
+    if (tmp0_subject.equals(new Long(0, 0))) {
+      tmp = '0s';
+    } else if (tmp0_subject.equals(_get_rawValue__5zfu4e(Companion_getInstance_4().INFINITE_1))) {
+      tmp = 'Infinity';
+    } else if (tmp0_subject.equals(_get_rawValue__5zfu4e(Companion_getInstance_4().NEG_INFINITE_1))) {
+      tmp = '-Infinity';
+    } else {
+      var isNegative = Duration__isNegative_impl_pbysfa($this);
+      var tmp$ret$2;
+      {
+        {
+        }
+        var tmp$ret$1;
+        {
+          var tmp0_apply = StringBuilder_init_$Create$_1();
+          {
+          }
+          {
+            if (isNegative) {
+              tmp0_apply.append_t8oh9e_k$(_Char___init__impl__6a9atx(45));
+            }
+            var tmp$ret$0;
+            {
+              var tmp0_toComponents = _Duration___get_absoluteValue__impl__vr7i6w($this);
+              {
+              }
+              var tmp1__anonymous__uwfjfc = _Duration___get_inWholeDays__impl__7bvpxz(tmp0_toComponents);
+              var tmp2__anonymous__z9zvc9 = _Duration___get_hoursComponent__impl__7hllxa(tmp0_toComponents);
+              var tmp3__anonymous__ufb84q = _Duration___get_minutesComponent__impl__ctvd8u(tmp0_toComponents);
+              var tmp4__anonymous__pkmkx7 = _Duration___get_secondsComponent__impl__if34a6(tmp0_toComponents);
+              var tmp5__anonymous__kpxxpo = _Duration___get_nanosecondsComponent__impl__nh19kq(tmp0_toComponents);
+              var hasDays = !tmp1__anonymous__uwfjfc.equals(new Long(0, 0));
+              var hasHours = !(tmp2__anonymous__z9zvc9 === 0);
+              var hasMinutes = !(tmp3__anonymous__ufb84q === 0);
+              var hasSeconds = !(tmp4__anonymous__pkmkx7 === 0) ? true : !(tmp5__anonymous__kpxxpo === 0);
+              var components = 0;
+              if (hasDays) {
+                tmp0_apply.append_t8pm91_k$(tmp1__anonymous__uwfjfc).append_t8oh9e_k$(_Char___init__impl__6a9atx(100));
+                var tmp0 = components;
+                components = tmp0 + 1 | 0;
+              }
+              if (hasHours ? true : hasDays ? hasMinutes ? true : hasSeconds : false) {
+                var tmp1 = components;
+                components = tmp1 + 1 | 0;
+                if (tmp1 > 0) {
+                  tmp0_apply.append_t8oh9e_k$(_Char___init__impl__6a9atx(32));
+                }
+                tmp0_apply.append_t8pm91_k$(tmp2__anonymous__z9zvc9).append_t8oh9e_k$(_Char___init__impl__6a9atx(104));
+              }
+              if (hasMinutes ? true : hasSeconds ? hasHours ? true : hasDays : false) {
+                var tmp2 = components;
+                components = tmp2 + 1 | 0;
+                if (tmp2 > 0) {
+                  tmp0_apply.append_t8oh9e_k$(_Char___init__impl__6a9atx(32));
+                }
+                tmp0_apply.append_t8pm91_k$(tmp3__anonymous__ufb84q).append_t8oh9e_k$(_Char___init__impl__6a9atx(109));
+              }
+              if (hasSeconds) {
+                var tmp3 = components;
+                components = tmp3 + 1 | 0;
+                if (tmp3 > 0) {
+                  tmp0_apply.append_t8oh9e_k$(_Char___init__impl__6a9atx(32));
+                }
+                if (((!(tmp4__anonymous__pkmkx7 === 0) ? true : hasDays) ? true : hasHours) ? true : hasMinutes)
+                  appendFractional(tmp0_apply, $this, tmp4__anonymous__pkmkx7, tmp5__anonymous__kpxxpo, 9, 's', false);
+                else if (tmp5__anonymous__kpxxpo >= 1000000)
+                  appendFractional(tmp0_apply, $this, tmp5__anonymous__kpxxpo / 1000000 | 0, tmp5__anonymous__kpxxpo % 1000000 | 0, 6, 'ms', false);
+                else if (tmp5__anonymous__kpxxpo >= 1000)
+                  appendFractional(tmp0_apply, $this, tmp5__anonymous__kpxxpo / 1000 | 0, tmp5__anonymous__kpxxpo % 1000 | 0, 3, 'us', false);
+                else {
+                  tmp0_apply.append_t8pm91_k$(tmp5__anonymous__kpxxpo).append_ssq29y_k$('ns');
+                }
+              }
+              var tmp_0;
+              if (isNegative ? components > 1 : false) {
+                tmp0_apply.insert_5hk2j8_k$(1, _Char___init__impl__6a9atx(40)).append_t8oh9e_k$(_Char___init__impl__6a9atx(41));
+                tmp_0 = Unit_getInstance();
+              }
+              tmp$ret$0 = tmp_0;
+            }
+          }
+          tmp$ret$1 = tmp0_apply;
+        }
+        tmp$ret$2 = tmp$ret$1.toString();
+      }
+      tmp = tmp$ret$2;
+    }
+    return tmp;
+  }
+  function appendFractional(_this__u8e3s4, $this, whole, fractional, fractionalSize, unit, isoZeroes) {
+    _this__u8e3s4.append_t8pm91_k$(whole);
+    if (!(fractional === 0)) {
+      _this__u8e3s4.append_t8oh9e_k$(_Char___init__impl__6a9atx(46));
+      var fracString = padStart(fractional.toString(), fractionalSize, _Char___init__impl__6a9atx(48));
+      var tmp$ret$1;
+      $l$block: {
+        var inductionVariable = charSequenceLength(fracString) - 1 | 0;
+        if (0 <= inductionVariable)
+          do {
+            var index = inductionVariable;
+            inductionVariable = inductionVariable + -1 | 0;
+            var tmp$ret$0;
+            {
+              var tmp0__anonymous__q1qw7t = charSequenceGet(fracString, index);
+              tmp$ret$0 = !equals_1(new Char_0(tmp0__anonymous__q1qw7t), new Char_0(_Char___init__impl__6a9atx(48)));
+            }
+            if (tmp$ret$0) {
+              tmp$ret$1 = index;
+              break $l$block;
+            }
+          }
+           while (0 <= inductionVariable);
+        tmp$ret$1 = -1;
+      }
+      var nonZeroDigits = tmp$ret$1 + 1 | 0;
+      if (!isoZeroes ? nonZeroDigits < 3 : false) {
+        _this__u8e3s4.appendRange_mncs5k_k$(fracString, 0, nonZeroDigits);
+      } else {
+        _this__u8e3s4.appendRange_mncs5k_k$(fracString, 0, imul((nonZeroDigits + 2 | 0) / 3 | 0, 3));
+      }
+    }
+    _this__u8e3s4.append_ssq29y_k$(unit);
+  }
+  function Duration__toString_impl_8d916b_0($this, unit, decimals) {
+    {
+      var tmp0_require = decimals >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'decimals must be not negative, but was ' + decimals;
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    var number = Duration__toDouble_impl_a56y2b($this, unit);
+    if (isInfinite(number))
+      return number.toString();
+    return formatToExactDecimals(number, coerceAtMost(decimals, 12)) + shortName(unit);
+  }
+  function Duration__toString$default_impl_ym3hhs($this, unit, decimals, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      decimals = 0;
+    return Duration__toString_impl_8d916b_0($this, unit, decimals);
+  }
+  function Duration__toIsoString_impl_9h6wsm($this) {
+    var tmp$ret$2;
+    {
+      {
+      }
+      var tmp$ret$1;
+      {
+        var tmp0_apply = StringBuilder_init_$Create$_1();
+        {
+        }
+        {
+          if (Duration__isNegative_impl_pbysfa($this)) {
+            tmp0_apply.append_t8oh9e_k$(_Char___init__impl__6a9atx(45));
+          }
+          tmp0_apply.append_ssq29y_k$('PT');
+          var tmp$ret$0;
+          {
+            var tmp0_toComponents = _Duration___get_absoluteValue__impl__vr7i6w($this);
+            {
+            }
+            var tmp1__anonymous__uwfjfc = _Duration___get_inWholeHours__impl__kb9f3j(tmp0_toComponents);
+            var tmp2__anonymous__z9zvc9 = _Duration___get_minutesComponent__impl__ctvd8u(tmp0_toComponents);
+            var tmp3__anonymous__ufb84q = _Duration___get_secondsComponent__impl__if34a6(tmp0_toComponents);
+            var tmp4__anonymous__pkmkx7 = _Duration___get_nanosecondsComponent__impl__nh19kq(tmp0_toComponents);
+            var hours = tmp1__anonymous__uwfjfc;
+            if (Duration__isInfinite_impl_tsn9y3($this)) {
+              hours = new Long(1316134911, 2328);
+            }
+            var hasHours = !hours.equals(new Long(0, 0));
+            var hasSeconds = !(tmp3__anonymous__ufb84q === 0) ? true : !(tmp4__anonymous__pkmkx7 === 0);
+            var hasMinutes = !(tmp2__anonymous__z9zvc9 === 0) ? true : hasSeconds ? hasHours : false;
+            if (hasHours) {
+              tmp0_apply.append_t8pm91_k$(hours).append_t8oh9e_k$(_Char___init__impl__6a9atx(72));
+            }
+            if (hasMinutes) {
+              tmp0_apply.append_t8pm91_k$(tmp2__anonymous__z9zvc9).append_t8oh9e_k$(_Char___init__impl__6a9atx(77));
+            }
+            var tmp;
+            if (hasSeconds ? true : !hasHours ? !hasMinutes : false) {
+              tmp = appendFractional(tmp0_apply, $this, tmp3__anonymous__ufb84q, tmp4__anonymous__pkmkx7, 9, 'S', true);
+            }
+            tmp$ret$0 = tmp;
+          }
+        }
+        tmp$ret$1 = tmp0_apply;
+      }
+      tmp$ret$2 = tmp$ret$1.toString();
+    }
+    return tmp$ret$2;
+  }
+  function Duration__hashCode_impl_u4exz6($this) {
+    return $this.hashCode();
+  }
+  function Duration__equals_impl_ygj6w6($this, other) {
+    if (!(other instanceof Duration))
+      return false;
+    var tmp0_other_with_cast = other instanceof Duration ? other.rawValue_1 : THROW_CCE();
+    if (!$this.equals(tmp0_other_with_cast))
+      return false;
+    return true;
+  }
+  function Duration(rawValue) {
+    Companion_getInstance_4();
+    this.rawValue_1 = rawValue;
+  }
+  Duration.prototype.compareTo_91toh3_k$ = function (other) {
+    return Duration__compareTo_impl_pchp0f(this.rawValue_1, other);
+  };
+  Duration.prototype.compareTo_6thzaj_k$ = function (other) {
+    return Duration__compareTo_impl_pchp0f_0(this, other);
+  };
+  Duration.prototype.toString = function () {
+    return Duration__toString_impl_8d916b(this.rawValue_1);
+  };
+  Duration.prototype.hashCode = function () {
+    return Duration__hashCode_impl_u4exz6(this.rawValue_1);
+  };
+  Duration.prototype.equals = function (other) {
+    return Duration__equals_impl_ygj6w6(this.rawValue_1, other);
+  };
+  Duration.$metadata$ = classMeta('Duration', [Comparable]);
+  function get_MAX_NANOS() {
+    return MAX_NANOS;
+  }
+  var MAX_NANOS;
+  function get_MAX_MILLIS() {
+    return MAX_MILLIS;
+  }
+  var MAX_MILLIS;
+  function get_MAX_NANOS_IN_MILLIS() {
+    return MAX_NANOS_IN_MILLIS;
+  }
+  var MAX_NANOS_IN_MILLIS;
+  function durationOfMillis(normalMillis) {
+    var tmp$ret$0;
+    {
+      var tmp0_plus = normalMillis.shl_po5ip6_k$(1);
+      tmp$ret$0 = tmp0_plus.plus_u6jwas_k$(new Long(1, 0));
+    }
+    return _Duration___init__impl__kdtzql(tmp$ret$0);
+  }
+  function toDuration(_this__u8e3s4, unit) {
+    var tmp;
+    if (unit.compareTo_6thzay_k$(DurationUnit_SECONDS_getInstance()) <= 0) {
+      tmp = durationOfNanos(convertDurationUnitOverflow(toLong_0(_this__u8e3s4), unit, DurationUnit_NANOSECONDS_getInstance()));
+    } else {
+      tmp = toDuration_0(toLong_0(_this__u8e3s4), unit);
+    }
+    return tmp;
+  }
+  function toDuration_0(_this__u8e3s4, unit) {
+    var maxNsInUnit = convertDurationUnitOverflow(new Long(-387905, 1073741823), DurationUnit_NANOSECONDS_getInstance(), unit);
+    if (maxNsInUnit.unaryMinus_6uz0qp_k$().compareTo_n4fqi2_k$(_this__u8e3s4) <= 0 ? _this__u8e3s4.compareTo_n4fqi2_k$(maxNsInUnit) <= 0 : false) {
+      return durationOfNanos(convertDurationUnitOverflow(_this__u8e3s4, unit, DurationUnit_NANOSECONDS_getInstance()));
+    } else {
+      var millis = convertDurationUnit_0(_this__u8e3s4, unit, DurationUnit_MILLISECONDS_getInstance());
+      return durationOfMillis(coerceIn(millis, new Long(1, -1073741824), new Long(-1, 1073741823)));
+    }
+  }
+  function toDuration_1(_this__u8e3s4, unit) {
+    var valueInNs = convertDurationUnit(_this__u8e3s4, unit, DurationUnit_NANOSECONDS_getInstance());
+    {
+      var tmp0_require = !isNaN_0(valueInNs);
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Duration value cannot be NaN.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    var nanos = roundToLong(valueInNs);
+    var tmp;
+    var containsLower = new Long(387905, -1073741824);
+    if (nanos.compareTo_n4fqi2_k$(new Long(-387905, 1073741823)) <= 0 ? containsLower.compareTo_n4fqi2_k$(nanos) <= 0 : false) {
+      tmp = durationOfNanos(nanos);
+    } else {
+      var millis = roundToLong(convertDurationUnit(_this__u8e3s4, unit, DurationUnit_MILLISECONDS_getInstance()));
+      tmp = durationOfMillisNormalized(millis);
+    }
+    return tmp;
+  }
+  function parseDuration(value, strictIso) {
+    var length = value.length;
+    if (length === 0)
+      throw IllegalArgumentException_init_$Create$_0('The string is empty');
+    var index = 0;
+    var result = Companion_getInstance_4().ZERO_1;
+    var infinityString = 'Infinity';
+    var tmp0_subject = charSequenceGet(value, index);
+    if (equals_1(new Char_0(tmp0_subject), new Char_0(_Char___init__impl__6a9atx(43))) ? true : equals_1(new Char_0(tmp0_subject), new Char_0(_Char___init__impl__6a9atx(45)))) {
+      var tmp1 = index;
+      index = tmp1 + 1 | 0;
+    }
+    var hasSign = index > 0;
+    var tmp;
+    if (hasSign) {
+      var tmp_0 = _Char___init__impl__6a9atx(45);
+      tmp = startsWith$default(value, tmp_0, false, 2, null);
+    } else {
+      tmp = false;
+    }
+    var isNegative = tmp;
+    if (length <= index)
+      throw IllegalArgumentException_init_$Create$_0('No components');
+    else {
+      if (equals_1(new Char_0(charSequenceGet(value, index)), new Char_0(_Char___init__impl__6a9atx(80)))) {
+        index = index + 1 | 0;
+        if (index === length)
+          throw IllegalArgumentException_init_$Create$();
+        var nonDigitSymbols = '+-.';
+        var isTimeComponent = false;
+        var prevUnit = null;
+        $l$loop: while (index < length) {
+          if (equals_1(new Char_0(charSequenceGet(value, index)), new Char_0(_Char___init__impl__6a9atx(84)))) {
+            var tmp_1;
+            if (isTimeComponent) {
+              tmp_1 = true;
+            } else {
+              index = index + 1 | 0;
+              tmp_1 = index === length;
+            }
+            if (tmp_1)
+              throw IllegalArgumentException_init_$Create$();
+            isTimeComponent = true;
+            continue $l$loop;
+          }
+          var tmp$ret$4;
+          {
+            var tmp1_substringWhile = index;
+            var tmp$ret$3;
+            {
+              var tmp$ret$1;
+              {
+                var i = tmp1_substringWhile;
+                $l$loop_0: while (true) {
+                  var tmp_2;
+                  if (i < value.length) {
+                    var tmp$ret$0;
+                    {
+                      var tmp2__anonymous__z9zvc9 = charSequenceGet(value, i);
+                      var tmp_3;
+                      if (_Char___init__impl__6a9atx(48) <= tmp2__anonymous__z9zvc9 ? tmp2__anonymous__z9zvc9 <= _Char___init__impl__6a9atx(57) : false) {
+                        tmp_3 = true;
+                      } else {
+                        tmp_3 = contains$default_0(nonDigitSymbols, tmp2__anonymous__z9zvc9, false, 2, null);
+                      }
+                      tmp$ret$0 = tmp_3;
+                    }
+                    tmp_2 = tmp$ret$0;
+                  } else {
+                    tmp_2 = false;
+                  }
+                  if (!tmp_2) {
+                    break $l$loop_0;
+                  }
+                  var tmp0 = i;
+                  i = tmp0 + 1 | 0;
+                }
+                tmp$ret$1 = i;
+              }
+              var tmp0_substring = tmp$ret$1;
+              var tmp$ret$2;
+              {
+                tmp$ret$2 = value;
+              }
+              tmp$ret$3 = tmp$ret$2.substring(tmp1_substringWhile, tmp0_substring);
+            }
+            tmp$ret$4 = tmp$ret$3;
+          }
+          var component = tmp$ret$4;
+          var tmp$ret$5;
+          {
+            tmp$ret$5 = charSequenceLength(component) === 0;
+          }
+          if (tmp$ret$5)
+            throw IllegalArgumentException_init_$Create$();
+          index = index + component.length | 0;
+          var tmp$ret$6;
+          {
+            var tmp3_getOrElse = index;
+            var tmp_4;
+            if (tmp3_getOrElse >= 0 ? tmp3_getOrElse <= get_lastIndex_7(value) : false) {
+              tmp_4 = charSequenceGet(value, tmp3_getOrElse);
+            } else {
+              throw IllegalArgumentException_init_$Create$_0('Missing unit for value ' + component);
+            }
+            tmp$ret$6 = tmp_4;
+          }
+          var unitChar = tmp$ret$6;
+          var tmp2 = index;
+          index = tmp2 + 1 | 0;
+          var unit = durationUnitByIsoChar(unitChar, isTimeComponent);
+          if (!(prevUnit == null) ? prevUnit.compareTo_6thzay_k$(unit) <= 0 : false)
+            throw IllegalArgumentException_init_$Create$_0('Unexpected order of duration components');
+          prevUnit = unit;
+          var tmp_5 = _Char___init__impl__6a9atx(46);
+          var dotIndex = indexOf$default_0(component, tmp_5, 0, false, 6, null);
+          if (unit.equals(DurationUnit_SECONDS_getInstance()) ? dotIndex > 0 : false) {
+            var tmp$ret$8;
+            {
+              var tmp$ret$7;
+              {
+                tmp$ret$7 = component;
+              }
+              tmp$ret$8 = tmp$ret$7.substring(0, dotIndex);
+            }
+            var whole = tmp$ret$8;
+            result = Duration__plus_impl_yu9v8f(result, toDuration_0(parseOverLongIsoComponent(whole), unit));
+            var tmp_6 = result;
+            var tmp$ret$10;
+            {
+              var tmp$ret$9;
+              {
+                tmp$ret$9 = component;
+              }
+              tmp$ret$10 = tmp$ret$9.substring(dotIndex);
+            }
+            result = Duration__plus_impl_yu9v8f(tmp_6, toDuration_1(toDouble(tmp$ret$10), unit));
+          } else {
+            result = Duration__plus_impl_yu9v8f(result, toDuration_0(parseOverLongIsoComponent(component), unit));
+          }
+        }
+      } else {
+        if (strictIso)
+          throw IllegalArgumentException_init_$Create$();
+        else {
+          var tmp_7 = index;
+          var tmp$ret$11;
+          {
+            var tmp4_maxOf = length - index | 0;
+            var tmp5_maxOf = infinityString.length;
+            tmp$ret$11 = Math.max(tmp4_maxOf, tmp5_maxOf);
+          }
+          if (regionMatches(value, tmp_7, infinityString, 0, tmp$ret$11, true)) {
+            result = Companion_getInstance_4().INFINITE_1;
+          } else {
+            var prevUnit_0 = null;
+            var afterFirst = false;
+            var allowSpaces = !hasSign;
+            if ((hasSign ? equals_1(new Char_0(charSequenceGet(value, index)), new Char_0(_Char___init__impl__6a9atx(40))) : false) ? equals_1(new Char_0(last_0(value)), new Char_0(_Char___init__impl__6a9atx(41))) : false) {
+              allowSpaces = true;
+              index = index + 1 | 0;
+              var tmp_8 = index;
+              length = length - 1 | 0;
+              if (tmp_8 === length)
+                throw IllegalArgumentException_init_$Create$_0('No components');
+            }
+            while (index < length) {
+              if (afterFirst ? allowSpaces : false) {
+                var tmp$ret$13;
+                {
+                  var tmp6_skipWhile = index;
+                  var i_0 = tmp6_skipWhile;
+                  $l$loop_1: while (true) {
+                    var tmp_9;
+                    if (i_0 < value.length) {
+                      var tmp$ret$12;
+                      {
+                        var tmp7__anonymous__b0knam = charSequenceGet(value, i_0);
+                        tmp$ret$12 = equals_1(new Char_0(tmp7__anonymous__b0knam), new Char_0(_Char___init__impl__6a9atx(32)));
+                      }
+                      tmp_9 = tmp$ret$12;
+                    } else {
+                      tmp_9 = false;
+                    }
+                    if (!tmp_9) {
+                      break $l$loop_1;
+                    }
+                    var tmp0_0 = i_0;
+                    i_0 = tmp0_0 + 1 | 0;
+                  }
+                  tmp$ret$13 = i_0;
+                }
+                index = tmp$ret$13;
+              }
+              afterFirst = true;
+              var tmp$ret$18;
+              {
+                var tmp9_substringWhile = index;
+                var tmp$ret$17;
+                {
+                  var tmp$ret$15;
+                  {
+                    var i_1 = tmp9_substringWhile;
+                    $l$loop_2: while (true) {
+                      var tmp_10;
+                      if (i_1 < value.length) {
+                        var tmp$ret$14;
+                        {
+                          var tmp10__anonymous__yfiz50 = charSequenceGet(value, i_1);
+                          tmp$ret$14 = (_Char___init__impl__6a9atx(48) <= tmp10__anonymous__yfiz50 ? tmp10__anonymous__yfiz50 <= _Char___init__impl__6a9atx(57) : false) ? true : equals_1(new Char_0(tmp10__anonymous__yfiz50), new Char_0(_Char___init__impl__6a9atx(46)));
+                        }
+                        tmp_10 = tmp$ret$14;
+                      } else {
+                        tmp_10 = false;
+                      }
+                      if (!tmp_10) {
+                        break $l$loop_2;
+                      }
+                      var tmp0_1 = i_1;
+                      i_1 = tmp0_1 + 1 | 0;
+                    }
+                    tmp$ret$15 = i_1;
+                  }
+                  var tmp8_substring = tmp$ret$15;
+                  var tmp$ret$16;
+                  {
+                    tmp$ret$16 = value;
+                  }
+                  tmp$ret$17 = tmp$ret$16.substring(tmp9_substringWhile, tmp8_substring);
+                }
+                tmp$ret$18 = tmp$ret$17;
+              }
+              var component_0 = tmp$ret$18;
+              var tmp$ret$19;
+              {
+                tmp$ret$19 = charSequenceLength(component_0) === 0;
+              }
+              if (tmp$ret$19)
+                throw IllegalArgumentException_init_$Create$();
+              index = index + component_0.length | 0;
+              var tmp$ret$24;
+              {
+                var tmp12_substringWhile = index;
+                var tmp$ret$23;
+                {
+                  var tmp$ret$21;
+                  {
+                    var i_2 = tmp12_substringWhile;
+                    $l$loop_3: while (true) {
+                      var tmp_11;
+                      if (i_2 < value.length) {
+                        var tmp$ret$20;
+                        {
+                          var tmp13__anonymous__jvh1if = charSequenceGet(value, i_2);
+                          tmp$ret$20 = _Char___init__impl__6a9atx(97) <= tmp13__anonymous__jvh1if ? tmp13__anonymous__jvh1if <= _Char___init__impl__6a9atx(122) : false;
+                        }
+                        tmp_11 = tmp$ret$20;
+                      } else {
+                        tmp_11 = false;
+                      }
+                      if (!tmp_11) {
+                        break $l$loop_3;
+                      }
+                      var tmp0_2 = i_2;
+                      i_2 = tmp0_2 + 1 | 0;
+                    }
+                    tmp$ret$21 = i_2;
+                  }
+                  var tmp11_substring = tmp$ret$21;
+                  var tmp$ret$22;
+                  {
+                    tmp$ret$22 = value;
+                  }
+                  tmp$ret$23 = tmp$ret$22.substring(tmp12_substringWhile, tmp11_substring);
+                }
+                tmp$ret$24 = tmp$ret$23;
+              }
+              var unitName = tmp$ret$24;
+              index = index + unitName.length | 0;
+              var unit_0 = durationUnitByShortName(unitName);
+              if (!(prevUnit_0 == null) ? prevUnit_0.compareTo_6thzay_k$(unit_0) <= 0 : false)
+                throw IllegalArgumentException_init_$Create$_0('Unexpected order of duration components');
+              prevUnit_0 = unit_0;
+              var tmp_12 = _Char___init__impl__6a9atx(46);
+              var dotIndex_0 = indexOf$default_0(component_0, tmp_12, 0, false, 6, null);
+              if (dotIndex_0 > 0) {
+                var tmp$ret$26;
+                {
+                  var tmp$ret$25;
+                  {
+                    tmp$ret$25 = component_0;
+                  }
+                  tmp$ret$26 = tmp$ret$25.substring(0, dotIndex_0);
+                }
+                var whole_0 = tmp$ret$26;
+                result = Duration__plus_impl_yu9v8f(result, toDuration_0(toLong(whole_0), unit_0));
+                var tmp_13 = result;
+                var tmp$ret$28;
+                {
+                  var tmp$ret$27;
+                  {
+                    tmp$ret$27 = component_0;
+                  }
+                  tmp$ret$28 = tmp$ret$27.substring(dotIndex_0);
+                }
+                result = Duration__plus_impl_yu9v8f(tmp_13, toDuration_1(toDouble(tmp$ret$28), unit_0));
+                if (index < length)
+                  throw IllegalArgumentException_init_$Create$_0('Fractional component must be last');
+              } else {
+                result = Duration__plus_impl_yu9v8f(result, toDuration_0(toLong(component_0), unit_0));
+              }
+            }
+          }
+        }
+      }
+    }
+    return isNegative ? Duration__unaryMinus_impl_x2k1y0(result) : result;
+  }
+  function durationOf(normalValue, unitDiscriminator) {
+    var tmp$ret$0;
+    {
+      var tmp0_plus = normalValue.shl_po5ip6_k$(1);
+      tmp$ret$0 = tmp0_plus.plus_u6jwas_k$(toLong_0(unitDiscriminator));
+    }
+    return _Duration___init__impl__kdtzql(tmp$ret$0);
+  }
+  function durationOfNanosNormalized(nanos) {
+    var tmp;
+    var containsLower = new Long(387905, -1073741824);
+    if (nanos.compareTo_n4fqi2_k$(new Long(-387905, 1073741823)) <= 0 ? containsLower.compareTo_n4fqi2_k$(nanos) <= 0 : false) {
+      tmp = durationOfNanos(nanos);
+    } else {
+      tmp = durationOfMillis(nanosToMillis(nanos));
+    }
+    return tmp;
+  }
+  function durationOfMillisNormalized(millis) {
+    var tmp;
+    var containsLower = new Long(1108857478, -1074);
+    if (millis.compareTo_n4fqi2_k$(new Long(-1108857478, 1073)) <= 0 ? containsLower.compareTo_n4fqi2_k$(millis) <= 0 : false) {
+      tmp = durationOfNanos(millisToNanos(millis));
+    } else {
+      tmp = durationOfMillis(coerceIn(millis, new Long(1, -1073741824), new Long(-1, 1073741823)));
+    }
+    return tmp;
+  }
+  function nanosToMillis(nanos) {
+    var tmp$ret$0;
+    {
+      var tmp0_div = 1000000;
+      tmp$ret$0 = nanos.div_9s1fi3_k$(toLong_0(tmp0_div));
+    }
+    return tmp$ret$0;
+  }
+  function millisToNanos(millis) {
+    var tmp$ret$0;
+    {
+      var tmp0_times = 1000000;
+      tmp$ret$0 = millis.times_2zfqpc_k$(toLong_0(tmp0_times));
+    }
+    return tmp$ret$0;
+  }
+  function durationOfNanos(normalNanos) {
+    return _Duration___init__impl__kdtzql(normalNanos.shl_po5ip6_k$(1));
+  }
+  function get_NANOS_IN_MILLIS() {
+    return NANOS_IN_MILLIS;
+  }
+  var NANOS_IN_MILLIS;
+  function substringWhile(_this__u8e3s4, startIndex, predicate) {
+    var tmp$ret$2;
+    {
+      var tmp$ret$0;
+      {
+        var i = startIndex;
+        while (i < _this__u8e3s4.length ? predicate(new Char_0(charSequenceGet(_this__u8e3s4, i))) : false) {
+          var tmp0 = i;
+          i = tmp0 + 1 | 0;
+        }
+        tmp$ret$0 = i;
+      }
+      var tmp0_substring = tmp$ret$0;
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = _this__u8e3s4;
+      }
+      tmp$ret$2 = tmp$ret$1.substring(startIndex, tmp0_substring);
+    }
+    return tmp$ret$2;
+  }
+  function parseOverLongIsoComponent(value) {
+    var length = value.length;
+    var startIndex = 0;
+    var tmp;
+    if (length > 0) {
+      var tmp_0 = charSequenceGet(value, 0);
+      tmp = contains$default_0('+-', tmp_0, false, 2, null);
+    } else {
+      tmp = false;
+    }
+    if (tmp) {
+      var tmp0 = startIndex;
+      startIndex = tmp0 + 1 | 0;
+    }
+    var tmp_1;
+    if ((length - startIndex | 0) > 16) {
+      var tmp$ret$0;
+      $l$block_0: {
+        var tmp0_all = numberRangeToNumber(startIndex, get_lastIndex_7(value));
+        var tmp_2;
+        if (isInterface(tmp0_all, Collection)) {
+          tmp_2 = tmp0_all.isEmpty_y1axqb_k$();
+        } else {
+          tmp_2 = false;
+        }
+        if (tmp_2) {
+          tmp$ret$0 = true;
+          break $l$block_0;
+        }
+        var inductionVariable = tmp0_all.get_first_irdx8n_k$();
+        var last = tmp0_all.get_last_wopotb_k$();
+        if (inductionVariable <= last)
+          do {
+            var element = inductionVariable;
+            inductionVariable = inductionVariable + 1 | 0;
+            var tmp$ret$1;
+            {
+              var containsArg = charSequenceGet(value, element);
+              tmp$ret$1 = _Char___init__impl__6a9atx(48) <= containsArg ? containsArg <= _Char___init__impl__6a9atx(57) : false;
+            }
+            if (!tmp$ret$1) {
+              tmp$ret$0 = false;
+              break $l$block_0;
+            }
+          }
+           while (!(element === last));
+        tmp$ret$0 = true;
+      }
+      tmp_1 = tmp$ret$0;
+    } else {
+      tmp_1 = false;
+    }
+    if (tmp_1) {
+      var tmp_3;
+      if (equals_1(new Char_0(charSequenceGet(value, 0)), new Char_0(_Char___init__impl__6a9atx(45)))) {
+        Companion_getInstance_23();
+        tmp_3 = new Long(0, -2147483648);
+      } else {
+        Companion_getInstance_23();
+        tmp_3 = new Long(-1, 2147483647);
+      }
+      return tmp_3;
+    }
+    var tmp_4;
+    if (startsWith$default_0(value, '+', false, 2, null)) {
+      tmp_4 = toLong(drop(value, 1));
+    } else {
+      tmp_4 = toLong(value);
+    }
+    return tmp_4;
+  }
+  function skipWhile(_this__u8e3s4, startIndex, predicate) {
+    var i = startIndex;
+    while (i < _this__u8e3s4.length ? predicate(new Char_0(charSequenceGet(_this__u8e3s4, i))) : false) {
+      var tmp0 = i;
+      i = tmp0 + 1 | 0;
+    }
+    return i;
+  }
+  function shortName(_this__u8e3s4) {
+    var tmp0_subject = _this__u8e3s4;
+    var tmp0 = tmp0_subject.get_ordinal_ip24qg_k$();
+    var tmp;
+    switch (tmp0) {
+      case 0:
+        tmp = 'ns';
+        break;
+      case 1:
+        tmp = 'us';
+        break;
+      case 2:
+        tmp = 'ms';
+        break;
+      case 3:
+        tmp = 's';
+        break;
+      case 4:
+        tmp = 'm';
+        break;
+      case 5:
+        tmp = 'h';
+        break;
+      case 6:
+        tmp = 'd';
+        break;
+      default:
+        var tmp0_error = 'Unknown unit: ' + _this__u8e3s4;
+        throw IllegalStateException_init_$Create$_0(toString_2(tmp0_error));
+    }
+    return tmp;
+  }
+  function durationUnitByIsoChar(isoChar, isTimeComponent) {
+    var tmp;
+    if (!isTimeComponent) {
+      var tmp0_subject = isoChar;
+      var tmp_0;
+      if (equals_1(new Char_0(tmp0_subject), new Char_0(_Char___init__impl__6a9atx(68)))) {
+        tmp_0 = DurationUnit_DAYS_getInstance();
+      } else {
+        throw IllegalArgumentException_init_$Create$_0('Invalid or unsupported duration ISO non-time unit: ' + new Char_0(isoChar));
+      }
+      tmp = tmp_0;
+    } else {
+      var tmp1_subject = isoChar;
+      var tmp_1;
+      if (equals_1(new Char_0(tmp1_subject), new Char_0(_Char___init__impl__6a9atx(72)))) {
+        tmp_1 = DurationUnit_HOURS_getInstance();
+      } else if (equals_1(new Char_0(tmp1_subject), new Char_0(_Char___init__impl__6a9atx(77)))) {
+        tmp_1 = DurationUnit_MINUTES_getInstance();
+      } else if (equals_1(new Char_0(tmp1_subject), new Char_0(_Char___init__impl__6a9atx(83)))) {
+        tmp_1 = DurationUnit_SECONDS_getInstance();
+      } else {
+        throw IllegalArgumentException_init_$Create$_0('Invalid duration ISO time unit: ' + new Char_0(isoChar));
+      }
+      tmp = tmp_1;
+    }
+    return tmp;
+  }
+  function durationUnitByShortName(shortName) {
+    var tmp0_subject = shortName;
+    var tmp;
+    switch (tmp0_subject) {
+      case 'ns':
+        tmp = DurationUnit_NANOSECONDS_getInstance();
+        break;
+      case 'us':
+        tmp = DurationUnit_MICROSECONDS_getInstance();
+        break;
+      case 'ms':
+        tmp = DurationUnit_MILLISECONDS_getInstance();
+        break;
+      case 's':
+        tmp = DurationUnit_SECONDS_getInstance();
+        break;
+      case 'm':
+        tmp = DurationUnit_MINUTES_getInstance();
+        break;
+      case 'h':
+        tmp = DurationUnit_HOURS_getInstance();
+        break;
+      case 'd':
+        tmp = DurationUnit_DAYS_getInstance();
+        break;
+      default:
+        throw IllegalArgumentException_init_$Create$_0('Unknown duration unit short name: ' + shortName);
+    }
+    return tmp;
+  }
+  function ExperimentalTime() {
+  }
+  ExperimentalTime.prototype.equals = function (other) {
+    if (!(other instanceof ExperimentalTime))
+      return false;
+    var tmp0_other_with_cast = other instanceof ExperimentalTime ? other : THROW_CCE();
+    return true;
+  };
+  ExperimentalTime.prototype.hashCode = function () {
+    return 0;
+  };
+  ExperimentalTime.prototype.toString = function () {
+    return '@kotlin.time.ExperimentalTime()';
+  };
+  ExperimentalTime.$metadata$ = classMeta('ExperimentalTime', [Annotation]);
   function get_UNDEFINED_RESULT() {
     init_properties_DeepRecursive_kt_b2anle();
     return UNDEFINED_RESULT;
   }
   var UNDEFINED_RESULT;
+  function DeepRecursiveScope() {
+  }
+  DeepRecursiveScope.prototype.invoke_gyv2af_k$ = function (_this__u8e3s4, value) {
+    throw UnsupportedOperationException_init_$Create$_0('Should not be called from DeepRecursiveScope');
+  };
+  DeepRecursiveScope.$metadata$ = classMeta('DeepRecursiveScope');
+  function invoke(_this__u8e3s4, value) {
+    init_properties_DeepRecursive_kt_b2anle();
+    return (new DeepRecursiveScopeImpl(_this__u8e3s4.block_1, value)).runCallLoop_pzbl0z_k$();
+  }
+  function DeepRecursiveFunction(block) {
+    this.block_1 = block;
+  }
+  DeepRecursiveFunction.prototype.get_block_ip8l7o_k$ = function () {
+    return this.block_1;
+  };
+  DeepRecursiveFunction.$metadata$ = classMeta('DeepRecursiveFunction');
+  function _set_function__yzg7i7($this, _set____db54di) {
+    $this.function_1 = _set____db54di;
+  }
+  function _get_function__m6jw1f($this) {
+    return $this.function_1;
+  }
+  function _set_value__lx0xdg($this, _set____db54di) {
+    $this.value_1 = _set____db54di;
+  }
+  function _get_value__a43j40_0($this) {
+    return $this.value_1;
+  }
+  function _set_cont__9l7dk5($this, _set____db54di) {
+    $this.cont_1 = _set____db54di;
+  }
+  function _get_cont__d4zd5l($this) {
+    return $this.cont_1;
+  }
+  function _set_result__gjrnty($this, _set____db54di) {
+    $this.result_1 = _set____db54di;
+  }
+  function _get_result__f31376($this) {
+    return $this.result_1;
+  }
+  function crossFunctionCompletion($this, currentFunction, cont) {
+    var tmp$ret$0;
+    {
+      var tmp0_Continuation = EmptyCoroutineContext_getInstance();
+      tmp$ret$0 = new _no_name_provided__qut3iv_6(tmp0_Continuation, $this, currentFunction, cont);
+    }
+    return tmp$ret$0;
+  }
+  function _no_name_provided__qut3iv_6($tmp0_Continuation, this$0, $currentFunction, $cont) {
+    this.$tmp0_Continuation_1 = $tmp0_Continuation;
+    this.this$0__1 = this$0;
+    this.$currentFunction_1 = $currentFunction;
+    this.$cont_1 = $cont;
+  }
+  _no_name_provided__qut3iv_6.prototype.get_context_h02k06_k$ = function () {
+    return this.$tmp0_Continuation_1;
+  };
+  _no_name_provided__qut3iv_6.prototype.resumeWith_7onugl_k$ = function (result) {
+    this.this$0__1.function_1 = this.$currentFunction_1;
+    this.this$0__1.cont_1 = this.$cont_1;
+    this.this$0__1.result_1 = result;
+    return Unit_getInstance();
+  };
+  _no_name_provided__qut3iv_6.prototype.resumeWith_s3a3yh_k$ = function (result) {
+    return this.resumeWith_7onugl_k$(result);
+  };
+  _no_name_provided__qut3iv_6.$metadata$ = classMeta(undefined, [Continuation]);
+  function DeepRecursiveScopeImpl(block, value) {
+    DeepRecursiveScope.call(this);
+    var tmp = this;
+    tmp.function_1 = isSuspendFunction(block, 2) ? block : THROW_CCE();
+    this.value_1 = value;
+    var tmp_0 = this;
+    tmp_0.cont_1 = isInterface(this, Continuation) ? this : THROW_CCE();
+    this.result_1 = get_UNDEFINED_RESULT();
+  }
+  DeepRecursiveScopeImpl.prototype.get_context_h02k06_k$ = function () {
+    return EmptyCoroutineContext_getInstance();
+  };
+  DeepRecursiveScopeImpl.prototype.resumeWith_4vzby1_k$ = function (result) {
+    this.cont_1 = null;
+    this.result_1 = result;
+  };
+  DeepRecursiveScopeImpl.prototype.resumeWith_s3a3yh_k$ = function (result) {
+    return this.resumeWith_4vzby1_k$(result);
+  };
+  DeepRecursiveScopeImpl.prototype.callRecursive_6euk1h_k$ = function (value, $cont) {
+    var tmp$ret$0;
+    {
+      var tmp0__anonymous__q1qw7t = $cont;
+      var tmp = this;
+      tmp.cont_1 = isInterface(tmp0__anonymous__q1qw7t, Continuation) ? tmp0__anonymous__q1qw7t : THROW_CCE();
+      this.value_1 = value;
+      tmp$ret$0 = get_COROUTINE_SUSPENDED();
+    }
+    return tmp$ret$0;
+  };
+  DeepRecursiveScopeImpl.prototype.callRecursive_btk80y_k$ = function (_this__u8e3s4, value, $cont) {
+    var tmp$ret$1;
+    {
+      var tmp0__anonymous__q1qw7t = $cont;
+      var tmp = _this__u8e3s4.block_1;
+      var function_0 = isSuspendFunction(tmp, 2) ? tmp : THROW_CCE();
+      var tmp$ret$0;
+      {
+        {
+        }
+        var currentFunction = this.function_1;
+        if (!(function_0 === currentFunction)) {
+          this.function_1 = function_0;
+          var tmp_0 = this;
+          tmp_0.cont_1 = crossFunctionCompletion(this, currentFunction, isInterface(tmp0__anonymous__q1qw7t, Continuation) ? tmp0__anonymous__q1qw7t : THROW_CCE());
+        } else {
+          var tmp_1 = this;
+          tmp_1.cont_1 = isInterface(tmp0__anonymous__q1qw7t, Continuation) ? tmp0__anonymous__q1qw7t : THROW_CCE();
+        }
+        this.value_1 = value;
+        tmp$ret$0 = Unit_getInstance();
+      }
+      tmp$ret$1 = get_COROUTINE_SUSPENDED();
+    }
+    return tmp$ret$1;
+  };
+  DeepRecursiveScopeImpl.prototype.runCallLoop_pzbl0z_k$ = function () {
+    $l$loop: while (true) {
+      var result = this.result_1;
+      var tmp0_elvis_lhs = this.cont_1;
+      var tmp;
+      if (tmp0_elvis_lhs == null) {
+        var tmp$ret$0;
+        {
+          var tmp0_getOrThrow = new Result(result) instanceof Result ? result : THROW_CCE();
+          throwOnFailure(tmp0_getOrThrow);
+          var tmp_0 = _Result___get_value__impl__bjfvqg(tmp0_getOrThrow);
+          tmp$ret$0 = (tmp_0 == null ? true : isObject(tmp_0)) ? tmp_0 : THROW_CCE();
+        }
+        return tmp$ret$0;
+      } else {
+        tmp = tmp0_elvis_lhs;
+      }
+      var cont = tmp;
+      if (equals_1(get_UNDEFINED_RESULT(), result)) {
+        var tmp_1;
+        try {
+          var tmp$ret$2;
+          {
+            var tmp1_startCoroutineUninterceptedOrReturn = this.function_1;
+            var tmp2_startCoroutineUninterceptedOrReturn = this.value_1;
+            var tmp$ret$1;
+            {
+              tmp$ret$1 = tmp1_startCoroutineUninterceptedOrReturn;
+            }
+            var a = tmp$ret$1;
+            tmp$ret$2 = typeof a === 'function' ? a(this, tmp2_startCoroutineUninterceptedOrReturn, cont) : tmp1_startCoroutineUninterceptedOrReturn.invoke_f2mof9_k$(this, tmp2_startCoroutineUninterceptedOrReturn, cont);
+          }
+          tmp_1 = tmp$ret$2;
+        } catch ($p) {
+          var tmp_2;
+          if ($p instanceof Error) {
+            var tmp$ret$4;
+            {
+              var tmp$ret$3;
+              {
+                var tmp0_failure = Companion_getInstance_5();
+                tmp$ret$3 = _Result___init__impl__xyqfz8(createFailure($p));
+              }
+              tmp$ret$4 = cont.resumeWith_s3a3yh_k$(tmp$ret$3);
+            }
+            continue $l$loop;
+          } else {
+            throw $p;
+          }
+          tmp_1 = tmp_2;
+        }
+        var r = tmp_1;
+        if (!(r === get_COROUTINE_SUSPENDED())) {
+          var tmp$ret$6;
+          {
+            var tmp3_resume = (r == null ? true : isObject(r)) ? r : THROW_CCE();
+            var tmp$ret$5;
+            {
+              var tmp0_success = Companion_getInstance_5();
+              tmp$ret$5 = _Result___init__impl__xyqfz8(tmp3_resume);
+            }
+            tmp$ret$6 = cont.resumeWith_s3a3yh_k$(tmp$ret$5);
+          }
+        }
+      } else {
+        this.result_1 = get_UNDEFINED_RESULT();
+        cont.resumeWith_s3a3yh_k$(result);
+      }
+    }
+  };
+  DeepRecursiveScopeImpl.$metadata$ = classMeta('DeepRecursiveScopeImpl', [Continuation], undefined, undefined, undefined, DeepRecursiveScope.prototype);
   var properties_initialized_DeepRecursive_kt_5z0al2;
   function init_properties_DeepRecursive_kt_b2anle() {
     if (properties_initialized_DeepRecursive_kt_5z0al2) {
@@ -5140,12 +8348,125 @@ if (typeof Math.imul === 'undefined') {
       properties_initialized_DeepRecursive_kt_5z0al2 = true;
       var tmp$ret$0;
       {
-        var tmp0_success = Companion_getInstance_4();
+        var tmp0_success = Companion_getInstance_5();
         var tmp1_success = get_COROUTINE_SUSPENDED();
         tmp$ret$0 = _Result___init__impl__xyqfz8(tmp1_success);
       }
       UNDEFINED_RESULT = tmp$ret$0;
     }
+  }
+  function hashCode(_this__u8e3s4) {
+    var tmp0_safe_receiver = _this__u8e3s4;
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode_0(tmp0_safe_receiver);
+    return tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
+  }
+  function getValue_0(_this__u8e3s4, thisRef, property) {
+    return _this__u8e3s4.get_value_j01efc_k$();
+  }
+  function Lazy() {
+  }
+  Lazy.$metadata$ = interfaceMeta('Lazy');
+  var LazyThreadSafetyMode_SYNCHRONIZED_instance;
+  var LazyThreadSafetyMode_PUBLICATION_instance;
+  var LazyThreadSafetyMode_NONE_instance;
+  function values_4() {
+    return [LazyThreadSafetyMode_SYNCHRONIZED_getInstance(), LazyThreadSafetyMode_PUBLICATION_getInstance(), LazyThreadSafetyMode_NONE_getInstance()];
+  }
+  function valueOf_4(value) {
+    switch (value) {
+      case 'SYNCHRONIZED':
+        return LazyThreadSafetyMode_SYNCHRONIZED_getInstance();
+      case 'PUBLICATION':
+        return LazyThreadSafetyMode_PUBLICATION_getInstance();
+      case 'NONE':
+        return LazyThreadSafetyMode_NONE_getInstance();
+      default:
+        LazyThreadSafetyMode_initEntries();
+        THROW_ISE();
+        break;
+    }
+  }
+  var LazyThreadSafetyMode_entriesInitialized;
+  function LazyThreadSafetyMode_initEntries() {
+    if (LazyThreadSafetyMode_entriesInitialized)
+      return Unit_getInstance();
+    LazyThreadSafetyMode_entriesInitialized = true;
+    LazyThreadSafetyMode_SYNCHRONIZED_instance = new LazyThreadSafetyMode('SYNCHRONIZED', 0);
+    LazyThreadSafetyMode_PUBLICATION_instance = new LazyThreadSafetyMode('PUBLICATION', 1);
+    LazyThreadSafetyMode_NONE_instance = new LazyThreadSafetyMode('NONE', 2);
+  }
+  function LazyThreadSafetyMode(name, ordinal) {
+    Enum.call(this, name, ordinal);
+  }
+  LazyThreadSafetyMode.$metadata$ = classMeta('LazyThreadSafetyMode', undefined, undefined, undefined, undefined, Enum.prototype);
+  function _set__value__3j54pn($this, _set____db54di) {
+    $this._value_1 = _set____db54di;
+  }
+  function _get__value__22ek2v($this) {
+    return $this._value_1;
+  }
+  function writeReplace_0($this) {
+    return new InitializedLazyImpl($this.get_value_j01efc_k$());
+  }
+  function UnsafeLazyImpl(initializer) {
+    this.initializer_1 = initializer;
+    this._value_1 = UNINITIALIZED_VALUE_getInstance();
+  }
+  UnsafeLazyImpl.prototype.set_initializer_1gnrcr_k$ = function (_set____db54di) {
+    this.initializer_1 = _set____db54di;
+  };
+  UnsafeLazyImpl.prototype.get_initializer_yawku1_k$ = function () {
+    return this.initializer_1;
+  };
+  UnsafeLazyImpl.prototype.get_value_j01efc_k$ = function () {
+    if (this._value_1 === UNINITIALIZED_VALUE_getInstance()) {
+      this._value_1 = ensureNotNull(this.initializer_1)();
+      this.initializer_1 = null;
+    }
+    var tmp = this._value_1;
+    return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
+  };
+  UnsafeLazyImpl.prototype.isInitialized_2wsk3a_k$ = function () {
+    return !(this._value_1 === UNINITIALIZED_VALUE_getInstance());
+  };
+  UnsafeLazyImpl.prototype.toString = function () {
+    return this.isInitialized_2wsk3a_k$() ? toString_1(this.get_value_j01efc_k$()) : 'Lazy value not initialized yet.';
+  };
+  UnsafeLazyImpl.$metadata$ = classMeta('UnsafeLazyImpl', [Lazy, Serializable]);
+  function UNINITIALIZED_VALUE() {
+    UNINITIALIZED_VALUE_instance = this;
+  }
+  UNINITIALIZED_VALUE.$metadata$ = objectMeta('UNINITIALIZED_VALUE');
+  var UNINITIALIZED_VALUE_instance;
+  function UNINITIALIZED_VALUE_getInstance() {
+    if (UNINITIALIZED_VALUE_instance == null)
+      new UNINITIALIZED_VALUE();
+    return UNINITIALIZED_VALUE_instance;
+  }
+  function InitializedLazyImpl(value) {
+    this.value_1 = value;
+  }
+  InitializedLazyImpl.prototype.get_value_j01efc_k$ = function () {
+    return this.value_1;
+  };
+  InitializedLazyImpl.prototype.isInitialized_2wsk3a_k$ = function () {
+    return true;
+  };
+  InitializedLazyImpl.prototype.toString = function () {
+    return toString_1(this.value_1);
+  };
+  InitializedLazyImpl.$metadata$ = classMeta('InitializedLazyImpl', [Lazy, Serializable]);
+  function LazyThreadSafetyMode_SYNCHRONIZED_getInstance() {
+    LazyThreadSafetyMode_initEntries();
+    return LazyThreadSafetyMode_SYNCHRONIZED_instance;
+  }
+  function LazyThreadSafetyMode_PUBLICATION_getInstance() {
+    LazyThreadSafetyMode_initEntries();
+    return LazyThreadSafetyMode_PUBLICATION_instance;
+  }
+  function LazyThreadSafetyMode_NONE_getInstance() {
+    LazyThreadSafetyMode_initEntries();
+    return LazyThreadSafetyMode_NONE_instance;
   }
   function check(value) {
     {
@@ -5229,6 +8550,16 @@ if (typeof Math.imul === 'undefined') {
       return value;
     }
   }
+  function requireNotNull(value, lazyMessage) {
+    {
+    }
+    if (value == null) {
+      var message = lazyMessage();
+      throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+    } else {
+      return value;
+    }
+  }
   function _Result___init__impl__xyqfz8(value) {
     return value;
   }
@@ -5273,21 +8604,21 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function Companion_4() {
-    Companion_instance_4 = this;
+  function Companion_5() {
+    Companion_instance_5 = this;
   }
-  Companion_4.prototype.success_5n1c7s_k$ = function (value) {
+  Companion_5.prototype.success_5n1c7s_k$ = function (value) {
     return _Result___init__impl__xyqfz8(value);
   };
-  Companion_4.prototype.failure_tk7s8q_k$ = function (exception) {
+  Companion_5.prototype.failure_tk7s8q_k$ = function (exception) {
     return _Result___init__impl__xyqfz8(createFailure(exception));
   };
-  Companion_4.$metadata$ = objectMeta('Companion');
-  var Companion_instance_4;
-  function Companion_getInstance_4() {
-    if (Companion_instance_4 == null)
-      new Companion_4();
-    return Companion_instance_4;
+  Companion_5.$metadata$ = objectMeta('Companion');
+  var Companion_instance_5;
+  function Companion_getInstance_5() {
+    if (Companion_instance_5 == null)
+      new Companion_5();
+    return Companion_instance_5;
   }
   function Failure(exception) {
     this.exception_1 = exception;
@@ -5298,32 +8629,32 @@ if (typeof Math.imul === 'undefined') {
   Failure.prototype.equals = function (other) {
     var tmp;
     if (other instanceof Failure) {
-      tmp = equals_0(this.exception_1, other.exception_1);
+      tmp = equals_1(this.exception_1, other.exception_1);
     } else {
       tmp = false;
     }
     return tmp;
   };
   Failure.prototype.hashCode = function () {
-    return hashCode(this.exception_1);
+    return hashCode_0(this.exception_1);
   };
   Failure.prototype.toString = function () {
     return 'Failure(' + this.exception_1 + ')';
   };
   Failure.$metadata$ = classMeta('Failure', [Serializable]);
   function Result__hashCode_impl_d2zufp($this) {
-    return $this == null ? 0 : hashCode($this);
+    return $this == null ? 0 : hashCode_0($this);
   }
   function Result__equals_impl_bxgmep($this, other) {
     if (!(other instanceof Result))
       return false;
     var tmp0_other_with_cast = other instanceof Result ? other.value_1 : THROW_CCE();
-    if (!equals_0($this, tmp0_other_with_cast))
+    if (!equals_1($this, tmp0_other_with_cast))
       return false;
     return true;
   }
   function Result(value) {
-    Companion_getInstance_4();
+    Companion_getInstance_5();
     this.value_1 = value;
   }
   Result.prototype.toString = function () {
@@ -5354,7 +8685,7 @@ if (typeof Math.imul === 'undefined') {
     try {
       var tmp$ret$0;
       {
-        var tmp0_success = Companion_getInstance_4();
+        var tmp0_success = Companion_getInstance_5();
         var tmp1_success = block(_this__u8e3s4);
         tmp$ret$0 = _Result___init__impl__xyqfz8(tmp1_success);
       }
@@ -5364,7 +8695,7 @@ if (typeof Math.imul === 'undefined') {
       if ($p instanceof Error) {
         var tmp$ret$1;
         {
-          var tmp2_failure = Companion_getInstance_4();
+          var tmp2_failure = Companion_getInstance_5();
           tmp$ret$1 = _Result___init__impl__xyqfz8(createFailure($p));
         }
         tmp_0 = tmp$ret$1;
@@ -5375,7 +8706,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function fold_1(_this__u8e3s4, onSuccess, onFailure) {
+  function fold_2(_this__u8e3s4, onSuccess, onFailure) {
     {
     }
     var exception = Result__exceptionOrNull_impl_p6xea9(_this__u8e3s4);
@@ -5399,7 +8730,7 @@ if (typeof Math.imul === 'undefined') {
     try {
       var tmp$ret$0;
       {
-        var tmp0_success = Companion_getInstance_4();
+        var tmp0_success = Companion_getInstance_5();
         var tmp1_success = block();
         tmp$ret$0 = _Result___init__impl__xyqfz8(tmp1_success);
       }
@@ -5409,7 +8740,7 @@ if (typeof Math.imul === 'undefined') {
       if ($p instanceof Error) {
         var tmp$ret$1;
         {
-          var tmp2_failure = Companion_getInstance_4();
+          var tmp2_failure = Companion_getInstance_5();
           tmp$ret$1 = _Result___init__impl__xyqfz8(createFailure($p));
         }
         tmp_0 = tmp$ret$1;
@@ -5488,6 +8819,11 @@ if (typeof Math.imul === 'undefined') {
       }
        while (inductionVariable < times);
   }
+  function takeUnless(_this__u8e3s4, predicate) {
+    {
+    }
+    return !predicate(_this__u8e3s4) ? _this__u8e3s4 : null;
+  }
   function Pair(first, second) {
     this.first_1 = first;
     this.second_1 = second;
@@ -5518,8 +8854,8 @@ if (typeof Math.imul === 'undefined') {
     return this.copy_8d28ee_k$(first, second);
   };
   Pair.prototype.hashCode = function () {
-    var result = this.first_1 == null ? 0 : hashCode(this.first_1);
-    result = imul(result, 31) + (this.second_1 == null ? 0 : hashCode(this.second_1)) | 0;
+    var result = this.first_1 == null ? 0 : hashCode_0(this.first_1);
+    result = imul(result, 31) + (this.second_1 == null ? 0 : hashCode_0(this.second_1)) | 0;
     return result;
   };
   Pair.prototype.equals = function (other) {
@@ -5528,9 +8864,9 @@ if (typeof Math.imul === 'undefined') {
     if (!(other instanceof Pair))
       return false;
     var tmp0_other_with_cast = other instanceof Pair ? other : THROW_CCE();
-    if (!equals_0(this.first_1, tmp0_other_with_cast.first_1))
+    if (!equals_1(this.first_1, tmp0_other_with_cast.first_1))
       return false;
-    if (!equals_0(this.second_1, tmp0_other_with_cast.second_1))
+    if (!equals_1(this.second_1, tmp0_other_with_cast.second_1))
       return false;
     return true;
   };
@@ -5538,37 +8874,96 @@ if (typeof Math.imul === 'undefined') {
   function to(_this__u8e3s4, that) {
     return new Pair(_this__u8e3s4, that);
   }
+  function Triple(first, second, third) {
+    this.first_1 = first;
+    this.second_1 = second;
+    this.third_1 = third;
+  }
+  Triple.prototype.get_first_irdx8n_k$ = function () {
+    return this.first_1;
+  };
+  Triple.prototype.get_second_jf7fjx_k$ = function () {
+    return this.second_1;
+  };
+  Triple.prototype.get_third_iz27um_k$ = function () {
+    return this.third_1;
+  };
+  Triple.prototype.toString = function () {
+    return '(' + this.first_1 + ', ' + this.second_1 + ', ' + this.third_1 + ')';
+  };
+  Triple.prototype.component1_7eebsc_k$ = function () {
+    return this.first_1;
+  };
+  Triple.prototype.component2_7eebsb_k$ = function () {
+    return this.second_1;
+  };
+  Triple.prototype.component3_7eebsa_k$ = function () {
+    return this.third_1;
+  };
+  Triple.prototype.copy_a6vyki_k$ = function (first, second, third) {
+    return new Triple(first, second, third);
+  };
+  Triple.prototype.copy$default_aiswvs_k$ = function (first, second, third, $mask0, $handler) {
+    if (!(($mask0 & 1) === 0))
+      first = this.first_1;
+    if (!(($mask0 & 2) === 0))
+      second = this.second_1;
+    if (!(($mask0 & 4) === 0))
+      third = this.third_1;
+    return this.copy_a6vyki_k$(first, second, third);
+  };
+  Triple.prototype.hashCode = function () {
+    var result = this.first_1 == null ? 0 : hashCode_0(this.first_1);
+    result = imul(result, 31) + (this.second_1 == null ? 0 : hashCode_0(this.second_1)) | 0;
+    result = imul(result, 31) + (this.third_1 == null ? 0 : hashCode_0(this.third_1)) | 0;
+    return result;
+  };
+  Triple.prototype.equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof Triple))
+      return false;
+    var tmp0_other_with_cast = other instanceof Triple ? other : THROW_CCE();
+    if (!equals_1(this.first_1, tmp0_other_with_cast.first_1))
+      return false;
+    if (!equals_1(this.second_1, tmp0_other_with_cast.second_1))
+      return false;
+    if (!equals_1(this.third_1, tmp0_other_with_cast.third_1))
+      return false;
+    return true;
+  };
+  Triple.$metadata$ = classMeta('Triple', [Serializable]);
   function _UByte___init__impl__g9hnc4(data) {
     return data;
   }
   function _UByte___get_data__impl__jof9qr($this) {
     return $this;
   }
-  function Companion_5() {
-    Companion_instance_5 = this;
+  function Companion_6() {
+    Companion_instance_6 = this;
     this.MIN_VALUE_1 = _UByte___init__impl__g9hnc4(0);
     this.MAX_VALUE_1 = _UByte___init__impl__g9hnc4(-1);
     this.SIZE_BYTES_1 = 1;
     this.SIZE_BITS_1 = 8;
   }
-  Companion_5.prototype.get_MIN_VALUE_p0dmjb_k$ = function () {
+  Companion_6.prototype.get_MIN_VALUE_p0dmjb_k$ = function () {
     return this.MIN_VALUE_1;
   };
-  Companion_5.prototype.get_MAX_VALUE_4mpz45_k$ = function () {
+  Companion_6.prototype.get_MAX_VALUE_4mpz45_k$ = function () {
     return this.MAX_VALUE_1;
   };
-  Companion_5.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
+  Companion_6.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
     return this.SIZE_BYTES_1;
   };
-  Companion_5.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
+  Companion_6.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
     return this.SIZE_BITS_1;
   };
-  Companion_5.$metadata$ = objectMeta('Companion');
-  var Companion_instance_5;
-  function Companion_getInstance_5() {
-    if (Companion_instance_5 == null)
-      new Companion_5();
-    return Companion_instance_5;
+  Companion_6.$metadata$ = objectMeta('Companion');
+  var Companion_instance_6;
+  function Companion_getInstance_6() {
+    if (Companion_instance_6 == null)
+      new Companion_6();
+    return Companion_instance_6;
   }
   function UByte__compareTo_impl_5w5192($this, other) {
     var tmp$ret$0;
@@ -5615,7 +9010,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_compareTo = tmp$ret$0;
       tmp$ret$1 = ulongCompare(_ULong___get_data__impl__fggpzb(tmp0_compareTo), _ULong___get_data__impl__fggpzb(other));
@@ -5673,7 +9068,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_plus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp0_plus).plus_u6jwas_k$(_ULong___get_data__impl__fggpzb(other)));
@@ -5731,7 +9126,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_minus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp0_minus).minus_llf5ei_k$(_ULong___get_data__impl__fggpzb(other)));
@@ -5789,7 +9184,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_times = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp0_times).times_2zfqpc_k$(_ULong___get_data__impl__fggpzb(other)));
@@ -5847,7 +9242,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_div = tmp$ret$0;
       tmp$ret$1 = ulongDivide(tmp0_div, other);
@@ -5905,7 +9300,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_rem = tmp$ret$0;
       tmp$ret$1 = ulongRemainder(tmp0_rem, other);
@@ -5975,7 +9370,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_floorDiv = tmp$ret$0;
       var tmp$ret$1;
@@ -6069,7 +9464,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_mod = tmp$ret$0;
       var tmp$ret$1;
@@ -6148,7 +9543,7 @@ if (typeof Math.imul === 'undefined') {
     return _UByte___get_data__impl__jof9qr($this) & 255;
   }
   function UByte__toLong_impl_hwyqzr($this) {
-    return toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0));
+    return toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0));
   }
   function UByte__toUByte_impl_fekj48($this) {
     return $this;
@@ -6165,7 +9560,7 @@ if (typeof Math.imul === 'undefined') {
     return _UInt___init__impl__l7qpdl(_UByte___get_data__impl__jof9qr($this) & 255);
   }
   function UByte__toULong_impl_jl2e5o($this) {
-    return _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
+    return _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr($this)).and_jhajnj_k$(new Long(255, 0)));
   }
   function UByte__toFloat_impl_ogkoa1($this) {
     var tmp$ret$0;
@@ -6200,7 +9595,7 @@ if (typeof Math.imul === 'undefined') {
     return true;
   }
   function UByte(data) {
-    Companion_getInstance_5();
+    Companion_getInstance_6();
     this.data_1 = data;
   }
   UByte.prototype.compareTo_6mkx9r_k$ = function (other) {
@@ -6234,10 +9629,10 @@ if (typeof Math.imul === 'undefined') {
   function _get_array__jslnqg($this) {
     return $this.array_1;
   }
-  function _set_index__fyfqnn($this, _set____db54di) {
+  function _set_index__fyfqnn_1($this, _set____db54di) {
     $this.index_1 = _set____db54di;
   }
-  function _get_index__g2optt($this) {
+  function _get_index__g2optt_1($this) {
     return $this.index_1;
   }
   function _UByteArray___init__impl__ip4y9n(storage) {
@@ -6309,7 +9704,7 @@ if (typeof Math.imul === 'undefined') {
     {
       tmp$ret$0 = _UByte___get_data__impl__jof9qr(element);
     }
-    return contains_2(tmp_0, tmp$ret$0);
+    return contains_3(tmp_0, tmp$ret$0);
   }
   function UByteArray__contains_impl_njh19q_0($this, element) {
     if (!(element instanceof UByte))
@@ -6344,7 +9739,7 @@ if (typeof Math.imul === 'undefined') {
               var tmp0_toByte = element.data_1;
               tmp$ret$1 = _UByte___get_data__impl__jof9qr(tmp0_toByte);
             }
-            tmp_0 = contains_2(tmp_1, tmp$ret$1);
+            tmp_0 = contains_3(tmp_1, tmp$ret$1);
           } else {
             tmp_0 = false;
           }
@@ -6369,13 +9764,13 @@ if (typeof Math.imul === 'undefined') {
     return 'UByteArray(storage=' + toString_2($this) + ')';
   }
   function UByteArray__hashCode_impl_ip8jx2($this) {
-    return hashCode($this);
+    return hashCode_0($this);
   }
   function UByteArray__equals_impl_roka4u($this, other) {
     if (!(other instanceof UByteArray))
       return false;
     var tmp0_other_with_cast = other instanceof UByteArray ? other.storage_1 : THROW_CCE();
-    if (!equals_0($this, tmp0_other_with_cast))
+    if (!equals_1($this, tmp0_other_with_cast))
       return false;
     return true;
   }
@@ -6419,31 +9814,31 @@ if (typeof Math.imul === 'undefined') {
   function _UInt___get_data__impl__f0vqqw($this) {
     return $this;
   }
-  function Companion_6() {
-    Companion_instance_6 = this;
+  function Companion_7() {
+    Companion_instance_7 = this;
     this.MIN_VALUE_1 = _UInt___init__impl__l7qpdl(0);
     this.MAX_VALUE_1 = _UInt___init__impl__l7qpdl(-1);
     this.SIZE_BYTES_1 = 4;
     this.SIZE_BITS_1 = 32;
   }
-  Companion_6.prototype.get_MIN_VALUE_9yzxs0_k$ = function () {
+  Companion_7.prototype.get_MIN_VALUE_9yzxs0_k$ = function () {
     return this.MIN_VALUE_1;
   };
-  Companion_6.prototype.get_MAX_VALUE_blthzm_k$ = function () {
+  Companion_7.prototype.get_MAX_VALUE_blthzm_k$ = function () {
     return this.MAX_VALUE_1;
   };
-  Companion_6.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
+  Companion_7.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
     return this.SIZE_BYTES_1;
   };
-  Companion_6.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
+  Companion_7.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
     return this.SIZE_BITS_1;
   };
-  Companion_6.$metadata$ = objectMeta('Companion');
-  var Companion_instance_6;
-  function Companion_getInstance_6() {
-    if (Companion_instance_6 == null)
-      new Companion_6();
-    return Companion_instance_6;
+  Companion_7.$metadata$ = objectMeta('Companion');
+  var Companion_instance_7;
+  function Companion_getInstance_7() {
+    if (Companion_instance_7 == null)
+      new Companion_7();
+    return Companion_instance_7;
   }
   function UInt__compareTo_impl_yacclj($this, other) {
     var tmp$ret$1;
@@ -6481,7 +9876,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_compareTo = tmp$ret$0;
       tmp$ret$1 = ulongCompare(_ULong___get_data__impl__fggpzb(tmp0_compareTo), _ULong___get_data__impl__fggpzb(other));
@@ -6520,7 +9915,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_plus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp0_plus).plus_u6jwas_k$(_ULong___get_data__impl__fggpzb(other)));
@@ -6559,7 +9954,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_minus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp0_minus).minus_llf5ei_k$(_ULong___get_data__impl__fggpzb(other)));
@@ -6598,7 +9993,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_times = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp0_times).times_2zfqpc_k$(_ULong___get_data__impl__fggpzb(other)));
@@ -6637,7 +10032,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_div = tmp$ret$0;
       tmp$ret$1 = ulongDivide(tmp0_div, other);
@@ -6676,7 +10071,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_rem = tmp$ret$0;
       tmp$ret$1 = ulongRemainder(tmp0_rem, other);
@@ -6727,7 +10122,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_floorDiv = tmp$ret$0;
       var tmp$ret$1;
@@ -6802,7 +10197,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_mod = tmp$ret$0;
       var tmp$ret$1;
@@ -6850,7 +10245,7 @@ if (typeof Math.imul === 'undefined') {
     return _UInt___get_data__impl__f0vqqw($this);
   }
   function UInt__toLong_impl_le5rq4($this) {
-    return toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0));
+    return toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0));
   }
   function UInt__toUByte_impl_qgjpt1($this) {
     var tmp$ret$0;
@@ -6872,7 +10267,7 @@ if (typeof Math.imul === 'undefined') {
     return $this;
   }
   function UInt__toULong_impl_8j37gv($this) {
-    return _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
+    return _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0)));
   }
   function UInt__toFloat_impl_zijuyu($this) {
     var tmp$ret$0;
@@ -6887,7 +10282,7 @@ if (typeof Math.imul === 'undefined') {
   function UInt__toString_impl_dbgl21($this) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = toLong(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0));
+      tmp$ret$0 = toLong_0(_UInt___get_data__impl__f0vqqw($this)).and_jhajnj_k$(new Long(-1, 0));
     }
     return tmp$ret$0.toString();
   }
@@ -6903,7 +10298,7 @@ if (typeof Math.imul === 'undefined') {
     return true;
   }
   function UInt(data) {
-    Companion_getInstance_6();
+    Companion_getInstance_7();
     this.data_1 = data;
   }
   UInt.prototype.compareTo_n4kp7s_k$ = function (other) {
@@ -6943,10 +10338,10 @@ if (typeof Math.imul === 'undefined') {
   function _get_array__jslnqg_0($this) {
     return $this.array_1;
   }
-  function _set_index__fyfqnn_0($this, _set____db54di) {
+  function _set_index__fyfqnn_2($this, _set____db54di) {
     $this.index_1 = _set____db54di;
   }
-  function _get_index__g2optt_0($this) {
+  function _get_index__g2optt_2($this) {
     return $this.index_1;
   }
   function _UIntArray___init__impl__ghjpc6(storage) {
@@ -7018,7 +10413,7 @@ if (typeof Math.imul === 'undefined') {
     {
       tmp$ret$0 = _UInt___get_data__impl__f0vqqw(element);
     }
-    return contains_4(tmp_0, tmp$ret$0);
+    return contains_5(tmp_0, tmp$ret$0);
   }
   function UIntArray__contains_impl_b16rzj_0($this, element) {
     if (!(element instanceof UInt))
@@ -7053,7 +10448,7 @@ if (typeof Math.imul === 'undefined') {
               var tmp0_toInt = element.data_1;
               tmp$ret$1 = _UInt___get_data__impl__f0vqqw(tmp0_toInt);
             }
-            tmp_0 = contains_4(tmp_1, tmp$ret$1);
+            tmp_0 = contains_5(tmp_1, tmp$ret$1);
           } else {
             tmp_0 = false;
           }
@@ -7078,13 +10473,13 @@ if (typeof Math.imul === 'undefined') {
     return 'UIntArray(storage=' + toString_2($this) + ')';
   }
   function UIntArray__hashCode_impl_hr7ost($this) {
-    return hashCode($this);
+    return hashCode_0($this);
   }
   function UIntArray__equals_impl_flcmof($this, other) {
     if (!(other instanceof UIntArray))
       return false;
     var tmp0_other_with_cast = other instanceof UIntArray ? other.storage_1 : THROW_CCE();
-    if (!equals_0($this, tmp0_other_with_cast))
+    if (!equals_1($this, tmp0_other_with_cast))
       return false;
     return true;
   }
@@ -7122,26 +10517,26 @@ if (typeof Math.imul === 'undefined') {
     return UIntArray__equals_impl_flcmof(this.storage_1, other);
   };
   UIntArray.$metadata$ = classMeta('UIntArray', [Collection]);
-  function Companion_7() {
-    Companion_instance_7 = this;
+  function Companion_8() {
+    Companion_instance_8 = this;
     var tmp = this;
-    Companion_getInstance_6();
+    Companion_getInstance_7();
     var tmp_0 = _UInt___init__impl__l7qpdl(-1);
-    Companion_getInstance_6();
+    Companion_getInstance_7();
     tmp.EMPTY_1 = new UIntRange(tmp_0, _UInt___init__impl__l7qpdl(0));
   }
-  Companion_7.prototype.get_EMPTY_i8q41w_k$ = function () {
+  Companion_8.prototype.get_EMPTY_i8q41w_k$ = function () {
     return this.EMPTY_1;
   };
-  Companion_7.$metadata$ = objectMeta('Companion');
-  var Companion_instance_7;
-  function Companion_getInstance_7() {
-    if (Companion_instance_7 == null)
-      new Companion_7();
-    return Companion_instance_7;
+  Companion_8.$metadata$ = objectMeta('Companion');
+  var Companion_instance_8;
+  function Companion_getInstance_8() {
+    if (Companion_instance_8 == null)
+      new Companion_8();
+    return Companion_instance_8;
   }
   function UIntRange(start, endInclusive) {
-    Companion_getInstance_7();
+    Companion_getInstance_8();
     UIntProgression.call(this, start, endInclusive, 1);
   }
   UIntRange.prototype.get_start_qjckny_k$ = function () {
@@ -7220,21 +10615,21 @@ if (typeof Math.imul === 'undefined') {
     return '' + new UInt(this.get_first_englpo_k$()) + '..' + new UInt(this.get_last_rpcnd0_k$());
   };
   UIntRange.$metadata$ = classMeta('UIntRange', [ClosedRange], undefined, undefined, undefined, UIntProgression.prototype);
-  function Companion_8() {
-    Companion_instance_8 = this;
+  function Companion_9() {
+    Companion_instance_9 = this;
   }
-  Companion_8.prototype.fromClosedRange_nl90ve_k$ = function (rangeStart, rangeEnd, step) {
+  Companion_9.prototype.fromClosedRange_nl90ve_k$ = function (rangeStart, rangeEnd, step) {
     return new UIntProgression(rangeStart, rangeEnd, step);
   };
-  Companion_8.$metadata$ = objectMeta('Companion');
-  var Companion_instance_8;
-  function Companion_getInstance_8() {
-    if (Companion_instance_8 == null)
-      new Companion_8();
-    return Companion_instance_8;
+  Companion_9.$metadata$ = objectMeta('Companion');
+  var Companion_instance_9;
+  function Companion_getInstance_9() {
+    if (Companion_instance_9 == null)
+      new Companion_9();
+    return Companion_instance_9;
   }
   function UIntProgression(start, endInclusive, step) {
-    Companion_getInstance_8();
+    Companion_getInstance_9();
     if (step === 0)
       throw IllegalArgumentException_init_$Create$_0('Step must be non-zero.');
     if (step === IntCompanionObject_getInstance().MIN_VALUE_1)
@@ -7385,38 +10780,38 @@ if (typeof Math.imul === 'undefined') {
   function _ULong___get_data__impl__fggpzb($this) {
     return $this;
   }
-  function Companion_9() {
-    Companion_instance_9 = this;
+  function Companion_10() {
+    Companion_instance_10 = this;
     this.MIN_VALUE_1 = _ULong___init__impl__c78o9k(new Long(0, 0));
     this.MAX_VALUE_1 = _ULong___init__impl__c78o9k(new Long(-1, -1));
     this.SIZE_BYTES_1 = 8;
     this.SIZE_BITS_1 = 64;
   }
-  Companion_9.prototype.get_MIN_VALUE_p0jsuj_k$ = function () {
+  Companion_10.prototype.get_MIN_VALUE_p0jsuj_k$ = function () {
     return this.MIN_VALUE_1;
   };
-  Companion_9.prototype.get_MAX_VALUE_4mw5fd_k$ = function () {
+  Companion_10.prototype.get_MAX_VALUE_4mw5fd_k$ = function () {
     return this.MAX_VALUE_1;
   };
-  Companion_9.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
+  Companion_10.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
     return this.SIZE_BYTES_1;
   };
-  Companion_9.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
+  Companion_10.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
     return this.SIZE_BITS_1;
   };
-  Companion_9.$metadata$ = objectMeta('Companion');
-  var Companion_instance_9;
-  function Companion_getInstance_9() {
-    if (Companion_instance_9 == null)
-      new Companion_9();
-    return Companion_instance_9;
+  Companion_10.$metadata$ = objectMeta('Companion');
+  var Companion_instance_10;
+  function Companion_getInstance_10() {
+    if (Companion_instance_10 == null)
+      new Companion_10();
+    return Companion_instance_10;
   }
   function ULong__compareTo_impl_38i7tu($this, other) {
     var tmp$ret$1;
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_compareTo = tmp$ret$0;
       tmp$ret$1 = ulongCompare(_ULong___get_data__impl__fggpzb($this), _ULong___get_data__impl__fggpzb(tmp0_compareTo));
@@ -7428,7 +10823,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_compareTo = tmp$ret$0;
       tmp$ret$1 = ulongCompare(_ULong___get_data__impl__fggpzb($this), _ULong___get_data__impl__fggpzb(tmp0_compareTo));
@@ -7440,7 +10835,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_compareTo = tmp$ret$0;
       tmp$ret$1 = ulongCompare(_ULong___get_data__impl__fggpzb($this), _ULong___get_data__impl__fggpzb(tmp0_compareTo));
@@ -7459,7 +10854,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_plus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb($this).plus_u6jwas_k$(_ULong___get_data__impl__fggpzb(tmp0_plus)));
@@ -7471,7 +10866,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_plus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb($this).plus_u6jwas_k$(_ULong___get_data__impl__fggpzb(tmp0_plus)));
@@ -7483,7 +10878,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_plus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb($this).plus_u6jwas_k$(_ULong___get_data__impl__fggpzb(tmp0_plus)));
@@ -7498,7 +10893,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_minus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb($this).minus_llf5ei_k$(_ULong___get_data__impl__fggpzb(tmp0_minus)));
@@ -7510,7 +10905,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_minus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb($this).minus_llf5ei_k$(_ULong___get_data__impl__fggpzb(tmp0_minus)));
@@ -7522,7 +10917,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_minus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb($this).minus_llf5ei_k$(_ULong___get_data__impl__fggpzb(tmp0_minus)));
@@ -7537,7 +10932,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_times = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb($this).times_2zfqpc_k$(_ULong___get_data__impl__fggpzb(tmp0_times)));
@@ -7549,7 +10944,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_times = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb($this).times_2zfqpc_k$(_ULong___get_data__impl__fggpzb(tmp0_times)));
@@ -7561,7 +10956,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_times = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb($this).times_2zfqpc_k$(_ULong___get_data__impl__fggpzb(tmp0_times)));
@@ -7576,7 +10971,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_div = tmp$ret$0;
       tmp$ret$1 = ulongDivide($this, tmp0_div);
@@ -7588,7 +10983,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_div = tmp$ret$0;
       tmp$ret$1 = ulongDivide($this, tmp0_div);
@@ -7600,7 +10995,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_div = tmp$ret$0;
       tmp$ret$1 = ulongDivide($this, tmp0_div);
@@ -7615,7 +11010,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_rem = tmp$ret$0;
       tmp$ret$1 = ulongRemainder($this, tmp0_rem);
@@ -7627,7 +11022,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_rem = tmp$ret$0;
       tmp$ret$1 = ulongRemainder($this, tmp0_rem);
@@ -7639,7 +11034,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_rem = tmp$ret$0;
       tmp$ret$1 = ulongRemainder($this, tmp0_rem);
@@ -7654,7 +11049,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
       }
       var tmp0_floorDiv = tmp$ret$0;
       var tmp$ret$1;
@@ -7670,7 +11065,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_floorDiv = tmp$ret$0;
       var tmp$ret$1;
@@ -7686,7 +11081,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
       }
       var tmp0_floorDiv = tmp$ret$0;
       var tmp$ret$1;
@@ -7711,7 +11106,7 @@ if (typeof Math.imul === 'undefined') {
       {
         var tmp$ret$0;
         {
-          tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
+          tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UByte___get_data__impl__jof9qr(other)).and_jhajnj_k$(new Long(255, 0)));
         }
         var tmp0_mod = tmp$ret$0;
         var tmp$ret$1;
@@ -7737,7 +11132,7 @@ if (typeof Math.imul === 'undefined') {
       {
         var tmp$ret$0;
         {
-          tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
+          tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245(other)).and_jhajnj_k$(new Long(65535, 0)));
         }
         var tmp0_mod = tmp$ret$0;
         var tmp$ret$1;
@@ -7763,7 +11158,7 @@ if (typeof Math.imul === 'undefined') {
       {
         var tmp$ret$0;
         {
-          tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
+          tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw(other)).and_jhajnj_k$(new Long(-1, 0)));
         }
         var tmp0_mod = tmp$ret$0;
         var tmp$ret$1;
@@ -7880,7 +11275,7 @@ if (typeof Math.imul === 'undefined') {
     return true;
   }
   function ULong(data) {
-    Companion_getInstance_9();
+    Companion_getInstance_10();
     this.data_1 = data;
   }
   ULong.prototype.compareTo_6mr3kz_k$ = function (other) {
@@ -7903,27 +11298,27 @@ if (typeof Math.imul === 'undefined') {
     return _ULong___init__impl__c78o9k(_this__u8e3s4);
   }
   function toULong_0(_this__u8e3s4) {
-    return _ULong___init__impl__c78o9k(toLong(_this__u8e3s4));
+    return _ULong___init__impl__c78o9k(toLong_0(_this__u8e3s4));
   }
   function toULong_1(_this__u8e3s4) {
-    return doubleToULong(_this__u8e3s4);
+    return _ULong___init__impl__c78o9k(toLong_0(_this__u8e3s4));
   }
   function toULong_2(_this__u8e3s4) {
     return doubleToULong(_this__u8e3s4);
   }
   function toULong_3(_this__u8e3s4) {
-    return _ULong___init__impl__c78o9k(toLong(_this__u8e3s4));
+    return doubleToULong(_this__u8e3s4);
   }
   function toULong_4(_this__u8e3s4) {
-    return _ULong___init__impl__c78o9k(toLong(_this__u8e3s4));
+    return _ULong___init__impl__c78o9k(toLong_0(_this__u8e3s4));
   }
   function _get_array__jslnqg_1($this) {
     return $this.array_1;
   }
-  function _set_index__fyfqnn_1($this, _set____db54di) {
+  function _set_index__fyfqnn_3($this, _set____db54di) {
     $this.index_1 = _set____db54di;
   }
-  function _get_index__g2optt_1($this) {
+  function _get_index__g2optt_3($this) {
     return $this.index_1;
   }
   function _ULongArray___init__impl__twm1l3(storage) {
@@ -7995,7 +11390,7 @@ if (typeof Math.imul === 'undefined') {
     {
       tmp$ret$0 = _ULong___get_data__impl__fggpzb(element);
     }
-    return contains_5(tmp_0, tmp$ret$0);
+    return contains_6(tmp_0, tmp$ret$0);
   }
   function ULongArray__contains_impl_v9bgai_0($this, element) {
     if (!(element instanceof ULong))
@@ -8030,7 +11425,7 @@ if (typeof Math.imul === 'undefined') {
               var tmp0_toLong = element.data_1;
               tmp$ret$1 = _ULong___get_data__impl__fggpzb(tmp0_toLong);
             }
-            tmp_0 = contains_5(tmp_1, tmp$ret$1);
+            tmp_0 = contains_6(tmp_1, tmp$ret$1);
           } else {
             tmp_0 = false;
           }
@@ -8055,13 +11450,13 @@ if (typeof Math.imul === 'undefined') {
     return 'ULongArray(storage=' + toString_2($this) + ')';
   }
   function ULongArray__hashCode_impl_aze4wa($this) {
-    return hashCode($this);
+    return hashCode_0($this);
   }
   function ULongArray__equals_impl_vwitwa($this, other) {
     if (!(other instanceof ULongArray))
       return false;
     var tmp0_other_with_cast = other instanceof ULongArray ? other.storage_1 : THROW_CCE();
-    if (!equals_0($this, tmp0_other_with_cast))
+    if (!equals_1($this, tmp0_other_with_cast))
       return false;
     return true;
   }
@@ -8099,26 +11494,26 @@ if (typeof Math.imul === 'undefined') {
     return ULongArray__equals_impl_vwitwa(this.storage_1, other);
   };
   ULongArray.$metadata$ = classMeta('ULongArray', [Collection]);
-  function Companion_10() {
-    Companion_instance_10 = this;
+  function Companion_11() {
+    Companion_instance_11 = this;
     var tmp = this;
-    Companion_getInstance_9();
+    Companion_getInstance_10();
     var tmp_0 = _ULong___init__impl__c78o9k(new Long(-1, -1));
-    Companion_getInstance_9();
+    Companion_getInstance_10();
     tmp.EMPTY_1 = new ULongRange(tmp_0, _ULong___init__impl__c78o9k(new Long(0, 0)));
   }
-  Companion_10.prototype.get_EMPTY_i8q41w_k$ = function () {
+  Companion_11.prototype.get_EMPTY_i8q41w_k$ = function () {
     return this.EMPTY_1;
   };
-  Companion_10.$metadata$ = objectMeta('Companion');
-  var Companion_instance_10;
-  function Companion_getInstance_10() {
-    if (Companion_instance_10 == null)
-      new Companion_10();
-    return Companion_instance_10;
+  Companion_11.$metadata$ = objectMeta('Companion');
+  var Companion_instance_11;
+  function Companion_getInstance_11() {
+    if (Companion_instance_11 == null)
+      new Companion_11();
+    return Companion_instance_11;
   }
   function ULongRange(start, endInclusive) {
-    Companion_getInstance_10();
+    Companion_getInstance_11();
     ULongProgression.call(this, start, endInclusive, new Long(1, 0));
   }
   ULongRange.prototype.get_start_tpgxg3_k$ = function () {
@@ -8167,7 +11562,7 @@ if (typeof Math.imul === 'undefined') {
   ULongRange.prototype.equals = function (other) {
     var tmp;
     if (other instanceof ULongRange) {
-      tmp = (this.isEmpty_y1axqb_k$() ? other.isEmpty_y1axqb_k$() : false) ? true : equals_0(this.get_first_s0oavz_k$(), other.get_first_s0oavz_k$()) ? equals_0(this.get_last_6gle4n_k$(), other.get_last_6gle4n_k$()) : false;
+      tmp = (this.isEmpty_y1axqb_k$() ? other.isEmpty_y1axqb_k$() : false) ? true : equals_1(this.get_first_s0oavz_k$(), other.get_first_s0oavz_k$()) ? equals_1(this.get_last_6gle4n_k$(), other.get_last_6gle4n_k$()) : false;
     } else {
       tmp = false;
     }
@@ -8219,24 +11614,24 @@ if (typeof Math.imul === 'undefined') {
     return '' + new ULong(this.get_first_s0oavz_k$()) + '..' + new ULong(this.get_last_6gle4n_k$());
   };
   ULongRange.$metadata$ = classMeta('ULongRange', [ClosedRange], undefined, undefined, undefined, ULongProgression.prototype);
-  function Companion_11() {
-    Companion_instance_11 = this;
+  function Companion_12() {
+    Companion_instance_12 = this;
   }
-  Companion_11.prototype.fromClosedRange_wj18r3_k$ = function (rangeStart, rangeEnd, step) {
+  Companion_12.prototype.fromClosedRange_wj18r3_k$ = function (rangeStart, rangeEnd, step) {
     return new ULongProgression(rangeStart, rangeEnd, step);
   };
-  Companion_11.$metadata$ = objectMeta('Companion');
-  var Companion_instance_11;
-  function Companion_getInstance_11() {
-    if (Companion_instance_11 == null)
-      new Companion_11();
-    return Companion_instance_11;
+  Companion_12.$metadata$ = objectMeta('Companion');
+  var Companion_instance_12;
+  function Companion_getInstance_12() {
+    if (Companion_instance_12 == null)
+      new Companion_12();
+    return Companion_instance_12;
   }
   function ULongProgression(start, endInclusive, step) {
-    Companion_getInstance_11();
+    Companion_getInstance_12();
     if (step.equals(new Long(0, 0)))
       throw IllegalArgumentException_init_$Create$_0('Step must be non-zero.');
-    Companion_getInstance_22();
+    Companion_getInstance_23();
     if (step.equals(new Long(0, -2147483648)))
       throw IllegalArgumentException_init_$Create$_0('Step must be greater than Long.MIN_VALUE to avoid overflow on negation.');
     this.first_1 = start;
@@ -8279,7 +11674,7 @@ if (typeof Math.imul === 'undefined') {
   ULongProgression.prototype.equals = function (other) {
     var tmp;
     if (other instanceof ULongProgression) {
-      tmp = (this.isEmpty_y1axqb_k$() ? other.isEmpty_y1axqb_k$() : false) ? true : (equals_0(this.first_1, other.first_1) ? equals_0(this.last_1, other.last_1) : false) ? this.step_1.equals(other.step_1) : false;
+      tmp = (this.isEmpty_y1axqb_k$() ? other.isEmpty_y1axqb_k$() : false) ? true : (equals_1(this.first_1, other.first_1) ? equals_1(this.last_1, other.last_1) : false) ? this.step_1.equals(other.step_1) : false;
     } else {
       tmp = false;
     }
@@ -8380,7 +11775,7 @@ if (typeof Math.imul === 'undefined') {
   };
   ULongProgressionIterator.prototype.next_mz6i19_k$ = function () {
     var value = this.next_1;
-    if (equals_0(value, this.finalElement_1)) {
+    if (equals_1(value, this.finalElement_1)) {
       if (!this.hasNext_1)
         throw NoSuchElementException_init_$Create$();
       this.hasNext_1 = false;
@@ -8579,31 +11974,31 @@ if (typeof Math.imul === 'undefined') {
   function _UShort___get_data__impl__g0245($this) {
     return $this;
   }
-  function Companion_12() {
-    Companion_instance_12 = this;
+  function Companion_13() {
+    Companion_instance_13 = this;
     this.MIN_VALUE_1 = _UShort___init__impl__jigrne(0);
     this.MAX_VALUE_1 = _UShort___init__impl__jigrne(-1);
     this.SIZE_BYTES_1 = 2;
     this.SIZE_BITS_1 = 16;
   }
-  Companion_12.prototype.get_MIN_VALUE_5rgn3n_k$ = function () {
+  Companion_13.prototype.get_MIN_VALUE_5rgn3n_k$ = function () {
     return this.MIN_VALUE_1;
   };
-  Companion_12.prototype.get_MAX_VALUE_1r6om7_k$ = function () {
+  Companion_13.prototype.get_MAX_VALUE_1r6om7_k$ = function () {
     return this.MAX_VALUE_1;
   };
-  Companion_12.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
+  Companion_13.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
     return this.SIZE_BYTES_1;
   };
-  Companion_12.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
+  Companion_13.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
     return this.SIZE_BITS_1;
   };
-  Companion_12.$metadata$ = objectMeta('Companion');
-  var Companion_instance_12;
-  function Companion_getInstance_12() {
-    if (Companion_instance_12 == null)
-      new Companion_12();
-    return Companion_instance_12;
+  Companion_13.$metadata$ = objectMeta('Companion');
+  var Companion_instance_13;
+  function Companion_getInstance_13() {
+    if (Companion_instance_13 == null)
+      new Companion_13();
+    return Companion_instance_13;
   }
   function UShort__compareTo_impl_1pfgyc($this, other) {
     var tmp$ret$0;
@@ -8650,7 +12045,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_compareTo = tmp$ret$0;
       tmp$ret$1 = ulongCompare(_ULong___get_data__impl__fggpzb(tmp0_compareTo), _ULong___get_data__impl__fggpzb(other));
@@ -8708,7 +12103,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_plus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp0_plus).plus_u6jwas_k$(_ULong___get_data__impl__fggpzb(other)));
@@ -8766,7 +12161,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_minus = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp0_minus).minus_llf5ei_k$(_ULong___get_data__impl__fggpzb(other)));
@@ -8824,7 +12219,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_times = tmp$ret$0;
       tmp$ret$1 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp0_times).times_2zfqpc_k$(_ULong___get_data__impl__fggpzb(other)));
@@ -8882,7 +12277,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_div = tmp$ret$0;
       tmp$ret$1 = ulongDivide(tmp0_div, other);
@@ -8940,7 +12335,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_rem = tmp$ret$0;
       tmp$ret$1 = ulongRemainder(tmp0_rem, other);
@@ -9010,7 +12405,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_floorDiv = tmp$ret$0;
       var tmp$ret$1;
@@ -9104,7 +12499,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
+        tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
       }
       var tmp0_mod = tmp$ret$0;
       var tmp$ret$1;
@@ -9178,7 +12573,7 @@ if (typeof Math.imul === 'undefined') {
     return _UShort___get_data__impl__g0245($this) & 65535;
   }
   function UShort__toLong_impl_ds1s6n($this) {
-    return toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0));
+    return toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0));
   }
   function UShort__toUByte_impl_3ig9yq($this) {
     var tmp$ret$0;
@@ -9195,7 +12590,7 @@ if (typeof Math.imul === 'undefined') {
     return _UInt___init__impl__l7qpdl(_UShort___get_data__impl__g0245($this) & 65535);
   }
   function UShort__toULong_impl_vh6nb6($this) {
-    return _ULong___init__impl__c78o9k(toLong(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
+    return _ULong___init__impl__c78o9k(toLong_0(_UShort___get_data__impl__g0245($this)).and_jhajnj_k$(new Long(65535, 0)));
   }
   function UShort__toFloat_impl_ckgf4j($this) {
     var tmp$ret$0;
@@ -9230,7 +12625,7 @@ if (typeof Math.imul === 'undefined') {
     return true;
   }
   function UShort(data) {
-    Companion_getInstance_12();
+    Companion_getInstance_13();
     this.data_1 = data;
   }
   UShort.prototype.compareTo_7e9yiz_k$ = function (other) {
@@ -9261,10 +12656,10 @@ if (typeof Math.imul === 'undefined') {
   function _get_array__jslnqg_2($this) {
     return $this.array_1;
   }
-  function _set_index__fyfqnn_2($this, _set____db54di) {
+  function _set_index__fyfqnn_4($this, _set____db54di) {
     $this.index_1 = _set____db54di;
   }
-  function _get_index__g2optt_2($this) {
+  function _get_index__g2optt_4($this) {
     return $this.index_1;
   }
   function _UShortArray___init__impl__9b26ef(storage) {
@@ -9336,7 +12731,7 @@ if (typeof Math.imul === 'undefined') {
     {
       tmp$ret$0 = _UShort___get_data__impl__g0245(element);
     }
-    return contains_3(tmp_0, tmp$ret$0);
+    return contains_4(tmp_0, tmp$ret$0);
   }
   function UShortArray__contains_impl_vo7k3g_0($this, element) {
     if (!(element instanceof UShort))
@@ -9371,7 +12766,7 @@ if (typeof Math.imul === 'undefined') {
               var tmp0_toShort = element.data_1;
               tmp$ret$1 = _UShort___get_data__impl__g0245(tmp0_toShort);
             }
-            tmp_0 = contains_3(tmp_1, tmp$ret$1);
+            tmp_0 = contains_4(tmp_1, tmp$ret$1);
           } else {
             tmp_0 = false;
           }
@@ -9396,13 +12791,13 @@ if (typeof Math.imul === 'undefined') {
     return 'UShortArray(storage=' + toString_2($this) + ')';
   }
   function UShortArray__hashCode_impl_2vt3b4($this) {
-    return hashCode($this);
+    return hashCode_0($this);
   }
   function UShortArray__equals_impl_tyc3mk($this, other) {
     if (!(other instanceof UShortArray))
       return false;
     var tmp0_other_with_cast = other instanceof UShortArray ? other.storage_1 : THROW_CCE();
-    if (!equals_0($this, tmp0_other_with_cast))
+    if (!equals_1($this, tmp0_other_with_cast))
       return false;
     return true;
   }
@@ -9440,6 +12835,321 @@ if (typeof Math.imul === 'undefined') {
     return UShortArray__equals_impl_tyc3mk(this.storage_1, other);
   };
   UShortArray.$metadata$ = classMeta('UShortArray', [Collection]);
+  function toUInt_5(_this__u8e3s4) {
+    var tmp0_elvis_lhs = toUIntOrNull(_this__u8e3s4);
+    var tmp;
+    var tmp_0 = tmp0_elvis_lhs;
+    if ((tmp_0 == null ? null : new UInt(tmp_0)) == null) {
+      numberFormatError(_this__u8e3s4);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    return tmp;
+  }
+  function toULong_5(_this__u8e3s4) {
+    var tmp0_elvis_lhs = toULongOrNull(_this__u8e3s4);
+    var tmp;
+    var tmp_0 = tmp0_elvis_lhs;
+    if ((tmp_0 == null ? null : new ULong(tmp_0)) == null) {
+      numberFormatError(_this__u8e3s4);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    return tmp;
+  }
+  function toUByte_3(_this__u8e3s4) {
+    var tmp0_elvis_lhs = toUByteOrNull(_this__u8e3s4);
+    var tmp;
+    var tmp_0 = tmp0_elvis_lhs;
+    if ((tmp_0 == null ? null : new UByte(tmp_0)) == null) {
+      numberFormatError(_this__u8e3s4);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    return tmp;
+  }
+  function toUShort_2(_this__u8e3s4) {
+    var tmp0_elvis_lhs = toUShortOrNull(_this__u8e3s4);
+    var tmp;
+    var tmp_0 = tmp0_elvis_lhs;
+    if ((tmp_0 == null ? null : new UShort(tmp_0)) == null) {
+      numberFormatError(_this__u8e3s4);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    return tmp;
+  }
+  function toULongOrNull(_this__u8e3s4) {
+    return toULongOrNull_0(_this__u8e3s4, 10);
+  }
+  function toUIntOrNull(_this__u8e3s4) {
+    return toUIntOrNull_0(_this__u8e3s4, 10);
+  }
+  function toUByteOrNull(_this__u8e3s4) {
+    return toUByteOrNull_0(_this__u8e3s4, 10);
+  }
+  function toUShortOrNull(_this__u8e3s4) {
+    return toUShortOrNull_0(_this__u8e3s4, 10);
+  }
+  function toULongOrNull_0(_this__u8e3s4, radix) {
+    checkRadix(radix);
+    var length = _this__u8e3s4.length;
+    if (length === 0)
+      return null;
+    Companion_getInstance_10();
+    var limit = _ULong___init__impl__c78o9k(new Long(-1, -1));
+    var start;
+    var firstChar = charSequenceGet(_this__u8e3s4, 0);
+    if (Char__compareTo_impl_ypi4mb(firstChar, _Char___init__impl__6a9atx(48)) < 0) {
+      if (length === 1 ? true : !equals_1(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(43))))
+        return null;
+      start = 1;
+    } else {
+      start = 0;
+    }
+    var limitForMaxRadix = _ULong___init__impl__c78o9k(new Long(477218588, 119304647));
+    var limitBeforeMul = limitForMaxRadix;
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _ULong___init__impl__c78o9k(toLong_0(radix));
+    }
+    var uradix = tmp$ret$0;
+    var result = _ULong___init__impl__c78o9k(new Long(0, 0));
+    var inductionVariable = start;
+    if (inductionVariable < length)
+      do {
+        var i = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        var digit = digitOf(charSequenceGet(_this__u8e3s4, i), radix);
+        if (digit < 0)
+          return null;
+        var tmp$ret$1;
+        {
+          var tmp0_compareTo = result;
+          var tmp1_compareTo = limitBeforeMul;
+          tmp$ret$1 = ulongCompare(_ULong___get_data__impl__fggpzb(tmp0_compareTo), _ULong___get_data__impl__fggpzb(tmp1_compareTo));
+        }
+        if (tmp$ret$1 > 0) {
+          if (equals_1(limitBeforeMul, limitForMaxRadix)) {
+            var tmp$ret$2;
+            {
+              tmp$ret$2 = ulongDivide(limit, uradix);
+            }
+            limitBeforeMul = tmp$ret$2;
+            var tmp$ret$3;
+            {
+              var tmp2_compareTo = result;
+              var tmp3_compareTo = limitBeforeMul;
+              tmp$ret$3 = ulongCompare(_ULong___get_data__impl__fggpzb(tmp2_compareTo), _ULong___get_data__impl__fggpzb(tmp3_compareTo));
+            }
+            if (tmp$ret$3 > 0) {
+              return null;
+            }
+          } else {
+            return null;
+          }
+        }
+        var tmp$ret$4;
+        {
+          var tmp4_times = result;
+          tmp$ret$4 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp4_times).times_2zfqpc_k$(_ULong___get_data__impl__fggpzb(uradix)));
+        }
+        result = tmp$ret$4;
+        var beforeAdding = result;
+        var tmp$ret$8;
+        {
+          var tmp5_plus = result;
+          var tmp$ret$5;
+          {
+            tmp$ret$5 = _UInt___init__impl__l7qpdl(digit);
+          }
+          var tmp6_plus = tmp$ret$5;
+          var tmp$ret$7;
+          {
+            var tmp$ret$6;
+            {
+              tmp$ret$6 = _ULong___init__impl__c78o9k(toLong_0(_UInt___get_data__impl__f0vqqw(tmp6_plus)).and_jhajnj_k$(new Long(-1, 0)));
+            }
+            var tmp0_plus = tmp$ret$6;
+            tmp$ret$7 = _ULong___init__impl__c78o9k(_ULong___get_data__impl__fggpzb(tmp5_plus).plus_u6jwas_k$(_ULong___get_data__impl__fggpzb(tmp0_plus)));
+          }
+          tmp$ret$8 = tmp$ret$7;
+        }
+        result = tmp$ret$8;
+        var tmp$ret$9;
+        {
+          var tmp7_compareTo = result;
+          tmp$ret$9 = ulongCompare(_ULong___get_data__impl__fggpzb(tmp7_compareTo), _ULong___get_data__impl__fggpzb(beforeAdding));
+        }
+        if (tmp$ret$9 < 0)
+          return null;
+      }
+       while (inductionVariable < length);
+    return result;
+  }
+  function toUIntOrNull_0(_this__u8e3s4, radix) {
+    checkRadix(radix);
+    var length = _this__u8e3s4.length;
+    if (length === 0)
+      return null;
+    Companion_getInstance_7();
+    var limit = _UInt___init__impl__l7qpdl(-1);
+    var start;
+    var firstChar = charSequenceGet(_this__u8e3s4, 0);
+    if (Char__compareTo_impl_ypi4mb(firstChar, _Char___init__impl__6a9atx(48)) < 0) {
+      if (length === 1 ? true : !equals_1(new Char_0(firstChar), new Char_0(_Char___init__impl__6a9atx(43))))
+        return null;
+      start = 1;
+    } else {
+      start = 0;
+    }
+    var limitForMaxRadix = _UInt___init__impl__l7qpdl(119304647);
+    var limitBeforeMul = limitForMaxRadix;
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _UInt___init__impl__l7qpdl(radix);
+    }
+    var uradix = tmp$ret$0;
+    var result = _UInt___init__impl__l7qpdl(0);
+    var inductionVariable = start;
+    if (inductionVariable < length)
+      do {
+        var i = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        var digit = digitOf(charSequenceGet(_this__u8e3s4, i), radix);
+        if (digit < 0)
+          return null;
+        var tmp$ret$1;
+        {
+          var tmp0_compareTo = result;
+          var tmp1_compareTo = limitBeforeMul;
+          tmp$ret$1 = uintCompare(_UInt___get_data__impl__f0vqqw(tmp0_compareTo), _UInt___get_data__impl__f0vqqw(tmp1_compareTo));
+        }
+        if (tmp$ret$1 > 0) {
+          if (limitBeforeMul === limitForMaxRadix) {
+            var tmp$ret$2;
+            {
+              tmp$ret$2 = uintDivide(limit, uradix);
+            }
+            limitBeforeMul = tmp$ret$2;
+            var tmp$ret$3;
+            {
+              var tmp2_compareTo = result;
+              var tmp3_compareTo = limitBeforeMul;
+              tmp$ret$3 = uintCompare(_UInt___get_data__impl__f0vqqw(tmp2_compareTo), _UInt___get_data__impl__f0vqqw(tmp3_compareTo));
+            }
+            if (tmp$ret$3 > 0) {
+              return null;
+            }
+          } else {
+            return null;
+          }
+        }
+        var tmp$ret$4;
+        {
+          var tmp4_times = result;
+          tmp$ret$4 = _UInt___init__impl__l7qpdl(imul(_UInt___get_data__impl__f0vqqw(tmp4_times), _UInt___get_data__impl__f0vqqw(uradix)));
+        }
+        result = tmp$ret$4;
+        var beforeAdding = result;
+        var tmp$ret$6;
+        {
+          var tmp5_plus = result;
+          var tmp$ret$5;
+          {
+            tmp$ret$5 = _UInt___init__impl__l7qpdl(digit);
+          }
+          var tmp6_plus = tmp$ret$5;
+          tmp$ret$6 = _UInt___init__impl__l7qpdl(_UInt___get_data__impl__f0vqqw(tmp5_plus) + _UInt___get_data__impl__f0vqqw(tmp6_plus) | 0);
+        }
+        result = tmp$ret$6;
+        var tmp$ret$7;
+        {
+          var tmp7_compareTo = result;
+          tmp$ret$7 = uintCompare(_UInt___get_data__impl__f0vqqw(tmp7_compareTo), _UInt___get_data__impl__f0vqqw(beforeAdding));
+        }
+        if (tmp$ret$7 < 0)
+          return null;
+      }
+       while (inductionVariable < length);
+    return result;
+  }
+  function toUByteOrNull_0(_this__u8e3s4, radix) {
+    var tmp0_elvis_lhs = toUIntOrNull_0(_this__u8e3s4, radix);
+    var tmp;
+    var tmp_0 = tmp0_elvis_lhs;
+    if ((tmp_0 == null ? null : new UInt(tmp_0)) == null) {
+      return null;
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    var int = tmp;
+    var tmp$ret$2;
+    {
+      Companion_getInstance_6();
+      var tmp0_compareTo = _UByte___init__impl__g9hnc4(-1);
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _UInt___init__impl__l7qpdl(_UByte___get_data__impl__jof9qr(tmp0_compareTo) & 255);
+        }
+        var tmp0_compareTo_0 = tmp$ret$0;
+        tmp$ret$1 = uintCompare(_UInt___get_data__impl__f0vqqw(int), _UInt___get_data__impl__f0vqqw(tmp0_compareTo_0));
+      }
+      tmp$ret$2 = tmp$ret$1;
+    }
+    if (tmp$ret$2 > 0)
+      return null;
+    var tmp$ret$4;
+    {
+      var tmp$ret$3;
+      {
+        var tmp0_toUByte = _UInt___get_data__impl__f0vqqw(int);
+        tmp$ret$3 = _UByte___init__impl__g9hnc4(toByte(tmp0_toUByte));
+      }
+      tmp$ret$4 = tmp$ret$3;
+    }
+    return tmp$ret$4;
+  }
+  function toUShortOrNull_0(_this__u8e3s4, radix) {
+    var tmp0_elvis_lhs = toUIntOrNull_0(_this__u8e3s4, radix);
+    var tmp;
+    var tmp_0 = tmp0_elvis_lhs;
+    if ((tmp_0 == null ? null : new UInt(tmp_0)) == null) {
+      return null;
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    var int = tmp;
+    var tmp$ret$2;
+    {
+      Companion_getInstance_13();
+      var tmp0_compareTo = _UShort___init__impl__jigrne(-1);
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _UInt___init__impl__l7qpdl(_UShort___get_data__impl__g0245(tmp0_compareTo) & 65535);
+        }
+        var tmp0_compareTo_0 = tmp$ret$0;
+        tmp$ret$1 = uintCompare(_UInt___get_data__impl__f0vqqw(int), _UInt___get_data__impl__f0vqqw(tmp0_compareTo_0));
+      }
+      tmp$ret$2 = tmp$ret$1;
+    }
+    if (tmp$ret$2 > 0)
+      return null;
+    var tmp$ret$4;
+    {
+      var tmp$ret$3;
+      {
+        var tmp0_toUShort = _UInt___get_data__impl__f0vqqw(int);
+        tmp$ret$3 = _UShort___init__impl__jigrne(toShort(tmp0_toUShort));
+      }
+      tmp$ret$4 = tmp$ret$3;
+    }
+    return tmp$ret$4;
+  }
   function uintCompare(v1, v2) {
     return compareTo_0(v1 ^ IntCompanionObject_getInstance().MIN_VALUE_1, v2 ^ IntCompanionObject_getInstance().MIN_VALUE_1);
   }
@@ -9448,12 +13158,12 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = toLong(_UInt___get_data__impl__f0vqqw(v1)).and_jhajnj_k$(new Long(-1, 0));
+        tmp$ret$0 = toLong_0(_UInt___get_data__impl__f0vqqw(v1)).and_jhajnj_k$(new Long(-1, 0));
       }
       var tmp = tmp$ret$0;
       var tmp$ret$1;
       {
-        tmp$ret$1 = toLong(_UInt___get_data__impl__f0vqqw(v2)).and_jhajnj_k$(new Long(-1, 0));
+        tmp$ret$1 = toLong_0(_UInt___get_data__impl__f0vqqw(v2)).and_jhajnj_k$(new Long(-1, 0));
       }
       var tmp0_toUInt = tmp.div_9s1fi3_k$(tmp$ret$1);
       tmp$ret$2 = _UInt___init__impl__l7qpdl(tmp0_toUInt.toInt_1tsl84_k$());
@@ -9465,12 +13175,12 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp$ret$0;
       {
-        tmp$ret$0 = toLong(_UInt___get_data__impl__f0vqqw(v1)).and_jhajnj_k$(new Long(-1, 0));
+        tmp$ret$0 = toLong_0(_UInt___get_data__impl__f0vqqw(v1)).and_jhajnj_k$(new Long(-1, 0));
       }
       var tmp = tmp$ret$0;
       var tmp$ret$1;
       {
-        tmp$ret$1 = toLong(_UInt___get_data__impl__f0vqqw(v2)).and_jhajnj_k$(new Long(-1, 0));
+        tmp$ret$1 = toLong_0(_UInt___get_data__impl__f0vqqw(v2)).and_jhajnj_k$(new Long(-1, 0));
       }
       var tmp0_toUInt = tmp.rem_9rbcjo_k$(tmp$ret$1);
       tmp$ret$2 = _UInt___init__impl__l7qpdl(tmp0_toUInt.toInt_1tsl84_k$());
@@ -9481,9 +13191,9 @@ if (typeof Math.imul === 'undefined') {
     return (v & IntCompanionObject_getInstance().MAX_VALUE_1) + ((v >>> 31 | 0) << 30) * 2;
   }
   function ulongCompare(v1, v2) {
-    Companion_getInstance_22();
+    Companion_getInstance_23();
     var tmp = v1.xor_jjua9n_k$(new Long(0, -2147483648));
-    Companion_getInstance_22();
+    Companion_getInstance_23();
     return tmp.compareTo_n4fqi2_k$(v2.xor_jjua9n_k$(new Long(0, -2147483648)));
   }
   function ulongDivide(v1, v2) {
@@ -9530,7 +13240,7 @@ if (typeof Math.imul === 'undefined') {
         tmp_0 = 0;
       }
       var tmp2_plus = tmp_0;
-      tmp$ret$4 = quotient.plus_u6jwas_k$(toLong(tmp2_plus));
+      tmp$ret$4 = quotient.plus_u6jwas_k$(toLong_0(tmp2_plus));
     }
     return _ULong___init__impl__c78o9k(tmp$ret$4);
   }
@@ -9593,20 +13303,20 @@ if (typeof Math.imul === 'undefined') {
     var tmp$ret$0;
     {
       var tmp0_div = v.ushr_rr8rvr_k$(1);
-      tmp$ret$0 = tmp0_div.div_9s1fi3_k$(toLong(base));
+      tmp$ret$0 = tmp0_div.div_9s1fi3_k$(toLong_0(base));
     }
     var quotient = tmp$ret$0.shl_po5ip6_k$(1);
     var tmp$ret$1;
     {
       var tmp1_times = quotient;
-      tmp$ret$1 = tmp1_times.times_2zfqpc_k$(toLong(base));
+      tmp$ret$1 = tmp1_times.times_2zfqpc_k$(toLong_0(base));
     }
     var rem = v.minus_llf5ei_k$(tmp$ret$1);
-    if (rem.compareTo_n4fqi2_k$(toLong(base)) >= 0) {
+    if (rem.compareTo_n4fqi2_k$(toLong_0(base)) >= 0) {
       var tmp$ret$2;
       {
         var tmp2_minus = rem;
-        tmp$ret$2 = tmp2_minus.minus_llf5ei_k$(toLong(base));
+        tmp$ret$2 = tmp2_minus.minus_llf5ei_k$(toLong_0(base));
       }
       rem = tmp$ret$2;
       var tmp$ret$3;
@@ -9625,22 +13335,22 @@ if (typeof Math.imul === 'undefined') {
     } else {
       var tmp$ret$0;
       {
-        Companion_getInstance_6();
+        Companion_getInstance_7();
         var tmp0_toDouble = _UInt___init__impl__l7qpdl(0);
         tmp$ret$0 = uintToDouble(_UInt___get_data__impl__f0vqqw(tmp0_toDouble));
       }
       if (v <= tmp$ret$0) {
-        Companion_getInstance_6();
+        Companion_getInstance_7();
         tmp = _UInt___init__impl__l7qpdl(0);
       } else {
         var tmp$ret$1;
         {
-          Companion_getInstance_6();
+          Companion_getInstance_7();
           var tmp1_toDouble = _UInt___init__impl__l7qpdl(-1);
           tmp$ret$1 = uintToDouble(_UInt___get_data__impl__f0vqqw(tmp1_toDouble));
         }
         if (v >= tmp$ret$1) {
-          Companion_getInstance_6();
+          Companion_getInstance_7();
           tmp = _UInt___init__impl__l7qpdl(-1);
         } else {
           if (v <= IntCompanionObject_getInstance().MAX_VALUE_1) {
@@ -9681,25 +13391,25 @@ if (typeof Math.imul === 'undefined') {
     } else {
       var tmp$ret$0;
       {
-        Companion_getInstance_9();
+        Companion_getInstance_10();
         var tmp0_toDouble = _ULong___init__impl__c78o9k(new Long(0, 0));
         tmp$ret$0 = ulongToDouble(_ULong___get_data__impl__fggpzb(tmp0_toDouble));
       }
       if (v <= tmp$ret$0) {
-        Companion_getInstance_9();
+        Companion_getInstance_10();
         tmp = _ULong___init__impl__c78o9k(new Long(0, 0));
       } else {
         var tmp$ret$1;
         {
-          Companion_getInstance_9();
+          Companion_getInstance_10();
           var tmp1_toDouble = _ULong___init__impl__c78o9k(new Long(-1, -1));
           tmp$ret$1 = ulongToDouble(_ULong___get_data__impl__fggpzb(tmp1_toDouble));
         }
         if (v >= tmp$ret$1) {
-          Companion_getInstance_9();
+          Companion_getInstance_10();
           tmp = _ULong___init__impl__c78o9k(new Long(-1, -1));
         } else {
-          Companion_getInstance_22();
+          Companion_getInstance_23();
           if (v < (new Long(-1, 2147483647)).toDouble_ygsx0s_k$()) {
             var tmp$ret$2;
             {
@@ -9788,10 +13498,10 @@ if (typeof Math.imul === 'undefined') {
   var DeprecationLevel_WARNING_instance;
   var DeprecationLevel_ERROR_instance;
   var DeprecationLevel_HIDDEN_instance;
-  function values_4() {
+  function values_5() {
     return [DeprecationLevel_WARNING_getInstance(), DeprecationLevel_ERROR_getInstance(), DeprecationLevel_HIDDEN_getInstance()];
   }
-  function valueOf_4(value) {
+  function valueOf_5(value) {
     switch (value) {
       case 'WARNING':
         return DeprecationLevel_WARNING_getInstance();
@@ -9828,12 +13538,12 @@ if (typeof Math.imul === 'undefined') {
     if (!(other instanceof Suppress))
       return false;
     var tmp0_other_with_cast = other instanceof Suppress ? other : THROW_CCE();
-    if (!contentEquals_7(this.names_1, tmp0_other_with_cast.names_1))
+    if (!contentEquals_3(this.names_1, tmp0_other_with_cast.names_1))
       return false;
     return true;
   };
   Suppress.prototype.hashCode = function () {
-    return imul(getStringHashCode('names'), 127) ^ hashCode(this.names_1);
+    return imul(getStringHashCode('names'), 127) ^ hashCode_0(this.names_1);
   };
   Suppress.prototype.toString = function () {
     return '@kotlin.Suppress(names=' + toString_2(this.names_1) + ')';
@@ -9914,7 +13624,7 @@ if (typeof Math.imul === 'undefined') {
   };
   Deprecated.prototype.hashCode = function () {
     var result = imul(getStringHashCode('message'), 127) ^ getStringHashCode(this.message_1);
-    result = result + (imul(getStringHashCode('replaceWith'), 127) ^ hashCode(this.replaceWith_1)) | 0;
+    result = result + (imul(getStringHashCode('replaceWith'), 127) ^ hashCode_0(this.replaceWith_1)) | 0;
     result = result + (imul(getStringHashCode('level'), 127) ^ this.level_1.hashCode()) | 0;
     return result;
   };
@@ -9938,13 +13648,13 @@ if (typeof Math.imul === 'undefined') {
     var tmp0_other_with_cast = other instanceof ReplaceWith ? other : THROW_CCE();
     if (!(this.expression_1 === tmp0_other_with_cast.expression_1))
       return false;
-    if (!contentEquals_7(this.imports_1, tmp0_other_with_cast.imports_1))
+    if (!contentEquals_3(this.imports_1, tmp0_other_with_cast.imports_1))
       return false;
     return true;
   };
   ReplaceWith.prototype.hashCode = function () {
     var result = imul(getStringHashCode('expression'), 127) ^ getStringHashCode(this.expression_1);
-    result = result + (imul(getStringHashCode('imports'), 127) ^ hashCode(this.imports_1)) | 0;
+    result = result + (imul(getStringHashCode('imports'), 127) ^ hashCode_0(this.imports_1)) | 0;
     return result;
   };
   ReplaceWith.prototype.toString = function () {
@@ -10247,21 +13957,21 @@ if (typeof Math.imul === 'undefined') {
     return value;
   };
   LongProgressionIterator.$metadata$ = classMeta('LongProgressionIterator', undefined, undefined, undefined, undefined, LongIterator.prototype);
-  function Companion_13() {
-    Companion_instance_13 = this;
+  function Companion_14() {
+    Companion_instance_14 = this;
   }
-  Companion_13.prototype.fromClosedRange_vhxzyy_k$ = function (rangeStart, rangeEnd, step) {
+  Companion_14.prototype.fromClosedRange_vhxzyy_k$ = function (rangeStart, rangeEnd, step) {
     return new IntProgression(rangeStart, rangeEnd, step);
   };
-  Companion_13.$metadata$ = objectMeta('Companion');
-  var Companion_instance_13;
-  function Companion_getInstance_13() {
-    if (Companion_instance_13 == null)
-      new Companion_13();
-    return Companion_instance_13;
+  Companion_14.$metadata$ = objectMeta('Companion');
+  var Companion_instance_14;
+  function Companion_getInstance_14() {
+    if (Companion_instance_14 == null)
+      new Companion_14();
+    return Companion_instance_14;
   }
   function IntProgression(start, endInclusive, step) {
-    Companion_getInstance_13();
+    Companion_getInstance_14();
     if (step === 0)
       throw IllegalArgumentException_init_$Create$_0('Step must be non-zero.');
     if (step === IntCompanionObject_getInstance().MIN_VALUE_1)
@@ -10301,21 +14011,21 @@ if (typeof Math.imul === 'undefined') {
     return this.step_1 > 0 ? '' + this.first_1 + '..' + this.last_1 + ' step ' + this.step_1 : '' + this.first_1 + ' downTo ' + this.last_1 + ' step ' + (-this.step_1 | 0);
   };
   IntProgression.$metadata$ = classMeta('IntProgression', [Iterable_0]);
-  function Companion_14() {
-    Companion_instance_14 = this;
+  function Companion_15() {
+    Companion_instance_15 = this;
   }
-  Companion_14.prototype.fromClosedRange_kxji4u_k$ = function (rangeStart, rangeEnd, step) {
+  Companion_15.prototype.fromClosedRange_kxji4u_k$ = function (rangeStart, rangeEnd, step) {
     return new CharProgression(rangeStart, rangeEnd, step);
   };
-  Companion_14.$metadata$ = objectMeta('Companion');
-  var Companion_instance_14;
-  function Companion_getInstance_14() {
-    if (Companion_instance_14 == null)
-      new Companion_14();
-    return Companion_instance_14;
+  Companion_15.$metadata$ = objectMeta('Companion');
+  var Companion_instance_15;
+  function Companion_getInstance_15() {
+    if (Companion_instance_15 == null)
+      new Companion_15();
+    return Companion_instance_15;
   }
   function CharProgression(start, endInclusive, step) {
-    Companion_getInstance_14();
+    Companion_getInstance_15();
     if (step === 0)
       throw IllegalArgumentException_init_$Create$_0('Step must be non-zero.');
     if (step === IntCompanionObject_getInstance().MIN_VALUE_1)
@@ -10352,7 +14062,7 @@ if (typeof Math.imul === 'undefined') {
   CharProgression.prototype.equals = function (other) {
     var tmp;
     if (other instanceof CharProgression) {
-      tmp = (this.isEmpty_y1axqb_k$() ? other.isEmpty_y1axqb_k$() : false) ? true : (equals_0(new Char_0(this.first_1), new Char_0(other.first_1)) ? equals_0(new Char_0(this.last_1), new Char_0(other.last_1)) : false) ? this.step_1 === other.step_1 : false;
+      tmp = (this.isEmpty_y1axqb_k$() ? other.isEmpty_y1axqb_k$() : false) ? true : (equals_1(new Char_0(this.first_1), new Char_0(other.first_1)) ? equals_1(new Char_0(this.last_1), new Char_0(other.last_1)) : false) ? this.step_1 === other.step_1 : false;
     } else {
       tmp = false;
     }
@@ -10382,24 +14092,24 @@ if (typeof Math.imul === 'undefined') {
     return this.step_1 > 0 ? '' + new Char_0(this.first_1) + '..' + new Char_0(this.last_1) + ' step ' + this.step_1 : '' + new Char_0(this.first_1) + ' downTo ' + new Char_0(this.last_1) + ' step ' + (-this.step_1 | 0);
   };
   CharProgression.$metadata$ = classMeta('CharProgression', [Iterable_0]);
-  function Companion_15() {
-    Companion_instance_15 = this;
+  function Companion_16() {
+    Companion_instance_16 = this;
   }
-  Companion_15.prototype.fromClosedRange_5n0x23_k$ = function (rangeStart, rangeEnd, step) {
+  Companion_16.prototype.fromClosedRange_5n0x23_k$ = function (rangeStart, rangeEnd, step) {
     return new LongProgression(rangeStart, rangeEnd, step);
   };
-  Companion_15.$metadata$ = objectMeta('Companion');
-  var Companion_instance_15;
-  function Companion_getInstance_15() {
-    if (Companion_instance_15 == null)
-      new Companion_15();
-    return Companion_instance_15;
+  Companion_16.$metadata$ = objectMeta('Companion');
+  var Companion_instance_16;
+  function Companion_getInstance_16() {
+    if (Companion_instance_16 == null)
+      new Companion_16();
+    return Companion_instance_16;
   }
   function LongProgression(start, endInclusive, step) {
-    Companion_getInstance_15();
+    Companion_getInstance_16();
     if (step.equals(new Long(0, 0)))
       throw IllegalArgumentException_init_$Create$_0('Step must be non-zero.');
-    Companion_getInstance_22();
+    Companion_getInstance_23();
     if (step.equals(new Long(0, -2147483648)))
       throw IllegalArgumentException_init_$Create$_0('Step must be greater than Long.MIN_VALUE to avoid overflow on negation.');
     this.first_1 = start;
@@ -10440,22 +14150,22 @@ if (typeof Math.imul === 'undefined') {
   function ClosedRange() {
   }
   ClosedRange.$metadata$ = interfaceMeta('ClosedRange');
-  function Companion_16() {
-    Companion_instance_16 = this;
+  function Companion_17() {
+    Companion_instance_17 = this;
     this.EMPTY_1 = new IntRange(1, 0);
   }
-  Companion_16.prototype.get_EMPTY_i8q41w_k$ = function () {
+  Companion_17.prototype.get_EMPTY_i8q41w_k$ = function () {
     return this.EMPTY_1;
   };
-  Companion_16.$metadata$ = objectMeta('Companion');
-  var Companion_instance_16;
-  function Companion_getInstance_16() {
-    if (Companion_instance_16 == null)
-      new Companion_16();
-    return Companion_instance_16;
+  Companion_17.$metadata$ = objectMeta('Companion');
+  var Companion_instance_17;
+  function Companion_getInstance_17() {
+    if (Companion_instance_17 == null)
+      new Companion_17();
+    return Companion_instance_17;
   }
   function IntRange(start, endInclusive) {
-    Companion_getInstance_16();
+    Companion_getInstance_17();
     IntProgression.call(this, start, endInclusive, 1);
   }
   IntRange.prototype.get_start_iypx6h_k$ = function () {
@@ -10489,22 +14199,22 @@ if (typeof Math.imul === 'undefined') {
     return '' + this.get_first_irdx8n_k$() + '..' + this.get_last_wopotb_k$();
   };
   IntRange.$metadata$ = classMeta('IntRange', [ClosedRange], undefined, undefined, undefined, IntProgression.prototype);
-  function Companion_17() {
-    Companion_instance_17 = this;
+  function Companion_18() {
+    Companion_instance_18 = this;
     this.EMPTY_1 = new CharRange(_Char___init__impl__6a9atx(1), _Char___init__impl__6a9atx(0));
   }
-  Companion_17.prototype.get_EMPTY_i8q41w_k$ = function () {
+  Companion_18.prototype.get_EMPTY_i8q41w_k$ = function () {
     return this.EMPTY_1;
   };
-  Companion_17.$metadata$ = objectMeta('Companion');
-  var Companion_instance_17;
-  function Companion_getInstance_17() {
-    if (Companion_instance_17 == null)
-      new Companion_17();
-    return Companion_instance_17;
+  Companion_18.$metadata$ = objectMeta('Companion');
+  var Companion_instance_18;
+  function Companion_getInstance_18() {
+    if (Companion_instance_18 == null)
+      new Companion_18();
+    return Companion_instance_18;
   }
   function CharRange(start, endInclusive) {
-    Companion_getInstance_17();
+    Companion_getInstance_18();
     CharProgression.call(this, start, endInclusive, 1);
   }
   CharRange.prototype.get_start_qj1pkq_k$ = function () {
@@ -10531,7 +14241,7 @@ if (typeof Math.imul === 'undefined') {
   CharRange.prototype.equals = function (other) {
     var tmp;
     if (other instanceof CharRange) {
-      tmp = (this.isEmpty_y1axqb_k$() ? other.isEmpty_y1axqb_k$() : false) ? true : equals_0(new Char_0(this.get_first_en5qmg_k$()), new Char_0(other.get_first_en5qmg_k$())) ? equals_0(new Char_0(this.get_last_rp1s9s_k$()), new Char_0(other.get_last_rp1s9s_k$())) : false;
+      tmp = (this.isEmpty_y1axqb_k$() ? other.isEmpty_y1axqb_k$() : false) ? true : equals_1(new Char_0(this.get_first_en5qmg_k$()), new Char_0(other.get_first_en5qmg_k$())) ? equals_1(new Char_0(this.get_last_rp1s9s_k$()), new Char_0(other.get_last_rp1s9s_k$())) : false;
     } else {
       tmp = false;
     }
@@ -10561,22 +14271,22 @@ if (typeof Math.imul === 'undefined') {
     return '' + new Char_0(this.get_first_en5qmg_k$()) + '..' + new Char_0(this.get_last_rp1s9s_k$());
   };
   CharRange.$metadata$ = classMeta('CharRange', [ClosedRange], undefined, undefined, undefined, CharProgression.prototype);
-  function Companion_18() {
-    Companion_instance_18 = this;
+  function Companion_19() {
+    Companion_instance_19 = this;
     this.EMPTY_1 = new LongRange(new Long(1, 0), new Long(0, 0));
   }
-  Companion_18.prototype.get_EMPTY_i8q41w_k$ = function () {
+  Companion_19.prototype.get_EMPTY_i8q41w_k$ = function () {
     return this.EMPTY_1;
   };
-  Companion_18.$metadata$ = objectMeta('Companion');
-  var Companion_instance_18;
-  function Companion_getInstance_18() {
-    if (Companion_instance_18 == null)
-      new Companion_18();
-    return Companion_instance_18;
+  Companion_19.$metadata$ = objectMeta('Companion');
+  var Companion_instance_19;
+  function Companion_getInstance_19() {
+    if (Companion_instance_19 == null)
+      new Companion_19();
+    return Companion_instance_19;
   }
   function LongRange(start, endInclusive) {
-    Companion_getInstance_18();
+    Companion_getInstance_19();
     LongProgression.call(this, start, endInclusive, new Long(1, 0));
   }
   LongRange.prototype.get_start_iypx6h_k$ = function () {
@@ -10633,12 +14343,12 @@ if (typeof Math.imul === 'undefined') {
     if (!(other instanceof Target))
       return false;
     var tmp0_other_with_cast = other instanceof Target ? other : THROW_CCE();
-    if (!contentEquals_7(this.allowedTargets_1, tmp0_other_with_cast.allowedTargets_1))
+    if (!contentEquals_3(this.allowedTargets_1, tmp0_other_with_cast.allowedTargets_1))
       return false;
     return true;
   };
   Target.prototype.hashCode = function () {
-    return imul(getStringHashCode('allowedTargets'), 127) ^ hashCode(this.allowedTargets_1);
+    return imul(getStringHashCode('allowedTargets'), 127) ^ hashCode_0(this.allowedTargets_1);
   };
   Target.prototype.toString = function () {
     return '@kotlin.annotation.Target(allowedTargets=' + toString_2(this.allowedTargets_1) + ')';
@@ -10659,10 +14369,10 @@ if (typeof Math.imul === 'undefined') {
   var AnnotationTarget_EXPRESSION_instance;
   var AnnotationTarget_FILE_instance;
   var AnnotationTarget_TYPEALIAS_instance;
-  function values_5() {
+  function values_6() {
     return [AnnotationTarget_CLASS_getInstance(), AnnotationTarget_ANNOTATION_CLASS_getInstance(), AnnotationTarget_TYPE_PARAMETER_getInstance(), AnnotationTarget_PROPERTY_getInstance(), AnnotationTarget_FIELD_getInstance(), AnnotationTarget_LOCAL_VARIABLE_getInstance(), AnnotationTarget_VALUE_PARAMETER_getInstance(), AnnotationTarget_CONSTRUCTOR_getInstance(), AnnotationTarget_FUNCTION_getInstance(), AnnotationTarget_PROPERTY_GETTER_getInstance(), AnnotationTarget_PROPERTY_SETTER_getInstance(), AnnotationTarget_TYPE_getInstance(), AnnotationTarget_EXPRESSION_getInstance(), AnnotationTarget_FILE_getInstance(), AnnotationTarget_TYPEALIAS_getInstance()];
   }
-  function valueOf_5(value) {
+  function valueOf_6(value) {
     switch (value) {
       case 'CLASS':
         return AnnotationTarget_CLASS_getInstance();
@@ -10773,10 +14483,10 @@ if (typeof Math.imul === 'undefined') {
   var AnnotationRetention_SOURCE_instance;
   var AnnotationRetention_BINARY_instance;
   var AnnotationRetention_RUNTIME_instance;
-  function values_6() {
+  function values_7() {
     return [AnnotationRetention_SOURCE_getInstance(), AnnotationRetention_BINARY_getInstance(), AnnotationRetention_RUNTIME_getInstance()];
   }
-  function valueOf_6(value) {
+  function valueOf_7(value) {
     switch (value) {
       case 'SOURCE':
         return AnnotationRetention_SOURCE_getInstance();
@@ -11279,20 +14989,26 @@ if (typeof Math.imul === 'undefined') {
     return '@kotlin.jvm.Volatile()';
   };
   Volatile.$metadata$ = classMeta('Volatile', [Annotation]);
+  function toTypedArray(_this__u8e3s4) {
+    return copyToArray(_this__u8e3s4);
+  }
   function mapCapacity(expectedSize) {
     return expectedSize;
+  }
+  function mapOf_0(pair) {
+    return hashMapOf([pair]);
   }
   function toSingletonMap(_this__u8e3s4) {
     return toMutableMap(_this__u8e3s4);
   }
-  function setOf(element) {
+  function toSingletonMapOrSelf(_this__u8e3s4) {
+    return _this__u8e3s4;
+  }
+  function listOf_0(element) {
+    return arrayListOf_0([element]);
+  }
+  function setOf_1(element) {
     return hashSetOf([element]);
-  }
-  function listOf(element) {
-    return arrayListOf([element]);
-  }
-  function toTypedArray(_this__u8e3s4) {
-    return copyToArray(_this__u8e3s4);
   }
   function arrayCopy(source, destination, destinationOffset, startIndex, endIndex) {
     Companion_getInstance().checkRangeIndexes_5hjybp_k$(startIndex, endIndex, source.length);
@@ -11330,6 +15046,23 @@ if (typeof Math.imul === 'undefined') {
            while (0 <= inductionVariable_0);
       }
     }
+  }
+  function copyToArrayOfAny(_this__u8e3s4, isVarargs) {
+    var tmp;
+    if (isVarargs) {
+      tmp = _this__u8e3s4;
+    } else {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4;
+        }
+        tmp$ret$1 = tmp$ret$0.slice();
+      }
+      tmp = tmp$ret$1;
+    }
+    return tmp;
   }
   function copyToArray(collection) {
     var tmp;
@@ -11377,23 +15110,6 @@ if (typeof Math.imul === 'undefined') {
       tmp$ret$1.push(iterator.next_20eer_k$());
     }
     return array;
-  }
-  function copyToArrayOfAny(_this__u8e3s4, isVarargs) {
-    var tmp;
-    if (isVarargs) {
-      tmp = _this__u8e3s4;
-    } else {
-      var tmp$ret$1;
-      {
-        var tmp$ret$0;
-        {
-          tmp$ret$0 = _this__u8e3s4;
-        }
-        tmp$ret$1 = tmp$ret$0.slice();
-      }
-      tmp = tmp$ret$1;
-    }
-    return tmp;
   }
   function checkIndexOverflow(index) {
     if (index < 0) {
@@ -11461,7 +15177,7 @@ if (typeof Math.imul === 'undefined') {
     this.checkIsMutable_h4zzmr_k$();
     var iterator = this.iterator_jk1svi_k$();
     while (iterator.hasNext_bitz1p_k$()) {
-      if (equals_0(iterator.next_20eer_k$(), element)) {
+      if (equals_1(iterator.next_20eer_k$(), element)) {
         iterator.remove_le47v1_k$();
         return true;
       }
@@ -11715,12 +15431,12 @@ if (typeof Math.imul === 'undefined') {
   };
   AbstractMutableList.prototype.indexOf_dcv8dt_k$ = function (element) {
     var inductionVariable = 0;
-    var last = get_lastIndex_5(this);
+    var last = get_lastIndex_6(this);
     if (inductionVariable <= last)
       do {
         var index = inductionVariable;
         inductionVariable = inductionVariable + 1 | 0;
-        if (equals_0(this.get_fkrdnv_k$(index), element)) {
+        if (equals_1(this.get_fkrdnv_k$(index), element)) {
           return index;
         }
       }
@@ -11728,12 +15444,12 @@ if (typeof Math.imul === 'undefined') {
     return -1;
   };
   AbstractMutableList.prototype.lastIndexOf_rzx8t5_k$ = function (element) {
-    var inductionVariable = get_lastIndex_5(this);
+    var inductionVariable = get_lastIndex_6(this);
     if (0 <= inductionVariable)
       do {
         var index = inductionVariable;
         inductionVariable = inductionVariable + -1 | 0;
-        if (equals_0(this.get_fkrdnv_k$(index), element)) {
+        if (equals_1(this.get_fkrdnv_k$(index), element)) {
           return index;
         }
       }
@@ -11786,10 +15502,10 @@ if (typeof Math.imul === 'undefined') {
   function SimpleEntry_init_$Create$(entry) {
     return SimpleEntry_init_$Init$(entry, Object.create(SimpleEntry.prototype));
   }
-  function _set__value__3j54pn($this, _set____db54di) {
+  function _set__value__3j54pn_0($this, _set____db54di) {
     $this._value_1 = _set____db54di;
   }
-  function _get__value__22ek2v($this) {
+  function _get__value__22ek2v_0($this) {
     return $this._value_1;
   }
   function AbstractMutableMap$keys$1$iterator$1($entryIterator) {
@@ -11992,7 +15708,7 @@ if (typeof Math.imul === 'undefined') {
     while (iter.hasNext_bitz1p_k$()) {
       var entry = iter.next_20eer_k$();
       var k = entry.get_key_18j28a_k$();
-      if (equals_0(key, k)) {
+      if (equals_1(key, k)) {
         var value = entry.get_value_j01efc_k$();
         iter.remove_le47v1_k$();
         return value;
@@ -12226,7 +15942,7 @@ if (typeof Math.imul === 'undefined') {
     var tmp1 = tmp0_this.get_modCount_sgzjli_k$();
     tmp0_this.set_modCount_ro74zq_k$(tmp1 + 1 | 0);
     var tmp;
-    if (index === get_lastIndex_5(this)) {
+    if (index === get_lastIndex_6(this)) {
       var tmp$ret$0;
       {
         var tmp0_asDynamic = this.array_1;
@@ -12251,7 +15967,7 @@ if (typeof Math.imul === 'undefined') {
       do {
         var index = inductionVariable;
         inductionVariable = inductionVariable + 1 | 0;
-        if (equals_0(this.array_1[index], element)) {
+        if (equals_1(this.array_1[index], element)) {
           var tmp$ret$0;
           {
             var tmp0_asDynamic = this.array_1;
@@ -12341,11 +16057,11 @@ if (typeof Math.imul === 'undefined') {
     HashCode_instance = this;
   }
   HashCode.prototype.equals_bs7q9r_k$ = function (value1, value2) {
-    return equals_0(value1, value2);
+    return equals_1(value1, value2);
   };
   HashCode.prototype.getHashCode_uyct7y_k$ = function (value) {
     var tmp0_safe_receiver = value;
-    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode(tmp0_safe_receiver);
+    var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode_0(tmp0_safe_receiver);
     return tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
   };
   HashCode.$metadata$ = objectMeta('HashCode', [EqualityComparator]);
@@ -12378,7 +16094,7 @@ if (typeof Math.imul === 'undefined') {
     return this.$this_1.internalMap_1.iterator_jk1svi_k$();
   };
   EntrySet.prototype.removeEntry_bscj6w_k$ = function (element) {
-    if (contains_6(this, element)) {
+    if (contains_7(this, element)) {
       this.$this_1.remove_8hbkc0_k$(element.get_key_18j28a_k$());
       return true;
     }
@@ -13037,7 +16753,7 @@ if (typeof Math.imul === 'undefined') {
   };
   EntrySet_0.prototype.removeEntry_bscj6w_k$ = function (element) {
     this.checkIsMutable_h4zzmr_k$();
-    if (contains_6(this, element)) {
+    if (contains_7(this, element)) {
       this.$this_1.remove_8hbkc0_k$(element.get_key_18j28a_k$());
       return true;
     }
@@ -13200,7 +16916,7 @@ if (typeof Math.imul === 'undefined') {
     }
     var node = tmp;
     do {
-      if (equals_0(node.get_value_j01efc_k$(), value)) {
+      if (equals_1(node.get_value_j01efc_k$(), value)) {
         return true;
       }
       node = ensureNotNull(node.next_1);
@@ -13488,13 +17204,13 @@ if (typeof Math.imul === 'undefined') {
     return EmptyContinuation;
   }
   var EmptyContinuation;
-  function _no_name_provided__qut3iv_5($tmp0_Continuation) {
+  function _no_name_provided__qut3iv_7($tmp0_Continuation) {
     this.$tmp0_Continuation_1 = $tmp0_Continuation;
   }
-  _no_name_provided__qut3iv_5.prototype.get_context_h02k06_k$ = function () {
+  _no_name_provided__qut3iv_7.prototype.get_context_h02k06_k$ = function () {
     return this.$tmp0_Continuation_1;
   };
-  _no_name_provided__qut3iv_5.prototype.resumeWith_7onugl_k$ = function (result) {
+  _no_name_provided__qut3iv_7.prototype.resumeWith_7onugl_k$ = function (result) {
     var tmp$ret$0;
     {
       throwOnFailure(result);
@@ -13503,10 +17219,10 @@ if (typeof Math.imul === 'undefined') {
     }
     return Unit_getInstance();
   };
-  _no_name_provided__qut3iv_5.prototype.resumeWith_s3a3yh_k$ = function (result) {
+  _no_name_provided__qut3iv_7.prototype.resumeWith_s3a3yh_k$ = function (result) {
     return this.resumeWith_7onugl_k$(result);
   };
-  _no_name_provided__qut3iv_5.$metadata$ = classMeta(undefined, [Continuation]);
+  _no_name_provided__qut3iv_7.$metadata$ = classMeta(undefined, [Continuation]);
   var properties_initialized_EmptyContinuation_kt_4jdb9w;
   function init_properties_EmptyContinuation_kt_8tpm4w() {
     if (properties_initialized_EmptyContinuation_kt_4jdb9w) {
@@ -13515,7 +17231,7 @@ if (typeof Math.imul === 'undefined') {
       var tmp$ret$0;
       {
         var tmp0_Continuation = EmptyCoroutineContext_getInstance();
-        tmp$ret$0 = new _no_name_provided__qut3iv_5(tmp0_Continuation);
+        tmp$ret$0 = new _no_name_provided__qut3iv_7(tmp0_Continuation);
       }
       EmptyContinuation = tmp$ret$0;
     }
@@ -13533,7 +17249,7 @@ if (typeof Math.imul === 'undefined') {
   asList$1.prototype.get_fkrdnv_k$ = function (index) {
     var tmp0_subject = index;
     var tmp;
-    if (0 <= tmp0_subject ? tmp0_subject <= get_lastIndex_5(this) : false) {
+    if (0 <= tmp0_subject ? tmp0_subject <= get_lastIndex_6(this) : false) {
       var tmp$ret$1;
       {
         var tmp0_unsafeCast = this.$this_asList_1.item(index);
@@ -13545,7 +17261,7 @@ if (typeof Math.imul === 'undefined') {
       }
       tmp = tmp$ret$1;
     } else {
-      throw IndexOutOfBoundsException_init_$Create$_0('index ' + index + ' is not in range [0..' + get_lastIndex_5(this) + ']');
+      throw IndexOutOfBoundsException_init_$Create$_0('index ' + index + ' is not in range [0..' + get_lastIndex_6(this) + ']');
     }
     return tmp;
   };
@@ -13590,8 +17306,114 @@ if (typeof Math.imul === 'undefined') {
   function pow(_this__u8e3s4, n) {
     return Math.pow(_this__u8e3s4, n);
   }
+  function roundToInt(_this__u8e3s4) {
+    var tmp;
+    if (isNaN_0(_this__u8e3s4)) {
+      throw IllegalArgumentException_init_$Create$_0('Cannot round NaN value.');
+    } else if (_this__u8e3s4 > IntCompanionObject_getInstance().MAX_VALUE_1) {
+      tmp = IntCompanionObject_getInstance().MAX_VALUE_1;
+    } else if (_this__u8e3s4 < IntCompanionObject_getInstance().MIN_VALUE_1) {
+      tmp = IntCompanionObject_getInstance().MIN_VALUE_1;
+    } else {
+      tmp = numberToInt(Math.round(_this__u8e3s4));
+    }
+    return tmp;
+  }
+  function abs(x) {
+    return Math.abs(x);
+  }
+  function get_sign(_this__u8e3s4) {
+    return _this__u8e3s4 < 0 ? -1 : _this__u8e3s4 > 0 ? 1 : 0;
+  }
+  function get_sign_0(_this__u8e3s4) {
+    return _this__u8e3s4.compareTo_n4fqi2_k$(new Long(0, 0)) < 0 ? -1 : _this__u8e3s4.compareTo_n4fqi2_k$(new Long(0, 0)) > 0 ? 1 : 0;
+  }
+  function roundToLong(_this__u8e3s4) {
+    var tmp;
+    if (isNaN_0(_this__u8e3s4)) {
+      throw IllegalArgumentException_init_$Create$_0('Cannot round NaN value.');
+    } else {
+      Companion_getInstance_23();
+      if (_this__u8e3s4 > (new Long(-1, 2147483647)).toDouble_ygsx0s_k$()) {
+        Companion_getInstance_23();
+        tmp = new Long(-1, 2147483647);
+      } else {
+        Companion_getInstance_23();
+        if (_this__u8e3s4 < (new Long(0, -2147483648)).toDouble_ygsx0s_k$()) {
+          Companion_getInstance_23();
+          tmp = new Long(0, -2147483648);
+        } else {
+          tmp = numberToLong(Math.round(_this__u8e3s4));
+        }
+      }
+    }
+    return tmp;
+  }
+  function sign_0(x) {
+    return sign(x);
+  }
+  function ceil(x) {
+    return Math.ceil(x);
+  }
+  function log10_0(x) {
+    return log10(x);
+  }
   function isNaN_0(_this__u8e3s4) {
     return !(_this__u8e3s4 === _this__u8e3s4);
+  }
+  function isInfinite(_this__u8e3s4) {
+    var tmp;
+    DoubleCompanionObject_getInstance();
+    if (_this__u8e3s4 === Infinity) {
+      tmp = true;
+    } else {
+      DoubleCompanionObject_getInstance();
+      tmp = _this__u8e3s4 === -Infinity;
+    }
+    return tmp;
+  }
+  function isFinite(_this__u8e3s4) {
+    return !isInfinite_0(_this__u8e3s4) ? !isNaN_1(_this__u8e3s4) : false;
+  }
+  function isFinite_0(_this__u8e3s4) {
+    return !isInfinite(_this__u8e3s4) ? !isNaN_0(_this__u8e3s4) : false;
+  }
+  function isInfinite_0(_this__u8e3s4) {
+    var tmp;
+    FloatCompanionObject_getInstance();
+    if (_this__u8e3s4 === Infinity) {
+      tmp = true;
+    } else {
+      FloatCompanionObject_getInstance();
+      tmp = _this__u8e3s4 === -Infinity;
+    }
+    return tmp;
+  }
+  function isNaN_1(_this__u8e3s4) {
+    return !(_this__u8e3s4 === _this__u8e3s4);
+  }
+  function countTrailingZeroBits(_this__u8e3s4) {
+    var low = _this__u8e3s4.low_1;
+    var tmp;
+    if (low === 0) {
+      IntCompanionObject_getInstance();
+      tmp = 32 + countTrailingZeroBits_0(_this__u8e3s4.high_1) | 0;
+    } else {
+      tmp = countTrailingZeroBits_0(low);
+    }
+    return tmp;
+  }
+  function countTrailingZeroBits_0(_this__u8e3s4) {
+    IntCompanionObject_getInstance();
+    var tmp$ret$0;
+    {
+      var tmp0_countLeadingZeroBits = ~(_this__u8e3s4 | (-_this__u8e3s4 | 0));
+      tmp$ret$0 = clz32(tmp0_countLeadingZeroBits);
+    }
+    return 32 - tmp$ret$0 | 0;
+  }
+  function countLeadingZeroBits(_this__u8e3s4) {
+    return clz32(_this__u8e3s4);
   }
   function get_INV_2_26() {
     init_properties_PlatformRandom_kt_or3gqs();
@@ -13620,6 +17442,36 @@ if (typeof Math.imul === 'undefined') {
       INV_2_53 = tmp$ret$0_0;
     }
   }
+  function ExperimentalAssociatedObjects() {
+  }
+  ExperimentalAssociatedObjects.prototype.equals = function (other) {
+    if (!(other instanceof ExperimentalAssociatedObjects))
+      return false;
+    var tmp0_other_with_cast = other instanceof ExperimentalAssociatedObjects ? other : THROW_CCE();
+    return true;
+  };
+  ExperimentalAssociatedObjects.prototype.hashCode = function () {
+    return 0;
+  };
+  ExperimentalAssociatedObjects.prototype.toString = function () {
+    return '@kotlin.reflect.ExperimentalAssociatedObjects()';
+  };
+  ExperimentalAssociatedObjects.$metadata$ = classMeta('ExperimentalAssociatedObjects', [Annotation]);
+  function AssociatedObjectKey() {
+  }
+  AssociatedObjectKey.prototype.equals = function (other) {
+    if (!(other instanceof AssociatedObjectKey))
+      return false;
+    var tmp0_other_with_cast = other instanceof AssociatedObjectKey ? other : THROW_CCE();
+    return true;
+  };
+  AssociatedObjectKey.prototype.hashCode = function () {
+    return 0;
+  };
+  AssociatedObjectKey.prototype.toString = function () {
+    return '@kotlin.reflect.AssociatedObjectKey()';
+  };
+  AssociatedObjectKey.$metadata$ = classMeta('AssociatedObjectKey', [Annotation]);
   function get_js(_this__u8e3s4) {
     return (_this__u8e3s4 instanceof KClassImpl ? _this__u8e3s4 : THROW_CCE()).get_jClass_en9agn_k$();
   }
@@ -13641,7 +17493,7 @@ if (typeof Math.imul === 'undefined') {
   KClassImpl.prototype.equals = function (other) {
     var tmp;
     if (other instanceof KClassImpl) {
-      tmp = equals_0(this.get_jClass_en9agn_k$(), other.get_jClass_en9agn_k$());
+      tmp = equals_1(this.get_jClass_en9agn_k$(), other.get_jClass_en9agn_k$());
     } else {
       tmp = false;
     }
@@ -13749,27 +17601,27 @@ if (typeof Math.imul === 'undefined') {
   function KFunction() {
   }
   KFunction.$metadata$ = interfaceMeta('KFunction', [KCallable]);
+  function KProperty1() {
+  }
+  KProperty1.$metadata$ = interfaceMeta('KProperty1', [KProperty]);
+  function KMutableProperty1() {
+  }
+  KMutableProperty1.$metadata$ = interfaceMeta('KMutableProperty1', [KProperty1, KMutableProperty]);
   function KProperty() {
   }
   KProperty.$metadata$ = interfaceMeta('KProperty', [KCallable]);
   function KProperty0() {
   }
   KProperty0.$metadata$ = interfaceMeta('KProperty0', [KProperty]);
-  function KProperty1() {
+  function KMutableProperty() {
   }
-  KProperty1.$metadata$ = interfaceMeta('KProperty1', [KProperty]);
+  KMutableProperty.$metadata$ = interfaceMeta('KMutableProperty', [KProperty]);
   function KProperty2() {
   }
   KProperty2.$metadata$ = interfaceMeta('KProperty2', [KProperty]);
   function KMutableProperty0() {
   }
   KMutableProperty0.$metadata$ = interfaceMeta('KMutableProperty0', [KProperty0, KMutableProperty]);
-  function KMutableProperty() {
-  }
-  KMutableProperty.$metadata$ = interfaceMeta('KMutableProperty', [KProperty]);
-  function KMutableProperty1() {
-  }
-  KMutableProperty1.$metadata$ = interfaceMeta('KMutableProperty1', [KProperty1, KMutableProperty]);
   function KMutableProperty2() {
   }
   KMutableProperty2.$metadata$ = interfaceMeta('KMutableProperty2', [KProperty2, KMutableProperty]);
@@ -13831,12 +17683,12 @@ if (typeof Math.imul === 'undefined') {
     var tmp_0;
     var tmp_1;
     if (other instanceof KTypeImpl) {
-      tmp_1 = equals_0(this.classifier_1, other.classifier_1);
+      tmp_1 = equals_1(this.classifier_1, other.classifier_1);
     } else {
       tmp_1 = false;
     }
     if (tmp_1) {
-      tmp_0 = equals_0(this.arguments_1, other.arguments_1);
+      tmp_0 = equals_1(this.arguments_1, other.arguments_1);
     } else {
       tmp_0 = false;
     }
@@ -13848,7 +17700,7 @@ if (typeof Math.imul === 'undefined') {
     return tmp;
   };
   KTypeImpl.prototype.hashCode = function () {
-    return imul(imul(hashCode(this.classifier_1), 31) + hashCode(this.arguments_1) | 0, 31) + (this.isMarkedNullable_1 | 0) | 0;
+    return imul(imul(hashCode_0(this.classifier_1), 31) + hashCode_0(this.arguments_1) | 0, 31) + (this.isMarkedNullable_1 | 0) | 0;
   };
   KTypeImpl.prototype.toString = function () {
     var tmp = this.classifier_1;
@@ -13862,7 +17714,7 @@ if (typeof Math.imul === 'undefined') {
     }
     var args = tmp_0;
     var nullable = this.isMarkedNullable_1 ? '?' : '';
-    return plus_1(classifierName, args) + nullable;
+    return plus_3(classifierName, args) + nullable;
   };
   KTypeImpl.$metadata$ = classMeta('KTypeImpl', [KType]);
   function DynamicKType() {
@@ -13939,7 +17791,7 @@ if (typeof Math.imul === 'undefined') {
   };
   KTypeParameterImpl.prototype.hashCode = function () {
     var result = getStringHashCode(this.name_1);
-    result = imul(result, 31) + hashCode(this.upperBounds_1) | 0;
+    result = imul(result, 31) + hashCode_0(this.upperBounds_1) | 0;
     result = imul(result, 31) + this.variance_1.hashCode() | 0;
     result = imul(result, 31) + (this.isReified_1 | 0) | 0;
     return result;
@@ -13952,7 +17804,7 @@ if (typeof Math.imul === 'undefined') {
     var tmp0_other_with_cast = other instanceof KTypeParameterImpl ? other : THROW_CCE();
     if (!(this.name_1 === tmp0_other_with_cast.name_1))
       return false;
-    if (!equals_0(this.upperBounds_1, tmp0_other_with_cast.upperBounds_1))
+    if (!equals_1(this.upperBounds_1, tmp0_other_with_cast.upperBounds_1))
       return false;
     if (!this.variance_1.equals(tmp0_other_with_cast.variance_1))
       return false;
@@ -14687,7 +18539,7 @@ if (typeof Math.imul === 'undefined') {
     {
       var tmp0_getOrElse = this.string_1;
       var tmp;
-      if (index >= 0 ? index <= get_lastIndex_6(tmp0_getOrElse) : false) {
+      if (index >= 0 ? index <= get_lastIndex_7(tmp0_getOrElse) : false) {
         tmp = charSequenceGet(tmp0_getOrElse, index);
       } else {
         throw IndexOutOfBoundsException_init_$Create$_0('index: ' + index + ', length: ' + this.get_length_g42xv3_k$() + '}');
@@ -15311,10 +19163,10 @@ if (typeof Math.imul === 'undefined') {
     return tmp$ret$1;
   }
   function isLowSurrogate(_this__u8e3s4) {
-    Companion_getInstance_20();
+    Companion_getInstance_21();
     var containsLower = _Char___init__impl__6a9atx(56320);
     var tmp;
-    Companion_getInstance_20();
+    Companion_getInstance_21();
     if (_this__u8e3s4 <= _Char___init__impl__6a9atx(57343)) {
       tmp = containsLower <= _this__u8e3s4;
     } else {
@@ -15323,10 +19175,10 @@ if (typeof Math.imul === 'undefined') {
     return tmp;
   }
   function isHighSurrogate(_this__u8e3s4) {
-    Companion_getInstance_20();
+    Companion_getInstance_21();
     var containsLower = _Char___init__impl__6a9atx(55296);
     var tmp;
-    Companion_getInstance_20();
+    Companion_getInstance_21();
     if (_this__u8e3s4 <= _Char___init__impl__6a9atx(56319)) {
       tmp = containsLower <= _this__u8e3s4;
     } else {
@@ -15334,14 +19186,53 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
+  function isWhitespace(_this__u8e3s4) {
+    return isWhitespaceImpl(_this__u8e3s4);
+  }
+  function isLowerCase(_this__u8e3s4) {
+    if (_Char___init__impl__6a9atx(97) <= _this__u8e3s4 ? _this__u8e3s4 <= _Char___init__impl__6a9atx(122) : false) {
+      return true;
+    }
+    if (Char__compareTo_impl_ypi4mb(_this__u8e3s4, _Char___init__impl__6a9atx(128)) < 0) {
+      return false;
+    }
+    return isLowerCaseImpl(_this__u8e3s4);
+  }
+  function titlecaseChar(_this__u8e3s4) {
+    return titlecaseCharImpl(_this__u8e3s4);
+  }
   function checkRadix(radix) {
     if (!(2 <= radix ? radix <= 36 : false)) {
       throw IllegalArgumentException_init_$Create$_0('radix ' + radix + ' was not in valid range 2..36');
     }
     return radix;
   }
-  function toInt(_this__u8e3s4, radix) {
-    var tmp0_elvis_lhs = toIntOrNull(_this__u8e3s4, radix);
+  function toDouble(_this__u8e3s4) {
+    var tmp$ret$2;
+    {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4;
+        }
+        var tmp0_unsafeCast = +tmp$ret$0;
+        tmp$ret$1 = tmp0_unsafeCast;
+      }
+      var tmp1_also = tmp$ret$1;
+      {
+      }
+      {
+        if ((isNaN_0(tmp1_also) ? !isNaN_2(_this__u8e3s4) : false) ? true : tmp1_also === 0.0 ? isBlank(_this__u8e3s4) : false) {
+          numberFormatError(_this__u8e3s4);
+        }
+      }
+      tmp$ret$2 = tmp1_also;
+    }
+    return tmp$ret$2;
+  }
+  function toInt(_this__u8e3s4) {
+    var tmp0_elvis_lhs = toIntOrNull(_this__u8e3s4);
     var tmp;
     if (tmp0_elvis_lhs == null) {
       numberFormatError(_this__u8e3s4);
@@ -15350,8 +19241,8 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function toInt_0(_this__u8e3s4) {
-    var tmp0_elvis_lhs = toIntOrNull_0(_this__u8e3s4);
+  function toInt_0(_this__u8e3s4, radix) {
+    var tmp0_elvis_lhs = toIntOrNull_0(_this__u8e3s4, radix);
     var tmp;
     if (tmp0_elvis_lhs == null) {
       numberFormatError(_this__u8e3s4);
@@ -15374,6 +19265,76 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$1;
   }
+  function toLong(_this__u8e3s4) {
+    var tmp0_elvis_lhs = toLongOrNull(_this__u8e3s4);
+    var tmp;
+    if (tmp0_elvis_lhs == null) {
+      numberFormatError(_this__u8e3s4);
+    } else {
+      tmp = tmp0_elvis_lhs;
+    }
+    return tmp;
+  }
+  function isNaN_2(_this__u8e3s4) {
+    var tmp$ret$1;
+    {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = _this__u8e3s4;
+      }
+      tmp$ret$1 = tmp$ret$0.toLowerCase();
+    }
+    var tmp0_subject = tmp$ret$1;
+    switch (tmp0_subject) {
+      case 'nan':
+      case '+nan':
+      case '-nan':
+        return true;
+      default:
+        return false;
+    }
+  }
+  function toFloat(_this__u8e3s4) {
+    var tmp$ret$1;
+    {
+      var tmp0_unsafeCast = toDouble(_this__u8e3s4);
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = tmp0_unsafeCast;
+      }
+      tmp$ret$1 = tmp$ret$0;
+    }
+    return tmp$ret$1;
+  }
+  function toDoubleOrNull(_this__u8e3s4) {
+    var tmp$ret$3;
+    {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4;
+        }
+        var tmp0_unsafeCast = +tmp$ret$0;
+        tmp$ret$1 = tmp0_unsafeCast;
+      }
+      var tmp1_takeIf = tmp$ret$1;
+      {
+      }
+      var tmp;
+      var tmp$ret$2;
+      {
+        tmp$ret$2 = !((isNaN_0(tmp1_takeIf) ? !isNaN_2(_this__u8e3s4) : false) ? true : tmp1_takeIf === 0.0 ? isBlank(_this__u8e3s4) : false);
+      }
+      if (tmp$ret$2) {
+        tmp = tmp1_takeIf;
+      } else {
+        tmp = null;
+      }
+      tmp$ret$3 = tmp;
+    }
+    return tmp$ret$3;
+  }
   function _get_patternEscape__p1e94w($this) {
     return $this.patternEscape_1;
   }
@@ -15384,7 +19345,7 @@ if (typeof Math.imul === 'undefined') {
     return $this.nativeReplacementEscape_1;
   }
   function Regex_init_$Init$(pattern, option, $this) {
-    Regex.call($this, pattern, setOf(option));
+    Regex.call($this, pattern, setOf_1(option));
     return $this;
   }
   function Regex_init_$Create$(pattern, option) {
@@ -15476,16 +19437,16 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function Companion_19() {
-    Companion_instance_19 = this;
+  function Companion_20() {
+    Companion_instance_20 = this;
     this.patternEscape_1 = new RegExp('[\\\\^$*+?.()|[\\]{}]', 'g');
     this.replacementEscape_1 = new RegExp('[\\\\$]', 'g');
     this.nativeReplacementEscape_1 = new RegExp('\\$', 'g');
   }
-  Companion_19.prototype.fromLiteral_23b06c_k$ = function (literal) {
+  Companion_20.prototype.fromLiteral_23b06c_k$ = function (literal) {
     return Regex_init_$Create$_0(this.escape_s7n2bk_k$(literal));
   };
-  Companion_19.prototype.escape_s7n2bk_k$ = function (literal) {
+  Companion_20.prototype.escape_s7n2bk_k$ = function (literal) {
     var tmp$ret$1;
     {
       var tmp0_nativeReplace = this.patternEscape_1;
@@ -15497,7 +19458,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$1;
   };
-  Companion_19.prototype.escapeReplacement_821xao_k$ = function (literal) {
+  Companion_20.prototype.escapeReplacement_821xao_k$ = function (literal) {
     var tmp$ret$1;
     {
       var tmp0_nativeReplace = this.replacementEscape_1;
@@ -15509,7 +19470,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$1;
   };
-  Companion_19.prototype.nativeEscapeReplacement_si4249_k$ = function (literal) {
+  Companion_20.prototype.nativeEscapeReplacement_si4249_k$ = function (literal) {
     var tmp$ret$1;
     {
       var tmp0_nativeReplace = this.nativeReplacementEscape_1;
@@ -15521,12 +19482,12 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$1;
   };
-  Companion_19.$metadata$ = objectMeta('Companion');
-  var Companion_instance_19;
-  function Companion_getInstance_19() {
-    if (Companion_instance_19 == null)
-      new Companion_19();
-    return Companion_instance_19;
+  Companion_20.$metadata$ = objectMeta('Companion');
+  var Companion_instance_20;
+  function Companion_getInstance_20() {
+    if (Companion_instance_20 == null)
+      new Companion_20();
+    return Companion_instance_20;
   }
   function Regex$findAll$lambda(this$0, $input, $startIndex) {
     return function () {
@@ -15664,9 +19625,9 @@ if (typeof Math.imul === 'undefined') {
     return l;
   }
   function Regex(pattern, options) {
-    Companion_getInstance_19();
+    Companion_getInstance_20();
     this.pattern_1 = pattern;
-    this.options_1 = toSet(options);
+    this.options_1 = toSet_0(options);
     this.nativePattern_1 = new RegExp(pattern, toFlags(options, 'gu'));
     this.nativeStickyPattern_1 = null;
     this.nativeMatchesEntirePattern_1 = null;
@@ -15729,9 +19690,9 @@ if (typeof Math.imul === 'undefined') {
   Regex.prototype.replace_838ra0_k$ = function (input, replacement) {
     var tmp;
     var tmp_0 = _Char___init__impl__6a9atx(92);
-    if (!contains$default(replacement, tmp_0, false, 2, null)) {
+    if (!contains$default_0(replacement, tmp_0, false, 2, null)) {
       var tmp_1 = _Char___init__impl__6a9atx(36);
-      tmp = !contains$default(replacement, tmp_1, false, 2, null);
+      tmp = !contains$default_0(replacement, tmp_1, false, 2, null);
     } else {
       tmp = false;
     }
@@ -15773,9 +19734,9 @@ if (typeof Math.imul === 'undefined') {
   Regex.prototype.replaceFirst_hwe6o0_k$ = function (input, replacement) {
     var tmp;
     var tmp_0 = _Char___init__impl__6a9atx(92);
-    if (!contains$default(replacement, tmp_0, false, 2, null)) {
+    if (!contains$default_0(replacement, tmp_0, false, 2, null)) {
       var tmp_1 = _Char___init__impl__6a9atx(36);
-      tmp = !contains$default(replacement, tmp_1, false, 2, null);
+      tmp = !contains$default_0(replacement, tmp_1, false, 2, null);
     } else {
       tmp = false;
     }
@@ -15881,10 +19842,10 @@ if (typeof Math.imul === 'undefined') {
   Regex.$metadata$ = classMeta('Regex');
   var RegexOption_IGNORE_CASE_instance;
   var RegexOption_MULTILINE_instance;
-  function values_7() {
+  function values_8() {
     return [RegexOption_IGNORE_CASE_getInstance(), RegexOption_MULTILINE_getInstance()];
   }
-  function valueOf_7(value) {
+  function valueOf_8(value) {
     switch (value) {
       case 'IGNORE_CASE':
         return RegexOption_IGNORE_CASE_getInstance();
@@ -15912,83 +19873,6 @@ if (typeof Math.imul === 'undefined') {
     return this.value_1;
   };
   RegexOption.$metadata$ = classMeta('RegexOption', undefined, undefined, undefined, undefined, Enum.prototype);
-  function toFlags(_this__u8e3s4, prepend) {
-    return joinToString$default_0(_this__u8e3s4, '', prepend, null, 0, null, toFlags$lambda(), 28, null);
-  }
-  function findNext(_this__u8e3s4, input, from, nextPattern) {
-    _this__u8e3s4.lastIndex = from;
-    var match = _this__u8e3s4.exec(input);
-    if (match == null)
-      return null;
-    var range = numberRangeToNumber(match.index, _this__u8e3s4.lastIndex - 1 | 0);
-    return new findNext$1(range, match, nextPattern, input);
-  }
-  function substituteGroupRefs(match, replacement) {
-    var index = 0;
-    var result = StringBuilder_init_$Create$_1();
-    while (index < replacement.length) {
-      var tmp0 = index;
-      index = tmp0 + 1 | 0;
-      var char = charSequenceGet(replacement, tmp0);
-      if (equals_0(new Char_0(char), new Char_0(_Char___init__impl__6a9atx(92)))) {
-        if (index === replacement.length)
-          throw IllegalArgumentException_init_$Create$_0('The Char to be escaped is missing');
-        var tmp1 = index;
-        index = tmp1 + 1 | 0;
-        result.append_t8oh9e_k$(charSequenceGet(replacement, tmp1));
-      } else if (equals_0(new Char_0(char), new Char_0(_Char___init__impl__6a9atx(36)))) {
-        if (index === replacement.length)
-          throw IllegalArgumentException_init_$Create$_0('Capturing group index is missing');
-        if (equals_0(new Char_0(charSequenceGet(replacement, index)), new Char_0(_Char___init__impl__6a9atx(123)))) {
-          index = index + 1 | 0;
-          var endIndex = readGroupName(replacement, index);
-          if (index === endIndex)
-            throw IllegalArgumentException_init_$Create$_0('Named capturing group reference should have a non-empty name');
-          if (endIndex === replacement.length ? true : !equals_0(new Char_0(charSequenceGet(replacement, endIndex)), new Char_0(_Char___init__impl__6a9atx(125))))
-            throw IllegalArgumentException_init_$Create$_0("Named capturing group reference is missing trailing '}'");
-          var tmp$ret$1;
-          {
-            var tmp0_substring = index;
-            var tmp$ret$0;
-            {
-              tmp$ret$0 = replacement;
-            }
-            tmp$ret$1 = tmp$ret$0.substring(tmp0_substring, endIndex);
-          }
-          var groupName = tmp$ret$1;
-          var tmp2_safe_receiver = get_3(match.get_groups_dy12vx_k$(), groupName);
-          var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.value_1;
-          result.append_ssq29y_k$(tmp3_elvis_lhs == null ? '' : tmp3_elvis_lhs);
-          index = endIndex + 1 | 0;
-        } else {
-          var containsArg = charSequenceGet(replacement, index);
-          if (!(_Char___init__impl__6a9atx(48) <= containsArg ? containsArg <= _Char___init__impl__6a9atx(57) : false))
-            throw IllegalArgumentException_init_$Create$_0('Invalid capturing group reference');
-          var groups = match.get_groups_dy12vx_k$();
-          var endIndex_0 = readGroupIndex(replacement, index, groups.get_size_woubt6_k$());
-          var tmp$ret$3;
-          {
-            var tmp1_substring = index;
-            var tmp$ret$2;
-            {
-              tmp$ret$2 = replacement;
-            }
-            tmp$ret$3 = tmp$ret$2.substring(tmp1_substring, endIndex_0);
-          }
-          var groupIndex = toInt_0(tmp$ret$3);
-          if (groupIndex >= groups.get_size_woubt6_k$())
-            throw IndexOutOfBoundsException_init_$Create$_0('Group with index ' + groupIndex + ' does not exist');
-          var tmp4_safe_receiver = groups.get_fkrdnv_k$(groupIndex);
-          var tmp5_elvis_lhs = tmp4_safe_receiver == null ? null : tmp4_safe_receiver.value_1;
-          result.append_ssq29y_k$(tmp5_elvis_lhs == null ? '' : tmp5_elvis_lhs);
-          index = endIndex_0;
-        }
-      } else {
-        result.append_t8oh9e_k$(char);
-      }
-    }
-    return result.toString();
-  }
   function MatchGroup(value) {
     this.value_1 = value;
   }
@@ -16023,10 +19907,87 @@ if (typeof Math.imul === 'undefined') {
     return true;
   };
   MatchGroup.$metadata$ = classMeta('MatchGroup');
+  function toFlags(_this__u8e3s4, prepend) {
+    return joinToString$default_0(_this__u8e3s4, '', prepend, null, 0, null, toFlags$lambda(), 28, null);
+  }
+  function findNext(_this__u8e3s4, input, from, nextPattern) {
+    _this__u8e3s4.lastIndex = from;
+    var match = _this__u8e3s4.exec(input);
+    if (match == null)
+      return null;
+    var range = numberRangeToNumber(match.index, _this__u8e3s4.lastIndex - 1 | 0);
+    return new findNext$1(range, match, nextPattern, input);
+  }
+  function substituteGroupRefs(match, replacement) {
+    var index = 0;
+    var result = StringBuilder_init_$Create$_1();
+    while (index < replacement.length) {
+      var tmp0 = index;
+      index = tmp0 + 1 | 0;
+      var char = charSequenceGet(replacement, tmp0);
+      if (equals_1(new Char_0(char), new Char_0(_Char___init__impl__6a9atx(92)))) {
+        if (index === replacement.length)
+          throw IllegalArgumentException_init_$Create$_0('The Char to be escaped is missing');
+        var tmp1 = index;
+        index = tmp1 + 1 | 0;
+        result.append_t8oh9e_k$(charSequenceGet(replacement, tmp1));
+      } else if (equals_1(new Char_0(char), new Char_0(_Char___init__impl__6a9atx(36)))) {
+        if (index === replacement.length)
+          throw IllegalArgumentException_init_$Create$_0('Capturing group index is missing');
+        if (equals_1(new Char_0(charSequenceGet(replacement, index)), new Char_0(_Char___init__impl__6a9atx(123)))) {
+          index = index + 1 | 0;
+          var endIndex = readGroupName(replacement, index);
+          if (index === endIndex)
+            throw IllegalArgumentException_init_$Create$_0('Named capturing group reference should have a non-empty name');
+          if (endIndex === replacement.length ? true : !equals_1(new Char_0(charSequenceGet(replacement, endIndex)), new Char_0(_Char___init__impl__6a9atx(125))))
+            throw IllegalArgumentException_init_$Create$_0("Named capturing group reference is missing trailing '}'");
+          var tmp$ret$1;
+          {
+            var tmp0_substring = index;
+            var tmp$ret$0;
+            {
+              tmp$ret$0 = replacement;
+            }
+            tmp$ret$1 = tmp$ret$0.substring(tmp0_substring, endIndex);
+          }
+          var groupName = tmp$ret$1;
+          var tmp2_safe_receiver = get_3(match.get_groups_dy12vx_k$(), groupName);
+          var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.value_1;
+          result.append_ssq29y_k$(tmp3_elvis_lhs == null ? '' : tmp3_elvis_lhs);
+          index = endIndex + 1 | 0;
+        } else {
+          var containsArg = charSequenceGet(replacement, index);
+          if (!(_Char___init__impl__6a9atx(48) <= containsArg ? containsArg <= _Char___init__impl__6a9atx(57) : false))
+            throw IllegalArgumentException_init_$Create$_0('Invalid capturing group reference');
+          var groups = match.get_groups_dy12vx_k$();
+          var endIndex_0 = readGroupIndex(replacement, index, groups.get_size_woubt6_k$());
+          var tmp$ret$3;
+          {
+            var tmp1_substring = index;
+            var tmp$ret$2;
+            {
+              tmp$ret$2 = replacement;
+            }
+            tmp$ret$3 = tmp$ret$2.substring(tmp1_substring, endIndex_0);
+          }
+          var groupIndex = toInt(tmp$ret$3);
+          if (groupIndex >= groups.get_size_woubt6_k$())
+            throw IndexOutOfBoundsException_init_$Create$_0('Group with index ' + groupIndex + ' does not exist');
+          var tmp4_safe_receiver = groups.get_fkrdnv_k$(groupIndex);
+          var tmp5_elvis_lhs = tmp4_safe_receiver == null ? null : tmp4_safe_receiver.value_1;
+          result.append_ssq29y_k$(tmp5_elvis_lhs == null ? '' : tmp5_elvis_lhs);
+          index = endIndex_0;
+        }
+      } else {
+        result.append_t8oh9e_k$(char);
+      }
+    }
+    return result.toString();
+  }
   function readGroupName(_this__u8e3s4, startIndex) {
     var index = startIndex;
     $l$loop: while (index < _this__u8e3s4.length) {
-      if (equals_0(new Char_0(charSequenceGet(_this__u8e3s4, index)), new Char_0(_Char___init__impl__6a9atx(125)))) {
+      if (equals_1(new Char_0(charSequenceGet(_this__u8e3s4, index)), new Char_0(_Char___init__impl__6a9atx(125)))) {
         break $l$loop;
       } else {
         var tmp0 = index;
@@ -16096,7 +20057,7 @@ if (typeof Math.imul === 'undefined') {
     return $this.groupValues__1;
   }
   function advanceToNextCharacter($this, index) {
-    if (index < get_lastIndex_6($this.$input_1)) {
+    if (index < get_lastIndex_7($this.$input_1)) {
       var tmp$ret$1;
       {
         var tmp$ret$0;
@@ -16134,8 +20095,8 @@ if (typeof Math.imul === 'undefined') {
     return this.$match_1.length;
   };
   findNext$1$groups$1.prototype.iterator_jk1svi_k$ = function () {
-    var tmp = asSequence(get_indices_5(this));
-    return map_0(tmp, findNext$o$groups$o$iterator$lambda(this)).iterator_jk1svi_k$();
+    var tmp = asSequence(get_indices_6(this));
+    return map_1(tmp, findNext$o$groups$o$iterator$lambda(this)).iterator_jk1svi_k$();
   };
   findNext$1$groups$1.prototype.get_fkrdnv_k$ = function (index) {
     var tmp$ret$1;
@@ -16269,7 +20230,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0.lastIndexOf(str, fromIndex);
   }
-  function substring_1(_this__u8e3s4, startIndex, endIndex) {
+  function substring_2(_this__u8e3s4, startIndex, endIndex) {
     init_properties_string_kt_z8k4s7();
     var tmp$ret$0;
     {
@@ -16277,7 +20238,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0.substring(startIndex, endIndex);
   }
-  function substring_2(_this__u8e3s4, startIndex) {
+  function substring_3(_this__u8e3s4, startIndex) {
     init_properties_string_kt_z8k4s7();
     var tmp$ret$0;
     {
@@ -16304,10 +20265,10 @@ if (typeof Math.imul === 'undefined') {
           inductionVariable = inductionVariable + 1 | 0;
           var thisChar = charSequenceGet(_this__u8e3s4, index);
           var otherChar = charSequenceGet(other, index);
-          if (!equals_0(new Char_0(thisChar), new Char_0(otherChar))) {
+          if (!equals_1(new Char_0(thisChar), new Char_0(otherChar))) {
             thisChar = uppercaseChar(thisChar);
             otherChar = uppercaseChar(otherChar);
-            if (!equals_0(new Char_0(thisChar), new Char_0(otherChar))) {
+            if (!equals_1(new Char_0(thisChar), new Char_0(otherChar))) {
               var tmp$ret$4;
               {
                 var tmp0_lowercaseChar = thisChar;
@@ -16348,7 +20309,7 @@ if (typeof Math.imul === 'undefined') {
                 tmp$ret$8 = charSequenceGet(tmp$ret$7, 0);
               }
               otherChar = tmp$ret$8;
-              if (!equals_0(new Char_0(thisChar), new Char_0(otherChar))) {
+              if (!equals_1(new Char_0(thisChar), new Char_0(otherChar))) {
                 return Char__compareTo_impl_ypi4mb(thisChar, otherChar);
               }
             }
@@ -16364,6 +20325,14 @@ if (typeof Math.imul === 'undefined') {
     if (!(($mask0 & 2) === 0))
       ignoreCase = false;
     return compareTo(_this__u8e3s4, other, ignoreCase);
+  }
+  function lowercase_0(_this__u8e3s4) {
+    init_properties_string_kt_z8k4s7();
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    return tmp$ret$0.toLowerCase();
   }
   function nativeIndexOf(_this__u8e3s4, str, fromIndex) {
     init_properties_string_kt_z8k4s7();
@@ -16415,6 +20384,22 @@ if (typeof Math.imul === 'undefined') {
       endIndex = _this__u8e3s4.length;
     return concatToString_0(_this__u8e3s4, startIndex, endIndex);
   }
+  function nativeStartsWith(_this__u8e3s4, s, position) {
+    init_properties_string_kt_z8k4s7();
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    return tmp$ret$0.startsWith(s, position);
+  }
+  function nativeEndsWith(_this__u8e3s4, s) {
+    init_properties_string_kt_z8k4s7();
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    return tmp$ret$0.endsWith(s);
+  }
   function toLowerCase(_this__u8e3s4) {
     init_properties_string_kt_z8k4s7();
     var tmp$ret$0;
@@ -16447,11 +20432,98 @@ if (typeof Math.imul === 'undefined') {
       STRING_CASE_INSENSITIVE_ORDER = new sam$kotlin_Comparator$0(tmp);
     }
   }
-  function replace(_this__u8e3s4, oldValue, newValue, ignoreCase) {
+  function startsWith_0(_this__u8e3s4, prefix, ignoreCase) {
+    if (!ignoreCase) {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4;
+        }
+        tmp$ret$1 = tmp$ret$0.startsWith(prefix, 0);
+      }
+      return tmp$ret$1;
+    } else
+      return regionMatches(_this__u8e3s4, 0, prefix, 0, prefix.length, ignoreCase);
+  }
+  function startsWith$default_0(_this__u8e3s4, prefix, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      ignoreCase = false;
+    return startsWith_0(_this__u8e3s4, prefix, ignoreCase);
+  }
+  function endsWith_0(_this__u8e3s4, suffix, ignoreCase) {
+    if (!ignoreCase) {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = _this__u8e3s4;
+        }
+        tmp$ret$1 = tmp$ret$0.endsWith(suffix);
+      }
+      return tmp$ret$1;
+    } else
+      return regionMatches(_this__u8e3s4, _this__u8e3s4.length - suffix.length | 0, suffix, 0, suffix.length, ignoreCase);
+  }
+  function endsWith$default_0(_this__u8e3s4, suffix, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      ignoreCase = false;
+    return endsWith_0(_this__u8e3s4, suffix, ignoreCase);
+  }
+  function repeat_0(_this__u8e3s4, n) {
+    {
+      var tmp0_require = n >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = "Count 'n' must be non-negative, but was " + n + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    var tmp0_subject = n;
+    var tmp;
+    switch (tmp0_subject) {
+      case 0:
+        tmp = '';
+        break;
+      case 1:
+        tmp = toString_2(_this__u8e3s4);
+        break;
+      default:
+        var result = '';
+        var tmp$ret$1;
+        {
+          tmp$ret$1 = charSequenceLength(_this__u8e3s4) === 0;
+        }
+
+        if (!tmp$ret$1) {
+          var s = toString_2(_this__u8e3s4);
+          var count = n;
+          $l$loop: while (true) {
+            if ((count & 1) === 1) {
+              result = result + s;
+            }
+            count = count >>> 1 | 0;
+            if (count === 0) {
+              break $l$loop;
+            }
+            s = s + s;
+          }
+        }
+
+        return result;
+    }
+    return tmp;
+  }
+  function replace_0(_this__u8e3s4, oldValue, newValue, ignoreCase) {
     var tmp$ret$1;
     {
-      var tmp0_nativeReplace = new RegExp(Companion_getInstance_19().escape_s7n2bk_k$(oldValue), ignoreCase ? 'gui' : 'gu');
-      var tmp1_nativeReplace = Companion_getInstance_19().nativeEscapeReplacement_si4249_k$(newValue);
+      var tmp0_nativeReplace = new RegExp(Companion_getInstance_20().escape_s7n2bk_k$(oldValue), ignoreCase ? 'gui' : 'gu');
+      var tmp1_nativeReplace = Companion_getInstance_20().nativeEscapeReplacement_si4249_k$(newValue);
       var tmp$ret$0;
       {
         tmp$ret$0 = _this__u8e3s4;
@@ -16463,7 +20535,47 @@ if (typeof Math.imul === 'undefined') {
   function replace$default(_this__u8e3s4, oldValue, newValue, ignoreCase, $mask0, $handler) {
     if (!(($mask0 & 4) === 0))
       ignoreCase = false;
-    return replace(_this__u8e3s4, oldValue, newValue, ignoreCase);
+    return replace_0(_this__u8e3s4, oldValue, newValue, ignoreCase);
+  }
+  function isBlank(_this__u8e3s4) {
+    var tmp;
+    if (charSequenceLength(_this__u8e3s4) === 0) {
+      tmp = true;
+    } else {
+      var tmp$ret$0;
+      $l$block_0: {
+        var tmp0_all = get_indices_7(_this__u8e3s4);
+        var tmp_0;
+        if (isInterface(tmp0_all, Collection)) {
+          tmp_0 = tmp0_all.isEmpty_y1axqb_k$();
+        } else {
+          tmp_0 = false;
+        }
+        if (tmp_0) {
+          tmp$ret$0 = true;
+          break $l$block_0;
+        }
+        var inductionVariable = tmp0_all.get_first_irdx8n_k$();
+        var last = tmp0_all.get_last_wopotb_k$();
+        if (inductionVariable <= last)
+          do {
+            var element = inductionVariable;
+            inductionVariable = inductionVariable + 1 | 0;
+            var tmp$ret$1;
+            {
+              tmp$ret$1 = isWhitespace(charSequenceGet(_this__u8e3s4, element));
+            }
+            if (!tmp$ret$1) {
+              tmp$ret$0 = false;
+              break $l$block_0;
+            }
+          }
+           while (!(element === last));
+        tmp$ret$0 = true;
+      }
+      tmp = tmp$ret$0;
+    }
+    return tmp;
   }
   function nativeIndexOf_0(_this__u8e3s4, ch, fromIndex) {
     var tmp$ret$1;
@@ -16485,6 +20597,35 @@ if (typeof Math.imul === 'undefined') {
       ignoreCase = false;
     return regionMatches(_this__u8e3s4, thisOffset, other, otherOffset, length, ignoreCase);
   }
+  function equals_0(_this__u8e3s4, other, ignoreCase) {
+    if (_this__u8e3s4 == null)
+      return other == null;
+    if (other == null)
+      return false;
+    if (!ignoreCase)
+      return _this__u8e3s4 == other;
+    if (!(_this__u8e3s4.length === other.length))
+      return false;
+    var inductionVariable = 0;
+    var last = _this__u8e3s4.length;
+    if (inductionVariable < last)
+      do {
+        var index = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        var thisChar = charSequenceGet(_this__u8e3s4, index);
+        var otherChar = charSequenceGet(other, index);
+        if (!equals(thisChar, otherChar, ignoreCase)) {
+          return false;
+        }
+      }
+       while (inductionVariable < last);
+    return true;
+  }
+  function equals$default_0(_this__u8e3s4, other, ignoreCase, $mask0, $handler) {
+    if (!(($mask0 & 2) === 0))
+      ignoreCase = false;
+    return equals_0(_this__u8e3s4, other, ignoreCase);
+  }
   function get_REPLACEMENT_BYTE_SEQUENCE() {
     init_properties_utf8Encoding_kt_xjxnfa();
     return REPLACEMENT_BYTE_SEQUENCE;
@@ -16503,10 +20644,208 @@ if (typeof Math.imul === 'undefined') {
       REPLACEMENT_BYTE_SEQUENCE = tmp$ret$0;
     }
   }
+  function get_durationAssertionsEnabled() {
+    return true;
+  }
+  function formatToExactDecimals(value, decimals) {
+    var tmp;
+    if (decimals === 0) {
+      tmp = value;
+    } else {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = Math.pow(10.0, decimals);
+      }
+      var pow = tmp$ret$0;
+      var tmp_0 = Math;
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = Math.abs(value);
+      }
+      var tmp_1 = tmp_0.round(tmp$ret$1 * pow) / pow;
+      var tmp$ret$2;
+      {
+        tmp$ret$2 = sign(value);
+      }
+      tmp = tmp_1 * tmp$ret$2;
+    }
+    var rounded = tmp;
+    var tmp_2;
+    var tmp$ret$3;
+    {
+      tmp$ret$3 = Math.abs(rounded);
+    }
+    if (tmp$ret$3 < 1.0E21) {
+      var tmp$ret$5;
+      {
+        var tmp$ret$4;
+        {
+          tmp$ret$4 = rounded;
+        }
+        var tmp0_unsafeCast = tmp$ret$4.toFixed(decimals);
+        tmp$ret$5 = tmp0_unsafeCast;
+      }
+      tmp_2 = tmp$ret$5;
+    } else {
+      var tmp$ret$6;
+      {
+        tmp$ret$6 = Math.abs(rounded);
+      }
+      var positive = tmp$ret$6;
+      var tmp$ret$10;
+      {
+        var tmp$ret$7;
+        {
+          tmp$ret$7 = positive;
+        }
+        var tmp$ret$9;
+        {
+          var tmp$ret$8;
+          {
+            tmp$ret$8 = log10(positive);
+          }
+          var tmp1_ceil = tmp$ret$8;
+          tmp$ret$9 = Math.ceil(tmp1_ceil);
+        }
+        var tmp2_unsafeCast = tmp$ret$7.toPrecision(tmp$ret$9 + decimals);
+        tmp$ret$10 = tmp2_unsafeCast;
+      }
+      var positiveString = tmp$ret$10;
+      tmp_2 = rounded < 0.0 ? '-' + positiveString : positiveString;
+    }
+    return tmp_2;
+  }
+  var DurationUnit_NANOSECONDS_instance;
+  var DurationUnit_MICROSECONDS_instance;
+  var DurationUnit_MILLISECONDS_instance;
+  var DurationUnit_SECONDS_instance;
+  var DurationUnit_MINUTES_instance;
+  var DurationUnit_HOURS_instance;
+  var DurationUnit_DAYS_instance;
+  function values_9() {
+    return [DurationUnit_NANOSECONDS_getInstance(), DurationUnit_MICROSECONDS_getInstance(), DurationUnit_MILLISECONDS_getInstance(), DurationUnit_SECONDS_getInstance(), DurationUnit_MINUTES_getInstance(), DurationUnit_HOURS_getInstance(), DurationUnit_DAYS_getInstance()];
+  }
+  function valueOf_9(value) {
+    switch (value) {
+      case 'NANOSECONDS':
+        return DurationUnit_NANOSECONDS_getInstance();
+      case 'MICROSECONDS':
+        return DurationUnit_MICROSECONDS_getInstance();
+      case 'MILLISECONDS':
+        return DurationUnit_MILLISECONDS_getInstance();
+      case 'SECONDS':
+        return DurationUnit_SECONDS_getInstance();
+      case 'MINUTES':
+        return DurationUnit_MINUTES_getInstance();
+      case 'HOURS':
+        return DurationUnit_HOURS_getInstance();
+      case 'DAYS':
+        return DurationUnit_DAYS_getInstance();
+      default:
+        DurationUnit_initEntries();
+        THROW_ISE();
+        break;
+    }
+  }
+  var DurationUnit_entriesInitialized;
+  function DurationUnit_initEntries() {
+    if (DurationUnit_entriesInitialized)
+      return Unit_getInstance();
+    DurationUnit_entriesInitialized = true;
+    DurationUnit_NANOSECONDS_instance = new DurationUnit('NANOSECONDS', 0, 1.0);
+    DurationUnit_MICROSECONDS_instance = new DurationUnit('MICROSECONDS', 1, 1000.0);
+    DurationUnit_MILLISECONDS_instance = new DurationUnit('MILLISECONDS', 2, 1000000.0);
+    DurationUnit_SECONDS_instance = new DurationUnit('SECONDS', 3, 1.0E9);
+    DurationUnit_MINUTES_instance = new DurationUnit('MINUTES', 4, 6.0E10);
+    DurationUnit_HOURS_instance = new DurationUnit('HOURS', 5, 3.6E12);
+    DurationUnit_DAYS_instance = new DurationUnit('DAYS', 6, 8.64E13);
+  }
+  function DurationUnit(name, ordinal, scale) {
+    Enum.call(this, name, ordinal);
+    this.scale_1 = scale;
+  }
+  DurationUnit.prototype.get_scale_iyf28x_k$ = function () {
+    return this.scale_1;
+  };
+  DurationUnit.$metadata$ = classMeta('DurationUnit', undefined, undefined, undefined, undefined, Enum.prototype);
+  function convertDurationUnit(value, sourceUnit, targetUnit) {
+    var sourceCompareTarget = compareTo_0(sourceUnit.scale_1, targetUnit.scale_1);
+    return sourceCompareTarget > 0 ? value * (sourceUnit.scale_1 / targetUnit.scale_1) : sourceCompareTarget < 0 ? value / (targetUnit.scale_1 / sourceUnit.scale_1) : value;
+  }
+  function convertDurationUnit_0(value, sourceUnit, targetUnit) {
+    var sourceCompareTarget = compareTo_0(sourceUnit.scale_1, targetUnit.scale_1);
+    var tmp;
+    if (sourceCompareTarget > 0) {
+      var scale = numberToLong(sourceUnit.scale_1 / targetUnit.scale_1);
+      var result = value.times_2zfqpc_k$(scale);
+      var tmp_0;
+      if (result.div_9s1fi3_k$(scale).equals(value)) {
+        tmp_0 = result;
+      } else if (value.compareTo_n4fqi2_k$(new Long(0, 0)) > 0) {
+        Companion_getInstance_23();
+        tmp_0 = new Long(-1, 2147483647);
+      } else {
+        Companion_getInstance_23();
+        tmp_0 = new Long(0, -2147483648);
+      }
+      tmp = tmp_0;
+    } else if (sourceCompareTarget < 0) {
+      tmp = value.div_9s1fi3_k$(numberToLong(targetUnit.scale_1 / sourceUnit.scale_1));
+    } else {
+      tmp = value;
+    }
+    return tmp;
+  }
+  function convertDurationUnitOverflow(value, sourceUnit, targetUnit) {
+    var sourceCompareTarget = compareTo_0(sourceUnit.scale_1, targetUnit.scale_1);
+    return sourceCompareTarget > 0 ? value.times_2zfqpc_k$(numberToLong(sourceUnit.scale_1 / targetUnit.scale_1)) : sourceCompareTarget < 0 ? value.div_9s1fi3_k$(numberToLong(targetUnit.scale_1 / sourceUnit.scale_1)) : value;
+  }
+  function DurationUnit_NANOSECONDS_getInstance() {
+    DurationUnit_initEntries();
+    return DurationUnit_NANOSECONDS_instance;
+  }
+  function DurationUnit_MICROSECONDS_getInstance() {
+    DurationUnit_initEntries();
+    return DurationUnit_MICROSECONDS_instance;
+  }
+  function DurationUnit_MILLISECONDS_getInstance() {
+    DurationUnit_initEntries();
+    return DurationUnit_MILLISECONDS_instance;
+  }
+  function DurationUnit_SECONDS_getInstance() {
+    DurationUnit_initEntries();
+    return DurationUnit_SECONDS_instance;
+  }
+  function DurationUnit_MINUTES_getInstance() {
+    DurationUnit_initEntries();
+    return DurationUnit_MINUTES_instance;
+  }
+  function DurationUnit_HOURS_getInstance() {
+    DurationUnit_initEntries();
+    return DurationUnit_HOURS_instance;
+  }
+  function DurationUnit_DAYS_getInstance() {
+    DurationUnit_initEntries();
+    return DurationUnit_DAYS_instance;
+  }
+  function get_4(_this__u8e3s4, key) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    return tmp$ret$0[key];
+  }
+  function set_0(_this__u8e3s4, key, value) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    tmp$ret$0[key] = value;
+  }
   function _Char___init__impl__6a9atx(value) {
     return value;
   }
-  function _get_value__a43j40($this) {
+  function _get_value__a43j40_1($this) {
     return $this;
   }
   function _Char___init__impl__6a9atx_0(code) {
@@ -16518,69 +20857,69 @@ if (typeof Math.imul === 'undefined') {
     return tmp;
   }
   function Char__compareTo_impl_ypi4mb($this, other) {
-    return _get_value__a43j40($this) - _get_value__a43j40(other) | 0;
+    return _get_value__a43j40_1($this) - _get_value__a43j40_1(other) | 0;
   }
   function Char__compareTo_impl_ypi4mb_0($this, other) {
     var tmp = $this.value_1;
     return Char__compareTo_impl_ypi4mb(tmp, other instanceof Char_0 ? other.value_1 : THROW_CCE());
   }
   function Char__plus_impl_qi7pgj($this, other) {
-    return numberToChar(_get_value__a43j40($this) + other | 0);
+    return numberToChar(_get_value__a43j40_1($this) + other | 0);
   }
   function Char__minus_impl_a2frrh($this, other) {
-    return _get_value__a43j40($this) - _get_value__a43j40(other) | 0;
+    return _get_value__a43j40_1($this) - _get_value__a43j40_1(other) | 0;
   }
   function Char__minus_impl_a2frrh_0($this, other) {
-    return numberToChar(_get_value__a43j40($this) - other | 0);
+    return numberToChar(_get_value__a43j40_1($this) - other | 0);
   }
   function Char__inc_impl_6e1wmz($this) {
-    return numberToChar(_get_value__a43j40($this) + 1 | 0);
+    return numberToChar(_get_value__a43j40_1($this) + 1 | 0);
   }
   function Char__dec_impl_1ipdy9($this) {
-    return numberToChar(_get_value__a43j40($this) - 1 | 0);
+    return numberToChar(_get_value__a43j40_1($this) - 1 | 0);
   }
   function Char__rangeTo_impl_tkncvp($this, other) {
     return new CharRange($this, other);
   }
   function Char__toByte_impl_7s7yt0($this) {
-    return toByte(_get_value__a43j40($this));
+    return toByte(_get_value__a43j40_1($this));
   }
   function Char__toChar_impl_3h7tei($this) {
     return $this;
   }
   function Char__toShort_impl_7qagse($this) {
-    return toShort(_get_value__a43j40($this));
+    return toShort(_get_value__a43j40_1($this));
   }
   function Char__toInt_impl_vasixd($this) {
-    return _get_value__a43j40($this);
+    return _get_value__a43j40_1($this);
   }
   function Char__toLong_impl_r7eygw($this) {
-    return toLong(_get_value__a43j40($this));
+    return toLong_0(_get_value__a43j40_1($this));
   }
   function Char__toFloat_impl_kl2gf6($this) {
-    return _get_value__a43j40($this);
+    return _get_value__a43j40_1($this);
   }
   function Char__toDouble_impl_jaecy3($this) {
-    return _get_value__a43j40($this);
+    return _get_value__a43j40_1($this);
   }
   function Char__equals_impl_x6719k($this, other) {
     if (!(other instanceof Char_0))
       return false;
-    return _get_value__a43j40($this) === _get_value__a43j40(other.value_1);
+    return _get_value__a43j40_1($this) === _get_value__a43j40_1(other.value_1);
   }
   function Char__hashCode_impl_otmys($this) {
-    return _get_value__a43j40($this);
+    return _get_value__a43j40_1($this);
   }
   function toString_0($this) {
     var tmp$ret$0;
     {
-      var tmp0_unsafeCast = String.fromCharCode(_get_value__a43j40($this));
+      var tmp0_unsafeCast = String.fromCharCode(_get_value__a43j40_1($this));
       tmp$ret$0 = tmp0_unsafeCast;
     }
     return tmp$ret$0;
   }
-  function Companion_20() {
-    Companion_instance_20 = this;
+  function Companion_21() {
+    Companion_instance_21 = this;
     this.MIN_VALUE_1 = _Char___init__impl__6a9atx(0);
     this.MAX_VALUE_1 = _Char___init__impl__6a9atx(65535);
     this.MIN_HIGH_SURROGATE_1 = _Char___init__impl__6a9atx(55296);
@@ -16592,45 +20931,45 @@ if (typeof Math.imul === 'undefined') {
     this.SIZE_BYTES_1 = 2;
     this.SIZE_BITS_1 = 16;
   }
-  Companion_20.prototype.get_MIN_VALUE_9yp2os_k$ = function () {
+  Companion_21.prototype.get_MIN_VALUE_9yp2os_k$ = function () {
     return this.MIN_VALUE_1;
   };
-  Companion_20.prototype.get_MAX_VALUE_blimwe_k$ = function () {
+  Companion_21.prototype.get_MAX_VALUE_blimwe_k$ = function () {
     return this.MAX_VALUE_1;
   };
-  Companion_20.prototype.get_MIN_HIGH_SURROGATE_t7mej6_k$ = function () {
+  Companion_21.prototype.get_MIN_HIGH_SURROGATE_t7mej6_k$ = function () {
     return this.MIN_HIGH_SURROGATE_1;
   };
-  Companion_20.prototype.get_MAX_HIGH_SURROGATE_eb6erk_k$ = function () {
+  Companion_21.prototype.get_MAX_HIGH_SURROGATE_eb6erk_k$ = function () {
     return this.MAX_HIGH_SURROGATE_1;
   };
-  Companion_20.prototype.get_MIN_LOW_SURROGATE_mxezgo_k$ = function () {
+  Companion_21.prototype.get_MIN_LOW_SURROGATE_mxezgo_k$ = function () {
     return this.MIN_LOW_SURROGATE_1;
   };
-  Companion_20.prototype.get_MAX_LOW_SURROGATE_gwteoa_k$ = function () {
+  Companion_21.prototype.get_MAX_LOW_SURROGATE_gwteoa_k$ = function () {
     return this.MAX_LOW_SURROGATE_1;
   };
-  Companion_20.prototype.get_MIN_SURROGATE_6vpmm5_k$ = function () {
+  Companion_21.prototype.get_MIN_SURROGATE_6vpmm5_k$ = function () {
     return this.MIN_SURROGATE_1;
   };
-  Companion_20.prototype.get_MAX_SURROGATE_r8jfhn_k$ = function () {
+  Companion_21.prototype.get_MAX_SURROGATE_r8jfhn_k$ = function () {
     return this.MAX_SURROGATE_1;
   };
-  Companion_20.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
+  Companion_21.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
     return this.SIZE_BYTES_1;
   };
-  Companion_20.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
+  Companion_21.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
     return this.SIZE_BITS_1;
   };
-  Companion_20.$metadata$ = objectMeta('Companion');
-  var Companion_instance_20;
-  function Companion_getInstance_20() {
-    if (Companion_instance_20 == null)
-      new Companion_20();
-    return Companion_instance_20;
+  Companion_21.$metadata$ = objectMeta('Companion');
+  var Companion_instance_21;
+  function Companion_getInstance_21() {
+    if (Companion_instance_21 == null)
+      new Companion_21();
+    return Companion_instance_21;
   }
   function Char_0(value) {
-    Companion_getInstance_20();
+    Companion_getInstance_21();
     this.value_1 = value;
   }
   Char_0.prototype.compareTo_n49u4k_k$ = function (other) {
@@ -16676,27 +21015,27 @@ if (typeof Math.imul === 'undefined') {
   function MutableSet() {
   }
   MutableSet.$metadata$ = interfaceMeta('MutableSet', [Set, MutableCollection]);
+  function MutableList() {
+  }
+  MutableList.$metadata$ = interfaceMeta('MutableList', [List, MutableCollection]);
   function MutableCollection() {
   }
   MutableCollection.$metadata$ = interfaceMeta('MutableCollection', [Collection, MutableIterable]);
   function MutableIterable() {
   }
   MutableIterable.$metadata$ = interfaceMeta('MutableIterable', [Iterable_0]);
-  function MutableList() {
+  function Companion_22() {
+    Companion_instance_22 = this;
   }
-  MutableList.$metadata$ = interfaceMeta('MutableList', [List, MutableCollection]);
-  function Companion_21() {
-    Companion_instance_21 = this;
-  }
-  Companion_21.$metadata$ = objectMeta('Companion');
-  var Companion_instance_21;
-  function Companion_getInstance_21() {
-    if (Companion_instance_21 == null)
-      new Companion_21();
-    return Companion_instance_21;
+  Companion_22.$metadata$ = objectMeta('Companion');
+  var Companion_instance_22;
+  function Companion_getInstance_22() {
+    if (Companion_instance_22 == null)
+      new Companion_22();
+    return Companion_instance_22;
   }
   function Enum(name, ordinal) {
-    Companion_getInstance_21();
+    Companion_getInstance_22();
     this.name_1 = name;
     this.ordinal_1 = ordinal;
   }
@@ -16736,7 +21075,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$1;
   }
-  function plus_1(_this__u8e3s4, other) {
+  function plus_3(_this__u8e3s4, other) {
     var tmp2_safe_receiver = _this__u8e3s4;
     var tmp3_elvis_lhs = tmp2_safe_receiver == null ? null : toString_2(tmp2_safe_receiver);
     var tmp = tmp3_elvis_lhs == null ? 'null' : tmp3_elvis_lhs;
@@ -16744,13 +21083,13 @@ if (typeof Math.imul === 'undefined') {
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : toString_2(tmp0_safe_receiver);
     return tmp + (tmp1_elvis_lhs == null ? 'null' : tmp1_elvis_lhs);
   }
+  function charArrayOf(elements) {
+    return elements;
+  }
   function toString_1(_this__u8e3s4) {
     var tmp0_safe_receiver = _this__u8e3s4;
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : toString_2(tmp0_safe_receiver);
     return tmp1_elvis_lhs == null ? 'null' : tmp1_elvis_lhs;
-  }
-  function charArrayOf(elements) {
-    return elements;
   }
   function intArrayOf(elements) {
     return elements;
@@ -17315,7 +21654,7 @@ if (typeof Math.imul === 'undefined') {
         var tmp_0;
         var tmp$ret$2;
         {
-          Companion_getInstance_20();
+          Companion_getInstance_21();
           var tmp0__get_code__88qj9g = _Char___init__impl__6a9atx(0);
           tmp$ret$2 = Char__toInt_impl_vasixd(tmp0__get_code__88qj9g);
         }
@@ -17324,7 +21663,7 @@ if (typeof Math.imul === 'undefined') {
         } else {
           var tmp$ret$3;
           {
-            Companion_getInstance_20();
+            Companion_getInstance_21();
             var tmp1__get_code__adl84j = _Char___init__impl__6a9atx(65535);
             tmp$ret$3 = Char__toInt_impl_vasixd(tmp1__get_code__adl84j);
           }
@@ -17404,12 +21743,32 @@ if (typeof Math.imul === 'undefined') {
       do {
         var i = inductionVariable;
         inductionVariable = inductionVariable + 1 | 0;
-        if (!equals_0(a[i], b[i])) {
+        if (!equals_1(a[i], b[i])) {
           return false;
         }
       }
        while (inductionVariable < last);
     return true;
+  }
+  function contentHashCodeInternal(_this__u8e3s4) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    var a = tmp$ret$0;
+    if (a == null)
+      return 0;
+    var result = 1;
+    var inductionVariable = 0;
+    var last = a.length;
+    if (inductionVariable < last)
+      do {
+        var i = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        result = imul(result, 31) + hashCode_0(a[i]) | 0;
+      }
+       while (inductionVariable < last);
+    return result;
   }
   function arrayToString$lambda() {
     return function (it) {
@@ -17535,7 +21894,46 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp;
   }
-  function hashCode(obj) {
+  function equals_1(obj1, obj2) {
+    if (obj1 == null) {
+      return obj2 == null;
+    }
+    if (obj2 == null) {
+      return false;
+    }
+    if (typeof obj1 === 'object' ? typeof obj1.equals === 'function' : false) {
+      return obj1.equals(obj2);
+    }
+    if (obj1 !== obj1) {
+      return obj2 !== obj2;
+    }
+    if (typeof obj1 === 'number' ? typeof obj2 === 'number' : false) {
+      var tmp;
+      if (obj1 === obj2) {
+        var tmp_0;
+        if (obj1 !== 0) {
+          tmp_0 = true;
+        } else {
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = 1;
+          }
+          var tmp_1 = tmp$ret$0 / obj1;
+          var tmp$ret$1;
+          {
+            tmp$ret$1 = 1;
+          }
+          tmp_0 = tmp_1 === tmp$ret$1 / obj2;
+        }
+        tmp = tmp_0;
+      } else {
+        tmp = false;
+      }
+      return tmp;
+    }
+    return obj1 === obj2;
+  }
+  function hashCode_0(obj) {
     if (obj == null)
       return 0;
     var tmp0_subject = typeof obj;
@@ -17592,45 +21990,6 @@ if (typeof Math.imul === 'undefined') {
   }
   function anyToString(o) {
     return Object.prototype.toString.call(o);
-  }
-  function equals_0(obj1, obj2) {
-    if (obj1 == null) {
-      return obj2 == null;
-    }
-    if (obj2 == null) {
-      return false;
-    }
-    if (typeof obj1 === 'object' ? typeof obj1.equals === 'function' : false) {
-      return obj1.equals(obj2);
-    }
-    if (obj1 !== obj1) {
-      return obj2 !== obj2;
-    }
-    if (typeof obj1 === 'number' ? typeof obj2 === 'number' : false) {
-      var tmp;
-      if (obj1 === obj2) {
-        var tmp_0;
-        if (obj1 !== 0) {
-          tmp_0 = true;
-        } else {
-          var tmp$ret$0;
-          {
-            tmp$ret$0 = 1;
-          }
-          var tmp_1 = tmp$ret$0 / obj1;
-          var tmp$ret$1;
-          {
-            tmp$ret$1 = 1;
-          }
-          tmp_0 = tmp_1 === tmp$ret$1 / obj2;
-        }
-        tmp = tmp_0;
-      } else {
-        tmp = false;
-      }
-      return tmp;
-    }
-    return obj1 === obj2;
   }
   function boxIntrinsic(x) {
     throw IllegalStateException_init_$Create$_0('Should be lowered');
@@ -17781,8 +22140,63 @@ if (typeof Math.imul === 'undefined') {
     return '@kotlin.js.JsIntrinsic()';
   };
   JsIntrinsic.$metadata$ = classMeta('JsIntrinsic', [Annotation]);
+  function lazy(mode, initializer) {
+    return new UnsafeLazyImpl(initializer);
+  }
+  function lazy_0(initializer) {
+    return new UnsafeLazyImpl(initializer);
+  }
   function emptyArray() {
     return [];
+  }
+  function fillFrom(src, dst) {
+    var srcLen = src.length;
+    var dstLen = dst.length;
+    var index = 0;
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = dst;
+    }
+    var arr = tmp$ret$0;
+    while (index < srcLen ? index < dstLen : false) {
+      var tmp = index;
+      var tmp0 = index;
+      index = tmp0 + 1 | 0;
+      arr[tmp] = src[tmp0];
+    }
+    return dst;
+  }
+  function arrayCopyResize(source, newSize, defaultValue) {
+    var tmp$ret$0;
+    {
+      var tmp0_unsafeCast = source.slice(0, newSize);
+      tmp$ret$0 = tmp0_unsafeCast;
+    }
+    var result = tmp$ret$0;
+    {
+      if (source.$type$ !== undefined) {
+        result.$type$ = source.$type$;
+      }
+    }
+    var index = source.length;
+    if (newSize > index) {
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = result;
+      }
+      tmp$ret$1.length = newSize;
+      while (index < newSize) {
+        var tmp0 = index;
+        index = tmp0 + 1 | 0;
+        result[tmp0] = defaultValue;
+      }
+    }
+    return result;
+  }
+  function copyArrayType(from, to) {
+    if (from.$type$ !== undefined) {
+      to.$type$ = from.$type$;
+    }
   }
   function JsFun(code) {
     this.code_1 = code;
@@ -17811,34 +22225,34 @@ if (typeof Math.imul === 'undefined') {
   function enumValuesIntrinsic() {
     throw IllegalStateException_init_$Create$_0('Should be replaced by compiler');
   }
-  function Companion_22() {
-    Companion_instance_22 = this;
+  function Companion_23() {
+    Companion_instance_23 = this;
     this.MIN_VALUE_1 = new Long(0, -2147483648);
     this.MAX_VALUE_1 = new Long(-1, 2147483647);
     this.SIZE_BYTES_1 = 8;
     this.SIZE_BITS_1 = 64;
   }
-  Companion_22.prototype.get_MIN_VALUE_7nmmor_k$ = function () {
+  Companion_23.prototype.get_MIN_VALUE_7nmmor_k$ = function () {
     return this.MIN_VALUE_1;
   };
-  Companion_22.prototype.get_MAX_VALUE_54a9lf_k$ = function () {
+  Companion_23.prototype.get_MAX_VALUE_54a9lf_k$ = function () {
     return this.MAX_VALUE_1;
   };
-  Companion_22.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
+  Companion_23.prototype.get_SIZE_BYTES_qphg4q_k$ = function () {
     return this.SIZE_BYTES_1;
   };
-  Companion_22.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
+  Companion_23.prototype.get_SIZE_BITS_7qhjj9_k$ = function () {
     return this.SIZE_BITS_1;
   };
-  Companion_22.$metadata$ = objectMeta('Companion');
-  var Companion_instance_22;
-  function Companion_getInstance_22() {
-    if (Companion_instance_22 == null)
-      new Companion_22();
-    return Companion_instance_22;
+  Companion_23.$metadata$ = objectMeta('Companion');
+  var Companion_instance_23;
+  function Companion_getInstance_23() {
+    if (Companion_instance_23 == null)
+      new Companion_23();
+    return Companion_instance_23;
   }
   function Long(low, high) {
-    Companion_getInstance_22();
+    Companion_getInstance_23();
     Number_0.call(this);
     this.low_1 = low;
     this.high_1 = high;
@@ -17850,13 +22264,13 @@ if (typeof Math.imul === 'undefined') {
     return this.high_1;
   };
   Long.prototype.compareTo_n49k6u_k$ = function (other) {
-    return this.compareTo_n4fqi2_k$(toLong(other));
+    return this.compareTo_n4fqi2_k$(toLong_0(other));
   };
   Long.prototype.compareTo_6m5e4u_k$ = function (other) {
-    return this.compareTo_n4fqi2_k$(toLong(other));
+    return this.compareTo_n4fqi2_k$(toLong_0(other));
   };
   Long.prototype.compareTo_m60v27_k$ = function (other) {
-    return this.compareTo_n4fqi2_k$(toLong(other));
+    return this.compareTo_n4fqi2_k$(toLong_0(other));
   };
   Long.prototype.compareTo_n4fqi2_k$ = function (other) {
     return compare(this, other);
@@ -17871,13 +22285,13 @@ if (typeof Math.imul === 'undefined') {
     return compareTo_0(this.toDouble_ygsx0s_k$(), other);
   };
   Long.prototype.plus_u6dpzk_k$ = function (other) {
-    return this.plus_u6jwas_k$(toLong(other));
+    return this.plus_u6jwas_k$(toLong_0(other));
   };
   Long.prototype.plus_cce7xw_k$ = function (other) {
-    return this.plus_u6jwas_k$(toLong(other));
+    return this.plus_u6jwas_k$(toLong_0(other));
   };
   Long.prototype.plus_crvk61_k$ = function (other) {
-    return this.plus_u6jwas_k$(toLong(other));
+    return this.plus_u6jwas_k$(toLong_0(other));
   };
   Long.prototype.plus_u6jwas_k$ = function (other) {
     return add(this, other);
@@ -17889,13 +22303,13 @@ if (typeof Math.imul === 'undefined') {
     return this.toDouble_ygsx0s_k$() + other;
   };
   Long.prototype.minus_ll8z3a_k$ = function (other) {
-    return this.minus_llf5ei_k$(toLong(other));
+    return this.minus_llf5ei_k$(toLong_0(other));
   };
   Long.prototype.minus_u9ra1q_k$ = function (other) {
-    return this.minus_llf5ei_k$(toLong(other));
+    return this.minus_llf5ei_k$(toLong_0(other));
   };
   Long.prototype.minus_c5ihzl_k$ = function (other) {
-    return this.minus_llf5ei_k$(toLong(other));
+    return this.minus_llf5ei_k$(toLong_0(other));
   };
   Long.prototype.minus_llf5ei_k$ = function (other) {
     return subtract(this, other);
@@ -17907,13 +22321,13 @@ if (typeof Math.imul === 'undefined') {
     return this.toDouble_ygsx0s_k$() - other;
   };
   Long.prototype.times_2z9ke4_k$ = function (other) {
-    return this.times_2zfqpc_k$(toLong(other));
+    return this.times_2zfqpc_k$(toLong_0(other));
   };
   Long.prototype.times_ll626g_k$ = function (other) {
-    return this.times_2zfqpc_k$(toLong(other));
+    return this.times_2zfqpc_k$(toLong_0(other));
   };
   Long.prototype.times_vzczyd_k$ = function (other) {
-    return this.times_2zfqpc_k$(toLong(other));
+    return this.times_2zfqpc_k$(toLong_0(other));
   };
   Long.prototype.times_2zfqpc_k$ = function (other) {
     return multiply(this, other);
@@ -17925,13 +22339,13 @@ if (typeof Math.imul === 'undefined') {
     return this.toDouble_ygsx0s_k$() * other;
   };
   Long.prototype.div_9rv96v_k$ = function (other) {
-    return this.div_9s1fi3_k$(toLong(other));
+    return this.div_9s1fi3_k$(toLong_0(other));
   };
   Long.prototype.div_j4i90d_k$ = function (other) {
-    return this.div_9s1fi3_k$(toLong(other));
+    return this.div_9s1fi3_k$(toLong_0(other));
   };
   Long.prototype.div_pipt5c_k$ = function (other) {
-    return this.div_9s1fi3_k$(toLong(other));
+    return this.div_9s1fi3_k$(toLong_0(other));
   };
   Long.prototype.div_9s1fi3_k$ = function (other) {
     return divide(this, other);
@@ -17943,13 +22357,13 @@ if (typeof Math.imul === 'undefined') {
     return this.toDouble_ygsx0s_k$() / other;
   };
   Long.prototype.rem_9r568g_k$ = function (other) {
-    return this.rem_9rbcjo_k$(toLong(other));
+    return this.rem_9rbcjo_k$(toLong_0(other));
   };
   Long.prototype.rem_ii1pdg_k$ = function (other) {
-    return this.rem_9rbcjo_k$(toLong(other));
+    return this.rem_9rbcjo_k$(toLong_0(other));
   };
   Long.prototype.rem_kb2195_k$ = function (other) {
-    return this.rem_9rbcjo_k$(toLong(other));
+    return this.rem_9rbcjo_k$(toLong_0(other));
   };
   Long.prototype.rem_9rbcjo_k$ = function (other) {
     return modulo(this, other);
@@ -17973,13 +22387,13 @@ if (typeof Math.imul === 'undefined') {
     return this.inv_28kx_k$().plus_u6jwas_k$(new Long(1, 0));
   };
   Long.prototype.rangeTo_5ifbqq_k$ = function (other) {
-    return this.rangeTo_5i95fi_k$(toLong(other));
+    return this.rangeTo_5i95fi_k$(toLong_0(other));
   };
   Long.prototype.rangeTo_sjxg22_k$ = function (other) {
-    return this.rangeTo_5i95fi_k$(toLong(other));
+    return this.rangeTo_5i95fi_k$(toLong_0(other));
   };
   Long.prototype.rangeTo_pdrcev_k$ = function (other) {
-    return this.rangeTo_5i95fi_k$(toLong(other));
+    return this.rangeTo_5i95fi_k$(toLong_0(other));
   };
   Long.prototype.rangeTo_5i95fi_k$ = function (other) {
     return new LongRange(this, other);
@@ -18039,7 +22453,7 @@ if (typeof Math.imul === 'undefined') {
     return tmp;
   };
   Long.prototype.hashCode = function () {
-    return hashCode_0(this);
+    return hashCode_1(this);
   };
   Long.prototype.toString = function () {
     return toStringImpl(this, 10);
@@ -18290,7 +22704,7 @@ if (typeof Math.imul === 'undefined') {
     init_properties_longjs_kt_ttk8rv();
     return _this__u8e3s4.high_1 === other.high_1 ? _this__u8e3s4.low_1 === other.low_1 : false;
   }
-  function hashCode_0(l) {
+  function hashCode_1(l) {
     init_properties_longjs_kt_ttk8rv();
     return l.low_1 ^ l.high_1;
   }
@@ -18602,7 +23016,7 @@ if (typeof Math.imul === 'undefined') {
     }
     return _Char___init__impl__6a9atx_0(tmp$ret$0);
   }
-  function toLong(a) {
+  function toLong_0(a) {
     return fromInt(a);
   }
   function numberRangeToNumber(start, endInclusive) {
@@ -18935,7 +23349,7 @@ if (typeof Math.imul === 'undefined') {
     var tmp0_elvis_lhs = metadata.interfaceId;
     var interfaceId = tmp0_elvis_lhs == null ? -1 : tmp0_elvis_lhs;
     var tmp;
-    if (!equals_0(interfaceId, -1)) {
+    if (!equals_1(interfaceId, -1)) {
       tmp = interfaceId;
     } else {
       var tmp1 = interfacesCounter;
@@ -19107,6 +23521,152 @@ if (typeof Math.imul === 'undefined') {
     arrayCopy(_this__u8e3s4, destination, destinationOffset, startIndex, endIndex);
     return destination;
   }
+  function copyOf(_this__u8e3s4, newSize) {
+    {
+      var tmp0_require = newSize >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Invalid new array size: ' + newSize + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    var tmp$ret$1;
+    {
+      var tmp1_withType = fillFrom(_this__u8e3s4, charArray(newSize));
+      tmp1_withType.$type$ = 'CharArray';
+      tmp$ret$1 = tmp1_withType;
+    }
+    return tmp$ret$1;
+  }
+  function copyOf_0(_this__u8e3s4, newSize) {
+    {
+      var tmp0_require = newSize >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Invalid new array size: ' + newSize + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    return fillFrom(_this__u8e3s4, new Float64Array(newSize));
+  }
+  function copyOf_1(_this__u8e3s4, newSize) {
+    {
+      var tmp0_require = newSize >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Invalid new array size: ' + newSize + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    return fillFrom(_this__u8e3s4, new Float32Array(newSize));
+  }
+  function copyOf_2(_this__u8e3s4, newSize) {
+    {
+      var tmp0_require = newSize >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Invalid new array size: ' + newSize + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    var tmp$ret$1;
+    {
+      var tmp1_withType = arrayCopyResize(_this__u8e3s4, newSize, new Long(0, 0));
+      tmp1_withType.$type$ = 'LongArray';
+      tmp$ret$1 = tmp1_withType;
+    }
+    return tmp$ret$1;
+  }
+  function copyOf_3(_this__u8e3s4, newSize) {
+    {
+      var tmp0_require = newSize >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Invalid new array size: ' + newSize + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    return fillFrom(_this__u8e3s4, new Int32Array(newSize));
+  }
+  function copyOf_4(_this__u8e3s4, newSize) {
+    {
+      var tmp0_require = newSize >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Invalid new array size: ' + newSize + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    return fillFrom(_this__u8e3s4, new Int16Array(newSize));
+  }
+  function copyOf_5(_this__u8e3s4, newSize) {
+    {
+      var tmp0_require = newSize >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Invalid new array size: ' + newSize + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    return fillFrom(_this__u8e3s4, new Int8Array(newSize));
+  }
+  function copyOf_6(_this__u8e3s4, newSize) {
+    {
+      var tmp0_require = newSize >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Invalid new array size: ' + newSize + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    var tmp$ret$1;
+    {
+      var tmp1_withType = arrayCopyResize(_this__u8e3s4, newSize, false);
+      tmp1_withType.$type$ = 'BooleanArray';
+      tmp$ret$1 = tmp1_withType;
+    }
+    return tmp$ret$1;
+  }
   function asList_0(_this__u8e3s4) {
     var tmp$ret$1;
     {
@@ -19118,7 +23678,13 @@ if (typeof Math.imul === 'undefined') {
     }
     return new ArrayList(tmp$ret$1);
   }
-  function plus_2(_this__u8e3s4, elements) {
+  function contentEquals_3(_this__u8e3s4, other) {
+    return contentEqualsInternal(_this__u8e3s4, other);
+  }
+  function contentHashCode(_this__u8e3s4) {
+    return contentHashCodeInternal(_this__u8e3s4);
+  }
+  function plus_4(_this__u8e3s4, elements) {
     var tmp$ret$0;
     {
       tmp$ret$0 = _this__u8e3s4;
@@ -19133,15 +23699,28 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0.slice(fromIndex, toIndex);
   }
-  function copyOf(_this__u8e3s4) {
+  function copyOf_7(_this__u8e3s4) {
     var tmp$ret$0;
     {
       tmp$ret$0 = _this__u8e3s4;
     }
     return tmp$ret$0.slice();
   }
-  function contentEquals_3(_this__u8e3s4, other) {
-    return contentEqualsInternal(_this__u8e3s4, other);
+  function copyOf_8(_this__u8e3s4, newSize) {
+    {
+      var tmp0_require = newSize >= 0;
+      {
+      }
+      if (!tmp0_require) {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = 'Invalid new array size: ' + newSize + '.';
+        }
+        var message = tmp$ret$0;
+        throw IllegalArgumentException_init_$Create$_0(toString_2(message));
+      }
+    }
+    return arrayCopyResize(_this__u8e3s4, newSize, null);
   }
   function contentEquals_4(_this__u8e3s4, other) {
     return contentEqualsInternal(_this__u8e3s4, other);
@@ -19167,8 +23746,49 @@ if (typeof Math.imul === 'undefined') {
   function contentEquals_11(_this__u8e3s4, other) {
     return contentEqualsInternal(_this__u8e3s4, other);
   }
+  function decodeVarLenBase64(base64, fromBase64, resultLength) {
+    var result = new Int32Array(resultLength);
+    var index = 0;
+    var int = 0;
+    var shift = 0;
+    var indexedObject = base64;
+    var inductionVariable = 0;
+    var last = indexedObject.length;
+    while (inductionVariable < last) {
+      var char = charSequenceGet(indexedObject, inductionVariable);
+      inductionVariable = inductionVariable + 1 | 0;
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = Char__toInt_impl_vasixd(char);
+      }
+      var sixBit = fromBase64[tmp$ret$0];
+      int = int | (sixBit & 31) << shift;
+      if (sixBit < 32) {
+        var tmp1 = index;
+        index = tmp1 + 1 | 0;
+        result[tmp1] = int;
+        int = 0;
+        shift = 0;
+      } else {
+        shift = shift + 5 | 0;
+      }
+    }
+    return result;
+  }
   function minOf(a, b) {
     return Math.min(a, b);
+  }
+  function maxOf(a, b, c) {
+    return Math.max(a, b, c);
+  }
+  function minOf_0(a, b, c) {
+    return Math.min(a, b, c);
+  }
+  function maxOf_0(a, b) {
+    return compareTo_0(a, b) >= 0 ? a : b;
+  }
+  function maxOf_1(a, b) {
+    return Math.max(a, b);
   }
   function digitToIntImpl(_this__u8e3s4) {
     var tmp$ret$0;
@@ -19215,6 +23835,171 @@ if (typeof Math.imul === 'undefined') {
     if (Digit_instance == null)
       new Digit();
     return Digit_instance;
+  }
+  function isLowerCaseImpl(_this__u8e3s4) {
+    var tmp;
+    if (getLetterType(_this__u8e3s4) === 1) {
+      tmp = true;
+    } else {
+      var tmp$ret$0;
+      {
+        tmp$ret$0 = Char__toInt_impl_vasixd(_this__u8e3s4);
+      }
+      tmp = isOtherLowercase(tmp$ret$0);
+    }
+    return tmp;
+  }
+  function getLetterType(_this__u8e3s4) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = Char__toInt_impl_vasixd(_this__u8e3s4);
+    }
+    var ch = tmp$ret$0;
+    var index = binarySearchRange(Letter_getInstance().decodedRangeStart_1, ch);
+    var rangeStart = Letter_getInstance().decodedRangeStart_1[index];
+    var rangeEnd = (rangeStart + Letter_getInstance().decodedRangeLength_1[index] | 0) - 1 | 0;
+    var code = Letter_getInstance().decodedRangeCategory_1[index];
+    if (ch > rangeEnd) {
+      return 0;
+    }
+    var lastTwoBits = code & 3;
+    if (lastTwoBits === 0) {
+      var shift = 2;
+      var threshold = rangeStart;
+      var inductionVariable = 0;
+      if (inductionVariable <= 1)
+        do {
+          var i = inductionVariable;
+          inductionVariable = inductionVariable + 1 | 0;
+          threshold = threshold + (code >> shift & 127) | 0;
+          if (threshold > ch) {
+            return 3;
+          }
+          shift = shift + 7 | 0;
+          threshold = threshold + (code >> shift & 127) | 0;
+          if (threshold > ch) {
+            return 0;
+          }
+          shift = shift + 7 | 0;
+        }
+         while (inductionVariable <= 1);
+      return 3;
+    }
+    if (code <= 7) {
+      return lastTwoBits;
+    }
+    var distance = ch - rangeStart | 0;
+    var shift_0 = code <= 31 ? distance % 2 | 0 : distance;
+    return code >> imul(2, shift_0) & 3;
+  }
+  function Letter() {
+    Letter_instance = this;
+    var toBase64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+    var fromBase64 = new Int32Array(128);
+    var inductionVariable = 0;
+    var last = charSequenceLength(toBase64) - 1 | 0;
+    if (inductionVariable <= last)
+      do {
+        var i = inductionVariable;
+        inductionVariable = inductionVariable + 1 | 0;
+        var tmp$ret$0;
+        {
+          var tmp0__get_code__88qj9g = charSequenceGet(toBase64, i);
+          tmp$ret$0 = Char__toInt_impl_vasixd(tmp0__get_code__88qj9g);
+        }
+        fromBase64[tmp$ret$0] = i;
+      }
+       while (inductionVariable <= last);
+    var rangeStartDiff = 'hCgBpCQGYHZH5BRpBPPPPPPRMP5BPPlCPP6BkEPPPPcPXPzBvBrB3BOiDoBHwD+E3DauCnFmBmB2D6E1BlBTiBmBlBP5BhBiBrBvBjBqBnBPRtBiCmCtBlB0BmB5BiB7BmBgEmChBZgCoEoGVpBSfRhBPqKQ2BwBYoFgB4CJuTiEvBuCuDrF5DgEgFlJ1DgFmBQtBsBRGsB+BPiBlD1EIjDPRPPPQPPPPPGQSQS/DxENVNU+B9zCwBwBPPCkDPNnBPqDYY1R8B7FkFgTgwGgwUwmBgKwBuBScmEP/BPPPPPPrBP8B7F1B/ErBqC6B7BiBmBfQsBUwCw/KwqIwLwETPcPjQgJxFgBlBsD';
+    var diff = decodeVarLenBase64(rangeStartDiff, fromBase64, 222);
+    var start = new Int32Array(diff.length);
+    var inductionVariable_0 = 0;
+    var last_0 = diff.length - 1 | 0;
+    if (inductionVariable_0 <= last_0)
+      do {
+        var i_0 = inductionVariable_0;
+        inductionVariable_0 = inductionVariable_0 + 1 | 0;
+        if (i_0 === 0)
+          start[i_0] = diff[i_0];
+        else
+          start[i_0] = start[i_0 - 1 | 0] + diff[i_0] | 0;
+      }
+       while (inductionVariable_0 <= last_0);
+    this.decodedRangeStart_1 = start;
+    var rangeLength = 'aaMBXHYH5BRpBPPPPPPRMP5BPPlCPPzBDOOPPcPXPzBvBjB3BOhDmBBpB7DoDYxB+EiBP1DoExBkBQhBekBPmBgBhBctBiBMWOOXhCsBpBkBUV3Ba4BkB0DlCgBXgBtD4FSdBfPhBPpKP0BvBXjEQ2CGsT8DhBtCqDpFvD1D3E0IrD2EkBJrBDOBsB+BPiBlB1EIjDPPPPPPPPPPPGPPMNLsBNPNPKCvBvBPPCkDPBmBPhDXXgD4B6FzEgDguG9vUtkB9JcuBSckEP/BPPPPPPBPf4FrBjEhBpC3B5BKaWPrBOwCk/KsCuLqDHPbPxPsFtEaaqDL';
+    this.decodedRangeLength_1 = decodeVarLenBase64(rangeLength, fromBase64, 222);
+    var rangeCategory = 'GFjgggUHGGFFZZZmzpz5qB6s6020B60ptltB6smt2sB60mz22B1+vv+8BZZ5s2850BW5q1ymtB506smzBF3q1q1qB1q1q1+Bgii4wDTm74g3KiggxqM60q1q1Bq1o1q1BF1qlrqrBZ2q5wprBGFZWWZGHFsjiooLowgmOowjkwCkgoiIk7ligGogiioBkwkiYkzj2oNoi+sbkwj04DghhkQ8wgiYkgoioDsgnkwC4gikQ//v+85BkwvoIsgoyI4yguI0whiwEowri4CoghsJowgqYowgm4DkwgsY/nwnzPowhmYkg6wI8yggZswikwHgxgmIoxgqYkwgk4DkxgmIkgoioBsgssoBgzgyI8g9gL8g9kI0wgwJoxgkoC0wgioFkw/wI0w53iF4gioYowjmgBHGq1qkgwBF1q1q8qBHwghuIwghyKk0goQkwgoQk3goQHGFHkyg0pBgxj6IoinkxDswno7Ikwhz9Bo0gioB8z48Rwli0xN0mpjoX8w78pDwltoqKHFGGwwgsIHFH3q1q16BFHWFZ1q10q1B2qlwq1B1q10q1B2q1yq1B6q1gq1Biq1qhxBir1qp1Bqt1q1qB1g1q1+B//3q16B///q1qBH/qlqq9Bholqq9B1i00a1q10qD1op1HkwmigEigiy6Cptogq1Bixo1kDq7/j00B2qgoBWGFm1lz50B6s5q1+BGWhggzhwBFFhgk4//Bo2jigE8wguI8wguI8wgugUog1qoB4qjmIwwi2KgkYHHH4lBgiFWkgIWoghssMmz5smrBZ3q1y50B5sm7gzBtz1smzB5smz50BqzqtmzB5sgzqzBF2/9//5BowgoIwmnkzPkwgk4C8ys65BkgoqI0wgy6FghquZo2giY0ghiIsgh24B4ghsQ8QF/v1q1OFs0O8iCHHF1qggz/B8wg6Iznv+//B08QgohsjK0QGFk7hsQ4gB';
+    this.decodedRangeCategory_1 = decodeVarLenBase64(rangeCategory, fromBase64, 222);
+  }
+  Letter.prototype.get_decodedRangeStart_d3raky_k$ = function () {
+    return this.decodedRangeStart_1;
+  };
+  Letter.prototype.get_decodedRangeLength_nhieq2_k$ = function () {
+    return this.decodedRangeLength_1;
+  };
+  Letter.prototype.get_decodedRangeCategory_dtepki_k$ = function () {
+    return this.decodedRangeCategory_1;
+  };
+  Letter.$metadata$ = objectMeta('Letter');
+  var Letter_instance;
+  function Letter_getInstance() {
+    if (Letter_instance == null)
+      new Letter();
+    return Letter_instance;
+  }
+  function isOtherLowercase(_this__u8e3s4) {
+    var index = binarySearchRange(OtherLowercase_getInstance().otherLowerStart_1, _this__u8e3s4);
+    return index >= 0 ? _this__u8e3s4 < (OtherLowercase_getInstance().otherLowerStart_1[index] + OtherLowercase_getInstance().otherLowerLength_1[index] | 0) : false;
+  }
+  function OtherLowercase() {
+    OtherLowercase_instance = this;
+    var tmp = this;
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = new Int32Array([170, 186, 688, 704, 736, 837, 890, 7468, 7544, 7579, 8305, 8319, 8336, 8560, 9424, 11388, 42652, 42864, 43000, 43868]);
+    }
+    tmp.otherLowerStart_1 = tmp$ret$0;
+    var tmp_0 = this;
+    var tmp$ret$1;
+    {
+      tmp$ret$1 = new Int32Array([1, 1, 9, 2, 5, 1, 1, 63, 1, 37, 1, 1, 13, 16, 26, 2, 2, 1, 2, 4]);
+    }
+    tmp_0.otherLowerLength_1 = tmp$ret$1;
+  }
+  OtherLowercase.prototype.get_otherLowerStart_aqlxaw_k$ = function () {
+    return this.otherLowerStart_1;
+  };
+  OtherLowercase.prototype.get_otherLowerLength_ipcelc_k$ = function () {
+    return this.otherLowerLength_1;
+  };
+  OtherLowercase.$metadata$ = objectMeta('OtherLowercase');
+  var OtherLowercase_instance;
+  function OtherLowercase_getInstance() {
+    if (OtherLowercase_instance == null)
+      new OtherLowercase();
+    return OtherLowercase_instance;
+  }
+  function titlecaseCharImpl(_this__u8e3s4) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = Char__toInt_impl_vasixd(_this__u8e3s4);
+    }
+    var code = tmp$ret$0;
+    if ((452 <= code ? code <= 460 : false) ? true : 497 <= code ? code <= 499 : false) {
+      return numberToChar(imul(3, (code + 1 | 0) / 3 | 0));
+    }
+    if ((4304 <= code ? code <= 4346 : false) ? true : 4349 <= code ? code <= 4351 : false) {
+      return _this__u8e3s4;
+    }
+    return uppercaseChar(_this__u8e3s4);
+  }
+  function isWhitespaceImpl(_this__u8e3s4) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = Char__toInt_impl_vasixd(_this__u8e3s4);
+    }
+    var ch = tmp$ret$0;
+    return (((9 <= ch ? ch <= 13 : false) ? true : 28 <= ch ? ch <= 32 : false) ? true : ch === 160) ? true : ch > 4096 ? (((((ch === 5760 ? true : 8192 <= ch ? ch <= 8202 : false) ? true : ch === 8232) ? true : ch === 8233) ? true : ch === 8239) ? true : ch === 8287) ? true : ch === 12288 : false;
   }
   function _get_resultContinuation__9wf8ix($this) {
     return $this.resultContinuation_1;
@@ -19356,7 +24141,7 @@ if (typeof Math.imul === 'undefined') {
               var tmp0_resumeWithException = ensureNotNull(currentException);
               var tmp$ret$2;
               {
-                var tmp0_failure = Companion_getInstance_4();
+                var tmp0_failure = Companion_getInstance_5();
                 tmp$ret$2 = _Result___init__impl__xyqfz8(createFailure(tmp0_resumeWithException));
               }
               tmp$ret$3 = completion.resumeWith_s3a3yh_k$(tmp$ret$2);
@@ -19367,7 +24152,7 @@ if (typeof Math.imul === 'undefined') {
               var tmp1_resume = currentResult;
               var tmp$ret$4;
               {
-                var tmp0_success = Companion_getInstance_4();
+                var tmp0_success = Companion_getInstance_5();
                 tmp$ret$4 = _Result___init__impl__xyqfz8(tmp1_resume);
               }
               tmp$ret$5 = completion.resumeWith_s3a3yh_k$(tmp$ret$4);
@@ -19421,14 +24206,14 @@ if (typeof Math.imul === 'undefined') {
   function createCoroutineUnintercepted(_this__u8e3s4, receiver, completion) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = new _no_name_provided__qut3iv_6(completion, _this__u8e3s4, receiver);
+      tmp$ret$0 = new _no_name_provided__qut3iv_8(completion, _this__u8e3s4, receiver);
     }
     return tmp$ret$0;
   }
   function createCoroutineUnintercepted_0(_this__u8e3s4, completion) {
     var tmp$ret$0;
     {
-      tmp$ret$0 = new _no_name_provided__qut3iv_7(completion, _this__u8e3s4);
+      tmp$ret$0 = new _no_name_provided__qut3iv_9(completion, _this__u8e3s4);
     }
     return tmp$ret$0;
   }
@@ -19449,7 +24234,7 @@ if (typeof Math.imul === 'undefined') {
     return typeof a === 'function' ? a(receiver, completion) : _this__u8e3s4.invoke_5zdxxo_k$(receiver, completion);
   }
   function createCoroutineFromSuspendFunction(completion, block) {
-    return new _no_name_provided__qut3iv_8(completion, block);
+    return new _no_name_provided__qut3iv_10(completion, block);
   }
   function invokeSuspendSuperTypeWithReceiver(_this__u8e3s4, receiver, completion) {
     throw new NotImplementedError('It is intrinsic method');
@@ -19457,16 +24242,24 @@ if (typeof Math.imul === 'undefined') {
   function invokeSuspendSuperType(_this__u8e3s4, completion) {
     throw new NotImplementedError('It is intrinsic method');
   }
+  function startCoroutineUninterceptedOrReturn_1(_this__u8e3s4, receiver, param, completion) {
+    var tmp$ret$0;
+    {
+      tmp$ret$0 = _this__u8e3s4;
+    }
+    var a = tmp$ret$0;
+    return typeof a === 'function' ? a(receiver, param, completion) : _this__u8e3s4.invoke_f2mof9_k$(receiver, param, completion);
+  }
   function invokeSuspendSuperTypeWithReceiverAndParam(_this__u8e3s4, receiver, param, completion) {
     throw new NotImplementedError('It is intrinsic method');
   }
-  function _no_name_provided__qut3iv_6($completion, $this_createCoroutineUnintercepted, $receiver) {
+  function _no_name_provided__qut3iv_8($completion, $this_createCoroutineUnintercepted, $receiver) {
     this.$completion_1 = $completion;
     this.$this_createCoroutineUnintercepted_1 = $this_createCoroutineUnintercepted;
     this.$receiver_1 = $receiver;
     CoroutineImpl.call(this, isInterface($completion, Continuation) ? $completion : THROW_CCE());
   }
-  _no_name_provided__qut3iv_6.prototype.doResume_5yljmg_k$ = function () {
+  _no_name_provided__qut3iv_8.prototype.doResume_5yljmg_k$ = function () {
     if (this.get_exception_x0n6w6_k$() != null)
       throw this.get_exception_x0n6w6_k$();
     var tmp$ret$1;
@@ -19480,13 +24273,13 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$1;
   };
-  _no_name_provided__qut3iv_6.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function _no_name_provided__qut3iv_7($completion, $this_createCoroutineUnintercepted) {
+  _no_name_provided__qut3iv_8.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function _no_name_provided__qut3iv_9($completion, $this_createCoroutineUnintercepted) {
     this.$completion_1 = $completion;
     this.$this_createCoroutineUnintercepted_1 = $this_createCoroutineUnintercepted;
     CoroutineImpl.call(this, isInterface($completion, Continuation) ? $completion : THROW_CCE());
   }
-  _no_name_provided__qut3iv_7.prototype.doResume_5yljmg_k$ = function () {
+  _no_name_provided__qut3iv_9.prototype.doResume_5yljmg_k$ = function () {
     if (this.get_exception_x0n6w6_k$() != null)
       throw this.get_exception_x0n6w6_k$();
     var tmp$ret$1;
@@ -19500,17 +24293,17 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$1;
   };
-  _no_name_provided__qut3iv_7.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
-  function _no_name_provided__qut3iv_8($completion, $block) {
+  _no_name_provided__qut3iv_9.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  function _no_name_provided__qut3iv_10($completion, $block) {
     this.$block_1 = $block;
     CoroutineImpl.call(this, isInterface($completion, Continuation) ? $completion : THROW_CCE());
   }
-  _no_name_provided__qut3iv_8.prototype.doResume_5yljmg_k$ = function () {
+  _no_name_provided__qut3iv_10.prototype.doResume_5yljmg_k$ = function () {
     if (this.get_exception_x0n6w6_k$() != null)
       throw this.get_exception_x0n6w6_k$();
     return this.$block_1();
   };
-  _no_name_provided__qut3iv_8.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+  _no_name_provided__qut3iv_10.$metadata$ = classMeta(undefined, undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
   function Exception_init_$Init$($this) {
     extendThrowable($this, void 1, void 1);
     Exception.call($this);
@@ -19823,6 +24616,52 @@ if (typeof Math.imul === 'undefined') {
     captureStack(this, IndexOutOfBoundsException);
   }
   IndexOutOfBoundsException.$metadata$ = classMeta('IndexOutOfBoundsException', undefined, undefined, undefined, undefined, RuntimeException.prototype);
+  function AssertionError_init_$Init$($this) {
+    Error_init_$Init$($this);
+    AssertionError.call($this);
+    return $this;
+  }
+  function AssertionError_init_$Create$() {
+    var tmp = AssertionError_init_$Init$(Object.create(AssertionError.prototype));
+    captureStack(tmp, AssertionError_init_$Create$);
+    return tmp;
+  }
+  function AssertionError_init_$Init$_0(message, $this) {
+    Error_init_$Init$_0(message, $this);
+    AssertionError.call($this);
+    return $this;
+  }
+  function AssertionError_init_$Create$_0(message) {
+    var tmp = AssertionError_init_$Init$_0(message, Object.create(AssertionError.prototype));
+    captureStack(tmp, AssertionError_init_$Create$_0);
+    return tmp;
+  }
+  function AssertionError_init_$Init$_1(message, $this) {
+    var tmp0_safe_receiver = message;
+    var tmp = tmp0_safe_receiver == null ? null : toString_2(tmp0_safe_receiver);
+    Error_init_$Init$_1(tmp, message instanceof Error ? message : null, $this);
+    AssertionError.call($this);
+    return $this;
+  }
+  function AssertionError_init_$Create$_1(message) {
+    var tmp = AssertionError_init_$Init$_1(message, Object.create(AssertionError.prototype));
+    captureStack(tmp, AssertionError_init_$Create$_1);
+    return tmp;
+  }
+  function AssertionError_init_$Init$_2(message, cause, $this) {
+    Error_init_$Init$_1(message, cause, $this);
+    AssertionError.call($this);
+    return $this;
+  }
+  function AssertionError_init_$Create$_2(message, cause) {
+    var tmp = AssertionError_init_$Init$_2(message, cause, Object.create(AssertionError.prototype));
+    captureStack(tmp, AssertionError_init_$Create$_2);
+    return tmp;
+  }
+  function AssertionError() {
+    captureStack(this, AssertionError);
+  }
+  AssertionError.$metadata$ = classMeta('AssertionError', undefined, undefined, undefined, undefined, Error_0.prototype);
   function NumberFormatException_init_$Init$($this) {
     IllegalArgumentException_init_$Init$($this);
     NumberFormatException.call($this);
@@ -20042,6 +24881,82 @@ if (typeof Math.imul === 'undefined') {
     }
     return tmp$ret$0;
   }
+  function findAssociatedObject(_this__u8e3s4, annotationClass) {
+    var tmp;
+    var tmp_0;
+    if (_this__u8e3s4 instanceof KClassImpl) {
+      tmp_0 = annotationClass instanceof KClassImpl;
+    } else {
+      tmp_0 = false;
+    }
+    if (tmp_0) {
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          var tmp0_asDynamic = annotationClass.get_jClass_en9agn_k$();
+          tmp$ret$0 = tmp0_asDynamic;
+        }
+        var tmp1_unsafeCast = tmp$ret$0;
+        tmp$ret$1 = tmp1_unsafeCast;
+      }
+      var tmp0_safe_receiver = tmp$ret$1.$metadata$;
+      var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.associatedObjectKey;
+      var tmp_1;
+      if (tmp1_safe_receiver == null) {
+        tmp_1 = null;
+      } else {
+        var tmp$ret$3;
+        {
+          var tmp$ret$2;
+          {
+            tmp$ret$2 = tmp1_safe_receiver;
+          }
+          tmp$ret$3 = tmp$ret$2;
+        }
+        tmp_1 = tmp$ret$3;
+      }
+      var tmp2_elvis_lhs = tmp_1;
+      var tmp_2;
+      if (tmp2_elvis_lhs == null) {
+        return null;
+      } else {
+        tmp_2 = tmp2_elvis_lhs;
+      }
+      var key = tmp_2;
+      var tmp$ret$5;
+      {
+        var tmp$ret$4;
+        {
+          var tmp2_asDynamic = _this__u8e3s4.get_jClass_en9agn_k$();
+          tmp$ret$4 = tmp2_asDynamic;
+        }
+        var tmp3_unsafeCast = tmp$ret$4;
+        tmp$ret$5 = tmp3_unsafeCast;
+      }
+      var tmp3_safe_receiver = tmp$ret$5.$metadata$;
+      var tmp4_elvis_lhs = tmp3_safe_receiver == null ? null : tmp3_safe_receiver.associatedObjects;
+      var tmp_3;
+      if (tmp4_elvis_lhs == null) {
+        return null;
+      } else {
+        tmp_3 = tmp4_elvis_lhs;
+      }
+      var map = tmp_3;
+      var tmp5_elvis_lhs = map[key];
+      var tmp_4;
+      if (tmp5_elvis_lhs == null) {
+        return null;
+      } else {
+        tmp_4 = tmp5_elvis_lhs;
+      }
+      var factory = tmp_4;
+      return factory();
+    } else {
+      tmp = null;
+    }
+    return tmp;
+  }
   function toString_3(_this__u8e3s4, radix) {
     return toStringImpl(_this__u8e3s4, checkRadix(radix));
   }
@@ -20057,6 +24972,9 @@ if (typeof Math.imul === 'undefined') {
   function Function5() {
   }
   Function5.$metadata$ = interfaceMeta('Function5');
+  function Function4() {
+  }
+  Function4.$metadata$ = interfaceMeta('Function4');
   function Function3() {
   }
   Function3.$metadata$ = interfaceMeta('Function3');
@@ -20066,6 +24984,9 @@ if (typeof Math.imul === 'undefined') {
   function KFunction1() {
   }
   KFunction1.$metadata$ = interfaceMeta('KFunction1');
+  function KFunction0() {
+  }
+  KFunction0.$metadata$ = interfaceMeta('KFunction0');
   function SuspendFunction0() {
   }
   SuspendFunction0.$metadata$ = interfaceMeta('SuspendFunction0');
@@ -20085,12 +25006,17 @@ if (typeof Math.imul === 'undefined') {
   findNext$1.prototype.get_destructured_a9abdx_k$ = get_destructured;
   //endregion
   //region block: init
+  PI = 3.141592653589793;
   State_NotReady = 0;
   State_ManyNotReady = 1;
   State_ManyReady = 2;
   State_Done = 4;
   State_Ready = 3;
   State_Failed = 5;
+  MAX_NANOS = new Long(-387905, 1073741823);
+  MAX_MILLIS = new Long(-1, 1073741823);
+  MAX_NANOS_IN_MILLIS = new Long(-1108857478, 1073);
+  NANOS_IN_MILLIS = 1000000;
   _stableSortingIsSupported = null;
   OBJECT_HASH_CODE_PROPERTY_NAME = 'kotlinHashCodeValue$';
   POW_2_32 = 4.294967296E9;
@@ -20100,127 +25026,300 @@ if (typeof Math.imul === 'undefined') {
   //endregion
   //region block: exports
   _.$_$ = _.$_$ || {};
-  _.$_$.a = getKClassFromExpression;
-  _.$_$.b = joinToString$default_0;
-  _.$_$.c = replace$default;
-  _.$_$.d = split$default;
-  _.$_$.e = split$default_0;
-  _.$_$.f = ArrayList_init_$Create$_0;
-  _.$_$.g = ArrayList_init_$Create$;
-  _.$_$.h = HashSet_init_$Create$_2;
-  _.$_$.i = LinkedHashMap_init_$Create$_2;
-  _.$_$.j = LinkedHashMap_init_$Create$;
-  _.$_$.k = LinkedHashMap_init_$Create$_3;
-  _.$_$.l = CancellationException_init_$Init$_0;
-  _.$_$.m = CancellationException_init_$Create$_0;
-  _.$_$.n = CancellationException_init_$Init$_1;
-  _.$_$.o = Regex_init_$Create$_0;
-  _.$_$.p = StringBuilder_init_$Create$_1;
-  _.$_$.q = Error_init_$Init$_1;
-  _.$_$.r = IllegalArgumentException_init_$Create$_0;
-  _.$_$.s = IllegalStateException_init_$Create$_0;
-  _.$_$.t = IllegalStateException_init_$Create$_1;
-  _.$_$.u = RuntimeException_init_$Init$_1;
-  _.$_$.v = RuntimeException_init_$Create$_1;
-  _.$_$.w = UnsupportedOperationException_init_$Create$;
-  _.$_$.x = UnsupportedOperationException_init_$Create$_0;
-  _.$_$.y = _Char___init__impl__6a9atx;
-  _.$_$.z = Char__rangeTo_impl_tkncvp;
-  _.$_$.a1 = Char__toInt_impl_vasixd;
-  _.$_$.b1 = toString_0;
-  _.$_$.c1 = _Result___init__impl__xyqfz8;
-  _.$_$.d1 = Result__exceptionOrNull_impl_p6xea9;
-  _.$_$.e1 = _Result___get_isFailure__impl__jpiriv;
-  _.$_$.f1 = _Result___get_value__impl__bjfvqg;
-  _.$_$.g1 = Key_getInstance;
-  _.$_$.h1 = EmptyCoroutineContext_getInstance;
-  _.$_$.i1 = IntCompanionObject_getInstance;
-  _.$_$.j1 = Companion_getInstance_20;
-  _.$_$.k1 = Companion_getInstance_22;
-  _.$_$.l1 = Companion_getInstance_4;
-  _.$_$.m1 = Unit_getInstance;
-  _.$_$.n1 = ArrayList;
-  _.$_$.o1 = Entry;
-  _.$_$.p1 = Map;
-  _.$_$.q1 = MutableMap;
-  _.$_$.r1 = Set;
-  _.$_$.s1 = arrayCopy;
-  _.$_$.t1 = collectionSizeOrDefault;
-  _.$_$.u1 = emptyMap;
-  _.$_$.v1 = emptySet;
-  _.$_$.w1 = first;
-  _.$_$.x1 = get_lastIndex_5;
-  _.$_$.y1 = last;
-  _.$_$.z1 = listOf;
-  _.$_$.a2 = mapCapacity;
-  _.$_$.b2 = mapOf;
-  _.$_$.c2 = maxOrNull;
-  _.$_$.d2 = setOf;
-  _.$_$.e2 = toMap;
-  _.$_$.f2 = toSet;
-  _.$_$.g2 = CancellationException;
-  _.$_$.h2 = get_COROUTINE_SUSPENDED;
-  _.$_$.i2 = createCoroutineUnintercepted_0;
-  _.$_$.j2 = createCoroutineUnintercepted;
-  _.$_$.k2 = intercepted;
-  _.$_$.l2 = AbstractCoroutineContextElement;
-  _.$_$.m2 = AbstractCoroutineContextKey;
-  _.$_$.n2 = get_0;
-  _.$_$.o2 = minusKey_0;
-  _.$_$.p2 = ContinuationInterceptor;
-  _.$_$.q2 = Continuation;
-  _.$_$.r2 = fold;
-  _.$_$.s2 = get;
-  _.$_$.t2 = minusKey;
-  _.$_$.u2 = Element;
-  _.$_$.v2 = Key_0;
-  _.$_$.w2 = plus;
-  _.$_$.x2 = CoroutineImpl;
-  _.$_$.y2 = SuspendFunction1;
-  _.$_$.z2 = startCoroutine;
-  _.$_$.a3 = startCoroutine_0;
-  _.$_$.b3 = getProgressionLastElement_1;
-  _.$_$.c3 = anyToString;
-  _.$_$.d3 = captureStack;
-  _.$_$.e3 = charArrayOf_0;
-  _.$_$.f3 = charSequenceGet;
-  _.$_$.g3 = charSequenceLength;
-  _.$_$.h3 = classMeta;
-  _.$_$.i3 = equals_0;
-  _.$_$.j3 = fillArrayVal;
-  _.$_$.k3 = getStringHashCode;
-  _.$_$.l3 = hashCode;
-  _.$_$.m3 = interfaceMeta;
-  _.$_$.n3 = isInterface;
-  _.$_$.o3 = isObject;
-  _.$_$.p3 = numberToChar;
-  _.$_$.q3 = objectMeta;
-  _.$_$.r3 = toLong;
-  _.$_$.s3 = toString_2;
-  _.$_$.t3 = coerceAtLeast;
-  _.$_$.u3 = coerceIn;
-  _.$_$.v3 = SequenceScope;
-  _.$_$.w3 = sequence;
-  _.$_$.x3 = toInt;
-  _.$_$.y3 = toLongOrNull;
-  _.$_$.z3 = uppercaseChar;
-  _.$_$.a4 = Annotation;
-  _.$_$.b4 = Char_0;
-  _.$_$.c4 = Enum;
-  _.$_$.d4 = Error_0;
-  _.$_$.e4 = Long;
-  _.$_$.f4 = RuntimeException;
-  _.$_$.g4 = THROW_CCE;
-  _.$_$.h4 = THROW_ISE;
-  _.$_$.i4 = UnsupportedOperationException;
-  _.$_$.j4 = createFailure;
-  _.$_$.k4 = ensureNotNull;
-  _.$_$.l4 = noWhenBranchMatchedException;
-  _.$_$.m4 = plus_1;
-  _.$_$.n4 = throwUninitializedPropertyAccessException;
-  _.$_$.o4 = toString_1;
-  _.$_$.p4 = to;
-  _.$_$.q4 = asList;
+  _.$_$.a = createInvariantKTypeProjection;
+  _.$_$.b = createKType;
+  _.$_$.c = findAssociatedObject;
+  _.$_$.d = getKClassFromExpression;
+  _.$_$.e = getKClass;
+  _.$_$.f = RegexOption_IGNORE_CASE_getInstance;
+  _.$_$.g = LazyThreadSafetyMode_PUBLICATION_getInstance;
+  _.$_$.h = joinToString$default_0;
+  _.$_$.i = joinToString$default;
+  _.$_$.j = contains$default;
+  _.$_$.k = endsWith$default;
+  _.$_$.l = indexOf$default_0;
+  _.$_$.m = lastIndexOf$default;
+  _.$_$.n = replace$default;
+  _.$_$.o = split$default;
+  _.$_$.p = split$default_0;
+  _.$_$.q = startsWith$default_0;
+  _.$_$.r = startsWith$default;
+  _.$_$.s = substringBefore$default;
+  _.$_$.t = substringBefore$default_0;
+  _.$_$.u = ArrayList_init_$Create$_0;
+  _.$_$.v = ArrayList_init_$Create$;
+  _.$_$.w = ArrayList_init_$Create$_1;
+  _.$_$.x = HashMap_init_$Create$_2;
+  _.$_$.y = HashMap_init_$Create$_0;
+  _.$_$.z = HashMap_init_$Create$_3;
+  _.$_$.a1 = HashSet_init_$Create$_2;
+  _.$_$.b1 = HashSet_init_$Create$;
+  _.$_$.c1 = HashSet_init_$Create$_0;
+  _.$_$.d1 = LinkedHashMap_init_$Create$_2;
+  _.$_$.e1 = LinkedHashMap_init_$Create$;
+  _.$_$.f1 = LinkedHashMap_init_$Create$_3;
+  _.$_$.g1 = LinkedHashSet_init_$Create$_0;
+  _.$_$.h1 = LinkedHashSet_init_$Create$_1;
+  _.$_$.i1 = CancellationException_init_$Init$_0;
+  _.$_$.j1 = CancellationException_init_$Create$_0;
+  _.$_$.k1 = CancellationException_init_$Init$_1;
+  _.$_$.l1 = Regex_init_$Create$_0;
+  _.$_$.m1 = Regex_init_$Create$;
+  _.$_$.n1 = StringBuilder_init_$Create$;
+  _.$_$.o1 = StringBuilder_init_$Create$_1;
+  _.$_$.p1 = Error_init_$Init$_1;
+  _.$_$.q1 = IllegalArgumentException_init_$Init$_2;
+  _.$_$.r1 = IllegalArgumentException_init_$Init$;
+  _.$_$.s1 = IllegalArgumentException_init_$Create$;
+  _.$_$.t1 = IllegalArgumentException_init_$Init$_0;
+  _.$_$.u1 = IllegalArgumentException_init_$Create$_0;
+  _.$_$.v1 = IllegalArgumentException_init_$Init$_1;
+  _.$_$.w1 = IllegalStateException_init_$Create$_0;
+  _.$_$.x1 = IllegalStateException_init_$Create$_1;
+  _.$_$.y1 = IndexOutOfBoundsException_init_$Create$_0;
+  _.$_$.z1 = RuntimeException_init_$Init$_1;
+  _.$_$.a2 = RuntimeException_init_$Create$_1;
+  _.$_$.b2 = UnsupportedOperationException_init_$Create$;
+  _.$_$.c2 = UnsupportedOperationException_init_$Create$_0;
+  _.$_$.d2 = Duration__toIsoString_impl_9h6wsm;
+  _.$_$.e2 = _Char___init__impl__6a9atx;
+  _.$_$.f2 = Char__minus_impl_a2frrh;
+  _.$_$.g2 = Char__rangeTo_impl_tkncvp;
+  _.$_$.h2 = Char__toInt_impl_vasixd;
+  _.$_$.i2 = toString_0;
+  _.$_$.j2 = _Result___init__impl__xyqfz8;
+  _.$_$.k2 = Result__exceptionOrNull_impl_p6xea9;
+  _.$_$.l2 = _Result___get_isFailure__impl__jpiriv;
+  _.$_$.m2 = _Result___get_value__impl__bjfvqg;
+  _.$_$.n2 = _UByte___init__impl__g9hnc4;
+  _.$_$.o2 = _UByte___get_data__impl__jof9qr;
+  _.$_$.p2 = UByte__toString_impl_v72jg;
+  _.$_$.q2 = _UInt___init__impl__l7qpdl;
+  _.$_$.r2 = _UInt___get_data__impl__f0vqqw;
+  _.$_$.s2 = UInt__toString_impl_dbgl21;
+  _.$_$.t2 = _ULong___init__impl__c78o9k;
+  _.$_$.u2 = _ULong___get_data__impl__fggpzb;
+  _.$_$.v2 = ULong__toString_impl_f9au7k;
+  _.$_$.w2 = _UShort___init__impl__jigrne;
+  _.$_$.x2 = _UShort___get_data__impl__g0245;
+  _.$_$.y2 = UShort__toString_impl_edaoee;
+  _.$_$.z2 = Key_getInstance;
+  _.$_$.a3 = EmptyCoroutineContext_getInstance;
+  _.$_$.b3 = BooleanCompanionObject_getInstance;
+  _.$_$.c3 = ByteCompanionObject_getInstance;
+  _.$_$.d3 = DoubleCompanionObject_getInstance;
+  _.$_$.e3 = FloatCompanionObject_getInstance;
+  _.$_$.f3 = IntCompanionObject_getInstance;
+  _.$_$.g3 = ShortCompanionObject_getInstance;
+  _.$_$.h3 = StringCompanionObject_getInstance;
+  _.$_$.i3 = PrimitiveClasses_getInstance;
+  _.$_$.j3 = Companion_getInstance_4;
+  _.$_$.k3 = Companion_getInstance_21;
+  _.$_$.l3 = Companion_getInstance_23;
+  _.$_$.m3 = Companion_getInstance_5;
+  _.$_$.n3 = Companion_getInstance_6;
+  _.$_$.o3 = Companion_getInstance_7;
+  _.$_$.p3 = Companion_getInstance_10;
+  _.$_$.q3 = Companion_getInstance_13;
+  _.$_$.r3 = Unit_getInstance;
+  _.$_$.s3 = ArrayList;
+  _.$_$.t3 = Collection;
+  _.$_$.u3 = Grouping;
+  _.$_$.v3 = HashMap;
+  _.$_$.w3 = HashSet;
+  _.$_$.x3 = Iterable_0;
+  _.$_$.y3 = Iterator_3;
+  _.$_$.z3 = LinkedHashMap;
+  _.$_$.a4 = LinkedHashSet;
+  _.$_$.b4 = List;
+  _.$_$.c4 = Entry;
+  _.$_$.d4 = Map;
+  _.$_$.e4 = MutableList;
+  _.$_$.f4 = MutableMap;
+  _.$_$.g4 = MutableSet;
+  _.$_$.h4 = Set;
+  _.$_$.i4 = arrayCopy;
+  _.$_$.j4 = asList_0;
+  _.$_$.k4 = collectionSizeOrDefault;
+  _.$_$.l4 = contentEquals_3;
+  _.$_$.m4 = contentHashCode;
+  _.$_$.n4 = copyOf_4;
+  _.$_$.o4 = copyOf_2;
+  _.$_$.p4 = copyOf_6;
+  _.$_$.q4 = copyOf;
+  _.$_$.r4 = copyOf_5;
+  _.$_$.s4 = copyOf_0;
+  _.$_$.t4 = copyOf_1;
+  _.$_$.u4 = copyOf_8;
+  _.$_$.v4 = copyOf_3;
+  _.$_$.w4 = copyToArray;
+  _.$_$.x4 = distinct;
+  _.$_$.y4 = emptyList;
+  _.$_$.z4 = emptyMap;
+  _.$_$.a5 = emptySet;
+  _.$_$.b5 = first;
+  _.$_$.c5 = getValue;
+  _.$_$.d5 = get_indices_0;
+  _.$_$.e5 = get_indices;
+  _.$_$.f5 = get_lastIndex_2;
+  _.$_$.g5 = get_lastIndex_6;
+  _.$_$.h5 = lastOrNull;
+  _.$_$.i5 = last;
+  _.$_$.j5 = listOf_0;
+  _.$_$.k5 = mapCapacity;
+  _.$_$.l5 = mapOf;
+  _.$_$.m5 = maxOrNull;
+  _.$_$.n5 = minus;
+  _.$_$.o5 = plus_1;
+  _.$_$.p5 = plus_0;
+  _.$_$.q5 = removeLast;
+  _.$_$.r5 = setOf_1;
+  _.$_$.s5 = setOf;
+  _.$_$.t5 = singleOrNull;
+  _.$_$.u5 = toBooleanArray;
+  _.$_$.v5 = toHashSet;
+  _.$_$.w5 = toList_0;
+  _.$_$.x5 = toList;
+  _.$_$.y5 = toMap_0;
+  _.$_$.z5 = toMap;
+  _.$_$.a6 = toSet_0;
+  _.$_$.b6 = withIndex;
+  _.$_$.c6 = zip;
+  _.$_$.d6 = CancellationException;
+  _.$_$.e6 = get_COROUTINE_SUSPENDED;
+  _.$_$.f6 = createCoroutineUnintercepted_0;
+  _.$_$.g6 = createCoroutineUnintercepted;
+  _.$_$.h6 = intercepted;
+  _.$_$.i6 = AbstractCoroutineContextElement;
+  _.$_$.j6 = AbstractCoroutineContextKey;
+  _.$_$.k6 = get_0;
+  _.$_$.l6 = minusKey_0;
+  _.$_$.m6 = ContinuationInterceptor;
+  _.$_$.n6 = Continuation;
+  _.$_$.o6 = fold;
+  _.$_$.p6 = get;
+  _.$_$.q6 = minusKey;
+  _.$_$.r6 = Element;
+  _.$_$.s6 = Key_0;
+  _.$_$.t6 = plus;
+  _.$_$.u6 = CoroutineImpl;
+  _.$_$.v6 = SuspendFunction1;
+  _.$_$.w6 = SuspendFunction2;
+  _.$_$.x6 = startCoroutine;
+  _.$_$.y6 = startCoroutine_0;
+  _.$_$.z6 = getProgressionLastElement_1;
+  _.$_$.a7 = anyToString;
+  _.$_$.b7 = arrayIterator;
+  _.$_$.c7 = booleanArray;
+  _.$_$.d7 = captureStack;
+  _.$_$.e7 = charArrayOf_0;
+  _.$_$.f7 = charArray;
+  _.$_$.g7 = charSequenceGet;
+  _.$_$.h7 = charSequenceLength;
+  _.$_$.i7 = charSequenceSubSequence;
+  _.$_$.j7 = classMeta;
+  _.$_$.k7 = equals_1;
+  _.$_$.l7 = fillArrayVal;
+  _.$_$.m7 = getNumberHashCode;
+  _.$_$.n7 = getPropertyCallableRef;
+  _.$_$.o7 = getStringHashCode;
+  _.$_$.p7 = hashCode_0;
+  _.$_$.q7 = interfaceMeta;
+  _.$_$.r7 = isArray;
+  _.$_$.s7 = isBooleanArray;
+  _.$_$.t7 = isByteArray;
+  _.$_$.u7 = isCharArray;
+  _.$_$.v7 = isDoubleArray;
+  _.$_$.w7 = isFloatArray;
+  _.$_$.x7 = isIntArray;
+  _.$_$.y7 = isInterface;
+  _.$_$.z7 = isLongArray;
+  _.$_$.a8 = isObject;
+  _.$_$.b8 = isShortArray;
+  _.$_$.c8 = get_js;
+  _.$_$.d8 = longArray;
+  _.$_$.e8 = numberRangeToNumber;
+  _.$_$.f8 = numberToChar;
+  _.$_$.g8 = numberToInt;
+  _.$_$.h8 = objectMeta;
+  _.$_$.i8 = toByte;
+  _.$_$.j8 = toLong_0;
+  _.$_$.k8 = toShort;
+  _.$_$.l8 = toString_2;
+  _.$_$.m8 = get_PI;
+  _.$_$.n8 = roundToInt;
+  _.$_$.o8 = coerceAtLeast;
+  _.$_$.p8 = coerceAtMost;
+  _.$_$.q8 = coerceIn_0;
+  _.$_$.r8 = coerceIn_1;
+  _.$_$.s8 = coerceIn;
+  _.$_$.t8 = step;
+  _.$_$.u8 = until;
+  _.$_$.v8 = KClass;
+  _.$_$.w8 = KMutableProperty1;
+  _.$_$.x8 = KProperty0;
+  _.$_$.y8 = KProperty1;
+  _.$_$.z8 = KTypeParameter;
+  _.$_$.a9 = SequenceScope;
+  _.$_$.b9 = sequence;
+  _.$_$.c9 = endsWith_0;
+  _.$_$.d9 = equals_0;
+  _.$_$.e9 = isBlank;
+  _.$_$.f9 = isLowerCase;
+  _.$_$.g9 = repeat_0;
+  _.$_$.h9 = single_2;
+  _.$_$.i9 = startsWith_0;
+  _.$_$.j9 = substring;
+  _.$_$.k9 = titlecase;
+  _.$_$.l9 = toDoubleOrNull;
+  _.$_$.m9 = toDouble;
+  _.$_$.n9 = toIntOrNull;
+  _.$_$.o9 = toInt;
+  _.$_$.p9 = toInt_0;
+  _.$_$.q9 = toLongOrNull;
+  _.$_$.r9 = toLong;
+  _.$_$.s9 = toUByte_3;
+  _.$_$.t9 = toUInt_5;
+  _.$_$.u9 = toULongOrNull;
+  _.$_$.v9 = toULong_5;
+  _.$_$.w9 = toUShort_2;
+  _.$_$.x9 = trimIndent;
+  _.$_$.y9 = uppercaseChar;
+  _.$_$.z9 = Duration;
+  _.$_$.aa = Annotation;
+  _.$_$.ba = Char_0;
+  _.$_$.ca = DeepRecursiveFunction;
+  _.$_$.da = DeepRecursiveScope;
+  _.$_$.ea = Enum;
+  _.$_$.fa = Error_0;
+  _.$_$.ga = IllegalArgumentException;
+  _.$_$.ha = Long;
+  _.$_$.ia = Pair;
+  _.$_$.ja = RuntimeException;
+  _.$_$.ka = THROW_CCE;
+  _.$_$.la = THROW_ISE;
+  _.$_$.ma = Triple;
+  _.$_$.na = UByte;
+  _.$_$.oa = UInt;
+  _.$_$.pa = ULong;
+  _.$_$.qa = UShort;
+  _.$_$.ra = Unit;
+  _.$_$.sa = UnsupportedOperationException;
+  _.$_$.ta = arrayOf;
+  _.$_$.ua = countTrailingZeroBits;
+  _.$_$.va = createFailure;
+  _.$_$.wa = ensureNotNull;
+  _.$_$.xa = invoke;
+  _.$_$.ya = isFinite_0;
+  _.$_$.za = isFinite;
+  _.$_$.ab = lazy;
+  _.$_$.bb = lazy_0;
+  _.$_$.cb = noWhenBranchMatchedException;
+  _.$_$.db = plus_3;
+  _.$_$.eb = throwUninitializedPropertyAccessException;
+  _.$_$.fb = toString_1;
+  _.$_$.gb = to;
+  _.$_$.hb = asList;
   //endregion
   return _;
 }));
