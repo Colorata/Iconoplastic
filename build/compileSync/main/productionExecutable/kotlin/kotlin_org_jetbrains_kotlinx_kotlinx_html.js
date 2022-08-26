@@ -13,45 +13,45 @@
   'use strict';
   //region block: imports
   var imul = Math.imul;
-  var interfaceMeta = kotlin_kotlin.$_$.t6;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.i1;
-  var Unit_getInstance = kotlin_kotlin.$_$.d3;
-  var getProgressionLastElement = kotlin_kotlin.$_$.d6;
+  var interfaceMeta = kotlin_kotlin.$_$.q5;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.f1;
+  var Unit_getInstance = kotlin_kotlin.$_$.t2;
+  var getProgressionLastElement = kotlin_kotlin.$_$.b5;
   var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.w;
-  var setOf = kotlin_kotlin.$_$.y4;
-  var THROW_CCE = kotlin_kotlin.$_$.z8;
-  var getStringHashCode = kotlin_kotlin.$_$.r6;
-  var Map = kotlin_kotlin.$_$.o3;
-  var Entry = kotlin_kotlin.$_$.n3;
-  var classMeta = kotlin_kotlin.$_$.n6;
-  var emptyMap = kotlin_kotlin.$_$.j4;
-  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.k1;
-  var objectMeta = kotlin_kotlin.$_$.i7;
+  var setOf = kotlin_kotlin.$_$.n4;
+  var THROW_CCE = kotlin_kotlin.$_$.u7;
+  var getStringHashCode = kotlin_kotlin.$_$.o5;
+  var Map = kotlin_kotlin.$_$.e3;
+  var Entry = kotlin_kotlin.$_$.d3;
+  var classMeta = kotlin_kotlin.$_$.k5;
+  var emptyMap = kotlin_kotlin.$_$.y3;
+  var IllegalStateException_init_$Create$ = kotlin_kotlin.$_$.h1;
+  var objectMeta = kotlin_kotlin.$_$.f6;
   var joinToString$default = kotlin_kotlin.$_$.g;
-  var Set = kotlin_kotlin.$_$.s3;
-  var isInterface = kotlin_kotlin.$_$.b7;
-  var ensureNotNull = kotlin_kotlin.$_$.k9;
-  var emptySet = kotlin_kotlin.$_$.k4;
-  var Regex_init_$Create$ = kotlin_kotlin.$_$.c1;
+  var Set = kotlin_kotlin.$_$.i3;
+  var isInterface = kotlin_kotlin.$_$.y5;
+  var ensureNotNull = kotlin_kotlin.$_$.e8;
+  var emptySet = kotlin_kotlin.$_$.z3;
+  var Regex_init_$Create$ = kotlin_kotlin.$_$.a1;
   var ArrayList_init_$Create$ = kotlin_kotlin.$_$.n;
-  var charSequenceLength = kotlin_kotlin.$_$.l6;
-  var toSet = kotlin_kotlin.$_$.h5;
+  var charSequenceLength = kotlin_kotlin.$_$.i5;
+  var toSet = kotlin_kotlin.$_$.w4;
   var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.x;
-  var MutableMap = kotlin_kotlin.$_$.q3;
-  var Enum = kotlin_kotlin.$_$.t8;
-  var mapCapacity = kotlin_kotlin.$_$.s4;
-  var coerceAtLeast = kotlin_kotlin.$_$.n7;
+  var MutableMap = kotlin_kotlin.$_$.g3;
+  var Enum = kotlin_kotlin.$_$.q7;
+  var mapCapacity = kotlin_kotlin.$_$.h4;
+  var coerceAtLeast = kotlin_kotlin.$_$.k6;
   var LinkedHashMap_init_$Create$_1 = kotlin_kotlin.$_$.v;
-  var last = kotlin_kotlin.$_$.r4;
-  var get_lastIndex = kotlin_kotlin.$_$.p4;
-  var toString = kotlin_kotlin.$_$.m7;
+  var last = kotlin_kotlin.$_$.g4;
+  var get_lastIndex = kotlin_kotlin.$_$.e4;
+  var toString = kotlin_kotlin.$_$.j6;
   //endregion
   //region block: pre-declaration
   function unaryPlus(_this__u8e3s4) {
-    this.gj(_this__u8e3s4);
+    this.xh(_this__u8e3s4);
   }
   function text(s) {
-    this.bj().hj(s);
+    this.sh().yh(s);
   }
   function onTagError(tag, exception) {
     throw exception;
@@ -67,7 +67,7 @@
   EnumAttribute.prototype = Object.create(Attribute.prototype);
   EnumAttribute.prototype.constructor = EnumAttribute;
   function empty(attributeName, tag) {
-    throw IllegalStateException_init_$Create$('Attribute ' + attributeName + ' is not yet defined for tag ' + tag.aj());
+    throw IllegalStateException_init_$Create$('Attribute ' + attributeName + ' is not yet defined for tag ' + tag.rh());
   }
   ButtonFormEncType.prototype = Object.create(Enum.prototype);
   ButtonFormEncType.prototype.constructor = ButtonFormEncType;
@@ -113,8 +113,6 @@
   IMG.prototype.constructor = IMG;
   SPAN.prototype = Object.create(HTMLTag.prototype);
   SPAN.prototype.constructor = SPAN;
-  STYLE.prototype = Object.create(HTMLTag.prototype);
-  STYLE.prototype.constructor = STYLE;
   //endregion
   function get_emptyMap() {
     init_properties_api_kt_ywlw3q();
@@ -134,27 +132,27 @@
     init_properties_api_kt_ywlw3q();
     var tmp$ret$0;
     {
-      if (!(_this__u8e3s4.bj() === consumer)) {
+      if (!(_this__u8e3s4.sh() === consumer)) {
         throw IllegalArgumentException_init_$Create$('Wrong exception');
       }
       {
-        _this__u8e3s4.bj().ij(_this__u8e3s4);
+        _this__u8e3s4.sh().zh(_this__u8e3s4);
         try {
           {
             block(_this__u8e3s4);
           }
         } catch ($p) {
           if ($p instanceof Error) {
-            _this__u8e3s4.bj().mj(_this__u8e3s4, $p);
+            _this__u8e3s4.sh().di(_this__u8e3s4, $p);
           } else {
             throw $p;
           }
         }
         finally {
-          _this__u8e3s4.bj().lj(_this__u8e3s4);
+          _this__u8e3s4.sh().ci(_this__u8e3s4);
         }
       }
-      tmp$ret$0 = consumer.nj();
+      tmp$ret$0 = consumer.ei();
     }
     return tmp$ret$0;
   }
@@ -165,21 +163,21 @@
   }
   function visit(_this__u8e3s4, block) {
     init_properties_api_kt_ywlw3q();
-    _this__u8e3s4.bj().ij(_this__u8e3s4);
+    _this__u8e3s4.sh().zh(_this__u8e3s4);
     var tmp;
     try {
       tmp = block(_this__u8e3s4);
     } catch ($p) {
       var tmp_0;
       if ($p instanceof Error) {
-        tmp_0 = _this__u8e3s4.bj().mj(_this__u8e3s4, $p);
+        tmp_0 = _this__u8e3s4.sh().di(_this__u8e3s4, $p);
       } else {
         throw $p;
       }
       tmp = tmp_0;
     }
     finally {
-      _this__u8e3s4.bj().lj(_this__u8e3s4);
+      _this__u8e3s4.sh().ci(_this__u8e3s4);
     }
     return tmp;
   }
@@ -215,49 +213,49 @@
     return new SingletonStringMap(key, value);
   }
   function SingletonStringMap(key, value) {
-    this.oj_1 = key;
-    this.pj_1 = value;
+    this.fi_1 = key;
+    this.gi_1 = value;
   }
-  SingletonStringMap.prototype.p1 = function () {
-    return this.oj_1;
+  SingletonStringMap.prototype.q1 = function () {
+    return this.fi_1;
   };
-  SingletonStringMap.prototype.r1 = function () {
-    return this.pj_1;
+  SingletonStringMap.prototype.s1 = function () {
+    return this.gi_1;
   };
-  SingletonStringMap.prototype.o = function () {
+  SingletonStringMap.prototype.q = function () {
     return setOf(this);
   };
-  SingletonStringMap.prototype.c2 = function () {
-    return setOf(this.oj_1);
+  SingletonStringMap.prototype.d2 = function () {
+    return setOf(this.fi_1);
   };
   SingletonStringMap.prototype.g = function () {
     return 1;
   };
-  SingletonStringMap.prototype.qj = function (key) {
-    return key === this.oj_1;
+  SingletonStringMap.prototype.hi = function (key) {
+    return key === this.fi_1;
   };
-  SingletonStringMap.prototype.y1 = function (key) {
+  SingletonStringMap.prototype.z1 = function (key) {
     if (!(!(key == null) ? typeof key === 'string' : false))
       return false;
-    return this.qj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+    return this.hi((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
   };
-  SingletonStringMap.prototype.rj = function (key) {
-    return key === this.oj_1 ? this.pj_1 : null;
+  SingletonStringMap.prototype.ii = function (key) {
+    return key === this.fi_1 ? this.gi_1 : null;
   };
-  SingletonStringMap.prototype.b2 = function (key) {
+  SingletonStringMap.prototype.c2 = function (key) {
     if (!(!(key == null) ? typeof key === 'string' : false))
       return null;
-    return this.rj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+    return this.ii((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
   };
-  SingletonStringMap.prototype.i = function () {
+  SingletonStringMap.prototype.k = function () {
     return false;
   };
   SingletonStringMap.prototype.toString = function () {
-    return 'SingletonStringMap(key=' + this.oj_1 + ', value=' + this.pj_1 + ')';
+    return 'SingletonStringMap(key=' + this.fi_1 + ', value=' + this.gi_1 + ')';
   };
   SingletonStringMap.prototype.hashCode = function () {
-    var result = getStringHashCode(this.oj_1);
-    result = imul(result, 31) + getStringHashCode(this.pj_1) | 0;
+    var result = getStringHashCode(this.fi_1);
+    result = imul(result, 31) + getStringHashCode(this.gi_1) | 0;
     return result;
   };
   SingletonStringMap.prototype.equals = function (other) {
@@ -266,9 +264,9 @@
     if (!(other instanceof SingletonStringMap))
       return false;
     var tmp0_other_with_cast = other instanceof SingletonStringMap ? other : THROW_CCE();
-    if (!(this.oj_1 === tmp0_other_with_cast.oj_1))
+    if (!(this.fi_1 === tmp0_other_with_cast.fi_1))
       return false;
-    if (!(this.pj_1 === tmp0_other_with_cast.pj_1))
+    if (!(this.gi_1 === tmp0_other_with_cast.gi_1))
       return false;
     return true;
   };
@@ -282,13 +280,13 @@
     }
   }
   function Attribute(encoder) {
-    this.sj_1 = encoder;
+    this.ji_1 = encoder;
   }
-  Attribute.prototype.tj = function () {
-    return this.sj_1;
+  Attribute.prototype.ki = function () {
+    return this.ji_1;
   };
-  Attribute.prototype.uj = function (thisRef, attributeName) {
-    var tmp0_safe_receiver = thisRef.dj().b2(attributeName);
+  Attribute.prototype.li = function (thisRef, attributeName) {
+    var tmp0_safe_receiver = thisRef.uh().c2(attributeName);
     var tmp;
     if (tmp0_safe_receiver == null) {
       tmp = null;
@@ -299,17 +297,17 @@
         }
         var tmp$ret$0;
         {
-          tmp$ret$0 = this.sj_1.vj(attributeName, tmp0_safe_receiver);
+          tmp$ret$0 = this.ji_1.mi(attributeName, tmp0_safe_receiver);
         }
         tmp$ret$1 = tmp$ret$0;
       }
       tmp = tmp$ret$1;
     }
     var tmp1_elvis_lhs = tmp;
-    return tmp1_elvis_lhs == null ? this.sj_1.wj(attributeName, thisRef) : tmp1_elvis_lhs;
+    return tmp1_elvis_lhs == null ? this.ji_1.ni(attributeName, thisRef) : tmp1_elvis_lhs;
   };
-  Attribute.prototype.xj = function (thisRef, attributeName, value) {
-    thisRef.dj().a(attributeName, this.sj_1.yj(attributeName, value));
+  Attribute.prototype.oi = function (thisRef, attributeName, value) {
+    thisRef.uh().a(attributeName, this.ji_1.pi(attributeName, value));
   };
   Attribute.$metadata$ = classMeta('Attribute');
   function StringAttribute() {
@@ -338,20 +336,20 @@
   function TickerAttribute() {
     Attribute.call(this, TickerEncoder_getInstance());
   }
-  TickerAttribute.prototype.ak = function (thisRef, attributeName, value) {
+  TickerAttribute.prototype.ri = function (thisRef, attributeName, value) {
     if (value) {
-      thisRef.dj().a(attributeName, attributeName);
+      thisRef.uh().a(attributeName, attributeName);
     } else {
-      thisRef.dj().eb(attributeName);
+      thisRef.uh().ra(attributeName);
     }
   };
-  TickerAttribute.prototype.xj = function (thisRef, attributeName, value) {
-    return this.ak(thisRef, attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
+  TickerAttribute.prototype.oi = function (thisRef, attributeName, value) {
+    return this.ri(thisRef, attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
   };
   TickerAttribute.$metadata$ = classMeta('TickerAttribute', undefined, undefined, undefined, undefined, Attribute.prototype);
   function EnumAttribute(values) {
     Attribute.call(this, new EnumEncoder(values));
-    this.ck_1 = values;
+    this.ti_1 = values;
   }
   EnumAttribute.$metadata$ = classMeta('EnumAttribute', undefined, undefined, undefined, undefined, Attribute.prototype);
   function AttributeEncoder() {
@@ -360,13 +358,13 @@
   function StringEncoder() {
     StringEncoder_instance = this;
   }
-  StringEncoder.prototype.dk = function (attributeName, value) {
+  StringEncoder.prototype.ui = function (attributeName, value) {
     return value;
   };
-  StringEncoder.prototype.yj = function (attributeName, value) {
-    return this.dk(attributeName, (!(value == null) ? typeof value === 'string' : false) ? value : THROW_CCE());
+  StringEncoder.prototype.pi = function (attributeName, value) {
+    return this.ui(attributeName, (!(value == null) ? typeof value === 'string' : false) ? value : THROW_CCE());
   };
-  StringEncoder.prototype.vj = function (attributeName, value) {
+  StringEncoder.prototype.mi = function (attributeName, value) {
     return value;
   };
   StringEncoder.$metadata$ = objectMeta('StringEncoder', [AttributeEncoder]);
@@ -379,16 +377,16 @@
   function StringSetEncoder() {
     StringSetEncoder_instance = this;
   }
-  StringSetEncoder.prototype.ek = function (attributeName, value) {
+  StringSetEncoder.prototype.vi = function (attributeName, value) {
     return joinToString$default(value, ' ', null, null, 0, null, null, 62, null);
   };
-  StringSetEncoder.prototype.yj = function (attributeName, value) {
-    return this.ek(attributeName, (!(value == null) ? isInterface(value, Set) : false) ? value : THROW_CCE());
+  StringSetEncoder.prototype.pi = function (attributeName, value) {
+    return this.vi(attributeName, (!(value == null) ? isInterface(value, Set) : false) ? value : THROW_CCE());
   };
-  StringSetEncoder.prototype.vj = function (attributeName, value) {
+  StringSetEncoder.prototype.mi = function (attributeName, value) {
     return ensureNotNull(stringSetDecode(value));
   };
-  StringSetEncoder.prototype.wj = function (attributeName, tag) {
+  StringSetEncoder.prototype.ni = function (attributeName, tag) {
     return emptySet();
   };
   StringSetEncoder.$metadata$ = objectMeta('StringSetEncoder', [AttributeEncoder]);
@@ -399,21 +397,21 @@
     return StringSetEncoder_instance;
   }
   function BooleanEncoder(trueValue, falseValue) {
-    this.fk_1 = trueValue;
-    this.gk_1 = falseValue;
+    this.wi_1 = trueValue;
+    this.xi_1 = falseValue;
   }
-  BooleanEncoder.prototype.hk = function (attributeName, value) {
-    return value ? this.fk_1 : this.gk_1;
+  BooleanEncoder.prototype.yi = function (attributeName, value) {
+    return value ? this.wi_1 : this.xi_1;
   };
-  BooleanEncoder.prototype.yj = function (attributeName, value) {
-    return this.hk(attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
+  BooleanEncoder.prototype.pi = function (attributeName, value) {
+    return this.yi(attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
   };
-  BooleanEncoder.prototype.vj = function (attributeName, value) {
+  BooleanEncoder.prototype.mi = function (attributeName, value) {
     var tmp0_subject = value;
     var tmp;
-    if (tmp0_subject === this.fk_1) {
+    if (tmp0_subject === this.wi_1) {
       tmp = true;
-    } else if (tmp0_subject === this.gk_1) {
+    } else if (tmp0_subject === this.xi_1) {
       tmp = false;
     } else {
       throw IllegalArgumentException_init_$Create$('Unknown value ' + value + ' for ' + attributeName);
@@ -424,13 +422,13 @@
   function TickerEncoder() {
     TickerEncoder_instance = this;
   }
-  TickerEncoder.prototype.hk = function (attributeName, value) {
+  TickerEncoder.prototype.yi = function (attributeName, value) {
     return tickerEncode(value, attributeName);
   };
-  TickerEncoder.prototype.yj = function (attributeName, value) {
-    return this.hk(attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
+  TickerEncoder.prototype.pi = function (attributeName, value) {
+    return this.yi(attributeName, (!(value == null) ? typeof value === 'boolean' : false) ? value : THROW_CCE());
   };
-  TickerEncoder.prototype.vj = function (attributeName, value) {
+  TickerEncoder.prototype.mi = function (attributeName, value) {
     return value === attributeName;
   };
   TickerEncoder.$metadata$ = objectMeta('TickerEncoder', [AttributeEncoder]);
@@ -441,13 +439,13 @@
     return TickerEncoder_instance;
   }
   function EnumEncoder(valuesMap) {
-    this.ik_1 = valuesMap;
+    this.zi_1 = valuesMap;
   }
-  EnumEncoder.prototype.yj = function (attributeName, value) {
-    return value.zi();
+  EnumEncoder.prototype.pi = function (attributeName, value) {
+    return value.qh();
   };
-  EnumEncoder.prototype.vj = function (attributeName, value) {
-    var tmp0_elvis_lhs = this.ik_1.b2(value);
+  EnumEncoder.prototype.mi = function (attributeName, value) {
+    var tmp0_elvis_lhs = this.zi_1.c2(value);
     var tmp;
     if (tmp0_elvis_lhs == null) {
       throw IllegalArgumentException_init_$Create$('Unknown value ' + value + ' for ' + attributeName);
@@ -470,7 +468,7 @@
           tmp$ret$0 = Regex_init_$Create$('\\s+');
         }
         var tmp0_split = tmp$ret$0;
-        tmp$ret$1 = tmp0_split.c5(tmp0_safe_receiver, 0);
+        tmp$ret$1 = tmp0_split.p4(tmp0_safe_receiver, 0);
       }
       tmp = tmp$ret$1;
     }
@@ -512,63 +510,63 @@
     return _this__u8e3s4 ? attributeName : '';
   }
   function enumEncode(_this__u8e3s4) {
-    return _this__u8e3s4.zi();
+    return _this__u8e3s4.qh();
   }
   function switchToMutable($this) {
     var tmp;
-    if ($this.mk_1) {
-      tmp = $this.lk_1;
+    if ($this.dj_1) {
+      tmp = $this.cj_1;
     } else {
-      $this.mk_1 = true;
-      $this.lk_1 = LinkedHashMap_init_$Create$_0($this.lk_1);
-      tmp = $this.lk_1;
+      $this.dj_1 = true;
+      $this.cj_1 = LinkedHashMap_init_$Create$_0($this.cj_1);
+      tmp = $this.cj_1;
     }
     var tmp_0 = tmp;
     return isInterface(tmp_0, MutableMap) ? tmp_0 : THROW_CCE();
   }
   function DelegatingMap(initialValues, tag, consumer) {
-    this.jk_1 = tag;
-    this.kk_1 = consumer;
-    this.lk_1 = initialValues;
-    this.mk_1 = false;
+    this.aj_1 = tag;
+    this.bj_1 = consumer;
+    this.cj_1 = initialValues;
+    this.dj_1 = false;
   }
   DelegatingMap.prototype.g = function () {
-    return this.lk_1.g();
+    return this.cj_1.g();
   };
-  DelegatingMap.prototype.i = function () {
-    return this.lk_1.i();
+  DelegatingMap.prototype.k = function () {
+    return this.cj_1.k();
   };
-  DelegatingMap.prototype.qj = function (key) {
-    return this.lk_1.y1(key);
+  DelegatingMap.prototype.hi = function (key) {
+    return this.cj_1.z1(key);
   };
-  DelegatingMap.prototype.y1 = function (key) {
+  DelegatingMap.prototype.z1 = function (key) {
     if (!(!(key == null) ? typeof key === 'string' : false))
       return false;
-    return this.qj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+    return this.hi((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
   };
-  DelegatingMap.prototype.rj = function (key) {
-    return this.lk_1.b2(key);
+  DelegatingMap.prototype.ii = function (key) {
+    return this.cj_1.c2(key);
   };
-  DelegatingMap.prototype.b2 = function (key) {
+  DelegatingMap.prototype.c2 = function (key) {
     if (!(!(key == null) ? typeof key === 'string' : false))
       return null;
-    return this.rj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+    return this.ii((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
   };
-  DelegatingMap.prototype.nk = function (key, value) {
+  DelegatingMap.prototype.ej = function (key, value) {
     var mutable = switchToMutable(this);
     var old = mutable.a(key, value);
     if (!(old === value)) {
-      this.kk_1().jj(this.jk_1, key, value);
+      this.bj_1().ai(this.aj_1, key, value);
     }
     return old;
   };
   DelegatingMap.prototype.a = function (key, value) {
     var tmp = (!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE();
-    return this.nk(tmp, (!(value == null) ? typeof value === 'string' : false) ? value : THROW_CCE());
+    return this.ej(tmp, (!(value == null) ? typeof value === 'string' : false) ? value : THROW_CCE());
   };
-  DelegatingMap.prototype.ok = function (key) {
+  DelegatingMap.prototype.fj = function (key) {
     var mutable = switchToMutable(this);
-    var tmp0_safe_receiver = mutable.eb(key);
+    var tmp0_safe_receiver = mutable.ra(key);
     var tmp;
     if (tmp0_safe_receiver == null) {
       tmp = null;
@@ -579,7 +577,7 @@
         }
         var tmp$ret$0;
         {
-          this.kk_1().jj(this.jk_1, key, null);
+          this.bj_1().ai(this.aj_1, key, null);
           tmp$ret$0 = tmp0_safe_receiver;
         }
         tmp$ret$1 = tmp$ret$0;
@@ -588,55 +586,55 @@
     }
     return tmp;
   };
-  DelegatingMap.prototype.eb = function (key) {
+  DelegatingMap.prototype.ra = function (key) {
     if (!(!(key == null) ? typeof key === 'string' : false))
       return null;
-    return this.ok((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+    return this.fj((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
   };
-  DelegatingMap.prototype.pk = function () {
-    return this.lk_1.o();
+  DelegatingMap.prototype.gj = function () {
+    return this.cj_1.q();
   };
-  DelegatingMap.prototype.c2 = function () {
-    return switchToMutable(this).c2();
+  DelegatingMap.prototype.d2 = function () {
+    return switchToMutable(this).d2();
   };
-  DelegatingMap.prototype.o = function () {
-    return switchToMutable(this).o();
+  DelegatingMap.prototype.q = function () {
+    return switchToMutable(this).q();
   };
   DelegatingMap.$metadata$ = classMeta('DelegatingMap', [MutableMap]);
   function onFinalize(_this__u8e3s4, block) {
     return new FinalizeConsumer(_this__u8e3s4, onFinalize$lambda(block));
   }
   function FinalizeConsumer(downstream, block) {
-    this.qk_1 = downstream;
-    this.rk_1 = block;
-    this.sk_1 = 0;
+    this.hj_1 = downstream;
+    this.ij_1 = block;
+    this.jj_1 = 0;
   }
-  FinalizeConsumer.prototype.ij = function (tag) {
-    this.qk_1.ij(tag);
+  FinalizeConsumer.prototype.zh = function (tag) {
+    this.hj_1.zh(tag);
     var tmp0_this = this;
-    var tmp1 = tmp0_this.sk_1;
-    tmp0_this.sk_1 = tmp1 + 1 | 0;
+    var tmp1 = tmp0_this.jj_1;
+    tmp0_this.jj_1 = tmp1 + 1 | 0;
   };
-  FinalizeConsumer.prototype.lj = function (tag) {
-    this.qk_1.lj(tag);
+  FinalizeConsumer.prototype.ci = function (tag) {
+    this.hj_1.ci(tag);
     var tmp0_this = this;
-    var tmp1 = tmp0_this.sk_1;
-    tmp0_this.sk_1 = tmp1 - 1 | 0;
+    var tmp1 = tmp0_this.jj_1;
+    tmp0_this.jj_1 = tmp1 - 1 | 0;
   };
-  FinalizeConsumer.prototype.jj = function (tag, attribute, value) {
-    return this.qk_1.jj(tag, attribute, value);
+  FinalizeConsumer.prototype.ai = function (tag, attribute, value) {
+    return this.hj_1.ai(tag, attribute, value);
   };
-  FinalizeConsumer.prototype.kj = function (tag, event, value) {
-    return this.qk_1.kj(tag, event, value);
+  FinalizeConsumer.prototype.bi = function (tag, event, value) {
+    return this.hj_1.bi(tag, event, value);
   };
-  FinalizeConsumer.prototype.hj = function (content) {
-    return this.qk_1.hj(content);
+  FinalizeConsumer.prototype.yh = function (content) {
+    return this.hj_1.yh(content);
   };
-  FinalizeConsumer.prototype.mj = function (tag, exception) {
-    return this.qk_1.mj(tag, exception);
+  FinalizeConsumer.prototype.di = function (tag, exception) {
+    return this.hj_1.di(tag, exception);
   };
-  FinalizeConsumer.prototype.nj = function () {
-    return this.rk_1(this.qk_1.nj(), this.sk_1 > 0);
+  FinalizeConsumer.prototype.ei = function () {
+    return this.ij_1(this.hj_1.ei(), this.jj_1 > 0);
   };
   FinalizeConsumer.$metadata$ = classMeta('FinalizeConsumer', [TagConsumer]);
   function onFinalize$lambda($block) {
@@ -646,10 +644,10 @@
     };
   }
   function set_id(_this__u8e3s4, newValue) {
-    get_attributeStringString().xj(_this__u8e3s4, 'id', newValue);
+    get_attributeStringString().oi(_this__u8e3s4, 'id', newValue);
   }
   function get_id(_this__u8e3s4) {
-    return get_attributeStringString().uj(_this__u8e3s4, 'id');
+    return get_attributeStringString().li(_this__u8e3s4, 'id');
   }
   function CommonAttributeGroupFacade() {
   }
@@ -713,27 +711,27 @@
       var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', classes), _this__u8e3s4);
       var tmp$ret$0;
       {
-        if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
+        if (!(tmp0_visitAndFinalize.sh() === _this__u8e3s4)) {
           throw IllegalArgumentException_init_$Create$('Wrong exception');
         }
         {
-          tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
+          tmp0_visitAndFinalize.sh().zh(tmp0_visitAndFinalize);
           try {
             {
               block(tmp0_visitAndFinalize);
             }
           } catch ($p) {
             if ($p instanceof Error) {
-              tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
+              tmp0_visitAndFinalize.sh().di(tmp0_visitAndFinalize, $p);
             } else {
               throw $p;
             }
           }
           finally {
-            tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
+            tmp0_visitAndFinalize.sh().ci(tmp0_visitAndFinalize);
           }
         }
-        tmp$ret$0 = _this__u8e3s4.nj();
+        tmp$ret$0 = _this__u8e3s4.ei();
       }
       tmp$ret$1 = tmp$ret$0;
     }
@@ -745,59 +743,27 @@
       var tmp0_visitAndFinalize = new FOOTER(attributesMapOf('class', classes), _this__u8e3s4);
       var tmp$ret$0;
       {
-        if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
+        if (!(tmp0_visitAndFinalize.sh() === _this__u8e3s4)) {
           throw IllegalArgumentException_init_$Create$('Wrong exception');
         }
         {
-          tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
+          tmp0_visitAndFinalize.sh().zh(tmp0_visitAndFinalize);
           try {
             {
               block(tmp0_visitAndFinalize);
             }
           } catch ($p) {
             if ($p instanceof Error) {
-              tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
+              tmp0_visitAndFinalize.sh().di(tmp0_visitAndFinalize, $p);
             } else {
               throw $p;
             }
           }
           finally {
-            tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
+            tmp0_visitAndFinalize.sh().ci(tmp0_visitAndFinalize);
           }
         }
-        tmp$ret$0 = _this__u8e3s4.nj();
-      }
-      tmp$ret$1 = tmp$ret$0;
-    }
-    return tmp$ret$1;
-  }
-  function style(_this__u8e3s4, type, block) {
-    var tmp$ret$1;
-    {
-      var tmp0_visitAndFinalize = new STYLE(attributesMapOf('type', type), _this__u8e3s4);
-      var tmp$ret$0;
-      {
-        if (!(tmp0_visitAndFinalize.bj() === _this__u8e3s4)) {
-          throw IllegalArgumentException_init_$Create$('Wrong exception');
-        }
-        {
-          tmp0_visitAndFinalize.bj().ij(tmp0_visitAndFinalize);
-          try {
-            {
-              block(tmp0_visitAndFinalize);
-            }
-          } catch ($p) {
-            if ($p instanceof Error) {
-              tmp0_visitAndFinalize.bj().mj(tmp0_visitAndFinalize, $p);
-            } else {
-              throw $p;
-            }
-          }
-          finally {
-            tmp0_visitAndFinalize.bj().lj(tmp0_visitAndFinalize);
-          }
-        }
-        tmp$ret$0 = _this__u8e3s4.nj();
+        tmp$ret$0 = _this__u8e3s4.ei();
       }
       tmp$ret$1 = tmp$ret$0;
     }
@@ -901,10 +867,10 @@
   }
   function ButtonFormEncType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.vk_1 = realValue;
+    this.mj_1 = realValue;
   }
-  ButtonFormEncType.prototype.zi = function () {
-    return this.vk_1;
+  ButtonFormEncType.prototype.qh = function () {
+    return this.mj_1;
   };
   ButtonFormEncType.$metadata$ = classMeta('ButtonFormEncType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var ButtonFormMethod_get_instance;
@@ -928,10 +894,10 @@
   }
   function ButtonFormMethod(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.yk_1 = realValue;
+    this.pj_1 = realValue;
   }
-  ButtonFormMethod.prototype.zi = function () {
-    return this.yk_1;
+  ButtonFormMethod.prototype.qh = function () {
+    return this.pj_1;
   };
   ButtonFormMethod.$metadata$ = classMeta('ButtonFormMethod', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var ButtonType_button_instance;
@@ -951,10 +917,10 @@
   }
   function ButtonType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.bl_1 = realValue;
+    this.sj_1 = realValue;
   }
-  ButtonType.prototype.zi = function () {
-    return this.bl_1;
+  ButtonType.prototype.qh = function () {
+    return this.sj_1;
   };
   ButtonType.$metadata$ = classMeta('ButtonType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var CommandType_command_instance;
@@ -974,10 +940,10 @@
   }
   function CommandType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.el_1 = realValue;
+    this.vj_1 = realValue;
   }
-  CommandType.prototype.zi = function () {
-    return this.el_1;
+  CommandType.prototype.qh = function () {
+    return this.vj_1;
   };
   CommandType.$metadata$ = classMeta('CommandType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var Dir_ltr_instance;
@@ -995,10 +961,10 @@
   }
   function Dir(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.hl_1 = realValue;
+    this.yj_1 = realValue;
   }
-  Dir.prototype.zi = function () {
-    return this.hl_1;
+  Dir.prototype.qh = function () {
+    return this.yj_1;
   };
   Dir.$metadata$ = classMeta('Dir', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var Draggable_htmlTrue_instance;
@@ -1018,10 +984,10 @@
   }
   function Draggable(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.kl_1 = realValue;
+    this.bk_1 = realValue;
   }
-  Draggable.prototype.zi = function () {
-    return this.kl_1;
+  Draggable.prototype.qh = function () {
+    return this.bk_1;
   };
   Draggable.$metadata$ = classMeta('Draggable', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var FormEncType_multipartFormData_instance;
@@ -1041,10 +1007,10 @@
   }
   function FormEncType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.nl_1 = realValue;
+    this.ek_1 = realValue;
   }
-  FormEncType.prototype.zi = function () {
-    return this.nl_1;
+  FormEncType.prototype.qh = function () {
+    return this.ek_1;
   };
   FormEncType.$metadata$ = classMeta('FormEncType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var FormMethod_get_instance;
@@ -1068,10 +1034,10 @@
   }
   function FormMethod(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.ql_1 = realValue;
+    this.hk_1 = realValue;
   }
-  FormMethod.prototype.zi = function () {
-    return this.ql_1;
+  FormMethod.prototype.qh = function () {
+    return this.hk_1;
   };
   FormMethod.$metadata$ = classMeta('FormMethod', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var IframeSandbox_allowSameOrigin_instance;
@@ -1091,10 +1057,10 @@
   }
   function IframeSandbox(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.tl_1 = realValue;
+    this.kk_1 = realValue;
   }
-  IframeSandbox.prototype.zi = function () {
-    return this.tl_1;
+  IframeSandbox.prototype.qh = function () {
+    return this.kk_1;
   };
   IframeSandbox.$metadata$ = classMeta('IframeSandbox', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var InputFormEncType_multipartFormData_instance;
@@ -1114,10 +1080,10 @@
   }
   function InputFormEncType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.wl_1 = realValue;
+    this.nk_1 = realValue;
   }
-  InputFormEncType.prototype.zi = function () {
-    return this.wl_1;
+  InputFormEncType.prototype.qh = function () {
+    return this.nk_1;
   };
   InputFormEncType.$metadata$ = classMeta('InputFormEncType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var InputFormMethod_get_instance;
@@ -1141,10 +1107,10 @@
   }
   function InputFormMethod(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.zl_1 = realValue;
+    this.qk_1 = realValue;
   }
-  InputFormMethod.prototype.zi = function () {
-    return this.zl_1;
+  InputFormMethod.prototype.qh = function () {
+    return this.qk_1;
   };
   InputFormMethod.$metadata$ = classMeta('InputFormMethod', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var InputType_button_instance;
@@ -1204,10 +1170,10 @@
   }
   function InputType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.cm_1 = realValue;
+    this.tk_1 = realValue;
   }
-  InputType.prototype.zi = function () {
-    return this.cm_1;
+  InputType.prototype.qh = function () {
+    return this.tk_1;
   };
   InputType.$metadata$ = classMeta('InputType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var KeyGenKeyType_rsa_instance;
@@ -1223,10 +1189,10 @@
   }
   function KeyGenKeyType(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.fm_1 = realValue;
+    this.wk_1 = realValue;
   }
-  KeyGenKeyType.prototype.zi = function () {
-    return this.fm_1;
+  KeyGenKeyType.prototype.qh = function () {
+    return this.wk_1;
   };
   KeyGenKeyType.$metadata$ = classMeta('KeyGenKeyType', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var RunAt_server_instance;
@@ -1242,10 +1208,10 @@
   }
   function RunAt(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.im_1 = realValue;
+    this.zk_1 = realValue;
   }
-  RunAt.prototype.zi = function () {
-    return this.im_1;
+  RunAt.prototype.qh = function () {
+    return this.zk_1;
   };
   RunAt.$metadata$ = classMeta('RunAt', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var TextAreaWrap_hard_instance;
@@ -1263,10 +1229,10 @@
   }
   function TextAreaWrap(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.lm_1 = realValue;
+    this.cl_1 = realValue;
   }
-  TextAreaWrap.prototype.zi = function () {
-    return this.lm_1;
+  TextAreaWrap.prototype.qh = function () {
+    return this.cl_1;
   };
   TextAreaWrap.$metadata$ = classMeta('TextAreaWrap', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var ThScope_col_instance;
@@ -1288,10 +1254,10 @@
   }
   function ThScope(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.om_1 = realValue;
+    this.fl_1 = realValue;
   }
-  ThScope.prototype.zi = function () {
-    return this.om_1;
+  ThScope.prototype.qh = function () {
+    return this.fl_1;
   };
   ThScope.$metadata$ = classMeta('ThScope', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   var AreaShape_rect_instance;
@@ -1313,10 +1279,10 @@
   }
   function AreaShape(name, ordinal, realValue) {
     Enum.call(this, name, ordinal);
-    this.rm_1 = realValue;
+    this.il_1 = realValue;
   }
-  AreaShape.prototype.zi = function () {
-    return this.rm_1;
+  AreaShape.prototype.qh = function () {
+    return this.il_1;
   };
   AreaShape.$metadata$ = classMeta('AreaShape', [AttributeEnum], undefined, undefined, undefined, Enum.prototype);
   function ButtonFormEncType_multipartFormData_getInstance() {
@@ -1631,7 +1597,7 @@
             inductionVariable = inductionVariable + 1 | 0;
             var tmp$ret$0;
             {
-              tmp$ret$0 = element.hl_1;
+              tmp$ret$0 = element.yj_1;
             }
             tmp0_associateByTo.a(tmp$ret$0, element);
           }
@@ -1655,7 +1621,7 @@
             inductionVariable_0 = inductionVariable_0 + 1 | 0;
             var tmp$ret$0_0;
             {
-              tmp$ret$0_0 = element_0.kl_1;
+              tmp$ret$0_0 = element_0.bk_1;
             }
             tmp0_associateByTo_0.a(tmp$ret$0_0, element_0);
           }
@@ -1679,7 +1645,7 @@
             inductionVariable_1 = inductionVariable_1 + 1 | 0;
             var tmp$ret$0_1;
             {
-              tmp$ret$0_1 = element_1.im_1;
+              tmp$ret$0_1 = element_1.zk_1;
             }
             tmp0_associateByTo_1.a(tmp$ret$0_1, element_1);
           }
@@ -1703,7 +1669,7 @@
             inductionVariable_2 = inductionVariable_2 + 1 | 0;
             var tmp$ret$0_2;
             {
-              tmp$ret$0_2 = element_2.rm_1;
+              tmp$ret$0_2 = element_2.il_1;
             }
             tmp0_associateByTo_2.a(tmp$ret$0_2, element_2);
           }
@@ -1727,7 +1693,7 @@
             inductionVariable_3 = inductionVariable_3 + 1 | 0;
             var tmp$ret$0_3;
             {
-              tmp$ret$0_3 = element_3.vk_1;
+              tmp$ret$0_3 = element_3.mj_1;
             }
             tmp0_associateByTo_3.a(tmp$ret$0_3, element_3);
           }
@@ -1751,7 +1717,7 @@
             inductionVariable_4 = inductionVariable_4 + 1 | 0;
             var tmp$ret$0_4;
             {
-              tmp$ret$0_4 = element_4.yk_1;
+              tmp$ret$0_4 = element_4.pj_1;
             }
             tmp0_associateByTo_4.a(tmp$ret$0_4, element_4);
           }
@@ -1775,7 +1741,7 @@
             inductionVariable_5 = inductionVariable_5 + 1 | 0;
             var tmp$ret$0_5;
             {
-              tmp$ret$0_5 = element_5.bl_1;
+              tmp$ret$0_5 = element_5.sj_1;
             }
             tmp0_associateByTo_5.a(tmp$ret$0_5, element_5);
           }
@@ -1799,7 +1765,7 @@
             inductionVariable_6 = inductionVariable_6 + 1 | 0;
             var tmp$ret$0_6;
             {
-              tmp$ret$0_6 = element_6.el_1;
+              tmp$ret$0_6 = element_6.vj_1;
             }
             tmp0_associateByTo_6.a(tmp$ret$0_6, element_6);
           }
@@ -1823,7 +1789,7 @@
             inductionVariable_7 = inductionVariable_7 + 1 | 0;
             var tmp$ret$0_7;
             {
-              tmp$ret$0_7 = element_7.nl_1;
+              tmp$ret$0_7 = element_7.ek_1;
             }
             tmp0_associateByTo_7.a(tmp$ret$0_7, element_7);
           }
@@ -1847,7 +1813,7 @@
             inductionVariable_8 = inductionVariable_8 + 1 | 0;
             var tmp$ret$0_8;
             {
-              tmp$ret$0_8 = element_8.ql_1;
+              tmp$ret$0_8 = element_8.hk_1;
             }
             tmp0_associateByTo_8.a(tmp$ret$0_8, element_8);
           }
@@ -1871,7 +1837,7 @@
             inductionVariable_9 = inductionVariable_9 + 1 | 0;
             var tmp$ret$0_9;
             {
-              tmp$ret$0_9 = element_9.tl_1;
+              tmp$ret$0_9 = element_9.kk_1;
             }
             tmp0_associateByTo_9.a(tmp$ret$0_9, element_9);
           }
@@ -1895,7 +1861,7 @@
             inductionVariable_10 = inductionVariable_10 + 1 | 0;
             var tmp$ret$0_10;
             {
-              tmp$ret$0_10 = element_10.cm_1;
+              tmp$ret$0_10 = element_10.tk_1;
             }
             tmp0_associateByTo_10.a(tmp$ret$0_10, element_10);
           }
@@ -1919,7 +1885,7 @@
             inductionVariable_11 = inductionVariable_11 + 1 | 0;
             var tmp$ret$0_11;
             {
-              tmp$ret$0_11 = element_11.wl_1;
+              tmp$ret$0_11 = element_11.nk_1;
             }
             tmp0_associateByTo_11.a(tmp$ret$0_11, element_11);
           }
@@ -1943,7 +1909,7 @@
             inductionVariable_12 = inductionVariable_12 + 1 | 0;
             var tmp$ret$0_12;
             {
-              tmp$ret$0_12 = element_12.zl_1;
+              tmp$ret$0_12 = element_12.qk_1;
             }
             tmp0_associateByTo_12.a(tmp$ret$0_12, element_12);
           }
@@ -1967,7 +1933,7 @@
             inductionVariable_13 = inductionVariable_13 + 1 | 0;
             var tmp$ret$0_13;
             {
-              tmp$ret$0_13 = element_13.fm_1;
+              tmp$ret$0_13 = element_13.wk_1;
             }
             tmp0_associateByTo_13.a(tmp$ret$0_13, element_13);
           }
@@ -1991,7 +1957,7 @@
             inductionVariable_14 = inductionVariable_14 + 1 | 0;
             var tmp$ret$0_14;
             {
-              tmp$ret$0_14 = element_14.lm_1;
+              tmp$ret$0_14 = element_14.cl_1;
             }
             tmp0_associateByTo_14.a(tmp$ret$0_14, element_14);
           }
@@ -2015,7 +1981,7 @@
             inductionVariable_15 = inductionVariable_15 + 1 | 0;
             var tmp$ret$0_15;
             {
-              tmp$ret$0_15 = element_15.om_1;
+              tmp$ret$0_15 = element_15.fl_1;
             }
             tmp0_associateByTo_15.a(tmp$ret$0_15, element_15);
           }
@@ -2032,9 +1998,6 @@
   function HtmlBlockInlineTag() {
   }
   HtmlBlockInlineTag.$metadata$ = interfaceMeta('HtmlBlockInlineTag', [CommonAttributeGroupFacade, FlowPhrasingContent, HtmlBlockTag, HtmlInlineTag]);
-  function CommonAttributeGroupFacadeFlowMetaDataContent() {
-  }
-  CommonAttributeGroupFacadeFlowMetaDataContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowMetaDataContent', [CommonAttributeGroupFacade, FlowMetaDataContent, HtmlBlockTag, HtmlHeadTag]);
   function CommonAttributeGroupFacadeFlowInteractivePhrasingContent() {
   }
   CommonAttributeGroupFacadeFlowInteractivePhrasingContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowInteractivePhrasingContent', [CommonAttributeGroupFacade, CommonAttributeGroupFacadeFlowInteractiveContent, FlowInteractiveContent, FlowInteractivePhrasingContent, FlowPhrasingContent, HtmlBlockInlineTag, HtmlBlockTag, HtmlInlineTag]);
@@ -2044,12 +2007,6 @@
   function HtmlInlineTag() {
   }
   HtmlInlineTag.$metadata$ = interfaceMeta('HtmlInlineTag', [CommonAttributeGroupFacade, PhrasingContent]);
-  function FlowMetaDataContent() {
-  }
-  FlowMetaDataContent.$metadata$ = interfaceMeta('FlowMetaDataContent', [FlowContent, MetaDataContent]);
-  function HtmlHeadTag() {
-  }
-  HtmlHeadTag.$metadata$ = interfaceMeta('HtmlHeadTag', [CommonAttributeGroupFacade, MetaDataContent]);
   function CommonAttributeGroupFacadeFlowInteractiveContent() {
   }
   CommonAttributeGroupFacadeFlowInteractiveContent.$metadata$ = interfaceMeta('CommonAttributeGroupFacadeFlowInteractiveContent', [CommonAttributeGroupFacade, FlowInteractiveContent, HtmlBlockTag]);
@@ -2062,22 +2019,22 @@
   function div_0(_this__u8e3s4, classes, block) {
     var tmp$ret$0;
     {
-      var tmp0_visit = new DIV(attributesMapOf('class', classes), _this__u8e3s4.bj());
-      tmp0_visit.bj().ij(tmp0_visit);
+      var tmp0_visit = new DIV(attributesMapOf('class', classes), _this__u8e3s4.sh());
+      tmp0_visit.sh().zh(tmp0_visit);
       var tmp;
       try {
         tmp = block(tmp0_visit);
       } catch ($p) {
         var tmp_0;
         if ($p instanceof Error) {
-          tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
+          tmp_0 = tmp0_visit.sh().di(tmp0_visit, $p);
         } else {
           throw $p;
         }
         tmp = tmp_0;
       }
       finally {
-        tmp0_visit.bj().lj(tmp0_visit);
+        tmp0_visit.sh().ci(tmp0_visit);
       }
       tmp$ret$0 = tmp;
     }
@@ -2089,31 +2046,28 @@
   function PhrasingContent() {
   }
   PhrasingContent.$metadata$ = interfaceMeta('PhrasingContent', [FlowOrMetaDataOrPhrasingContent, FlowOrPhrasingContent, FlowOrInteractiveOrPhrasingContent, Tag]);
-  function MetaDataContent() {
-  }
-  MetaDataContent.$metadata$ = interfaceMeta('MetaDataContent', [FlowOrMetaDataOrPhrasingContent, FlowOrMetaDataContent, Tag]);
   function InteractiveContent() {
   }
   InteractiveContent.$metadata$ = interfaceMeta('InteractiveContent', [FlowOrInteractiveContent, FlowOrInteractiveOrPhrasingContent, Tag]);
   function img(_this__u8e3s4, alt, src, classes, block) {
     var tmp$ret$0;
     {
-      var tmp0_visit = new IMG(attributesMapOf_0(['alt', alt, 'src', src, 'class', classes]), _this__u8e3s4.bj());
-      tmp0_visit.bj().ij(tmp0_visit);
+      var tmp0_visit = new IMG(attributesMapOf_0(['alt', alt, 'src', src, 'class', classes]), _this__u8e3s4.sh());
+      tmp0_visit.sh().zh(tmp0_visit);
       var tmp;
       try {
         tmp = block(tmp0_visit);
       } catch ($p) {
         var tmp_0;
         if ($p instanceof Error) {
-          tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
+          tmp_0 = tmp0_visit.sh().di(tmp0_visit, $p);
         } else {
           throw $p;
         }
         tmp = tmp_0;
       }
       finally {
-        tmp0_visit.bj().lj(tmp0_visit);
+        tmp0_visit.sh().ci(tmp0_visit);
       }
       tmp$ret$0 = tmp;
     }
@@ -2122,22 +2076,22 @@
   function span(_this__u8e3s4, classes, block) {
     var tmp$ret$0;
     {
-      var tmp0_visit = new SPAN(attributesMapOf('class', classes), _this__u8e3s4.bj());
-      tmp0_visit.bj().ij(tmp0_visit);
+      var tmp0_visit = new SPAN(attributesMapOf('class', classes), _this__u8e3s4.sh());
+      tmp0_visit.sh().zh(tmp0_visit);
       var tmp;
       try {
         tmp = block(tmp0_visit);
       } catch ($p) {
         var tmp_0;
         if ($p instanceof Error) {
-          tmp_0 = tmp0_visit.bj().mj(tmp0_visit, $p);
+          tmp_0 = tmp0_visit.sh().di(tmp0_visit, $p);
         } else {
           throw $p;
         }
         tmp = tmp_0;
       }
       finally {
-        tmp0_visit.bj().lj(tmp0_visit);
+        tmp0_visit.sh().ci(tmp0_visit);
       }
       tmp$ret$0 = tmp;
     }
@@ -2151,22 +2105,22 @@
       var tmp1_safe_receiver = formEncType;
       var tmp_0 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
       var tmp2_safe_receiver = formMethod;
-      var tmp0_visit = new INPUT(attributesMapOf_0(['type', tmp, 'formenctype', tmp_0, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', name, 'class', classes]), _this__u8e3s4.bj());
-      tmp0_visit.bj().ij(tmp0_visit);
+      var tmp0_visit = new INPUT(attributesMapOf_0(['type', tmp, 'formenctype', tmp_0, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', name, 'class', classes]), _this__u8e3s4.sh());
+      tmp0_visit.sh().zh(tmp0_visit);
       var tmp_1;
       try {
         tmp_1 = block(tmp0_visit);
       } catch ($p) {
         var tmp_2;
         if ($p instanceof Error) {
-          tmp_2 = tmp0_visit.bj().mj(tmp0_visit, $p);
+          tmp_2 = tmp0_visit.sh().di(tmp0_visit, $p);
         } else {
           throw $p;
         }
         tmp_1 = tmp_2;
       }
       finally {
-        tmp0_visit.bj().lj(tmp0_visit);
+        tmp0_visit.sh().ci(tmp0_visit);
       }
       tmp$ret$0 = tmp_1;
     }
@@ -2195,122 +2149,111 @@
   FlowOrInteractiveOrPhrasingContent.$metadata$ = interfaceMeta('FlowOrInteractiveOrPhrasingContent', [Tag]);
   function DIV(initialAttributes, consumer) {
     HTMLTag.call(this, 'div', consumer, initialAttributes, null, false, false);
-    this.ym_1 = consumer;
+    this.pl_1 = consumer;
   }
-  DIV.prototype.bj = function () {
-    return this.ym_1;
+  DIV.prototype.sh = function () {
+    return this.pl_1;
   };
   DIV.$metadata$ = classMeta('DIV', [HtmlBlockTag], undefined, undefined, undefined, HTMLTag.prototype);
   function FOOTER(initialAttributes, consumer) {
     HTMLTag.call(this, 'footer', consumer, initialAttributes, null, false, false);
-    this.ln_1 = consumer;
+    this.cm_1 = consumer;
   }
-  FOOTER.prototype.bj = function () {
-    return this.ln_1;
+  FOOTER.prototype.sh = function () {
+    return this.cm_1;
   };
   FOOTER.$metadata$ = classMeta('FOOTER', [HtmlBlockTag], undefined, undefined, undefined, HTMLTag.prototype);
   function INPUT(initialAttributes, consumer) {
     HTMLTag.call(this, 'input', consumer, initialAttributes, null, true, true);
-    this.sn_1 = consumer;
+    this.jm_1 = consumer;
   }
-  INPUT.prototype.bj = function () {
-    return this.sn_1;
+  INPUT.prototype.sh = function () {
+    return this.jm_1;
   };
-  INPUT.prototype.tn = function (newValue) {
-    get_attributeStringString().xj(this, 'placeholder', newValue);
+  INPUT.prototype.km = function (newValue) {
+    get_attributeStringString().oi(this, 'placeholder', newValue);
   };
   INPUT.$metadata$ = classMeta('INPUT', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
   function IMG(initialAttributes, consumer) {
     HTMLTag.call(this, 'img', consumer, initialAttributes, null, true, true);
-    this.ao_1 = consumer;
+    this.rm_1 = consumer;
   }
-  IMG.prototype.bj = function () {
-    return this.ao_1;
+  IMG.prototype.sh = function () {
+    return this.rm_1;
   };
   IMG.$metadata$ = classMeta('IMG', [CommonAttributeGroupFacadeFlowInteractivePhrasingContent], undefined, undefined, undefined, HTMLTag.prototype);
   function SPAN(initialAttributes, consumer) {
     HTMLTag.call(this, 'span', consumer, initialAttributes, null, true, false);
-    this.ho_1 = consumer;
+    this.ym_1 = consumer;
   }
-  SPAN.prototype.bj = function () {
-    return this.ho_1;
+  SPAN.prototype.sh = function () {
+    return this.ym_1;
   };
   SPAN.$metadata$ = classMeta('SPAN', [HtmlBlockInlineTag], undefined, undefined, undefined, HTMLTag.prototype);
-  function STYLE(initialAttributes, consumer) {
-    HTMLTag.call(this, 'style', consumer, initialAttributes, null, false, false);
-    this.oo_1 = consumer;
-  }
-  STYLE.prototype.bj = function () {
-    return this.oo_1;
-  };
-  STYLE.prototype.gj = function (s) {
-    HTMLTag.prototype.gj.call(this, s);
-  };
-  STYLE.$metadata$ = classMeta('STYLE', [CommonAttributeGroupFacadeFlowMetaDataContent], undefined, undefined, undefined, HTMLTag.prototype);
   function HTMLTag$attributes$lambda(this$0) {
     return function () {
-      return this$0.bj();
+      return this$0.sh();
     };
   }
   function HTMLTag(tagName, consumer, initialAttributes, namespace, inlineTag, emptyTag) {
-    this.zm_1 = tagName;
-    this.an_1 = consumer;
-    this.bn_1 = namespace;
-    this.cn_1 = inlineTag;
-    this.dn_1 = emptyTag;
+    this.ql_1 = tagName;
+    this.rl_1 = consumer;
+    this.sl_1 = namespace;
+    this.tl_1 = inlineTag;
+    this.ul_1 = emptyTag;
     var tmp = this;
-    tmp.en_1 = new DelegatingMap(initialAttributes, this, HTMLTag$attributes$lambda(this));
+    tmp.vl_1 = new DelegatingMap(initialAttributes, this, HTMLTag$attributes$lambda(this));
   }
-  HTMLTag.prototype.aj = function () {
-    return this.zm_1;
+  HTMLTag.prototype.rh = function () {
+    return this.ql_1;
   };
-  HTMLTag.prototype.bj = function () {
-    return this.an_1;
+  HTMLTag.prototype.sh = function () {
+    return this.rl_1;
   };
-  HTMLTag.prototype.cj = function () {
-    return this.bn_1;
+  HTMLTag.prototype.th = function () {
+    return this.sl_1;
   };
-  HTMLTag.prototype.dj = function () {
-    return this.en_1;
+  HTMLTag.prototype.uh = function () {
+    return this.vl_1;
   };
-  HTMLTag.prototype.ej = function () {
-    return this.dj().pk();
+  HTMLTag.prototype.vh = function () {
+    return this.uh().gj();
   };
   HTMLTag.$metadata$ = classMeta('HTMLTag', [Tag]);
   function visitTagAndFinalize(_this__u8e3s4, consumer, block) {
-    if (!(_this__u8e3s4.bj() === consumer)) {
+    if (!(_this__u8e3s4.sh() === consumer)) {
       throw IllegalArgumentException_init_$Create$('Wrong exception');
     }
     {
-      _this__u8e3s4.bj().ij(_this__u8e3s4);
+      _this__u8e3s4.sh().zh(_this__u8e3s4);
       try {
         block(_this__u8e3s4);
       } catch ($p) {
         if ($p instanceof Error) {
-          _this__u8e3s4.bj().mj(_this__u8e3s4, $p);
+          _this__u8e3s4.sh().di(_this__u8e3s4, $p);
         } else {
           throw $p;
         }
       }
       finally {
-        _this__u8e3s4.bj().lj(_this__u8e3s4);
+        _this__u8e3s4.sh().ci(_this__u8e3s4);
       }
     }
-    return consumer.nj();
+    return consumer.ei();
   }
   function visitTag(_this__u8e3s4, block) {
-    _this__u8e3s4.bj().ij(_this__u8e3s4);
+    _this__u8e3s4.sh().zh(_this__u8e3s4);
     try {
       block(_this__u8e3s4);
     } catch ($p) {
       if ($p instanceof Error) {
-        _this__u8e3s4.bj().mj(_this__u8e3s4, $p);
+        _this__u8e3s4.sh().di(_this__u8e3s4, $p);
       } else {
         throw $p;
       }
     }
     finally {
-      _this__u8e3s4.bj().lj(_this__u8e3s4);
+      _this__u8e3s4.sh().ci(_this__u8e3s4);
     }
   }
   function append(_this__u8e3s4, block) {
@@ -2356,56 +2299,56 @@
     return tmp$ret$0;
   }
   function JSDOMBuilder(document) {
-    this.po_1 = document;
+    this.zm_1 = document;
     var tmp = this;
     var tmp$ret$0;
     {
       tmp$ret$0 = ArrayList_init_$Create$();
     }
-    tmp.qo_1 = tmp$ret$0;
-    this.ro_1 = null;
+    tmp.an_1 = tmp$ret$0;
+    this.bn_1 = null;
   }
-  JSDOMBuilder.prototype.ij = function (tag) {
+  JSDOMBuilder.prototype.zh = function (tag) {
     var tmp;
-    if (!(tag.cj() == null)) {
+    if (!(tag.th() == null)) {
       var tmp$ret$0;
       {
-        var tmp0_asDynamic = this.po_1.createElementNS(ensureNotNull(tag.cj()), tag.aj());
+        var tmp0_asDynamic = this.zm_1.createElementNS(ensureNotNull(tag.th()), tag.rh());
         tmp$ret$0 = tmp0_asDynamic;
       }
       tmp = tmp$ret$0;
     } else {
-      var tmp_0 = this.po_1.createElement(tag.aj());
+      var tmp_0 = this.zm_1.createElement(tag.rh());
       tmp = tmp_0 instanceof HTMLElement ? tmp_0 : THROW_CCE();
     }
     var element = tmp;
     {
-      var tmp1_forEach = tag.ej();
+      var tmp1_forEach = tag.vh();
       var tmp0_iterator = tmp1_forEach.d();
       while (tmp0_iterator.e()) {
         var element_0 = tmp0_iterator.f();
         {
-          element.setAttribute(element_0.p1(), element_0.r1());
+          element.setAttribute(element_0.q1(), element_0.s1());
         }
       }
     }
     var tmp$ret$1;
     {
-      var tmp2_isNotEmpty = this.qo_1;
-      tmp$ret$1 = !tmp2_isNotEmpty.i();
+      var tmp2_isNotEmpty = this.an_1;
+      tmp$ret$1 = !tmp2_isNotEmpty.k();
     }
     if (tmp$ret$1) {
-      last(this.qo_1).appendChild(element);
+      last(this.an_1).appendChild(element);
     }
-    this.qo_1.b(element);
+    this.an_1.b(element);
   };
-  JSDOMBuilder.prototype.jj = function (tag, attribute, value) {
-    if (this.qo_1.i())
+  JSDOMBuilder.prototype.ai = function (tag, attribute, value) {
+    if (this.an_1.k())
       throw IllegalStateException_init_$Create$('No current tag');
     else {
       var tmp$ret$1;
       {
-        var tmp0_toLowerCase = last(this.qo_1).tagName;
+        var tmp0_toLowerCase = last(this.an_1).tagName;
         var tmp$ret$0;
         {
           tmp$ret$0 = tmp0_toLowerCase;
@@ -2415,7 +2358,7 @@
       var tmp = tmp$ret$1;
       var tmp$ret$3;
       {
-        var tmp1_toLowerCase = tag.aj();
+        var tmp1_toLowerCase = tag.rh();
         var tmp$ret$2;
         {
           tmp$ret$2 = tmp1_toLowerCase;
@@ -2427,7 +2370,7 @@
       else {
         var tmp$ret$4;
         {
-          var tmp2_let = last(this.qo_1);
+          var tmp2_let = last(this.an_1);
           {
           }
           var tmp_0;
@@ -2441,13 +2384,13 @@
       }
     }
   };
-  JSDOMBuilder.prototype.kj = function (tag, event, value) {
-    if (this.qo_1.i())
+  JSDOMBuilder.prototype.bi = function (tag, event, value) {
+    if (this.an_1.k())
       throw IllegalStateException_init_$Create$('No current tag');
     else {
       var tmp$ret$1;
       {
-        var tmp0_toLowerCase = last(this.qo_1).tagName;
+        var tmp0_toLowerCase = last(this.an_1).tagName;
         var tmp$ret$0;
         {
           tmp$ret$0 = tmp0_toLowerCase;
@@ -2457,7 +2400,7 @@
       var tmp = tmp$ret$1;
       var tmp$ret$3;
       {
-        var tmp1_toLowerCase = tag.aj();
+        var tmp1_toLowerCase = tag.rh();
         var tmp$ret$2;
         {
           tmp$ret$2 = tmp1_toLowerCase;
@@ -2467,7 +2410,7 @@
       if (!(tmp === tmp$ret$3))
         throw IllegalStateException_init_$Create$('Wrong current tag');
       else {
-        var tmp2_setEvent = last(this.qo_1);
+        var tmp2_setEvent = last(this.an_1);
         var tmp$ret$4;
         {
           tmp$ret$4 = tmp2_setEvent;
@@ -2476,14 +2419,14 @@
       }
     }
   };
-  JSDOMBuilder.prototype.lj = function (tag) {
+  JSDOMBuilder.prototype.ci = function (tag) {
     var tmp;
-    if (this.qo_1.i()) {
+    if (this.an_1.k()) {
       tmp = true;
     } else {
       var tmp$ret$1;
       {
-        var tmp0_toLowerCase = last(this.qo_1).tagName;
+        var tmp0_toLowerCase = last(this.an_1).tagName;
         var tmp$ret$0;
         {
           tmp$ret$0 = tmp0_toLowerCase;
@@ -2493,7 +2436,7 @@
       var tmp_0 = tmp$ret$1;
       var tmp$ret$3;
       {
-        var tmp1_toLowerCase = tag.aj();
+        var tmp1_toLowerCase = tag.rh();
         var tmp$ret$2;
         {
           tmp$ret$2 = tmp1_toLowerCase;
@@ -2503,18 +2446,18 @@
       tmp = !(tmp_0 === tmp$ret$3);
     }
     if (tmp) {
-      throw IllegalStateException_init_$Create$("We haven't entered tag " + tag.aj() + ' but trying to leave');
+      throw IllegalStateException_init_$Create$("We haven't entered tag " + tag.rh() + ' but trying to leave');
     }
-    this.ro_1 = this.qo_1.a3(get_lastIndex(this.qo_1));
+    this.bn_1 = this.an_1.z2(get_lastIndex(this.an_1));
   };
-  JSDOMBuilder.prototype.hj = function (content) {
-    if (this.qo_1.i()) {
+  JSDOMBuilder.prototype.yh = function (content) {
+    if (this.an_1.k()) {
       throw IllegalStateException_init_$Create$('No current DOM node');
     }
-    last(this.qo_1).appendChild(this.po_1.createTextNode(toString(content)));
+    last(this.an_1).appendChild(this.zm_1.createTextNode(toString(content)));
   };
-  JSDOMBuilder.prototype.nj = function () {
-    var tmp0_safe_receiver = this.ro_1;
+  JSDOMBuilder.prototype.ei = function () {
+    var tmp0_safe_receiver = this.bn_1;
     var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : asR(tmp0_safe_receiver, this);
     var tmp;
     if (tmp1_elvis_lhs == null) {
@@ -2537,27 +2480,27 @@
     };
   }
   function set_onChangeFunction(_this__u8e3s4, newValue) {
-    _this__u8e3s4.bj().kj(_this__u8e3s4, 'onchange', newValue);
+    _this__u8e3s4.sh().bi(_this__u8e3s4, 'onchange', newValue);
   }
   function set_onKeyUpFunction(_this__u8e3s4, newValue) {
-    _this__u8e3s4.bj().kj(_this__u8e3s4, 'onkeyup', newValue);
+    _this__u8e3s4.sh().bi(_this__u8e3s4, 'onkeyup', newValue);
   }
   function set_onClickFunction(_this__u8e3s4, newValue) {
-    _this__u8e3s4.bj().kj(_this__u8e3s4, 'onclick', newValue);
+    _this__u8e3s4.sh().bi(_this__u8e3s4, 'onclick', newValue);
   }
   //region block: post-declaration
-  StringEncoder.prototype.wj = empty;
-  BooleanEncoder.prototype.wj = empty;
-  TickerEncoder.prototype.wj = empty;
-  EnumEncoder.prototype.wj = empty;
-  HTMLTag.prototype.gj = text;
-  DIV.prototype.gj = text;
-  FOOTER.prototype.gj = text;
-  INPUT.prototype.gj = text;
-  IMG.prototype.gj = text;
-  SPAN.prototype.fj = unaryPlus;
-  SPAN.prototype.gj = text;
-  JSDOMBuilder.prototype.mj = onTagError;
+  StringEncoder.prototype.ni = empty;
+  BooleanEncoder.prototype.ni = empty;
+  TickerEncoder.prototype.ni = empty;
+  EnumEncoder.prototype.ni = empty;
+  HTMLTag.prototype.xh = text;
+  DIV.prototype.xh = text;
+  FOOTER.prototype.xh = text;
+  INPUT.prototype.xh = text;
+  IMG.prototype.xh = text;
+  SPAN.prototype.wh = unaryPlus;
+  SPAN.prototype.xh = text;
+  JSDOMBuilder.prototype.di = onTagError;
   //endregion
   //region block: exports
   _.$_$ = _.$_$ || {};
@@ -2571,11 +2514,10 @@
   _.$_$.h = IMG;
   _.$_$.i = INPUT;
   _.$_$.j = SPAN;
-  _.$_$.k = STYLE;
-  _.$_$.l = attributesMapOf_0;
-  _.$_$.m = attributesMapOf;
-  _.$_$.n = get_id;
-  _.$_$.o = set_id;
+  _.$_$.k = attributesMapOf_0;
+  _.$_$.l = attributesMapOf;
+  _.$_$.m = get_id;
+  _.$_$.n = set_id;
   //endregion
   return _;
 }));

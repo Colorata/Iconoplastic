@@ -1,14 +1,11 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd)
-    define(['exports', './kotlin-kotlin-stdlib-js-ir.js', './kotlinx.coroutines-kotlinx-coroutines-core-js-ir.js', './kotlin_org_jetbrains_kotlinx_kotlinx_html.js', './kotlinx-serialization-kotlinx-serialization-json-js-ir.js', './kotlinx-serialization-kotlinx-serialization-core-js-ir.js'], factory);
+    define(['exports', './kotlin-kotlin-stdlib-js-ir.js', './kotlin_org_jetbrains_kotlinx_kotlinx_html.js', './kotlinx-serialization-kotlinx-serialization-json-js-ir.js', './kotlinx-serialization-kotlinx-serialization-core-js-ir.js'], factory);
   else if (typeof exports === 'object')
-    factory(module.exports, require('./kotlin-kotlin-stdlib-js-ir.js'), require('./kotlinx.coroutines-kotlinx-coroutines-core-js-ir.js'), require('./kotlin_org_jetbrains_kotlinx_kotlinx_html.js'), require('./kotlinx-serialization-kotlinx-serialization-json-js-ir.js'), require('./kotlinx-serialization-kotlinx-serialization-core-js-ir.js'));
+    factory(module.exports, require('./kotlin-kotlin-stdlib-js-ir.js'), require('./kotlin_org_jetbrains_kotlinx_kotlinx_html.js'), require('./kotlinx-serialization-kotlinx-serialization-json-js-ir.js'), require('./kotlinx-serialization-kotlinx-serialization-core-js-ir.js'));
   else {
     if (typeof this['kotlin-kotlin-stdlib-js-ir'] === 'undefined') {
       throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlin-kotlin-stdlib-js-ir' was not found. Please, check whether 'kotlin-kotlin-stdlib-js-ir' is loaded prior to 'Iconoplastic'.");
-    }
-    if (typeof this['kotlinx.coroutines-kotlinx-coroutines-core-js-ir'] === 'undefined') {
-      throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlinx.coroutines-kotlinx-coroutines-core-js-ir' was not found. Please, check whether 'kotlinx.coroutines-kotlinx-coroutines-core-js-ir' is loaded prior to 'Iconoplastic'.");
     }
     if (typeof kotlin_org_jetbrains_kotlinx_kotlinx_html === 'undefined') {
       throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlin_org_jetbrains_kotlinx_kotlinx_html' was not found. Please, check whether 'kotlin_org_jetbrains_kotlinx_kotlinx_html' is loaded prior to 'Iconoplastic'.");
@@ -19,46 +16,33 @@
     if (typeof this['kotlinx-serialization-kotlinx-serialization-core-js-ir'] === 'undefined') {
       throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlinx-serialization-kotlinx-serialization-core-js-ir' was not found. Please, check whether 'kotlinx-serialization-kotlinx-serialization-core-js-ir' is loaded prior to 'Iconoplastic'.");
     }
-    root.Iconoplastic = factory(typeof Iconoplastic === 'undefined' ? {} : Iconoplastic, this['kotlin-kotlin-stdlib-js-ir'], this['kotlinx.coroutines-kotlinx-coroutines-core-js-ir'], kotlin_org_jetbrains_kotlinx_kotlinx_html, this['kotlinx-serialization-kotlinx-serialization-json-js-ir'], this['kotlinx-serialization-kotlinx-serialization-core-js-ir']);
+    root.Iconoplastic = factory(typeof Iconoplastic === 'undefined' ? {} : Iconoplastic, this['kotlin-kotlin-stdlib-js-ir'], kotlin_org_jetbrains_kotlinx_kotlinx_html, this['kotlinx-serialization-kotlinx-serialization-json-js-ir'], this['kotlinx-serialization-kotlinx-serialization-core-js-ir']);
   }
-}(this, function (_, kotlin_kotlin, kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core, kotlin_org_jetbrains_kotlinx_kotlinx_html, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_json, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core) {
+}(this, function (_, kotlin_kotlin, kotlin_org_jetbrains_kotlinx_kotlinx_html, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_json, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core) {
   'use strict';
   //region block: imports
-  var CoroutineImpl = kotlin_kotlin.$_$.l6;
-  var await_0 = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.a;
-  var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.v5;
   var split$default = kotlin_kotlin.$_$.l;
-  var collectionSizeOrDefault = kotlin_kotlin.$_$.b4;
-  var mapCapacity = kotlin_kotlin.$_$.b5;
-  var coerceAtLeast = kotlin_kotlin.$_$.a8;
+  var collectionSizeOrDefault = kotlin_kotlin.$_$.p3;
+  var mapCapacity = kotlin_kotlin.$_$.p4;
+  var coerceAtLeast = kotlin_kotlin.$_$.u6;
   var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.v;
-  var Companion_getInstance = kotlin_kotlin.$_$.d3;
-  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.v1;
-  var charArrayOf = kotlin_kotlin.$_$.v6;
+  var Companion_getInstance = kotlin_kotlin.$_$.s2;
+  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.n1;
+  var charArrayOf = kotlin_kotlin.$_$.p5;
   var split$default_0 = kotlin_kotlin.$_$.k;
-  var to = kotlin_kotlin.$_$.la;
-  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.a2;
-  var createFailure = kotlin_kotlin.$_$.aa;
-  var _Result___get_isFailure__impl__jpiriv = kotlin_kotlin.$_$.c2;
-  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.d2;
-  var THROW_CCE = kotlin_kotlin.$_$.p9;
-  var isObject = kotlin_kotlin.$_$.q7;
-  var toMap = kotlin_kotlin.$_$.p5;
-  var classMeta = kotlin_kotlin.$_$.a7;
-  var Unit_getInstance = kotlin_kotlin.$_$.i3;
-  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
-  var isInterface = kotlin_kotlin.$_$.o7;
-  var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
-  var get_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.m;
-  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.w;
-  var contains = kotlin_kotlin.$_$.k8;
-  var plus = kotlin_kotlin.$_$.ia;
-  var replace$default = kotlin_kotlin.$_$.j;
-  var Job$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
+  var to = kotlin_kotlin.$_$.z8;
+  var Unit_getInstance = kotlin_kotlin.$_$.x2;
+  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.s1;
+  var createFailure = kotlin_kotlin.$_$.o8;
+  var _Result___get_isFailure__impl__jpiriv = kotlin_kotlin.$_$.t1;
+  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.u1;
+  var THROW_CCE = kotlin_kotlin.$_$.e8;
+  var isObject = kotlin_kotlin.$_$.k6;
+  var toMap = kotlin_kotlin.$_$.d5;
+  var classMeta = kotlin_kotlin.$_$.u5;
   var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.l;
   var DIV = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.f;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.l1;
-  var launch$default = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.h1;
   var attributesMapOf_0 = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.k;
   var IMG = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.h;
   var SPAN = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.j;
@@ -69,132 +53,126 @@
   var set_onKeyUpFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.e;
   var FOOTER = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.g;
   var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
-  var toInt = kotlin_kotlin.$_$.u8;
-  var Companion_getInstance_0 = kotlin_kotlin.$_$.b3;
-  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.y1;
-  var numberToChar = kotlin_kotlin.$_$.u7;
-  var toString = kotlin_kotlin.$_$.z1;
-  var SuspendFunction1 = kotlin_kotlin.$_$.m6;
+  var toInt = kotlin_kotlin.$_$.l7;
+  var Companion_getInstance_0 = kotlin_kotlin.$_$.q2;
+  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.q1;
+  var numberToChar = kotlin_kotlin.$_$.o6;
+  var toString = kotlin_kotlin.$_$.r1;
+  var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
+  var get_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.m;
+  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.w;
+  var contains = kotlin_kotlin.$_$.b7;
+  var plus = kotlin_kotlin.$_$.w8;
+  var replace$default = kotlin_kotlin.$_$.j;
   var Default_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_json.$_$.a;
-  var List = kotlin_kotlin.$_$.s3;
+  var List = kotlin_kotlin.$_$.h3;
   var getKClass = kotlin_kotlin.$_$.e;
-  var PrimitiveClasses_getInstance = kotlin_kotlin.$_$.z2;
-  var arrayOf = kotlin_kotlin.$_$.y9;
+  var PrimitiveClasses_getInstance = kotlin_kotlin.$_$.o2;
+  var arrayOf = kotlin_kotlin.$_$.m8;
   var createKType = kotlin_kotlin.$_$.b;
   var createInvariantKTypeProjection = kotlin_kotlin.$_$.a;
   var serializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.i2;
   var KSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.c2;
-  var emptyList = kotlin_kotlin.$_$.p4;
-  var charSequenceLength = kotlin_kotlin.$_$.y6;
-  var charSequenceGet = kotlin_kotlin.$_$.x6;
-  var uppercaseChar = kotlin_kotlin.$_$.d9;
+  var isInterface = kotlin_kotlin.$_$.i6;
+  var emptyList = kotlin_kotlin.$_$.d4;
+  var charSequenceLength = kotlin_kotlin.$_$.s5;
+  var charSequenceGet = kotlin_kotlin.$_$.r5;
+  var uppercaseChar = kotlin_kotlin.$_$.u7;
   var joinToString$default = kotlin_kotlin.$_$.g;
-  var Collection = kotlin_kotlin.$_$.k3;
-  var plus_0 = kotlin_kotlin.$_$.g5;
-  var minus = kotlin_kotlin.$_$.e5;
+  var Collection = kotlin_kotlin.$_$.z2;
+  var plus_0 = kotlin_kotlin.$_$.u4;
+  var minus = kotlin_kotlin.$_$.s4;
   //endregion
   //region block: pre-declaration
-  $getCodepointsCOROUTINE$0.prototype = Object.create(CoroutineImpl.prototype);
-  $getCodepointsCOROUTINE$0.prototype.constructor = $getCodepointsCOROUTINE$0;
-  App$display$slambda.prototype = Object.create(CoroutineImpl.prototype);
-  App$display$slambda.prototype.constructor = App$display$slambda;
   //endregion
-  function $getCodepointsCOROUTINE$0(_this__u8e3s4, resultContinuation) {
-    CoroutineImpl.call(this, resultContinuation);
-    this._this__u8e3s4__1 = _this__u8e3s4;
-  }
-  $getCodepointsCOROUTINE$0.prototype.doResume_5yljmg_k$ = function () {
-    var suspendResult = this.result_1;
-    $sm: do
-      try {
-        var tmp = this.state_1;
-        switch (tmp) {
-          case 0:
-            this.exceptionState_1 = 3;
-            this.state_1 = 1;
-            suspendResult = await_0(window.fetch(this._this__u8e3s4__1.baseUrl_1 + '/download/codepoints'), this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 1:
-            this.ARGUMENT0__1 = suspendResult;
-            this.ARGUMENT1__1 = this.ARGUMENT0__1.text();
-            this.state_1 = 2;
-            suspendResult = await_0(this.ARGUMENT1__1, this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 2:
-            var response = suspendResult;
-            var tmp0_associate = split$default(response, ['\n'], false, 0, 6, null);
-            var capacity = coerceAtLeast(mapCapacity(collectionSizeOrDefault(tmp0_associate, 10)), 16);
-            var tmp1_associateTo = LinkedHashMap_init_$Create$(capacity);
-            var tmp0_iterator = tmp0_associate.iterator_jk1svi_k$();
-            while (tmp0_iterator.hasNext_bitz1p_k$()) {
-              var element = tmp0_iterator.next_20eer_k$();
-              var tmp$ret$0;
-              l$ret$1: do {
-                var tmp_0;
-                try {
-                  var tmp0_success = Companion_getInstance();
-                  var tmp_1 = charArrayOf([_Char___init__impl__6a9atx(32)]);
-                  var final = split$default_0(element, tmp_1, false, 0, 6, null);
-                  var tmp1_success = to(final.get_fkrdnv_k$(0), final.get_fkrdnv_k$(1));
-                  tmp_0 = _Result___init__impl__xyqfz8(tmp1_success);
-                } catch ($p) {
-                  var tmp_2;
-                  if ($p instanceof Error) {
-                    var tmp2_failure = Companion_getInstance();
-                    tmp_2 = _Result___init__impl__xyqfz8(createFailure($p));
-                  } else {
-                    throw $p;
+  function Api$getCodepoints$lambda$lambda($onLoad) {
+    return function (it) {
+      var tmp$ret$7;
+      {
+        var tmp0_associate = split$default(it, ['\n'], false, 0, 6, null);
+        var capacity = coerceAtLeast(mapCapacity(collectionSizeOrDefault(tmp0_associate, 10)), 16);
+        var tmp$ret$6;
+        {
+          var tmp1_associateTo = LinkedHashMap_init_$Create$(capacity);
+          var tmp0_iterator = tmp0_associate.iterator_jk1svi_k$();
+          while (tmp0_iterator.hasNext_bitz1p_k$()) {
+            var element = tmp0_iterator.next_20eer_k$();
+            {
+              var tmp$ret$5;
+              {
+                var tmp$ret$4;
+                $l$block: {
+                  var tmp$ret$3;
+                  {
+                    var tmp;
+                    try {
+                      var tmp$ret$1;
+                      {
+                        var tmp0_success = Companion_getInstance();
+                        var tmp$ret$0;
+                        {
+                          var tmp_0 = charArrayOf([_Char___init__impl__6a9atx(32)]);
+                          var final = split$default_0(element, tmp_0, false, 0, 6, null);
+                          tmp$ret$0 = to(final.get_fkrdnv_k$(0), final.get_fkrdnv_k$(1));
+                        }
+                        var tmp1_success = tmp$ret$0;
+                        tmp$ret$1 = _Result___init__impl__xyqfz8(tmp1_success);
+                      }
+                      tmp = tmp$ret$1;
+                    } catch ($p) {
+                      var tmp_1;
+                      if ($p instanceof Error) {
+                        var tmp$ret$2;
+                        {
+                          var tmp2_failure = Companion_getInstance();
+                          tmp$ret$2 = _Result___init__impl__xyqfz8(createFailure($p));
+                        }
+                        tmp_1 = tmp$ret$2;
+                      } else {
+                        throw $p;
+                      }
+                      tmp = tmp_1;
+                    }
+                    tmp$ret$3 = tmp;
                   }
-                  tmp_0 = tmp_2;
+                  var tmp0_getOrDefault = tmp$ret$3;
+                  var tmp1_getOrDefault = to('10mp', 'E8B8');
+                  if (_Result___get_isFailure__impl__jpiriv(tmp0_getOrDefault)) {
+                    tmp$ret$4 = tmp1_getOrDefault;
+                    break $l$block;
+                  }
+                  var tmp_2 = _Result___get_value__impl__bjfvqg(tmp0_getOrDefault);
+                  tmp$ret$4 = (tmp_2 == null ? true : isObject(tmp_2)) ? tmp_2 : THROW_CCE();
                 }
-                var tmp0_getOrDefault = tmp_0;
-                var tmp1_getOrDefault = to('10mp', 'E8B8');
-                if (_Result___get_isFailure__impl__jpiriv(tmp0_getOrDefault)) {
-                  tmp$ret$0 = tmp1_getOrDefault;
-                  break l$ret$1;
-                }
-                var tmp_3 = _Result___get_value__impl__bjfvqg(tmp0_getOrDefault);
-                tmp$ret$0 = (tmp_3 == null ? true : isObject(tmp_3)) ? tmp_3 : THROW_CCE();
+                tmp$ret$5 = tmp$ret$4;
               }
-               while (false);
-              var tmp0_plusAssign = tmp$ret$0;
+              var tmp0_plusAssign = tmp$ret$5;
               tmp1_associateTo.put_3mhbri_k$(tmp0_plusAssign.first_1, tmp0_plusAssign.second_1);
             }
-
-            return toMap(tmp1_associateTo);
-          case 3:
-            throw this.exception_1;
+          }
+          tmp$ret$6 = tmp1_associateTo;
         }
-      } catch ($p) {
-        if (this.exceptionState_1 === 3) {
-          throw $p;
-        } else {
-          this.state_1 = this.exceptionState_1;
-          this.exception_1 = $p;
-        }
+        tmp$ret$7 = tmp$ret$6;
       }
-     while (true);
-  };
-  $getCodepointsCOROUTINE$0.$metadata$ = classMeta('$getCodepointsCOROUTINE$0', undefined, undefined, undefined, undefined, CoroutineImpl.prototype);
+      $onLoad(toMap(tmp$ret$7));
+      return Unit_getInstance();
+    };
+  }
+  function Api$getCodepoints$lambda($onLoad) {
+    return function (it) {
+      var tmp = it.text();
+      return tmp.then(Api$getCodepoints$lambda$lambda($onLoad));
+    };
+  }
   function Api() {
     this.baseUrl_1 = 'https://iconoplastic-api.herokuapp.com/';
   }
   Api.prototype.get_baseUrl_48hdl7_k$ = function () {
     return this.baseUrl_1;
   };
-  Api.prototype.getCodepoints_78j4ls_k$ = function ($cont) {
-    var tmp = new $getCodepointsCOROUTINE$0(this, $cont);
-    tmp.result_1 = Unit_getInstance();
-    tmp.exception_1 = null;
-    return tmp.doResume_5yljmg_k$();
+  Api.prototype.getCodepoints_qdvdo5_k$ = function (onLoad) {
+    var tmp = window.fetch(this.baseUrl_1 + '/download/codepoints');
+    tmp.then(Api$getCodepoints$lambda(onLoad));
   };
   Api.$metadata$ = classMeta('Api');
   function set_isBarExpanded(_set____db54di) {
@@ -204,110 +182,603 @@
     return isBarExpanded;
   }
   var isBarExpanded;
-  function App$display$slambda$lambda($element) {
-    return function ($this$append) {
-      GridItem($this$append, $element);
-      return Unit_getInstance();
-    };
-  }
-  function _get_job__e6b14k($this) {
-    return $this.job_1;
-  }
-  function App$display$slambda($response, resultContinuation) {
-    this.$response_1 = $response;
-    CoroutineImpl.call(this, resultContinuation);
-  }
-  App$display$slambda.prototype.invoke_d6gbsu_k$ = function ($this$launch, $cont) {
-    var tmp = this.create_b6qu53_k$($this$launch, $cont);
-    tmp.result_1 = Unit_getInstance();
-    tmp.exception_1 = null;
-    return tmp.doResume_5yljmg_k$();
-  };
-  App$display$slambda.prototype.invoke_5zdxxo_k$ = function (p1, $cont) {
-    return this.invoke_d6gbsu_k$((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $cont);
-  };
-  App$display$slambda.prototype.doResume_5yljmg_k$ = function () {
-    var suspendResult = this.result_1;
-    $sm: do
-      try {
-        var tmp = this.state_1;
-        switch (tmp) {
-          case 0:
-            this.exceptionState_1 = 2;
-            this.state_1 = 1;
-            suspendResult = (new Api()).getCodepoints_78j4ls_k$(this);
-            if (suspendResult === get_COROUTINE_SUSPENDED()) {
-              return suspendResult;
-            }
-
-            continue $sm;
-          case 1:
-            var ARGUMENT = suspendResult;
-            this.$response_1._v = ARGUMENT;
-            var grid = document.getElementById('grid-icons');
-            var tmp0_safe_receiver = this.$response_1._v;
-            if (tmp0_safe_receiver == null)
-              null;
-            else {
-              var tmp0_iterator = tmp0_safe_receiver.get_entries_p20ztl_k$().iterator_jk1svi_k$();
-              while (tmp0_iterator.hasNext_bitz1p_k$()) {
-                var element = tmp0_iterator.next_20eer_k$();
-                var tmp0_safe_receiver_0 = grid;
-                if (tmp0_safe_receiver_0 == null)
-                  null;
-                else {
-                  append(tmp0_safe_receiver_0, App$display$slambda$lambda(element));
+  function App(_this__u8e3s4) {
+    var response = {_v: null};
+    var tmp$ret$25;
+    {
+      var tmp$ret$24;
+      {
+        var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row space-between'), _this__u8e3s4);
+        var tmp$ret$23;
+        {
+          if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === _this__u8e3s4)) {
+            throw IllegalArgumentException_init_$Create$('Wrong exception');
+          }
+          {
+            tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize);
+            try {
+              {
+                {
+                  var tmp = new Api();
+                  tmp.getCodepoints_qdvdo5_k$(App$lambda(response));
+                  var tmp$ret$16;
+                  {
+                    var tmp$ret$15;
+                    {
+                      var tmp0_visit = new DIV(attributesMapOf('class', 'row fill-max-width'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
+                      tmp0_visit.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit);
+                      var tmp_0;
+                      try {
+                        var tmp$ret$14;
+                        {
+                          var tmp$ret$13;
+                          {
+                            var tmp0_visit_0 = new DIV(attributesMapOf('class', 'column'), tmp0_visit.get_consumer_tu5133_k$());
+                            tmp0_visit_0.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_0);
+                            var tmp_1;
+                            try {
+                              var tmp$ret$2;
+                              {
+                                var tmp$ret$1;
+                                {
+                                  var tmp0_visit_1 = new IMG(attributesMapOf_0(['alt', null, 'src', null, 'class', 'logo']), tmp0_visit_0.get_consumer_tu5133_k$());
+                                  tmp0_visit_1.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_1);
+                                  var tmp_2;
+                                  try {
+                                    var tmp$ret$0;
+                                    {
+                                      tmp$ret$0 = Unit_getInstance();
+                                    }
+                                    tmp_2 = tmp$ret$0;
+                                  } catch ($p) {
+                                    var tmp_3;
+                                    if ($p instanceof Error) {
+                                      tmp_3 = tmp0_visit_1.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_1, $p);
+                                    } else {
+                                      throw $p;
+                                    }
+                                    tmp_2 = tmp_3;
+                                  }
+                                  finally {
+                                    tmp0_visit_1.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_1);
+                                  }
+                                  tmp$ret$1 = tmp_2;
+                                }
+                                tmp$ret$2 = tmp$ret$1;
+                              }
+                              var tmp$ret$10;
+                              {
+                                var tmp$ret$9;
+                                {
+                                  var tmp0_visit_2 = new DIV(attributesMapOf('class', 'search-box search-row'), tmp0_visit_0.get_consumer_tu5133_k$());
+                                  tmp0_visit_2.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_2);
+                                  var tmp_4;
+                                  try {
+                                    var tmp$ret$4;
+                                    {
+                                      var tmp$ret$3;
+                                      {
+                                        var tmp0_visit_3 = new SPAN(attributesMapOf('class', 'search-icon'), tmp0_visit_2.get_consumer_tu5133_k$());
+                                        tmp0_visit_3.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_3);
+                                        var tmp_5;
+                                        try {
+                                          tmp_5 = tmp0_visit_3.unaryPlus_g7ydph_k$('\uE8B6');
+                                        } catch ($p) {
+                                          var tmp_6;
+                                          if ($p instanceof Error) {
+                                            tmp_6 = tmp0_visit_3.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_3, $p);
+                                          } else {
+                                            throw $p;
+                                          }
+                                          tmp_5 = tmp_6;
+                                        }
+                                        finally {
+                                          tmp0_visit_3.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_3);
+                                        }
+                                        tmp$ret$3 = tmp_5;
+                                      }
+                                      tmp$ret$4 = tmp$ret$3;
+                                    }
+                                    var tmp$ret$8;
+                                    {
+                                      var tmp$ret$7;
+                                      {
+                                        var tmp0_visit_4 = new SPAN(attributesMapOf('class', null), tmp0_visit_2.get_consumer_tu5133_k$());
+                                        tmp0_visit_4.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_4);
+                                        var tmp_7;
+                                        try {
+                                          var tmp$ret$6;
+                                          {
+                                            var tmp$ret$5;
+                                            {
+                                              var tmp0_safe_receiver = null;
+                                              var tmp_8 = tmp0_safe_receiver == null ? null : enumEncode(tmp0_safe_receiver);
+                                              var tmp1_safe_receiver = null;
+                                              var tmp_9 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
+                                              var tmp2_safe_receiver = null;
+                                              var tmp0_visit_5 = new INPUT(attributesMapOf_0(['type', tmp_8, 'formenctype', tmp_9, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', null, 'class', 'search']), tmp0_visit_4.get_consumer_tu5133_k$());
+                                              tmp0_visit_5.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_5);
+                                              var tmp_10;
+                                              try {
+                                                tmp0_visit_5.set_placeholder_y9dqmc_k$('Search icons');
+                                                set_id(tmp0_visit_5, 'search-field');
+                                                var onChange = App$lambda_0(tmp0_visit_5, response);
+                                                set_onChangeFunction(tmp0_visit_5, App$lambda_1(onChange));
+                                                tmp_10 = set_onKeyUpFunction(tmp0_visit_5, App$lambda_2(onChange));
+                                              } catch ($p) {
+                                                var tmp_11;
+                                                if ($p instanceof Error) {
+                                                  tmp_11 = tmp0_visit_5.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_5, $p);
+                                                } else {
+                                                  throw $p;
+                                                }
+                                                tmp_10 = tmp_11;
+                                              }
+                                              finally {
+                                                tmp0_visit_5.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_5);
+                                              }
+                                              tmp$ret$5 = tmp_10;
+                                            }
+                                            tmp$ret$6 = tmp$ret$5;
+                                          }
+                                          tmp_7 = tmp$ret$6;
+                                        } catch ($p) {
+                                          var tmp_12;
+                                          if ($p instanceof Error) {
+                                            tmp_12 = tmp0_visit_4.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_4, $p);
+                                          } else {
+                                            throw $p;
+                                          }
+                                          tmp_7 = tmp_12;
+                                        }
+                                        finally {
+                                          tmp0_visit_4.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_4);
+                                        }
+                                        tmp$ret$7 = tmp_7;
+                                      }
+                                      tmp$ret$8 = tmp$ret$7;
+                                    }
+                                    tmp_4 = tmp$ret$8;
+                                  } catch ($p) {
+                                    var tmp_13;
+                                    if ($p instanceof Error) {
+                                      tmp_13 = tmp0_visit_2.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_2, $p);
+                                    } else {
+                                      throw $p;
+                                    }
+                                    tmp_4 = tmp_13;
+                                  }
+                                  finally {
+                                    tmp0_visit_2.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_2);
+                                  }
+                                  tmp$ret$9 = tmp_4;
+                                }
+                                tmp$ret$10 = tmp$ret$9;
+                              }
+                              var tmp$ret$12;
+                              {
+                                var tmp$ret$11;
+                                {
+                                  var tmp0_visit_6 = new DIV(attributesMapOf('class', 'grid'), tmp0_visit_0.get_consumer_tu5133_k$());
+                                  tmp0_visit_6.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_6);
+                                  var tmp_14;
+                                  try {
+                                    tmp_14 = set_id(tmp0_visit_6, 'grid-icons');
+                                  } catch ($p) {
+                                    var tmp_15;
+                                    if ($p instanceof Error) {
+                                      tmp_15 = tmp0_visit_6.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_6, $p);
+                                    } else {
+                                      throw $p;
+                                    }
+                                    tmp_14 = tmp_15;
+                                  }
+                                  finally {
+                                    tmp0_visit_6.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_6);
+                                  }
+                                  tmp$ret$11 = tmp_14;
+                                }
+                                tmp$ret$12 = tmp$ret$11;
+                              }
+                              tmp_1 = tmp$ret$12;
+                            } catch ($p) {
+                              var tmp_16;
+                              if ($p instanceof Error) {
+                                tmp_16 = tmp0_visit_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_0, $p);
+                              } else {
+                                throw $p;
+                              }
+                              tmp_1 = tmp_16;
+                            }
+                            finally {
+                              tmp0_visit_0.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_0);
+                            }
+                            tmp$ret$13 = tmp_1;
+                          }
+                          tmp$ret$14 = tmp$ret$13;
+                        }
+                        tmp_0 = tmp$ret$14;
+                      } catch ($p) {
+                        var tmp_17;
+                        if ($p instanceof Error) {
+                          tmp_17 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
+                        } else {
+                          throw $p;
+                        }
+                        tmp_0 = tmp_17;
+                      }
+                      finally {
+                        tmp0_visit.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit);
+                      }
+                      tmp$ret$15 = tmp_0;
+                    }
+                    tmp$ret$16 = tmp$ret$15;
+                  }
+                  var tmp$ret$22;
+                  {
+                    var tmp$ret$21;
+                    {
+                      var tmp0_visit_7 = new DIV(attributesMapOf('class', 'column sticky'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
+                      tmp0_visit_7.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_7);
+                      var tmp_18;
+                      try {
+                        var tmp$ret$20;
+                        {
+                          var tmp$ret$19;
+                          {
+                            var tmp0_visit_8 = new DIV(attributesMapOf('class', 'picker-card'), tmp0_visit_7.get_consumer_tu5133_k$());
+                            tmp0_visit_8.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_8);
+                            var tmp_19;
+                            try {
+                              var tmp$ret$18;
+                              {
+                                var tmp$ret$17;
+                                {
+                                  var tmp0_visit_9 = new DIV(attributesMapOf('class', 'column'), tmp0_visit_8.get_consumer_tu5133_k$());
+                                  tmp0_visit_9.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_9);
+                                  var tmp_20;
+                                  try {
+                                    tmp_20 = set_id(tmp0_visit_9, 'selected-icons');
+                                  } catch ($p) {
+                                    var tmp_21;
+                                    if ($p instanceof Error) {
+                                      tmp_21 = tmp0_visit_9.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_9, $p);
+                                    } else {
+                                      throw $p;
+                                    }
+                                    tmp_20 = tmp_21;
+                                  }
+                                  finally {
+                                    tmp0_visit_9.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_9);
+                                  }
+                                  tmp$ret$17 = tmp_20;
+                                }
+                                tmp$ret$18 = tmp$ret$17;
+                              }
+                              tmp_19 = tmp$ret$18;
+                            } catch ($p) {
+                              var tmp_22;
+                              if ($p instanceof Error) {
+                                tmp_22 = tmp0_visit_8.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_8, $p);
+                              } else {
+                                throw $p;
+                              }
+                              tmp_19 = tmp_22;
+                            }
+                            finally {
+                              tmp0_visit_8.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_8);
+                            }
+                            tmp$ret$19 = tmp_19;
+                          }
+                          tmp$ret$20 = tmp$ret$19;
+                        }
+                        tmp_18 = tmp$ret$20;
+                      } catch ($p) {
+                        var tmp_23;
+                        if ($p instanceof Error) {
+                          tmp_23 = tmp0_visit_7.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_7, $p);
+                        } else {
+                          throw $p;
+                        }
+                        tmp_18 = tmp_23;
+                      }
+                      finally {
+                        tmp0_visit_7.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_7);
+                      }
+                      tmp$ret$21 = tmp_18;
+                    }
+                    tmp$ret$22 = tmp$ret$21;
+                  }
                 }
               }
+            } catch ($p) {
+              if ($p instanceof Error) {
+                tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize, $p);
+              } else {
+                throw $p;
+              }
             }
-
-            ;
-            var tmp1_safe_receiver = elementFromId('search-field');
-            if (tmp1_safe_receiver == null)
-              null;
-            else {
-              tmp1_safe_receiver.focus();
+            finally {
+              tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
             }
-
-            ;
-            return Unit_getInstance();
-          case 2:
-            throw this.exception_1;
+          }
+          tmp$ret$23 = _this__u8e3s4.finalize_b9lof6_k$();
         }
-      } catch ($p) {
-        if (this.exceptionState_1 === 2) {
-          throw $p;
-        } else {
-          this.state_1 = this.exceptionState_1;
-          this.exception_1 = $p;
-        }
+        tmp$ret$24 = tmp$ret$23;
       }
-     while (true);
-  };
-  App$display$slambda.prototype.create_b6qu53_k$ = function ($this$launch, completion) {
-    var i = new App$display$slambda(this.$response_1, completion);
-    i.$this$launch_1 = $this$launch;
-    return i;
-  };
-  App$display$slambda.prototype.create_xubfvz_k$ = function (value, completion) {
-    return this.create_b6qu53_k$((!(value == null) ? isInterface(value, CoroutineScope) : false) ? value : THROW_CCE(), completion);
-  };
-  App$display$slambda.$metadata$ = classMeta('App$display$slambda', undefined, undefined, undefined, [1], CoroutineImpl.prototype);
-  function App$display$slambda_0($response, resultContinuation) {
-    var i = new App$display$slambda($response, resultContinuation);
-    var l = function ($this$launch, $cont) {
-      return i.invoke_d6gbsu_k$($this$launch, $cont);
-    };
-    l.$arity = 1;
-    return l;
+      tmp$ret$25 = tmp$ret$24;
+    }
+    var tmp$ret$40;
+    {
+      var tmp$ret$39;
+      {
+        var tmp0_visitAndFinalize_0 = new FOOTER(attributesMapOf('class', null), _this__u8e3s4);
+        var tmp$ret$38;
+        {
+          if (!(tmp0_visitAndFinalize_0.get_consumer_tu5133_k$() === _this__u8e3s4)) {
+            throw IllegalArgumentException_init_$Create$('Wrong exception');
+          }
+          {
+            tmp0_visitAndFinalize_0.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize_0);
+            try {
+              {
+                {
+                  var tmp$ret$37;
+                  {
+                    var tmp$ret$36;
+                    {
+                      var tmp0_visit_10 = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize_0.get_consumer_tu5133_k$());
+                      tmp0_visit_10.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_10);
+                      var tmp_24;
+                      try {
+                        set_id(tmp0_visit_10, 'footer');
+                        var tmp$ret$31;
+                        {
+                          var tmp$ret$30;
+                          {
+                            var tmp0_visit_11 = new DIV(attributesMapOf('class', 'bottom-bar'), tmp0_visit_10.get_consumer_tu5133_k$());
+                            tmp0_visit_11.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_11);
+                            var tmp_25;
+                            try {
+                              var tmp$ret$27;
+                              {
+                                var tmp$ret$26;
+                                {
+                                  var tmp0_visit_12 = new DIV(attributesMapOf('class', 'row marquee'), tmp0_visit_11.get_consumer_tu5133_k$());
+                                  tmp0_visit_12.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_12);
+                                  var tmp_26;
+                                  try {
+                                    tmp_26 = set_id(tmp0_visit_12, 'bottom-bar');
+                                  } catch ($p) {
+                                    var tmp_27;
+                                    if ($p instanceof Error) {
+                                      tmp_27 = tmp0_visit_12.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_12, $p);
+                                    } else {
+                                      throw $p;
+                                    }
+                                    tmp_26 = tmp_27;
+                                  }
+                                  finally {
+                                    tmp0_visit_12.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_12);
+                                  }
+                                  tmp$ret$26 = tmp_26;
+                                }
+                                tmp$ret$27 = tmp$ret$26;
+                              }
+                              var tmp$ret$29;
+                              {
+                                var tmp$ret$28;
+                                {
+                                  var tmp0_visit_13 = new SPAN(attributesMapOf('class', 'icon button click-pointer stick-right surface-variant-background rotate'), tmp0_visit_11.get_consumer_tu5133_k$());
+                                  tmp0_visit_13.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_13);
+                                  var tmp_28;
+                                  try {
+                                    set_id(tmp0_visit_13, 'bar-expand-button');
+                                    tmp0_visit_13.unaryPlus_g7ydph_k$('\uE5CE');
+                                    tmp_28 = set_onClickFunction(tmp0_visit_13, App$lambda_3());
+                                  } catch ($p) {
+                                    var tmp_29;
+                                    if ($p instanceof Error) {
+                                      tmp_29 = tmp0_visit_13.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_13, $p);
+                                    } else {
+                                      throw $p;
+                                    }
+                                    tmp_28 = tmp_29;
+                                  }
+                                  finally {
+                                    tmp0_visit_13.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_13);
+                                  }
+                                  tmp$ret$28 = tmp_28;
+                                }
+                                tmp$ret$29 = tmp$ret$28;
+                              }
+                              tmp_25 = tmp$ret$29;
+                            } catch ($p) {
+                              var tmp_30;
+                              if ($p instanceof Error) {
+                                tmp_30 = tmp0_visit_11.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_11, $p);
+                              } else {
+                                throw $p;
+                              }
+                              tmp_25 = tmp_30;
+                            }
+                            finally {
+                              tmp0_visit_11.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_11);
+                            }
+                            tmp$ret$30 = tmp_25;
+                          }
+                          tmp$ret$31 = tmp$ret$30;
+                        }
+                        var tmp$ret$35;
+                        {
+                          var tmp$ret$34;
+                          {
+                            var tmp0_visit_14 = new DIV(attributesMapOf('class', 'expanded-bottom-bar'), tmp0_visit_10.get_consumer_tu5133_k$());
+                            tmp0_visit_14.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_14);
+                            var tmp_31;
+                            try {
+                              set_id(tmp0_visit_14, 'expanded-bottom-bar');
+                              var tmp$ret$33;
+                              {
+                                var tmp$ret$32;
+                                {
+                                  var tmp0_visit_15 = new DIV(attributesMapOf('class', 'column'), tmp0_visit_14.get_consumer_tu5133_k$());
+                                  tmp0_visit_15.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_15);
+                                  var tmp_32;
+                                  try {
+                                    tmp_32 = set_id(tmp0_visit_15, 'bar-selected-icons');
+                                  } catch ($p) {
+                                    var tmp_33;
+                                    if ($p instanceof Error) {
+                                      tmp_33 = tmp0_visit_15.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_15, $p);
+                                    } else {
+                                      throw $p;
+                                    }
+                                    tmp_32 = tmp_33;
+                                  }
+                                  finally {
+                                    tmp0_visit_15.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_15);
+                                  }
+                                  tmp$ret$32 = tmp_32;
+                                }
+                                tmp$ret$33 = tmp$ret$32;
+                              }
+                              tmp_31 = tmp$ret$33;
+                            } catch ($p) {
+                              var tmp_34;
+                              if ($p instanceof Error) {
+                                tmp_34 = tmp0_visit_14.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_14, $p);
+                              } else {
+                                throw $p;
+                              }
+                              tmp_31 = tmp_34;
+                            }
+                            finally {
+                              tmp0_visit_14.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_14);
+                            }
+                            tmp$ret$34 = tmp_31;
+                          }
+                          tmp$ret$35 = tmp$ret$34;
+                        }
+                        tmp_24 = tmp$ret$35;
+                      } catch ($p) {
+                        var tmp_35;
+                        if ($p instanceof Error) {
+                          tmp_35 = tmp0_visit_10.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_10, $p);
+                        } else {
+                          throw $p;
+                        }
+                        tmp_24 = tmp_35;
+                      }
+                      finally {
+                        tmp0_visit_10.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_10);
+                      }
+                      tmp$ret$36 = tmp_24;
+                    }
+                    tmp$ret$37 = tmp$ret$36;
+                  }
+                }
+              }
+            } catch ($p) {
+              if ($p instanceof Error) {
+                tmp0_visitAndFinalize_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize_0, $p);
+              } else {
+                throw $p;
+              }
+            }
+            finally {
+              tmp0_visitAndFinalize_0.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize_0);
+            }
+          }
+          tmp$ret$38 = _this__u8e3s4.finalize_b9lof6_k$();
+        }
+        tmp$ret$39 = tmp$ret$38;
+      }
+      tmp$ret$40 = tmp$ret$39;
+    }
   }
-  function App$display$lambda$lambda($element) {
+  function main() {
+    var tmp = window;
+    tmp.onload = main$lambda();
+  }
+  function toSymbol(_this__u8e3s4) {
+    var tmp$ret$2;
+    {
+      var tmp0_Char = toInt(_this__u8e3s4, 16);
+      var tmp;
+      var tmp$ret$0;
+      {
+        Companion_getInstance_0();
+        var tmp0__get_code__88qj9g = _Char___init__impl__6a9atx(0);
+        tmp$ret$0 = Char__toInt_impl_vasixd(tmp0__get_code__88qj9g);
+      }
+      if (tmp0_Char < tmp$ret$0) {
+        tmp = true;
+      } else {
+        var tmp$ret$1;
+        {
+          Companion_getInstance_0();
+          var tmp1__get_code__adl84j = _Char___init__impl__6a9atx(65535);
+          tmp$ret$1 = Char__toInt_impl_vasixd(tmp1__get_code__adl84j);
+        }
+        tmp = tmp0_Char > tmp$ret$1;
+      }
+      if (tmp) {
+        throw IllegalArgumentException_init_$Create$('Invalid Char code: ' + tmp0_Char);
+      }
+      tmp$ret$2 = numberToChar(tmp0_Char);
+    }
+    return toString(tmp$ret$2);
+  }
+  function App$lambda$lambda($element) {
     return function ($this$append) {
       GridItem($this$append, $element);
       return Unit_getInstance();
     };
   }
-  function App$display$lambda($tmp0_visit, $response) {
+  function App$lambda($response) {
+    return function (it) {
+      $response._v = it;
+      var grid = document.getElementById('grid-icons');
+      var tmp0_safe_receiver = $response._v;
+      if (tmp0_safe_receiver == null)
+        null;
+      else {
+        {
+          var tmp$ret$0;
+          {
+            tmp$ret$0 = tmp0_safe_receiver.get_entries_p20ztl_k$().iterator_jk1svi_k$();
+          }
+          var tmp0_iterator = tmp$ret$0;
+          while (tmp0_iterator.hasNext_bitz1p_k$()) {
+            var element = tmp0_iterator.next_20eer_k$();
+            {
+              var tmp0_safe_receiver_0 = grid;
+              if (tmp0_safe_receiver_0 == null)
+                null;
+              else {
+                append(tmp0_safe_receiver_0, App$lambda$lambda(element));
+              }
+            }
+          }
+        }
+      }
+      var tmp1_safe_receiver = elementFromId('search-field');
+      if (tmp1_safe_receiver == null)
+        null;
+      else {
+        tmp1_safe_receiver.focus();
+      }
+      return Unit_getInstance();
+    };
+  }
+  function App$lambda$lambda_0($element) {
+    return function ($this$append) {
+      GridItem($this$append, $element);
+      return Unit_getInstance();
+    };
+  }
+  function App$lambda_0($tmp0_visit, $response) {
     return function () {
       var grid = document.getElementById('grid-icons');
       var tmp = document.getElementById(get_id($tmp0_visit));
@@ -385,7 +856,7 @@
               if (tmp0_safe_receiver_1 == null)
                 null;
               else {
-                append(tmp0_safe_receiver_1, App$display$lambda$lambda(element_1));
+                append(tmp0_safe_receiver_1, App$lambda$lambda_0(element_1));
               }
             }
           }
@@ -395,19 +866,19 @@
       return tmp_1;
     };
   }
-  function App$display$lambda_0($onChange) {
+  function App$lambda_1($onChange) {
     return function (it) {
       $onChange();
       return Unit_getInstance();
     };
   }
-  function App$display$lambda_1($onChange) {
+  function App$lambda_2($onChange) {
     return function (it) {
       $onChange();
       return Unit_getInstance();
     };
   }
-  function App$display$lambda_2() {
+  function App$lambda_3() {
     return function (it) {
       var bar = document.getElementById('expanded-bottom-bar');
       var button = document.getElementById('bar-expand-button');
@@ -473,558 +944,13 @@
       return Unit_getInstance();
     };
   }
-  function App() {
-    var tmp = this;
-    tmp.job_1 = Job$default(null, 1, null);
-  }
-  App.prototype.get_coroutineContext_115oqo_k$ = function () {
-    return this.job_1;
-  };
-  App.prototype.display_upsghq_k$ = function (consumer) {
-    var tmp$ret$39;
-    {
-      {
-      }
-      {
-        var response = {_v: null};
-        var tmp$ret$23;
-        {
-          var tmp$ret$22;
-          {
-            var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row'), consumer);
-            var tmp$ret$21;
-            {
-              if (!(tmp0_visitAndFinalize.get_consumer_tu5133_k$() === consumer)) {
-                throw IllegalArgumentException_init_$Create$('Wrong exception');
-              }
-              {
-                tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize);
-                try {
-                  {
-                    {
-                      launch$default(this, null, null, App$display$slambda_0(response, null), 3, null);
-                      var tmp$ret$14;
-                      {
-                        var tmp$ret$13;
-                        {
-                          var tmp0_visit = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
-                          tmp0_visit.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit);
-                          var tmp;
-                          try {
-                            var tmp$ret$2;
-                            {
-                              var tmp$ret$1;
-                              {
-                                var tmp0_visit_0 = new IMG(attributesMapOf_0(['alt', null, 'src', null, 'class', 'logo']), tmp0_visit.get_consumer_tu5133_k$());
-                                tmp0_visit_0.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_0);
-                                var tmp_0;
-                                try {
-                                  var tmp$ret$0;
-                                  {
-                                    tmp$ret$0 = Unit_getInstance();
-                                  }
-                                  tmp_0 = tmp$ret$0;
-                                } catch ($p) {
-                                  var tmp_1;
-                                  if ($p instanceof Error) {
-                                    tmp_1 = tmp0_visit_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_0, $p);
-                                  } else {
-                                    throw $p;
-                                  }
-                                  tmp_0 = tmp_1;
-                                }
-                                finally {
-                                  tmp0_visit_0.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_0);
-                                }
-                                tmp$ret$1 = tmp_0;
-                              }
-                              tmp$ret$2 = tmp$ret$1;
-                            }
-                            var tmp$ret$10;
-                            {
-                              var tmp$ret$9;
-                              {
-                                var tmp0_visit_1 = new DIV(attributesMapOf('class', 'search-box search-row'), tmp0_visit.get_consumer_tu5133_k$());
-                                tmp0_visit_1.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_1);
-                                var tmp_2;
-                                try {
-                                  var tmp$ret$4;
-                                  {
-                                    var tmp$ret$3;
-                                    {
-                                      var tmp0_visit_2 = new SPAN(attributesMapOf('class', 'search-icon'), tmp0_visit_1.get_consumer_tu5133_k$());
-                                      tmp0_visit_2.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_2);
-                                      var tmp_3;
-                                      try {
-                                        tmp_3 = tmp0_visit_2.unaryPlus_g7ydph_k$('\uE8B6');
-                                      } catch ($p) {
-                                        var tmp_4;
-                                        if ($p instanceof Error) {
-                                          tmp_4 = tmp0_visit_2.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_2, $p);
-                                        } else {
-                                          throw $p;
-                                        }
-                                        tmp_3 = tmp_4;
-                                      }
-                                      finally {
-                                        tmp0_visit_2.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_2);
-                                      }
-                                      tmp$ret$3 = tmp_3;
-                                    }
-                                    tmp$ret$4 = tmp$ret$3;
-                                  }
-                                  var tmp$ret$8;
-                                  {
-                                    var tmp$ret$7;
-                                    {
-                                      var tmp0_visit_3 = new SPAN(attributesMapOf('class', null), tmp0_visit_1.get_consumer_tu5133_k$());
-                                      tmp0_visit_3.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_3);
-                                      var tmp_5;
-                                      try {
-                                        var tmp$ret$6;
-                                        {
-                                          var tmp$ret$5;
-                                          {
-                                            var tmp0_safe_receiver = null;
-                                            var tmp_6 = tmp0_safe_receiver == null ? null : enumEncode(tmp0_safe_receiver);
-                                            var tmp1_safe_receiver = null;
-                                            var tmp_7 = tmp1_safe_receiver == null ? null : enumEncode(tmp1_safe_receiver);
-                                            var tmp2_safe_receiver = null;
-                                            var tmp0_visit_4 = new INPUT(attributesMapOf_0(['type', tmp_6, 'formenctype', tmp_7, 'formmethod', tmp2_safe_receiver == null ? null : enumEncode(tmp2_safe_receiver), 'name', null, 'class', 'search']), tmp0_visit_3.get_consumer_tu5133_k$());
-                                            tmp0_visit_4.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_4);
-                                            var tmp_8;
-                                            try {
-                                              tmp0_visit_4.set_placeholder_y9dqmc_k$('Search icons');
-                                              set_id(tmp0_visit_4, 'search-field');
-                                              var onChange = App$display$lambda(tmp0_visit_4, response);
-                                              set_onChangeFunction(tmp0_visit_4, App$display$lambda_0(onChange));
-                                              tmp_8 = set_onKeyUpFunction(tmp0_visit_4, App$display$lambda_1(onChange));
-                                            } catch ($p) {
-                                              var tmp_9;
-                                              if ($p instanceof Error) {
-                                                tmp_9 = tmp0_visit_4.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_4, $p);
-                                              } else {
-                                                throw $p;
-                                              }
-                                              tmp_8 = tmp_9;
-                                            }
-                                            finally {
-                                              tmp0_visit_4.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_4);
-                                            }
-                                            tmp$ret$5 = tmp_8;
-                                          }
-                                          tmp$ret$6 = tmp$ret$5;
-                                        }
-                                        tmp_5 = tmp$ret$6;
-                                      } catch ($p) {
-                                        var tmp_10;
-                                        if ($p instanceof Error) {
-                                          tmp_10 = tmp0_visit_3.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_3, $p);
-                                        } else {
-                                          throw $p;
-                                        }
-                                        tmp_5 = tmp_10;
-                                      }
-                                      finally {
-                                        tmp0_visit_3.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_3);
-                                      }
-                                      tmp$ret$7 = tmp_5;
-                                    }
-                                    tmp$ret$8 = tmp$ret$7;
-                                  }
-                                  tmp_2 = tmp$ret$8;
-                                } catch ($p) {
-                                  var tmp_11;
-                                  if ($p instanceof Error) {
-                                    tmp_11 = tmp0_visit_1.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_1, $p);
-                                  } else {
-                                    throw $p;
-                                  }
-                                  tmp_2 = tmp_11;
-                                }
-                                finally {
-                                  tmp0_visit_1.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_1);
-                                }
-                                tmp$ret$9 = tmp_2;
-                              }
-                              tmp$ret$10 = tmp$ret$9;
-                            }
-                            var tmp$ret$12;
-                            {
-                              var tmp$ret$11;
-                              {
-                                var tmp0_visit_5 = new DIV(attributesMapOf('class', 'grid'), tmp0_visit.get_consumer_tu5133_k$());
-                                tmp0_visit_5.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_5);
-                                var tmp_12;
-                                try {
-                                  tmp_12 = set_id(tmp0_visit_5, 'grid-icons');
-                                } catch ($p) {
-                                  var tmp_13;
-                                  if ($p instanceof Error) {
-                                    tmp_13 = tmp0_visit_5.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_5, $p);
-                                  } else {
-                                    throw $p;
-                                  }
-                                  tmp_12 = tmp_13;
-                                }
-                                finally {
-                                  tmp0_visit_5.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_5);
-                                }
-                                tmp$ret$11 = tmp_12;
-                              }
-                              tmp$ret$12 = tmp$ret$11;
-                            }
-                            tmp = tmp$ret$12;
-                          } catch ($p) {
-                            var tmp_14;
-                            if ($p instanceof Error) {
-                              tmp_14 = tmp0_visit.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit, $p);
-                            } else {
-                              throw $p;
-                            }
-                            tmp = tmp_14;
-                          }
-                          finally {
-                            tmp0_visit.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit);
-                          }
-                          tmp$ret$13 = tmp;
-                        }
-                        tmp$ret$14 = tmp$ret$13;
-                      }
-                      var tmp$ret$20;
-                      {
-                        var tmp$ret$19;
-                        {
-                          var tmp0_visit_6 = new DIV(attributesMapOf('class', 'column sticky'), tmp0_visitAndFinalize.get_consumer_tu5133_k$());
-                          tmp0_visit_6.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_6);
-                          var tmp_15;
-                          try {
-                            var tmp$ret$18;
-                            {
-                              var tmp$ret$17;
-                              {
-                                var tmp0_visit_7 = new DIV(attributesMapOf('class', 'picker-card'), tmp0_visit_6.get_consumer_tu5133_k$());
-                                tmp0_visit_7.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_7);
-                                var tmp_16;
-                                try {
-                                  var tmp$ret$16;
-                                  {
-                                    var tmp$ret$15;
-                                    {
-                                      var tmp0_visit_8 = new DIV(attributesMapOf('class', 'column'), tmp0_visit_7.get_consumer_tu5133_k$());
-                                      tmp0_visit_8.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_8);
-                                      var tmp_17;
-                                      try {
-                                        tmp_17 = set_id(tmp0_visit_8, 'selected-icons');
-                                      } catch ($p) {
-                                        var tmp_18;
-                                        if ($p instanceof Error) {
-                                          tmp_18 = tmp0_visit_8.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_8, $p);
-                                        } else {
-                                          throw $p;
-                                        }
-                                        tmp_17 = tmp_18;
-                                      }
-                                      finally {
-                                        tmp0_visit_8.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_8);
-                                      }
-                                      tmp$ret$15 = tmp_17;
-                                    }
-                                    tmp$ret$16 = tmp$ret$15;
-                                  }
-                                  tmp_16 = tmp$ret$16;
-                                } catch ($p) {
-                                  var tmp_19;
-                                  if ($p instanceof Error) {
-                                    tmp_19 = tmp0_visit_7.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_7, $p);
-                                  } else {
-                                    throw $p;
-                                  }
-                                  tmp_16 = tmp_19;
-                                }
-                                finally {
-                                  tmp0_visit_7.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_7);
-                                }
-                                tmp$ret$17 = tmp_16;
-                              }
-                              tmp$ret$18 = tmp$ret$17;
-                            }
-                            tmp_15 = tmp$ret$18;
-                          } catch ($p) {
-                            var tmp_20;
-                            if ($p instanceof Error) {
-                              tmp_20 = tmp0_visit_6.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_6, $p);
-                            } else {
-                              throw $p;
-                            }
-                            tmp_15 = tmp_20;
-                          }
-                          finally {
-                            tmp0_visit_6.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_6);
-                          }
-                          tmp$ret$19 = tmp_15;
-                        }
-                        tmp$ret$20 = tmp$ret$19;
-                      }
-                    }
-                  }
-                } catch ($p) {
-                  if ($p instanceof Error) {
-                    tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize, $p);
-                  } else {
-                    throw $p;
-                  }
-                }
-                finally {
-                  tmp0_visitAndFinalize.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize);
-                }
-              }
-              tmp$ret$21 = consumer.finalize_b9lof6_k$();
-            }
-            tmp$ret$22 = tmp$ret$21;
-          }
-          tmp$ret$23 = tmp$ret$22;
-        }
-        var tmp$ret$38;
-        {
-          var tmp$ret$37;
-          {
-            var tmp0_visitAndFinalize_0 = new FOOTER(attributesMapOf('class', null), consumer);
-            var tmp$ret$36;
-            {
-              if (!(tmp0_visitAndFinalize_0.get_consumer_tu5133_k$() === consumer)) {
-                throw IllegalArgumentException_init_$Create$('Wrong exception');
-              }
-              {
-                tmp0_visitAndFinalize_0.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visitAndFinalize_0);
-                try {
-                  {
-                    {
-                      var tmp$ret$35;
-                      {
-                        var tmp$ret$34;
-                        {
-                          var tmp0_visit_9 = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize_0.get_consumer_tu5133_k$());
-                          tmp0_visit_9.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_9);
-                          var tmp_21;
-                          try {
-                            set_id(tmp0_visit_9, 'footer');
-                            var tmp$ret$29;
-                            {
-                              var tmp$ret$28;
-                              {
-                                var tmp0_visit_10 = new DIV(attributesMapOf('class', 'bottom-bar'), tmp0_visit_9.get_consumer_tu5133_k$());
-                                tmp0_visit_10.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_10);
-                                var tmp_22;
-                                try {
-                                  var tmp$ret$25;
-                                  {
-                                    var tmp$ret$24;
-                                    {
-                                      var tmp0_visit_11 = new DIV(attributesMapOf('class', 'row marquee'), tmp0_visit_10.get_consumer_tu5133_k$());
-                                      tmp0_visit_11.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_11);
-                                      var tmp_23;
-                                      try {
-                                        tmp_23 = set_id(tmp0_visit_11, 'bottom-bar');
-                                      } catch ($p) {
-                                        var tmp_24;
-                                        if ($p instanceof Error) {
-                                          tmp_24 = tmp0_visit_11.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_11, $p);
-                                        } else {
-                                          throw $p;
-                                        }
-                                        tmp_23 = tmp_24;
-                                      }
-                                      finally {
-                                        tmp0_visit_11.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_11);
-                                      }
-                                      tmp$ret$24 = tmp_23;
-                                    }
-                                    tmp$ret$25 = tmp$ret$24;
-                                  }
-                                  var tmp$ret$27;
-                                  {
-                                    var tmp$ret$26;
-                                    {
-                                      var tmp0_visit_12 = new SPAN(attributesMapOf('class', 'icon button click-pointer stick-right surface-variant-background rotate'), tmp0_visit_10.get_consumer_tu5133_k$());
-                                      tmp0_visit_12.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_12);
-                                      var tmp_25;
-                                      try {
-                                        set_id(tmp0_visit_12, 'bar-expand-button');
-                                        tmp0_visit_12.unaryPlus_g7ydph_k$('\uE5CE');
-                                        tmp_25 = set_onClickFunction(tmp0_visit_12, App$display$lambda_2());
-                                      } catch ($p) {
-                                        var tmp_26;
-                                        if ($p instanceof Error) {
-                                          tmp_26 = tmp0_visit_12.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_12, $p);
-                                        } else {
-                                          throw $p;
-                                        }
-                                        tmp_25 = tmp_26;
-                                      }
-                                      finally {
-                                        tmp0_visit_12.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_12);
-                                      }
-                                      tmp$ret$26 = tmp_25;
-                                    }
-                                    tmp$ret$27 = tmp$ret$26;
-                                  }
-                                  tmp_22 = tmp$ret$27;
-                                } catch ($p) {
-                                  var tmp_27;
-                                  if ($p instanceof Error) {
-                                    tmp_27 = tmp0_visit_10.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_10, $p);
-                                  } else {
-                                    throw $p;
-                                  }
-                                  tmp_22 = tmp_27;
-                                }
-                                finally {
-                                  tmp0_visit_10.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_10);
-                                }
-                                tmp$ret$28 = tmp_22;
-                              }
-                              tmp$ret$29 = tmp$ret$28;
-                            }
-                            var tmp$ret$33;
-                            {
-                              var tmp$ret$32;
-                              {
-                                var tmp0_visit_13 = new DIV(attributesMapOf('class', 'expanded-bottom-bar'), tmp0_visit_9.get_consumer_tu5133_k$());
-                                tmp0_visit_13.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_13);
-                                var tmp_28;
-                                try {
-                                  set_id(tmp0_visit_13, 'expanded-bottom-bar');
-                                  var tmp$ret$31;
-                                  {
-                                    var tmp$ret$30;
-                                    {
-                                      var tmp0_visit_14 = new DIV(attributesMapOf('class', 'column'), tmp0_visit_13.get_consumer_tu5133_k$());
-                                      tmp0_visit_14.get_consumer_tu5133_k$().onTagStart_jhb705_k$(tmp0_visit_14);
-                                      var tmp_29;
-                                      try {
-                                        tmp_29 = set_id(tmp0_visit_14, 'bar-selected-icons');
-                                      } catch ($p) {
-                                        var tmp_30;
-                                        if ($p instanceof Error) {
-                                          tmp_30 = tmp0_visit_14.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_14, $p);
-                                        } else {
-                                          throw $p;
-                                        }
-                                        tmp_29 = tmp_30;
-                                      }
-                                      finally {
-                                        tmp0_visit_14.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_14);
-                                      }
-                                      tmp$ret$30 = tmp_29;
-                                    }
-                                    tmp$ret$31 = tmp$ret$30;
-                                  }
-                                  tmp_28 = tmp$ret$31;
-                                } catch ($p) {
-                                  var tmp_31;
-                                  if ($p instanceof Error) {
-                                    tmp_31 = tmp0_visit_13.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_13, $p);
-                                  } else {
-                                    throw $p;
-                                  }
-                                  tmp_28 = tmp_31;
-                                }
-                                finally {
-                                  tmp0_visit_13.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_13);
-                                }
-                                tmp$ret$32 = tmp_28;
-                              }
-                              tmp$ret$33 = tmp$ret$32;
-                            }
-                            tmp_21 = tmp$ret$33;
-                          } catch ($p) {
-                            var tmp_32;
-                            if ($p instanceof Error) {
-                              tmp_32 = tmp0_visit_9.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visit_9, $p);
-                            } else {
-                              throw $p;
-                            }
-                            tmp_21 = tmp_32;
-                          }
-                          finally {
-                            tmp0_visit_9.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visit_9);
-                          }
-                          tmp$ret$34 = tmp_21;
-                        }
-                        tmp$ret$35 = tmp$ret$34;
-                      }
-                    }
-                  }
-                } catch ($p) {
-                  if ($p instanceof Error) {
-                    tmp0_visitAndFinalize_0.get_consumer_tu5133_k$().onTagError_d07vof_k$(tmp0_visitAndFinalize_0, $p);
-                  } else {
-                    throw $p;
-                  }
-                }
-                finally {
-                  tmp0_visitAndFinalize_0.get_consumer_tu5133_k$().onTagEnd_f3ehek_k$(tmp0_visitAndFinalize_0);
-                }
-              }
-              tmp$ret$36 = consumer.finalize_b9lof6_k$();
-            }
-            tmp$ret$37 = tmp$ret$36;
-          }
-          tmp$ret$38 = tmp$ret$37;
-        }
-      }
-      tmp$ret$39 = consumer;
-    }
-  };
-  App.$metadata$ = classMeta('App', [CoroutineScope]);
-  function main() {
-    var tmp = document;
-    tmp.addEventListener('DOMContentLoaded', main$lambda());
-    var tmp_0 = window;
-    tmp_0.onload = main$lambda_0();
-  }
-  function toSymbol(_this__u8e3s4) {
-    var tmp$ret$2;
-    {
-      var tmp0_Char = toInt(_this__u8e3s4, 16);
-      var tmp;
-      var tmp$ret$0;
-      {
-        Companion_getInstance_0();
-        var tmp0__get_code__88qj9g = _Char___init__impl__6a9atx(0);
-        tmp$ret$0 = Char__toInt_impl_vasixd(tmp0__get_code__88qj9g);
-      }
-      if (tmp0_Char < tmp$ret$0) {
-        tmp = true;
-      } else {
-        var tmp$ret$1;
-        {
-          Companion_getInstance_0();
-          var tmp1__get_code__adl84j = _Char___init__impl__6a9atx(65535);
-          tmp$ret$1 = Char__toInt_impl_vasixd(tmp1__get_code__adl84j);
-        }
-        tmp = tmp0_Char > tmp$ret$1;
-      }
-      if (tmp) {
-        throw IllegalArgumentException_init_$Create$('Invalid Char code: ' + tmp0_Char);
-      }
-      tmp$ret$2 = numberToChar(tmp0_Char);
-    }
-    return toString(tmp$ret$2);
-  }
-  function main$lambda() {
-    return function (it) {
-      return Unit_getInstance();
-    };
-  }
   function main$lambda$lambda() {
     return function ($this$append) {
-      (new App()).display_upsghq_k$($this$append);
+      App($this$append);
       return Unit_getInstance();
     };
   }
-  function main$lambda_0() {
+  function main$lambda() {
     return function (it) {
       var tmp0_safe_receiver = document.body;
       var tmp;

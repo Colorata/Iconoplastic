@@ -159,6 +159,7 @@
     }
 }
 
+
 .surface-variant-background {
     opacity: 1;
 }
@@ -210,6 +211,9 @@ span.icon {
     align-items: center;
 }
 
+.fill-max-width {
+    width: 100%;
+}
 .search-row {
     margin: 0;
     padding: 0;
@@ -225,7 +229,7 @@ span.icon {
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
     justify-content: center;
-    max-width: 100vw;
+    max-width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -325,6 +329,7 @@ span {
 span.search-icon {
     font-family: 'Icons';
     font-size: 2rem;
+    padding-left: 1rem;
 }
 .logo {
     max-width: 720px;
@@ -342,13 +347,13 @@ span.search-icon {
 .sticky {
     position: sticky;
     top: 0;
+    right: 0;
     align-self: flex-start;
 }
 
 .picker-card {
     display: inline-block;
     height: 100vh;
-    width: 100%;
     transition: all 0.3s;
     overflow: scroll;
 }
@@ -365,7 +370,7 @@ span.search-icon {
     justify-content: space-between;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 719px) {
     .bottom-bar {
         height: 5rem;
     }
@@ -373,6 +378,9 @@ span.search-icon {
         width: 0;
         border-radius: 0;
         display: none;
+    }
+    .grid {
+        width: calc(100vw - 5rem);
     }
 }
 
@@ -383,8 +391,15 @@ span.search-icon {
     .picker-card {
         width: 20rem;
     }
+    .grid {
+        width: calc(100vw - 25rem);
+    }
     .expanded-bottom-bar.active {
         height: 0;
+    }
+    .search-box {
+        max-width: 720px;
+        width: calc(100vw - 25rem);
     }
 }
 
