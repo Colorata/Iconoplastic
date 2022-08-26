@@ -75,13 +75,13 @@
   var KSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.s1;
   var isInterface = kotlin_kotlin.$_$.y5;
   var emptyList = kotlin_kotlin.$_$.x3;
+  var Collection = kotlin_kotlin.$_$.v2;
+  var joinToString$default = kotlin_kotlin.$_$.g;
+  var plus_0 = kotlin_kotlin.$_$.l4;
+  var minus = kotlin_kotlin.$_$.j4;
   var charSequenceLength = kotlin_kotlin.$_$.i5;
   var charSequenceGet = kotlin_kotlin.$_$.h5;
   var uppercaseChar = kotlin_kotlin.$_$.k7;
-  var joinToString$default = kotlin_kotlin.$_$.g;
-  var Collection = kotlin_kotlin.$_$.v2;
-  var plus_0 = kotlin_kotlin.$_$.l4;
-  var minus = kotlin_kotlin.$_$.j4;
   //endregion
   //region block: pre-declaration
   //endregion
@@ -1071,13 +1071,19 @@
     else {
       tmp1_safe_receiver.remove();
     }
+    var tmp2_safe_receiver = document.getElementById('bar-selected-item-' + item.q1());
+    if (tmp2_safe_receiver == null)
+      null;
+    else {
+      tmp2_safe_receiver.remove();
+    }
   }
   function addToBars$addRow($item, prefix) {
     var tmp0_safe_receiver = document.getElementById(prefix + 'selected-icons');
     if (tmp0_safe_receiver == null)
       null;
     else {
-      append(tmp0_safe_receiver, addToBars$addRow$lambda(prefix, $item));
+      append(tmp0_safe_receiver, addToBars$addRow$lambda($item, prefix));
     }
   }
   function addToBars$addRow$default($item, prefix, $mask0, $handler) {
@@ -1151,135 +1157,9 @@
       return Unit_getInstance();
     };
   }
-  function addToBars$addRow$lambda$lambda() {
-    return function (value) {
-      var tmp$ret$5;
-      {
-        var tmp;
-        var tmp$ret$0;
-        {
-          tmp$ret$0 = charSequenceLength(value) > 0;
-        }
-        if (tmp$ret$0) {
-          var tmp$ret$4;
-          {
-            var tmp$ret$1;
-            {
-              var tmp0__anonymous__q1qw7t = charSequenceGet(value, 0);
-              tmp$ret$1 = uppercaseChar(tmp0__anonymous__q1qw7t);
-            }
-            var tmp0_plus = tmp$ret$1;
-            var tmp$ret$3;
-            {
-              var tmp$ret$2;
-              {
-                tmp$ret$2 = value;
-              }
-              tmp$ret$3 = tmp$ret$2.substring(1);
-            }
-            var tmp1_plus = tmp$ret$3;
-            tmp$ret$4 = toString(tmp0_plus) + tmp1_plus;
-          }
-          tmp = tmp$ret$4;
-        } else {
-          tmp = value;
-        }
-        tmp$ret$5 = tmp;
-      }
-      return tmp$ret$5;
-    };
-  }
-  function addToBars$addRow$lambda($prefix, $item) {
+  function addToBars$addRow$lambda($item, $prefix) {
     return function ($this$append) {
-      var tmp$ret$6;
-      {
-        var tmp$ret$5;
-        {
-          var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row'), $this$append);
-          var tmp$ret$4;
-          {
-            if (!(tmp0_visitAndFinalize.sh() === $this$append)) {
-              throw IllegalArgumentException_init_$Create$('Wrong exception');
-            }
-            {
-              tmp0_visitAndFinalize.sh().zh(tmp0_visitAndFinalize);
-              try {
-                {
-                  {
-                    set_id(tmp0_visitAndFinalize, $prefix + 'selected-item-' + $item.q1());
-                    var tmp$ret$1;
-                    {
-                      var tmp$ret$0;
-                      {
-                        var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.sh());
-                        tmp0_visit.sh().zh(tmp0_visit);
-                        var tmp;
-                        try {
-                          tmp = tmp0_visit.wh(toSymbol($item.s1()));
-                        } catch ($p) {
-                          var tmp_0;
-                          if ($p instanceof Error) {
-                            tmp_0 = tmp0_visit.sh().di(tmp0_visit, $p);
-                          } else {
-                            throw $p;
-                          }
-                          tmp = tmp_0;
-                        }
-                        finally {
-                          tmp0_visit.sh().ci(tmp0_visit);
-                        }
-                        tmp$ret$0 = tmp;
-                      }
-                      tmp$ret$1 = tmp$ret$0;
-                    }
-                    var tmp$ret$3;
-                    {
-                      var tmp$ret$2;
-                      {
-                        var tmp0_visit_0 = new SPAN(attributesMapOf('class', null), tmp0_visitAndFinalize.sh());
-                        tmp0_visit_0.sh().zh(tmp0_visit_0);
-                        var tmp_1;
-                        try {
-                          var tmp_2 = $item.q1();
-                          var tmp_3 = replace$default(tmp_2, '_', ' ', false, 4, null);
-                          var tmp_4 = split$default(tmp_3, [' '], false, 0, 6, null);
-                          var tmp_5 = joinToString$default(tmp_4, null, null, null, 0, null, addToBars$addRow$lambda$lambda(), 31, null);
-                          tmp_1 = tmp0_visit_0.wh(replace$default(tmp_5, ',', '', false, 4, null));
-                        } catch ($p) {
-                          var tmp_6;
-                          if ($p instanceof Error) {
-                            tmp_6 = tmp0_visit_0.sh().di(tmp0_visit_0, $p);
-                          } else {
-                            throw $p;
-                          }
-                          tmp_1 = tmp_6;
-                        }
-                        finally {
-                          tmp0_visit_0.sh().ci(tmp0_visit_0);
-                        }
-                        tmp$ret$2 = tmp_1;
-                      }
-                      tmp$ret$3 = tmp$ret$2;
-                    }
-                  }
-                }
-              } catch ($p) {
-                if ($p instanceof Error) {
-                  tmp0_visitAndFinalize.sh().di(tmp0_visitAndFinalize, $p);
-                } else {
-                  throw $p;
-                }
-              }
-              finally {
-                tmp0_visitAndFinalize.sh().ci(tmp0_visitAndFinalize);
-              }
-            }
-            tmp$ret$4 = $this$append.ei();
-          }
-          tmp$ret$5 = tmp$ret$4;
-        }
-        tmp$ret$6 = tmp$ret$5;
-      }
+      SelectedIcon($this$append, $item, $prefix);
       return Unit_getInstance();
     };
   }
@@ -1477,6 +1357,135 @@
     };
   }
   function GridItem$lambda_0() {
+    return function (value) {
+      var tmp$ret$5;
+      {
+        var tmp;
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = charSequenceLength(value) > 0;
+        }
+        if (tmp$ret$0) {
+          var tmp$ret$4;
+          {
+            var tmp$ret$1;
+            {
+              var tmp0__anonymous__q1qw7t = charSequenceGet(value, 0);
+              tmp$ret$1 = uppercaseChar(tmp0__anonymous__q1qw7t);
+            }
+            var tmp0_plus = tmp$ret$1;
+            var tmp$ret$3;
+            {
+              var tmp$ret$2;
+              {
+                tmp$ret$2 = value;
+              }
+              tmp$ret$3 = tmp$ret$2.substring(1);
+            }
+            var tmp1_plus = tmp$ret$3;
+            tmp$ret$4 = toString(tmp0_plus) + tmp1_plus;
+          }
+          tmp = tmp$ret$4;
+        } else {
+          tmp = value;
+        }
+        tmp$ret$5 = tmp;
+      }
+      return tmp$ret$5;
+    };
+  }
+  function SelectedIcon(_this__u8e3s4, item, prefix) {
+    var tmp$ret$6;
+    {
+      var tmp$ret$5;
+      {
+        var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row row-start fill-max-width'), _this__u8e3s4);
+        var tmp$ret$4;
+        {
+          if (!(tmp0_visitAndFinalize.sh() === _this__u8e3s4)) {
+            throw IllegalArgumentException_init_$Create$('Wrong exception');
+          }
+          {
+            tmp0_visitAndFinalize.sh().zh(tmp0_visitAndFinalize);
+            try {
+              {
+                {
+                  set_id(tmp0_visitAndFinalize, prefix + 'selected-item-' + item.q1());
+                  var tmp$ret$1;
+                  {
+                    var tmp$ret$0;
+                    {
+                      var tmp0_visit = new SPAN(attributesMapOf('class', 'icon'), tmp0_visitAndFinalize.sh());
+                      tmp0_visit.sh().zh(tmp0_visit);
+                      var tmp;
+                      try {
+                        tmp = tmp0_visit.wh(toSymbol(item.s1()));
+                      } catch ($p) {
+                        var tmp_0;
+                        if ($p instanceof Error) {
+                          tmp_0 = tmp0_visit.sh().di(tmp0_visit, $p);
+                        } else {
+                          throw $p;
+                        }
+                        tmp = tmp_0;
+                      }
+                      finally {
+                        tmp0_visit.sh().ci(tmp0_visit);
+                      }
+                      tmp$ret$0 = tmp;
+                    }
+                    tmp$ret$1 = tmp$ret$0;
+                  }
+                  var tmp$ret$3;
+                  {
+                    var tmp$ret$2;
+                    {
+                      var tmp0_visit_0 = new SPAN(attributesMapOf('class', null), tmp0_visitAndFinalize.sh());
+                      tmp0_visit_0.sh().zh(tmp0_visit_0);
+                      var tmp_1;
+                      try {
+                        var tmp_2 = item.q1();
+                        var tmp_3 = replace$default(tmp_2, '_', ' ', false, 4, null);
+                        var tmp_4 = split$default(tmp_3, [' '], false, 0, 6, null);
+                        var tmp_5 = joinToString$default(tmp_4, null, null, null, 0, null, SelectedIcon$lambda(), 31, null);
+                        tmp_1 = tmp0_visit_0.wh(replace$default(tmp_5, ',', '', false, 4, null));
+                      } catch ($p) {
+                        var tmp_6;
+                        if ($p instanceof Error) {
+                          tmp_6 = tmp0_visit_0.sh().di(tmp0_visit_0, $p);
+                        } else {
+                          throw $p;
+                        }
+                        tmp_1 = tmp_6;
+                      }
+                      finally {
+                        tmp0_visit_0.sh().ci(tmp0_visit_0);
+                      }
+                      tmp$ret$2 = tmp_1;
+                    }
+                    tmp$ret$3 = tmp$ret$2;
+                  }
+                }
+              }
+            } catch ($p) {
+              if ($p instanceof Error) {
+                tmp0_visitAndFinalize.sh().di(tmp0_visitAndFinalize, $p);
+              } else {
+                throw $p;
+              }
+            }
+            finally {
+              tmp0_visitAndFinalize.sh().ci(tmp0_visitAndFinalize);
+            }
+          }
+          tmp$ret$4 = _this__u8e3s4.ei();
+        }
+        tmp$ret$5 = tmp$ret$4;
+      }
+      tmp$ret$6 = tmp$ret$5;
+    }
+  }
+  function SelectedIcon$lambda() {
     return function (value) {
       var tmp$ret$5;
       {

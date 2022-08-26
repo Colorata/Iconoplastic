@@ -4,6 +4,11 @@ if (typeof ArrayBuffer.isView === 'undefined') {
     return a != null && a.__proto__ != null && a.__proto__.__proto__ === Int8Array.prototype.__proto__;
   };
 }
+if (typeof Math.log10 === 'undefined') {
+  Math.log10 = function (x) {
+    return Math.log(x) * Math.LOG10E;
+  };
+}
 if (typeof Math.clz32 === 'undefined') {
   Math.clz32 = function (log, LN2) {
     return function (x) {
@@ -14,11 +19,6 @@ if (typeof Math.clz32 === 'undefined') {
       return 31 - (log(asUint) / LN2 | 0) | 0;
     };
   }(Math.log, Math.LN2);
-}
-if (typeof Math.log10 === 'undefined') {
-  Math.log10 = function (x) {
-    return Math.log(x) * Math.LOG10E;
-  };
 }
 if (typeof Math.sign === 'undefined') {
   Math.sign = function (x) {

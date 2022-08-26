@@ -8,6 +8,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import org.w3c.dom.get
 import org.w3c.dom.set
+import ui.SelectedIcon
 
 private var _selectedListStorage: List<String>? = null
 
@@ -26,17 +27,7 @@ fun addToBars(item: Map.Entry<String, String>) {
     console.log("AAAAAAAAAAAAAAAAA")
     fun addRow(prefix: String = "") {
         document.getElementById("${prefix}selected-icons")?.append {
-            div("row") {
-                id = "${prefix}selected-item-${item.key}"
-                span("icon") {
-                    +item.value.toSymbol()
-                }
-                span {
-                    +item.key.replace("_", " ").split(" ").joinToString { value ->
-                        value.replaceFirstChar { it.uppercaseChar() }
-                    }.replace(",", "")
-                }
-            }
+            SelectedIcon(item, prefix)
         }
     }
     addRow()
@@ -56,4 +47,5 @@ fun addToBars(item: Map.Entry<String, String>) {
 fun removeFromBars(item: Map.Entry<String, String>) {
     document.getElementById("selected-item-${item.key}")?.remove()
     document.getElementById("bottom-item-${item.key}")?.remove()
+    document.getElementById("bar-selected-item-${item.key}")?.remove()
 }

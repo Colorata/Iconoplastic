@@ -211,6 +211,10 @@ span.icon {
     align-items: center;
 }
 
+.row.row-start {
+    justify-content: start;
+}
+
 .fill-max-width {
     width: 100%;
 }
