@@ -7,6 +7,7 @@ import kotlinx.html.js.onChangeFunction
 import kotlinx.html.js.onClickFunction
 import kotlinx.html.js.onKeyUpFunction
 import org.w3c.dom.HTMLInputElement
+import ui.Button
 import ui.GridItem
 
 var isBarExpanded = false
@@ -68,10 +69,18 @@ fun TagConsumer<*>.App() {
                 }
             }
         }
-        div("column sticky") {
+        div("column sticky surface-variant-background") {
             div("picker-card") {
                 div("column") {
                     id = "selected-icons"
+                }
+            }
+            div("sticky-bottom row picker-card-bottom") {
+                Button("Download Font", "\uE167") {
+                    Api().getFontUrl(Unicodes(selectedListStorage)) {
+                        it?.let { it1 -> Api().downloadToLocal(it1) }
+
+                    }
                 }
             }
         }

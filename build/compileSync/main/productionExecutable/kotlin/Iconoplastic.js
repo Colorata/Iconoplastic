@@ -1,11 +1,14 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd)
-    define(['exports', './kotlin-kotlin-stdlib-js-ir.js', './kotlin_org_jetbrains_kotlinx_kotlinx_html.js', './kotlinx-serialization-kotlinx-serialization-json-js-ir.js', './kotlinx-serialization-kotlinx-serialization-core-js-ir.js'], factory);
+    define(['exports', './kotlin-kotlin-stdlib-js-ir.js', './kotlinx-serialization-kotlinx-serialization-core-js-ir.js', './kotlin_org_jetbrains_kotlinx_kotlinx_html.js', './kotlinx-serialization-kotlinx-serialization-json-js-ir.js'], factory);
   else if (typeof exports === 'object')
-    factory(module.exports, require('./kotlin-kotlin-stdlib-js-ir.js'), require('./kotlin_org_jetbrains_kotlinx_kotlinx_html.js'), require('./kotlinx-serialization-kotlinx-serialization-json-js-ir.js'), require('./kotlinx-serialization-kotlinx-serialization-core-js-ir.js'));
+    factory(module.exports, require('./kotlin-kotlin-stdlib-js-ir.js'), require('./kotlinx-serialization-kotlinx-serialization-core-js-ir.js'), require('./kotlin_org_jetbrains_kotlinx_kotlinx_html.js'), require('./kotlinx-serialization-kotlinx-serialization-json-js-ir.js'));
   else {
     if (typeof this['kotlin-kotlin-stdlib-js-ir'] === 'undefined') {
       throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlin-kotlin-stdlib-js-ir' was not found. Please, check whether 'kotlin-kotlin-stdlib-js-ir' is loaded prior to 'Iconoplastic'.");
+    }
+    if (typeof this['kotlinx-serialization-kotlinx-serialization-core-js-ir'] === 'undefined') {
+      throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlinx-serialization-kotlinx-serialization-core-js-ir' was not found. Please, check whether 'kotlinx-serialization-kotlinx-serialization-core-js-ir' is loaded prior to 'Iconoplastic'.");
     }
     if (typeof kotlin_org_jetbrains_kotlinx_kotlinx_html === 'undefined') {
       throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlin_org_jetbrains_kotlinx_kotlinx_html' was not found. Please, check whether 'kotlin_org_jetbrains_kotlinx_kotlinx_html' is loaded prior to 'Iconoplastic'.");
@@ -13,36 +16,49 @@
     if (typeof this['kotlinx-serialization-kotlinx-serialization-json-js-ir'] === 'undefined') {
       throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlinx-serialization-kotlinx-serialization-json-js-ir' was not found. Please, check whether 'kotlinx-serialization-kotlinx-serialization-json-js-ir' is loaded prior to 'Iconoplastic'.");
     }
-    if (typeof this['kotlinx-serialization-kotlinx-serialization-core-js-ir'] === 'undefined') {
-      throw new Error("Error loading module 'Iconoplastic'. Its dependency 'kotlinx-serialization-kotlinx-serialization-core-js-ir' was not found. Please, check whether 'kotlinx-serialization-kotlinx-serialization-core-js-ir' is loaded prior to 'Iconoplastic'.");
-    }
-    root.Iconoplastic = factory(typeof Iconoplastic === 'undefined' ? {} : Iconoplastic, this['kotlin-kotlin-stdlib-js-ir'], kotlin_org_jetbrains_kotlinx_kotlinx_html, this['kotlinx-serialization-kotlinx-serialization-json-js-ir'], this['kotlinx-serialization-kotlinx-serialization-core-js-ir']);
+    root.Iconoplastic = factory(typeof Iconoplastic === 'undefined' ? {} : Iconoplastic, this['kotlin-kotlin-stdlib-js-ir'], this['kotlinx-serialization-kotlinx-serialization-core-js-ir'], kotlin_org_jetbrains_kotlinx_kotlinx_html, this['kotlinx-serialization-kotlinx-serialization-json-js-ir']);
   }
-}(this, function (_, kotlin_kotlin, kotlin_org_jetbrains_kotlinx_kotlinx_html, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_json, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core) {
+}(this, function (_, kotlin_kotlin, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core, kotlin_org_jetbrains_kotlinx_kotlinx_html, kotlin_org_jetbrains_kotlinx_kotlinx_serialization_json) {
   'use strict';
   //region block: imports
+  var objectMeta = kotlin_kotlin.$_$.h6;
+  var PluginGeneratedSerialDescriptor = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.t1;
+  var StringSerializer_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.l;
+  var ArrayListSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.o1;
+  var Unit_getInstance = kotlin_kotlin.$_$.v2;
+  var UnknownFieldException_init_$Create$ = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.d;
+  var THROW_CCE = kotlin_kotlin.$_$.x7;
+  var typeParametersSerializers = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.q1;
+  var GeneratedSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.r1;
+  var throwMissingFieldException = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.w1;
+  var joinToString$default = kotlin_kotlin.$_$.g;
+  var trimIndent = kotlin_kotlin.$_$.m7;
+  var hashCode = kotlin_kotlin.$_$.r5;
+  var equals = kotlin_kotlin.$_$.n5;
+  var classMeta = kotlin_kotlin.$_$.m5;
   var split$default = kotlin_kotlin.$_$.l;
-  var collectionSizeOrDefault = kotlin_kotlin.$_$.k3;
-  var mapCapacity = kotlin_kotlin.$_$.h4;
-  var coerceAtLeast = kotlin_kotlin.$_$.k6;
-  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.v;
-  var Companion_getInstance = kotlin_kotlin.$_$.o2;
-  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.k1;
-  var charArrayOf = kotlin_kotlin.$_$.f5;
+  var collectionSizeOrDefault = kotlin_kotlin.$_$.m3;
+  var mapCapacity = kotlin_kotlin.$_$.j4;
+  var coerceAtLeast = kotlin_kotlin.$_$.m6;
+  var LinkedHashMap_init_$Create$ = kotlin_kotlin.$_$.x;
+  var Companion_getInstance = kotlin_kotlin.$_$.q2;
+  var _Char___init__impl__6a9atx = kotlin_kotlin.$_$.m1;
+  var charArrayOf = kotlin_kotlin.$_$.h5;
   var split$default_0 = kotlin_kotlin.$_$.k;
-  var to = kotlin_kotlin.$_$.l8;
-  var Unit_getInstance = kotlin_kotlin.$_$.t2;
-  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.o1;
-  var createFailure = kotlin_kotlin.$_$.d8;
-  var _Result___get_isFailure__impl__jpiriv = kotlin_kotlin.$_$.p1;
-  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.q1;
-  var THROW_CCE = kotlin_kotlin.$_$.u7;
-  var isObject = kotlin_kotlin.$_$.a6;
-  var toMap = kotlin_kotlin.$_$.u4;
-  var classMeta = kotlin_kotlin.$_$.k5;
+  var to = kotlin_kotlin.$_$.o8;
+  var _Result___init__impl__xyqfz8 = kotlin_kotlin.$_$.q1;
+  var createFailure = kotlin_kotlin.$_$.g8;
+  var _Result___get_isFailure__impl__jpiriv = kotlin_kotlin.$_$.r1;
+  var _Result___get_value__impl__bjfvqg = kotlin_kotlin.$_$.s1;
+  var isObject = kotlin_kotlin.$_$.c6;
+  var toMap = kotlin_kotlin.$_$.w4;
+  var substringAfter$default = kotlin_kotlin.$_$.m;
+  var substringBefore$default = kotlin_kotlin.$_$.n;
+  var replace$default = kotlin_kotlin.$_$.j;
+  var mapOf = kotlin_kotlin.$_$.k4;
   var attributesMapOf = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.l;
   var DIV = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.f;
-  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.f1;
+  var IllegalArgumentException_init_$Create$ = kotlin_kotlin.$_$.h1;
   var attributesMapOf_0 = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.k;
   var IMG = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.h;
   var SPAN = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.j;
@@ -53,38 +69,154 @@
   var set_onKeyUpFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.e;
   var FOOTER = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.g;
   var set_onClickFunction = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.d;
-  var toInt = kotlin_kotlin.$_$.b7;
-  var Companion_getInstance_0 = kotlin_kotlin.$_$.m2;
-  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.m1;
-  var numberToChar = kotlin_kotlin.$_$.e6;
-  var toString = kotlin_kotlin.$_$.n1;
+  var toInt = kotlin_kotlin.$_$.d7;
+  var Companion_getInstance_0 = kotlin_kotlin.$_$.o2;
+  var Char__toInt_impl_vasixd = kotlin_kotlin.$_$.o1;
+  var numberToChar = kotlin_kotlin.$_$.g6;
+  var toString = kotlin_kotlin.$_$.p1;
   var append = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.b;
   var get_id = kotlin_org_jetbrains_kotlinx_kotlinx_html.$_$.m;
-  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.w;
-  var contains = kotlin_kotlin.$_$.r6;
-  var plus = kotlin_kotlin.$_$.k8;
-  var replace$default = kotlin_kotlin.$_$.j;
+  var LinkedHashMap_init_$Create$_0 = kotlin_kotlin.$_$.y;
+  var contains = kotlin_kotlin.$_$.t6;
+  var plus = kotlin_kotlin.$_$.n8;
+  var charSequenceGet = kotlin_kotlin.$_$.j5;
+  var toString_0 = kotlin_kotlin.$_$.g7;
   var Default_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_json.$_$.a;
-  var List = kotlin_kotlin.$_$.c3;
+  var List = kotlin_kotlin.$_$.e3;
   var getKClass = kotlin_kotlin.$_$.e;
-  var PrimitiveClasses_getInstance = kotlin_kotlin.$_$.k2;
-  var arrayOf = kotlin_kotlin.$_$.b8;
+  var PrimitiveClasses_getInstance = kotlin_kotlin.$_$.m2;
+  var arrayOf = kotlin_kotlin.$_$.e8;
   var createKType = kotlin_kotlin.$_$.b;
   var createInvariantKTypeProjection = kotlin_kotlin.$_$.a;
-  var serializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.y1;
-  var KSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.s1;
-  var isInterface = kotlin_kotlin.$_$.y5;
-  var emptyList = kotlin_kotlin.$_$.x3;
-  var Collection = kotlin_kotlin.$_$.v2;
-  var joinToString$default = kotlin_kotlin.$_$.g;
-  var plus_0 = kotlin_kotlin.$_$.l4;
-  var minus = kotlin_kotlin.$_$.j4;
-  var charSequenceLength = kotlin_kotlin.$_$.i5;
-  var charSequenceGet = kotlin_kotlin.$_$.h5;
-  var uppercaseChar = kotlin_kotlin.$_$.k7;
+  var serializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.f2;
+  var KSerializer = kotlin_org_jetbrains_kotlinx_kotlinx_serialization_core.$_$.z1;
+  var isInterface = kotlin_kotlin.$_$.a6;
+  var emptyList = kotlin_kotlin.$_$.z3;
+  var Collection = kotlin_kotlin.$_$.x2;
+  var plus_0 = kotlin_kotlin.$_$.n4;
+  var minus = kotlin_kotlin.$_$.l4;
+  var charSequenceLength = kotlin_kotlin.$_$.k5;
+  var uppercaseChar = kotlin_kotlin.$_$.n7;
   //endregion
   //region block: pre-declaration
   //endregion
+  function Companion() {
+    Companion_instance = this;
+  }
+  Companion.$metadata$ = objectMeta('Companion');
+  var Companion_instance;
+  function Companion_getInstance_1() {
+    if (Companion_instance == null)
+      new Companion();
+    return Companion_instance;
+  }
+  function $serializer() {
+    $serializer_instance = this;
+    var tmp0_serialDesc = new PluginGeneratedSerialDescriptor('Unicodes', this, 1);
+    tmp0_serialDesc.qw('unicodes', false);
+    this.p1c_1 = tmp0_serialDesc;
+  }
+  $serializer.prototype.cn = function () {
+    return this.p1c_1;
+  };
+  $serializer.prototype.sw = function () {
+    var tmp$ret$2;
+    {
+      var tmp0_arrayOf = [new ArrayListSerializer(StringSerializer_getInstance())];
+      var tmp$ret$1;
+      {
+        var tmp$ret$0;
+        {
+          tmp$ret$0 = tmp0_arrayOf;
+        }
+        tmp$ret$1 = tmp$ret$0;
+      }
+      tmp$ret$2 = tmp$ret$1;
+    }
+    return tmp$ret$2;
+  };
+  $serializer.prototype.en = function (decoder) {
+    var tmp0_desc = this.p1c_1;
+    var tmp1_flag = true;
+    var tmp2_index = 0;
+    var tmp3_bitMask0 = 0;
+    var tmp4_local0 = null;
+    var tmp5_input = decoder.xp(tmp0_desc);
+    if (tmp5_input.kq()) {
+      tmp4_local0 = tmp5_input.iq(tmp0_desc, 0, new ArrayListSerializer(StringSerializer_getInstance()), tmp4_local0);
+      tmp3_bitMask0 = tmp3_bitMask0 | 1;
+    } else
+      while (tmp1_flag) {
+        tmp2_index = tmp5_input.lq(tmp0_desc);
+        switch (tmp2_index) {
+          case -1:
+            tmp1_flag = false;
+            break;
+          case 0:
+            tmp4_local0 = tmp5_input.iq(tmp0_desc, 0, new ArrayListSerializer(StringSerializer_getInstance()), tmp4_local0);
+            tmp3_bitMask0 = tmp3_bitMask0 | 1;
+            break;
+          default:
+            throw UnknownFieldException_init_$Create$(tmp2_index);
+        }
+      }
+    tmp5_input.yp(tmp0_desc);
+    return Unicodes_init_$Create$(tmp3_bitMask0, tmp4_local0, null);
+  };
+  $serializer.prototype.q1c = function (encoder, value) {
+    var tmp0_desc = this.p1c_1;
+    var tmp1_output = encoder.xp(tmp0_desc);
+    tmp1_output.jr(tmp0_desc, 0, new ArrayListSerializer(StringSerializer_getInstance()), value.r1c_1);
+    tmp1_output.yp(tmp0_desc);
+  };
+  $serializer.prototype.dn = function (encoder, value) {
+    return this.q1c(encoder, value instanceof Unicodes ? value : THROW_CCE());
+  };
+  $serializer.$metadata$ = objectMeta('$serializer', [GeneratedSerializer]);
+  var $serializer_instance;
+  function $serializer_getInstance() {
+    if ($serializer_instance == null)
+      new $serializer();
+    return $serializer_instance;
+  }
+  function Unicodes_init_$Init$(seen1, unicodes, serializationConstructorMarker, $this) {
+    if (!(1 === (1 & seen1)))
+      throwMissingFieldException(seen1, 1, $serializer_getInstance().p1c_1);
+    $this.r1c_1 = unicodes;
+    return $this;
+  }
+  function Unicodes_init_$Create$(seen1, unicodes, serializationConstructorMarker) {
+    return Unicodes_init_$Init$(seen1, unicodes, serializationConstructorMarker, Object.create(Unicodes.prototype));
+  }
+  function Unicodes$toJson$lambda() {
+    return function (it) {
+      return '"' + fromSymbol(it) + '"';
+    };
+  }
+  function Unicodes(unicodes) {
+    Companion_getInstance_1();
+    this.r1c_1 = unicodes;
+  }
+  Unicodes.prototype.s1c = function () {
+    return trimIndent('\n            {\n                "unicodes": [\n                    ' + joinToString$default(this.r1c_1, null, null, null, 0, null, Unicodes$toJson$lambda(), 31, null) + '\n                ]\n            }\n        ');
+  };
+  Unicodes.prototype.toString = function () {
+    return 'Unicodes(unicodes=' + this.r1c_1 + ')';
+  };
+  Unicodes.prototype.hashCode = function () {
+    return hashCode(this.r1c_1);
+  };
+  Unicodes.prototype.equals = function (other) {
+    if (this === other)
+      return true;
+    if (!(other instanceof Unicodes))
+      return false;
+    var tmp0_other_with_cast = other instanceof Unicodes ? other : THROW_CCE();
+    if (!equals(this.r1c_1, tmp0_other_with_cast.r1c_1))
+      return false;
+    return true;
+  };
+  Unicodes.$metadata$ = classMeta('Unicodes', undefined, undefined, {0: $serializer_getInstance});
   function Api$getCodepoints$lambda$lambda($onLoad) {
     return function (it) {
       var tmp$ret$7;
@@ -164,12 +296,71 @@
       return tmp.then(Api$getCodepoints$lambda$lambda($onLoad));
     };
   }
-  function Api() {
-    this.o1c_1 = 'https://iconoplastic-api.herokuapp.com/';
+  function Api$getFontUrl$lambda$lambda($onLoad) {
+    return function (response) {
+      console.log(response);
+      var tmp = substringAfter$default(response, '{"link":"', null, 2, null);
+      var tmp_0 = substringBefore$default(tmp, '"}', null, 2, null);
+      $onLoad(replace$default(tmp_0, 'cache/', '', false, 4, null));
+      return Unit_getInstance();
+    };
   }
-  Api.prototype.p1c = function (onLoad) {
-    var tmp = window.fetch(this.o1c_1 + '/download/codepoints');
+  function Api$getFontUrl$lambda(this$0, $onLoad) {
+    return function (it) {
+      console.log(this$0.t1c_1 + '/cache/');
+      var tmp = it.text();
+      return tmp.then(Api$getFontUrl$lambda$lambda($onLoad));
+    };
+  }
+  function Api() {
+    this.t1c_1 = 'https://iconoplastic-api.herokuapp.com';
+  }
+  Api.prototype.u1c = function (onLoad) {
+    var tmp = window.fetch(this.t1c_1 + '/download/codepoints');
     tmp.then(Api$getCodepoints$lambda(onLoad));
+  };
+  Api.prototype.v1c = function (unicodes, onLoad) {
+    console.log(unicodes.s1c());
+    var tmp = window;
+    var tmp_0 = this.t1c_1 + '/icons_configure';
+    var tmp$ret$0;
+    {
+      var tmp0_RequestInit = mapOf([to('Accept', 'application/json'), to('Content-Type', 'application/json')]);
+      var tmp1_RequestInit = unicodes.s1c();
+      var tmp2_RequestInit = undefined;
+      var tmp3_RequestInit = undefined;
+      var tmp4_RequestInit = undefined;
+      var tmp5_RequestInit = undefined;
+      var tmp6_RequestInit = undefined;
+      var tmp7_RequestInit = undefined;
+      var tmp8_RequestInit = undefined;
+      var tmp9_RequestInit = undefined;
+      var tmp10_RequestInit = undefined;
+      var o = {};
+      o['method'] = 'POST';
+      o['headers'] = tmp0_RequestInit;
+      o['body'] = tmp1_RequestInit;
+      o['referrer'] = tmp2_RequestInit;
+      o['referrerPolicy'] = tmp3_RequestInit;
+      o['mode'] = tmp4_RequestInit;
+      o['credentials'] = tmp5_RequestInit;
+      o['cache'] = tmp6_RequestInit;
+      o['redirect'] = tmp7_RequestInit;
+      o['integrity'] = tmp8_RequestInit;
+      o['keepalive'] = tmp9_RequestInit;
+      o['window'] = tmp10_RequestInit;
+      tmp$ret$0 = o;
+    }
+    var tmp_1 = tmp.fetch(tmp_0, tmp$ret$0);
+    tmp_1.then(Api$getFontUrl$lambda(this, onLoad));
+  };
+  Api.prototype.w1c = function (url) {
+    var tmp0_safe_receiver = window.open(this.t1c_1 + '/download/' + url);
+    if (tmp0_safe_receiver == null)
+      null;
+    else {
+      tmp0_safe_receiver.focus();
+    }
   };
   Api.$metadata$ = classMeta('Api');
   function set_isBarExpanded(_set____db54di) {
@@ -181,12 +372,12 @@
   var isBarExpanded;
   function App(_this__u8e3s4) {
     var response = {_v: null};
-    var tmp$ret$25;
+    var tmp$ret$27;
     {
-      var tmp$ret$24;
+      var tmp$ret$26;
       {
         var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row space-between'), _this__u8e3s4);
-        var tmp$ret$23;
+        var tmp$ret$25;
         {
           if (!(tmp0_visitAndFinalize.sh() === _this__u8e3s4)) {
             throw IllegalArgumentException_init_$Create$('Wrong exception');
@@ -197,7 +388,7 @@
               {
                 {
                   var tmp = new Api();
-                  tmp.p1c(App$lambda(response));
+                  tmp.u1c(App$lambda(response));
                   var tmp$ret$16;
                   {
                     var tmp$ret$15;
@@ -411,11 +602,11 @@
                     }
                     tmp$ret$16 = tmp$ret$15;
                   }
-                  var tmp$ret$22;
+                  var tmp$ret$24;
                   {
-                    var tmp$ret$21;
+                    var tmp$ret$23;
                     {
-                      var tmp0_visit_7 = new DIV(attributesMapOf('class', 'column sticky'), tmp0_visitAndFinalize.sh());
+                      var tmp0_visit_7 = new DIV(attributesMapOf('class', 'column sticky surface-variant-background'), tmp0_visitAndFinalize.sh());
                       tmp0_visit_7.sh().zh(tmp0_visit_7);
                       var tmp_18;
                       try {
@@ -469,22 +660,47 @@
                           }
                           tmp$ret$20 = tmp$ret$19;
                         }
-                        tmp_18 = tmp$ret$20;
+                        var tmp$ret$22;
+                        {
+                          var tmp$ret$21;
+                          {
+                            var tmp0_visit_10 = new DIV(attributesMapOf('class', 'sticky-bottom row picker-card-bottom'), tmp0_visit_7.sh());
+                            tmp0_visit_10.sh().zh(tmp0_visit_10);
+                            var tmp_23;
+                            try {
+                              tmp_23 = Button(_this__u8e3s4, 'Download Font', '\uE167', App$lambda_3());
+                            } catch ($p) {
+                              var tmp_24;
+                              if ($p instanceof Error) {
+                                tmp_24 = tmp0_visit_10.sh().di(tmp0_visit_10, $p);
+                              } else {
+                                throw $p;
+                              }
+                              tmp_23 = tmp_24;
+                            }
+                            finally {
+                              tmp0_visit_10.sh().ci(tmp0_visit_10);
+                            }
+                            tmp$ret$21 = tmp_23;
+                          }
+                          tmp$ret$22 = tmp$ret$21;
+                        }
+                        tmp_18 = tmp$ret$22;
                       } catch ($p) {
-                        var tmp_23;
+                        var tmp_25;
                         if ($p instanceof Error) {
-                          tmp_23 = tmp0_visit_7.sh().di(tmp0_visit_7, $p);
+                          tmp_25 = tmp0_visit_7.sh().di(tmp0_visit_7, $p);
                         } else {
                           throw $p;
                         }
-                        tmp_18 = tmp_23;
+                        tmp_18 = tmp_25;
                       }
                       finally {
                         tmp0_visit_7.sh().ci(tmp0_visit_7);
                       }
-                      tmp$ret$21 = tmp_18;
+                      tmp$ret$23 = tmp_18;
                     }
-                    tmp$ret$22 = tmp$ret$21;
+                    tmp$ret$24 = tmp$ret$23;
                   }
                 }
               }
@@ -499,18 +715,18 @@
               tmp0_visitAndFinalize.sh().ci(tmp0_visitAndFinalize);
             }
           }
-          tmp$ret$23 = _this__u8e3s4.ei();
+          tmp$ret$25 = _this__u8e3s4.ei();
         }
-        tmp$ret$24 = tmp$ret$23;
+        tmp$ret$26 = tmp$ret$25;
       }
-      tmp$ret$25 = tmp$ret$24;
+      tmp$ret$27 = tmp$ret$26;
     }
-    var tmp$ret$40;
+    var tmp$ret$42;
     {
-      var tmp$ret$39;
+      var tmp$ret$41;
       {
         var tmp0_visitAndFinalize_0 = new FOOTER(attributesMapOf('class', null), _this__u8e3s4);
-        var tmp$ret$38;
+        var tmp$ret$40;
         {
           if (!(tmp0_visitAndFinalize_0.sh() === _this__u8e3s4)) {
             throw IllegalArgumentException_init_$Create$('Wrong exception');
@@ -520,59 +736,32 @@
             try {
               {
                 {
-                  var tmp$ret$37;
+                  var tmp$ret$39;
                   {
-                    var tmp$ret$36;
+                    var tmp$ret$38;
                     {
-                      var tmp0_visit_10 = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize_0.sh());
-                      tmp0_visit_10.sh().zh(tmp0_visit_10);
-                      var tmp_24;
+                      var tmp0_visit_11 = new DIV(attributesMapOf('class', 'column'), tmp0_visitAndFinalize_0.sh());
+                      tmp0_visit_11.sh().zh(tmp0_visit_11);
+                      var tmp_26;
                       try {
-                        set_id(tmp0_visit_10, 'footer');
-                        var tmp$ret$31;
+                        set_id(tmp0_visit_11, 'footer');
+                        var tmp$ret$33;
                         {
-                          var tmp$ret$30;
+                          var tmp$ret$32;
                           {
-                            var tmp0_visit_11 = new DIV(attributesMapOf('class', 'bottom-bar'), tmp0_visit_10.sh());
-                            tmp0_visit_11.sh().zh(tmp0_visit_11);
-                            var tmp_25;
+                            var tmp0_visit_12 = new DIV(attributesMapOf('class', 'bottom-bar'), tmp0_visit_11.sh());
+                            tmp0_visit_12.sh().zh(tmp0_visit_12);
+                            var tmp_27;
                             try {
-                              var tmp$ret$27;
-                              {
-                                var tmp$ret$26;
-                                {
-                                  var tmp0_visit_12 = new DIV(attributesMapOf('class', 'row marquee'), tmp0_visit_11.sh());
-                                  tmp0_visit_12.sh().zh(tmp0_visit_12);
-                                  var tmp_26;
-                                  try {
-                                    tmp_26 = set_id(tmp0_visit_12, 'bottom-bar');
-                                  } catch ($p) {
-                                    var tmp_27;
-                                    if ($p instanceof Error) {
-                                      tmp_27 = tmp0_visit_12.sh().di(tmp0_visit_12, $p);
-                                    } else {
-                                      throw $p;
-                                    }
-                                    tmp_26 = tmp_27;
-                                  }
-                                  finally {
-                                    tmp0_visit_12.sh().ci(tmp0_visit_12);
-                                  }
-                                  tmp$ret$26 = tmp_26;
-                                }
-                                tmp$ret$27 = tmp$ret$26;
-                              }
                               var tmp$ret$29;
                               {
                                 var tmp$ret$28;
                                 {
-                                  var tmp0_visit_13 = new SPAN(attributesMapOf('class', 'icon button click-pointer stick-right surface-variant-background rotate'), tmp0_visit_11.sh());
+                                  var tmp0_visit_13 = new DIV(attributesMapOf('class', 'row marquee'), tmp0_visit_12.sh());
                                   tmp0_visit_13.sh().zh(tmp0_visit_13);
                                   var tmp_28;
                                   try {
-                                    set_id(tmp0_visit_13, 'bar-expand-button');
-                                    tmp0_visit_13.wh('\uE5CE');
-                                    tmp_28 = set_onClickFunction(tmp0_visit_13, App$lambda_3());
+                                    tmp_28 = set_id(tmp0_visit_13, 'bottom-bar');
                                   } catch ($p) {
                                     var tmp_29;
                                     if ($p instanceof Error) {
@@ -589,90 +778,117 @@
                                 }
                                 tmp$ret$29 = tmp$ret$28;
                               }
-                              tmp_25 = tmp$ret$29;
-                            } catch ($p) {
-                              var tmp_30;
-                              if ($p instanceof Error) {
-                                tmp_30 = tmp0_visit_11.sh().di(tmp0_visit_11, $p);
-                              } else {
-                                throw $p;
-                              }
-                              tmp_25 = tmp_30;
-                            }
-                            finally {
-                              tmp0_visit_11.sh().ci(tmp0_visit_11);
-                            }
-                            tmp$ret$30 = tmp_25;
-                          }
-                          tmp$ret$31 = tmp$ret$30;
-                        }
-                        var tmp$ret$35;
-                        {
-                          var tmp$ret$34;
-                          {
-                            var tmp0_visit_14 = new DIV(attributesMapOf('class', 'expanded-bottom-bar'), tmp0_visit_10.sh());
-                            tmp0_visit_14.sh().zh(tmp0_visit_14);
-                            var tmp_31;
-                            try {
-                              set_id(tmp0_visit_14, 'expanded-bottom-bar');
-                              var tmp$ret$33;
+                              var tmp$ret$31;
                               {
-                                var tmp$ret$32;
+                                var tmp$ret$30;
                                 {
-                                  var tmp0_visit_15 = new DIV(attributesMapOf('class', 'column'), tmp0_visit_14.sh());
-                                  tmp0_visit_15.sh().zh(tmp0_visit_15);
-                                  var tmp_32;
+                                  var tmp0_visit_14 = new SPAN(attributesMapOf('class', 'icon button click-pointer stick-right surface-variant-background rotate'), tmp0_visit_12.sh());
+                                  tmp0_visit_14.sh().zh(tmp0_visit_14);
+                                  var tmp_30;
                                   try {
-                                    tmp_32 = set_id(tmp0_visit_15, 'bar-selected-icons');
+                                    set_id(tmp0_visit_14, 'bar-expand-button');
+                                    tmp0_visit_14.wh('\uE5CE');
+                                    tmp_30 = set_onClickFunction(tmp0_visit_14, App$lambda_4());
                                   } catch ($p) {
-                                    var tmp_33;
+                                    var tmp_31;
                                     if ($p instanceof Error) {
-                                      tmp_33 = tmp0_visit_15.sh().di(tmp0_visit_15, $p);
+                                      tmp_31 = tmp0_visit_14.sh().di(tmp0_visit_14, $p);
                                     } else {
                                       throw $p;
                                     }
-                                    tmp_32 = tmp_33;
+                                    tmp_30 = tmp_31;
                                   }
                                   finally {
-                                    tmp0_visit_15.sh().ci(tmp0_visit_15);
+                                    tmp0_visit_14.sh().ci(tmp0_visit_14);
                                   }
-                                  tmp$ret$32 = tmp_32;
+                                  tmp$ret$30 = tmp_30;
                                 }
-                                tmp$ret$33 = tmp$ret$32;
+                                tmp$ret$31 = tmp$ret$30;
                               }
-                              tmp_31 = tmp$ret$33;
+                              tmp_27 = tmp$ret$31;
                             } catch ($p) {
-                              var tmp_34;
+                              var tmp_32;
                               if ($p instanceof Error) {
-                                tmp_34 = tmp0_visit_14.sh().di(tmp0_visit_14, $p);
+                                tmp_32 = tmp0_visit_12.sh().di(tmp0_visit_12, $p);
                               } else {
                                 throw $p;
                               }
-                              tmp_31 = tmp_34;
+                              tmp_27 = tmp_32;
                             }
                             finally {
-                              tmp0_visit_14.sh().ci(tmp0_visit_14);
+                              tmp0_visit_12.sh().ci(tmp0_visit_12);
                             }
-                            tmp$ret$34 = tmp_31;
+                            tmp$ret$32 = tmp_27;
                           }
-                          tmp$ret$35 = tmp$ret$34;
+                          tmp$ret$33 = tmp$ret$32;
                         }
-                        tmp_24 = tmp$ret$35;
+                        var tmp$ret$37;
+                        {
+                          var tmp$ret$36;
+                          {
+                            var tmp0_visit_15 = new DIV(attributesMapOf('class', 'expanded-bottom-bar'), tmp0_visit_11.sh());
+                            tmp0_visit_15.sh().zh(tmp0_visit_15);
+                            var tmp_33;
+                            try {
+                              set_id(tmp0_visit_15, 'expanded-bottom-bar');
+                              var tmp$ret$35;
+                              {
+                                var tmp$ret$34;
+                                {
+                                  var tmp0_visit_16 = new DIV(attributesMapOf('class', 'column'), tmp0_visit_15.sh());
+                                  tmp0_visit_16.sh().zh(tmp0_visit_16);
+                                  var tmp_34;
+                                  try {
+                                    tmp_34 = set_id(tmp0_visit_16, 'bar-selected-icons');
+                                  } catch ($p) {
+                                    var tmp_35;
+                                    if ($p instanceof Error) {
+                                      tmp_35 = tmp0_visit_16.sh().di(tmp0_visit_16, $p);
+                                    } else {
+                                      throw $p;
+                                    }
+                                    tmp_34 = tmp_35;
+                                  }
+                                  finally {
+                                    tmp0_visit_16.sh().ci(tmp0_visit_16);
+                                  }
+                                  tmp$ret$34 = tmp_34;
+                                }
+                                tmp$ret$35 = tmp$ret$34;
+                              }
+                              tmp_33 = tmp$ret$35;
+                            } catch ($p) {
+                              var tmp_36;
+                              if ($p instanceof Error) {
+                                tmp_36 = tmp0_visit_15.sh().di(tmp0_visit_15, $p);
+                              } else {
+                                throw $p;
+                              }
+                              tmp_33 = tmp_36;
+                            }
+                            finally {
+                              tmp0_visit_15.sh().ci(tmp0_visit_15);
+                            }
+                            tmp$ret$36 = tmp_33;
+                          }
+                          tmp$ret$37 = tmp$ret$36;
+                        }
+                        tmp_26 = tmp$ret$37;
                       } catch ($p) {
-                        var tmp_35;
+                        var tmp_37;
                         if ($p instanceof Error) {
-                          tmp_35 = tmp0_visit_10.sh().di(tmp0_visit_10, $p);
+                          tmp_37 = tmp0_visit_11.sh().di(tmp0_visit_11, $p);
                         } else {
                           throw $p;
                         }
-                        tmp_24 = tmp_35;
+                        tmp_26 = tmp_37;
                       }
                       finally {
-                        tmp0_visit_10.sh().ci(tmp0_visit_10);
+                        tmp0_visit_11.sh().ci(tmp0_visit_11);
                       }
-                      tmp$ret$36 = tmp_24;
+                      tmp$ret$38 = tmp_26;
                     }
-                    tmp$ret$37 = tmp$ret$36;
+                    tmp$ret$39 = tmp$ret$38;
                   }
                 }
               }
@@ -687,11 +903,11 @@
               tmp0_visitAndFinalize_0.sh().ci(tmp0_visitAndFinalize_0);
             }
           }
-          tmp$ret$38 = _this__u8e3s4.ei();
+          tmp$ret$40 = _this__u8e3s4.ei();
         }
-        tmp$ret$39 = tmp$ret$38;
+        tmp$ret$41 = tmp$ret$40;
       }
-      tmp$ret$40 = tmp$ret$39;
+      tmp$ret$42 = tmp$ret$41;
     }
   }
   function main() {
@@ -875,7 +1091,31 @@
       return Unit_getInstance();
     };
   }
+  function App$lambda$lambda_1() {
+    return function (it) {
+      var tmp0_safe_receiver = it;
+      if (tmp0_safe_receiver == null)
+        null;
+      else {
+        var tmp$ret$0;
+        {
+          {
+          }
+          tmp$ret$0 = (new Api()).w1c(tmp0_safe_receiver);
+        }
+      }
+      return Unit_getInstance();
+    };
+  }
   function App$lambda_3() {
+    return function () {
+      var tmp = new Api();
+      var tmp_0 = new Unicodes(get_selectedListStorage());
+      tmp.v1c(tmp_0, App$lambda$lambda_1());
+      return Unit_getInstance();
+    };
+  }
+  function App$lambda_4() {
     return function (it) {
       var bar = document.getElementById('expanded-bottom-bar');
       var button = document.getElementById('bar-expand-button');
@@ -958,6 +1198,23 @@
       }
       return tmp;
     };
+  }
+  function fromSymbol(_this__u8e3s4) {
+    var tmp$ret$2;
+    {
+      var tmp$ret$0;
+      {
+        var tmp0__get_code__88qj9g = charSequenceGet(_this__u8e3s4, 0);
+        tmp$ret$0 = Char__toInt_impl_vasixd(tmp0__get_code__88qj9g);
+      }
+      var tmp1_uppercase = toString_0(tmp$ret$0, 16);
+      var tmp$ret$1;
+      {
+        tmp$ret$1 = tmp1_uppercase;
+      }
+      tmp$ret$2 = tmp$ret$1.toUpperCase();
+    }
+    return tmp$ret$2;
   }
   var _selectedListStorage;
   function set_selectedListStorage(value) {
@@ -1166,6 +1423,99 @@
   function elementFromId(id) {
     var tmp = document.getElementById(id);
     return (tmp == null ? true : isObject(tmp)) ? tmp : THROW_CCE();
+  }
+  function Button(_this__u8e3s4, text, icon, onClick) {
+    var tmp$ret$6;
+    {
+      var tmp$ret$5;
+      {
+        var tmp0_visitAndFinalize = new DIV(attributesMapOf('class', 'row button'), _this__u8e3s4);
+        var tmp$ret$4;
+        {
+          if (!(tmp0_visitAndFinalize.sh() === _this__u8e3s4)) {
+            throw IllegalArgumentException_init_$Create$('Wrong exception');
+          }
+          {
+            tmp0_visitAndFinalize.sh().zh(tmp0_visitAndFinalize);
+            try {
+              {
+                {
+                  set_onClickFunction(tmp0_visitAndFinalize, Button$lambda(onClick));
+                  var tmp$ret$1;
+                  {
+                    var tmp$ret$0;
+                    {
+                      var tmp0_visit = new SPAN(attributesMapOf('class', 'icon button-icon'), tmp0_visitAndFinalize.sh());
+                      tmp0_visit.sh().zh(tmp0_visit);
+                      var tmp;
+                      try {
+                        tmp = tmp0_visit.wh(icon);
+                      } catch ($p) {
+                        var tmp_0;
+                        if ($p instanceof Error) {
+                          tmp_0 = tmp0_visit.sh().di(tmp0_visit, $p);
+                        } else {
+                          throw $p;
+                        }
+                        tmp = tmp_0;
+                      }
+                      finally {
+                        tmp0_visit.sh().ci(tmp0_visit);
+                      }
+                      tmp$ret$0 = tmp;
+                    }
+                    tmp$ret$1 = tmp$ret$0;
+                  }
+                  var tmp$ret$3;
+                  {
+                    var tmp$ret$2;
+                    {
+                      var tmp0_visit_0 = new SPAN(attributesMapOf('class', 'button-text'), tmp0_visitAndFinalize.sh());
+                      tmp0_visit_0.sh().zh(tmp0_visit_0);
+                      var tmp_1;
+                      try {
+                        tmp_1 = tmp0_visit_0.wh(text);
+                      } catch ($p) {
+                        var tmp_2;
+                        if ($p instanceof Error) {
+                          tmp_2 = tmp0_visit_0.sh().di(tmp0_visit_0, $p);
+                        } else {
+                          throw $p;
+                        }
+                        tmp_1 = tmp_2;
+                      }
+                      finally {
+                        tmp0_visit_0.sh().ci(tmp0_visit_0);
+                      }
+                      tmp$ret$2 = tmp_1;
+                    }
+                    tmp$ret$3 = tmp$ret$2;
+                  }
+                }
+              }
+            } catch ($p) {
+              if ($p instanceof Error) {
+                tmp0_visitAndFinalize.sh().di(tmp0_visitAndFinalize, $p);
+              } else {
+                throw $p;
+              }
+            }
+            finally {
+              tmp0_visitAndFinalize.sh().ci(tmp0_visitAndFinalize);
+            }
+          }
+          tmp$ret$4 = _this__u8e3s4.ei();
+        }
+        tmp$ret$5 = tmp$ret$4;
+      }
+      tmp$ret$6 = tmp$ret$5;
+    }
+  }
+  function Button$lambda($onClick) {
+    return function (it) {
+      $onClick();
+      return Unit_getInstance();
+    };
   }
   function GridItem(_this__u8e3s4, item) {
     var tmp$ret$8;
@@ -1523,6 +1873,9 @@
       return tmp$ret$5;
     };
   }
+  //region block: post-declaration
+  $serializer.prototype.tw = typeParametersSerializers;
+  //endregion
   //region block: init
   isBarExpanded = false;
   _selectedListStorage = null;

@@ -51,10 +51,6 @@
         color: var(--md-on-surface-variant-light);
     }
 
-    span.icon {
-        color: var(--md-on-surface-variant-light);
-    }
-
     span {
         opacity: 0.5;
     }
@@ -100,15 +96,20 @@
     .expanded-bottom-bar {
         background-color: var(--md-surface-variant-light);
     }
+
+    .button {
+        background-color: var(--md-primary-light);
+        color: var(--md-on-primary-light);
+    }
+
+    .button-text {
+        color: var(--md-on-primary-light);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     body {
         background-color: var(--md-surface-dark);
-        color: var(--md-on-surface-variant-dark);
-    }
-
-    span.icon {
         color: var(--md-on-surface-variant-dark);
     }
 
@@ -156,6 +157,15 @@
 
     .expanded-bottom-bar {
         background-color: var(--md-surface-variant-dark);
+    }
+
+    .button {
+        background-color: var(--md-primary-dark);
+        color: var(--md-on-primary-dark);
+    }
+    
+    .button-text {
+        color: var(--md-on-primary-dark);
     }
 }
 
@@ -271,6 +281,10 @@ span.button.active {
     align-items: center;
 }
 
+.column.column-start {
+    justify-content: start;
+}
+
 .grid-item {
     display: flex;
     justify-content: center;
@@ -356,10 +370,13 @@ span.search-icon {
 }
 
 .picker-card {
-    display: inline-block;
-    height: 100vh;
+    height: 90vh;
     transition: all 0.3s;
     overflow: scroll;
+}
+
+.picker-card-content {
+    height: 95vh;
 }
 
 .bottom-bar {
@@ -416,4 +433,35 @@ footer {
     position: sticky;
     padding: auto;
     right: 0;
+}
+
+.button {
+    border-radius: 4vmin;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-variation-settings: 'wght' 400, 'FILL' 0;
+}
+
+.button:hover {
+    font-variation-settings: 'wght' 700, 'FILL' 1;
+    font-weight: 700;
+}
+
+.picker-card-bottom {
+    padding: 0.5rem;
+    height: 10vh;
+}
+
+.button-text {
+    font-size: 1.5em;
+}
+
+span.icon.button-icon {
+    font-size: 1.5em;
+}
+
+.sticky-bottom {
+    position: sticky;
+    bottom: 0;
 }

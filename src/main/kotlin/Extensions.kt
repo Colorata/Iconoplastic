@@ -11,3 +11,4 @@ import org.w3c.dom.events.EventListener
 fun isSystemInDarkTheme() =
     window.matchMedia("(prefers-color-scheme: dark)").matches
 
+fun String.fromSymbol(): String = get(0).code.toString(16).uppercase()
